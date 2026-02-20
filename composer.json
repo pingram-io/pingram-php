@@ -1,22 +1,23 @@
 {
     "name": "pingram/php",
     "version": "0.1.0",
-    "description": "Internal API for notification delivery and management",
+    "description": "Official PHP SDK for Pingram - Send notifications via Email, SMS, Push, In-App, and more",
     "keywords": [
-        "openapitools",
-        "openapi-generator",
-        "openapi",
-        "php",
+        "pingram",
+        "notificationapi",
+        "notification",
         "sdk",
-        "rest",
-        "api"
+        "email",
+        "sms",
+        "push",
+        "in-app"
     ],
-    "homepage": "https://openapi-generator.tech",
-    "license": "unlicense",
+    "homepage": "https://www.pingram.io",
+    "license": "MIT",
     "authors": [
         {
-            "name": "OpenAPI",
-            "homepage": "https://openapi-generator.tech"
+            "name": "Pingram",
+            "homepage": "https://www.pingram.io"
         }
     ],
     "require": {
@@ -32,9 +33,17 @@
         "friendsofphp/php-cs-fixer": "^3.5"
     },
     "autoload": {
-        "psr-4": { "Pingram\\" : "lib/" }
+        "psr-4": {
+            "Pingram\\": "lib/"
+        }
     },
     "autoload-dev": {
-        "psr-4": { "Pingram\\Test\\" : "test/" }
+        "psr-4": {
+            "Pingram\\Test\\": "test/"
+        }
+    },
+    "support": {
+        "docs": "https://www.pingram.io/docs",
+        "source": "https://github.com/pingram-io/pingram-php"
     }
 }

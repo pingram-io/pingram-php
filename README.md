@@ -58,19 +58,7 @@ You can override the base URL by passing a second argument: `new Client('pingram
 - **`$client->send($body)`** – send a notification (high-level).
 - **`$client->getDomains()`**, **`$client->getSender()`**, **`$client->getAccount()`**, etc. – low-level API objects. Each has methods matching the API (e.g. `domainsListDomains`, `senderTestEmail`).
 
-For the full list of methods on each API, see **API_REFERENCE.md** in this directory (generated when you run codegen).
-
-## Generating the SDK
-
-From the `serverless/` directory (or repo root with correct paths):
-
-```bash
-npm run codegen:sdk
-```
-
-This generates the OpenAPI spec and all SDKs, including PHP, into `sdks/php/generated/`.
-
-**Adding new endpoints:** Update the OpenAPI spec (new paths and tags), then run `npm run codegen:sdk`. The wrapper and API reference are derived from the spec, so new APIs and methods appear automatically.
+For the full list of methods on each API, see the package's **API_REFERENCE.md** or the [documentation](https://www.notificationapi.com/docs).
 
 ## Links
 
