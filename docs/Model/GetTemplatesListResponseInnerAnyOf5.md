@@ -1,4 +1,4 @@
-# # GetTemplatesResponse
+# # GetTemplatesListResponseInnerAnyOf5
 
 ## Properties
 
@@ -10,24 +10,10 @@ Name | Type | Description | Notes
 **channel** | [**\Pingram\Model\ChannelsEnum**](ChannelsEnum.md) |  |
 **default** | **bool** |  |
 **is_default_for** | **array<string,bool>** |  | [optional]
-**html** | **string** |  |
-**preview_text** | **string** |  | [optional]
-**internal** | **string** |  |
-**subject** | **string** |  |
-**sender_name** | **string** |  |
-**sender_email** | **string** |  |
-**migration** | **string** |  | [optional]
-**title** | **string** |  |
-**redirect_url** | **string** |  |
-**image_url** | **string** |  |
-**instant** | [**\Pingram\Model\GetTemplatesListResponseInnerAnyOf1Instant**](GetTemplatesListResponseInnerAnyOf1Instant.md) |  |
-**batch** | [**\Pingram\Model\GetTemplatesListResponseInnerAnyOf1Instant**](GetTemplatesListResponseInnerAnyOf1Instant.md) |  |
 **text** | **string** |  |
-**message** | **string** |  |
-**icon** | **string** |  | [optional]
-**url** | **string** |  | [optional]
-**blocks** | **array<string,object>[]** |  | [optional]
+**blocks** | **array<string,mixed>[]** |  | [optional]
 **username** | **string** |  | [optional]
+**icon** | **string** |  | [optional]
 **thread_ts** | **string** |  | [optional]
 **reply_broadcast** | **bool** |  | [optional]
 **parse** | **string** |  | [optional]

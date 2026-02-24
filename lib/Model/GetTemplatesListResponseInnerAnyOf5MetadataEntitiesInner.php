@@ -1,6 +1,6 @@
 <?php
 /**
- * SenderPostBodySlackMetadata
+ * GetTemplatesListResponseInnerAnyOf5MetadataEntitiesInner
  *
  * PHP version 8.1
  *
@@ -32,16 +32,15 @@ use \ArrayAccess;
 use \Pingram\ObjectSerializer;
 
 /**
- * SenderPostBodySlackMetadata Class Doc Comment
+ * GetTemplatesListResponseInnerAnyOf5MetadataEntitiesInner Class Doc Comment
  *
  * @category Class
- * @description Slack message metadata with optional work object entities. Combines standard Slack message metadata fields with an array of entity objects.
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SenderPostBodySlackMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
+class GetTemplatesListResponseInnerAnyOf5MetadataEntitiesInner implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +49,7 @@ class SenderPostBodySlackMetadata implements ModelInterface, ArrayAccess, \JsonS
       *
       * @var string
       */
-    protected static $openAPIModelName = 'SenderPostBody_slack_metadata';
+    protected static $openAPIModelName = 'GetTemplatesListResponse_inner_anyOf_5_metadata_entities_inner';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +57,11 @@ class SenderPostBodySlackMetadata implements ModelInterface, ArrayAccess, \JsonS
       * @var string[]
       */
     protected static $openAPITypes = [
-        'entities' => '\Pingram\Model\SenderPostBodySlackMetadataEntitiesInner[]',
-        'event_type' => 'string',
-        'event_payload' => 'array<string,mixed>'
+        'entity_type' => 'string',
+        'entity_payload' => 'array<string,mixed>',
+        'external_ref' => '\Pingram\Model\GetTemplatesListResponseInnerAnyOf5MetadataEntitiesInnerExternalRef',
+        'url' => 'string',
+        'app_unfurl_url' => 'string'
     ];
 
     /**
@@ -71,9 +72,11 @@ class SenderPostBodySlackMetadata implements ModelInterface, ArrayAccess, \JsonS
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'entities' => null,
-        'event_type' => null,
-        'event_payload' => null
+        'entity_type' => null,
+        'entity_payload' => null,
+        'external_ref' => null,
+        'url' => null,
+        'app_unfurl_url' => null
     ];
 
     /**
@@ -82,9 +85,11 @@ class SenderPostBodySlackMetadata implements ModelInterface, ArrayAccess, \JsonS
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'entities' => false,
-        'event_type' => false,
-        'event_payload' => false
+        'entity_type' => false,
+        'entity_payload' => false,
+        'external_ref' => false,
+        'url' => false,
+        'app_unfurl_url' => false
     ];
 
     /**
@@ -173,9 +178,11 @@ class SenderPostBodySlackMetadata implements ModelInterface, ArrayAccess, \JsonS
      * @var string[]
      */
     protected static $attributeMap = [
-        'entities' => 'entities',
-        'event_type' => 'event_type',
-        'event_payload' => 'event_payload'
+        'entity_type' => 'entity_type',
+        'entity_payload' => 'entity_payload',
+        'external_ref' => 'external_ref',
+        'url' => 'url',
+        'app_unfurl_url' => 'app_unfurl_url'
     ];
 
     /**
@@ -184,9 +191,11 @@ class SenderPostBodySlackMetadata implements ModelInterface, ArrayAccess, \JsonS
      * @var string[]
      */
     protected static $setters = [
-        'entities' => 'setEntities',
-        'event_type' => 'setEventType',
-        'event_payload' => 'setEventPayload'
+        'entity_type' => 'setEntityType',
+        'entity_payload' => 'setEntityPayload',
+        'external_ref' => 'setExternalRef',
+        'url' => 'setUrl',
+        'app_unfurl_url' => 'setAppUnfurlUrl'
     ];
 
     /**
@@ -195,9 +204,11 @@ class SenderPostBodySlackMetadata implements ModelInterface, ArrayAccess, \JsonS
      * @var string[]
      */
     protected static $getters = [
-        'entities' => 'getEntities',
-        'event_type' => 'getEventType',
-        'event_payload' => 'getEventPayload'
+        'entity_type' => 'getEntityType',
+        'entity_payload' => 'getEntityPayload',
+        'external_ref' => 'getExternalRef',
+        'url' => 'getUrl',
+        'app_unfurl_url' => 'getAppUnfurlUrl'
     ];
 
     /**
@@ -257,9 +268,11 @@ class SenderPostBodySlackMetadata implements ModelInterface, ArrayAccess, \JsonS
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('entities', $data ?? [], null);
-        $this->setIfExists('event_type', $data ?? [], null);
-        $this->setIfExists('event_payload', $data ?? [], null);
+        $this->setIfExists('entity_type', $data ?? [], null);
+        $this->setIfExists('entity_payload', $data ?? [], null);
+        $this->setIfExists('external_ref', $data ?? [], null);
+        $this->setIfExists('url', $data ?? [], null);
+        $this->setIfExists('app_unfurl_url', $data ?? [], null);
     }
 
     /**
@@ -289,6 +302,18 @@ class SenderPostBodySlackMetadata implements ModelInterface, ArrayAccess, \JsonS
     {
         $invalidProperties = [];
 
+        if ($this->container['entity_type'] === null) {
+            $invalidProperties[] = "'entity_type' can't be null";
+        }
+        if ($this->container['entity_payload'] === null) {
+            $invalidProperties[] = "'entity_payload' can't be null";
+        }
+        if ($this->container['external_ref'] === null) {
+            $invalidProperties[] = "'external_ref' can't be null";
+        }
+        if ($this->container['url'] === null) {
+            $invalidProperties[] = "'url' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -305,82 +330,136 @@ class SenderPostBodySlackMetadata implements ModelInterface, ArrayAccess, \JsonS
 
 
     /**
-     * Gets entities
+     * Gets entity_type
      *
-     * @return \Pingram\Model\SenderPostBodySlackMetadataEntitiesInner[]|null
+     * @return string
      */
-    public function getEntities()
+    public function getEntityType()
     {
-        return $this->container['entities'];
+        return $this->container['entity_type'];
     }
 
     /**
-     * Sets entities
+     * Sets entity_type
      *
-     * @param \Pingram\Model\SenderPostBodySlackMetadataEntitiesInner[]|null $entities An array of work object entities.
+     * @param string $entity_type Entity type (e.g., 'slack#/entities/task', 'slack#/entities/file').
      *
      * @return self
      */
-    public function setEntities($entities)
+    public function setEntityType($entity_type)
     {
-        if (is_null($entities)) {
-            throw new \InvalidArgumentException('non-nullable entities cannot be null');
+        if (is_null($entity_type)) {
+            throw new \InvalidArgumentException('non-nullable entity_type cannot be null');
         }
-        $this->container['entities'] = $entities;
+        $this->container['entity_type'] = $entity_type;
 
         return $this;
     }
 
     /**
-     * Gets event_type
+     * Gets entity_payload
+     *
+     * @return array<string,mixed>
+     */
+    public function getEntityPayload()
+    {
+        return $this->container['entity_payload'];
+    }
+
+    /**
+     * Sets entity_payload
+     *
+     * @param array<string,mixed> $entity_payload Schema for the given entity type.
+     *
+     * @return self
+     */
+    public function setEntityPayload($entity_payload)
+    {
+        if (is_null($entity_payload)) {
+            throw new \InvalidArgumentException('non-nullable entity_payload cannot be null');
+        }
+        $this->container['entity_payload'] = $entity_payload;
+
+        return $this;
+    }
+
+    /**
+     * Gets external_ref
+     *
+     * @return \Pingram\Model\GetTemplatesListResponseInnerAnyOf5MetadataEntitiesInnerExternalRef
+     */
+    public function getExternalRef()
+    {
+        return $this->container['external_ref'];
+    }
+
+    /**
+     * Sets external_ref
+     *
+     * @param \Pingram\Model\GetTemplatesListResponseInnerAnyOf5MetadataEntitiesInnerExternalRef $external_ref external_ref
+     *
+     * @return self
+     */
+    public function setExternalRef($external_ref)
+    {
+        if (is_null($external_ref)) {
+            throw new \InvalidArgumentException('non-nullable external_ref cannot be null');
+        }
+        $this->container['external_ref'] = $external_ref;
+
+        return $this;
+    }
+
+    /**
+     * Gets url
+     *
+     * @return string
+     */
+    public function getUrl()
+    {
+        return $this->container['url'];
+    }
+
+    /**
+     * Sets url
+     *
+     * @param string $url URL used to identify an entity within the developer's system.
+     *
+     * @return self
+     */
+    public function setUrl($url)
+    {
+        if (is_null($url)) {
+            throw new \InvalidArgumentException('non-nullable url cannot be null');
+        }
+        $this->container['url'] = $url;
+
+        return $this;
+    }
+
+    /**
+     * Gets app_unfurl_url
      *
      * @return string|null
      */
-    public function getEventType()
+    public function getAppUnfurlUrl()
     {
-        return $this->container['event_type'];
+        return $this->container['app_unfurl_url'];
     }
 
     /**
-     * Sets event_type
+     * Sets app_unfurl_url
      *
-     * @param string|null $event_type A human readable alphanumeric string representing your application's metadata event.
+     * @param string|null $app_unfurl_url The exact URL posted in the source message. Required in metadata passed to `chat.unfurl`.
      *
      * @return self
      */
-    public function setEventType($event_type)
+    public function setAppUnfurlUrl($app_unfurl_url)
     {
-        if (is_null($event_type)) {
-            throw new \InvalidArgumentException('non-nullable event_type cannot be null');
+        if (is_null($app_unfurl_url)) {
+            throw new \InvalidArgumentException('non-nullable app_unfurl_url cannot be null');
         }
-        $this->container['event_type'] = $event_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets event_payload
-     *
-     * @return array<string,mixed>|null
-     */
-    public function getEventPayload()
-    {
-        return $this->container['event_payload'];
-    }
-
-    /**
-     * Sets event_payload
-     *
-     * @param array<string,mixed>|null $event_payload A free-form object containing whatever data your application wishes to attach to messages.
-     *
-     * @return self
-     */
-    public function setEventPayload($event_payload)
-    {
-        if (is_null($event_payload)) {
-            throw new \InvalidArgumentException('non-nullable event_payload cannot be null');
-        }
-        $this->container['event_payload'] = $event_payload;
+        $this->container['app_unfurl_url'] = $app_unfurl_url;
 
         return $this;
     }

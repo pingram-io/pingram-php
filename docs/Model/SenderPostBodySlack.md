@@ -15,6 +15,6 @@ Name | Type | Description | Notes
 **mrkdwn** | **bool** |  | [optional]
 **unfurl_links** | **bool** |  | [optional]
 **unfurl_media** | **bool** |  | [optional]
-**metadata** | [**\Pingram\Model\SenderPostBodySlackMetadata**](SenderPostBodySlackMetadata.md) |  | [optional]
+**metadata** | [**\Pingram\Model\GetTemplatesListResponseInnerAnyOf5Metadata**](GetTemplatesListResponseInnerAnyOf5Metadata.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

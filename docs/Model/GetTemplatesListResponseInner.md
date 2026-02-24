@@ -1,4 +1,4 @@
-# # GetTemplatesResponse
+# # GetTemplatesListResponseInner
 
 ## Properties
 

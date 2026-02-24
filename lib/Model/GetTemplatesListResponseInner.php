@@ -1,6 +1,6 @@
 <?php
 /**
- * GetTemplatesResponse
+ * GetTemplatesListResponseInner
  *
  * PHP version 8.1
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \Pingram\ObjectSerializer;
 
 /**
- * GetTemplatesResponse Class Doc Comment
+ * GetTemplatesListResponseInner Class Doc Comment
  *
  * @category Class
- * @description Single template or list of templates (get handler: one when templateId provided, list when not).
+ * @description Union of all channel-specific template types. Used for API responses that can return any template type.
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class GetTemplatesResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class GetTemplatesListResponseInner implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class GetTemplatesResponse implements ModelInterface, ArrayAccess, \JsonSerializ
       *
       * @var string
       */
-    protected static $openAPIModelName = 'GetTemplatesResponse';
+    protected static $openAPIModelName = 'GetTemplatesListResponse_inner';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

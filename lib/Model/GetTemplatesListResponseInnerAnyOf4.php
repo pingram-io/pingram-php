@@ -1,6 +1,6 @@
 <?php
 /**
- * SenderPostBodySlack
+ * GetTemplatesListResponseInnerAnyOf4
  *
  * PHP version 8.1
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \Pingram\ObjectSerializer;
 
 /**
- * SenderPostBodySlack Class Doc Comment
+ * GetTemplatesListResponseInnerAnyOf4 Class Doc Comment
  *
  * @category Class
  * @package  Pingram
@@ -40,7 +40,7 @@ use \Pingram\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SenderPostBodySlack implements ModelInterface, ArrayAccess, \JsonSerializable
+class GetTemplatesListResponseInnerAnyOf4 implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class SenderPostBodySlack implements ModelInterface, ArrayAccess, \JsonSerializa
       *
       * @var string
       */
-    protected static $openAPIModelName = 'SenderPostBody_slack';
+    protected static $openAPIModelName = 'GetTemplatesListResponse_inner_anyOf_4';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,18 +57,16 @@ class SenderPostBodySlack implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'text' => 'string',
-        'blocks' => 'array<string,mixed>[]',
-        'username' => 'string',
+        'env_id' => 'string',
+        'notification_id' => 'string',
+        'template_id' => 'string',
+        'channel' => '\Pingram\Model\ChannelsEnum',
+        'default' => 'bool',
+        'is_default_for' => 'array<string,bool>',
+        'title' => 'string',
+        'message' => 'string',
         'icon' => 'string',
-        'thread_ts' => 'string',
-        'reply_broadcast' => 'bool',
-        'parse' => 'string',
-        'link_names' => 'bool',
-        'mrkdwn' => 'bool',
-        'unfurl_links' => 'bool',
-        'unfurl_media' => 'bool',
-        'metadata' => '\Pingram\Model\GetTemplatesListResponseInnerAnyOf5Metadata'
+        'url' => 'string'
     ];
 
     /**
@@ -79,18 +77,16 @@ class SenderPostBodySlack implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'text' => null,
-        'blocks' => null,
-        'username' => null,
+        'env_id' => null,
+        'notification_id' => null,
+        'template_id' => null,
+        'channel' => null,
+        'default' => null,
+        'is_default_for' => null,
+        'title' => null,
+        'message' => null,
         'icon' => null,
-        'thread_ts' => null,
-        'reply_broadcast' => null,
-        'parse' => null,
-        'link_names' => null,
-        'mrkdwn' => null,
-        'unfurl_links' => null,
-        'unfurl_media' => null,
-        'metadata' => null
+        'url' => null
     ];
 
     /**
@@ -99,18 +95,16 @@ class SenderPostBodySlack implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'text' => false,
-        'blocks' => false,
-        'username' => false,
+        'env_id' => false,
+        'notification_id' => false,
+        'template_id' => false,
+        'channel' => false,
+        'default' => false,
+        'is_default_for' => false,
+        'title' => false,
+        'message' => false,
         'icon' => false,
-        'thread_ts' => false,
-        'reply_broadcast' => false,
-        'parse' => false,
-        'link_names' => false,
-        'mrkdwn' => false,
-        'unfurl_links' => false,
-        'unfurl_media' => false,
-        'metadata' => false
+        'url' => false
     ];
 
     /**
@@ -199,18 +193,16 @@ class SenderPostBodySlack implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'text' => 'text',
-        'blocks' => 'blocks',
-        'username' => 'username',
+        'env_id' => 'envId',
+        'notification_id' => 'notificationId',
+        'template_id' => 'templateId',
+        'channel' => 'channel',
+        'default' => 'default',
+        'is_default_for' => 'isDefaultFor',
+        'title' => 'title',
+        'message' => 'message',
         'icon' => 'icon',
-        'thread_ts' => 'thread_ts',
-        'reply_broadcast' => 'reply_broadcast',
-        'parse' => 'parse',
-        'link_names' => 'link_names',
-        'mrkdwn' => 'mrkdwn',
-        'unfurl_links' => 'unfurl_links',
-        'unfurl_media' => 'unfurl_media',
-        'metadata' => 'metadata'
+        'url' => 'url'
     ];
 
     /**
@@ -219,18 +211,16 @@ class SenderPostBodySlack implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'text' => 'setText',
-        'blocks' => 'setBlocks',
-        'username' => 'setUsername',
+        'env_id' => 'setEnvId',
+        'notification_id' => 'setNotificationId',
+        'template_id' => 'setTemplateId',
+        'channel' => 'setChannel',
+        'default' => 'setDefault',
+        'is_default_for' => 'setIsDefaultFor',
+        'title' => 'setTitle',
+        'message' => 'setMessage',
         'icon' => 'setIcon',
-        'thread_ts' => 'setThreadTs',
-        'reply_broadcast' => 'setReplyBroadcast',
-        'parse' => 'setParse',
-        'link_names' => 'setLinkNames',
-        'mrkdwn' => 'setMrkdwn',
-        'unfurl_links' => 'setUnfurlLinks',
-        'unfurl_media' => 'setUnfurlMedia',
-        'metadata' => 'setMetadata'
+        'url' => 'setUrl'
     ];
 
     /**
@@ -239,18 +229,16 @@ class SenderPostBodySlack implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'text' => 'getText',
-        'blocks' => 'getBlocks',
-        'username' => 'getUsername',
+        'env_id' => 'getEnvId',
+        'notification_id' => 'getNotificationId',
+        'template_id' => 'getTemplateId',
+        'channel' => 'getChannel',
+        'default' => 'getDefault',
+        'is_default_for' => 'getIsDefaultFor',
+        'title' => 'getTitle',
+        'message' => 'getMessage',
         'icon' => 'getIcon',
-        'thread_ts' => 'getThreadTs',
-        'reply_broadcast' => 'getReplyBroadcast',
-        'parse' => 'getParse',
-        'link_names' => 'getLinkNames',
-        'mrkdwn' => 'getMrkdwn',
-        'unfurl_links' => 'getUnfurlLinks',
-        'unfurl_media' => 'getUnfurlMedia',
-        'metadata' => 'getMetadata'
+        'url' => 'getUrl'
     ];
 
     /**
@@ -294,21 +282,6 @@ class SenderPostBodySlack implements ModelInterface, ArrayAccess, \JsonSerializa
         return self::$openAPIModelName;
     }
 
-    public const PARSE_FULL = 'full';
-    public const PARSE_NONE = 'none';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getParseAllowableValues()
-    {
-        return [
-            self::PARSE_FULL,
-            self::PARSE_NONE,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -325,18 +298,16 @@ class SenderPostBodySlack implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('text', $data ?? [], null);
-        $this->setIfExists('blocks', $data ?? [], null);
-        $this->setIfExists('username', $data ?? [], null);
+        $this->setIfExists('env_id', $data ?? [], null);
+        $this->setIfExists('notification_id', $data ?? [], null);
+        $this->setIfExists('template_id', $data ?? [], null);
+        $this->setIfExists('channel', $data ?? [], null);
+        $this->setIfExists('default', $data ?? [], null);
+        $this->setIfExists('is_default_for', $data ?? [], null);
+        $this->setIfExists('title', $data ?? [], null);
+        $this->setIfExists('message', $data ?? [], null);
         $this->setIfExists('icon', $data ?? [], null);
-        $this->setIfExists('thread_ts', $data ?? [], null);
-        $this->setIfExists('reply_broadcast', $data ?? [], null);
-        $this->setIfExists('parse', $data ?? [], null);
-        $this->setIfExists('link_names', $data ?? [], null);
-        $this->setIfExists('mrkdwn', $data ?? [], null);
-        $this->setIfExists('unfurl_links', $data ?? [], null);
-        $this->setIfExists('unfurl_media', $data ?? [], null);
-        $this->setIfExists('metadata', $data ?? [], null);
+        $this->setIfExists('url', $data ?? [], null);
     }
 
     /**
@@ -366,18 +337,27 @@ class SenderPostBodySlack implements ModelInterface, ArrayAccess, \JsonSerializa
     {
         $invalidProperties = [];
 
-        if ($this->container['text'] === null) {
-            $invalidProperties[] = "'text' can't be null";
+        if ($this->container['env_id'] === null) {
+            $invalidProperties[] = "'env_id' can't be null";
         }
-        $allowedValues = $this->getParseAllowableValues();
-        if (!is_null($this->container['parse']) && !in_array($this->container['parse'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'parse', must be one of '%s'",
-                $this->container['parse'],
-                implode("', '", $allowedValues)
-            );
+        if ($this->container['notification_id'] === null) {
+            $invalidProperties[] = "'notification_id' can't be null";
         }
-
+        if ($this->container['template_id'] === null) {
+            $invalidProperties[] = "'template_id' can't be null";
+        }
+        if ($this->container['channel'] === null) {
+            $invalidProperties[] = "'channel' can't be null";
+        }
+        if ($this->container['default'] === null) {
+            $invalidProperties[] = "'default' can't be null";
+        }
+        if ($this->container['title'] === null) {
+            $invalidProperties[] = "'title' can't be null";
+        }
+        if ($this->container['message'] === null) {
+            $invalidProperties[] = "'message' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -394,82 +374,217 @@ class SenderPostBodySlack implements ModelInterface, ArrayAccess, \JsonSerializa
 
 
     /**
-     * Gets text
+     * Gets env_id
      *
      * @return string
      */
-    public function getText()
+    public function getEnvId()
     {
-        return $this->container['text'];
+        return $this->container['env_id'];
     }
 
     /**
-     * Sets text
+     * Sets env_id
      *
-     * @param string $text text
+     * @param string $env_id env_id
      *
      * @return self
      */
-    public function setText($text)
+    public function setEnvId($env_id)
     {
-        if (is_null($text)) {
-            throw new \InvalidArgumentException('non-nullable text cannot be null');
+        if (is_null($env_id)) {
+            throw new \InvalidArgumentException('non-nullable env_id cannot be null');
         }
-        $this->container['text'] = $text;
+        $this->container['env_id'] = $env_id;
 
         return $this;
     }
 
     /**
-     * Gets blocks
+     * Gets notification_id
      *
-     * @return array<string,mixed>[]|null
+     * @return string
      */
-    public function getBlocks()
+    public function getNotificationId()
     {
-        return $this->container['blocks'];
+        return $this->container['notification_id'];
     }
 
     /**
-     * Sets blocks
+     * Sets notification_id
      *
-     * @param array<string,mixed>[]|null $blocks blocks
+     * @param string $notification_id notification_id
      *
      * @return self
      */
-    public function setBlocks($blocks)
+    public function setNotificationId($notification_id)
     {
-        if (is_null($blocks)) {
-            throw new \InvalidArgumentException('non-nullable blocks cannot be null');
+        if (is_null($notification_id)) {
+            throw new \InvalidArgumentException('non-nullable notification_id cannot be null');
         }
-        $this->container['blocks'] = $blocks;
+        $this->container['notification_id'] = $notification_id;
 
         return $this;
     }
 
     /**
-     * Gets username
+     * Gets template_id
      *
-     * @return string|null
+     * @return string
      */
-    public function getUsername()
+    public function getTemplateId()
     {
-        return $this->container['username'];
+        return $this->container['template_id'];
     }
 
     /**
-     * Sets username
+     * Sets template_id
      *
-     * @param string|null $username username
+     * @param string $template_id template_id
      *
      * @return self
      */
-    public function setUsername($username)
+    public function setTemplateId($template_id)
     {
-        if (is_null($username)) {
-            throw new \InvalidArgumentException('non-nullable username cannot be null');
+        if (is_null($template_id)) {
+            throw new \InvalidArgumentException('non-nullable template_id cannot be null');
         }
-        $this->container['username'] = $username;
+        $this->container['template_id'] = $template_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets channel
+     *
+     * @return \Pingram\Model\ChannelsEnum
+     */
+    public function getChannel()
+    {
+        return $this->container['channel'];
+    }
+
+    /**
+     * Sets channel
+     *
+     * @param \Pingram\Model\ChannelsEnum $channel channel
+     *
+     * @return self
+     */
+    public function setChannel($channel)
+    {
+        if (is_null($channel)) {
+            throw new \InvalidArgumentException('non-nullable channel cannot be null');
+        }
+        $this->container['channel'] = $channel;
+
+        return $this;
+    }
+
+    /**
+     * Gets default
+     *
+     * @return bool
+     */
+    public function getDefault()
+    {
+        return $this->container['default'];
+    }
+
+    /**
+     * Sets default
+     *
+     * @param bool $default default
+     *
+     * @return self
+     */
+    public function setDefault($default)
+    {
+        if (is_null($default)) {
+            throw new \InvalidArgumentException('non-nullable default cannot be null');
+        }
+        $this->container['default'] = $default;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_default_for
+     *
+     * @return array<string,bool>|null
+     */
+    public function getIsDefaultFor()
+    {
+        return $this->container['is_default_for'];
+    }
+
+    /**
+     * Sets is_default_for
+     *
+     * @param array<string,bool>|null $is_default_for is_default_for
+     *
+     * @return self
+     */
+    public function setIsDefaultFor($is_default_for)
+    {
+        if (is_null($is_default_for)) {
+            throw new \InvalidArgumentException('non-nullable is_default_for cannot be null');
+        }
+        $this->container['is_default_for'] = $is_default_for;
+
+        return $this;
+    }
+
+    /**
+     * Gets title
+     *
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->container['title'];
+    }
+
+    /**
+     * Sets title
+     *
+     * @param string $title title
+     *
+     * @return self
+     */
+    public function setTitle($title)
+    {
+        if (is_null($title)) {
+            throw new \InvalidArgumentException('non-nullable title cannot be null');
+        }
+        $this->container['title'] = $title;
+
+        return $this;
+    }
+
+    /**
+     * Gets message
+     *
+     * @return string
+     */
+    public function getMessage()
+    {
+        return $this->container['message'];
+    }
+
+    /**
+     * Sets message
+     *
+     * @param string $message message
+     *
+     * @return self
+     */
+    public function setMessage($message)
+    {
+        if (is_null($message)) {
+            throw new \InvalidArgumentException('non-nullable message cannot be null');
+        }
+        $this->container['message'] = $message;
 
         return $this;
     }
@@ -502,227 +617,28 @@ class SenderPostBodySlack implements ModelInterface, ArrayAccess, \JsonSerializa
     }
 
     /**
-     * Gets thread_ts
+     * Gets url
      *
      * @return string|null
      */
-    public function getThreadTs()
+    public function getUrl()
     {
-        return $this->container['thread_ts'];
+        return $this->container['url'];
     }
 
     /**
-     * Sets thread_ts
+     * Sets url
      *
-     * @param string|null $thread_ts thread_ts
+     * @param string|null $url url
      *
      * @return self
      */
-    public function setThreadTs($thread_ts)
+    public function setUrl($url)
     {
-        if (is_null($thread_ts)) {
-            throw new \InvalidArgumentException('non-nullable thread_ts cannot be null');
+        if (is_null($url)) {
+            throw new \InvalidArgumentException('non-nullable url cannot be null');
         }
-        $this->container['thread_ts'] = $thread_ts;
-
-        return $this;
-    }
-
-    /**
-     * Gets reply_broadcast
-     *
-     * @return bool|null
-     */
-    public function getReplyBroadcast()
-    {
-        return $this->container['reply_broadcast'];
-    }
-
-    /**
-     * Sets reply_broadcast
-     *
-     * @param bool|null $reply_broadcast reply_broadcast
-     *
-     * @return self
-     */
-    public function setReplyBroadcast($reply_broadcast)
-    {
-        if (is_null($reply_broadcast)) {
-            throw new \InvalidArgumentException('non-nullable reply_broadcast cannot be null');
-        }
-        $this->container['reply_broadcast'] = $reply_broadcast;
-
-        return $this;
-    }
-
-    /**
-     * Gets parse
-     *
-     * @return string|null
-     */
-    public function getParse()
-    {
-        return $this->container['parse'];
-    }
-
-    /**
-     * Sets parse
-     *
-     * @param string|null $parse parse
-     *
-     * @return self
-     */
-    public function setParse($parse)
-    {
-        if (is_null($parse)) {
-            throw new \InvalidArgumentException('non-nullable parse cannot be null');
-        }
-        $allowedValues = $this->getParseAllowableValues();
-        if (!in_array($parse, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'parse', must be one of '%s'",
-                    $parse,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['parse'] = $parse;
-
-        return $this;
-    }
-
-    /**
-     * Gets link_names
-     *
-     * @return bool|null
-     */
-    public function getLinkNames()
-    {
-        return $this->container['link_names'];
-    }
-
-    /**
-     * Sets link_names
-     *
-     * @param bool|null $link_names link_names
-     *
-     * @return self
-     */
-    public function setLinkNames($link_names)
-    {
-        if (is_null($link_names)) {
-            throw new \InvalidArgumentException('non-nullable link_names cannot be null');
-        }
-        $this->container['link_names'] = $link_names;
-
-        return $this;
-    }
-
-    /**
-     * Gets mrkdwn
-     *
-     * @return bool|null
-     */
-    public function getMrkdwn()
-    {
-        return $this->container['mrkdwn'];
-    }
-
-    /**
-     * Sets mrkdwn
-     *
-     * @param bool|null $mrkdwn mrkdwn
-     *
-     * @return self
-     */
-    public function setMrkdwn($mrkdwn)
-    {
-        if (is_null($mrkdwn)) {
-            throw new \InvalidArgumentException('non-nullable mrkdwn cannot be null');
-        }
-        $this->container['mrkdwn'] = $mrkdwn;
-
-        return $this;
-    }
-
-    /**
-     * Gets unfurl_links
-     *
-     * @return bool|null
-     */
-    public function getUnfurlLinks()
-    {
-        return $this->container['unfurl_links'];
-    }
-
-    /**
-     * Sets unfurl_links
-     *
-     * @param bool|null $unfurl_links unfurl_links
-     *
-     * @return self
-     */
-    public function setUnfurlLinks($unfurl_links)
-    {
-        if (is_null($unfurl_links)) {
-            throw new \InvalidArgumentException('non-nullable unfurl_links cannot be null');
-        }
-        $this->container['unfurl_links'] = $unfurl_links;
-
-        return $this;
-    }
-
-    /**
-     * Gets unfurl_media
-     *
-     * @return bool|null
-     */
-    public function getUnfurlMedia()
-    {
-        return $this->container['unfurl_media'];
-    }
-
-    /**
-     * Sets unfurl_media
-     *
-     * @param bool|null $unfurl_media unfurl_media
-     *
-     * @return self
-     */
-    public function setUnfurlMedia($unfurl_media)
-    {
-        if (is_null($unfurl_media)) {
-            throw new \InvalidArgumentException('non-nullable unfurl_media cannot be null');
-        }
-        $this->container['unfurl_media'] = $unfurl_media;
-
-        return $this;
-    }
-
-    /**
-     * Gets metadata
-     *
-     * @return \Pingram\Model\GetTemplatesListResponseInnerAnyOf5Metadata|null
-     */
-    public function getMetadata()
-    {
-        return $this->container['metadata'];
-    }
-
-    /**
-     * Sets metadata
-     *
-     * @param \Pingram\Model\GetTemplatesListResponseInnerAnyOf5Metadata|null $metadata metadata
-     *
-     * @return self
-     */
-    public function setMetadata($metadata)
-    {
-        if (is_null($metadata)) {
-            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
-        }
-        $this->container['metadata'] = $metadata;
+        $this->container['url'] = $url;
 
         return $this;
     }

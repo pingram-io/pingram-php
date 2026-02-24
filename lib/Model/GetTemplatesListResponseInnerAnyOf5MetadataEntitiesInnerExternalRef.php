@@ -1,6 +1,6 @@
 <?php
 /**
- * SenderPostBodySlackMetadataEntitiesInner
+ * GetTemplatesListResponseInnerAnyOf5MetadataEntitiesInnerExternalRef
  *
  * PHP version 8.1
  *
@@ -32,15 +32,16 @@ use \ArrayAccess;
 use \Pingram\ObjectSerializer;
 
 /**
- * SenderPostBodySlackMetadataEntitiesInner Class Doc Comment
+ * GetTemplatesListResponseInnerAnyOf5MetadataEntitiesInnerExternalRef Class Doc Comment
  *
  * @category Class
+ * @description Reference used to identify an entity within the developer&#39;s system.
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SenderPostBodySlackMetadataEntitiesInner implements ModelInterface, ArrayAccess, \JsonSerializable
+class GetTemplatesListResponseInnerAnyOf5MetadataEntitiesInnerExternalRef implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +50,7 @@ class SenderPostBodySlackMetadataEntitiesInner implements ModelInterface, ArrayA
       *
       * @var string
       */
-    protected static $openAPIModelName = 'SenderPostBody_slack_metadata_entities_inner';
+    protected static $openAPIModelName = 'GetTemplatesListResponse_inner_anyOf_5_metadata_entities_inner_external_ref';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,11 +58,8 @@ class SenderPostBodySlackMetadataEntitiesInner implements ModelInterface, ArrayA
       * @var string[]
       */
     protected static $openAPITypes = [
-        'entity_type' => 'string',
-        'entity_payload' => 'array<string,mixed>',
-        'external_ref' => '\Pingram\Model\SenderPostBodySlackMetadataEntitiesInnerExternalRef',
-        'url' => 'string',
-        'app_unfurl_url' => 'string'
+        'id' => 'string',
+        'type' => 'string'
     ];
 
     /**
@@ -72,11 +70,8 @@ class SenderPostBodySlackMetadataEntitiesInner implements ModelInterface, ArrayA
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'entity_type' => null,
-        'entity_payload' => null,
-        'external_ref' => null,
-        'url' => null,
-        'app_unfurl_url' => null
+        'id' => null,
+        'type' => null
     ];
 
     /**
@@ -85,11 +80,8 @@ class SenderPostBodySlackMetadataEntitiesInner implements ModelInterface, ArrayA
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'entity_type' => false,
-        'entity_payload' => false,
-        'external_ref' => false,
-        'url' => false,
-        'app_unfurl_url' => false
+        'id' => false,
+        'type' => false
     ];
 
     /**
@@ -178,11 +170,8 @@ class SenderPostBodySlackMetadataEntitiesInner implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $attributeMap = [
-        'entity_type' => 'entity_type',
-        'entity_payload' => 'entity_payload',
-        'external_ref' => 'external_ref',
-        'url' => 'url',
-        'app_unfurl_url' => 'app_unfurl_url'
+        'id' => 'id',
+        'type' => 'type'
     ];
 
     /**
@@ -191,11 +180,8 @@ class SenderPostBodySlackMetadataEntitiesInner implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $setters = [
-        'entity_type' => 'setEntityType',
-        'entity_payload' => 'setEntityPayload',
-        'external_ref' => 'setExternalRef',
-        'url' => 'setUrl',
-        'app_unfurl_url' => 'setAppUnfurlUrl'
+        'id' => 'setId',
+        'type' => 'setType'
     ];
 
     /**
@@ -204,11 +190,8 @@ class SenderPostBodySlackMetadataEntitiesInner implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $getters = [
-        'entity_type' => 'getEntityType',
-        'entity_payload' => 'getEntityPayload',
-        'external_ref' => 'getExternalRef',
-        'url' => 'getUrl',
-        'app_unfurl_url' => 'getAppUnfurlUrl'
+        'id' => 'getId',
+        'type' => 'getType'
     ];
 
     /**
@@ -268,11 +251,8 @@ class SenderPostBodySlackMetadataEntitiesInner implements ModelInterface, ArrayA
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('entity_type', $data ?? [], null);
-        $this->setIfExists('entity_payload', $data ?? [], null);
-        $this->setIfExists('external_ref', $data ?? [], null);
-        $this->setIfExists('url', $data ?? [], null);
-        $this->setIfExists('app_unfurl_url', $data ?? [], null);
+        $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('type', $data ?? [], null);
     }
 
     /**
@@ -302,17 +282,8 @@ class SenderPostBodySlackMetadataEntitiesInner implements ModelInterface, ArrayA
     {
         $invalidProperties = [];
 
-        if ($this->container['entity_type'] === null) {
-            $invalidProperties[] = "'entity_type' can't be null";
-        }
-        if ($this->container['entity_payload'] === null) {
-            $invalidProperties[] = "'entity_payload' can't be null";
-        }
-        if ($this->container['external_ref'] === null) {
-            $invalidProperties[] = "'external_ref' can't be null";
-        }
-        if ($this->container['url'] === null) {
-            $invalidProperties[] = "'url' can't be null";
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
         }
         return $invalidProperties;
     }
@@ -330,136 +301,55 @@ class SenderPostBodySlackMetadataEntitiesInner implements ModelInterface, ArrayA
 
 
     /**
-     * Gets entity_type
+     * Gets id
      *
      * @return string
      */
-    public function getEntityType()
+    public function getId()
     {
-        return $this->container['entity_type'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets entity_type
+     * Sets id
      *
-     * @param string $entity_type Entity type (e.g., 'slack#/entities/task', 'slack#/entities/file').
+     * @param string $id id
      *
      * @return self
      */
-    public function setEntityType($entity_type)
+    public function setId($id)
     {
-        if (is_null($entity_type)) {
-            throw new \InvalidArgumentException('non-nullable entity_type cannot be null');
+        if (is_null($id)) {
+            throw new \InvalidArgumentException('non-nullable id cannot be null');
         }
-        $this->container['entity_type'] = $entity_type;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets entity_payload
-     *
-     * @return array<string,mixed>
-     */
-    public function getEntityPayload()
-    {
-        return $this->container['entity_payload'];
-    }
-
-    /**
-     * Sets entity_payload
-     *
-     * @param array<string,mixed> $entity_payload Schema for the given entity type.
-     *
-     * @return self
-     */
-    public function setEntityPayload($entity_payload)
-    {
-        if (is_null($entity_payload)) {
-            throw new \InvalidArgumentException('non-nullable entity_payload cannot be null');
-        }
-        $this->container['entity_payload'] = $entity_payload;
-
-        return $this;
-    }
-
-    /**
-     * Gets external_ref
-     *
-     * @return \Pingram\Model\SenderPostBodySlackMetadataEntitiesInnerExternalRef
-     */
-    public function getExternalRef()
-    {
-        return $this->container['external_ref'];
-    }
-
-    /**
-     * Sets external_ref
-     *
-     * @param \Pingram\Model\SenderPostBodySlackMetadataEntitiesInnerExternalRef $external_ref external_ref
-     *
-     * @return self
-     */
-    public function setExternalRef($external_ref)
-    {
-        if (is_null($external_ref)) {
-            throw new \InvalidArgumentException('non-nullable external_ref cannot be null');
-        }
-        $this->container['external_ref'] = $external_ref;
-
-        return $this;
-    }
-
-    /**
-     * Gets url
-     *
-     * @return string
-     */
-    public function getUrl()
-    {
-        return $this->container['url'];
-    }
-
-    /**
-     * Sets url
-     *
-     * @param string $url URL used to identify an entity within the developer's system.
-     *
-     * @return self
-     */
-    public function setUrl($url)
-    {
-        if (is_null($url)) {
-            throw new \InvalidArgumentException('non-nullable url cannot be null');
-        }
-        $this->container['url'] = $url;
-
-        return $this;
-    }
-
-    /**
-     * Gets app_unfurl_url
+     * Gets type
      *
      * @return string|null
      */
-    public function getAppUnfurlUrl()
+    public function getType()
     {
-        return $this->container['app_unfurl_url'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets app_unfurl_url
+     * Sets type
      *
-     * @param string|null $app_unfurl_url The exact URL posted in the source message. Required in metadata passed to `chat.unfurl`.
+     * @param string|null $type type
      *
      * @return self
      */
-    public function setAppUnfurlUrl($app_unfurl_url)
+    public function setType($type)
     {
-        if (is_null($app_unfurl_url)) {
-            throw new \InvalidArgumentException('non-nullable app_unfurl_url cannot be null');
+        if (is_null($type)) {
+            throw new \InvalidArgumentException('non-nullable type cannot be null');
         }
-        $this->container['app_unfurl_url'] = $app_unfurl_url;
+        $this->container['type'] = $type;
 
         return $this;
     }

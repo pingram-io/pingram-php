@@ -1,6 +1,6 @@
 <?php
 /**
- * SenderPostBodySlack
+ * GetTemplatesListResponseInnerAnyOf5
  *
  * PHP version 8.1
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \Pingram\ObjectSerializer;
 
 /**
- * SenderPostBodySlack Class Doc Comment
+ * GetTemplatesListResponseInnerAnyOf5 Class Doc Comment
  *
  * @category Class
  * @package  Pingram
@@ -40,7 +40,7 @@ use \Pingram\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SenderPostBodySlack implements ModelInterface, ArrayAccess, \JsonSerializable
+class GetTemplatesListResponseInnerAnyOf5 implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class SenderPostBodySlack implements ModelInterface, ArrayAccess, \JsonSerializa
       *
       * @var string
       */
-    protected static $openAPIModelName = 'SenderPostBody_slack';
+    protected static $openAPIModelName = 'GetTemplatesListResponse_inner_anyOf_5';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,6 +57,12 @@ class SenderPostBodySlack implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
+        'env_id' => 'string',
+        'notification_id' => 'string',
+        'template_id' => 'string',
+        'channel' => '\Pingram\Model\ChannelsEnum',
+        'default' => 'bool',
+        'is_default_for' => 'array<string,bool>',
         'text' => 'string',
         'blocks' => 'array<string,mixed>[]',
         'username' => 'string',
@@ -79,6 +85,12 @@ class SenderPostBodySlack implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'env_id' => null,
+        'notification_id' => null,
+        'template_id' => null,
+        'channel' => null,
+        'default' => null,
+        'is_default_for' => null,
         'text' => null,
         'blocks' => null,
         'username' => null,
@@ -99,6 +111,12 @@ class SenderPostBodySlack implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var boolean[]
       */
     protected static array $openAPINullables = [
+        'env_id' => false,
+        'notification_id' => false,
+        'template_id' => false,
+        'channel' => false,
+        'default' => false,
+        'is_default_for' => false,
         'text' => false,
         'blocks' => false,
         'username' => false,
@@ -199,6 +217,12 @@ class SenderPostBodySlack implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
+        'env_id' => 'envId',
+        'notification_id' => 'notificationId',
+        'template_id' => 'templateId',
+        'channel' => 'channel',
+        'default' => 'default',
+        'is_default_for' => 'isDefaultFor',
         'text' => 'text',
         'blocks' => 'blocks',
         'username' => 'username',
@@ -219,6 +243,12 @@ class SenderPostBodySlack implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
+        'env_id' => 'setEnvId',
+        'notification_id' => 'setNotificationId',
+        'template_id' => 'setTemplateId',
+        'channel' => 'setChannel',
+        'default' => 'setDefault',
+        'is_default_for' => 'setIsDefaultFor',
         'text' => 'setText',
         'blocks' => 'setBlocks',
         'username' => 'setUsername',
@@ -239,6 +269,12 @@ class SenderPostBodySlack implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
+        'env_id' => 'getEnvId',
+        'notification_id' => 'getNotificationId',
+        'template_id' => 'getTemplateId',
+        'channel' => 'getChannel',
+        'default' => 'getDefault',
+        'is_default_for' => 'getIsDefaultFor',
         'text' => 'getText',
         'blocks' => 'getBlocks',
         'username' => 'getUsername',
@@ -325,6 +361,12 @@ class SenderPostBodySlack implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(?array $data = null)
     {
+        $this->setIfExists('env_id', $data ?? [], null);
+        $this->setIfExists('notification_id', $data ?? [], null);
+        $this->setIfExists('template_id', $data ?? [], null);
+        $this->setIfExists('channel', $data ?? [], null);
+        $this->setIfExists('default', $data ?? [], null);
+        $this->setIfExists('is_default_for', $data ?? [], null);
         $this->setIfExists('text', $data ?? [], null);
         $this->setIfExists('blocks', $data ?? [], null);
         $this->setIfExists('username', $data ?? [], null);
@@ -366,6 +408,21 @@ class SenderPostBodySlack implements ModelInterface, ArrayAccess, \JsonSerializa
     {
         $invalidProperties = [];
 
+        if ($this->container['env_id'] === null) {
+            $invalidProperties[] = "'env_id' can't be null";
+        }
+        if ($this->container['notification_id'] === null) {
+            $invalidProperties[] = "'notification_id' can't be null";
+        }
+        if ($this->container['template_id'] === null) {
+            $invalidProperties[] = "'template_id' can't be null";
+        }
+        if ($this->container['channel'] === null) {
+            $invalidProperties[] = "'channel' can't be null";
+        }
+        if ($this->container['default'] === null) {
+            $invalidProperties[] = "'default' can't be null";
+        }
         if ($this->container['text'] === null) {
             $invalidProperties[] = "'text' can't be null";
         }
@@ -392,6 +449,168 @@ class SenderPostBodySlack implements ModelInterface, ArrayAccess, \JsonSerializa
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets env_id
+     *
+     * @return string
+     */
+    public function getEnvId()
+    {
+        return $this->container['env_id'];
+    }
+
+    /**
+     * Sets env_id
+     *
+     * @param string $env_id env_id
+     *
+     * @return self
+     */
+    public function setEnvId($env_id)
+    {
+        if (is_null($env_id)) {
+            throw new \InvalidArgumentException('non-nullable env_id cannot be null');
+        }
+        $this->container['env_id'] = $env_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets notification_id
+     *
+     * @return string
+     */
+    public function getNotificationId()
+    {
+        return $this->container['notification_id'];
+    }
+
+    /**
+     * Sets notification_id
+     *
+     * @param string $notification_id notification_id
+     *
+     * @return self
+     */
+    public function setNotificationId($notification_id)
+    {
+        if (is_null($notification_id)) {
+            throw new \InvalidArgumentException('non-nullable notification_id cannot be null');
+        }
+        $this->container['notification_id'] = $notification_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets template_id
+     *
+     * @return string
+     */
+    public function getTemplateId()
+    {
+        return $this->container['template_id'];
+    }
+
+    /**
+     * Sets template_id
+     *
+     * @param string $template_id template_id
+     *
+     * @return self
+     */
+    public function setTemplateId($template_id)
+    {
+        if (is_null($template_id)) {
+            throw new \InvalidArgumentException('non-nullable template_id cannot be null');
+        }
+        $this->container['template_id'] = $template_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets channel
+     *
+     * @return \Pingram\Model\ChannelsEnum
+     */
+    public function getChannel()
+    {
+        return $this->container['channel'];
+    }
+
+    /**
+     * Sets channel
+     *
+     * @param \Pingram\Model\ChannelsEnum $channel channel
+     *
+     * @return self
+     */
+    public function setChannel($channel)
+    {
+        if (is_null($channel)) {
+            throw new \InvalidArgumentException('non-nullable channel cannot be null');
+        }
+        $this->container['channel'] = $channel;
+
+        return $this;
+    }
+
+    /**
+     * Gets default
+     *
+     * @return bool
+     */
+    public function getDefault()
+    {
+        return $this->container['default'];
+    }
+
+    /**
+     * Sets default
+     *
+     * @param bool $default default
+     *
+     * @return self
+     */
+    public function setDefault($default)
+    {
+        if (is_null($default)) {
+            throw new \InvalidArgumentException('non-nullable default cannot be null');
+        }
+        $this->container['default'] = $default;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_default_for
+     *
+     * @return array<string,bool>|null
+     */
+    public function getIsDefaultFor()
+    {
+        return $this->container['is_default_for'];
+    }
+
+    /**
+     * Sets is_default_for
+     *
+     * @param array<string,bool>|null $is_default_for is_default_for
+     *
+     * @return self
+     */
+    public function setIsDefaultFor($is_default_for)
+    {
+        if (is_null($is_default_for)) {
+            throw new \InvalidArgumentException('non-nullable is_default_for cannot be null');
+        }
+        $this->container['is_default_for'] = $is_default_for;
+
+        return $this;
+    }
 
     /**
      * Gets text
