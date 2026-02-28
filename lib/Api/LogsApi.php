@@ -409,15 +409,17 @@ class LogsApi
      *
      * List logs for the authenticated account
      *
+     * @param  float|null $limit Maximum number of logs to return (default (optional)
+     * @param  string|null $cursor Pagination cursor for next page (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['logsGetLogs'] to see the possible values for this operation
      *
      * @throws \Pingram\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \Pingram\Model\GetLogsResponse
      */
-    public function logsGetLogs(string $contentType = self::contentTypes['logsGetLogs'][0])
+    public function logsGetLogs($limit = null, $cursor = null, string $contentType = self::contentTypes['logsGetLogs'][0])
     {
-        list($response) = $this->logsGetLogsWithHttpInfo($contentType);
+        list($response) = $this->logsGetLogsWithHttpInfo($limit, $cursor, $contentType);
         return $response;
     }
 
@@ -426,15 +428,17 @@ class LogsApi
      *
      * List logs for the authenticated account
      *
+     * @param  float|null $limit Maximum number of logs to return (default (optional)
+     * @param  string|null $cursor Pagination cursor for next page (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['logsGetLogs'] to see the possible values for this operation
      *
      * @throws \Pingram\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \Pingram\Model\GetLogsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function logsGetLogsWithHttpInfo(string $contentType = self::contentTypes['logsGetLogs'][0])
+    public function logsGetLogsWithHttpInfo($limit = null, $cursor = null, string $contentType = self::contentTypes['logsGetLogs'][0])
     {
-        $request = $this->logsGetLogsRequest($contentType);
+        $request = $this->logsGetLogsRequest($limit, $cursor, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -510,14 +514,16 @@ class LogsApi
      *
      * List logs for the authenticated account
      *
+     * @param  float|null $limit Maximum number of logs to return (default (optional)
+     * @param  string|null $cursor Pagination cursor for next page (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['logsGetLogs'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function logsGetLogsAsync(string $contentType = self::contentTypes['logsGetLogs'][0])
+    public function logsGetLogsAsync($limit = null, $cursor = null, string $contentType = self::contentTypes['logsGetLogs'][0])
     {
-        return $this->logsGetLogsAsyncWithHttpInfo($contentType)
+        return $this->logsGetLogsAsyncWithHttpInfo($limit, $cursor, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -530,15 +536,17 @@ class LogsApi
      *
      * List logs for the authenticated account
      *
+     * @param  float|null $limit Maximum number of logs to return (default (optional)
+     * @param  string|null $cursor Pagination cursor for next page (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['logsGetLogs'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function logsGetLogsAsyncWithHttpInfo(string $contentType = self::contentTypes['logsGetLogs'][0])
+    public function logsGetLogsAsyncWithHttpInfo($limit = null, $cursor = null, string $contentType = self::contentTypes['logsGetLogs'][0])
     {
         $returnType = '\Pingram\Model\GetLogsResponse';
-        $request = $this->logsGetLogsRequest($contentType);
+        $request = $this->logsGetLogsRequest($limit, $cursor, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -579,13 +587,17 @@ class LogsApi
     /**
      * Create request for operation 'logsGetLogs'
      *
+     * @param  float|null $limit Maximum number of logs to return (default (optional)
+     * @param  string|null $cursor Pagination cursor for next page (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['logsGetLogs'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function logsGetLogsRequest(string $contentType = self::contentTypes['logsGetLogs'][0])
+    public function logsGetLogsRequest($limit = null, $cursor = null, string $contentType = self::contentTypes['logsGetLogs'][0])
     {
+
+
 
 
         $resourcePath = '/logs';
@@ -595,6 +607,24 @@ class LogsApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $limit,
+            'limit', // param base name
+            'number', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $cursor,
+            'cursor', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
 
 
 
