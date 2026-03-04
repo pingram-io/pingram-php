@@ -11,7 +11,7 @@
  */
 
 /**
- * NotificationAPI
+ * Pingram
  *
  * Internal API for notification delivery and management
  *
@@ -35,6 +35,7 @@ use \Pingram\ObjectSerializer;
  * SenderPostBodyOptions Class Doc Comment
  *
  * @category Class
+ * @description Per-channel overrides for send options (email, APN, FCM).
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

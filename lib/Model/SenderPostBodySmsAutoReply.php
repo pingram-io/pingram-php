@@ -11,7 +11,7 @@
  */
 
 /**
- * NotificationAPI
+ * Pingram
  *
  * Internal API for notification delivery and management
  *
@@ -305,7 +305,7 @@ class SenderPostBodySmsAutoReply implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets message
      *
-     * @param string $message message
+     * @param string $message Auto-reply message to send when user texts in.
      *
      * @return self
      */

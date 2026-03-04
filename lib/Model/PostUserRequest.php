@@ -11,7 +11,7 @@
  */
 
 /**
- * NotificationAPI
+ * Pingram
  *
  * Internal API for notification delivery and management
  *
@@ -351,7 +351,7 @@ class PostUserRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets id
      *
-     * @param string|null $id id
+     * @param string|null $id Unique user identifier. Required.
      *
      * @return self
      */
@@ -378,7 +378,7 @@ class PostUserRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets email
      *
-     * @param string|null $email email
+     * @param string|null $email User's email address for email notifications.
      *
      * @return self
      */
@@ -405,7 +405,7 @@ class PostUserRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets number
      *
-     * @param string|null $number number
+     * @param string|null $number User's phone number for SMS/call notifications.
      *
      * @return self
      */
@@ -432,7 +432,7 @@ class PostUserRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets push_tokens
      *
-     * @param \Pingram\Model\GetUsersResponseUsersInnerPushTokensInner[]|null $push_tokens push_tokens
+     * @param \Pingram\Model\GetUsersResponseUsersInnerPushTokensInner[]|null $push_tokens Mobile push tokens (FCM, APN) for push notifications.
      *
      * @return self
      */
@@ -459,7 +459,7 @@ class PostUserRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets web_push_tokens
      *
-     * @param \Pingram\Model\GetUsersResponseUsersInnerWebPushTokensInner[]|null $web_push_tokens web_push_tokens
+     * @param \Pingram\Model\GetUsersResponseUsersInnerWebPushTokensInner[]|null $web_push_tokens Web push subscription config from the browser.
      *
      * @return self
      */
@@ -486,7 +486,7 @@ class PostUserRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets timezone
      *
-     * @param string|null $timezone timezone
+     * @param string|null $timezone User's timezone (e.g. \"America/New_York\") for scheduling.
      *
      * @return self
      */

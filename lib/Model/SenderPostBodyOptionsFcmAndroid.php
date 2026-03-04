@@ -11,7 +11,7 @@
  */
 
 /**
- * NotificationAPI
+ * Pingram
  *
  * Internal API for notification delivery and management
  *
@@ -35,6 +35,7 @@ use \Pingram\ObjectSerializer;
  * SenderPostBodyOptionsFcmAndroid Class Doc Comment
  *
  * @category Class
+ * @description Android-specific FCM options.
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -347,7 +348,7 @@ class SenderPostBodyOptionsFcmAndroid implements ModelInterface, ArrayAccess, \J
     /**
      * Sets collapse_key
      *
-     * @param string|null $collapse_key collapse_key
+     * @param string|null $collapse_key Collapse key for grouping messages.
      *
      * @return self
      */
@@ -374,7 +375,7 @@ class SenderPostBodyOptionsFcmAndroid implements ModelInterface, ArrayAccess, \J
     /**
      * Sets priority
      *
-     * @param string|null $priority priority
+     * @param string|null $priority Delivery priority.
      *
      * @return self
      */
@@ -411,7 +412,7 @@ class SenderPostBodyOptionsFcmAndroid implements ModelInterface, ArrayAccess, \J
     /**
      * Sets ttl
      *
-     * @param float|null $ttl ttl
+     * @param float|null $ttl Time to live in seconds.
      *
      * @return self
      */
@@ -438,7 +439,7 @@ class SenderPostBodyOptionsFcmAndroid implements ModelInterface, ArrayAccess, \J
     /**
      * Sets restricted_package_name
      *
-     * @param string|null $restricted_package_name restricted_package_name
+     * @param string|null $restricted_package_name Restrict delivery to a specific package.
      *
      * @return self
      */

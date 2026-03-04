@@ -11,7 +11,7 @@
  */
 
 /**
- * NotificationAPI
+ * Pingram
  *
  * Internal API for notification delivery and management
  *
@@ -35,6 +35,7 @@ use \Pingram\ObjectSerializer;
  * SenderPostBodyOptionsEmail Class Doc Comment
  *
  * @category Class
+ * @description Email-specific overrides.
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -344,7 +345,7 @@ class SenderPostBodyOptionsEmail implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets reply_to_addresses
      *
-     * @param string[]|null $reply_to_addresses reply_to_addresses
+     * @param string[]|null $reply_to_addresses Reply-to addresses for the email.
      *
      * @return self
      */
@@ -371,7 +372,7 @@ class SenderPostBodyOptionsEmail implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets cc_addresses
      *
-     * @param string[]|null $cc_addresses cc_addresses
+     * @param string[]|null $cc_addresses CC recipients.
      *
      * @return self
      */
@@ -398,7 +399,7 @@ class SenderPostBodyOptionsEmail implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets bcc_addresses
      *
-     * @param string[]|null $bcc_addresses bcc_addresses
+     * @param string[]|null $bcc_addresses BCC recipients.
      *
      * @return self
      */
@@ -425,7 +426,7 @@ class SenderPostBodyOptionsEmail implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets from_address
      *
-     * @param string|null $from_address from_address
+     * @param string|null $from_address Override sender email address.
      *
      * @return self
      */
@@ -452,7 +453,7 @@ class SenderPostBodyOptionsEmail implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets from_name
      *
-     * @param string|null $from_name from_name
+     * @param string|null $from_name Override sender display name.
      *
      * @return self
      */
@@ -479,7 +480,7 @@ class SenderPostBodyOptionsEmail implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets attachments
      *
-     * @param \Pingram\Model\SenderPostBodyOptionsEmailAttachmentsInner[]|null $attachments attachments
+     * @param \Pingram\Model\SenderPostBodyOptionsEmailAttachmentsInner[]|null $attachments File attachments (by URL or inline base64 content).
      *
      * @return self
      */
@@ -506,7 +507,7 @@ class SenderPostBodyOptionsEmail implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets condition
      *
-     * @param string|null $condition condition
+     * @param string|null $condition Conditional expression for when to send (e.g. merge tag logic).
      *
      * @return self
      */

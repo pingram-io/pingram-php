@@ -11,7 +11,7 @@
  */
 
 /**
- * NotificationAPI
+ * Pingram
  *
  * Internal API for notification delivery and management
  *
@@ -73,7 +73,7 @@ class SenderPostBody implements ModelInterface, ArrayAccess, \JsonSerializable
         'email' => '\Pingram\Model\SenderPostBodyEmail',
         'inapp' => '\Pingram\Model\SenderPostBodyInapp',
         'sms' => '\Pingram\Model\SenderPostBodySms',
-        'call' => '\Pingram\Model\SenderPostBodySmsAutoReply',
+        'call' => '\Pingram\Model\SenderPostBodyCall',
         'web_push' => '\Pingram\Model\SenderPostBodyWebPush',
         'mobile_push' => '\Pingram\Model\SenderPostBodyMobilePush',
         'slack' => '\Pingram\Model\SenderPostBodySlack'
@@ -547,7 +547,7 @@ class SenderPostBody implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets type
      *
-     * @param string|null $type type
+     * @param string|null $type ID of the notification type (e.g. \"welcome_email\"). Creates a new notification if it does not exist.
      *
      * @return self
      */
@@ -601,7 +601,7 @@ class SenderPostBody implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets force_channels
      *
-     * @param \Pingram\Model\ChannelsEnum[]|null $force_channels force_channels
+     * @param \Pingram\Model\ChannelsEnum[]|null $force_channels Override which channels to send to (e.g. [\"EMAIL\", \"SMS\"]). Bypasses notification channel config.
      *
      * @return self
      */
@@ -628,7 +628,7 @@ class SenderPostBody implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets parameters
      *
-     * @param array<string,mixed>|null $parameters parameters
+     * @param array<string,mixed>|null $parameters Key-value pairs for template merge tags. Replaces placeholders like {{firstName}} in templates.
      *
      * @return self
      */
@@ -655,7 +655,7 @@ class SenderPostBody implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets secondary_id
      *
-     * @param string|null $secondary_id secondary_id
+     * @param string|null $secondary_id Optional sub-notification identifier for grouping or tracking.
      *
      * @return self
      */
@@ -682,7 +682,7 @@ class SenderPostBody implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets template_id
      *
-     * @param string|null $template_id template_id
+     * @param string|null $template_id Specific template ID to use. If omitted, uses the default template for each channel.
      *
      * @return self
      */
@@ -709,7 +709,7 @@ class SenderPostBody implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets sub_notification_id
      *
-     * @param string|null $sub_notification_id sub_notification_id
+     * @param string|null $sub_notification_id Sub-notification identifier (e.g. for grouping related notifications).
      *
      * @return self
      */
@@ -861,7 +861,7 @@ class SenderPostBody implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets call
      *
-     * @return \Pingram\Model\SenderPostBodySmsAutoReply|null
+     * @return \Pingram\Model\SenderPostBodyCall|null
      */
     public function getCall()
     {
@@ -871,7 +871,7 @@ class SenderPostBody implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets call
      *
-     * @param \Pingram\Model\SenderPostBodySmsAutoReply|null $call call
+     * @param \Pingram\Model\SenderPostBodyCall|null $call call
      *
      * @return self
      */

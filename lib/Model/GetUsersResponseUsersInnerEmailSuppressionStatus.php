@@ -11,7 +11,7 @@
  */
 
 /**
- * NotificationAPI
+ * Pingram
  *
  * Internal API for notification delivery and management
  *
@@ -35,6 +35,7 @@ use \Pingram\ObjectSerializer;
  * GetUsersResponseUsersInnerEmailSuppressionStatus Class Doc Comment
  *
  * @category Class
+ * @description Bounce or complaint status if email was suppressed. Read-only.
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

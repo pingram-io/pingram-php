@@ -11,7 +11,7 @@
  */
 
 /**
- * NotificationAPI
+ * Pingram
  *
  * Internal API for notification delivery and management
  *
@@ -35,6 +35,7 @@ use \Pingram\ObjectSerializer;
  * SenderPostBodySlack Class Doc Comment
  *
  * @category Class
+ * @description Inline Slack content (text, blocks, etc.).
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -406,7 +407,7 @@ class SenderPostBodySlack implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets text
      *
-     * @param string $text text
+     * @param string $text Fallback plain text (required when using blocks).
      *
      * @return self
      */
@@ -433,7 +434,7 @@ class SenderPostBodySlack implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets blocks
      *
-     * @param array<string,mixed>[]|null $blocks blocks
+     * @param array<string,mixed>[]|null $blocks Slack Block Kit blocks.
      *
      * @return self
      */
@@ -460,7 +461,7 @@ class SenderPostBodySlack implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets username
      *
-     * @param string|null $username username
+     * @param string|null $username Override bot username.
      *
      * @return self
      */
@@ -487,7 +488,7 @@ class SenderPostBodySlack implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets icon
      *
-     * @param string|null $icon icon
+     * @param string|null $icon Icon: emoji (e.g. \":smile:\") or URL. Default: bot's icon.
      *
      * @return self
      */
@@ -514,7 +515,7 @@ class SenderPostBodySlack implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets thread_ts
      *
-     * @param string|null $thread_ts thread_ts
+     * @param string|null $thread_ts Parent message `ts` to post in a thread.
      *
      * @return self
      */
@@ -541,7 +542,7 @@ class SenderPostBodySlack implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets reply_broadcast
      *
-     * @param bool|null $reply_broadcast reply_broadcast
+     * @param bool|null $reply_broadcast When true with thread_ts, broadcasts reply to channel. Default: false.
      *
      * @return self
      */
@@ -568,7 +569,7 @@ class SenderPostBodySlack implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets parse
      *
-     * @param string|null $parse parse
+     * @param string|null $parse URL parsing: \"full\" (clickable links) or \"none\". Default: \"none\".
      *
      * @return self
      */
@@ -605,7 +606,7 @@ class SenderPostBodySlack implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets link_names
      *
-     * @param bool|null $link_names link_names
+     * @param bool|null $link_names Convert channel and username refs to Slack links. Default: false.
      *
      * @return self
      */
@@ -632,7 +633,7 @@ class SenderPostBodySlack implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets mrkdwn
      *
-     * @param bool|null $mrkdwn mrkdwn
+     * @param bool|null $mrkdwn Enable Slack markup (*bold*, _italic_, `code`). Default: true.
      *
      * @return self
      */
@@ -659,7 +660,7 @@ class SenderPostBodySlack implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets unfurl_links
      *
-     * @param bool|null $unfurl_links unfurl_links
+     * @param bool|null $unfurl_links Unfurl link previews. Default: true.
      *
      * @return self
      */
@@ -686,7 +687,7 @@ class SenderPostBodySlack implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets unfurl_media
      *
-     * @param bool|null $unfurl_media unfurl_media
+     * @param bool|null $unfurl_media Unfurl media previews. Default: true.
      *
      * @return self
      */

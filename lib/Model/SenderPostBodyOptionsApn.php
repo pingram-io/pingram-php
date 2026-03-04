@@ -11,7 +11,7 @@
  */
 
 /**
- * NotificationAPI
+ * Pingram
  *
  * Internal API for notification delivery and management
  *
@@ -35,6 +35,7 @@ use \Pingram\ObjectSerializer;
  * SenderPostBodyOptionsApn Class Doc Comment
  *
  * @category Class
+ * @description Apple Push Notification (APN) overrides.
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -344,7 +345,7 @@ class SenderPostBodyOptionsApn implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets expiry
      *
-     * @param float|null $expiry expiry
+     * @param float|null $expiry Seconds until the notification expires.
      *
      * @return self
      */
@@ -371,7 +372,7 @@ class SenderPostBodyOptionsApn implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets priority
      *
-     * @param float|null $priority priority
+     * @param float|null $priority Delivery priority (10 = immediate, 5 = power-saving).
      *
      * @return self
      */
@@ -398,7 +399,7 @@ class SenderPostBodyOptionsApn implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets collapse_id
      *
-     * @param string|null $collapse_id collapse_id
+     * @param string|null $collapse_id Group notifications with the same ID (replaces previous).
      *
      * @return self
      */
@@ -425,7 +426,7 @@ class SenderPostBodyOptionsApn implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets thread_id
      *
-     * @param string|null $thread_id thread_id
+     * @param string|null $thread_id Thread identifier for grouping notifications.
      *
      * @return self
      */
@@ -452,7 +453,7 @@ class SenderPostBodyOptionsApn implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets badge
      *
-     * @param float|null $badge badge
+     * @param float|null $badge Badge count on app icon.
      *
      * @return self
      */
@@ -479,7 +480,7 @@ class SenderPostBodyOptionsApn implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets sound
      *
-     * @param string|null $sound sound
+     * @param string|null $sound Sound file name.
      *
      * @return self
      */
@@ -506,7 +507,7 @@ class SenderPostBodyOptionsApn implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets content_available
      *
-     * @param bool|null $content_available content_available
+     * @param bool|null $content_available Silent background notification (no alert).
      *
      * @return self
      */

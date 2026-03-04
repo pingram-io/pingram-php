@@ -11,7 +11,7 @@
  */
 
 /**
- * NotificationAPI
+ * Pingram
  *
  * Internal API for notification delivery and management
  *
@@ -382,7 +382,7 @@ class GetUsersResponseUsersInner implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets id
      *
-     * @param string $id id
+     * @param string $id Unique user identifier. Required.
      *
      * @return self
      */
@@ -409,7 +409,7 @@ class GetUsersResponseUsersInner implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets email
      *
-     * @param string|null $email email
+     * @param string|null $email User's email address for email notifications.
      *
      * @return self
      */
@@ -436,7 +436,7 @@ class GetUsersResponseUsersInner implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets number
      *
-     * @param string|null $number number
+     * @param string|null $number User's phone number for SMS/call notifications.
      *
      * @return self
      */
@@ -463,7 +463,7 @@ class GetUsersResponseUsersInner implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets push_tokens
      *
-     * @param \Pingram\Model\GetUsersResponseUsersInnerPushTokensInner[]|null $push_tokens push_tokens
+     * @param \Pingram\Model\GetUsersResponseUsersInnerPushTokensInner[]|null $push_tokens Mobile push tokens (FCM, APN) for push notifications.
      *
      * @return self
      */
@@ -490,7 +490,7 @@ class GetUsersResponseUsersInner implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets web_push_tokens
      *
-     * @param \Pingram\Model\GetUsersResponseUsersInnerWebPushTokensInner[]|null $web_push_tokens web_push_tokens
+     * @param \Pingram\Model\GetUsersResponseUsersInnerWebPushTokensInner[]|null $web_push_tokens Web push subscription config from the browser.
      *
      * @return self
      */
@@ -517,7 +517,7 @@ class GetUsersResponseUsersInner implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets timezone
      *
-     * @param string|null $timezone timezone
+     * @param string|null $timezone User's timezone (e.g. \"America/New_York\") for scheduling.
      *
      * @return self
      */
@@ -598,7 +598,7 @@ class GetUsersResponseUsersInner implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets last_seen_time
      *
-     * @param string|null $last_seen_time last_seen_time
+     * @param string|null $last_seen_time Last activity timestamp. Updated automatically. Read-only.
      *
      * @return self
      */
@@ -625,7 +625,7 @@ class GetUsersResponseUsersInner implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets updated_at
      *
-     * @param string|null $updated_at updated_at
+     * @param string|null $updated_at Last update timestamp. Read-only.
      *
      * @return self
      */
@@ -652,7 +652,7 @@ class GetUsersResponseUsersInner implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets created_at
      *
-     * @param string|null $created_at created_at
+     * @param string|null $created_at Creation timestamp. Read-only.
      *
      * @return self
      */

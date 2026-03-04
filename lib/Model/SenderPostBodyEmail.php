@@ -11,7 +11,7 @@
  */
 
 /**
- * NotificationAPI
+ * Pingram
  *
  * Internal API for notification delivery and management
  *
@@ -35,6 +35,7 @@ use \Pingram\ObjectSerializer;
  * SenderPostBodyEmail Class Doc Comment
  *
  * @category Class
+ * @description Inline email content (subject, html). Use when not using templates.
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -336,7 +337,7 @@ class SenderPostBodyEmail implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets subject
      *
-     * @param string $subject subject
+     * @param string $subject Email subject line.
      *
      * @return self
      */
@@ -363,7 +364,7 @@ class SenderPostBodyEmail implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets html
      *
-     * @param string $html html
+     * @param string $html HTML body content.
      *
      * @return self
      */
@@ -390,7 +391,7 @@ class SenderPostBodyEmail implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets preview_text
      *
-     * @param string|null $preview_text preview_text
+     * @param string|null $preview_text Preview/snippet text shown in inbox.
      *
      * @return self
      */
@@ -417,7 +418,7 @@ class SenderPostBodyEmail implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets sender_name
      *
-     * @param string|null $sender_name sender_name
+     * @param string|null $sender_name Display name of sender.
      *
      * @return self
      */
@@ -444,7 +445,7 @@ class SenderPostBodyEmail implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets sender_email
      *
-     * @param string|null $sender_email sender_email
+     * @param string|null $sender_email Sender email address.
      *
      * @return self
      */

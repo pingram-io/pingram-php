@@ -11,7 +11,7 @@
  */
 
 /**
- * NotificationAPI
+ * Pingram
  *
  * Internal API for notification delivery and management
  *
@@ -35,6 +35,7 @@ use \Pingram\ObjectSerializer;
  * SenderPostBodyInapp Class Doc Comment
  *
  * @category Class
+ * @description Inline in-app content (title, url, image).
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -319,7 +320,7 @@ class SenderPostBodyInapp implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets title
      *
-     * @param string $title title
+     * @param string $title Notification title.
      *
      * @return self
      */
@@ -346,7 +347,7 @@ class SenderPostBodyInapp implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets url
      *
-     * @param string|null $url url
+     * @param string|null $url URL to open when clicked.
      *
      * @return self
      */
@@ -373,7 +374,7 @@ class SenderPostBodyInapp implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets image
      *
-     * @param string|null $image image
+     * @param string|null $image Image URL.
      *
      * @return self
      */

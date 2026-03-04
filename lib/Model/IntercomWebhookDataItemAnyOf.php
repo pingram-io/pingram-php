@@ -11,7 +11,7 @@
  */
 
 /**
- * NotificationAPI
+ * Pingram
  *
  * Internal API for notification delivery and management
  *
@@ -106,7 +106,7 @@ class IntercomWebhookDataItemAnyOf implements ModelInterface, ArrayAccess, \Json
         'created_at' => false,
         'updated_at' => false,
         'title' => false,
-        'admin_assignee_id' => false,
+        'admin_assignee_id' => true,
         'team_assignee_id' => false,
         'source' => false,
         'contacts' => false,
@@ -640,7 +640,14 @@ class IntercomWebhookDataItemAnyOf implements ModelInterface, ArrayAccess, \Json
     public function setAdminAssigneeId($admin_assignee_id)
     {
         if (is_null($admin_assignee_id)) {
-            throw new \InvalidArgumentException('non-nullable admin_assignee_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'admin_assignee_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('admin_assignee_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['admin_assignee_id'] = $admin_assignee_id;
 

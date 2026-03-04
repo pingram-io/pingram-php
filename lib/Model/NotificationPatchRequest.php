@@ -11,7 +11,7 @@
  */
 
 /**
- * NotificationAPI
+ * Pingram
  *
  * Internal API for notification delivery and management
  *
@@ -60,8 +60,8 @@ class NotificationPatchRequest implements ModelInterface, ArrayAccess, \JsonSeri
         'title' => 'string',
         'channels' => '\Pingram\Model\ChannelsEnum[]',
         'enabled' => 'bool',
-        'deduplication' => '\Pingram\Model\GetNotificationsResponseInnerDeduplication',
-        'throttling' => '\Pingram\Model\GetNotificationsResponseInnerThrottling',
+        'deduplication' => '\Pingram\Model\NotificationPatchRequestDeduplication',
+        'throttling' => '\Pingram\Model\NotificationPatchRequestThrottling',
         'retention' => 'float',
         'options' => '\Pingram\Model\GetNotificationsResponseInnerOptions'
     ];
@@ -92,9 +92,9 @@ class NotificationPatchRequest implements ModelInterface, ArrayAccess, \JsonSeri
         'title' => false,
         'channels' => false,
         'enabled' => false,
-        'deduplication' => false,
-        'throttling' => false,
-        'retention' => false,
+        'deduplication' => true,
+        'throttling' => true,
+        'retention' => true,
         'options' => false
     ];
 
@@ -415,7 +415,7 @@ class NotificationPatchRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets deduplication
      *
-     * @return \Pingram\Model\GetNotificationsResponseInnerDeduplication|null
+     * @return \Pingram\Model\NotificationPatchRequestDeduplication|null
      */
     public function getDeduplication()
     {
@@ -425,14 +425,21 @@ class NotificationPatchRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets deduplication
      *
-     * @param \Pingram\Model\GetNotificationsResponseInnerDeduplication|null $deduplication deduplication
+     * @param \Pingram\Model\NotificationPatchRequestDeduplication|null $deduplication deduplication
      *
      * @return self
      */
     public function setDeduplication($deduplication)
     {
         if (is_null($deduplication)) {
-            throw new \InvalidArgumentException('non-nullable deduplication cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'deduplication');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('deduplication', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['deduplication'] = $deduplication;
 
@@ -442,7 +449,7 @@ class NotificationPatchRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets throttling
      *
-     * @return \Pingram\Model\GetNotificationsResponseInnerThrottling|null
+     * @return \Pingram\Model\NotificationPatchRequestThrottling|null
      */
     public function getThrottling()
     {
@@ -452,14 +459,21 @@ class NotificationPatchRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets throttling
      *
-     * @param \Pingram\Model\GetNotificationsResponseInnerThrottling|null $throttling throttling
+     * @param \Pingram\Model\NotificationPatchRequestThrottling|null $throttling throttling
      *
      * @return self
      */
     public function setThrottling($throttling)
     {
         if (is_null($throttling)) {
-            throw new \InvalidArgumentException('non-nullable throttling cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'throttling');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('throttling', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['throttling'] = $throttling;
 
@@ -486,7 +500,14 @@ class NotificationPatchRequest implements ModelInterface, ArrayAccess, \JsonSeri
     public function setRetention($retention)
     {
         if (is_null($retention)) {
-            throw new \InvalidArgumentException('non-nullable retention cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'retention');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('retention', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['retention'] = $retention;
 

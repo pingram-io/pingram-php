@@ -11,7 +11,7 @@
  */
 
 /**
- * NotificationAPI
+ * Pingram
  *
  * Internal API for notification delivery and management
  *
@@ -35,6 +35,7 @@ use \Pingram\ObjectSerializer;
  * SenderPostBodyMobilePush Class Doc Comment
  *
  * @category Class
+ * @description Inline mobile push content (title, message).
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -315,7 +316,7 @@ class SenderPostBodyMobilePush implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets title
      *
-     * @param string $title title
+     * @param string $title Notification title.
      *
      * @return self
      */
@@ -342,7 +343,7 @@ class SenderPostBodyMobilePush implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets message
      *
-     * @param string $message message
+     * @param string $message Body text.
      *
      * @return self
      */

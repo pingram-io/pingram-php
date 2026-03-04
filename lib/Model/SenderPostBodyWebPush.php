@@ -11,7 +11,7 @@
  */
 
 /**
- * NotificationAPI
+ * Pingram
  *
  * Internal API for notification delivery and management
  *
@@ -35,6 +35,7 @@ use \Pingram\ObjectSerializer;
  * SenderPostBodyWebPush Class Doc Comment
  *
  * @category Class
+ * @description Inline web push content (title, message, icon, url).
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -329,7 +330,7 @@ class SenderPostBodyWebPush implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets title
      *
-     * @param string $title title
+     * @param string $title Notification title.
      *
      * @return self
      */
@@ -356,7 +357,7 @@ class SenderPostBodyWebPush implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets message
      *
-     * @param string $message message
+     * @param string $message Body text.
      *
      * @return self
      */
@@ -383,7 +384,7 @@ class SenderPostBodyWebPush implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets icon
      *
-     * @param string|null $icon icon
+     * @param string|null $icon Icon URL.
      *
      * @return self
      */
@@ -410,7 +411,7 @@ class SenderPostBodyWebPush implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets url
      *
-     * @param string|null $url url
+     * @param string|null $url URL to open when clicked.
      *
      * @return self
      */

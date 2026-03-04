@@ -11,7 +11,7 @@
  */
 
 /**
- * NotificationAPI
+ * Pingram
  *
  * Internal API for notification delivery and management
  *
@@ -35,6 +35,7 @@ use \Pingram\ObjectSerializer;
  * SenderPostBodySms Class Doc Comment
  *
  * @category Class
+ * @description Inline SMS content (message, autoReply).
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -309,7 +310,7 @@ class SenderPostBodySms implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets message
      *
-     * @param string|null $message message
+     * @param string|null $message SMS body text.
      *
      * @return self
      */
