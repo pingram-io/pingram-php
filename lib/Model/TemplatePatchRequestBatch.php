@@ -1,6 +1,6 @@
 <?php
 /**
- * TemplatePatchRequestAnyOf1Instant
+ * TemplatePatchRequestBatch
  *
  * PHP version 8.1
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \Pingram\ObjectSerializer;
 
 /**
- * TemplatePatchRequestAnyOf1Instant Class Doc Comment
+ * TemplatePatchRequestBatch Class Doc Comment
  *
  * @category Class
- * @description In-app instant delivery: title, redirect URL, and image URL shown when the notification is delivered in real time.
+ * @description Copy for batch delivery.
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class TemplatePatchRequestAnyOf1Instant implements ModelInterface, ArrayAccess, \JsonSerializable
+class TemplatePatchRequestBatch implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class TemplatePatchRequestAnyOf1Instant implements ModelInterface, ArrayAccess, 
       *
       * @var string
       */
-    protected static $openAPIModelName = 'TemplatePatchRequest_anyOf_1_instant';
+    protected static $openAPIModelName = 'TemplatePatchRequest_batch';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -289,6 +289,12 @@ class TemplatePatchRequestAnyOf1Instant implements ModelInterface, ArrayAccess, 
     {
         $invalidProperties = [];
 
+        if ($this->container['title'] === null) {
+            $invalidProperties[] = "'title' can't be null";
+        }
+        if ($this->container['redirect_url'] === null) {
+            $invalidProperties[] = "'redirect_url' can't be null";
+        }
         if ($this->container['image_url'] === null) {
             $invalidProperties[] = "'image_url' can't be null";
         }
@@ -310,7 +316,7 @@ class TemplatePatchRequestAnyOf1Instant implements ModelInterface, ArrayAccess, 
     /**
      * Gets title
      *
-     * @return string|null
+     * @return string
      */
     public function getTitle()
     {
@@ -320,7 +326,7 @@ class TemplatePatchRequestAnyOf1Instant implements ModelInterface, ArrayAccess, 
     /**
      * Sets title
      *
-     * @param string|null $title title
+     * @param string $title title
      *
      * @return self
      */
@@ -337,7 +343,7 @@ class TemplatePatchRequestAnyOf1Instant implements ModelInterface, ArrayAccess, 
     /**
      * Gets redirect_url
      *
-     * @return string|null
+     * @return string
      */
     public function getRedirectUrl()
     {
@@ -347,7 +353,7 @@ class TemplatePatchRequestAnyOf1Instant implements ModelInterface, ArrayAccess, 
     /**
      * Sets redirect_url
      *
-     * @param string|null $redirect_url redirect_url
+     * @param string $redirect_url redirect_url
      *
      * @return self
      */
@@ -374,7 +380,7 @@ class TemplatePatchRequestAnyOf1Instant implements ModelInterface, ArrayAccess, 
     /**
      * Sets image_url
      *
-     * @param string $image_url Required for instant. Image URL shown in the in-app notification.
+     * @param string $image_url image_url
      *
      * @return self
      */

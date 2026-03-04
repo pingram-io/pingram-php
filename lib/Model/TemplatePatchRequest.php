@@ -35,7 +35,7 @@ use \Pingram\ObjectSerializer;
  * TemplatePatchRequest Class Doc Comment
  *
  * @category Class
- * @description Request body for updating a template. Use EMAIL fields (html, subject, senderName, etc.) when channel is EMAIL. Use INAPP_WEB fields (title, redirectURL, imageURL, instant, batch) when channel is INAPP_WEB. Other channels have their own shapes; only include properties that apply to the channel.
+ * @description Request body for updating a template. Include only properties that apply to the channel in the path. EMAIL: html, subject, senderName, etc. | INAPP_WEB: title, redirectURL, instant, batch | SMS/CALL: text | PUSH/WEB_PUSH: title, message, icon, url | SLACK: text, blocks, username, icon
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -59,6 +59,7 @@ class TemplatePatchRequest implements ModelInterface, ArrayAccess, \JsonSerializ
       */
     protected static $openAPITypes = [
         'html' => 'string',
+        'preview_text' => 'string',
         'internal' => 'string',
         'subject' => 'string',
         'sender_name' => 'string',
@@ -67,8 +68,14 @@ class TemplatePatchRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         'title' => 'string',
         'redirect_url' => 'string',
         'image_url' => 'string',
-        'instant' => '\Pingram\Model\TemplatePatchRequestAnyOf1Instant',
-        'batch' => '\Pingram\Model\TemplatePatchRequestAnyOf1Batch'
+        'instant' => '\Pingram\Model\TemplatePatchRequestInstant',
+        'batch' => '\Pingram\Model\TemplatePatchRequestBatch',
+        'text' => 'string',
+        'message' => 'string',
+        'icon' => 'string',
+        'url' => 'string',
+        'blocks' => 'array<string,mixed>[]',
+        'username' => 'string'
     ];
 
     /**
@@ -80,6 +87,7 @@ class TemplatePatchRequest implements ModelInterface, ArrayAccess, \JsonSerializ
       */
     protected static $openAPIFormats = [
         'html' => null,
+        'preview_text' => null,
         'internal' => null,
         'subject' => null,
         'sender_name' => null,
@@ -89,7 +97,13 @@ class TemplatePatchRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         'redirect_url' => null,
         'image_url' => null,
         'instant' => null,
-        'batch' => null
+        'batch' => null,
+        'text' => null,
+        'message' => null,
+        'icon' => null,
+        'url' => null,
+        'blocks' => null,
+        'username' => null
     ];
 
     /**
@@ -99,6 +113,7 @@ class TemplatePatchRequest implements ModelInterface, ArrayAccess, \JsonSerializ
       */
     protected static array $openAPINullables = [
         'html' => false,
+        'preview_text' => false,
         'internal' => false,
         'subject' => false,
         'sender_name' => false,
@@ -108,7 +123,13 @@ class TemplatePatchRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         'redirect_url' => false,
         'image_url' => false,
         'instant' => false,
-        'batch' => false
+        'batch' => false,
+        'text' => false,
+        'message' => false,
+        'icon' => false,
+        'url' => false,
+        'blocks' => false,
+        'username' => false
     ];
 
     /**
@@ -198,6 +219,7 @@ class TemplatePatchRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     protected static $attributeMap = [
         'html' => 'html',
+        'preview_text' => 'previewText',
         'internal' => 'internal',
         'subject' => 'subject',
         'sender_name' => 'senderName',
@@ -207,7 +229,13 @@ class TemplatePatchRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         'redirect_url' => 'redirectURL',
         'image_url' => 'imageURL',
         'instant' => 'instant',
-        'batch' => 'batch'
+        'batch' => 'batch',
+        'text' => 'text',
+        'message' => 'message',
+        'icon' => 'icon',
+        'url' => 'url',
+        'blocks' => 'blocks',
+        'username' => 'username'
     ];
 
     /**
@@ -217,6 +245,7 @@ class TemplatePatchRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     protected static $setters = [
         'html' => 'setHtml',
+        'preview_text' => 'setPreviewText',
         'internal' => 'setInternal',
         'subject' => 'setSubject',
         'sender_name' => 'setSenderName',
@@ -226,7 +255,13 @@ class TemplatePatchRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         'redirect_url' => 'setRedirectUrl',
         'image_url' => 'setImageUrl',
         'instant' => 'setInstant',
-        'batch' => 'setBatch'
+        'batch' => 'setBatch',
+        'text' => 'setText',
+        'message' => 'setMessage',
+        'icon' => 'setIcon',
+        'url' => 'setUrl',
+        'blocks' => 'setBlocks',
+        'username' => 'setUsername'
     ];
 
     /**
@@ -236,6 +271,7 @@ class TemplatePatchRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     protected static $getters = [
         'html' => 'getHtml',
+        'preview_text' => 'getPreviewText',
         'internal' => 'getInternal',
         'subject' => 'getSubject',
         'sender_name' => 'getSenderName',
@@ -245,7 +281,13 @@ class TemplatePatchRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         'redirect_url' => 'getRedirectUrl',
         'image_url' => 'getImageUrl',
         'instant' => 'getInstant',
-        'batch' => 'getBatch'
+        'batch' => 'getBatch',
+        'text' => 'getText',
+        'message' => 'getMessage',
+        'icon' => 'getIcon',
+        'url' => 'getUrl',
+        'blocks' => 'getBlocks',
+        'username' => 'getUsername'
     ];
 
     /**
@@ -306,6 +348,7 @@ class TemplatePatchRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     public function __construct(?array $data = null)
     {
         $this->setIfExists('html', $data ?? [], null);
+        $this->setIfExists('preview_text', $data ?? [], null);
         $this->setIfExists('internal', $data ?? [], null);
         $this->setIfExists('subject', $data ?? [], null);
         $this->setIfExists('sender_name', $data ?? [], null);
@@ -316,6 +359,12 @@ class TemplatePatchRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         $this->setIfExists('image_url', $data ?? [], null);
         $this->setIfExists('instant', $data ?? [], null);
         $this->setIfExists('batch', $data ?? [], null);
+        $this->setIfExists('text', $data ?? [], null);
+        $this->setIfExists('message', $data ?? [], null);
+        $this->setIfExists('icon', $data ?? [], null);
+        $this->setIfExists('url', $data ?? [], null);
+        $this->setIfExists('blocks', $data ?? [], null);
+        $this->setIfExists('username', $data ?? [], null);
     }
 
     /**
@@ -383,6 +432,33 @@ class TemplatePatchRequest implements ModelInterface, ArrayAccess, \JsonSerializ
             throw new \InvalidArgumentException('non-nullable html cannot be null');
         }
         $this->container['html'] = $html;
+
+        return $this;
+    }
+
+    /**
+     * Gets preview_text
+     *
+     * @return string|null
+     */
+    public function getPreviewText()
+    {
+        return $this->container['preview_text'];
+    }
+
+    /**
+     * Sets preview_text
+     *
+     * @param string|null $preview_text Preview text (e.g. for inbox).
+     *
+     * @return self
+     */
+    public function setPreviewText($preview_text)
+    {
+        if (is_null($preview_text)) {
+            throw new \InvalidArgumentException('non-nullable preview_text cannot be null');
+        }
+        $this->container['preview_text'] = $preview_text;
 
         return $this;
     }
@@ -606,7 +682,7 @@ class TemplatePatchRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets instant
      *
-     * @return \Pingram\Model\TemplatePatchRequestAnyOf1Instant|null
+     * @return \Pingram\Model\TemplatePatchRequestInstant|null
      */
     public function getInstant()
     {
@@ -616,7 +692,7 @@ class TemplatePatchRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets instant
      *
-     * @param \Pingram\Model\TemplatePatchRequestAnyOf1Instant|null $instant instant
+     * @param \Pingram\Model\TemplatePatchRequestInstant|null $instant instant
      *
      * @return self
      */
@@ -633,7 +709,7 @@ class TemplatePatchRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets batch
      *
-     * @return \Pingram\Model\TemplatePatchRequestAnyOf1Batch|null
+     * @return \Pingram\Model\TemplatePatchRequestBatch|null
      */
     public function getBatch()
     {
@@ -643,7 +719,7 @@ class TemplatePatchRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets batch
      *
-     * @param \Pingram\Model\TemplatePatchRequestAnyOf1Batch|null $batch batch
+     * @param \Pingram\Model\TemplatePatchRequestBatch|null $batch batch
      *
      * @return self
      */
@@ -653,6 +729,168 @@ class TemplatePatchRequest implements ModelInterface, ArrayAccess, \JsonSerializ
             throw new \InvalidArgumentException('non-nullable batch cannot be null');
         }
         $this->container['batch'] = $batch;
+
+        return $this;
+    }
+
+    /**
+     * Gets text
+     *
+     * @return string|null
+     */
+    public function getText()
+    {
+        return $this->container['text'];
+    }
+
+    /**
+     * Sets text
+     *
+     * @param string|null $text Message text (SMS or call).
+     *
+     * @return self
+     */
+    public function setText($text)
+    {
+        if (is_null($text)) {
+            throw new \InvalidArgumentException('non-nullable text cannot be null');
+        }
+        $this->container['text'] = $text;
+
+        return $this;
+    }
+
+    /**
+     * Gets message
+     *
+     * @return string|null
+     */
+    public function getMessage()
+    {
+        return $this->container['message'];
+    }
+
+    /**
+     * Sets message
+     *
+     * @param string|null $message Push notification body text. (title is shared with INAPP_WEB above.)
+     *
+     * @return self
+     */
+    public function setMessage($message)
+    {
+        if (is_null($message)) {
+            throw new \InvalidArgumentException('non-nullable message cannot be null');
+        }
+        $this->container['message'] = $message;
+
+        return $this;
+    }
+
+    /**
+     * Gets icon
+     *
+     * @return string|null
+     */
+    public function getIcon()
+    {
+        return $this->container['icon'];
+    }
+
+    /**
+     * Sets icon
+     *
+     * @param string|null $icon Web push: icon URL. Slack: bot icon (emoji or URL).
+     *
+     * @return self
+     */
+    public function setIcon($icon)
+    {
+        if (is_null($icon)) {
+            throw new \InvalidArgumentException('non-nullable icon cannot be null');
+        }
+        $this->container['icon'] = $icon;
+
+        return $this;
+    }
+
+    /**
+     * Gets url
+     *
+     * @return string|null
+     */
+    public function getUrl()
+    {
+        return $this->container['url'];
+    }
+
+    /**
+     * Sets url
+     *
+     * @param string|null $url Web push: URL to open when the notification is clicked.
+     *
+     * @return self
+     */
+    public function setUrl($url)
+    {
+        if (is_null($url)) {
+            throw new \InvalidArgumentException('non-nullable url cannot be null');
+        }
+        $this->container['url'] = $url;
+
+        return $this;
+    }
+
+    /**
+     * Gets blocks
+     *
+     * @return array<string,mixed>[]|null
+     */
+    public function getBlocks()
+    {
+        return $this->container['blocks'];
+    }
+
+    /**
+     * Sets blocks
+     *
+     * @param array<string,mixed>[]|null $blocks Slack message blocks (optional).
+     *
+     * @return self
+     */
+    public function setBlocks($blocks)
+    {
+        if (is_null($blocks)) {
+            throw new \InvalidArgumentException('non-nullable blocks cannot be null');
+        }
+        $this->container['blocks'] = $blocks;
+
+        return $this;
+    }
+
+    /**
+     * Gets username
+     *
+     * @return string|null
+     */
+    public function getUsername()
+    {
+        return $this->container['username'];
+    }
+
+    /**
+     * Sets username
+     *
+     * @param string|null $username Slack bot username.
+     *
+     * @return self
+     */
+    public function setUsername($username)
+    {
+        if (is_null($username)) {
+            throw new \InvalidArgumentException('non-nullable username cannot be null');
+        }
+        $this->container['username'] = $username;
 
         return $this;
     }

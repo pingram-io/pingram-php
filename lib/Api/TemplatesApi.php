@@ -1912,7 +1912,7 @@ class TemplatesApi
         }
 
 
-        $resourcePath = '/notifications/{notificationId}/{channel}/templates/default';
+        $resourcePath = '/notifications/{notificationId}/{channel}/templates/default-selection';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];

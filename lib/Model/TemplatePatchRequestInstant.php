@@ -1,6 +1,6 @@
 <?php
 /**
- * TemplatePatchRequestAnyOf
+ * TemplatePatchRequestInstant
  *
  * PHP version 8.1
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \Pingram\ObjectSerializer;
 
 /**
- * TemplatePatchRequestAnyOf Class Doc Comment
+ * TemplatePatchRequestInstant Class Doc Comment
  *
  * @category Class
- * @description Properties for updating an EMAIL channel template. All fields are optional; only provided fields are updated.
+ * @description Copy for instant (real-time) delivery.
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class TemplatePatchRequestAnyOf implements ModelInterface, ArrayAccess, \JsonSerializable
+class TemplatePatchRequestInstant implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class TemplatePatchRequestAnyOf implements ModelInterface, ArrayAccess, \JsonSer
       *
       * @var string
       */
-    protected static $openAPIModelName = 'TemplatePatchRequest_anyOf';
+    protected static $openAPIModelName = 'TemplatePatchRequest_instant';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,12 +58,9 @@ class TemplatePatchRequestAnyOf implements ModelInterface, ArrayAccess, \JsonSer
       * @var string[]
       */
     protected static $openAPITypes = [
-        'html' => 'string',
-        'internal' => 'string',
-        'subject' => 'string',
-        'sender_name' => 'string',
-        'sender_email' => 'string',
-        'migration' => 'string'
+        'title' => 'string',
+        'redirect_url' => 'string',
+        'image_url' => 'string'
     ];
 
     /**
@@ -74,12 +71,9 @@ class TemplatePatchRequestAnyOf implements ModelInterface, ArrayAccess, \JsonSer
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'html' => null,
-        'internal' => null,
-        'subject' => null,
-        'sender_name' => null,
-        'sender_email' => null,
-        'migration' => null
+        'title' => null,
+        'redirect_url' => null,
+        'image_url' => null
     ];
 
     /**
@@ -88,12 +82,9 @@ class TemplatePatchRequestAnyOf implements ModelInterface, ArrayAccess, \JsonSer
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'html' => false,
-        'internal' => false,
-        'subject' => false,
-        'sender_name' => false,
-        'sender_email' => false,
-        'migration' => false
+        'title' => false,
+        'redirect_url' => false,
+        'image_url' => false
     ];
 
     /**
@@ -182,12 +173,9 @@ class TemplatePatchRequestAnyOf implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $attributeMap = [
-        'html' => 'html',
-        'internal' => 'internal',
-        'subject' => 'subject',
-        'sender_name' => 'senderName',
-        'sender_email' => 'senderEmail',
-        'migration' => 'migration'
+        'title' => 'title',
+        'redirect_url' => 'redirectURL',
+        'image_url' => 'imageURL'
     ];
 
     /**
@@ -196,12 +184,9 @@ class TemplatePatchRequestAnyOf implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $setters = [
-        'html' => 'setHtml',
-        'internal' => 'setInternal',
-        'subject' => 'setSubject',
-        'sender_name' => 'setSenderName',
-        'sender_email' => 'setSenderEmail',
-        'migration' => 'setMigration'
+        'title' => 'setTitle',
+        'redirect_url' => 'setRedirectUrl',
+        'image_url' => 'setImageUrl'
     ];
 
     /**
@@ -210,12 +195,9 @@ class TemplatePatchRequestAnyOf implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $getters = [
-        'html' => 'getHtml',
-        'internal' => 'getInternal',
-        'subject' => 'getSubject',
-        'sender_name' => 'getSenderName',
-        'sender_email' => 'getSenderEmail',
-        'migration' => 'getMigration'
+        'title' => 'getTitle',
+        'redirect_url' => 'getRedirectUrl',
+        'image_url' => 'getImageUrl'
     ];
 
     /**
@@ -275,12 +257,9 @@ class TemplatePatchRequestAnyOf implements ModelInterface, ArrayAccess, \JsonSer
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('html', $data ?? [], null);
-        $this->setIfExists('internal', $data ?? [], null);
-        $this->setIfExists('subject', $data ?? [], null);
-        $this->setIfExists('sender_name', $data ?? [], null);
-        $this->setIfExists('sender_email', $data ?? [], null);
-        $this->setIfExists('migration', $data ?? [], null);
+        $this->setIfExists('title', $data ?? [], null);
+        $this->setIfExists('redirect_url', $data ?? [], null);
+        $this->setIfExists('image_url', $data ?? [], null);
     }
 
     /**
@@ -310,6 +289,9 @@ class TemplatePatchRequestAnyOf implements ModelInterface, ArrayAccess, \JsonSer
     {
         $invalidProperties = [];
 
+        if ($this->container['image_url'] === null) {
+            $invalidProperties[] = "'image_url' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -326,163 +308,82 @@ class TemplatePatchRequestAnyOf implements ModelInterface, ArrayAccess, \JsonSer
 
 
     /**
-     * Gets html
+     * Gets title
      *
      * @return string|null
      */
-    public function getHtml()
+    public function getTitle()
     {
-        return $this->container['html'];
+        return $this->container['title'];
     }
 
     /**
-     * Sets html
+     * Sets title
      *
-     * @param string|null $html HTML body of the email.
+     * @param string|null $title title
      *
      * @return self
      */
-    public function setHtml($html)
+    public function setTitle($title)
     {
-        if (is_null($html)) {
-            throw new \InvalidArgumentException('non-nullable html cannot be null');
+        if (is_null($title)) {
+            throw new \InvalidArgumentException('non-nullable title cannot be null');
         }
-        $this->container['html'] = $html;
+        $this->container['title'] = $title;
 
         return $this;
     }
 
     /**
-     * Gets internal
+     * Gets redirect_url
      *
      * @return string|null
      */
-    public function getInternal()
+    public function getRedirectUrl()
     {
-        return $this->container['internal'];
+        return $this->container['redirect_url'];
     }
 
     /**
-     * Sets internal
+     * Sets redirect_url
      *
-     * @param string|null $internal Internal editor representation of the email content (e.g. Bee or Redactor JSON). Used for editing and component embedding; the actual email sent to recipients uses the html field.
+     * @param string|null $redirect_url redirect_url
      *
      * @return self
      */
-    public function setInternal($internal)
+    public function setRedirectUrl($redirect_url)
     {
-        if (is_null($internal)) {
-            throw new \InvalidArgumentException('non-nullable internal cannot be null');
+        if (is_null($redirect_url)) {
+            throw new \InvalidArgumentException('non-nullable redirect_url cannot be null');
         }
-        $this->container['internal'] = $internal;
+        $this->container['redirect_url'] = $redirect_url;
 
         return $this;
     }
 
     /**
-     * Gets subject
+     * Gets image_url
      *
-     * @return string|null
+     * @return string
      */
-    public function getSubject()
+    public function getImageUrl()
     {
-        return $this->container['subject'];
+        return $this->container['image_url'];
     }
 
     /**
-     * Sets subject
+     * Sets image_url
      *
-     * @param string|null $subject Email subject line.
+     * @param string $image_url image_url
      *
      * @return self
      */
-    public function setSubject($subject)
+    public function setImageUrl($image_url)
     {
-        if (is_null($subject)) {
-            throw new \InvalidArgumentException('non-nullable subject cannot be null');
+        if (is_null($image_url)) {
+            throw new \InvalidArgumentException('non-nullable image_url cannot be null');
         }
-        $this->container['subject'] = $subject;
-
-        return $this;
-    }
-
-    /**
-     * Gets sender_name
-     *
-     * @return string|null
-     */
-    public function getSenderName()
-    {
-        return $this->container['sender_name'];
-    }
-
-    /**
-     * Sets sender_name
-     *
-     * @param string|null $sender_name Sender display name.
-     *
-     * @return self
-     */
-    public function setSenderName($sender_name)
-    {
-        if (is_null($sender_name)) {
-            throw new \InvalidArgumentException('non-nullable sender_name cannot be null');
-        }
-        $this->container['sender_name'] = $sender_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets sender_email
-     *
-     * @return string|null
-     */
-    public function getSenderEmail()
-    {
-        return $this->container['sender_email'];
-    }
-
-    /**
-     * Sets sender_email
-     *
-     * @param string|null $sender_email Sender email address.
-     *
-     * @return self
-     */
-    public function setSenderEmail($sender_email)
-    {
-        if (is_null($sender_email)) {
-            throw new \InvalidArgumentException('non-nullable sender_email cannot be null');
-        }
-        $this->container['sender_email'] = $sender_email;
-
-        return $this;
-    }
-
-    /**
-     * Gets migration
-     *
-     * @return string|null
-     */
-    public function getMigration()
-    {
-        return $this->container['migration'];
-    }
-
-    /**
-     * Sets migration
-     *
-     * @param string|null $migration Migration metadata (e.g. from template migration).
-     *
-     * @return self
-     */
-    public function setMigration($migration)
-    {
-        if (is_null($migration)) {
-            throw new \InvalidArgumentException('non-nullable migration cannot be null');
-        }
-        $this->container['migration'] = $migration;
+        $this->container['image_url'] = $image_url;
 
         return $this;
     }

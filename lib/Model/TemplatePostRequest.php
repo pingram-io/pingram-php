@@ -69,8 +69,8 @@ class TemplatePostRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         'title' => 'string',
         'redirect_url' => 'string',
         'image_url' => 'string',
-        'instant' => '\Pingram\Model\TemplatePostRequestInstant',
-        'batch' => '\Pingram\Model\TemplatePostRequestBatch',
+        'instant' => '\Pingram\Model\TemplatePatchRequestInstant',
+        'batch' => '\Pingram\Model\TemplatePatchRequestBatch',
         'text' => 'string',
         'message' => 'string',
         'icon' => 'string',
@@ -719,7 +719,7 @@ class TemplatePostRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets instant
      *
-     * @return \Pingram\Model\TemplatePostRequestInstant|null
+     * @return \Pingram\Model\TemplatePatchRequestInstant|null
      */
     public function getInstant()
     {
@@ -729,7 +729,7 @@ class TemplatePostRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets instant
      *
-     * @param \Pingram\Model\TemplatePostRequestInstant|null $instant instant
+     * @param \Pingram\Model\TemplatePatchRequestInstant|null $instant instant
      *
      * @return self
      */
@@ -746,7 +746,7 @@ class TemplatePostRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets batch
      *
-     * @return \Pingram\Model\TemplatePostRequestBatch|null
+     * @return \Pingram\Model\TemplatePatchRequestBatch|null
      */
     public function getBatch()
     {
@@ -756,7 +756,7 @@ class TemplatePostRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets batch
      *
-     * @param \Pingram\Model\TemplatePostRequestBatch|null $batch batch
+     * @param \Pingram\Model\TemplatePatchRequestBatch|null $batch batch
      *
      * @return self
      */
