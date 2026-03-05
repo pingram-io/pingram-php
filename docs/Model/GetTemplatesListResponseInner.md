@@ -16,7 +16,6 @@ Name | Type | Description | Notes
 **subject** | **string** |  |
 **sender_name** | **string** |  |
 **sender_email** | **string** |  |
-**migration** | **string** |  | [optional]
 **title** | **string** |  |
 **redirect_url** | **string** |  |
 **image_url** | **string** |  |

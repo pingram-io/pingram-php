@@ -68,8 +68,7 @@ class GetTemplatesListResponseInnerAnyOf implements ModelInterface, ArrayAccess,
         'internal' => 'string',
         'subject' => 'string',
         'sender_name' => 'string',
-        'sender_email' => 'string',
-        'migration' => 'string'
+        'sender_email' => 'string'
     ];
 
     /**
@@ -91,8 +90,7 @@ class GetTemplatesListResponseInnerAnyOf implements ModelInterface, ArrayAccess,
         'internal' => null,
         'subject' => null,
         'sender_name' => null,
-        'sender_email' => null,
-        'migration' => null
+        'sender_email' => null
     ];
 
     /**
@@ -112,8 +110,7 @@ class GetTemplatesListResponseInnerAnyOf implements ModelInterface, ArrayAccess,
         'internal' => false,
         'subject' => false,
         'sender_name' => false,
-        'sender_email' => false,
-        'migration' => false
+        'sender_email' => false
     ];
 
     /**
@@ -213,8 +210,7 @@ class GetTemplatesListResponseInnerAnyOf implements ModelInterface, ArrayAccess,
         'internal' => 'internal',
         'subject' => 'subject',
         'sender_name' => 'senderName',
-        'sender_email' => 'senderEmail',
-        'migration' => 'migration'
+        'sender_email' => 'senderEmail'
     ];
 
     /**
@@ -234,8 +230,7 @@ class GetTemplatesListResponseInnerAnyOf implements ModelInterface, ArrayAccess,
         'internal' => 'setInternal',
         'subject' => 'setSubject',
         'sender_name' => 'setSenderName',
-        'sender_email' => 'setSenderEmail',
-        'migration' => 'setMigration'
+        'sender_email' => 'setSenderEmail'
     ];
 
     /**
@@ -255,8 +250,7 @@ class GetTemplatesListResponseInnerAnyOf implements ModelInterface, ArrayAccess,
         'internal' => 'getInternal',
         'subject' => 'getSubject',
         'sender_name' => 'getSenderName',
-        'sender_email' => 'getSenderEmail',
-        'migration' => 'getMigration'
+        'sender_email' => 'getSenderEmail'
     ];
 
     /**
@@ -328,7 +322,6 @@ class GetTemplatesListResponseInnerAnyOf implements ModelInterface, ArrayAccess,
         $this->setIfExists('subject', $data ?? [], null);
         $this->setIfExists('sender_name', $data ?? [], null);
         $this->setIfExists('sender_email', $data ?? [], null);
-        $this->setIfExists('migration', $data ?? [], null);
     }
 
     /**
@@ -723,33 +716,6 @@ class GetTemplatesListResponseInnerAnyOf implements ModelInterface, ArrayAccess,
             throw new \InvalidArgumentException('non-nullable sender_email cannot be null');
         }
         $this->container['sender_email'] = $sender_email;
-
-        return $this;
-    }
-
-    /**
-     * Gets migration
-     *
-     * @return string|null
-     */
-    public function getMigration()
-    {
-        return $this->container['migration'];
-    }
-
-    /**
-     * Sets migration
-     *
-     * @param string|null $migration migration
-     *
-     * @return self
-     */
-    public function setMigration($migration)
-    {
-        if (is_null($migration)) {
-            throw new \InvalidArgumentException('non-nullable migration cannot be null');
-        }
-        $this->container['migration'] = $migration;
 
         return $this;
     }

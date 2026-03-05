@@ -70,7 +70,6 @@ class GetTemplatesResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         'subject' => 'string',
         'sender_name' => 'string',
         'sender_email' => 'string',
-        'migration' => 'string',
         'title' => 'string',
         'redirect_url' => 'string',
         'image_url' => 'string',
@@ -112,7 +111,6 @@ class GetTemplatesResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         'subject' => null,
         'sender_name' => null,
         'sender_email' => null,
-        'migration' => null,
         'title' => null,
         'redirect_url' => null,
         'image_url' => null,
@@ -152,7 +150,6 @@ class GetTemplatesResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         'subject' => false,
         'sender_name' => false,
         'sender_email' => false,
-        'migration' => false,
         'title' => false,
         'redirect_url' => false,
         'image_url' => false,
@@ -272,7 +269,6 @@ class GetTemplatesResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         'subject' => 'subject',
         'sender_name' => 'senderName',
         'sender_email' => 'senderEmail',
-        'migration' => 'migration',
         'title' => 'title',
         'redirect_url' => 'redirectURL',
         'image_url' => 'imageURL',
@@ -312,7 +308,6 @@ class GetTemplatesResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         'subject' => 'setSubject',
         'sender_name' => 'setSenderName',
         'sender_email' => 'setSenderEmail',
-        'migration' => 'setMigration',
         'title' => 'setTitle',
         'redirect_url' => 'setRedirectUrl',
         'image_url' => 'setImageUrl',
@@ -352,7 +347,6 @@ class GetTemplatesResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         'subject' => 'getSubject',
         'sender_name' => 'getSenderName',
         'sender_email' => 'getSenderEmail',
-        'migration' => 'getMigration',
         'title' => 'getTitle',
         'redirect_url' => 'getRedirectUrl',
         'image_url' => 'getImageUrl',
@@ -458,7 +452,6 @@ class GetTemplatesResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         $this->setIfExists('subject', $data ?? [], null);
         $this->setIfExists('sender_name', $data ?? [], null);
         $this->setIfExists('sender_email', $data ?? [], null);
-        $this->setIfExists('migration', $data ?? [], null);
         $this->setIfExists('title', $data ?? [], null);
         $this->setIfExists('redirect_url', $data ?? [], null);
         $this->setIfExists('image_url', $data ?? [], null);
@@ -902,33 +895,6 @@ class GetTemplatesResponse implements ModelInterface, ArrayAccess, \JsonSerializ
             throw new \InvalidArgumentException('non-nullable sender_email cannot be null');
         }
         $this->container['sender_email'] = $sender_email;
-
-        return $this;
-    }
-
-    /**
-     * Gets migration
-     *
-     * @return string|null
-     */
-    public function getMigration()
-    {
-        return $this->container['migration'];
-    }
-
-    /**
-     * Sets migration
-     *
-     * @param string|null $migration migration
-     *
-     * @return self
-     */
-    public function setMigration($migration)
-    {
-        if (is_null($migration)) {
-            throw new \InvalidArgumentException('non-nullable migration cannot be null');
-        }
-        $this->container['migration'] = $migration;
 
         return $this;
     }

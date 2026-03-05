@@ -11,7 +11,6 @@ Name | Type | Description | Notes
 **subject** | **string** | Email subject line. | [optional]
 **sender_name** | **string** | Sender display name. | [optional]
 **sender_email** | **string** | Sender email address. | [optional]
-**migration** | **string** | Migration metadata (e.g. from template migration). | [optional]
 **title** | **string** | Notification title (in-app). | [optional]
 **redirect_url** | **string** | URL to open when the user taps the notification. | [optional]
 **image_url** | **string** | Image URL shown in the in-app notification. | [optional]
