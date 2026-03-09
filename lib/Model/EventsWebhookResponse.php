@@ -1,6 +1,6 @@
 <?php
 /**
- * BillingPostResponseBodyPendingDowngradeUsageLimit
+ * EventsWebhookResponse
  *
  * PHP version 8.1
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \Pingram\ObjectSerializer;
 
 /**
- * BillingPostResponseBodyPendingDowngradeUsageLimit Class Doc Comment
+ * EventsWebhookResponse Class Doc Comment
  *
  * @category Class
- * @description Optional new usage limits to apply when downgrade takes effect
+ * @description Events webhook configuration returned by the API.
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class BillingPostResponseBodyPendingDowngradeUsageLimit implements ModelInterface, ArrayAccess, \JsonSerializable
+class EventsWebhookResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class BillingPostResponseBodyPendingDowngradeUsageLimit implements ModelInterfac
       *
       * @var string
       */
-    protected static $openAPIModelName = 'BillingPostResponseBody_pendingDowngradeUsageLimit';
+    protected static $openAPIModelName = 'EventsWebhookResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,13 +58,9 @@ class BillingPostResponseBodyPendingDowngradeUsageLimit implements ModelInterfac
       * @var string[]
       */
     protected static $openAPITypes = [
-        'email' => 'float',
-        'inapp_web' => 'float',
-        'sms' => 'float',
-        'call' => 'float',
-        'push' => 'float',
-        'web_push' => 'float',
-        'slack' => 'float'
+        'webhook_id' => 'string',
+        'webhook' => 'string',
+        'events' => 'string[]'
     ];
 
     /**
@@ -75,13 +71,9 @@ class BillingPostResponseBodyPendingDowngradeUsageLimit implements ModelInterfac
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'email' => null,
-        'inapp_web' => null,
-        'sms' => null,
-        'call' => null,
-        'push' => null,
-        'web_push' => null,
-        'slack' => null
+        'webhook_id' => null,
+        'webhook' => null,
+        'events' => null
     ];
 
     /**
@@ -90,13 +82,9 @@ class BillingPostResponseBodyPendingDowngradeUsageLimit implements ModelInterfac
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'email' => false,
-        'inapp_web' => false,
-        'sms' => false,
-        'call' => false,
-        'push' => false,
-        'web_push' => false,
-        'slack' => false
+        'webhook_id' => false,
+        'webhook' => false,
+        'events' => false
     ];
 
     /**
@@ -185,13 +173,9 @@ class BillingPostResponseBodyPendingDowngradeUsageLimit implements ModelInterfac
      * @var string[]
      */
     protected static $attributeMap = [
-        'email' => 'EMAIL',
-        'inapp_web' => 'INAPP_WEB',
-        'sms' => 'SMS',
-        'call' => 'CALL',
-        'push' => 'PUSH',
-        'web_push' => 'WEB_PUSH',
-        'slack' => 'SLACK'
+        'webhook_id' => 'webhookId',
+        'webhook' => 'webhook',
+        'events' => 'events'
     ];
 
     /**
@@ -200,13 +184,9 @@ class BillingPostResponseBodyPendingDowngradeUsageLimit implements ModelInterfac
      * @var string[]
      */
     protected static $setters = [
-        'email' => 'setEmail',
-        'inapp_web' => 'setInappWeb',
-        'sms' => 'setSms',
-        'call' => 'setCall',
-        'push' => 'setPush',
-        'web_push' => 'setWebPush',
-        'slack' => 'setSlack'
+        'webhook_id' => 'setWebhookId',
+        'webhook' => 'setWebhook',
+        'events' => 'setEvents'
     ];
 
     /**
@@ -215,13 +195,9 @@ class BillingPostResponseBodyPendingDowngradeUsageLimit implements ModelInterfac
      * @var string[]
      */
     protected static $getters = [
-        'email' => 'getEmail',
-        'inapp_web' => 'getInappWeb',
-        'sms' => 'getSms',
-        'call' => 'getCall',
-        'push' => 'getPush',
-        'web_push' => 'getWebPush',
-        'slack' => 'getSlack'
+        'webhook_id' => 'getWebhookId',
+        'webhook' => 'getWebhook',
+        'events' => 'getEvents'
     ];
 
     /**
@@ -265,6 +241,57 @@ class BillingPostResponseBodyPendingDowngradeUsageLimit implements ModelInterfac
         return self::$openAPIModelName;
     }
 
+    public const EVENTS_EMAIL_OPEN = 'EMAIL_OPEN';
+    public const EVENTS_EMAIL_CLICK = 'EMAIL_CLICK';
+    public const EVENTS_EMAIL_FAILED = 'EMAIL_FAILED';
+    public const EVENTS_EMAIL_DELIVERED = 'EMAIL_DELIVERED';
+    public const EVENTS_EMAIL_UNSUBSCRIBE = 'EMAIL_UNSUBSCRIBE';
+    public const EVENTS_EMAIL_INBOUND = 'EMAIL_INBOUND';
+    public const EVENTS_INAPP_WEB_FAILED = 'INAPP_WEB_FAILED';
+    public const EVENTS_INAPP_WEB_UNSUBSCRIBE = 'INAPP_WEB_UNSUBSCRIBE';
+    public const EVENTS_SMS_DELIVERED = 'SMS_DELIVERED';
+    public const EVENTS_SMS_FAILED = 'SMS_FAILED';
+    public const EVENTS_SMS_UNSUBSCRIBE = 'SMS_UNSUBSCRIBE';
+    public const EVENTS_SMS_INBOUND = 'SMS_INBOUND';
+    public const EVENTS_PUSH_FAILED = 'PUSH_FAILED';
+    public const EVENTS_PUSH_UNSUBSCRIBE = 'PUSH_UNSUBSCRIBE';
+    public const EVENTS_CALL_FAILED = 'CALL_FAILED';
+    public const EVENTS_CALL_UNSUBSCRIBE = 'CALL_UNSUBSCRIBE';
+    public const EVENTS_WEB_PUSH_FAILED = 'WEB_PUSH_FAILED';
+    public const EVENTS_WEB_PUSH_UNSUBSCRIBE = 'WEB_PUSH_UNSUBSCRIBE';
+    public const EVENTS_SLACK_FAILED = 'SLACK_FAILED';
+    public const EVENTS_SLACK_UNSUBSCRIBE = 'SLACK_UNSUBSCRIBE';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getEventsAllowableValues()
+    {
+        return [
+            self::EVENTS_EMAIL_OPEN,
+            self::EVENTS_EMAIL_CLICK,
+            self::EVENTS_EMAIL_FAILED,
+            self::EVENTS_EMAIL_DELIVERED,
+            self::EVENTS_EMAIL_UNSUBSCRIBE,
+            self::EVENTS_EMAIL_INBOUND,
+            self::EVENTS_INAPP_WEB_FAILED,
+            self::EVENTS_INAPP_WEB_UNSUBSCRIBE,
+            self::EVENTS_SMS_DELIVERED,
+            self::EVENTS_SMS_FAILED,
+            self::EVENTS_SMS_UNSUBSCRIBE,
+            self::EVENTS_SMS_INBOUND,
+            self::EVENTS_PUSH_FAILED,
+            self::EVENTS_PUSH_UNSUBSCRIBE,
+            self::EVENTS_CALL_FAILED,
+            self::EVENTS_CALL_UNSUBSCRIBE,
+            self::EVENTS_WEB_PUSH_FAILED,
+            self::EVENTS_WEB_PUSH_UNSUBSCRIBE,
+            self::EVENTS_SLACK_FAILED,
+            self::EVENTS_SLACK_UNSUBSCRIBE,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -281,13 +308,9 @@ class BillingPostResponseBodyPendingDowngradeUsageLimit implements ModelInterfac
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('email', $data ?? [], null);
-        $this->setIfExists('inapp_web', $data ?? [], null);
-        $this->setIfExists('sms', $data ?? [], null);
-        $this->setIfExists('call', $data ?? [], null);
-        $this->setIfExists('push', $data ?? [], null);
-        $this->setIfExists('web_push', $data ?? [], null);
-        $this->setIfExists('slack', $data ?? [], null);
+        $this->setIfExists('webhook_id', $data ?? [], null);
+        $this->setIfExists('webhook', $data ?? [], null);
+        $this->setIfExists('events', $data ?? [], null);
     }
 
     /**
@@ -317,6 +340,15 @@ class BillingPostResponseBodyPendingDowngradeUsageLimit implements ModelInterfac
     {
         $invalidProperties = [];
 
+        if ($this->container['webhook_id'] === null) {
+            $invalidProperties[] = "'webhook_id' can't be null";
+        }
+        if ($this->container['webhook'] === null) {
+            $invalidProperties[] = "'webhook' can't be null";
+        }
+        if ($this->container['events'] === null) {
+            $invalidProperties[] = "'events' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -333,190 +365,91 @@ class BillingPostResponseBodyPendingDowngradeUsageLimit implements ModelInterfac
 
 
     /**
-     * Gets email
+     * Gets webhook_id
      *
-     * @return float|null
+     * @return string
      */
-    public function getEmail()
+    public function getWebhookId()
     {
-        return $this->container['email'];
+        return $this->container['webhook_id'];
     }
 
     /**
-     * Sets email
+     * Sets webhook_id
      *
-     * @param float|null $email email
+     * @param string $webhook_id Storage key in the format accountId:envId (currently accountId:accountId for account-scoped usage).
      *
      * @return self
      */
-    public function setEmail($email)
+    public function setWebhookId($webhook_id)
     {
-        if (is_null($email)) {
-            throw new \InvalidArgumentException('non-nullable email cannot be null');
+        if (is_null($webhook_id)) {
+            throw new \InvalidArgumentException('non-nullable webhook_id cannot be null');
         }
-        $this->container['email'] = $email;
+        $this->container['webhook_id'] = $webhook_id;
 
         return $this;
     }
 
     /**
-     * Gets inapp_web
+     * Gets webhook
      *
-     * @return float|null
+     * @return string
      */
-    public function getInappWeb()
+    public function getWebhook()
     {
-        return $this->container['inapp_web'];
+        return $this->container['webhook'];
     }
 
     /**
-     * Sets inapp_web
+     * Sets webhook
      *
-     * @param float|null $inapp_web inapp_web
+     * @param string $webhook Destination URL that receives webhook event payloads.
      *
      * @return self
      */
-    public function setInappWeb($inapp_web)
+    public function setWebhook($webhook)
     {
-        if (is_null($inapp_web)) {
-            throw new \InvalidArgumentException('non-nullable inapp_web cannot be null');
+        if (is_null($webhook)) {
+            throw new \InvalidArgumentException('non-nullable webhook cannot be null');
         }
-        $this->container['inapp_web'] = $inapp_web;
+        $this->container['webhook'] = $webhook;
 
         return $this;
     }
 
     /**
-     * Gets sms
+     * Gets events
      *
-     * @return float|null
+     * @return string[]
      */
-    public function getSms()
+    public function getEvents()
     {
-        return $this->container['sms'];
+        return $this->container['events'];
     }
 
     /**
-     * Sets sms
+     * Sets events
      *
-     * @param float|null $sms sms
+     * @param string[] $events List of subscribed event types for this webhook configuration.
      *
      * @return self
      */
-    public function setSms($sms)
+    public function setEvents($events)
     {
-        if (is_null($sms)) {
-            throw new \InvalidArgumentException('non-nullable sms cannot be null');
+        if (is_null($events)) {
+            throw new \InvalidArgumentException('non-nullable events cannot be null');
         }
-        $this->container['sms'] = $sms;
-
-        return $this;
-    }
-
-    /**
-     * Gets call
-     *
-     * @return float|null
-     */
-    public function getCall()
-    {
-        return $this->container['call'];
-    }
-
-    /**
-     * Sets call
-     *
-     * @param float|null $call call
-     *
-     * @return self
-     */
-    public function setCall($call)
-    {
-        if (is_null($call)) {
-            throw new \InvalidArgumentException('non-nullable call cannot be null');
+        $allowedValues = $this->getEventsAllowableValues();
+        if (array_diff($events, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'events', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
         }
-        $this->container['call'] = $call;
-
-        return $this;
-    }
-
-    /**
-     * Gets push
-     *
-     * @return float|null
-     */
-    public function getPush()
-    {
-        return $this->container['push'];
-    }
-
-    /**
-     * Sets push
-     *
-     * @param float|null $push push
-     *
-     * @return self
-     */
-    public function setPush($push)
-    {
-        if (is_null($push)) {
-            throw new \InvalidArgumentException('non-nullable push cannot be null');
-        }
-        $this->container['push'] = $push;
-
-        return $this;
-    }
-
-    /**
-     * Gets web_push
-     *
-     * @return float|null
-     */
-    public function getWebPush()
-    {
-        return $this->container['web_push'];
-    }
-
-    /**
-     * Sets web_push
-     *
-     * @param float|null $web_push web_push
-     *
-     * @return self
-     */
-    public function setWebPush($web_push)
-    {
-        if (is_null($web_push)) {
-            throw new \InvalidArgumentException('non-nullable web_push cannot be null');
-        }
-        $this->container['web_push'] = $web_push;
-
-        return $this;
-    }
-
-    /**
-     * Gets slack
-     *
-     * @return float|null
-     */
-    public function getSlack()
-    {
-        return $this->container['slack'];
-    }
-
-    /**
-     * Sets slack
-     *
-     * @param float|null $slack slack
-     *
-     * @return self
-     */
-    public function setSlack($slack)
-    {
-        if (is_null($slack)) {
-            throw new \InvalidArgumentException('non-nullable slack cannot be null');
-        }
-        $this->container['slack'] = $slack;
+        $this->container['events'] = $events;
 
         return $this;
     }

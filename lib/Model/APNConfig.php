@@ -1,6 +1,6 @@
 <?php
 /**
- * AccountGetResponsePendingDowngradeUsageLimit
+ * APNConfig
  *
  * PHP version 8.1
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \Pingram\ObjectSerializer;
 
 /**
- * AccountGetResponsePendingDowngradeUsageLimit Class Doc Comment
+ * APNConfig Class Doc Comment
  *
  * @category Class
  * @package  Pingram
@@ -40,7 +40,7 @@ use \Pingram\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class AccountGetResponsePendingDowngradeUsageLimit implements ModelInterface, ArrayAccess, \JsonSerializable
+class APNConfig implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class AccountGetResponsePendingDowngradeUsageLimit implements ModelInterface, Ar
       *
       * @var string
       */
-    protected static $openAPIModelName = 'AccountGetResponse_pendingDowngradeUsageLimit';
+    protected static $openAPIModelName = 'APNConfig';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,13 +57,10 @@ class AccountGetResponsePendingDowngradeUsageLimit implements ModelInterface, Ar
       * @var string[]
       */
     protected static $openAPITypes = [
-        'email' => 'float',
-        'inapp_web' => 'float',
-        'sms' => 'float',
-        'call' => 'float',
-        'push' => 'float',
-        'web_push' => 'float',
-        'slack' => 'float'
+        'key_id' => 'string',
+        'key' => 'string',
+        'team_id' => 'string',
+        'topic' => 'string'
     ];
 
     /**
@@ -74,13 +71,10 @@ class AccountGetResponsePendingDowngradeUsageLimit implements ModelInterface, Ar
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'email' => null,
-        'inapp_web' => null,
-        'sms' => null,
-        'call' => null,
-        'push' => null,
-        'web_push' => null,
-        'slack' => null
+        'key_id' => null,
+        'key' => null,
+        'team_id' => null,
+        'topic' => null
     ];
 
     /**
@@ -89,13 +83,10 @@ class AccountGetResponsePendingDowngradeUsageLimit implements ModelInterface, Ar
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'email' => false,
-        'inapp_web' => false,
-        'sms' => false,
-        'call' => false,
-        'push' => false,
-        'web_push' => false,
-        'slack' => false
+        'key_id' => false,
+        'key' => false,
+        'team_id' => false,
+        'topic' => false
     ];
 
     /**
@@ -184,13 +175,10 @@ class AccountGetResponsePendingDowngradeUsageLimit implements ModelInterface, Ar
      * @var string[]
      */
     protected static $attributeMap = [
-        'email' => 'EMAIL',
-        'inapp_web' => 'INAPP_WEB',
-        'sms' => 'SMS',
-        'call' => 'CALL',
-        'push' => 'PUSH',
-        'web_push' => 'WEB_PUSH',
-        'slack' => 'SLACK'
+        'key_id' => 'KeyId',
+        'key' => 'Key',
+        'team_id' => 'TeamId',
+        'topic' => 'Topic'
     ];
 
     /**
@@ -199,13 +187,10 @@ class AccountGetResponsePendingDowngradeUsageLimit implements ModelInterface, Ar
      * @var string[]
      */
     protected static $setters = [
-        'email' => 'setEmail',
-        'inapp_web' => 'setInappWeb',
-        'sms' => 'setSms',
-        'call' => 'setCall',
-        'push' => 'setPush',
-        'web_push' => 'setWebPush',
-        'slack' => 'setSlack'
+        'key_id' => 'setKeyId',
+        'key' => 'setKey',
+        'team_id' => 'setTeamId',
+        'topic' => 'setTopic'
     ];
 
     /**
@@ -214,13 +199,10 @@ class AccountGetResponsePendingDowngradeUsageLimit implements ModelInterface, Ar
      * @var string[]
      */
     protected static $getters = [
-        'email' => 'getEmail',
-        'inapp_web' => 'getInappWeb',
-        'sms' => 'getSms',
-        'call' => 'getCall',
-        'push' => 'getPush',
-        'web_push' => 'getWebPush',
-        'slack' => 'getSlack'
+        'key_id' => 'getKeyId',
+        'key' => 'getKey',
+        'team_id' => 'getTeamId',
+        'topic' => 'getTopic'
     ];
 
     /**
@@ -280,13 +262,10 @@ class AccountGetResponsePendingDowngradeUsageLimit implements ModelInterface, Ar
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('email', $data ?? [], null);
-        $this->setIfExists('inapp_web', $data ?? [], null);
-        $this->setIfExists('sms', $data ?? [], null);
-        $this->setIfExists('call', $data ?? [], null);
-        $this->setIfExists('push', $data ?? [], null);
-        $this->setIfExists('web_push', $data ?? [], null);
-        $this->setIfExists('slack', $data ?? [], null);
+        $this->setIfExists('key_id', $data ?? [], null);
+        $this->setIfExists('key', $data ?? [], null);
+        $this->setIfExists('team_id', $data ?? [], null);
+        $this->setIfExists('topic', $data ?? [], null);
     }
 
     /**
@@ -316,6 +295,18 @@ class AccountGetResponsePendingDowngradeUsageLimit implements ModelInterface, Ar
     {
         $invalidProperties = [];
 
+        if ($this->container['key_id'] === null) {
+            $invalidProperties[] = "'key_id' can't be null";
+        }
+        if ($this->container['key'] === null) {
+            $invalidProperties[] = "'key' can't be null";
+        }
+        if ($this->container['team_id'] === null) {
+            $invalidProperties[] = "'team_id' can't be null";
+        }
+        if ($this->container['topic'] === null) {
+            $invalidProperties[] = "'topic' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -332,190 +323,109 @@ class AccountGetResponsePendingDowngradeUsageLimit implements ModelInterface, Ar
 
 
     /**
-     * Gets email
+     * Gets key_id
      *
-     * @return float|null
+     * @return string
      */
-    public function getEmail()
+    public function getKeyId()
     {
-        return $this->container['email'];
+        return $this->container['key_id'];
     }
 
     /**
-     * Sets email
+     * Sets key_id
      *
-     * @param float|null $email email
+     * @param string $key_id key_id
      *
      * @return self
      */
-    public function setEmail($email)
+    public function setKeyId($key_id)
     {
-        if (is_null($email)) {
-            throw new \InvalidArgumentException('non-nullable email cannot be null');
+        if (is_null($key_id)) {
+            throw new \InvalidArgumentException('non-nullable key_id cannot be null');
         }
-        $this->container['email'] = $email;
+        $this->container['key_id'] = $key_id;
 
         return $this;
     }
 
     /**
-     * Gets inapp_web
+     * Gets key
      *
-     * @return float|null
+     * @return string
      */
-    public function getInappWeb()
+    public function getKey()
     {
-        return $this->container['inapp_web'];
+        return $this->container['key'];
     }
 
     /**
-     * Sets inapp_web
+     * Sets key
      *
-     * @param float|null $inapp_web inapp_web
+     * @param string $key key
      *
      * @return self
      */
-    public function setInappWeb($inapp_web)
+    public function setKey($key)
     {
-        if (is_null($inapp_web)) {
-            throw new \InvalidArgumentException('non-nullable inapp_web cannot be null');
+        if (is_null($key)) {
+            throw new \InvalidArgumentException('non-nullable key cannot be null');
         }
-        $this->container['inapp_web'] = $inapp_web;
+        $this->container['key'] = $key;
 
         return $this;
     }
 
     /**
-     * Gets sms
+     * Gets team_id
      *
-     * @return float|null
+     * @return string
      */
-    public function getSms()
+    public function getTeamId()
     {
-        return $this->container['sms'];
+        return $this->container['team_id'];
     }
 
     /**
-     * Sets sms
+     * Sets team_id
      *
-     * @param float|null $sms sms
+     * @param string $team_id team_id
      *
      * @return self
      */
-    public function setSms($sms)
+    public function setTeamId($team_id)
     {
-        if (is_null($sms)) {
-            throw new \InvalidArgumentException('non-nullable sms cannot be null');
+        if (is_null($team_id)) {
+            throw new \InvalidArgumentException('non-nullable team_id cannot be null');
         }
-        $this->container['sms'] = $sms;
+        $this->container['team_id'] = $team_id;
 
         return $this;
     }
 
     /**
-     * Gets call
+     * Gets topic
      *
-     * @return float|null
+     * @return string
      */
-    public function getCall()
+    public function getTopic()
     {
-        return $this->container['call'];
+        return $this->container['topic'];
     }
 
     /**
-     * Sets call
+     * Sets topic
      *
-     * @param float|null $call call
+     * @param string $topic topic
      *
      * @return self
      */
-    public function setCall($call)
+    public function setTopic($topic)
     {
-        if (is_null($call)) {
-            throw new \InvalidArgumentException('non-nullable call cannot be null');
+        if (is_null($topic)) {
+            throw new \InvalidArgumentException('non-nullable topic cannot be null');
         }
-        $this->container['call'] = $call;
-
-        return $this;
-    }
-
-    /**
-     * Gets push
-     *
-     * @return float|null
-     */
-    public function getPush()
-    {
-        return $this->container['push'];
-    }
-
-    /**
-     * Sets push
-     *
-     * @param float|null $push push
-     *
-     * @return self
-     */
-    public function setPush($push)
-    {
-        if (is_null($push)) {
-            throw new \InvalidArgumentException('non-nullable push cannot be null');
-        }
-        $this->container['push'] = $push;
-
-        return $this;
-    }
-
-    /**
-     * Gets web_push
-     *
-     * @return float|null
-     */
-    public function getWebPush()
-    {
-        return $this->container['web_push'];
-    }
-
-    /**
-     * Sets web_push
-     *
-     * @param float|null $web_push web_push
-     *
-     * @return self
-     */
-    public function setWebPush($web_push)
-    {
-        if (is_null($web_push)) {
-            throw new \InvalidArgumentException('non-nullable web_push cannot be null');
-        }
-        $this->container['web_push'] = $web_push;
-
-        return $this;
-    }
-
-    /**
-     * Gets slack
-     *
-     * @return float|null
-     */
-    public function getSlack()
-    {
-        return $this->container['slack'];
-    }
-
-    /**
-     * Sets slack
-     *
-     * @param float|null $slack slack
-     *
-     * @return self
-     */
-    public function setSlack($slack)
-    {
-        if (is_null($slack)) {
-            throw new \InvalidArgumentException('non-nullable slack cannot be null');
-        }
-        $this->container['slack'] = $slack;
+        $this->container['topic'] = $topic;
 
         return $this;
     }

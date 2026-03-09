@@ -36,6 +36,10 @@ use Pingram\Api\LogsApi;
 
 use Pingram\Api\MembersApi;
 
+use Pingram\Api\OrganizationApi;
+
+use Pingram\Api\PushSettingsApi;
+
 use Pingram\Api\SenderApi;
 
 use Pingram\Api\TemplatesApi;
@@ -45,6 +49,8 @@ use Pingram\Api\TypesApi;
 use Pingram\Api\UserApi;
 
 use Pingram\Api\UsersApi;
+
+use Pingram\Api\WebhooksApi;
 
 
 use Pingram\Model\SenderPostBody;
@@ -106,6 +112,12 @@ class Client
     /** @var MembersApi */
     private $members;
 
+    /** @var OrganizationApi */
+    private $organization;
+
+    /** @var PushSettingsApi */
+    private $pushSettings;
+
     /** @var SenderApi */
     private $sender;
 
@@ -120,6 +132,9 @@ class Client
 
     /** @var UsersApi */
     private $users;
+
+    /** @var WebhooksApi */
+    private $webhooks;
 
 
     /**
@@ -162,6 +177,10 @@ class Client
 
         $this->members = new MembersApi($this->httpClient, $this->config);
 
+        $this->organization = new OrganizationApi($this->httpClient, $this->config);
+
+        $this->pushSettings = new PushSettingsApi($this->httpClient, $this->config);
+
         $this->sender = new SenderApi($this->httpClient, $this->config);
 
         $this->templates = new TemplatesApi($this->httpClient, $this->config);
@@ -171,6 +190,8 @@ class Client
         $this->user = new UserApi($this->httpClient, $this->config);
 
         $this->users = new UsersApi($this->httpClient, $this->config);
+
+        $this->webhooks = new WebhooksApi($this->httpClient, $this->config);
 
     }
 
@@ -296,6 +317,24 @@ class Client
 
 
     /**
+     * @return OrganizationApi
+     */
+    public function getOrganization(): \Pingram\Api\OrganizationApi
+    {
+        return $this->organization;
+    }
+
+
+    /**
+     * @return PushSettingsApi
+     */
+    public function getPushSettings(): \Pingram\Api\PushSettingsApi
+    {
+        return $this->pushSettings;
+    }
+
+
+    /**
      * @return SenderApi
      */
     public function getSender(): \Pingram\Api\SenderApi
@@ -337,6 +376,15 @@ class Client
     public function getUsers(): \Pingram\Api\UsersApi
     {
         return $this->users;
+    }
+
+
+    /**
+     * @return WebhooksApi
+     */
+    public function getWebhooks(): \Pingram\Api\WebhooksApi
+    {
+        return $this->webhooks;
     }
 
 

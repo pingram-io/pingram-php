@@ -1,6 +1,6 @@
 <?php
 /**
- * BillingPostRequestBody
+ * PushSettingsFCMResponse
  *
  * PHP version 8.1
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \Pingram\ObjectSerializer;
 
 /**
- * BillingPostRequestBody Class Doc Comment
+ * PushSettingsFCMResponse Class Doc Comment
  *
  * @category Class
  * @package  Pingram
@@ -40,7 +40,7 @@ use \Pingram\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerializable
+class PushSettingsFCMResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
       *
       * @var string
       */
-    protected static $openAPIModelName = 'BillingPostRequestBody';
+    protected static $openAPIModelName = 'PushSettingsFCMResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,10 +57,7 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
       * @var string[]
       */
     protected static $openAPITypes = [
-        'message_price_id' => 'string',
-        'budget_price_id' => 'string',
-        'success_url' => 'string',
-        'cancel_url' => 'string'
+        'fcm_config' => 'string'
     ];
 
     /**
@@ -71,10 +68,7 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'message_price_id' => null,
-        'budget_price_id' => null,
-        'success_url' => null,
-        'cancel_url' => null
+        'fcm_config' => null
     ];
 
     /**
@@ -83,10 +77,7 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'message_price_id' => false,
-        'budget_price_id' => false,
-        'success_url' => false,
-        'cancel_url' => false
+        'fcm_config' => false
     ];
 
     /**
@@ -175,10 +166,7 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $attributeMap = [
-        'message_price_id' => 'messagePriceId',
-        'budget_price_id' => 'budgetPriceId',
-        'success_url' => 'successUrl',
-        'cancel_url' => 'cancelUrl'
+        'fcm_config' => 'fcmConfig'
     ];
 
     /**
@@ -187,10 +175,7 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $setters = [
-        'message_price_id' => 'setMessagePriceId',
-        'budget_price_id' => 'setBudgetPriceId',
-        'success_url' => 'setSuccessUrl',
-        'cancel_url' => 'setCancelUrl'
+        'fcm_config' => 'setFcmConfig'
     ];
 
     /**
@@ -199,10 +184,7 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $getters = [
-        'message_price_id' => 'getMessagePriceId',
-        'budget_price_id' => 'getBudgetPriceId',
-        'success_url' => 'getSuccessUrl',
-        'cancel_url' => 'getCancelUrl'
+        'fcm_config' => 'getFcmConfig'
     ];
 
     /**
@@ -262,10 +244,7 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('message_price_id', $data ?? [], null);
-        $this->setIfExists('budget_price_id', $data ?? [], null);
-        $this->setIfExists('success_url', $data ?? [], null);
-        $this->setIfExists('cancel_url', $data ?? [], null);
+        $this->setIfExists('fcm_config', $data ?? [], null);
     }
 
     /**
@@ -295,11 +274,8 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
     {
         $invalidProperties = [];
 
-        if ($this->container['success_url'] === null) {
-            $invalidProperties[] = "'success_url' can't be null";
-        }
-        if ($this->container['cancel_url'] === null) {
-            $invalidProperties[] = "'cancel_url' can't be null";
+        if ($this->container['fcm_config'] === null) {
+            $invalidProperties[] = "'fcm_config' can't be null";
         }
         return $invalidProperties;
     }
@@ -317,109 +293,28 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
 
 
     /**
-     * Gets message_price_id
-     *
-     * @return string|null
-     */
-    public function getMessagePriceId()
-    {
-        return $this->container['message_price_id'];
-    }
-
-    /**
-     * Sets message_price_id
-     *
-     * @param string|null $message_price_id Price ID for the message tier (EMAIL, INAPP_WEB, WEB_PUSH, PUSH, SLACK)
-     *
-     * @return self
-     */
-    public function setMessagePriceId($message_price_id)
-    {
-        if (is_null($message_price_id)) {
-            throw new \InvalidArgumentException('non-nullable message_price_id cannot be null');
-        }
-        $this->container['message_price_id'] = $message_price_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets budget_price_id
-     *
-     * @return string|null
-     */
-    public function getBudgetPriceId()
-    {
-        return $this->container['budget_price_id'];
-    }
-
-    /**
-     * Sets budget_price_id
-     *
-     * @param string|null $budget_price_id Price ID for the budget tier (SMS, CALL)
-     *
-     * @return self
-     */
-    public function setBudgetPriceId($budget_price_id)
-    {
-        if (is_null($budget_price_id)) {
-            throw new \InvalidArgumentException('non-nullable budget_price_id cannot be null');
-        }
-        $this->container['budget_price_id'] = $budget_price_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets success_url
+     * Gets fcm_config
      *
      * @return string
      */
-    public function getSuccessUrl()
+    public function getFcmConfig()
     {
-        return $this->container['success_url'];
+        return $this->container['fcm_config'];
     }
 
     /**
-     * Sets success_url
+     * Sets fcm_config
      *
-     * @param string $success_url success_url
+     * @param string $fcm_config fcm_config
      *
      * @return self
      */
-    public function setSuccessUrl($success_url)
+    public function setFcmConfig($fcm_config)
     {
-        if (is_null($success_url)) {
-            throw new \InvalidArgumentException('non-nullable success_url cannot be null');
+        if (is_null($fcm_config)) {
+            throw new \InvalidArgumentException('non-nullable fcm_config cannot be null');
         }
-        $this->container['success_url'] = $success_url;
-
-        return $this;
-    }
-
-    /**
-     * Gets cancel_url
-     *
-     * @return string
-     */
-    public function getCancelUrl()
-    {
-        return $this->container['cancel_url'];
-    }
-
-    /**
-     * Sets cancel_url
-     *
-     * @param string $cancel_url cancel_url
-     *
-     * @return self
-     */
-    public function setCancelUrl($cancel_url)
-    {
-        if (is_null($cancel_url)) {
-            throw new \InvalidArgumentException('non-nullable cancel_url cannot be null');
-        }
-        $this->container['cancel_url'] = $cancel_url;
+        $this->container['fcm_config'] = $fcm_config;
 
         return $this;
     }

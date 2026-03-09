@@ -1,6 +1,6 @@
 <?php
 /**
- * BillingPostRequestBody
+ * GetUsageHistoryQuery
  *
  * PHP version 8.1
  *
@@ -32,15 +32,16 @@ use \ArrayAccess;
 use \Pingram\ObjectSerializer;
 
 /**
- * BillingPostRequestBody Class Doc Comment
+ * GetUsageHistoryQuery Class Doc Comment
  *
  * @category Class
+ * @description Query parameters for GET /organization/usage/history
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerializable
+class GetUsageHistoryQuery implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +50,7 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
       *
       * @var string
       */
-    protected static $openAPIModelName = 'BillingPostRequestBody';
+    protected static $openAPIModelName = 'GetUsageHistoryQuery';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,10 +58,8 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
       * @var string[]
       */
     protected static $openAPITypes = [
-        'message_price_id' => 'string',
-        'budget_price_id' => 'string',
-        'success_url' => 'string',
-        'cancel_url' => 'string'
+        'start_date' => 'string',
+        'end_date' => 'string'
     ];
 
     /**
@@ -71,10 +70,8 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'message_price_id' => null,
-        'budget_price_id' => null,
-        'success_url' => null,
-        'cancel_url' => null
+        'start_date' => null,
+        'end_date' => null
     ];
 
     /**
@@ -83,10 +80,8 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'message_price_id' => false,
-        'budget_price_id' => false,
-        'success_url' => false,
-        'cancel_url' => false
+        'start_date' => false,
+        'end_date' => false
     ];
 
     /**
@@ -175,10 +170,8 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $attributeMap = [
-        'message_price_id' => 'messagePriceId',
-        'budget_price_id' => 'budgetPriceId',
-        'success_url' => 'successUrl',
-        'cancel_url' => 'cancelUrl'
+        'start_date' => 'startDate',
+        'end_date' => 'endDate'
     ];
 
     /**
@@ -187,10 +180,8 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $setters = [
-        'message_price_id' => 'setMessagePriceId',
-        'budget_price_id' => 'setBudgetPriceId',
-        'success_url' => 'setSuccessUrl',
-        'cancel_url' => 'setCancelUrl'
+        'start_date' => 'setStartDate',
+        'end_date' => 'setEndDate'
     ];
 
     /**
@@ -199,10 +190,8 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $getters = [
-        'message_price_id' => 'getMessagePriceId',
-        'budget_price_id' => 'getBudgetPriceId',
-        'success_url' => 'getSuccessUrl',
-        'cancel_url' => 'getCancelUrl'
+        'start_date' => 'getStartDate',
+        'end_date' => 'getEndDate'
     ];
 
     /**
@@ -262,10 +251,8 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('message_price_id', $data ?? [], null);
-        $this->setIfExists('budget_price_id', $data ?? [], null);
-        $this->setIfExists('success_url', $data ?? [], null);
-        $this->setIfExists('cancel_url', $data ?? [], null);
+        $this->setIfExists('start_date', $data ?? [], null);
+        $this->setIfExists('end_date', $data ?? [], null);
     }
 
     /**
@@ -295,11 +282,11 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
     {
         $invalidProperties = [];
 
-        if ($this->container['success_url'] === null) {
-            $invalidProperties[] = "'success_url' can't be null";
+        if ($this->container['start_date'] === null) {
+            $invalidProperties[] = "'start_date' can't be null";
         }
-        if ($this->container['cancel_url'] === null) {
-            $invalidProperties[] = "'cancel_url' can't be null";
+        if ($this->container['end_date'] === null) {
+            $invalidProperties[] = "'end_date' can't be null";
         }
         return $invalidProperties;
     }
@@ -317,109 +304,55 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
 
 
     /**
-     * Gets message_price_id
-     *
-     * @return string|null
-     */
-    public function getMessagePriceId()
-    {
-        return $this->container['message_price_id'];
-    }
-
-    /**
-     * Sets message_price_id
-     *
-     * @param string|null $message_price_id Price ID for the message tier (EMAIL, INAPP_WEB, WEB_PUSH, PUSH, SLACK)
-     *
-     * @return self
-     */
-    public function setMessagePriceId($message_price_id)
-    {
-        if (is_null($message_price_id)) {
-            throw new \InvalidArgumentException('non-nullable message_price_id cannot be null');
-        }
-        $this->container['message_price_id'] = $message_price_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets budget_price_id
-     *
-     * @return string|null
-     */
-    public function getBudgetPriceId()
-    {
-        return $this->container['budget_price_id'];
-    }
-
-    /**
-     * Sets budget_price_id
-     *
-     * @param string|null $budget_price_id Price ID for the budget tier (SMS, CALL)
-     *
-     * @return self
-     */
-    public function setBudgetPriceId($budget_price_id)
-    {
-        if (is_null($budget_price_id)) {
-            throw new \InvalidArgumentException('non-nullable budget_price_id cannot be null');
-        }
-        $this->container['budget_price_id'] = $budget_price_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets success_url
+     * Gets start_date
      *
      * @return string
      */
-    public function getSuccessUrl()
+    public function getStartDate()
     {
-        return $this->container['success_url'];
+        return $this->container['start_date'];
     }
 
     /**
-     * Sets success_url
+     * Sets start_date
      *
-     * @param string $success_url success_url
+     * @param string $start_date Start date (YYYY-MM-DD) for the range
      *
      * @return self
      */
-    public function setSuccessUrl($success_url)
+    public function setStartDate($start_date)
     {
-        if (is_null($success_url)) {
-            throw new \InvalidArgumentException('non-nullable success_url cannot be null');
+        if (is_null($start_date)) {
+            throw new \InvalidArgumentException('non-nullable start_date cannot be null');
         }
-        $this->container['success_url'] = $success_url;
+        $this->container['start_date'] = $start_date;
 
         return $this;
     }
 
     /**
-     * Gets cancel_url
+     * Gets end_date
      *
      * @return string
      */
-    public function getCancelUrl()
+    public function getEndDate()
     {
-        return $this->container['cancel_url'];
+        return $this->container['end_date'];
     }
 
     /**
-     * Sets cancel_url
+     * Sets end_date
      *
-     * @param string $cancel_url cancel_url
+     * @param string $end_date End date (YYYY-MM-DD) for the range
      *
      * @return self
      */
-    public function setCancelUrl($cancel_url)
+    public function setEndDate($end_date)
     {
-        if (is_null($cancel_url)) {
-            throw new \InvalidArgumentException('non-nullable cancel_url cannot be null');
+        if (is_null($end_date)) {
+            throw new \InvalidArgumentException('non-nullable end_date cannot be null');
         }
-        $this->container['cancel_url'] = $cancel_url;
+        $this->container['end_date'] = $end_date;
 
         return $this;
     }

@@ -1,4 +1,4 @@
-# # BillingPostResponseBody
+# # Organization
 
 ## Properties
 
@@ -20,13 +20,13 @@ Name | Type | Description | Notes
 **stripe_subscription_id** | **string** |  | [optional]
 **subscription_status** | **string** |  | [optional]
 **status** | **string** | Verification status; internalCap applies when not &#39;verified&#39;. | [optional]
+**internal_cap** | **float** | Unverified account cap (per-channel message limit). | [optional]
 **pending_downgrade_cost_cap** | **float** |  | [optional]
 **pending_downgrade_messages_cap** | **float** |  | [optional]
 **pending_downgrade_sms_cap** | **float** |  | [optional]
 **pending_downgrade_call_cap** | **float** |  | [optional]
+**pending_downgrade_internal_cap** | **float** |  | [optional]
 **pending_downgrade_effective_date** | **string** |  | [optional]
 **pending_downgrade_account_type** | **string** |  | [optional]
-**session_id** | **string** |  | [optional]
-**url** | **string** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

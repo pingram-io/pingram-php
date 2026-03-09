@@ -1,6 +1,6 @@
 <?php
 /**
- * BillingPostResponseBody
+ * Organization
  *
  * PHP version 8.1
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \Pingram\ObjectSerializer;
 
 /**
- * BillingPostResponseBody Class Doc Comment
+ * Organization Class Doc Comment
  *
  * @category Class
- * @description POST /billing response: account + merged usage limits (when present) + optional session.
+ * @description Organization document in organizations table. Holds usage caps; one org can have multiple accounts.
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class BillingPostResponseBody implements ModelInterface, ArrayAccess, \JsonSerializable
+class Organization implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class BillingPostResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
       *
       * @var string
       */
-    protected static $openAPIModelName = 'BillingPostResponseBody';
+    protected static $openAPIModelName = 'Organization';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -74,14 +74,14 @@ class BillingPostResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
         'stripe_subscription_id' => 'string',
         'subscription_status' => 'string',
         'status' => 'string',
+        'internal_cap' => 'float',
         'pending_downgrade_cost_cap' => 'float',
         'pending_downgrade_messages_cap' => 'float',
         'pending_downgrade_sms_cap' => 'float',
         'pending_downgrade_call_cap' => 'float',
+        'pending_downgrade_internal_cap' => 'float',
         'pending_downgrade_effective_date' => 'string',
-        'pending_downgrade_account_type' => 'string',
-        'session_id' => 'string',
-        'url' => 'string'
+        'pending_downgrade_account_type' => 'string'
     ];
 
     /**
@@ -108,14 +108,14 @@ class BillingPostResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
         'stripe_subscription_id' => null,
         'subscription_status' => null,
         'status' => null,
+        'internal_cap' => null,
         'pending_downgrade_cost_cap' => null,
         'pending_downgrade_messages_cap' => null,
         'pending_downgrade_sms_cap' => null,
         'pending_downgrade_call_cap' => null,
+        'pending_downgrade_internal_cap' => null,
         'pending_downgrade_effective_date' => null,
-        'pending_downgrade_account_type' => null,
-        'session_id' => null,
-        'url' => null
+        'pending_downgrade_account_type' => null
     ];
 
     /**
@@ -140,14 +140,14 @@ class BillingPostResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
         'stripe_subscription_id' => false,
         'subscription_status' => true,
         'status' => false,
+        'internal_cap' => false,
         'pending_downgrade_cost_cap' => false,
         'pending_downgrade_messages_cap' => false,
         'pending_downgrade_sms_cap' => false,
         'pending_downgrade_call_cap' => false,
+        'pending_downgrade_internal_cap' => false,
         'pending_downgrade_effective_date' => false,
-        'pending_downgrade_account_type' => false,
-        'session_id' => false,
-        'url' => false
+        'pending_downgrade_account_type' => false
     ];
 
     /**
@@ -252,14 +252,14 @@ class BillingPostResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
         'stripe_subscription_id' => 'stripeSubscriptionId',
         'subscription_status' => 'subscriptionStatus',
         'status' => 'status',
+        'internal_cap' => 'internalCap',
         'pending_downgrade_cost_cap' => 'pendingDowngradeCostCap',
         'pending_downgrade_messages_cap' => 'pendingDowngradeMessagesCap',
         'pending_downgrade_sms_cap' => 'pendingDowngradeSmsCap',
         'pending_downgrade_call_cap' => 'pendingDowngradeCallCap',
+        'pending_downgrade_internal_cap' => 'pendingDowngradeInternalCap',
         'pending_downgrade_effective_date' => 'pendingDowngradeEffectiveDate',
-        'pending_downgrade_account_type' => 'pendingDowngradeAccountType',
-        'session_id' => 'sessionId',
-        'url' => 'url'
+        'pending_downgrade_account_type' => 'pendingDowngradeAccountType'
     ];
 
     /**
@@ -284,14 +284,14 @@ class BillingPostResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
         'stripe_subscription_id' => 'setStripeSubscriptionId',
         'subscription_status' => 'setSubscriptionStatus',
         'status' => 'setStatus',
+        'internal_cap' => 'setInternalCap',
         'pending_downgrade_cost_cap' => 'setPendingDowngradeCostCap',
         'pending_downgrade_messages_cap' => 'setPendingDowngradeMessagesCap',
         'pending_downgrade_sms_cap' => 'setPendingDowngradeSmsCap',
         'pending_downgrade_call_cap' => 'setPendingDowngradeCallCap',
+        'pending_downgrade_internal_cap' => 'setPendingDowngradeInternalCap',
         'pending_downgrade_effective_date' => 'setPendingDowngradeEffectiveDate',
-        'pending_downgrade_account_type' => 'setPendingDowngradeAccountType',
-        'session_id' => 'setSessionId',
-        'url' => 'setUrl'
+        'pending_downgrade_account_type' => 'setPendingDowngradeAccountType'
     ];
 
     /**
@@ -316,14 +316,14 @@ class BillingPostResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
         'stripe_subscription_id' => 'getStripeSubscriptionId',
         'subscription_status' => 'getSubscriptionStatus',
         'status' => 'getStatus',
+        'internal_cap' => 'getInternalCap',
         'pending_downgrade_cost_cap' => 'getPendingDowngradeCostCap',
         'pending_downgrade_messages_cap' => 'getPendingDowngradeMessagesCap',
         'pending_downgrade_sms_cap' => 'getPendingDowngradeSmsCap',
         'pending_downgrade_call_cap' => 'getPendingDowngradeCallCap',
+        'pending_downgrade_internal_cap' => 'getPendingDowngradeInternalCap',
         'pending_downgrade_effective_date' => 'getPendingDowngradeEffectiveDate',
-        'pending_downgrade_account_type' => 'getPendingDowngradeAccountType',
-        'session_id' => 'getSessionId',
-        'url' => 'getUrl'
+        'pending_downgrade_account_type' => 'getPendingDowngradeAccountType'
     ];
 
     /**
@@ -463,14 +463,14 @@ class BillingPostResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
         $this->setIfExists('stripe_subscription_id', $data ?? [], null);
         $this->setIfExists('subscription_status', $data ?? [], null);
         $this->setIfExists('status', $data ?? [], null);
+        $this->setIfExists('internal_cap', $data ?? [], null);
         $this->setIfExists('pending_downgrade_cost_cap', $data ?? [], null);
         $this->setIfExists('pending_downgrade_messages_cap', $data ?? [], null);
         $this->setIfExists('pending_downgrade_sms_cap', $data ?? [], null);
         $this->setIfExists('pending_downgrade_call_cap', $data ?? [], null);
+        $this->setIfExists('pending_downgrade_internal_cap', $data ?? [], null);
         $this->setIfExists('pending_downgrade_effective_date', $data ?? [], null);
         $this->setIfExists('pending_downgrade_account_type', $data ?? [], null);
-        $this->setIfExists('session_id', $data ?? [], null);
-        $this->setIfExists('url', $data ?? [], null);
     }
 
     /**
@@ -1051,6 +1051,33 @@ class BillingPostResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
     }
 
     /**
+     * Gets internal_cap
+     *
+     * @return float|null
+     */
+    public function getInternalCap()
+    {
+        return $this->container['internal_cap'];
+    }
+
+    /**
+     * Sets internal_cap
+     *
+     * @param float|null $internal_cap Unverified account cap (per-channel message limit).
+     *
+     * @return self
+     */
+    public function setInternalCap($internal_cap)
+    {
+        if (is_null($internal_cap)) {
+            throw new \InvalidArgumentException('non-nullable internal_cap cannot be null');
+        }
+        $this->container['internal_cap'] = $internal_cap;
+
+        return $this;
+    }
+
+    /**
      * Gets pending_downgrade_cost_cap
      *
      * @return float|null
@@ -1159,6 +1186,33 @@ class BillingPostResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
     }
 
     /**
+     * Gets pending_downgrade_internal_cap
+     *
+     * @return float|null
+     */
+    public function getPendingDowngradeInternalCap()
+    {
+        return $this->container['pending_downgrade_internal_cap'];
+    }
+
+    /**
+     * Sets pending_downgrade_internal_cap
+     *
+     * @param float|null $pending_downgrade_internal_cap pending_downgrade_internal_cap
+     *
+     * @return self
+     */
+    public function setPendingDowngradeInternalCap($pending_downgrade_internal_cap)
+    {
+        if (is_null($pending_downgrade_internal_cap)) {
+            throw new \InvalidArgumentException('non-nullable pending_downgrade_internal_cap cannot be null');
+        }
+        $this->container['pending_downgrade_internal_cap'] = $pending_downgrade_internal_cap;
+
+        return $this;
+    }
+
+    /**
      * Gets pending_downgrade_effective_date
      *
      * @return string|null
@@ -1218,60 +1272,6 @@ class BillingPostResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
             );
         }
         $this->container['pending_downgrade_account_type'] = $pending_downgrade_account_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets session_id
-     *
-     * @return string|null
-     */
-    public function getSessionId()
-    {
-        return $this->container['session_id'];
-    }
-
-    /**
-     * Sets session_id
-     *
-     * @param string|null $session_id session_id
-     *
-     * @return self
-     */
-    public function setSessionId($session_id)
-    {
-        if (is_null($session_id)) {
-            throw new \InvalidArgumentException('non-nullable session_id cannot be null');
-        }
-        $this->container['session_id'] = $session_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets url
-     *
-     * @return string|null
-     */
-    public function getUrl()
-    {
-        return $this->container['url'];
-    }
-
-    /**
-     * Sets url
-     *
-     * @param string|null $url url
-     *
-     * @return self
-     */
-    public function setUrl($url)
-    {
-        if (is_null($url)) {
-            throw new \InvalidArgumentException('non-nullable url cannot be null');
-        }
-        $this->container['url'] = $url;
 
         return $this;
     }

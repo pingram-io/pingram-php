@@ -1,6 +1,6 @@
 <?php
 /**
- * BillingPostRequestBody
+ * OrganizationUsageHistory
  *
  * PHP version 8.1
  *
@@ -32,15 +32,16 @@ use \ArrayAccess;
 use \Pingram\ObjectSerializer;
 
 /**
- * BillingPostRequestBody Class Doc Comment
+ * OrganizationUsageHistory Class Doc Comment
  *
  * @category Class
+ * @description Response for GET /organization/usage/history
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerializable
+class OrganizationUsageHistory implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +50,7 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
       *
       * @var string
       */
-    protected static $openAPIModelName = 'BillingPostRequestBody';
+    protected static $openAPIModelName = 'OrganizationUsageHistory';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,10 +58,7 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
       * @var string[]
       */
     protected static $openAPITypes = [
-        'message_price_id' => 'string',
-        'budget_price_id' => 'string',
-        'success_url' => 'string',
-        'cancel_url' => 'string'
+        'items' => '\Pingram\Model\OrganizationUsageHistoryItemsInner[]'
     ];
 
     /**
@@ -71,10 +69,7 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'message_price_id' => null,
-        'budget_price_id' => null,
-        'success_url' => null,
-        'cancel_url' => null
+        'items' => null
     ];
 
     /**
@@ -83,10 +78,7 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'message_price_id' => false,
-        'budget_price_id' => false,
-        'success_url' => false,
-        'cancel_url' => false
+        'items' => false
     ];
 
     /**
@@ -175,10 +167,7 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $attributeMap = [
-        'message_price_id' => 'messagePriceId',
-        'budget_price_id' => 'budgetPriceId',
-        'success_url' => 'successUrl',
-        'cancel_url' => 'cancelUrl'
+        'items' => 'items'
     ];
 
     /**
@@ -187,10 +176,7 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $setters = [
-        'message_price_id' => 'setMessagePriceId',
-        'budget_price_id' => 'setBudgetPriceId',
-        'success_url' => 'setSuccessUrl',
-        'cancel_url' => 'setCancelUrl'
+        'items' => 'setItems'
     ];
 
     /**
@@ -199,10 +185,7 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $getters = [
-        'message_price_id' => 'getMessagePriceId',
-        'budget_price_id' => 'getBudgetPriceId',
-        'success_url' => 'getSuccessUrl',
-        'cancel_url' => 'getCancelUrl'
+        'items' => 'getItems'
     ];
 
     /**
@@ -262,10 +245,7 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('message_price_id', $data ?? [], null);
-        $this->setIfExists('budget_price_id', $data ?? [], null);
-        $this->setIfExists('success_url', $data ?? [], null);
-        $this->setIfExists('cancel_url', $data ?? [], null);
+        $this->setIfExists('items', $data ?? [], null);
     }
 
     /**
@@ -295,11 +275,8 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
     {
         $invalidProperties = [];
 
-        if ($this->container['success_url'] === null) {
-            $invalidProperties[] = "'success_url' can't be null";
-        }
-        if ($this->container['cancel_url'] === null) {
-            $invalidProperties[] = "'cancel_url' can't be null";
+        if ($this->container['items'] === null) {
+            $invalidProperties[] = "'items' can't be null";
         }
         return $invalidProperties;
     }
@@ -317,109 +294,28 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
 
 
     /**
-     * Gets message_price_id
+     * Gets items
      *
-     * @return string|null
+     * @return \Pingram\Model\OrganizationUsageHistoryItemsInner[]
      */
-    public function getMessagePriceId()
+    public function getItems()
     {
-        return $this->container['message_price_id'];
+        return $this->container['items'];
     }
 
     /**
-     * Sets message_price_id
+     * Sets items
      *
-     * @param string|null $message_price_id Price ID for the message tier (EMAIL, INAPP_WEB, WEB_PUSH, PUSH, SLACK)
+     * @param \Pingram\Model\OrganizationUsageHistoryItemsInner[] $items Array of usage items, one per month in the requested range
      *
      * @return self
      */
-    public function setMessagePriceId($message_price_id)
+    public function setItems($items)
     {
-        if (is_null($message_price_id)) {
-            throw new \InvalidArgumentException('non-nullable message_price_id cannot be null');
+        if (is_null($items)) {
+            throw new \InvalidArgumentException('non-nullable items cannot be null');
         }
-        $this->container['message_price_id'] = $message_price_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets budget_price_id
-     *
-     * @return string|null
-     */
-    public function getBudgetPriceId()
-    {
-        return $this->container['budget_price_id'];
-    }
-
-    /**
-     * Sets budget_price_id
-     *
-     * @param string|null $budget_price_id Price ID for the budget tier (SMS, CALL)
-     *
-     * @return self
-     */
-    public function setBudgetPriceId($budget_price_id)
-    {
-        if (is_null($budget_price_id)) {
-            throw new \InvalidArgumentException('non-nullable budget_price_id cannot be null');
-        }
-        $this->container['budget_price_id'] = $budget_price_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets success_url
-     *
-     * @return string
-     */
-    public function getSuccessUrl()
-    {
-        return $this->container['success_url'];
-    }
-
-    /**
-     * Sets success_url
-     *
-     * @param string $success_url success_url
-     *
-     * @return self
-     */
-    public function setSuccessUrl($success_url)
-    {
-        if (is_null($success_url)) {
-            throw new \InvalidArgumentException('non-nullable success_url cannot be null');
-        }
-        $this->container['success_url'] = $success_url;
-
-        return $this;
-    }
-
-    /**
-     * Gets cancel_url
-     *
-     * @return string
-     */
-    public function getCancelUrl()
-    {
-        return $this->container['cancel_url'];
-    }
-
-    /**
-     * Sets cancel_url
-     *
-     * @param string $cancel_url cancel_url
-     *
-     * @return self
-     */
-    public function setCancelUrl($cancel_url)
-    {
-        if (is_null($cancel_url)) {
-            throw new \InvalidArgumentException('non-nullable cancel_url cannot be null');
-        }
-        $this->container['cancel_url'] = $cancel_url;
+        $this->container['items'] = $items;
 
         return $this;
     }

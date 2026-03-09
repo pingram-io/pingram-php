@@ -1,6 +1,6 @@
 <?php
 /**
- * BillingPostRequestBody
+ * EventsWebhookUpsertRequest
  *
  * PHP version 8.1
  *
@@ -32,15 +32,16 @@ use \ArrayAccess;
 use \Pingram\ObjectSerializer;
 
 /**
- * BillingPostRequestBody Class Doc Comment
+ * EventsWebhookUpsertRequest Class Doc Comment
  *
  * @category Class
+ * @description Request body for creating or updating the events webhook configuration.
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerializable
+class EventsWebhookUpsertRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +50,7 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
       *
       * @var string
       */
-    protected static $openAPIModelName = 'BillingPostRequestBody';
+    protected static $openAPIModelName = 'EventsWebhookUpsertRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,10 +58,8 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
       * @var string[]
       */
     protected static $openAPITypes = [
-        'message_price_id' => 'string',
-        'budget_price_id' => 'string',
-        'success_url' => 'string',
-        'cancel_url' => 'string'
+        'webhook' => 'string',
+        'events' => 'string[]'
     ];
 
     /**
@@ -71,10 +70,8 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'message_price_id' => null,
-        'budget_price_id' => null,
-        'success_url' => null,
-        'cancel_url' => null
+        'webhook' => null,
+        'events' => null
     ];
 
     /**
@@ -83,10 +80,8 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'message_price_id' => false,
-        'budget_price_id' => false,
-        'success_url' => false,
-        'cancel_url' => false
+        'webhook' => false,
+        'events' => false
     ];
 
     /**
@@ -175,10 +170,8 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $attributeMap = [
-        'message_price_id' => 'messagePriceId',
-        'budget_price_id' => 'budgetPriceId',
-        'success_url' => 'successUrl',
-        'cancel_url' => 'cancelUrl'
+        'webhook' => 'webhook',
+        'events' => 'events'
     ];
 
     /**
@@ -187,10 +180,8 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $setters = [
-        'message_price_id' => 'setMessagePriceId',
-        'budget_price_id' => 'setBudgetPriceId',
-        'success_url' => 'setSuccessUrl',
-        'cancel_url' => 'setCancelUrl'
+        'webhook' => 'setWebhook',
+        'events' => 'setEvents'
     ];
 
     /**
@@ -199,10 +190,8 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $getters = [
-        'message_price_id' => 'getMessagePriceId',
-        'budget_price_id' => 'getBudgetPriceId',
-        'success_url' => 'getSuccessUrl',
-        'cancel_url' => 'getCancelUrl'
+        'webhook' => 'getWebhook',
+        'events' => 'getEvents'
     ];
 
     /**
@@ -246,6 +235,57 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
         return self::$openAPIModelName;
     }
 
+    public const EVENTS_EMAIL_OPEN = 'EMAIL_OPEN';
+    public const EVENTS_EMAIL_CLICK = 'EMAIL_CLICK';
+    public const EVENTS_EMAIL_FAILED = 'EMAIL_FAILED';
+    public const EVENTS_EMAIL_DELIVERED = 'EMAIL_DELIVERED';
+    public const EVENTS_EMAIL_UNSUBSCRIBE = 'EMAIL_UNSUBSCRIBE';
+    public const EVENTS_EMAIL_INBOUND = 'EMAIL_INBOUND';
+    public const EVENTS_INAPP_WEB_FAILED = 'INAPP_WEB_FAILED';
+    public const EVENTS_INAPP_WEB_UNSUBSCRIBE = 'INAPP_WEB_UNSUBSCRIBE';
+    public const EVENTS_SMS_DELIVERED = 'SMS_DELIVERED';
+    public const EVENTS_SMS_FAILED = 'SMS_FAILED';
+    public const EVENTS_SMS_UNSUBSCRIBE = 'SMS_UNSUBSCRIBE';
+    public const EVENTS_SMS_INBOUND = 'SMS_INBOUND';
+    public const EVENTS_PUSH_FAILED = 'PUSH_FAILED';
+    public const EVENTS_PUSH_UNSUBSCRIBE = 'PUSH_UNSUBSCRIBE';
+    public const EVENTS_CALL_FAILED = 'CALL_FAILED';
+    public const EVENTS_CALL_UNSUBSCRIBE = 'CALL_UNSUBSCRIBE';
+    public const EVENTS_WEB_PUSH_FAILED = 'WEB_PUSH_FAILED';
+    public const EVENTS_WEB_PUSH_UNSUBSCRIBE = 'WEB_PUSH_UNSUBSCRIBE';
+    public const EVENTS_SLACK_FAILED = 'SLACK_FAILED';
+    public const EVENTS_SLACK_UNSUBSCRIBE = 'SLACK_UNSUBSCRIBE';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getEventsAllowableValues()
+    {
+        return [
+            self::EVENTS_EMAIL_OPEN,
+            self::EVENTS_EMAIL_CLICK,
+            self::EVENTS_EMAIL_FAILED,
+            self::EVENTS_EMAIL_DELIVERED,
+            self::EVENTS_EMAIL_UNSUBSCRIBE,
+            self::EVENTS_EMAIL_INBOUND,
+            self::EVENTS_INAPP_WEB_FAILED,
+            self::EVENTS_INAPP_WEB_UNSUBSCRIBE,
+            self::EVENTS_SMS_DELIVERED,
+            self::EVENTS_SMS_FAILED,
+            self::EVENTS_SMS_UNSUBSCRIBE,
+            self::EVENTS_SMS_INBOUND,
+            self::EVENTS_PUSH_FAILED,
+            self::EVENTS_PUSH_UNSUBSCRIBE,
+            self::EVENTS_CALL_FAILED,
+            self::EVENTS_CALL_UNSUBSCRIBE,
+            self::EVENTS_WEB_PUSH_FAILED,
+            self::EVENTS_WEB_PUSH_UNSUBSCRIBE,
+            self::EVENTS_SLACK_FAILED,
+            self::EVENTS_SLACK_UNSUBSCRIBE,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -262,10 +302,8 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('message_price_id', $data ?? [], null);
-        $this->setIfExists('budget_price_id', $data ?? [], null);
-        $this->setIfExists('success_url', $data ?? [], null);
-        $this->setIfExists('cancel_url', $data ?? [], null);
+        $this->setIfExists('webhook', $data ?? [], null);
+        $this->setIfExists('events', $data ?? [], null);
     }
 
     /**
@@ -295,11 +333,11 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
     {
         $invalidProperties = [];
 
-        if ($this->container['success_url'] === null) {
-            $invalidProperties[] = "'success_url' can't be null";
+        if ($this->container['webhook'] === null) {
+            $invalidProperties[] = "'webhook' can't be null";
         }
-        if ($this->container['cancel_url'] === null) {
-            $invalidProperties[] = "'cancel_url' can't be null";
+        if ($this->container['events'] === null) {
+            $invalidProperties[] = "'events' can't be null";
         }
         return $invalidProperties;
     }
@@ -317,109 +355,64 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
 
 
     /**
-     * Gets message_price_id
-     *
-     * @return string|null
-     */
-    public function getMessagePriceId()
-    {
-        return $this->container['message_price_id'];
-    }
-
-    /**
-     * Sets message_price_id
-     *
-     * @param string|null $message_price_id Price ID for the message tier (EMAIL, INAPP_WEB, WEB_PUSH, PUSH, SLACK)
-     *
-     * @return self
-     */
-    public function setMessagePriceId($message_price_id)
-    {
-        if (is_null($message_price_id)) {
-            throw new \InvalidArgumentException('non-nullable message_price_id cannot be null');
-        }
-        $this->container['message_price_id'] = $message_price_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets budget_price_id
-     *
-     * @return string|null
-     */
-    public function getBudgetPriceId()
-    {
-        return $this->container['budget_price_id'];
-    }
-
-    /**
-     * Sets budget_price_id
-     *
-     * @param string|null $budget_price_id Price ID for the budget tier (SMS, CALL)
-     *
-     * @return self
-     */
-    public function setBudgetPriceId($budget_price_id)
-    {
-        if (is_null($budget_price_id)) {
-            throw new \InvalidArgumentException('non-nullable budget_price_id cannot be null');
-        }
-        $this->container['budget_price_id'] = $budget_price_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets success_url
+     * Gets webhook
      *
      * @return string
      */
-    public function getSuccessUrl()
+    public function getWebhook()
     {
-        return $this->container['success_url'];
+        return $this->container['webhook'];
     }
 
     /**
-     * Sets success_url
+     * Sets webhook
      *
-     * @param string $success_url success_url
+     * @param string $webhook Destination URL that receives webhook event payloads. Must be a valid http(s) URL.
      *
      * @return self
      */
-    public function setSuccessUrl($success_url)
+    public function setWebhook($webhook)
     {
-        if (is_null($success_url)) {
-            throw new \InvalidArgumentException('non-nullable success_url cannot be null');
+        if (is_null($webhook)) {
+            throw new \InvalidArgumentException('non-nullable webhook cannot be null');
         }
-        $this->container['success_url'] = $success_url;
+        $this->container['webhook'] = $webhook;
 
         return $this;
     }
 
     /**
-     * Gets cancel_url
+     * Gets events
      *
-     * @return string
+     * @return string[]
      */
-    public function getCancelUrl()
+    public function getEvents()
     {
-        return $this->container['cancel_url'];
+        return $this->container['events'];
     }
 
     /**
-     * Sets cancel_url
+     * Sets events
      *
-     * @param string $cancel_url cancel_url
+     * @param string[] $events List of event types that should be forwarded to the webhook URL.
      *
      * @return self
      */
-    public function setCancelUrl($cancel_url)
+    public function setEvents($events)
     {
-        if (is_null($cancel_url)) {
-            throw new \InvalidArgumentException('non-nullable cancel_url cannot be null');
+        if (is_null($events)) {
+            throw new \InvalidArgumentException('non-nullable events cannot be null');
         }
-        $this->container['cancel_url'] = $cancel_url;
+        $allowedValues = $this->getEventsAllowableValues();
+        if (array_diff($events, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'events', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['events'] = $events;
 
         return $this;
     }

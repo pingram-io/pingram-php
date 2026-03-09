@@ -184,6 +184,8 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         'call_delivered_at' => 'string',
         'call_delivered_after' => 'float',
         'call_delivered_code' => 'string',
+        'call_delivered_cost_internal' => 'float',
+        'call_delivered_cost' => 'float',
         'call_failed_at' => 'string',
         'call_failed_code' => 'string',
         'call_failed_internal' => 'string',
@@ -198,8 +200,14 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         'sms_sent_encoding' => 'string',
         'sms_sent_segments' => 'float',
         'sms_sent_parts' => 'float',
+        'sms_sent_cost' => 'float',
+        'sms_sent_country' => 'string',
+        'sms_carrier_cost_internal' => 'float',
+        'sms_carrier_fee_internal' => 'float',
+        'sms_rate_internal' => 'float',
         'sms_delivered_at' => 'string',
         'sms_delivered_after' => 'float',
+        'sms_delivered_cost_internal' => 'float',
         'schedule_updated_at' => 'string',
         'schedule_updated_to' => 'string',
         'schedule_deleted_at' => 'string'
@@ -340,6 +348,8 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         'call_delivered_at' => null,
         'call_delivered_after' => null,
         'call_delivered_code' => null,
+        'call_delivered_cost_internal' => null,
+        'call_delivered_cost' => null,
         'call_failed_at' => null,
         'call_failed_code' => null,
         'call_failed_internal' => null,
@@ -354,8 +364,14 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         'sms_sent_encoding' => null,
         'sms_sent_segments' => null,
         'sms_sent_parts' => null,
+        'sms_sent_cost' => null,
+        'sms_sent_country' => null,
+        'sms_carrier_cost_internal' => null,
+        'sms_carrier_fee_internal' => null,
+        'sms_rate_internal' => null,
         'sms_delivered_at' => null,
         'sms_delivered_after' => null,
+        'sms_delivered_cost_internal' => null,
         'schedule_updated_at' => null,
         'schedule_updated_to' => null,
         'schedule_deleted_at' => null
@@ -494,6 +510,8 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         'call_delivered_at' => false,
         'call_delivered_after' => false,
         'call_delivered_code' => false,
+        'call_delivered_cost_internal' => false,
+        'call_delivered_cost' => false,
         'call_failed_at' => false,
         'call_failed_code' => false,
         'call_failed_internal' => false,
@@ -508,8 +526,14 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         'sms_sent_encoding' => false,
         'sms_sent_segments' => false,
         'sms_sent_parts' => false,
+        'sms_sent_cost' => false,
+        'sms_sent_country' => false,
+        'sms_carrier_cost_internal' => false,
+        'sms_carrier_fee_internal' => false,
+        'sms_rate_internal' => false,
         'sms_delivered_at' => false,
         'sms_delivered_after' => false,
+        'sms_delivered_cost_internal' => false,
         'schedule_updated_at' => false,
         'schedule_updated_to' => false,
         'schedule_deleted_at' => false
@@ -728,6 +752,8 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         'call_delivered_at' => 'call_delivered_at',
         'call_delivered_after' => 'call_delivered_after',
         'call_delivered_code' => 'call_delivered_code',
+        'call_delivered_cost_internal' => 'call_delivered_cost_internal',
+        'call_delivered_cost' => 'call_delivered_cost',
         'call_failed_at' => 'call_failed_at',
         'call_failed_code' => 'call_failed_code',
         'call_failed_internal' => 'call_failed_internal',
@@ -742,8 +768,14 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         'sms_sent_encoding' => 'sms_sent_encoding',
         'sms_sent_segments' => 'sms_sent_segments',
         'sms_sent_parts' => 'sms_sent_parts',
+        'sms_sent_cost' => 'sms_sent_cost',
+        'sms_sent_country' => 'sms_sent_country',
+        'sms_carrier_cost_internal' => 'sms_carrier_cost_internal',
+        'sms_carrier_fee_internal' => 'sms_carrier_fee_internal',
+        'sms_rate_internal' => 'sms_rate_internal',
         'sms_delivered_at' => 'sms_delivered_at',
         'sms_delivered_after' => 'sms_delivered_after',
+        'sms_delivered_cost_internal' => 'sms_delivered_cost_internal',
         'schedule_updated_at' => 'schedule_updated_at',
         'schedule_updated_to' => 'schedule_updated_to',
         'schedule_deleted_at' => 'schedule_deleted_at'
@@ -882,6 +914,8 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         'call_delivered_at' => 'setCallDeliveredAt',
         'call_delivered_after' => 'setCallDeliveredAfter',
         'call_delivered_code' => 'setCallDeliveredCode',
+        'call_delivered_cost_internal' => 'setCallDeliveredCostInternal',
+        'call_delivered_cost' => 'setCallDeliveredCost',
         'call_failed_at' => 'setCallFailedAt',
         'call_failed_code' => 'setCallFailedCode',
         'call_failed_internal' => 'setCallFailedInternal',
@@ -896,8 +930,14 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         'sms_sent_encoding' => 'setSmsSentEncoding',
         'sms_sent_segments' => 'setSmsSentSegments',
         'sms_sent_parts' => 'setSmsSentParts',
+        'sms_sent_cost' => 'setSmsSentCost',
+        'sms_sent_country' => 'setSmsSentCountry',
+        'sms_carrier_cost_internal' => 'setSmsCarrierCostInternal',
+        'sms_carrier_fee_internal' => 'setSmsCarrierFeeInternal',
+        'sms_rate_internal' => 'setSmsRateInternal',
         'sms_delivered_at' => 'setSmsDeliveredAt',
         'sms_delivered_after' => 'setSmsDeliveredAfter',
+        'sms_delivered_cost_internal' => 'setSmsDeliveredCostInternal',
         'schedule_updated_at' => 'setScheduleUpdatedAt',
         'schedule_updated_to' => 'setScheduleUpdatedTo',
         'schedule_deleted_at' => 'setScheduleDeletedAt'
@@ -1036,6 +1076,8 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         'call_delivered_at' => 'getCallDeliveredAt',
         'call_delivered_after' => 'getCallDeliveredAfter',
         'call_delivered_code' => 'getCallDeliveredCode',
+        'call_delivered_cost_internal' => 'getCallDeliveredCostInternal',
+        'call_delivered_cost' => 'getCallDeliveredCost',
         'call_failed_at' => 'getCallFailedAt',
         'call_failed_code' => 'getCallFailedCode',
         'call_failed_internal' => 'getCallFailedInternal',
@@ -1050,8 +1092,14 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         'sms_sent_encoding' => 'getSmsSentEncoding',
         'sms_sent_segments' => 'getSmsSentSegments',
         'sms_sent_parts' => 'getSmsSentParts',
+        'sms_sent_cost' => 'getSmsSentCost',
+        'sms_sent_country' => 'getSmsSentCountry',
+        'sms_carrier_cost_internal' => 'getSmsCarrierCostInternal',
+        'sms_carrier_fee_internal' => 'getSmsCarrierFeeInternal',
+        'sms_rate_internal' => 'getSmsRateInternal',
         'sms_delivered_at' => 'getSmsDeliveredAt',
         'sms_delivered_after' => 'getSmsDeliveredAfter',
+        'sms_delivered_cost_internal' => 'getSmsDeliveredCostInternal',
         'schedule_updated_at' => 'getScheduleUpdatedAt',
         'schedule_updated_to' => 'getScheduleUpdatedTo',
         'schedule_deleted_at' => 'getScheduleDeletedAt'
@@ -1882,6 +1930,8 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         $this->setIfExists('call_delivered_at', $data ?? [], null);
         $this->setIfExists('call_delivered_after', $data ?? [], null);
         $this->setIfExists('call_delivered_code', $data ?? [], null);
+        $this->setIfExists('call_delivered_cost_internal', $data ?? [], null);
+        $this->setIfExists('call_delivered_cost', $data ?? [], null);
         $this->setIfExists('call_failed_at', $data ?? [], null);
         $this->setIfExists('call_failed_code', $data ?? [], null);
         $this->setIfExists('call_failed_internal', $data ?? [], null);
@@ -1896,8 +1946,14 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         $this->setIfExists('sms_sent_encoding', $data ?? [], null);
         $this->setIfExists('sms_sent_segments', $data ?? [], null);
         $this->setIfExists('sms_sent_parts', $data ?? [], null);
+        $this->setIfExists('sms_sent_cost', $data ?? [], null);
+        $this->setIfExists('sms_sent_country', $data ?? [], null);
+        $this->setIfExists('sms_carrier_cost_internal', $data ?? [], null);
+        $this->setIfExists('sms_carrier_fee_internal', $data ?? [], null);
+        $this->setIfExists('sms_rate_internal', $data ?? [], null);
         $this->setIfExists('sms_delivered_at', $data ?? [], null);
         $this->setIfExists('sms_delivered_after', $data ?? [], null);
+        $this->setIfExists('sms_delivered_cost_internal', $data ?? [], null);
         $this->setIfExists('schedule_updated_at', $data ?? [], null);
         $this->setIfExists('schedule_updated_to', $data ?? [], null);
         $this->setIfExists('schedule_deleted_at', $data ?? [], null);
@@ -5836,6 +5892,60 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
     }
 
     /**
+     * Gets call_delivered_cost_internal
+     *
+     * @return float|null
+     */
+    public function getCallDeliveredCostInternal()
+    {
+        return $this->container['call_delivered_cost_internal'];
+    }
+
+    /**
+     * Sets call_delivered_cost_internal
+     *
+     * @param float|null $call_delivered_cost_internal call_delivered_cost_internal
+     *
+     * @return self
+     */
+    public function setCallDeliveredCostInternal($call_delivered_cost_internal)
+    {
+        if (is_null($call_delivered_cost_internal)) {
+            throw new \InvalidArgumentException('non-nullable call_delivered_cost_internal cannot be null');
+        }
+        $this->container['call_delivered_cost_internal'] = $call_delivered_cost_internal;
+
+        return $this;
+    }
+
+    /**
+     * Gets call_delivered_cost
+     *
+     * @return float|null
+     */
+    public function getCallDeliveredCost()
+    {
+        return $this->container['call_delivered_cost'];
+    }
+
+    /**
+     * Sets call_delivered_cost
+     *
+     * @param float|null $call_delivered_cost Same value as call_delivered_cost_internal (for API/external use)
+     *
+     * @return self
+     */
+    public function setCallDeliveredCost($call_delivered_cost)
+    {
+        if (is_null($call_delivered_cost)) {
+            throw new \InvalidArgumentException('non-nullable call_delivered_cost cannot be null');
+        }
+        $this->container['call_delivered_cost'] = $call_delivered_cost;
+
+        return $this;
+    }
+
+    /**
      * Gets call_failed_at
      *
      * @return string|null
@@ -6234,6 +6344,141 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
     }
 
     /**
+     * Gets sms_sent_cost
+     *
+     * @return float|null
+     */
+    public function getSmsSentCost()
+    {
+        return $this->container['sms_sent_cost'];
+    }
+
+    /**
+     * Sets sms_sent_cost
+     *
+     * @param float|null $sms_sent_cost sms_sent_cost
+     *
+     * @return self
+     */
+    public function setSmsSentCost($sms_sent_cost)
+    {
+        if (is_null($sms_sent_cost)) {
+            throw new \InvalidArgumentException('non-nullable sms_sent_cost cannot be null');
+        }
+        $this->container['sms_sent_cost'] = $sms_sent_cost;
+
+        return $this;
+    }
+
+    /**
+     * Gets sms_sent_country
+     *
+     * @return string|null
+     */
+    public function getSmsSentCountry()
+    {
+        return $this->container['sms_sent_country'];
+    }
+
+    /**
+     * Sets sms_sent_country
+     *
+     * @param string|null $sms_sent_country sms_sent_country
+     *
+     * @return self
+     */
+    public function setSmsSentCountry($sms_sent_country)
+    {
+        if (is_null($sms_sent_country)) {
+            throw new \InvalidArgumentException('non-nullable sms_sent_country cannot be null');
+        }
+        $this->container['sms_sent_country'] = $sms_sent_country;
+
+        return $this;
+    }
+
+    /**
+     * Gets sms_carrier_cost_internal
+     *
+     * @return float|null
+     */
+    public function getSmsCarrierCostInternal()
+    {
+        return $this->container['sms_carrier_cost_internal'];
+    }
+
+    /**
+     * Sets sms_carrier_cost_internal
+     *
+     * @param float|null $sms_carrier_cost_internal Actual cost from Telnyx/Twilio (internal)
+     *
+     * @return self
+     */
+    public function setSmsCarrierCostInternal($sms_carrier_cost_internal)
+    {
+        if (is_null($sms_carrier_cost_internal)) {
+            throw new \InvalidArgumentException('non-nullable sms_carrier_cost_internal cannot be null');
+        }
+        $this->container['sms_carrier_cost_internal'] = $sms_carrier_cost_internal;
+
+        return $this;
+    }
+
+    /**
+     * Gets sms_carrier_fee_internal
+     *
+     * @return float|null
+     */
+    public function getSmsCarrierFeeInternal()
+    {
+        return $this->container['sms_carrier_fee_internal'];
+    }
+
+    /**
+     * Sets sms_carrier_fee_internal
+     *
+     * @param float|null $sms_carrier_fee_internal sms_carrier_fee_internal
+     *
+     * @return self
+     */
+    public function setSmsCarrierFeeInternal($sms_carrier_fee_internal)
+    {
+        if (is_null($sms_carrier_fee_internal)) {
+            throw new \InvalidArgumentException('non-nullable sms_carrier_fee_internal cannot be null');
+        }
+        $this->container['sms_carrier_fee_internal'] = $sms_carrier_fee_internal;
+
+        return $this;
+    }
+
+    /**
+     * Gets sms_rate_internal
+     *
+     * @return float|null
+     */
+    public function getSmsRateInternal()
+    {
+        return $this->container['sms_rate_internal'];
+    }
+
+    /**
+     * Sets sms_rate_internal
+     *
+     * @param float|null $sms_rate_internal sms_rate_internal
+     *
+     * @return self
+     */
+    public function setSmsRateInternal($sms_rate_internal)
+    {
+        if (is_null($sms_rate_internal)) {
+            throw new \InvalidArgumentException('non-nullable sms_rate_internal cannot be null');
+        }
+        $this->container['sms_rate_internal'] = $sms_rate_internal;
+
+        return $this;
+    }
+
+    /**
      * Gets sms_delivered_at
      *
      * @return string|null
@@ -6283,6 +6528,33 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
             throw new \InvalidArgumentException('non-nullable sms_delivered_after cannot be null');
         }
         $this->container['sms_delivered_after'] = $sms_delivered_after;
+
+        return $this;
+    }
+
+    /**
+     * Gets sms_delivered_cost_internal
+     *
+     * @return float|null
+     */
+    public function getSmsDeliveredCostInternal()
+    {
+        return $this->container['sms_delivered_cost_internal'];
+    }
+
+    /**
+     * Sets sms_delivered_cost_internal
+     *
+     * @param float|null $sms_delivered_cost_internal Actual cost from Twilio webhook (USD), for internal logging
+     *
+     * @return self
+     */
+    public function setSmsDeliveredCostInternal($sms_delivered_cost_internal)
+    {
+        if (is_null($sms_delivered_cost_internal)) {
+            throw new \InvalidArgumentException('non-nullable sms_delivered_cost_internal cannot be null');
+        }
+        $this->container['sms_delivered_cost_internal'] = $sms_delivered_cost_internal;
 
         return $this;
     }

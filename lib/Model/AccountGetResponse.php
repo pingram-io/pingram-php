@@ -35,6 +35,7 @@ use \Pingram\ObjectSerializer;
  * AccountGetResponse Class Doc Comment
  *
  * @category Class
+ * @description GET /account response: basic account info (billing fields are on Organization).
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -58,16 +59,10 @@ class AccountGetResponse implements ModelInterface, ArrayAccess, \JsonSerializab
       */
     protected static $openAPITypes = [
         'account_id' => 'string',
+        'organization_id' => 'string',
         'name' => 'string',
         'account_type' => 'string',
-        'created_at' => 'string',
-        'stripe_customer_id' => 'string',
-        'stripe_subscription_id' => 'string',
-        'subscription_status' => 'string',
-        'anniversary_date' => 'string',
-        'pending_downgrade_effective_date' => 'string',
-        'pending_downgrade_account_type' => 'string',
-        'pending_downgrade_usage_limit' => '\Pingram\Model\AccountGetResponsePendingDowngradeUsageLimit'
+        'created_at' => 'string'
     ];
 
     /**
@@ -79,16 +74,10 @@ class AccountGetResponse implements ModelInterface, ArrayAccess, \JsonSerializab
       */
     protected static $openAPIFormats = [
         'account_id' => null,
+        'organization_id' => null,
         'name' => null,
         'account_type' => null,
-        'created_at' => null,
-        'stripe_customer_id' => null,
-        'stripe_subscription_id' => null,
-        'subscription_status' => null,
-        'anniversary_date' => null,
-        'pending_downgrade_effective_date' => null,
-        'pending_downgrade_account_type' => null,
-        'pending_downgrade_usage_limit' => null
+        'created_at' => null
     ];
 
     /**
@@ -98,16 +87,10 @@ class AccountGetResponse implements ModelInterface, ArrayAccess, \JsonSerializab
       */
     protected static array $openAPINullables = [
         'account_id' => false,
+        'organization_id' => false,
         'name' => false,
         'account_type' => false,
-        'created_at' => false,
-        'stripe_customer_id' => false,
-        'stripe_subscription_id' => false,
-        'subscription_status' => true,
-        'anniversary_date' => false,
-        'pending_downgrade_effective_date' => false,
-        'pending_downgrade_account_type' => false,
-        'pending_downgrade_usage_limit' => false
+        'created_at' => false
     ];
 
     /**
@@ -197,16 +180,10 @@ class AccountGetResponse implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     protected static $attributeMap = [
         'account_id' => 'accountId',
+        'organization_id' => 'organizationId',
         'name' => 'name',
         'account_type' => 'accountType',
-        'created_at' => 'createdAt',
-        'stripe_customer_id' => 'stripeCustomerId',
-        'stripe_subscription_id' => 'stripeSubscriptionId',
-        'subscription_status' => 'subscriptionStatus',
-        'anniversary_date' => 'anniversaryDate',
-        'pending_downgrade_effective_date' => 'pendingDowngradeEffectiveDate',
-        'pending_downgrade_account_type' => 'pendingDowngradeAccountType',
-        'pending_downgrade_usage_limit' => 'pendingDowngradeUsageLimit'
+        'created_at' => 'createdAt'
     ];
 
     /**
@@ -216,16 +193,10 @@ class AccountGetResponse implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     protected static $setters = [
         'account_id' => 'setAccountId',
+        'organization_id' => 'setOrganizationId',
         'name' => 'setName',
         'account_type' => 'setAccountType',
-        'created_at' => 'setCreatedAt',
-        'stripe_customer_id' => 'setStripeCustomerId',
-        'stripe_subscription_id' => 'setStripeSubscriptionId',
-        'subscription_status' => 'setSubscriptionStatus',
-        'anniversary_date' => 'setAnniversaryDate',
-        'pending_downgrade_effective_date' => 'setPendingDowngradeEffectiveDate',
-        'pending_downgrade_account_type' => 'setPendingDowngradeAccountType',
-        'pending_downgrade_usage_limit' => 'setPendingDowngradeUsageLimit'
+        'created_at' => 'setCreatedAt'
     ];
 
     /**
@@ -235,16 +206,10 @@ class AccountGetResponse implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     protected static $getters = [
         'account_id' => 'getAccountId',
+        'organization_id' => 'getOrganizationId',
         'name' => 'getName',
         'account_type' => 'getAccountType',
-        'created_at' => 'getCreatedAt',
-        'stripe_customer_id' => 'getStripeCustomerId',
-        'stripe_subscription_id' => 'getStripeSubscriptionId',
-        'subscription_status' => 'getSubscriptionStatus',
-        'anniversary_date' => 'getAnniversaryDate',
-        'pending_downgrade_effective_date' => 'getPendingDowngradeEffectiveDate',
-        'pending_downgrade_account_type' => 'getPendingDowngradeAccountType',
-        'pending_downgrade_usage_limit' => 'getPendingDowngradeUsageLimit'
+        'created_at' => 'getCreatedAt'
     ];
 
     /**
@@ -290,11 +255,6 @@ class AccountGetResponse implements ModelInterface, ArrayAccess, \JsonSerializab
 
     public const ACCOUNT_TYPE_FREE = 'free';
     public const ACCOUNT_TYPE_PAID = 'paid';
-    public const SUBSCRIPTION_STATUS_ACTIVE = 'active';
-    public const SUBSCRIPTION_STATUS_CANCELED = 'canceled';
-    public const SUBSCRIPTION_STATUS_PAST_DUE = 'past_due';
-    public const SUBSCRIPTION_STATUS_PAUSED = 'paused';
-    public const PENDING_DOWNGRADE_ACCOUNT_TYPE_FREE = 'free';
 
     /**
      * Gets allowable values of the enum
@@ -306,33 +266,6 @@ class AccountGetResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         return [
             self::ACCOUNT_TYPE_FREE,
             self::ACCOUNT_TYPE_PAID,
-        ];
-    }
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getSubscriptionStatusAllowableValues()
-    {
-        return [
-            self::SUBSCRIPTION_STATUS_ACTIVE,
-            self::SUBSCRIPTION_STATUS_CANCELED,
-            self::SUBSCRIPTION_STATUS_PAST_DUE,
-            self::SUBSCRIPTION_STATUS_PAUSED,
-        ];
-    }
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getPendingDowngradeAccountTypeAllowableValues()
-    {
-        return [
-            self::PENDING_DOWNGRADE_ACCOUNT_TYPE_FREE,
         ];
     }
 
@@ -352,16 +285,10 @@ class AccountGetResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     public function __construct(?array $data = null)
     {
         $this->setIfExists('account_id', $data ?? [], null);
+        $this->setIfExists('organization_id', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('account_type', $data ?? [], null);
         $this->setIfExists('created_at', $data ?? [], null);
-        $this->setIfExists('stripe_customer_id', $data ?? [], null);
-        $this->setIfExists('stripe_subscription_id', $data ?? [], null);
-        $this->setIfExists('subscription_status', $data ?? [], null);
-        $this->setIfExists('anniversary_date', $data ?? [], null);
-        $this->setIfExists('pending_downgrade_effective_date', $data ?? [], null);
-        $this->setIfExists('pending_downgrade_account_type', $data ?? [], null);
-        $this->setIfExists('pending_downgrade_usage_limit', $data ?? [], null);
     }
 
     /**
@@ -412,24 +339,6 @@ class AccountGetResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         if ($this->container['created_at'] === null) {
             $invalidProperties[] = "'created_at' can't be null";
         }
-        $allowedValues = $this->getSubscriptionStatusAllowableValues();
-        if (!is_null($this->container['subscription_status']) && !in_array($this->container['subscription_status'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'subscription_status', must be one of '%s'",
-                $this->container['subscription_status'],
-                implode("', '", $allowedValues)
-            );
-        }
-
-        $allowedValues = $this->getPendingDowngradeAccountTypeAllowableValues();
-        if (!is_null($this->container['pending_downgrade_account_type']) && !in_array($this->container['pending_downgrade_account_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'pending_downgrade_account_type', must be one of '%s'",
-                $this->container['pending_downgrade_account_type'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         return $invalidProperties;
     }
 
@@ -468,6 +377,33 @@ class AccountGetResponse implements ModelInterface, ArrayAccess, \JsonSerializab
             throw new \InvalidArgumentException('non-nullable account_id cannot be null');
         }
         $this->container['account_id'] = $account_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets organization_id
+     *
+     * @return string|null
+     */
+    public function getOrganizationId()
+    {
+        return $this->container['organization_id'];
+    }
+
+    /**
+     * Sets organization_id
+     *
+     * @param string|null $organization_id Optional organization ID; legacy accounts may not have one.
+     *
+     * @return self
+     */
+    public function setOrganizationId($organization_id)
+    {
+        if (is_null($organization_id)) {
+            throw new \InvalidArgumentException('non-nullable organization_id cannot be null');
+        }
+        $this->container['organization_id'] = $organization_id;
 
         return $this;
     }
@@ -559,222 +495,6 @@ class AccountGetResponse implements ModelInterface, ArrayAccess, \JsonSerializab
             throw new \InvalidArgumentException('non-nullable created_at cannot be null');
         }
         $this->container['created_at'] = $created_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets stripe_customer_id
-     *
-     * @return string|null
-     */
-    public function getStripeCustomerId()
-    {
-        return $this->container['stripe_customer_id'];
-    }
-
-    /**
-     * Sets stripe_customer_id
-     *
-     * @param string|null $stripe_customer_id stripe_customer_id
-     *
-     * @return self
-     */
-    public function setStripeCustomerId($stripe_customer_id)
-    {
-        if (is_null($stripe_customer_id)) {
-            throw new \InvalidArgumentException('non-nullable stripe_customer_id cannot be null');
-        }
-        $this->container['stripe_customer_id'] = $stripe_customer_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets stripe_subscription_id
-     *
-     * @return string|null
-     */
-    public function getStripeSubscriptionId()
-    {
-        return $this->container['stripe_subscription_id'];
-    }
-
-    /**
-     * Sets stripe_subscription_id
-     *
-     * @param string|null $stripe_subscription_id stripe_subscription_id
-     *
-     * @return self
-     */
-    public function setStripeSubscriptionId($stripe_subscription_id)
-    {
-        if (is_null($stripe_subscription_id)) {
-            throw new \InvalidArgumentException('non-nullable stripe_subscription_id cannot be null');
-        }
-        $this->container['stripe_subscription_id'] = $stripe_subscription_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets subscription_status
-     *
-     * @return string|null
-     */
-    public function getSubscriptionStatus()
-    {
-        return $this->container['subscription_status'];
-    }
-
-    /**
-     * Sets subscription_status
-     *
-     * @param string|null $subscription_status subscription_status
-     *
-     * @return self
-     */
-    public function setSubscriptionStatus($subscription_status)
-    {
-        if (is_null($subscription_status)) {
-            array_push($this->openAPINullablesSetToNull, 'subscription_status');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('subscription_status', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $allowedValues = $this->getSubscriptionStatusAllowableValues();
-        if (!is_null($subscription_status) && !in_array($subscription_status, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'subscription_status', must be one of '%s'",
-                    $subscription_status,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['subscription_status'] = $subscription_status;
-
-        return $this;
-    }
-
-    /**
-     * Gets anniversary_date
-     *
-     * @return string|null
-     */
-    public function getAnniversaryDate()
-    {
-        return $this->container['anniversary_date'];
-    }
-
-    /**
-     * Sets anniversary_date
-     *
-     * @param string|null $anniversary_date anniversary_date
-     *
-     * @return self
-     */
-    public function setAnniversaryDate($anniversary_date)
-    {
-        if (is_null($anniversary_date)) {
-            throw new \InvalidArgumentException('non-nullable anniversary_date cannot be null');
-        }
-        $this->container['anniversary_date'] = $anniversary_date;
-
-        return $this;
-    }
-
-    /**
-     * Gets pending_downgrade_effective_date
-     *
-     * @return string|null
-     */
-    public function getPendingDowngradeEffectiveDate()
-    {
-        return $this->container['pending_downgrade_effective_date'];
-    }
-
-    /**
-     * Sets pending_downgrade_effective_date
-     *
-     * @param string|null $pending_downgrade_effective_date pending_downgrade_effective_date
-     *
-     * @return self
-     */
-    public function setPendingDowngradeEffectiveDate($pending_downgrade_effective_date)
-    {
-        if (is_null($pending_downgrade_effective_date)) {
-            throw new \InvalidArgumentException('non-nullable pending_downgrade_effective_date cannot be null');
-        }
-        $this->container['pending_downgrade_effective_date'] = $pending_downgrade_effective_date;
-
-        return $this;
-    }
-
-    /**
-     * Gets pending_downgrade_account_type
-     *
-     * @return string|null
-     */
-    public function getPendingDowngradeAccountType()
-    {
-        return $this->container['pending_downgrade_account_type'];
-    }
-
-    /**
-     * Sets pending_downgrade_account_type
-     *
-     * @param string|null $pending_downgrade_account_type pending_downgrade_account_type
-     *
-     * @return self
-     */
-    public function setPendingDowngradeAccountType($pending_downgrade_account_type)
-    {
-        if (is_null($pending_downgrade_account_type)) {
-            throw new \InvalidArgumentException('non-nullable pending_downgrade_account_type cannot be null');
-        }
-        $allowedValues = $this->getPendingDowngradeAccountTypeAllowableValues();
-        if (!in_array($pending_downgrade_account_type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'pending_downgrade_account_type', must be one of '%s'",
-                    $pending_downgrade_account_type,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['pending_downgrade_account_type'] = $pending_downgrade_account_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets pending_downgrade_usage_limit
-     *
-     * @return \Pingram\Model\AccountGetResponsePendingDowngradeUsageLimit|null
-     */
-    public function getPendingDowngradeUsageLimit()
-    {
-        return $this->container['pending_downgrade_usage_limit'];
-    }
-
-    /**
-     * Sets pending_downgrade_usage_limit
-     *
-     * @param \Pingram\Model\AccountGetResponsePendingDowngradeUsageLimit|null $pending_downgrade_usage_limit pending_downgrade_usage_limit
-     *
-     * @return self
-     */
-    public function setPendingDowngradeUsageLimit($pending_downgrade_usage_limit)
-    {
-        if (is_null($pending_downgrade_usage_limit)) {
-            throw new \InvalidArgumentException('non-nullable pending_downgrade_usage_limit cannot be null');
-        }
-        $this->container['pending_downgrade_usage_limit'] = $pending_downgrade_usage_limit;
 
         return $this;
     }

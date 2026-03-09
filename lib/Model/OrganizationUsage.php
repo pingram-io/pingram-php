@@ -1,6 +1,6 @@
 <?php
 /**
- * BillingPostRequestBody
+ * OrganizationUsage
  *
  * PHP version 8.1
  *
@@ -32,15 +32,16 @@ use \ArrayAccess;
 use \Pingram\ObjectSerializer;
 
 /**
- * BillingPostRequestBody Class Doc Comment
+ * OrganizationUsage Class Doc Comment
  *
  * @category Class
+ * @description Response for GET /account/organization/usage
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerializable
+class OrganizationUsage implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +50,7 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
       *
       * @var string
       */
-    protected static $openAPIModelName = 'BillingPostRequestBody';
+    protected static $openAPIModelName = 'OrganizationUsage';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,10 +58,13 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
       * @var string[]
       */
     protected static $openAPITypes = [
-        'message_price_id' => 'string',
-        'budget_price_id' => 'string',
-        'success_url' => 'string',
-        'cancel_url' => 'string'
+        'message_usage' => 'float',
+        'budget_usage' => 'float',
+        'cost_sms' => 'float',
+        'cost_call' => 'float',
+        'channel_usages' => 'array<string,float>',
+        'billing_cycle_start' => 'string',
+        'billing_cycle_end' => 'string'
     ];
 
     /**
@@ -71,10 +75,13 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'message_price_id' => null,
-        'budget_price_id' => null,
-        'success_url' => null,
-        'cancel_url' => null
+        'message_usage' => null,
+        'budget_usage' => null,
+        'cost_sms' => null,
+        'cost_call' => null,
+        'channel_usages' => null,
+        'billing_cycle_start' => null,
+        'billing_cycle_end' => null
     ];
 
     /**
@@ -83,10 +90,13 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'message_price_id' => false,
-        'budget_price_id' => false,
-        'success_url' => false,
-        'cancel_url' => false
+        'message_usage' => false,
+        'budget_usage' => false,
+        'cost_sms' => false,
+        'cost_call' => false,
+        'channel_usages' => false,
+        'billing_cycle_start' => false,
+        'billing_cycle_end' => false
     ];
 
     /**
@@ -175,10 +185,13 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $attributeMap = [
-        'message_price_id' => 'messagePriceId',
-        'budget_price_id' => 'budgetPriceId',
-        'success_url' => 'successUrl',
-        'cancel_url' => 'cancelUrl'
+        'message_usage' => 'messageUsage',
+        'budget_usage' => 'budgetUsage',
+        'cost_sms' => 'costSms',
+        'cost_call' => 'costCall',
+        'channel_usages' => 'channelUsages',
+        'billing_cycle_start' => 'billingCycleStart',
+        'billing_cycle_end' => 'billingCycleEnd'
     ];
 
     /**
@@ -187,10 +200,13 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $setters = [
-        'message_price_id' => 'setMessagePriceId',
-        'budget_price_id' => 'setBudgetPriceId',
-        'success_url' => 'setSuccessUrl',
-        'cancel_url' => 'setCancelUrl'
+        'message_usage' => 'setMessageUsage',
+        'budget_usage' => 'setBudgetUsage',
+        'cost_sms' => 'setCostSms',
+        'cost_call' => 'setCostCall',
+        'channel_usages' => 'setChannelUsages',
+        'billing_cycle_start' => 'setBillingCycleStart',
+        'billing_cycle_end' => 'setBillingCycleEnd'
     ];
 
     /**
@@ -199,10 +215,13 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $getters = [
-        'message_price_id' => 'getMessagePriceId',
-        'budget_price_id' => 'getBudgetPriceId',
-        'success_url' => 'getSuccessUrl',
-        'cancel_url' => 'getCancelUrl'
+        'message_usage' => 'getMessageUsage',
+        'budget_usage' => 'getBudgetUsage',
+        'cost_sms' => 'getCostSms',
+        'cost_call' => 'getCostCall',
+        'channel_usages' => 'getChannelUsages',
+        'billing_cycle_start' => 'getBillingCycleStart',
+        'billing_cycle_end' => 'getBillingCycleEnd'
     ];
 
     /**
@@ -262,10 +281,13 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('message_price_id', $data ?? [], null);
-        $this->setIfExists('budget_price_id', $data ?? [], null);
-        $this->setIfExists('success_url', $data ?? [], null);
-        $this->setIfExists('cancel_url', $data ?? [], null);
+        $this->setIfExists('message_usage', $data ?? [], null);
+        $this->setIfExists('budget_usage', $data ?? [], null);
+        $this->setIfExists('cost_sms', $data ?? [], null);
+        $this->setIfExists('cost_call', $data ?? [], null);
+        $this->setIfExists('channel_usages', $data ?? [], null);
+        $this->setIfExists('billing_cycle_start', $data ?? [], null);
+        $this->setIfExists('billing_cycle_end', $data ?? [], null);
     }
 
     /**
@@ -295,11 +317,26 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
     {
         $invalidProperties = [];
 
-        if ($this->container['success_url'] === null) {
-            $invalidProperties[] = "'success_url' can't be null";
+        if ($this->container['message_usage'] === null) {
+            $invalidProperties[] = "'message_usage' can't be null";
         }
-        if ($this->container['cancel_url'] === null) {
-            $invalidProperties[] = "'cancel_url' can't be null";
+        if ($this->container['budget_usage'] === null) {
+            $invalidProperties[] = "'budget_usage' can't be null";
+        }
+        if ($this->container['cost_sms'] === null) {
+            $invalidProperties[] = "'cost_sms' can't be null";
+        }
+        if ($this->container['cost_call'] === null) {
+            $invalidProperties[] = "'cost_call' can't be null";
+        }
+        if ($this->container['channel_usages'] === null) {
+            $invalidProperties[] = "'channel_usages' can't be null";
+        }
+        if ($this->container['billing_cycle_start'] === null) {
+            $invalidProperties[] = "'billing_cycle_start' can't be null";
+        }
+        if ($this->container['billing_cycle_end'] === null) {
+            $invalidProperties[] = "'billing_cycle_end' can't be null";
         }
         return $invalidProperties;
     }
@@ -317,109 +354,190 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
 
 
     /**
-     * Gets message_price_id
+     * Gets message_usage
      *
-     * @return string|null
+     * @return float
      */
-    public function getMessagePriceId()
+    public function getMessageUsage()
     {
-        return $this->container['message_price_id'];
+        return $this->container['message_usage'];
     }
 
     /**
-     * Sets message_price_id
+     * Sets message_usage
      *
-     * @param string|null $message_price_id Price ID for the message tier (EMAIL, INAPP_WEB, WEB_PUSH, PUSH, SLACK)
+     * @param float $message_usage Total message usage (EMAIL + INAPP_WEB + WEB_PUSH + PUSH + SLACK)
      *
      * @return self
      */
-    public function setMessagePriceId($message_price_id)
+    public function setMessageUsage($message_usage)
     {
-        if (is_null($message_price_id)) {
-            throw new \InvalidArgumentException('non-nullable message_price_id cannot be null');
+        if (is_null($message_usage)) {
+            throw new \InvalidArgumentException('non-nullable message_usage cannot be null');
         }
-        $this->container['message_price_id'] = $message_price_id;
+        $this->container['message_usage'] = $message_usage;
 
         return $this;
     }
 
     /**
-     * Gets budget_price_id
+     * Gets budget_usage
      *
-     * @return string|null
+     * @return float
      */
-    public function getBudgetPriceId()
+    public function getBudgetUsage()
     {
-        return $this->container['budget_price_id'];
+        return $this->container['budget_usage'];
     }
 
     /**
-     * Sets budget_price_id
+     * Sets budget_usage
      *
-     * @param string|null $budget_price_id Price ID for the budget tier (SMS, CALL)
+     * @param float $budget_usage Total budget usage in USD (cost_SMS + cost_CALL)
      *
      * @return self
      */
-    public function setBudgetPriceId($budget_price_id)
+    public function setBudgetUsage($budget_usage)
     {
-        if (is_null($budget_price_id)) {
-            throw new \InvalidArgumentException('non-nullable budget_price_id cannot be null');
+        if (is_null($budget_usage)) {
+            throw new \InvalidArgumentException('non-nullable budget_usage cannot be null');
         }
-        $this->container['budget_price_id'] = $budget_price_id;
+        $this->container['budget_usage'] = $budget_usage;
 
         return $this;
     }
 
     /**
-     * Gets success_url
+     * Gets cost_sms
+     *
+     * @return float
+     */
+    public function getCostSms()
+    {
+        return $this->container['cost_sms'];
+    }
+
+    /**
+     * Sets cost_sms
+     *
+     * @param float $cost_sms SMS cost in USD
+     *
+     * @return self
+     */
+    public function setCostSms($cost_sms)
+    {
+        if (is_null($cost_sms)) {
+            throw new \InvalidArgumentException('non-nullable cost_sms cannot be null');
+        }
+        $this->container['cost_sms'] = $cost_sms;
+
+        return $this;
+    }
+
+    /**
+     * Gets cost_call
+     *
+     * @return float
+     */
+    public function getCostCall()
+    {
+        return $this->container['cost_call'];
+    }
+
+    /**
+     * Sets cost_call
+     *
+     * @param float $cost_call Call cost in USD
+     *
+     * @return self
+     */
+    public function setCostCall($cost_call)
+    {
+        if (is_null($cost_call)) {
+            throw new \InvalidArgumentException('non-nullable cost_call cannot be null');
+        }
+        $this->container['cost_call'] = $cost_call;
+
+        return $this;
+    }
+
+    /**
+     * Gets channel_usages
+     *
+     * @return array<string,float>
+     */
+    public function getChannelUsages()
+    {
+        return $this->container['channel_usages'];
+    }
+
+    /**
+     * Sets channel_usages
+     *
+     * @param array<string,float> $channel_usages Per-channel usage breakdown
+     *
+     * @return self
+     */
+    public function setChannelUsages($channel_usages)
+    {
+        if (is_null($channel_usages)) {
+            throw new \InvalidArgumentException('non-nullable channel_usages cannot be null');
+        }
+        $this->container['channel_usages'] = $channel_usages;
+
+        return $this;
+    }
+
+    /**
+     * Gets billing_cycle_start
      *
      * @return string
      */
-    public function getSuccessUrl()
+    public function getBillingCycleStart()
     {
-        return $this->container['success_url'];
+        return $this->container['billing_cycle_start'];
     }
 
     /**
-     * Sets success_url
+     * Sets billing_cycle_start
      *
-     * @param string $success_url success_url
+     * @param string $billing_cycle_start Billing cycle start date (ISO string)
      *
      * @return self
      */
-    public function setSuccessUrl($success_url)
+    public function setBillingCycleStart($billing_cycle_start)
     {
-        if (is_null($success_url)) {
-            throw new \InvalidArgumentException('non-nullable success_url cannot be null');
+        if (is_null($billing_cycle_start)) {
+            throw new \InvalidArgumentException('non-nullable billing_cycle_start cannot be null');
         }
-        $this->container['success_url'] = $success_url;
+        $this->container['billing_cycle_start'] = $billing_cycle_start;
 
         return $this;
     }
 
     /**
-     * Gets cancel_url
+     * Gets billing_cycle_end
      *
      * @return string
      */
-    public function getCancelUrl()
+    public function getBillingCycleEnd()
     {
-        return $this->container['cancel_url'];
+        return $this->container['billing_cycle_end'];
     }
 
     /**
-     * Sets cancel_url
+     * Sets billing_cycle_end
      *
-     * @param string $cancel_url cancel_url
+     * @param string $billing_cycle_end Billing cycle end date (ISO string)
      *
      * @return self
      */
-    public function setCancelUrl($cancel_url)
+    public function setBillingCycleEnd($billing_cycle_end)
     {
-        if (is_null($cancel_url)) {
-            throw new \InvalidArgumentException('non-nullable cancel_url cannot be null');
+        if (is_null($billing_cycle_end)) {
+            throw new \InvalidArgumentException('non-nullable billing_cycle_end cannot be null');
         }
-        $this->container['cancel_url'] = $cancel_url;
+        $this->container['billing_cycle_end'] = $billing_cycle_end;
 
         return $this;
     }
