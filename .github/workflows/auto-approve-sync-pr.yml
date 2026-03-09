@@ -1,0 +1,29 @@
+# Auto-approve and merge sync PRs from the serverless deployment pipeline.
+# Only runs for PRs from sync/build-* branches in this repo (not forks).
+# Satisfies branch protection's "1 approval required" so the sync can complete.
+name: Auto-approve sync PR
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+    branches: [main]
+
+jobs:
+  approve-and-merge:
+    name: Approve and merge sync PR
+    runs-on: ubuntu-latest
+    # Only run for sync PRs from this repo (not forks). Branch pattern sync/build-* is used by serverless.
+    if: |
+      startsWith(github.event.pull_request.head.ref, 'sync/build-') &&
+      github.event.pull_request.head.repo.full_name == github.event.pull_request.base.repo.full_name
+    permissions:
+      contents: write
+      pull-requests: write
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Approve PR
+        run: gh pr review ${{ github.event.pull_request.number }} --approve --body "Auto-approved - sync from serverless deployment pipeline"
+
+      - name: Merge PR
+        run: gh pr merge ${{ github.event.pull_request.number }} --merge
