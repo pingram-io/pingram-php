@@ -339,6 +339,7 @@ class GetLogsResponseMessagesInner implements ModelInterface, ArrayAccess, \Json
     public const RESOLUTION_TYPE_REPLY = 'reply';
     public const RESOLUTION_TYPE_BUILTIN = 'builtin';
     public const RESOLUTION_TYPE_CUSTOM = 'custom';
+    public const RESOLUTION_TYPE_INBOUND = 'inbound';
 
     /**
      * Gets allowable values of the enum
@@ -351,6 +352,7 @@ class GetLogsResponseMessagesInner implements ModelInterface, ArrayAccess, \Json
             self::RESOLUTION_TYPE_REPLY,
             self::RESOLUTION_TYPE_BUILTIN,
             self::RESOLUTION_TYPE_CUSTOM,
+            self::RESOLUTION_TYPE_INBOUND,
         ];
     }
 
