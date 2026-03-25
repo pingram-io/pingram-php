@@ -92,19 +92,23 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         'email_delivered_at' => 'string',
         'email_delivered_recipients' => 'string',
         'email_delivered_after' => 'float',
+        'email_delivered_webhook_res' => 'string',
         'email_failed_at' => 'string',
         'email_failed_code' => 'string',
         'email_failed_recipient' => 'string',
         'email_failed_diagnostic_code' => 'string',
         'email_failed_internal' => 'string',
+        'email_failed_webhook_res' => 'string',
         'email_opened_at' => 'string',
         'email_opened_user_agent' => 'string',
         'email_opened_ip' => 'string',
+        'email_opened_webhook_res' => 'string',
         'email_clicked_at' => 'string',
         'email_clicked_user_agent' => 'string',
         'email_clicked_ip' => 'string',
         'email_clicked_link' => 'string',
         'email_clicked_link_tags' => 'string',
+        'email_clicked_webhook_res' => 'string',
         'email_inbound_at' => 'string',
         'email_inbound_from' => 'string',
         'email_inbound_from_name' => 'string',
@@ -256,19 +260,23 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         'email_delivered_at' => null,
         'email_delivered_recipients' => null,
         'email_delivered_after' => null,
+        'email_delivered_webhook_res' => null,
         'email_failed_at' => null,
         'email_failed_code' => null,
         'email_failed_recipient' => null,
         'email_failed_diagnostic_code' => null,
         'email_failed_internal' => null,
+        'email_failed_webhook_res' => null,
         'email_opened_at' => null,
         'email_opened_user_agent' => null,
         'email_opened_ip' => null,
+        'email_opened_webhook_res' => null,
         'email_clicked_at' => null,
         'email_clicked_user_agent' => null,
         'email_clicked_ip' => null,
         'email_clicked_link' => null,
         'email_clicked_link_tags' => null,
+        'email_clicked_webhook_res' => null,
         'email_inbound_at' => null,
         'email_inbound_from' => null,
         'email_inbound_from_name' => null,
@@ -418,19 +426,23 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         'email_delivered_at' => false,
         'email_delivered_recipients' => false,
         'email_delivered_after' => false,
+        'email_delivered_webhook_res' => false,
         'email_failed_at' => false,
         'email_failed_code' => false,
         'email_failed_recipient' => false,
         'email_failed_diagnostic_code' => false,
         'email_failed_internal' => false,
+        'email_failed_webhook_res' => false,
         'email_opened_at' => false,
         'email_opened_user_agent' => false,
         'email_opened_ip' => false,
+        'email_opened_webhook_res' => false,
         'email_clicked_at' => false,
         'email_clicked_user_agent' => false,
         'email_clicked_ip' => false,
         'email_clicked_link' => false,
         'email_clicked_link_tags' => false,
+        'email_clicked_webhook_res' => false,
         'email_inbound_at' => false,
         'email_inbound_from' => false,
         'email_inbound_from_name' => false,
@@ -660,19 +672,23 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         'email_delivered_at' => 'email_delivered_at',
         'email_delivered_recipients' => 'email_delivered_recipients',
         'email_delivered_after' => 'email_delivered_after',
+        'email_delivered_webhook_res' => 'email_delivered_webhook_res',
         'email_failed_at' => 'email_failed_at',
         'email_failed_code' => 'email_failed_code',
         'email_failed_recipient' => 'email_failed_recipient',
         'email_failed_diagnostic_code' => 'email_failed_diagnostic_code',
         'email_failed_internal' => 'email_failed_internal',
+        'email_failed_webhook_res' => 'email_failed_webhook_res',
         'email_opened_at' => 'email_opened_at',
         'email_opened_user_agent' => 'email_opened_user_agent',
         'email_opened_ip' => 'email_opened_ip',
+        'email_opened_webhook_res' => 'email_opened_webhook_res',
         'email_clicked_at' => 'email_clicked_at',
         'email_clicked_user_agent' => 'email_clicked_user_agent',
         'email_clicked_ip' => 'email_clicked_ip',
         'email_clicked_link' => 'email_clicked_link',
         'email_clicked_link_tags' => 'email_clicked_link_tags',
+        'email_clicked_webhook_res' => 'email_clicked_webhook_res',
         'email_inbound_at' => 'email_inbound_at',
         'email_inbound_from' => 'email_inbound_from',
         'email_inbound_from_name' => 'email_inbound_from_name',
@@ -822,19 +838,23 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         'email_delivered_at' => 'setEmailDeliveredAt',
         'email_delivered_recipients' => 'setEmailDeliveredRecipients',
         'email_delivered_after' => 'setEmailDeliveredAfter',
+        'email_delivered_webhook_res' => 'setEmailDeliveredWebhookRes',
         'email_failed_at' => 'setEmailFailedAt',
         'email_failed_code' => 'setEmailFailedCode',
         'email_failed_recipient' => 'setEmailFailedRecipient',
         'email_failed_diagnostic_code' => 'setEmailFailedDiagnosticCode',
         'email_failed_internal' => 'setEmailFailedInternal',
+        'email_failed_webhook_res' => 'setEmailFailedWebhookRes',
         'email_opened_at' => 'setEmailOpenedAt',
         'email_opened_user_agent' => 'setEmailOpenedUserAgent',
         'email_opened_ip' => 'setEmailOpenedIp',
+        'email_opened_webhook_res' => 'setEmailOpenedWebhookRes',
         'email_clicked_at' => 'setEmailClickedAt',
         'email_clicked_user_agent' => 'setEmailClickedUserAgent',
         'email_clicked_ip' => 'setEmailClickedIp',
         'email_clicked_link' => 'setEmailClickedLink',
         'email_clicked_link_tags' => 'setEmailClickedLinkTags',
+        'email_clicked_webhook_res' => 'setEmailClickedWebhookRes',
         'email_inbound_at' => 'setEmailInboundAt',
         'email_inbound_from' => 'setEmailInboundFrom',
         'email_inbound_from_name' => 'setEmailInboundFromName',
@@ -984,19 +1004,23 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         'email_delivered_at' => 'getEmailDeliveredAt',
         'email_delivered_recipients' => 'getEmailDeliveredRecipients',
         'email_delivered_after' => 'getEmailDeliveredAfter',
+        'email_delivered_webhook_res' => 'getEmailDeliveredWebhookRes',
         'email_failed_at' => 'getEmailFailedAt',
         'email_failed_code' => 'getEmailFailedCode',
         'email_failed_recipient' => 'getEmailFailedRecipient',
         'email_failed_diagnostic_code' => 'getEmailFailedDiagnosticCode',
         'email_failed_internal' => 'getEmailFailedInternal',
+        'email_failed_webhook_res' => 'getEmailFailedWebhookRes',
         'email_opened_at' => 'getEmailOpenedAt',
         'email_opened_user_agent' => 'getEmailOpenedUserAgent',
         'email_opened_ip' => 'getEmailOpenedIp',
+        'email_opened_webhook_res' => 'getEmailOpenedWebhookRes',
         'email_clicked_at' => 'getEmailClickedAt',
         'email_clicked_user_agent' => 'getEmailClickedUserAgent',
         'email_clicked_ip' => 'getEmailClickedIp',
         'email_clicked_link' => 'getEmailClickedLink',
         'email_clicked_link_tags' => 'getEmailClickedLinkTags',
+        'email_clicked_webhook_res' => 'getEmailClickedWebhookRes',
         'email_inbound_at' => 'getEmailInboundAt',
         'email_inbound_from' => 'getEmailInboundFrom',
         'email_inbound_from_name' => 'getEmailInboundFromName',
@@ -1838,19 +1862,23 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         $this->setIfExists('email_delivered_at', $data ?? [], null);
         $this->setIfExists('email_delivered_recipients', $data ?? [], null);
         $this->setIfExists('email_delivered_after', $data ?? [], null);
+        $this->setIfExists('email_delivered_webhook_res', $data ?? [], null);
         $this->setIfExists('email_failed_at', $data ?? [], null);
         $this->setIfExists('email_failed_code', $data ?? [], null);
         $this->setIfExists('email_failed_recipient', $data ?? [], null);
         $this->setIfExists('email_failed_diagnostic_code', $data ?? [], null);
         $this->setIfExists('email_failed_internal', $data ?? [], null);
+        $this->setIfExists('email_failed_webhook_res', $data ?? [], null);
         $this->setIfExists('email_opened_at', $data ?? [], null);
         $this->setIfExists('email_opened_user_agent', $data ?? [], null);
         $this->setIfExists('email_opened_ip', $data ?? [], null);
+        $this->setIfExists('email_opened_webhook_res', $data ?? [], null);
         $this->setIfExists('email_clicked_at', $data ?? [], null);
         $this->setIfExists('email_clicked_user_agent', $data ?? [], null);
         $this->setIfExists('email_clicked_ip', $data ?? [], null);
         $this->setIfExists('email_clicked_link', $data ?? [], null);
         $this->setIfExists('email_clicked_link_tags', $data ?? [], null);
+        $this->setIfExists('email_clicked_webhook_res', $data ?? [], null);
         $this->setIfExists('email_inbound_at', $data ?? [], null);
         $this->setIfExists('email_inbound_from', $data ?? [], null);
         $this->setIfExists('email_inbound_from_name', $data ?? [], null);
@@ -3208,6 +3236,33 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
     }
 
     /**
+     * Gets email_delivered_webhook_res
+     *
+     * @return string|null
+     */
+    public function getEmailDeliveredWebhookRes()
+    {
+        return $this->container['email_delivered_webhook_res'];
+    }
+
+    /**
+     * Sets email_delivered_webhook_res
+     *
+     * @param string|null $email_delivered_webhook_res email_delivered_webhook_res
+     *
+     * @return self
+     */
+    public function setEmailDeliveredWebhookRes($email_delivered_webhook_res)
+    {
+        if (is_null($email_delivered_webhook_res)) {
+            throw new \InvalidArgumentException('non-nullable email_delivered_webhook_res cannot be null');
+        }
+        $this->container['email_delivered_webhook_res'] = $email_delivered_webhook_res;
+
+        return $this;
+    }
+
+    /**
      * Gets email_failed_at
      *
      * @return string|null
@@ -3353,6 +3408,33 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
     }
 
     /**
+     * Gets email_failed_webhook_res
+     *
+     * @return string|null
+     */
+    public function getEmailFailedWebhookRes()
+    {
+        return $this->container['email_failed_webhook_res'];
+    }
+
+    /**
+     * Sets email_failed_webhook_res
+     *
+     * @param string|null $email_failed_webhook_res email_failed_webhook_res
+     *
+     * @return self
+     */
+    public function setEmailFailedWebhookRes($email_failed_webhook_res)
+    {
+        if (is_null($email_failed_webhook_res)) {
+            throw new \InvalidArgumentException('non-nullable email_failed_webhook_res cannot be null');
+        }
+        $this->container['email_failed_webhook_res'] = $email_failed_webhook_res;
+
+        return $this;
+    }
+
+    /**
      * Gets email_opened_at
      *
      * @return string|null
@@ -3429,6 +3511,33 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
             throw new \InvalidArgumentException('non-nullable email_opened_ip cannot be null');
         }
         $this->container['email_opened_ip'] = $email_opened_ip;
+
+        return $this;
+    }
+
+    /**
+     * Gets email_opened_webhook_res
+     *
+     * @return string|null
+     */
+    public function getEmailOpenedWebhookRes()
+    {
+        return $this->container['email_opened_webhook_res'];
+    }
+
+    /**
+     * Sets email_opened_webhook_res
+     *
+     * @param string|null $email_opened_webhook_res email_opened_webhook_res
+     *
+     * @return self
+     */
+    public function setEmailOpenedWebhookRes($email_opened_webhook_res)
+    {
+        if (is_null($email_opened_webhook_res)) {
+            throw new \InvalidArgumentException('non-nullable email_opened_webhook_res cannot be null');
+        }
+        $this->container['email_opened_webhook_res'] = $email_opened_webhook_res;
 
         return $this;
     }
@@ -3564,6 +3673,33 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
             throw new \InvalidArgumentException('non-nullable email_clicked_link_tags cannot be null');
         }
         $this->container['email_clicked_link_tags'] = $email_clicked_link_tags;
+
+        return $this;
+    }
+
+    /**
+     * Gets email_clicked_webhook_res
+     *
+     * @return string|null
+     */
+    public function getEmailClickedWebhookRes()
+    {
+        return $this->container['email_clicked_webhook_res'];
+    }
+
+    /**
+     * Sets email_clicked_webhook_res
+     *
+     * @param string|null $email_clicked_webhook_res email_clicked_webhook_res
+     *
+     * @return self
+     */
+    public function setEmailClickedWebhookRes($email_clicked_webhook_res)
+    {
+        if (is_null($email_clicked_webhook_res)) {
+            throw new \InvalidArgumentException('non-nullable email_clicked_webhook_res cannot be null');
+        }
+        $this->container['email_clicked_webhook_res'] = $email_clicked_webhook_res;
 
         return $this;
     }

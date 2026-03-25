@@ -255,6 +255,7 @@ class EventsWebhookUpsertRequest implements ModelInterface, ArrayAccess, \JsonSe
     public const EVENTS_WEB_PUSH_UNSUBSCRIBE = 'WEB_PUSH_UNSUBSCRIBE';
     public const EVENTS_SLACK_FAILED = 'SLACK_FAILED';
     public const EVENTS_SLACK_UNSUBSCRIBE = 'SLACK_UNSUBSCRIBE';
+    public const EVENTS_VOICE_INBOUND = 'VOICE_INBOUND';
 
     /**
      * Gets allowable values of the enum
@@ -284,6 +285,7 @@ class EventsWebhookUpsertRequest implements ModelInterface, ArrayAccess, \JsonSe
             self::EVENTS_WEB_PUSH_UNSUBSCRIBE,
             self::EVENTS_SLACK_FAILED,
             self::EVENTS_SLACK_UNSUBSCRIBE,
+            self::EVENTS_VOICE_INBOUND,
         ];
     }
 
