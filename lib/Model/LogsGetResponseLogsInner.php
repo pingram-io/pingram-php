@@ -206,6 +206,7 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         'sms_sent_parts' => 'float',
         'sms_sent_cost' => 'float',
         'sms_sent_country' => 'string',
+        'sms_sent_message_id' => 'string',
         'sms_carrier_cost_internal' => 'float',
         'sms_carrier_fee_internal' => 'float',
         'sms_rate_internal' => 'float',
@@ -374,6 +375,7 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         'sms_sent_parts' => null,
         'sms_sent_cost' => null,
         'sms_sent_country' => null,
+        'sms_sent_message_id' => null,
         'sms_carrier_cost_internal' => null,
         'sms_carrier_fee_internal' => null,
         'sms_rate_internal' => null,
@@ -540,6 +542,7 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         'sms_sent_parts' => false,
         'sms_sent_cost' => false,
         'sms_sent_country' => false,
+        'sms_sent_message_id' => false,
         'sms_carrier_cost_internal' => false,
         'sms_carrier_fee_internal' => false,
         'sms_rate_internal' => false,
@@ -786,6 +789,7 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         'sms_sent_parts' => 'sms_sent_parts',
         'sms_sent_cost' => 'sms_sent_cost',
         'sms_sent_country' => 'sms_sent_country',
+        'sms_sent_message_id' => 'sms_sent_messageId',
         'sms_carrier_cost_internal' => 'sms_carrier_cost_internal',
         'sms_carrier_fee_internal' => 'sms_carrier_fee_internal',
         'sms_rate_internal' => 'sms_rate_internal',
@@ -952,6 +956,7 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         'sms_sent_parts' => 'setSmsSentParts',
         'sms_sent_cost' => 'setSmsSentCost',
         'sms_sent_country' => 'setSmsSentCountry',
+        'sms_sent_message_id' => 'setSmsSentMessageId',
         'sms_carrier_cost_internal' => 'setSmsCarrierCostInternal',
         'sms_carrier_fee_internal' => 'setSmsCarrierFeeInternal',
         'sms_rate_internal' => 'setSmsRateInternal',
@@ -1118,6 +1123,7 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         'sms_sent_parts' => 'getSmsSentParts',
         'sms_sent_cost' => 'getSmsSentCost',
         'sms_sent_country' => 'getSmsSentCountry',
+        'sms_sent_message_id' => 'getSmsSentMessageId',
         'sms_carrier_cost_internal' => 'getSmsCarrierCostInternal',
         'sms_carrier_fee_internal' => 'getSmsCarrierFeeInternal',
         'sms_rate_internal' => 'getSmsRateInternal',
@@ -1976,6 +1982,7 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         $this->setIfExists('sms_sent_parts', $data ?? [], null);
         $this->setIfExists('sms_sent_cost', $data ?? [], null);
         $this->setIfExists('sms_sent_country', $data ?? [], null);
+        $this->setIfExists('sms_sent_message_id', $data ?? [], null);
         $this->setIfExists('sms_carrier_cost_internal', $data ?? [], null);
         $this->setIfExists('sms_carrier_fee_internal', $data ?? [], null);
         $this->setIfExists('sms_rate_internal', $data ?? [], null);
@@ -6529,6 +6536,33 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
             throw new \InvalidArgumentException('non-nullable sms_sent_country cannot be null');
         }
         $this->container['sms_sent_country'] = $sms_sent_country;
+
+        return $this;
+    }
+
+    /**
+     * Gets sms_sent_message_id
+     *
+     * @return string|null
+     */
+    public function getSmsSentMessageId()
+    {
+        return $this->container['sms_sent_message_id'];
+    }
+
+    /**
+     * Sets sms_sent_message_id
+     *
+     * @param string|null $sms_sent_message_id Unique message ID from provider (Twilio SID or Telnyx ID)
+     *
+     * @return self
+     */
+    public function setSmsSentMessageId($sms_sent_message_id)
+    {
+        if (is_null($sms_sent_message_id)) {
+            throw new \InvalidArgumentException('non-nullable sms_sent_message_id cannot be null');
+        }
+        $this->container['sms_sent_message_id'] = $sms_sent_message_id;
 
         return $this;
     }

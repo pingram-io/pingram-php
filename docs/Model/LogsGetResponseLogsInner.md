@@ -153,6 +153,7 @@ Name | Type | Description | Notes
 **sms_sent_parts** | **float** |  | [optional]
 **sms_sent_cost** | **float** |  | [optional]
 **sms_sent_country** | **string** |  | [optional]
+**sms_sent_message_id** | **string** | Unique message ID from provider (Twilio SID or Telnyx ID) | [optional]
 **sms_carrier_cost_internal** | **float** | Actual cost from Telnyx/Twilio (internal) | [optional]
 **sms_carrier_fee_internal** | **float** |  | [optional]
 **sms_rate_internal** | **float** |  | [optional]
