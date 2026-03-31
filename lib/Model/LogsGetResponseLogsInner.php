@@ -126,11 +126,13 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         'email_inbound_in_reply_to' => 'string',
         'email_inbound_references' => 'string',
         'email_inbound_webhook_delivered' => 'bool',
+        'email_inbound_webhook_res' => 'string',
         'email_inbound_resolution_type' => 'string',
         'sms_inbound_at' => 'string',
         'sms_inbound_from' => 'string',
         'sms_inbound_text' => 'string',
         'sms_inbound_webhook_delivered' => 'bool',
+        'sms_inbound_webhook_res' => 'string',
         'sms_replied_at' => 'string',
         'sms_replied_to' => 'string',
         'sms_replied_text' => 'string',
@@ -295,11 +297,13 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         'email_inbound_in_reply_to' => null,
         'email_inbound_references' => null,
         'email_inbound_webhook_delivered' => null,
+        'email_inbound_webhook_res' => null,
         'email_inbound_resolution_type' => null,
         'sms_inbound_at' => null,
         'sms_inbound_from' => null,
         'sms_inbound_text' => null,
         'sms_inbound_webhook_delivered' => null,
+        'sms_inbound_webhook_res' => null,
         'sms_replied_at' => null,
         'sms_replied_to' => null,
         'sms_replied_text' => null,
@@ -462,11 +466,13 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         'email_inbound_in_reply_to' => false,
         'email_inbound_references' => false,
         'email_inbound_webhook_delivered' => false,
+        'email_inbound_webhook_res' => false,
         'email_inbound_resolution_type' => false,
         'sms_inbound_at' => false,
         'sms_inbound_from' => false,
         'sms_inbound_text' => false,
         'sms_inbound_webhook_delivered' => false,
+        'sms_inbound_webhook_res' => false,
         'sms_replied_at' => false,
         'sms_replied_to' => false,
         'sms_replied_text' => false,
@@ -709,11 +715,13 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         'email_inbound_in_reply_to' => 'email_inbound_in_reply_to',
         'email_inbound_references' => 'email_inbound_references',
         'email_inbound_webhook_delivered' => 'email_inbound_webhook_delivered',
+        'email_inbound_webhook_res' => 'email_inbound_webhook_res',
         'email_inbound_resolution_type' => 'email_inbound_resolution_type',
         'sms_inbound_at' => 'sms_inbound_at',
         'sms_inbound_from' => 'sms_inbound_from',
         'sms_inbound_text' => 'sms_inbound_text',
         'sms_inbound_webhook_delivered' => 'sms_inbound_webhook_delivered',
+        'sms_inbound_webhook_res' => 'sms_inbound_webhook_res',
         'sms_replied_at' => 'sms_replied_at',
         'sms_replied_to' => 'sms_replied_to',
         'sms_replied_text' => 'sms_replied_text',
@@ -876,11 +884,13 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         'email_inbound_in_reply_to' => 'setEmailInboundInReplyTo',
         'email_inbound_references' => 'setEmailInboundReferences',
         'email_inbound_webhook_delivered' => 'setEmailInboundWebhookDelivered',
+        'email_inbound_webhook_res' => 'setEmailInboundWebhookRes',
         'email_inbound_resolution_type' => 'setEmailInboundResolutionType',
         'sms_inbound_at' => 'setSmsInboundAt',
         'sms_inbound_from' => 'setSmsInboundFrom',
         'sms_inbound_text' => 'setSmsInboundText',
         'sms_inbound_webhook_delivered' => 'setSmsInboundWebhookDelivered',
+        'sms_inbound_webhook_res' => 'setSmsInboundWebhookRes',
         'sms_replied_at' => 'setSmsRepliedAt',
         'sms_replied_to' => 'setSmsRepliedTo',
         'sms_replied_text' => 'setSmsRepliedText',
@@ -1043,11 +1053,13 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         'email_inbound_in_reply_to' => 'getEmailInboundInReplyTo',
         'email_inbound_references' => 'getEmailInboundReferences',
         'email_inbound_webhook_delivered' => 'getEmailInboundWebhookDelivered',
+        'email_inbound_webhook_res' => 'getEmailInboundWebhookRes',
         'email_inbound_resolution_type' => 'getEmailInboundResolutionType',
         'sms_inbound_at' => 'getSmsInboundAt',
         'sms_inbound_from' => 'getSmsInboundFrom',
         'sms_inbound_text' => 'getSmsInboundText',
         'sms_inbound_webhook_delivered' => 'getSmsInboundWebhookDelivered',
+        'sms_inbound_webhook_res' => 'getSmsInboundWebhookRes',
         'sms_replied_at' => 'getSmsRepliedAt',
         'sms_replied_to' => 'getSmsRepliedTo',
         'sms_replied_text' => 'getSmsRepliedText',
@@ -1902,11 +1914,13 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         $this->setIfExists('email_inbound_in_reply_to', $data ?? [], null);
         $this->setIfExists('email_inbound_references', $data ?? [], null);
         $this->setIfExists('email_inbound_webhook_delivered', $data ?? [], null);
+        $this->setIfExists('email_inbound_webhook_res', $data ?? [], null);
         $this->setIfExists('email_inbound_resolution_type', $data ?? [], null);
         $this->setIfExists('sms_inbound_at', $data ?? [], null);
         $this->setIfExists('sms_inbound_from', $data ?? [], null);
         $this->setIfExists('sms_inbound_text', $data ?? [], null);
         $this->setIfExists('sms_inbound_webhook_delivered', $data ?? [], null);
+        $this->setIfExists('sms_inbound_webhook_res', $data ?? [], null);
         $this->setIfExists('sms_replied_at', $data ?? [], null);
         $this->setIfExists('sms_replied_to', $data ?? [], null);
         $this->setIfExists('sms_replied_text', $data ?? [], null);
@@ -4171,6 +4185,33 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
     }
 
     /**
+     * Gets email_inbound_webhook_res
+     *
+     * @return string|null
+     */
+    public function getEmailInboundWebhookRes()
+    {
+        return $this->container['email_inbound_webhook_res'];
+    }
+
+    /**
+     * Sets email_inbound_webhook_res
+     *
+     * @param string|null $email_inbound_webhook_res email_inbound_webhook_res
+     *
+     * @return self
+     */
+    public function setEmailInboundWebhookRes($email_inbound_webhook_res)
+    {
+        if (is_null($email_inbound_webhook_res)) {
+            throw new \InvalidArgumentException('non-nullable email_inbound_webhook_res cannot be null');
+        }
+        $this->container['email_inbound_webhook_res'] = $email_inbound_webhook_res;
+
+        return $this;
+    }
+
+    /**
      * Gets email_inbound_resolution_type
      *
      * @return string|null
@@ -4311,6 +4352,33 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
             throw new \InvalidArgumentException('non-nullable sms_inbound_webhook_delivered cannot be null');
         }
         $this->container['sms_inbound_webhook_delivered'] = $sms_inbound_webhook_delivered;
+
+        return $this;
+    }
+
+    /**
+     * Gets sms_inbound_webhook_res
+     *
+     * @return string|null
+     */
+    public function getSmsInboundWebhookRes()
+    {
+        return $this->container['sms_inbound_webhook_res'];
+    }
+
+    /**
+     * Sets sms_inbound_webhook_res
+     *
+     * @param string|null $sms_inbound_webhook_res sms_inbound_webhook_res
+     *
+     * @return self
+     */
+    public function setSmsInboundWebhookRes($sms_inbound_webhook_res)
+    {
+        if (is_null($sms_inbound_webhook_res)) {
+            throw new \InvalidArgumentException('non-nullable sms_inbound_webhook_res cannot be null');
+        }
+        $this->container['sms_inbound_webhook_res'] = $sms_inbound_webhook_res;
 
         return $this;
     }
