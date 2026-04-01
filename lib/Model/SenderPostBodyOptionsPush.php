@@ -1,6 +1,6 @@
 <?php
 /**
- * SenderPostBodyOptions
+ * SenderPostBodyOptionsPush
  *
  * PHP version 8.1
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \Pingram\ObjectSerializer;
 
 /**
- * SenderPostBodyOptions Class Doc Comment
+ * SenderPostBodyOptionsPush Class Doc Comment
  *
  * @category Class
- * @description Per-channel overrides for send options (email, APN, FCM).
+ * @description Cross-platform mobile push options (applied to both APN and FCM).
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SenderPostBodyOptions implements ModelInterface, ArrayAccess, \JsonSerializable
+class SenderPostBodyOptionsPush implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class SenderPostBodyOptions implements ModelInterface, ArrayAccess, \JsonSeriali
       *
       * @var string
       */
-    protected static $openAPIModelName = 'SenderPostBody_options';
+    protected static $openAPIModelName = 'SenderPostBody_options_push';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,10 +58,7 @@ class SenderPostBodyOptions implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var string[]
       */
     protected static $openAPITypes = [
-        'email' => '\Pingram\Model\SenderPostBodyOptionsEmail',
-        'apn' => '\Pingram\Model\SenderPostBodyOptionsApn',
-        'fcm' => '\Pingram\Model\SenderPostBodyOptionsFcm',
-        'push' => '\Pingram\Model\SenderPostBodyOptionsPush'
+        'custom_data' => 'array<string,string>'
     ];
 
     /**
@@ -72,10 +69,7 @@ class SenderPostBodyOptions implements ModelInterface, ArrayAccess, \JsonSeriali
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'email' => null,
-        'apn' => null,
-        'fcm' => null,
-        'push' => null
+        'custom_data' => null
     ];
 
     /**
@@ -84,10 +78,7 @@ class SenderPostBodyOptions implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'email' => false,
-        'apn' => false,
-        'fcm' => false,
-        'push' => false
+        'custom_data' => false
     ];
 
     /**
@@ -176,10 +167,7 @@ class SenderPostBodyOptions implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $attributeMap = [
-        'email' => 'email',
-        'apn' => 'apn',
-        'fcm' => 'fcm',
-        'push' => 'push'
+        'custom_data' => 'customData'
     ];
 
     /**
@@ -188,10 +176,7 @@ class SenderPostBodyOptions implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $setters = [
-        'email' => 'setEmail',
-        'apn' => 'setApn',
-        'fcm' => 'setFcm',
-        'push' => 'setPush'
+        'custom_data' => 'setCustomData'
     ];
 
     /**
@@ -200,10 +185,7 @@ class SenderPostBodyOptions implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $getters = [
-        'email' => 'getEmail',
-        'apn' => 'getApn',
-        'fcm' => 'getFcm',
-        'push' => 'getPush'
+        'custom_data' => 'getCustomData'
     ];
 
     /**
@@ -263,10 +245,7 @@ class SenderPostBodyOptions implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('email', $data ?? [], null);
-        $this->setIfExists('apn', $data ?? [], null);
-        $this->setIfExists('fcm', $data ?? [], null);
-        $this->setIfExists('push', $data ?? [], null);
+        $this->setIfExists('custom_data', $data ?? [], null);
     }
 
     /**
@@ -312,109 +291,28 @@ class SenderPostBodyOptions implements ModelInterface, ArrayAccess, \JsonSeriali
 
 
     /**
-     * Gets email
+     * Gets custom_data
      *
-     * @return \Pingram\Model\SenderPostBodyOptionsEmail|null
+     * @return array<string,string>|null
      */
-    public function getEmail()
+    public function getCustomData()
     {
-        return $this->container['email'];
+        return $this->container['custom_data'];
     }
 
     /**
-     * Sets email
+     * Sets custom_data
      *
-     * @param \Pingram\Model\SenderPostBodyOptionsEmail|null $email email
+     * @param array<string,string>|null $custom_data Up to 3 custom string key-value pairs for deep linking. Included in both APN and FCM payloads.
      *
      * @return self
      */
-    public function setEmail($email)
+    public function setCustomData($custom_data)
     {
-        if (is_null($email)) {
-            throw new \InvalidArgumentException('non-nullable email cannot be null');
+        if (is_null($custom_data)) {
+            throw new \InvalidArgumentException('non-nullable custom_data cannot be null');
         }
-        $this->container['email'] = $email;
-
-        return $this;
-    }
-
-    /**
-     * Gets apn
-     *
-     * @return \Pingram\Model\SenderPostBodyOptionsApn|null
-     */
-    public function getApn()
-    {
-        return $this->container['apn'];
-    }
-
-    /**
-     * Sets apn
-     *
-     * @param \Pingram\Model\SenderPostBodyOptionsApn|null $apn apn
-     *
-     * @return self
-     */
-    public function setApn($apn)
-    {
-        if (is_null($apn)) {
-            throw new \InvalidArgumentException('non-nullable apn cannot be null');
-        }
-        $this->container['apn'] = $apn;
-
-        return $this;
-    }
-
-    /**
-     * Gets fcm
-     *
-     * @return \Pingram\Model\SenderPostBodyOptionsFcm|null
-     */
-    public function getFcm()
-    {
-        return $this->container['fcm'];
-    }
-
-    /**
-     * Sets fcm
-     *
-     * @param \Pingram\Model\SenderPostBodyOptionsFcm|null $fcm fcm
-     *
-     * @return self
-     */
-    public function setFcm($fcm)
-    {
-        if (is_null($fcm)) {
-            throw new \InvalidArgumentException('non-nullable fcm cannot be null');
-        }
-        $this->container['fcm'] = $fcm;
-
-        return $this;
-    }
-
-    /**
-     * Gets push
-     *
-     * @return \Pingram\Model\SenderPostBodyOptionsPush|null
-     */
-    public function getPush()
-    {
-        return $this->container['push'];
-    }
-
-    /**
-     * Sets push
-     *
-     * @param \Pingram\Model\SenderPostBodyOptionsPush|null $push push
-     *
-     * @return self
-     */
-    public function setPush($push)
-    {
-        if (is_null($push)) {
-            throw new \InvalidArgumentException('non-nullable push cannot be null');
-        }
-        $this->container['push'] = $push;
+        $this->container['custom_data'] = $custom_data;
 
         return $this;
     }
