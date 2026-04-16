@@ -35,7 +35,7 @@ use \Pingram\ObjectSerializer;
  * AccountGetResponse Class Doc Comment
  *
  * @category Class
- * @description GET /account response: basic account info (billing fields are on Organization).
+ * @description GET /account response: basic account info (billing fields are on the organization).
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

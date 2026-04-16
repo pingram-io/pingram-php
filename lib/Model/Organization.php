@@ -35,7 +35,7 @@ use \Pingram\ObjectSerializer;
  * Organization Class Doc Comment
  *
  * @category Class
- * @description Organization document in organizations table. Holds usage caps; one org can have multiple accounts.
+ * @description Organization details for the authenticated account: identifiers, billing-cycle dates, usage caps (messages, SMS, calls, cost), and timestamps. Returned by GET /account/organization.
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -61,27 +61,15 @@ class Organization implements ModelInterface, ArrayAccess, \JsonSerializable
         'organization_id' => 'string',
         'organization_type' => 'string',
         'creator' => 'string',
+        'name' => 'string',
         'messages_cap' => 'float',
         'cost_cap' => 'float',
-        'created_at' => 'string',
-        'updated_at' => 'string',
-        'anniversary_date' => 'string',
-        'allow_overage' => 'bool',
-        'name' => 'string',
         'sms_cap' => 'float',
         'call_cap' => 'float',
-        'stripe_customer_id' => 'string',
-        'stripe_subscription_id' => 'string',
-        'subscription_status' => 'string',
-        'status' => 'string',
-        'internal_cap' => 'float',
-        'pending_downgrade_cost_cap' => 'float',
-        'pending_downgrade_messages_cap' => 'float',
-        'pending_downgrade_sms_cap' => 'float',
-        'pending_downgrade_call_cap' => 'float',
-        'pending_downgrade_internal_cap' => 'float',
-        'pending_downgrade_effective_date' => 'string',
-        'pending_downgrade_account_type' => 'string'
+        'anniversary_date' => 'string',
+        'allow_overage' => 'bool',
+        'created_at' => 'string',
+        'updated_at' => 'string'
     ];
 
     /**
@@ -95,27 +83,15 @@ class Organization implements ModelInterface, ArrayAccess, \JsonSerializable
         'organization_id' => null,
         'organization_type' => null,
         'creator' => null,
+        'name' => null,
         'messages_cap' => null,
         'cost_cap' => null,
-        'created_at' => null,
-        'updated_at' => null,
-        'anniversary_date' => null,
-        'allow_overage' => null,
-        'name' => null,
         'sms_cap' => null,
         'call_cap' => null,
-        'stripe_customer_id' => null,
-        'stripe_subscription_id' => null,
-        'subscription_status' => null,
-        'status' => null,
-        'internal_cap' => null,
-        'pending_downgrade_cost_cap' => null,
-        'pending_downgrade_messages_cap' => null,
-        'pending_downgrade_sms_cap' => null,
-        'pending_downgrade_call_cap' => null,
-        'pending_downgrade_internal_cap' => null,
-        'pending_downgrade_effective_date' => null,
-        'pending_downgrade_account_type' => null
+        'anniversary_date' => null,
+        'allow_overage' => null,
+        'created_at' => null,
+        'updated_at' => null
     ];
 
     /**
@@ -127,27 +103,15 @@ class Organization implements ModelInterface, ArrayAccess, \JsonSerializable
         'organization_id' => false,
         'organization_type' => false,
         'creator' => false,
+        'name' => false,
         'messages_cap' => false,
         'cost_cap' => false,
-        'created_at' => false,
-        'updated_at' => false,
-        'anniversary_date' => false,
-        'allow_overage' => false,
-        'name' => false,
         'sms_cap' => false,
         'call_cap' => false,
-        'stripe_customer_id' => false,
-        'stripe_subscription_id' => false,
-        'subscription_status' => true,
-        'status' => false,
-        'internal_cap' => false,
-        'pending_downgrade_cost_cap' => false,
-        'pending_downgrade_messages_cap' => false,
-        'pending_downgrade_sms_cap' => false,
-        'pending_downgrade_call_cap' => false,
-        'pending_downgrade_internal_cap' => false,
-        'pending_downgrade_effective_date' => false,
-        'pending_downgrade_account_type' => false
+        'anniversary_date' => false,
+        'allow_overage' => false,
+        'created_at' => false,
+        'updated_at' => false
     ];
 
     /**
@@ -239,27 +203,15 @@ class Organization implements ModelInterface, ArrayAccess, \JsonSerializable
         'organization_id' => 'organizationId',
         'organization_type' => 'organizationType',
         'creator' => 'creator',
+        'name' => 'name',
         'messages_cap' => 'messagesCap',
         'cost_cap' => 'costCap',
-        'created_at' => 'createdAt',
-        'updated_at' => 'updatedAt',
-        'anniversary_date' => 'anniversaryDate',
-        'allow_overage' => 'allowOverage',
-        'name' => 'name',
         'sms_cap' => 'smsCap',
         'call_cap' => 'callCap',
-        'stripe_customer_id' => 'stripeCustomerId',
-        'stripe_subscription_id' => 'stripeSubscriptionId',
-        'subscription_status' => 'subscriptionStatus',
-        'status' => 'status',
-        'internal_cap' => 'internalCap',
-        'pending_downgrade_cost_cap' => 'pendingDowngradeCostCap',
-        'pending_downgrade_messages_cap' => 'pendingDowngradeMessagesCap',
-        'pending_downgrade_sms_cap' => 'pendingDowngradeSmsCap',
-        'pending_downgrade_call_cap' => 'pendingDowngradeCallCap',
-        'pending_downgrade_internal_cap' => 'pendingDowngradeInternalCap',
-        'pending_downgrade_effective_date' => 'pendingDowngradeEffectiveDate',
-        'pending_downgrade_account_type' => 'pendingDowngradeAccountType'
+        'anniversary_date' => 'anniversaryDate',
+        'allow_overage' => 'allowOverage',
+        'created_at' => 'createdAt',
+        'updated_at' => 'updatedAt'
     ];
 
     /**
@@ -271,27 +223,15 @@ class Organization implements ModelInterface, ArrayAccess, \JsonSerializable
         'organization_id' => 'setOrganizationId',
         'organization_type' => 'setOrganizationType',
         'creator' => 'setCreator',
+        'name' => 'setName',
         'messages_cap' => 'setMessagesCap',
         'cost_cap' => 'setCostCap',
-        'created_at' => 'setCreatedAt',
-        'updated_at' => 'setUpdatedAt',
-        'anniversary_date' => 'setAnniversaryDate',
-        'allow_overage' => 'setAllowOverage',
-        'name' => 'setName',
         'sms_cap' => 'setSmsCap',
         'call_cap' => 'setCallCap',
-        'stripe_customer_id' => 'setStripeCustomerId',
-        'stripe_subscription_id' => 'setStripeSubscriptionId',
-        'subscription_status' => 'setSubscriptionStatus',
-        'status' => 'setStatus',
-        'internal_cap' => 'setInternalCap',
-        'pending_downgrade_cost_cap' => 'setPendingDowngradeCostCap',
-        'pending_downgrade_messages_cap' => 'setPendingDowngradeMessagesCap',
-        'pending_downgrade_sms_cap' => 'setPendingDowngradeSmsCap',
-        'pending_downgrade_call_cap' => 'setPendingDowngradeCallCap',
-        'pending_downgrade_internal_cap' => 'setPendingDowngradeInternalCap',
-        'pending_downgrade_effective_date' => 'setPendingDowngradeEffectiveDate',
-        'pending_downgrade_account_type' => 'setPendingDowngradeAccountType'
+        'anniversary_date' => 'setAnniversaryDate',
+        'allow_overage' => 'setAllowOverage',
+        'created_at' => 'setCreatedAt',
+        'updated_at' => 'setUpdatedAt'
     ];
 
     /**
@@ -303,27 +243,15 @@ class Organization implements ModelInterface, ArrayAccess, \JsonSerializable
         'organization_id' => 'getOrganizationId',
         'organization_type' => 'getOrganizationType',
         'creator' => 'getCreator',
+        'name' => 'getName',
         'messages_cap' => 'getMessagesCap',
         'cost_cap' => 'getCostCap',
-        'created_at' => 'getCreatedAt',
-        'updated_at' => 'getUpdatedAt',
-        'anniversary_date' => 'getAnniversaryDate',
-        'allow_overage' => 'getAllowOverage',
-        'name' => 'getName',
         'sms_cap' => 'getSmsCap',
         'call_cap' => 'getCallCap',
-        'stripe_customer_id' => 'getStripeCustomerId',
-        'stripe_subscription_id' => 'getStripeSubscriptionId',
-        'subscription_status' => 'getSubscriptionStatus',
-        'status' => 'getStatus',
-        'internal_cap' => 'getInternalCap',
-        'pending_downgrade_cost_cap' => 'getPendingDowngradeCostCap',
-        'pending_downgrade_messages_cap' => 'getPendingDowngradeMessagesCap',
-        'pending_downgrade_sms_cap' => 'getPendingDowngradeSmsCap',
-        'pending_downgrade_call_cap' => 'getPendingDowngradeCallCap',
-        'pending_downgrade_internal_cap' => 'getPendingDowngradeInternalCap',
-        'pending_downgrade_effective_date' => 'getPendingDowngradeEffectiveDate',
-        'pending_downgrade_account_type' => 'getPendingDowngradeAccountType'
+        'anniversary_date' => 'getAnniversaryDate',
+        'allow_overage' => 'getAllowOverage',
+        'created_at' => 'getCreatedAt',
+        'updated_at' => 'getUpdatedAt'
     ];
 
     /**
@@ -369,14 +297,6 @@ class Organization implements ModelInterface, ArrayAccess, \JsonSerializable
 
     public const ORGANIZATION_TYPE_FREE = 'free';
     public const ORGANIZATION_TYPE_PAID = 'paid';
-    public const SUBSCRIPTION_STATUS_ACTIVE = 'active';
-    public const SUBSCRIPTION_STATUS_CANCELED = 'canceled';
-    public const SUBSCRIPTION_STATUS_PAST_DUE = 'past_due';
-    public const SUBSCRIPTION_STATUS_PAUSED = 'paused';
-    public const STATUS_VERIFIED = 'verified';
-    public const STATUS_UNVERIFIED = 'unverified';
-    public const STATUS_BLOCKED = 'blocked';
-    public const PENDING_DOWNGRADE_ACCOUNT_TYPE_FREE = 'free';
 
     /**
      * Gets allowable values of the enum
@@ -388,47 +308,6 @@ class Organization implements ModelInterface, ArrayAccess, \JsonSerializable
         return [
             self::ORGANIZATION_TYPE_FREE,
             self::ORGANIZATION_TYPE_PAID,
-        ];
-    }
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getSubscriptionStatusAllowableValues()
-    {
-        return [
-            self::SUBSCRIPTION_STATUS_ACTIVE,
-            self::SUBSCRIPTION_STATUS_CANCELED,
-            self::SUBSCRIPTION_STATUS_PAST_DUE,
-            self::SUBSCRIPTION_STATUS_PAUSED,
-        ];
-    }
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getStatusAllowableValues()
-    {
-        return [
-            self::STATUS_VERIFIED,
-            self::STATUS_UNVERIFIED,
-            self::STATUS_BLOCKED,
-        ];
-    }
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getPendingDowngradeAccountTypeAllowableValues()
-    {
-        return [
-            self::PENDING_DOWNGRADE_ACCOUNT_TYPE_FREE,
         ];
     }
 
@@ -450,27 +329,15 @@ class Organization implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('organization_id', $data ?? [], null);
         $this->setIfExists('organization_type', $data ?? [], null);
         $this->setIfExists('creator', $data ?? [], null);
+        $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('messages_cap', $data ?? [], null);
         $this->setIfExists('cost_cap', $data ?? [], null);
-        $this->setIfExists('created_at', $data ?? [], null);
-        $this->setIfExists('updated_at', $data ?? [], null);
-        $this->setIfExists('anniversary_date', $data ?? [], null);
-        $this->setIfExists('allow_overage', $data ?? [], null);
-        $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('sms_cap', $data ?? [], null);
         $this->setIfExists('call_cap', $data ?? [], null);
-        $this->setIfExists('stripe_customer_id', $data ?? [], null);
-        $this->setIfExists('stripe_subscription_id', $data ?? [], null);
-        $this->setIfExists('subscription_status', $data ?? [], null);
-        $this->setIfExists('status', $data ?? [], null);
-        $this->setIfExists('internal_cap', $data ?? [], null);
-        $this->setIfExists('pending_downgrade_cost_cap', $data ?? [], null);
-        $this->setIfExists('pending_downgrade_messages_cap', $data ?? [], null);
-        $this->setIfExists('pending_downgrade_sms_cap', $data ?? [], null);
-        $this->setIfExists('pending_downgrade_call_cap', $data ?? [], null);
-        $this->setIfExists('pending_downgrade_internal_cap', $data ?? [], null);
-        $this->setIfExists('pending_downgrade_effective_date', $data ?? [], null);
-        $this->setIfExists('pending_downgrade_account_type', $data ?? [], null);
+        $this->setIfExists('anniversary_date', $data ?? [], null);
+        $this->setIfExists('allow_overage', $data ?? [], null);
+        $this->setIfExists('created_at', $data ?? [], null);
+        $this->setIfExists('updated_at', $data ?? [], null);
     }
 
     /**
@@ -518,17 +385,14 @@ class Organization implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['creator'] === null) {
             $invalidProperties[] = "'creator' can't be null";
         }
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
         if ($this->container['messages_cap'] === null) {
             $invalidProperties[] = "'messages_cap' can't be null";
         }
         if ($this->container['cost_cap'] === null) {
             $invalidProperties[] = "'cost_cap' can't be null";
-        }
-        if ($this->container['created_at'] === null) {
-            $invalidProperties[] = "'created_at' can't be null";
-        }
-        if ($this->container['updated_at'] === null) {
-            $invalidProperties[] = "'updated_at' can't be null";
         }
         if ($this->container['anniversary_date'] === null) {
             $invalidProperties[] = "'anniversary_date' can't be null";
@@ -536,36 +400,12 @@ class Organization implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['allow_overage'] === null) {
             $invalidProperties[] = "'allow_overage' can't be null";
         }
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
+        if ($this->container['created_at'] === null) {
+            $invalidProperties[] = "'created_at' can't be null";
         }
-        $allowedValues = $this->getSubscriptionStatusAllowableValues();
-        if (!is_null($this->container['subscription_status']) && !in_array($this->container['subscription_status'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'subscription_status', must be one of '%s'",
-                $this->container['subscription_status'],
-                implode("', '", $allowedValues)
-            );
+        if ($this->container['updated_at'] === null) {
+            $invalidProperties[] = "'updated_at' can't be null";
         }
-
-        $allowedValues = $this->getStatusAllowableValues();
-        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'status', must be one of '%s'",
-                $this->container['status'],
-                implode("', '", $allowedValues)
-            );
-        }
-
-        $allowedValues = $this->getPendingDowngradeAccountTypeAllowableValues();
-        if (!is_null($this->container['pending_downgrade_account_type']) && !in_array($this->container['pending_downgrade_account_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'pending_downgrade_account_type', must be one of '%s'",
-                $this->container['pending_downgrade_account_type'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         return $invalidProperties;
     }
 
@@ -673,6 +513,33 @@ class Organization implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string $name name
+     *
+     * @return self
+     */
+    public function setName($name)
+    {
+        if (is_null($name)) {
+            throw new \InvalidArgumentException('non-nullable name cannot be null');
+        }
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
      * Gets messages_cap
      *
      * @return float
@@ -722,141 +589,6 @@ class Organization implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable cost_cap cannot be null');
         }
         $this->container['cost_cap'] = $cost_cap;
-
-        return $this;
-    }
-
-    /**
-     * Gets created_at
-     *
-     * @return string
-     */
-    public function getCreatedAt()
-    {
-        return $this->container['created_at'];
-    }
-
-    /**
-     * Sets created_at
-     *
-     * @param string $created_at created_at
-     *
-     * @return self
-     */
-    public function setCreatedAt($created_at)
-    {
-        if (is_null($created_at)) {
-            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
-        }
-        $this->container['created_at'] = $created_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets updated_at
-     *
-     * @return string
-     */
-    public function getUpdatedAt()
-    {
-        return $this->container['updated_at'];
-    }
-
-    /**
-     * Sets updated_at
-     *
-     * @param string $updated_at updated_at
-     *
-     * @return self
-     */
-    public function setUpdatedAt($updated_at)
-    {
-        if (is_null($updated_at)) {
-            throw new \InvalidArgumentException('non-nullable updated_at cannot be null');
-        }
-        $this->container['updated_at'] = $updated_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets anniversary_date
-     *
-     * @return string
-     */
-    public function getAnniversaryDate()
-    {
-        return $this->container['anniversary_date'];
-    }
-
-    /**
-     * Sets anniversary_date
-     *
-     * @param string $anniversary_date ISO date (YYYY-MM-DD) when the billing cycle resets.
-     *
-     * @return self
-     */
-    public function setAnniversaryDate($anniversary_date)
-    {
-        if (is_null($anniversary_date)) {
-            throw new \InvalidArgumentException('non-nullable anniversary_date cannot be null');
-        }
-        $this->container['anniversary_date'] = $anniversary_date;
-
-        return $this;
-    }
-
-    /**
-     * Gets allow_overage
-     *
-     * @return bool
-     */
-    public function getAllowOverage()
-    {
-        return $this->container['allow_overage'];
-    }
-
-    /**
-     * Sets allow_overage
-     *
-     * @param bool $allow_overage allow_overage
-     *
-     * @return self
-     */
-    public function setAllowOverage($allow_overage)
-    {
-        if (is_null($allow_overage)) {
-            throw new \InvalidArgumentException('non-nullable allow_overage cannot be null');
-        }
-        $this->container['allow_overage'] = $allow_overage;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string $name name
-     *
-     * @return self
-     */
-    public function setName($name)
-    {
-        if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
-        }
-        $this->container['name'] = $name;
 
         return $this;
     }
@@ -916,362 +648,109 @@ class Organization implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets stripe_customer_id
+     * Gets anniversary_date
      *
-     * @return string|null
+     * @return string
      */
-    public function getStripeCustomerId()
+    public function getAnniversaryDate()
     {
-        return $this->container['stripe_customer_id'];
+        return $this->container['anniversary_date'];
     }
 
     /**
-     * Sets stripe_customer_id
+     * Sets anniversary_date
      *
-     * @param string|null $stripe_customer_id Stripe subscription ID.
+     * @param string $anniversary_date ISO date (YYYY-MM-DD) when the billing cycle resets.
      *
      * @return self
      */
-    public function setStripeCustomerId($stripe_customer_id)
+    public function setAnniversaryDate($anniversary_date)
     {
-        if (is_null($stripe_customer_id)) {
-            throw new \InvalidArgumentException('non-nullable stripe_customer_id cannot be null');
+        if (is_null($anniversary_date)) {
+            throw new \InvalidArgumentException('non-nullable anniversary_date cannot be null');
         }
-        $this->container['stripe_customer_id'] = $stripe_customer_id;
+        $this->container['anniversary_date'] = $anniversary_date;
 
         return $this;
     }
 
     /**
-     * Gets stripe_subscription_id
+     * Gets allow_overage
      *
-     * @return string|null
+     * @return bool
      */
-    public function getStripeSubscriptionId()
+    public function getAllowOverage()
     {
-        return $this->container['stripe_subscription_id'];
+        return $this->container['allow_overage'];
     }
 
     /**
-     * Sets stripe_subscription_id
+     * Sets allow_overage
      *
-     * @param string|null $stripe_subscription_id stripe_subscription_id
+     * @param bool $allow_overage allow_overage
      *
      * @return self
      */
-    public function setStripeSubscriptionId($stripe_subscription_id)
+    public function setAllowOverage($allow_overage)
     {
-        if (is_null($stripe_subscription_id)) {
-            throw new \InvalidArgumentException('non-nullable stripe_subscription_id cannot be null');
+        if (is_null($allow_overage)) {
+            throw new \InvalidArgumentException('non-nullable allow_overage cannot be null');
         }
-        $this->container['stripe_subscription_id'] = $stripe_subscription_id;
+        $this->container['allow_overage'] = $allow_overage;
 
         return $this;
     }
 
     /**
-     * Gets subscription_status
+     * Gets created_at
      *
-     * @return string|null
+     * @return string
      */
-    public function getSubscriptionStatus()
+    public function getCreatedAt()
     {
-        return $this->container['subscription_status'];
+        return $this->container['created_at'];
     }
 
     /**
-     * Sets subscription_status
+     * Sets created_at
      *
-     * @param string|null $subscription_status subscription_status
+     * @param string $created_at created_at
      *
      * @return self
      */
-    public function setSubscriptionStatus($subscription_status)
+    public function setCreatedAt($created_at)
     {
-        if (is_null($subscription_status)) {
-            array_push($this->openAPINullablesSetToNull, 'subscription_status');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('subscription_status', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($created_at)) {
+            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
         }
-        $allowedValues = $this->getSubscriptionStatusAllowableValues();
-        if (!is_null($subscription_status) && !in_array($subscription_status, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'subscription_status', must be one of '%s'",
-                    $subscription_status,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['subscription_status'] = $subscription_status;
+        $this->container['created_at'] = $created_at;
 
         return $this;
     }
 
     /**
-     * Gets status
+     * Gets updated_at
      *
-     * @return string|null
+     * @return string
      */
-    public function getStatus()
+    public function getUpdatedAt()
     {
-        return $this->container['status'];
+        return $this->container['updated_at'];
     }
 
     /**
-     * Sets status
+     * Sets updated_at
      *
-     * @param string|null $status Verification status; internalCap applies when not 'verified'.
+     * @param string $updated_at updated_at
      *
      * @return self
      */
-    public function setStatus($status)
+    public function setUpdatedAt($updated_at)
     {
-        if (is_null($status)) {
-            throw new \InvalidArgumentException('non-nullable status cannot be null');
+        if (is_null($updated_at)) {
+            throw new \InvalidArgumentException('non-nullable updated_at cannot be null');
         }
-        $allowedValues = $this->getStatusAllowableValues();
-        if (!in_array($status, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'status', must be one of '%s'",
-                    $status,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['status'] = $status;
-
-        return $this;
-    }
-
-    /**
-     * Gets internal_cap
-     *
-     * @return float|null
-     */
-    public function getInternalCap()
-    {
-        return $this->container['internal_cap'];
-    }
-
-    /**
-     * Sets internal_cap
-     *
-     * @param float|null $internal_cap Unverified account cap (per-channel message limit).
-     *
-     * @return self
-     */
-    public function setInternalCap($internal_cap)
-    {
-        if (is_null($internal_cap)) {
-            throw new \InvalidArgumentException('non-nullable internal_cap cannot be null');
-        }
-        $this->container['internal_cap'] = $internal_cap;
-
-        return $this;
-    }
-
-    /**
-     * Gets pending_downgrade_cost_cap
-     *
-     * @return float|null
-     */
-    public function getPendingDowngradeCostCap()
-    {
-        return $this->container['pending_downgrade_cost_cap'];
-    }
-
-    /**
-     * Sets pending_downgrade_cost_cap
-     *
-     * @param float|null $pending_downgrade_cost_cap pending_downgrade_cost_cap
-     *
-     * @return self
-     */
-    public function setPendingDowngradeCostCap($pending_downgrade_cost_cap)
-    {
-        if (is_null($pending_downgrade_cost_cap)) {
-            throw new \InvalidArgumentException('non-nullable pending_downgrade_cost_cap cannot be null');
-        }
-        $this->container['pending_downgrade_cost_cap'] = $pending_downgrade_cost_cap;
-
-        return $this;
-    }
-
-    /**
-     * Gets pending_downgrade_messages_cap
-     *
-     * @return float|null
-     */
-    public function getPendingDowngradeMessagesCap()
-    {
-        return $this->container['pending_downgrade_messages_cap'];
-    }
-
-    /**
-     * Sets pending_downgrade_messages_cap
-     *
-     * @param float|null $pending_downgrade_messages_cap pending_downgrade_messages_cap
-     *
-     * @return self
-     */
-    public function setPendingDowngradeMessagesCap($pending_downgrade_messages_cap)
-    {
-        if (is_null($pending_downgrade_messages_cap)) {
-            throw new \InvalidArgumentException('non-nullable pending_downgrade_messages_cap cannot be null');
-        }
-        $this->container['pending_downgrade_messages_cap'] = $pending_downgrade_messages_cap;
-
-        return $this;
-    }
-
-    /**
-     * Gets pending_downgrade_sms_cap
-     *
-     * @return float|null
-     */
-    public function getPendingDowngradeSmsCap()
-    {
-        return $this->container['pending_downgrade_sms_cap'];
-    }
-
-    /**
-     * Sets pending_downgrade_sms_cap
-     *
-     * @param float|null $pending_downgrade_sms_cap pending_downgrade_sms_cap
-     *
-     * @return self
-     */
-    public function setPendingDowngradeSmsCap($pending_downgrade_sms_cap)
-    {
-        if (is_null($pending_downgrade_sms_cap)) {
-            throw new \InvalidArgumentException('non-nullable pending_downgrade_sms_cap cannot be null');
-        }
-        $this->container['pending_downgrade_sms_cap'] = $pending_downgrade_sms_cap;
-
-        return $this;
-    }
-
-    /**
-     * Gets pending_downgrade_call_cap
-     *
-     * @return float|null
-     */
-    public function getPendingDowngradeCallCap()
-    {
-        return $this->container['pending_downgrade_call_cap'];
-    }
-
-    /**
-     * Sets pending_downgrade_call_cap
-     *
-     * @param float|null $pending_downgrade_call_cap pending_downgrade_call_cap
-     *
-     * @return self
-     */
-    public function setPendingDowngradeCallCap($pending_downgrade_call_cap)
-    {
-        if (is_null($pending_downgrade_call_cap)) {
-            throw new \InvalidArgumentException('non-nullable pending_downgrade_call_cap cannot be null');
-        }
-        $this->container['pending_downgrade_call_cap'] = $pending_downgrade_call_cap;
-
-        return $this;
-    }
-
-    /**
-     * Gets pending_downgrade_internal_cap
-     *
-     * @return float|null
-     */
-    public function getPendingDowngradeInternalCap()
-    {
-        return $this->container['pending_downgrade_internal_cap'];
-    }
-
-    /**
-     * Sets pending_downgrade_internal_cap
-     *
-     * @param float|null $pending_downgrade_internal_cap pending_downgrade_internal_cap
-     *
-     * @return self
-     */
-    public function setPendingDowngradeInternalCap($pending_downgrade_internal_cap)
-    {
-        if (is_null($pending_downgrade_internal_cap)) {
-            throw new \InvalidArgumentException('non-nullable pending_downgrade_internal_cap cannot be null');
-        }
-        $this->container['pending_downgrade_internal_cap'] = $pending_downgrade_internal_cap;
-
-        return $this;
-    }
-
-    /**
-     * Gets pending_downgrade_effective_date
-     *
-     * @return string|null
-     */
-    public function getPendingDowngradeEffectiveDate()
-    {
-        return $this->container['pending_downgrade_effective_date'];
-    }
-
-    /**
-     * Sets pending_downgrade_effective_date
-     *
-     * @param string|null $pending_downgrade_effective_date pending_downgrade_effective_date
-     *
-     * @return self
-     */
-    public function setPendingDowngradeEffectiveDate($pending_downgrade_effective_date)
-    {
-        if (is_null($pending_downgrade_effective_date)) {
-            throw new \InvalidArgumentException('non-nullable pending_downgrade_effective_date cannot be null');
-        }
-        $this->container['pending_downgrade_effective_date'] = $pending_downgrade_effective_date;
-
-        return $this;
-    }
-
-    /**
-     * Gets pending_downgrade_account_type
-     *
-     * @return string|null
-     */
-    public function getPendingDowngradeAccountType()
-    {
-        return $this->container['pending_downgrade_account_type'];
-    }
-
-    /**
-     * Sets pending_downgrade_account_type
-     *
-     * @param string|null $pending_downgrade_account_type pending_downgrade_account_type
-     *
-     * @return self
-     */
-    public function setPendingDowngradeAccountType($pending_downgrade_account_type)
-    {
-        if (is_null($pending_downgrade_account_type)) {
-            throw new \InvalidArgumentException('non-nullable pending_downgrade_account_type cannot be null');
-        }
-        $allowedValues = $this->getPendingDowngradeAccountTypeAllowableValues();
-        if (!in_array($pending_downgrade_account_type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'pending_downgrade_account_type', must be one of '%s'",
-                    $pending_downgrade_account_type,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['pending_downgrade_account_type'] = $pending_downgrade_account_type;
+        $this->container['updated_at'] = $updated_at;
 
         return $this;
     }

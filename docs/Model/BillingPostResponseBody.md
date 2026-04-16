@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **stripe_customer_id** | **string** | Stripe subscription ID. | [optional]
 **stripe_subscription_id** | **string** |  | [optional]
 **subscription_status** | **string** |  | [optional]
-**status** | **string** | Verification status; internalCap applies when not &#39;verified&#39;. | [optional]
+**status** | **string** | Verification status. | [optional]
 **pending_downgrade_cost_cap** | **float** |  | [optional]
 **pending_downgrade_messages_cap** | **float** |  | [optional]
 **pending_downgrade_sms_cap** | **float** |  | [optional]

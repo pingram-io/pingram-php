@@ -1026,7 +1026,7 @@ class BillingPostResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets status
      *
-     * @param string|null $status Verification status; internalCap applies when not 'verified'.
+     * @param string|null $status Verification status.
      *
      * @return self
      */
