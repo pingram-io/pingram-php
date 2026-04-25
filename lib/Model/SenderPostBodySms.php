@@ -35,7 +35,7 @@ use \Pingram\ObjectSerializer;
  * SenderPostBodySms Class Doc Comment
  *
  * @category Class
- * @description Inline SMS content (message, autoReply).
+ * @description Inline SMS content (message, autoReply, from).
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -59,7 +59,8 @@ class SenderPostBodySms implements ModelInterface, ArrayAccess, \JsonSerializabl
       */
     protected static $openAPITypes = [
         'message' => 'string',
-        'auto_reply' => '\Pingram\Model\SenderPostBodySmsAutoReply'
+        'auto_reply' => '\Pingram\Model\SenderPostBodySmsAutoReply',
+        'from' => 'string'
     ];
 
     /**
@@ -71,7 +72,8 @@ class SenderPostBodySms implements ModelInterface, ArrayAccess, \JsonSerializabl
       */
     protected static $openAPIFormats = [
         'message' => null,
-        'auto_reply' => null
+        'auto_reply' => null,
+        'from' => null
     ];
 
     /**
@@ -81,7 +83,8 @@ class SenderPostBodySms implements ModelInterface, ArrayAccess, \JsonSerializabl
       */
     protected static array $openAPINullables = [
         'message' => false,
-        'auto_reply' => false
+        'auto_reply' => false,
+        'from' => false
     ];
 
     /**
@@ -171,7 +174,8 @@ class SenderPostBodySms implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     protected static $attributeMap = [
         'message' => 'message',
-        'auto_reply' => 'autoReply'
+        'auto_reply' => 'autoReply',
+        'from' => 'from'
     ];
 
     /**
@@ -181,7 +185,8 @@ class SenderPostBodySms implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     protected static $setters = [
         'message' => 'setMessage',
-        'auto_reply' => 'setAutoReply'
+        'auto_reply' => 'setAutoReply',
+        'from' => 'setFrom'
     ];
 
     /**
@@ -191,7 +196,8 @@ class SenderPostBodySms implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     protected static $getters = [
         'message' => 'getMessage',
-        'auto_reply' => 'getAutoReply'
+        'auto_reply' => 'getAutoReply',
+        'from' => 'getFrom'
     ];
 
     /**
@@ -253,6 +259,7 @@ class SenderPostBodySms implements ModelInterface, ArrayAccess, \JsonSerializabl
     {
         $this->setIfExists('message', $data ?? [], null);
         $this->setIfExists('auto_reply', $data ?? [], null);
+        $this->setIfExists('from', $data ?? [], null);
     }
 
     /**
@@ -347,6 +354,33 @@ class SenderPostBodySms implements ModelInterface, ArrayAccess, \JsonSerializabl
             throw new \InvalidArgumentException('non-nullable auto_reply cannot be null');
         }
         $this->container['auto_reply'] = $auto_reply;
+
+        return $this;
+    }
+
+    /**
+     * Gets from
+     *
+     * @return string|null
+     */
+    public function getFrom()
+    {
+        return $this->container['from'];
+    }
+
+    /**
+     * Sets from
+     *
+     * @param string|null $from Override the sender phone number. Must be a verified number in your Telnyx account.
+     *
+     * @return self
+     */
+    public function setFrom($from)
+    {
+        if (is_null($from)) {
+            throw new \InvalidArgumentException('non-nullable from cannot be null');
+        }
+        $this->container['from'] = $from;
 
         return $this;
     }
