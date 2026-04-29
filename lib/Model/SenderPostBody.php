@@ -426,6 +426,7 @@ class SenderPostBody implements ModelInterface, ArrayAccess, \JsonSerializable
      * Gets notification_id
      *
      * @return string|null
+     * @deprecated
      */
     public function getNotificationId()
     {
@@ -435,9 +436,10 @@ class SenderPostBody implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets notification_id
      *
-     * @param string|null $notification_id notification_id
+     * @param string|null $notification_id @deprecated Use type instead
      *
      * @return self
+     * @deprecated
      */
     public function setNotificationId($notification_id)
     {
@@ -511,6 +513,7 @@ class SenderPostBody implements ModelInterface, ArrayAccess, \JsonSerializable
      * Gets replace
      *
      * @return array<string,string>|null
+     * @deprecated
      */
     public function getReplace()
     {
@@ -520,9 +523,10 @@ class SenderPostBody implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets replace
      *
-     * @param array<string,string>|null $replace replace
+     * @param array<string,string>|null $replace @deprecated Use parameters instead
      *
      * @return self
+     * @deprecated
      */
     public function setReplace($replace)
     {
