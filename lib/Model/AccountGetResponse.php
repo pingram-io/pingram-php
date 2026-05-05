@@ -61,7 +61,6 @@ class AccountGetResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         'account_id' => 'string',
         'organization_id' => 'string',
         'name' => 'string',
-        'account_type' => 'string',
         'created_at' => 'string'
     ];
 
@@ -76,7 +75,6 @@ class AccountGetResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         'account_id' => null,
         'organization_id' => null,
         'name' => null,
-        'account_type' => null,
         'created_at' => null
     ];
 
@@ -89,7 +87,6 @@ class AccountGetResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         'account_id' => false,
         'organization_id' => false,
         'name' => false,
-        'account_type' => false,
         'created_at' => false
     ];
 
@@ -182,7 +179,6 @@ class AccountGetResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         'account_id' => 'accountId',
         'organization_id' => 'organizationId',
         'name' => 'name',
-        'account_type' => 'accountType',
         'created_at' => 'createdAt'
     ];
 
@@ -195,7 +191,6 @@ class AccountGetResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         'account_id' => 'setAccountId',
         'organization_id' => 'setOrganizationId',
         'name' => 'setName',
-        'account_type' => 'setAccountType',
         'created_at' => 'setCreatedAt'
     ];
 
@@ -208,7 +203,6 @@ class AccountGetResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         'account_id' => 'getAccountId',
         'organization_id' => 'getOrganizationId',
         'name' => 'getName',
-        'account_type' => 'getAccountType',
         'created_at' => 'getCreatedAt'
     ];
 
@@ -253,21 +247,6 @@ class AccountGetResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         return self::$openAPIModelName;
     }
 
-    public const ACCOUNT_TYPE_FREE = 'free';
-    public const ACCOUNT_TYPE_PAID = 'paid';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getAccountTypeAllowableValues()
-    {
-        return [
-            self::ACCOUNT_TYPE_FREE,
-            self::ACCOUNT_TYPE_PAID,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -287,7 +266,6 @@ class AccountGetResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->setIfExists('account_id', $data ?? [], null);
         $this->setIfExists('organization_id', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('account_type', $data ?? [], null);
         $this->setIfExists('created_at', $data ?? [], null);
     }
 
@@ -321,21 +299,12 @@ class AccountGetResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         if ($this->container['account_id'] === null) {
             $invalidProperties[] = "'account_id' can't be null";
         }
+        if ($this->container['organization_id'] === null) {
+            $invalidProperties[] = "'organization_id' can't be null";
+        }
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
         }
-        if ($this->container['account_type'] === null) {
-            $invalidProperties[] = "'account_type' can't be null";
-        }
-        $allowedValues = $this->getAccountTypeAllowableValues();
-        if (!is_null($this->container['account_type']) && !in_array($this->container['account_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'account_type', must be one of '%s'",
-                $this->container['account_type'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         if ($this->container['created_at'] === null) {
             $invalidProperties[] = "'created_at' can't be null";
         }
@@ -384,7 +353,7 @@ class AccountGetResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets organization_id
      *
-     * @return string|null
+     * @return string
      */
     public function getOrganizationId()
     {
@@ -394,7 +363,7 @@ class AccountGetResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets organization_id
      *
-     * @param string|null $organization_id Optional organization ID; legacy accounts may not have one.
+     * @param string $organization_id organization_id
      *
      * @return self
      */
@@ -431,43 +400,6 @@ class AccountGetResponse implements ModelInterface, ArrayAccess, \JsonSerializab
             throw new \InvalidArgumentException('non-nullable name cannot be null');
         }
         $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets account_type
-     *
-     * @return string
-     */
-    public function getAccountType()
-    {
-        return $this->container['account_type'];
-    }
-
-    /**
-     * Sets account_type
-     *
-     * @param string $account_type account_type
-     *
-     * @return self
-     */
-    public function setAccountType($account_type)
-    {
-        if (is_null($account_type)) {
-            throw new \InvalidArgumentException('non-nullable account_type cannot be null');
-        }
-        $allowedValues = $this->getAccountTypeAllowableValues();
-        if (!in_array($account_type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'account_type', must be one of '%s'",
-                    $account_type,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['account_type'] = $account_type;
 
         return $this;
     }
