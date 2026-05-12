@@ -36,6 +36,8 @@ use Pingram\Api\LogsApi;
 
 use Pingram\Api\MembersApi;
 
+use Pingram\Api\NumbersApi;
+
 use Pingram\Api\OrganizationApi;
 
 use Pingram\Api\PushSettingsApi;
@@ -112,6 +114,9 @@ class Client
     /** @var MembersApi */
     private $members;
 
+    /** @var NumbersApi */
+    private $numbers;
+
     /** @var OrganizationApi */
     private $organization;
 
@@ -176,6 +181,8 @@ class Client
         $this->logs = new LogsApi($this->httpClient, $this->config);
 
         $this->members = new MembersApi($this->httpClient, $this->config);
+
+        $this->numbers = new NumbersApi($this->httpClient, $this->config);
 
         $this->organization = new OrganizationApi($this->httpClient, $this->config);
 
@@ -313,6 +320,15 @@ class Client
     public function getMembers(): \Pingram\Api\MembersApi
     {
         return $this->members;
+    }
+
+
+    /**
+     * @return NumbersApi
+     */
+    public function getNumbers(): \Pingram\Api\NumbersApi
+    {
+        return $this->numbers;
     }
 
 
