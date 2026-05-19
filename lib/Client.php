@@ -40,6 +40,8 @@ use Pingram\Api\NumbersApi;
 
 use Pingram\Api\OrganizationApi;
 
+use Pingram\Api\ProfileApi;
+
 use Pingram\Api\PushSettingsApi;
 
 use Pingram\Api\SenderApi;
@@ -120,6 +122,9 @@ class Client
     /** @var OrganizationApi */
     private $organization;
 
+    /** @var ProfileApi */
+    private $profile;
+
     /** @var PushSettingsApi */
     private $pushSettings;
 
@@ -185,6 +190,8 @@ class Client
         $this->numbers = new NumbersApi($this->httpClient, $this->config);
 
         $this->organization = new OrganizationApi($this->httpClient, $this->config);
+
+        $this->profile = new ProfileApi($this->httpClient, $this->config);
 
         $this->pushSettings = new PushSettingsApi($this->httpClient, $this->config);
 
@@ -338,6 +345,15 @@ class Client
     public function getOrganization(): \Pingram\Api\OrganizationApi
     {
         return $this->organization;
+    }
+
+
+    /**
+     * @return ProfileApi
+     */
+    public function getProfile(): \Pingram\Api\ProfileApi
+    {
+        return $this->profile;
     }
 
 
