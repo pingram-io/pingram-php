@@ -69,7 +69,7 @@ class SenderPostBodySlack implements ModelInterface, ArrayAccess, \JsonSerializa
         'mrkdwn' => 'bool',
         'unfurl_links' => 'bool',
         'unfurl_media' => 'bool',
-        'metadata' => '\Pingram\Model\GetTemplatesListResponseInnerAnyOf5Metadata'
+        'metadata' => '\Pingram\Model\GetTemplatesListResponseInnerAnyOf6Metadata'
     ];
 
     /**
@@ -704,7 +704,7 @@ class SenderPostBodySlack implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets metadata
      *
-     * @return \Pingram\Model\GetTemplatesListResponseInnerAnyOf5Metadata|null
+     * @return \Pingram\Model\GetTemplatesListResponseInnerAnyOf6Metadata|null
      */
     public function getMetadata()
     {
@@ -714,7 +714,7 @@ class SenderPostBodySlack implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets metadata
      *
-     * @param \Pingram\Model\GetTemplatesListResponseInnerAnyOf5Metadata|null $metadata metadata
+     * @param \Pingram\Model\GetTemplatesListResponseInnerAnyOf6Metadata|null $metadata metadata
      *
      * @return self
      */

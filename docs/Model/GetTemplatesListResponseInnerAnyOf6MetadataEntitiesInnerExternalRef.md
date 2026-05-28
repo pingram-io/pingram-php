@@ -1,4 +1,4 @@
-# # GetTemplatesListResponseInnerAnyOf5MetadataEntitiesInnerExternalRef
+# # GetTemplatesListResponseInnerAnyOf6MetadataEntitiesInnerExternalRef
 
 ## Properties
 

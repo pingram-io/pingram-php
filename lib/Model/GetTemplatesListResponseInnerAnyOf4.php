@@ -64,9 +64,7 @@ class GetTemplatesListResponseInnerAnyOf4 implements ModelInterface, ArrayAccess
         'default' => 'bool',
         'is_default_for' => 'array<string,bool>',
         'title' => 'string',
-        'message' => 'string',
-        'icon' => 'string',
-        'url' => 'string'
+        'message' => 'string'
     ];
 
     /**
@@ -84,9 +82,7 @@ class GetTemplatesListResponseInnerAnyOf4 implements ModelInterface, ArrayAccess
         'default' => null,
         'is_default_for' => null,
         'title' => null,
-        'message' => null,
-        'icon' => null,
-        'url' => null
+        'message' => null
     ];
 
     /**
@@ -102,9 +98,7 @@ class GetTemplatesListResponseInnerAnyOf4 implements ModelInterface, ArrayAccess
         'default' => false,
         'is_default_for' => false,
         'title' => false,
-        'message' => false,
-        'icon' => false,
-        'url' => false
+        'message' => false
     ];
 
     /**
@@ -200,9 +194,7 @@ class GetTemplatesListResponseInnerAnyOf4 implements ModelInterface, ArrayAccess
         'default' => 'default',
         'is_default_for' => 'isDefaultFor',
         'title' => 'title',
-        'message' => 'message',
-        'icon' => 'icon',
-        'url' => 'url'
+        'message' => 'message'
     ];
 
     /**
@@ -218,9 +210,7 @@ class GetTemplatesListResponseInnerAnyOf4 implements ModelInterface, ArrayAccess
         'default' => 'setDefault',
         'is_default_for' => 'setIsDefaultFor',
         'title' => 'setTitle',
-        'message' => 'setMessage',
-        'icon' => 'setIcon',
-        'url' => 'setUrl'
+        'message' => 'setMessage'
     ];
 
     /**
@@ -236,9 +226,7 @@ class GetTemplatesListResponseInnerAnyOf4 implements ModelInterface, ArrayAccess
         'default' => 'getDefault',
         'is_default_for' => 'getIsDefaultFor',
         'title' => 'getTitle',
-        'message' => 'getMessage',
-        'icon' => 'getIcon',
-        'url' => 'getUrl'
+        'message' => 'getMessage'
     ];
 
     /**
@@ -306,8 +294,6 @@ class GetTemplatesListResponseInnerAnyOf4 implements ModelInterface, ArrayAccess
         $this->setIfExists('is_default_for', $data ?? [], null);
         $this->setIfExists('title', $data ?? [], null);
         $this->setIfExists('message', $data ?? [], null);
-        $this->setIfExists('icon', $data ?? [], null);
-        $this->setIfExists('url', $data ?? [], null);
     }
 
     /**
@@ -585,60 +571,6 @@ class GetTemplatesListResponseInnerAnyOf4 implements ModelInterface, ArrayAccess
             throw new \InvalidArgumentException('non-nullable message cannot be null');
         }
         $this->container['message'] = $message;
-
-        return $this;
-    }
-
-    /**
-     * Gets icon
-     *
-     * @return string|null
-     */
-    public function getIcon()
-    {
-        return $this->container['icon'];
-    }
-
-    /**
-     * Sets icon
-     *
-     * @param string|null $icon icon
-     *
-     * @return self
-     */
-    public function setIcon($icon)
-    {
-        if (is_null($icon)) {
-            throw new \InvalidArgumentException('non-nullable icon cannot be null');
-        }
-        $this->container['icon'] = $icon;
-
-        return $this;
-    }
-
-    /**
-     * Gets url
-     *
-     * @return string|null
-     */
-    public function getUrl()
-    {
-        return $this->container['url'];
-    }
-
-    /**
-     * Sets url
-     *
-     * @param string|null $url url
-     *
-     * @return self
-     */
-    public function setUrl($url)
-    {
-        if (is_null($url)) {
-            throw new \InvalidArgumentException('non-nullable url cannot be null');
-        }
-        $this->container['url'] = $url;
 
         return $this;
     }

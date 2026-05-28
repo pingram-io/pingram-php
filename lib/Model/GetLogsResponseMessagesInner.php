@@ -72,6 +72,7 @@ class GetLogsResponseMessagesInner implements ModelInterface, ArrayAccess, \Json
         'body_text' => 'string',
         'body_html' => 'string',
         'attachments' => '\Pingram\Model\GetLogsResponseMessagesInnerAttachmentsInner[]',
+        'media' => '\Pingram\Model\GetLogsResponseMessagesInnerMediaInner[]',
         'message_id' => 'string',
         'in_reply_to' => 'string',
         'references' => 'string',
@@ -101,6 +102,7 @@ class GetLogsResponseMessagesInner implements ModelInterface, ArrayAccess, \Json
         'body_text' => null,
         'body_html' => null,
         'attachments' => null,
+        'media' => null,
         'message_id' => null,
         'in_reply_to' => null,
         'references' => null,
@@ -128,6 +130,7 @@ class GetLogsResponseMessagesInner implements ModelInterface, ArrayAccess, \Json
         'body_text' => false,
         'body_html' => false,
         'attachments' => false,
+        'media' => false,
         'message_id' => false,
         'in_reply_to' => false,
         'references' => false,
@@ -235,6 +238,7 @@ class GetLogsResponseMessagesInner implements ModelInterface, ArrayAccess, \Json
         'body_text' => 'bodyText',
         'body_html' => 'bodyHtml',
         'attachments' => 'attachments',
+        'media' => 'media',
         'message_id' => 'messageId',
         'in_reply_to' => 'inReplyTo',
         'references' => 'references',
@@ -262,6 +266,7 @@ class GetLogsResponseMessagesInner implements ModelInterface, ArrayAccess, \Json
         'body_text' => 'setBodyText',
         'body_html' => 'setBodyHtml',
         'attachments' => 'setAttachments',
+        'media' => 'setMedia',
         'message_id' => 'setMessageId',
         'in_reply_to' => 'setInReplyTo',
         'references' => 'setReferences',
@@ -289,6 +294,7 @@ class GetLogsResponseMessagesInner implements ModelInterface, ArrayAccess, \Json
         'body_text' => 'getBodyText',
         'body_html' => 'getBodyHtml',
         'attachments' => 'getAttachments',
+        'media' => 'getMedia',
         'message_id' => 'getMessageId',
         'in_reply_to' => 'getInReplyTo',
         'references' => 'getReferences',
@@ -386,6 +392,7 @@ class GetLogsResponseMessagesInner implements ModelInterface, ArrayAccess, \Json
         $this->setIfExists('body_text', $data ?? [], null);
         $this->setIfExists('body_html', $data ?? [], null);
         $this->setIfExists('attachments', $data ?? [], null);
+        $this->setIfExists('media', $data ?? [], null);
         $this->setIfExists('message_id', $data ?? [], null);
         $this->setIfExists('in_reply_to', $data ?? [], null);
         $this->setIfExists('references', $data ?? [], null);
@@ -856,6 +863,33 @@ class GetLogsResponseMessagesInner implements ModelInterface, ArrayAccess, \Json
             throw new \InvalidArgumentException('non-nullable attachments cannot be null');
         }
         $this->container['attachments'] = $attachments;
+
+        return $this;
+    }
+
+    /**
+     * Gets media
+     *
+     * @return \Pingram\Model\GetLogsResponseMessagesInnerMediaInner[]|null
+     */
+    public function getMedia()
+    {
+        return $this->container['media'];
+    }
+
+    /**
+     * Sets media
+     *
+     * @param \Pingram\Model\GetLogsResponseMessagesInnerMediaInner[]|null $media Inbound MMS attachments (includes contentType when available).
+     *
+     * @return self
+     */
+    public function setMedia($media)
+    {
+        if (is_null($media)) {
+            throw new \InvalidArgumentException('non-nullable media cannot be null');
+        }
+        $this->container['media'] = $media;
 
         return $this;
     }

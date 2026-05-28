@@ -11,5 +11,6 @@ Name | Type | Description | Notes
 **default** | **bool** |  |
 **is_default_for** | **array<string,bool>** |  | [optional]
 **text** | **string** |  |
+**media_urls** | **string[]** | Set when sending MMS (outbound). | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

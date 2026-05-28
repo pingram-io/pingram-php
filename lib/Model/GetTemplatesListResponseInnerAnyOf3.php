@@ -63,8 +63,7 @@ class GetTemplatesListResponseInnerAnyOf3 implements ModelInterface, ArrayAccess
         'channel' => '\Pingram\Model\ChannelsEnum',
         'default' => 'bool',
         'is_default_for' => 'array<string,bool>',
-        'title' => 'string',
-        'message' => 'string'
+        'text' => 'string'
     ];
 
     /**
@@ -81,8 +80,7 @@ class GetTemplatesListResponseInnerAnyOf3 implements ModelInterface, ArrayAccess
         'channel' => null,
         'default' => null,
         'is_default_for' => null,
-        'title' => null,
-        'message' => null
+        'text' => null
     ];
 
     /**
@@ -97,8 +95,7 @@ class GetTemplatesListResponseInnerAnyOf3 implements ModelInterface, ArrayAccess
         'channel' => false,
         'default' => false,
         'is_default_for' => false,
-        'title' => false,
-        'message' => false
+        'text' => false
     ];
 
     /**
@@ -193,8 +190,7 @@ class GetTemplatesListResponseInnerAnyOf3 implements ModelInterface, ArrayAccess
         'channel' => 'channel',
         'default' => 'default',
         'is_default_for' => 'isDefaultFor',
-        'title' => 'title',
-        'message' => 'message'
+        'text' => 'text'
     ];
 
     /**
@@ -209,8 +205,7 @@ class GetTemplatesListResponseInnerAnyOf3 implements ModelInterface, ArrayAccess
         'channel' => 'setChannel',
         'default' => 'setDefault',
         'is_default_for' => 'setIsDefaultFor',
-        'title' => 'setTitle',
-        'message' => 'setMessage'
+        'text' => 'setText'
     ];
 
     /**
@@ -225,8 +220,7 @@ class GetTemplatesListResponseInnerAnyOf3 implements ModelInterface, ArrayAccess
         'channel' => 'getChannel',
         'default' => 'getDefault',
         'is_default_for' => 'getIsDefaultFor',
-        'title' => 'getTitle',
-        'message' => 'getMessage'
+        'text' => 'getText'
     ];
 
     /**
@@ -292,8 +286,7 @@ class GetTemplatesListResponseInnerAnyOf3 implements ModelInterface, ArrayAccess
         $this->setIfExists('channel', $data ?? [], null);
         $this->setIfExists('default', $data ?? [], null);
         $this->setIfExists('is_default_for', $data ?? [], null);
-        $this->setIfExists('title', $data ?? [], null);
-        $this->setIfExists('message', $data ?? [], null);
+        $this->setIfExists('text', $data ?? [], null);
     }
 
     /**
@@ -338,11 +331,8 @@ class GetTemplatesListResponseInnerAnyOf3 implements ModelInterface, ArrayAccess
         if ($this->container['default'] === null) {
             $invalidProperties[] = "'default' can't be null";
         }
-        if ($this->container['title'] === null) {
-            $invalidProperties[] = "'title' can't be null";
-        }
-        if ($this->container['message'] === null) {
-            $invalidProperties[] = "'message' can't be null";
+        if ($this->container['text'] === null) {
+            $invalidProperties[] = "'text' can't be null";
         }
         return $invalidProperties;
     }
@@ -522,55 +512,28 @@ class GetTemplatesListResponseInnerAnyOf3 implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets title
+     * Gets text
      *
      * @return string
      */
-    public function getTitle()
+    public function getText()
     {
-        return $this->container['title'];
+        return $this->container['text'];
     }
 
     /**
-     * Sets title
+     * Sets text
      *
-     * @param string $title title
+     * @param string $text text
      *
      * @return self
      */
-    public function setTitle($title)
+    public function setText($text)
     {
-        if (is_null($title)) {
-            throw new \InvalidArgumentException('non-nullable title cannot be null');
+        if (is_null($text)) {
+            throw new \InvalidArgumentException('non-nullable text cannot be null');
         }
-        $this->container['title'] = $title;
-
-        return $this;
-    }
-
-    /**
-     * Gets message
-     *
-     * @return string
-     */
-    public function getMessage()
-    {
-        return $this->container['message'];
-    }
-
-    /**
-     * Sets message
-     *
-     * @param string $message message
-     *
-     * @return self
-     */
-    public function setMessage($message)
-    {
-        if (is_null($message)) {
-            throw new \InvalidArgumentException('non-nullable message cannot be null');
-        }
-        $this->container['message'] = $message;
+        $this->container['text'] = $text;
 
         return $this;
     }

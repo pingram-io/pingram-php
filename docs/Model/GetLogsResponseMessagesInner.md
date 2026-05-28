@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **body_text** | **string** |  | [optional]
 **body_html** | **string** |  | [optional]
 **attachments** | [**\Pingram\Model\GetLogsResponseMessagesInnerAttachmentsInner[]**](GetLogsResponseMessagesInnerAttachmentsInner.md) |  | [optional]
+**media** | [**\Pingram\Model\GetLogsResponseMessagesInnerMediaInner[]**](GetLogsResponseMessagesInnerMediaInner.md) | Inbound MMS attachments (includes contentType when available). | [optional]
 **message_id** | **string** |  | [optional]
 **in_reply_to** | **string** |  | [optional]
 **references** | **string** |  | [optional]

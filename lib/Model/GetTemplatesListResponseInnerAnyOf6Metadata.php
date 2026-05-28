@@ -1,6 +1,6 @@
 <?php
 /**
- * GetTemplatesListResponseInnerAnyOf5MetadataEntitiesInnerExternalRef
+ * GetTemplatesListResponseInnerAnyOf6Metadata
  *
  * PHP version 8.1
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \Pingram\ObjectSerializer;
 
 /**
- * GetTemplatesListResponseInnerAnyOf5MetadataEntitiesInnerExternalRef Class Doc Comment
+ * GetTemplatesListResponseInnerAnyOf6Metadata Class Doc Comment
  *
  * @category Class
- * @description Reference used to identify an entity within the developer&#39;s system.
+ * @description Slack message metadata with optional work object entities. Combines standard Slack message metadata fields with an array of entity objects.
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class GetTemplatesListResponseInnerAnyOf5MetadataEntitiesInnerExternalRef implements ModelInterface, ArrayAccess, \JsonSerializable
+class GetTemplatesListResponseInnerAnyOf6Metadata implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class GetTemplatesListResponseInnerAnyOf5MetadataEntitiesInnerExternalRef implem
       *
       * @var string
       */
-    protected static $openAPIModelName = 'GetTemplatesListResponse_inner_anyOf_5_metadata_entities_inner_external_ref';
+    protected static $openAPIModelName = 'GetTemplatesListResponse_inner_anyOf_6_metadata';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,8 +58,9 @@ class GetTemplatesListResponseInnerAnyOf5MetadataEntitiesInnerExternalRef implem
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'string',
-        'type' => 'string'
+        'entities' => '\Pingram\Model\GetTemplatesListResponseInnerAnyOf6MetadataEntitiesInner[]',
+        'event_type' => 'string',
+        'event_payload' => 'array<string,mixed>'
     ];
 
     /**
@@ -70,8 +71,9 @@ class GetTemplatesListResponseInnerAnyOf5MetadataEntitiesInnerExternalRef implem
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
-        'type' => null
+        'entities' => null,
+        'event_type' => null,
+        'event_payload' => null
     ];
 
     /**
@@ -80,8 +82,9 @@ class GetTemplatesListResponseInnerAnyOf5MetadataEntitiesInnerExternalRef implem
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
-        'type' => false
+        'entities' => false,
+        'event_type' => false,
+        'event_payload' => false
     ];
 
     /**
@@ -170,8 +173,9 @@ class GetTemplatesListResponseInnerAnyOf5MetadataEntitiesInnerExternalRef implem
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'type' => 'type'
+        'entities' => 'entities',
+        'event_type' => 'event_type',
+        'event_payload' => 'event_payload'
     ];
 
     /**
@@ -180,8 +184,9 @@ class GetTemplatesListResponseInnerAnyOf5MetadataEntitiesInnerExternalRef implem
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'type' => 'setType'
+        'entities' => 'setEntities',
+        'event_type' => 'setEventType',
+        'event_payload' => 'setEventPayload'
     ];
 
     /**
@@ -190,8 +195,9 @@ class GetTemplatesListResponseInnerAnyOf5MetadataEntitiesInnerExternalRef implem
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'type' => 'getType'
+        'entities' => 'getEntities',
+        'event_type' => 'getEventType',
+        'event_payload' => 'getEventPayload'
     ];
 
     /**
@@ -251,8 +257,9 @@ class GetTemplatesListResponseInnerAnyOf5MetadataEntitiesInnerExternalRef implem
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('type', $data ?? [], null);
+        $this->setIfExists('entities', $data ?? [], null);
+        $this->setIfExists('event_type', $data ?? [], null);
+        $this->setIfExists('event_payload', $data ?? [], null);
     }
 
     /**
@@ -282,9 +289,6 @@ class GetTemplatesListResponseInnerAnyOf5MetadataEntitiesInnerExternalRef implem
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -301,55 +305,82 @@ class GetTemplatesListResponseInnerAnyOf5MetadataEntitiesInnerExternalRef implem
 
 
     /**
-     * Gets id
+     * Gets entities
      *
-     * @return string
+     * @return \Pingram\Model\GetTemplatesListResponseInnerAnyOf6MetadataEntitiesInner[]|null
      */
-    public function getId()
+    public function getEntities()
     {
-        return $this->container['id'];
+        return $this->container['entities'];
     }
 
     /**
-     * Sets id
+     * Sets entities
      *
-     * @param string $id id
+     * @param \Pingram\Model\GetTemplatesListResponseInnerAnyOf6MetadataEntitiesInner[]|null $entities An array of work object entities.
      *
      * @return self
      */
-    public function setId($id)
+    public function setEntities($entities)
     {
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+        if (is_null($entities)) {
+            throw new \InvalidArgumentException('non-nullable entities cannot be null');
         }
-        $this->container['id'] = $id;
+        $this->container['entities'] = $entities;
 
         return $this;
     }
 
     /**
-     * Gets type
+     * Gets event_type
      *
      * @return string|null
      */
-    public function getType()
+    public function getEventType()
     {
-        return $this->container['type'];
+        return $this->container['event_type'];
     }
 
     /**
-     * Sets type
+     * Sets event_type
      *
-     * @param string|null $type type
+     * @param string|null $event_type A human readable alphanumeric string representing your application's metadata event.
      *
      * @return self
      */
-    public function setType($type)
+    public function setEventType($event_type)
     {
-        if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
+        if (is_null($event_type)) {
+            throw new \InvalidArgumentException('non-nullable event_type cannot be null');
         }
-        $this->container['type'] = $type;
+        $this->container['event_type'] = $event_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets event_payload
+     *
+     * @return array<string,mixed>|null
+     */
+    public function getEventPayload()
+    {
+        return $this->container['event_payload'];
+    }
+
+    /**
+     * Sets event_payload
+     *
+     * @param array<string,mixed>|null $event_payload A free-form object containing whatever data your application wishes to attach to messages.
+     *
+     * @return self
+     */
+    public function setEventPayload($event_payload)
+    {
+        if (is_null($event_payload)) {
+            throw new \InvalidArgumentException('non-nullable event_payload cannot be null');
+        }
+        $this->container['event_payload'] = $event_payload;
 
         return $this;
     }

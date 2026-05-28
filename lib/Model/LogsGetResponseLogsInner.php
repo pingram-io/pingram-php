@@ -130,9 +130,11 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         'email_inbound_resolution_type' => 'string',
         'sms_inbound_at' => 'string',
         'sms_inbound_from' => 'string',
+        'sms_inbound_to' => 'string',
         'sms_inbound_text' => 'string',
         'sms_inbound_webhook_delivered' => 'bool',
         'sms_inbound_webhook_res' => 'string',
+        'sms_inbound_media' => 'string',
         'sms_replied_at' => 'string',
         'sms_replied_to' => 'string',
         'sms_replied_text' => 'string',
@@ -209,6 +211,7 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         'sms_sent_cost' => 'float',
         'sms_sent_country' => 'string',
         'sms_sent_message_id' => 'string',
+        'sms_sent_mms' => 'bool',
         'sms_carrier_cost_internal' => 'float',
         'sms_carrier_fee_internal' => 'float',
         'sms_rate_internal' => 'float',
@@ -301,9 +304,11 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         'email_inbound_resolution_type' => null,
         'sms_inbound_at' => null,
         'sms_inbound_from' => null,
+        'sms_inbound_to' => null,
         'sms_inbound_text' => null,
         'sms_inbound_webhook_delivered' => null,
         'sms_inbound_webhook_res' => null,
+        'sms_inbound_media' => null,
         'sms_replied_at' => null,
         'sms_replied_to' => null,
         'sms_replied_text' => null,
@@ -380,6 +385,7 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         'sms_sent_cost' => null,
         'sms_sent_country' => null,
         'sms_sent_message_id' => null,
+        'sms_sent_mms' => null,
         'sms_carrier_cost_internal' => null,
         'sms_carrier_fee_internal' => null,
         'sms_rate_internal' => null,
@@ -470,9 +476,11 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         'email_inbound_resolution_type' => false,
         'sms_inbound_at' => false,
         'sms_inbound_from' => false,
+        'sms_inbound_to' => false,
         'sms_inbound_text' => false,
         'sms_inbound_webhook_delivered' => false,
         'sms_inbound_webhook_res' => false,
+        'sms_inbound_media' => false,
         'sms_replied_at' => false,
         'sms_replied_to' => false,
         'sms_replied_text' => false,
@@ -549,6 +557,7 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         'sms_sent_cost' => false,
         'sms_sent_country' => false,
         'sms_sent_message_id' => false,
+        'sms_sent_mms' => false,
         'sms_carrier_cost_internal' => false,
         'sms_carrier_fee_internal' => false,
         'sms_rate_internal' => false,
@@ -719,9 +728,11 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         'email_inbound_resolution_type' => 'email_inbound_resolution_type',
         'sms_inbound_at' => 'sms_inbound_at',
         'sms_inbound_from' => 'sms_inbound_from',
+        'sms_inbound_to' => 'sms_inbound_to',
         'sms_inbound_text' => 'sms_inbound_text',
         'sms_inbound_webhook_delivered' => 'sms_inbound_webhook_delivered',
         'sms_inbound_webhook_res' => 'sms_inbound_webhook_res',
+        'sms_inbound_media' => 'sms_inbound_media',
         'sms_replied_at' => 'sms_replied_at',
         'sms_replied_to' => 'sms_replied_to',
         'sms_replied_text' => 'sms_replied_text',
@@ -798,6 +809,7 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         'sms_sent_cost' => 'sms_sent_cost',
         'sms_sent_country' => 'sms_sent_country',
         'sms_sent_message_id' => 'sms_sent_messageId',
+        'sms_sent_mms' => 'sms_sent_mms',
         'sms_carrier_cost_internal' => 'sms_carrier_cost_internal',
         'sms_carrier_fee_internal' => 'sms_carrier_fee_internal',
         'sms_rate_internal' => 'sms_rate_internal',
@@ -888,9 +900,11 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         'email_inbound_resolution_type' => 'setEmailInboundResolutionType',
         'sms_inbound_at' => 'setSmsInboundAt',
         'sms_inbound_from' => 'setSmsInboundFrom',
+        'sms_inbound_to' => 'setSmsInboundTo',
         'sms_inbound_text' => 'setSmsInboundText',
         'sms_inbound_webhook_delivered' => 'setSmsInboundWebhookDelivered',
         'sms_inbound_webhook_res' => 'setSmsInboundWebhookRes',
+        'sms_inbound_media' => 'setSmsInboundMedia',
         'sms_replied_at' => 'setSmsRepliedAt',
         'sms_replied_to' => 'setSmsRepliedTo',
         'sms_replied_text' => 'setSmsRepliedText',
@@ -967,6 +981,7 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         'sms_sent_cost' => 'setSmsSentCost',
         'sms_sent_country' => 'setSmsSentCountry',
         'sms_sent_message_id' => 'setSmsSentMessageId',
+        'sms_sent_mms' => 'setSmsSentMms',
         'sms_carrier_cost_internal' => 'setSmsCarrierCostInternal',
         'sms_carrier_fee_internal' => 'setSmsCarrierFeeInternal',
         'sms_rate_internal' => 'setSmsRateInternal',
@@ -1057,9 +1072,11 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         'email_inbound_resolution_type' => 'getEmailInboundResolutionType',
         'sms_inbound_at' => 'getSmsInboundAt',
         'sms_inbound_from' => 'getSmsInboundFrom',
+        'sms_inbound_to' => 'getSmsInboundTo',
         'sms_inbound_text' => 'getSmsInboundText',
         'sms_inbound_webhook_delivered' => 'getSmsInboundWebhookDelivered',
         'sms_inbound_webhook_res' => 'getSmsInboundWebhookRes',
+        'sms_inbound_media' => 'getSmsInboundMedia',
         'sms_replied_at' => 'getSmsRepliedAt',
         'sms_replied_to' => 'getSmsRepliedTo',
         'sms_replied_text' => 'getSmsRepliedText',
@@ -1136,6 +1153,7 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         'sms_sent_cost' => 'getSmsSentCost',
         'sms_sent_country' => 'getSmsSentCountry',
         'sms_sent_message_id' => 'getSmsSentMessageId',
+        'sms_sent_mms' => 'getSmsSentMms',
         'sms_carrier_cost_internal' => 'getSmsCarrierCostInternal',
         'sms_carrier_fee_internal' => 'getSmsCarrierFeeInternal',
         'sms_rate_internal' => 'getSmsRateInternal',
@@ -1918,9 +1936,11 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         $this->setIfExists('email_inbound_resolution_type', $data ?? [], null);
         $this->setIfExists('sms_inbound_at', $data ?? [], null);
         $this->setIfExists('sms_inbound_from', $data ?? [], null);
+        $this->setIfExists('sms_inbound_to', $data ?? [], null);
         $this->setIfExists('sms_inbound_text', $data ?? [], null);
         $this->setIfExists('sms_inbound_webhook_delivered', $data ?? [], null);
         $this->setIfExists('sms_inbound_webhook_res', $data ?? [], null);
+        $this->setIfExists('sms_inbound_media', $data ?? [], null);
         $this->setIfExists('sms_replied_at', $data ?? [], null);
         $this->setIfExists('sms_replied_to', $data ?? [], null);
         $this->setIfExists('sms_replied_text', $data ?? [], null);
@@ -1997,6 +2017,7 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         $this->setIfExists('sms_sent_cost', $data ?? [], null);
         $this->setIfExists('sms_sent_country', $data ?? [], null);
         $this->setIfExists('sms_sent_message_id', $data ?? [], null);
+        $this->setIfExists('sms_sent_mms', $data ?? [], null);
         $this->setIfExists('sms_carrier_cost_internal', $data ?? [], null);
         $this->setIfExists('sms_carrier_fee_internal', $data ?? [], null);
         $this->setIfExists('sms_rate_internal', $data ?? [], null);
@@ -4303,6 +4324,33 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
     }
 
     /**
+     * Gets sms_inbound_to
+     *
+     * @return string|null
+     */
+    public function getSmsInboundTo()
+    {
+        return $this->container['sms_inbound_to'];
+    }
+
+    /**
+     * Sets sms_inbound_to
+     *
+     * @param string|null $sms_inbound_to Pingram number that received the inbound message.
+     *
+     * @return self
+     */
+    public function setSmsInboundTo($sms_inbound_to)
+    {
+        if (is_null($sms_inbound_to)) {
+            throw new \InvalidArgumentException('non-nullable sms_inbound_to cannot be null');
+        }
+        $this->container['sms_inbound_to'] = $sms_inbound_to;
+
+        return $this;
+    }
+
+    /**
      * Gets sms_inbound_text
      *
      * @return string|null
@@ -4379,6 +4427,33 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
             throw new \InvalidArgumentException('non-nullable sms_inbound_webhook_res cannot be null');
         }
         $this->container['sms_inbound_webhook_res'] = $sms_inbound_webhook_res;
+
+        return $this;
+    }
+
+    /**
+     * Gets sms_inbound_media
+     *
+     * @return string|null
+     */
+    public function getSmsInboundMedia()
+    {
+        return $this->container['sms_inbound_media'];
+    }
+
+    /**
+     * Sets sms_inbound_media
+     *
+     * @param string|null $sms_inbound_media Truncated JSON string of inbound MMS metadata when present.
+     *
+     * @return self
+     */
+    public function setSmsInboundMedia($sms_inbound_media)
+    {
+        if (is_null($sms_inbound_media)) {
+            throw new \InvalidArgumentException('non-nullable sms_inbound_media cannot be null');
+        }
+        $this->container['sms_inbound_media'] = $sms_inbound_media;
 
         return $this;
     }
@@ -6631,6 +6706,33 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
             throw new \InvalidArgumentException('non-nullable sms_sent_message_id cannot be null');
         }
         $this->container['sms_sent_message_id'] = $sms_sent_message_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets sms_sent_mms
+     *
+     * @return bool|null
+     */
+    public function getSmsSentMms()
+    {
+        return $this->container['sms_sent_mms'];
+    }
+
+    /**
+     * Sets sms_sent_mms
+     *
+     * @param bool|null $sms_sent_mms True when the send included MMS (`mediaUrls`).
+     *
+     * @return self
+     */
+    public function setSmsSentMms($sms_sent_mms)
+    {
+        if (is_null($sms_sent_mms)) {
+            throw new \InvalidArgumentException('non-nullable sms_sent_mms cannot be null');
+        }
+        $this->container['sms_sent_mms'] = $sms_sent_mms;
 
         return $this;
     }

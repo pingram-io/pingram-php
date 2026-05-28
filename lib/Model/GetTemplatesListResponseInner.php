@@ -76,6 +76,7 @@ class GetTemplatesListResponseInner implements ModelInterface, ArrayAccess, \Jso
         'instant' => '\Pingram\Model\GetTemplatesListResponseInnerAnyOf1Instant',
         'batch' => '\Pingram\Model\GetTemplatesListResponseInnerAnyOf1Instant',
         'text' => 'string',
+        'media_urls' => 'string[]',
         'message' => 'string',
         'icon' => 'string',
         'url' => 'string',
@@ -88,7 +89,7 @@ class GetTemplatesListResponseInner implements ModelInterface, ArrayAccess, \Jso
         'mrkdwn' => 'bool',
         'unfurl_links' => 'bool',
         'unfurl_media' => 'bool',
-        'metadata' => '\Pingram\Model\GetTemplatesListResponseInnerAnyOf5Metadata'
+        'metadata' => '\Pingram\Model\GetTemplatesListResponseInnerAnyOf6Metadata'
     ];
 
     /**
@@ -117,6 +118,7 @@ class GetTemplatesListResponseInner implements ModelInterface, ArrayAccess, \Jso
         'instant' => null,
         'batch' => null,
         'text' => null,
+        'media_urls' => null,
         'message' => null,
         'icon' => null,
         'url' => null,
@@ -156,6 +158,7 @@ class GetTemplatesListResponseInner implements ModelInterface, ArrayAccess, \Jso
         'instant' => false,
         'batch' => false,
         'text' => false,
+        'media_urls' => false,
         'message' => false,
         'icon' => false,
         'url' => false,
@@ -275,6 +278,7 @@ class GetTemplatesListResponseInner implements ModelInterface, ArrayAccess, \Jso
         'instant' => 'instant',
         'batch' => 'batch',
         'text' => 'text',
+        'media_urls' => 'mediaUrls',
         'message' => 'message',
         'icon' => 'icon',
         'url' => 'url',
@@ -314,6 +318,7 @@ class GetTemplatesListResponseInner implements ModelInterface, ArrayAccess, \Jso
         'instant' => 'setInstant',
         'batch' => 'setBatch',
         'text' => 'setText',
+        'media_urls' => 'setMediaUrls',
         'message' => 'setMessage',
         'icon' => 'setIcon',
         'url' => 'setUrl',
@@ -353,6 +358,7 @@ class GetTemplatesListResponseInner implements ModelInterface, ArrayAccess, \Jso
         'instant' => 'getInstant',
         'batch' => 'getBatch',
         'text' => 'getText',
+        'media_urls' => 'getMediaUrls',
         'message' => 'getMessage',
         'icon' => 'getIcon',
         'url' => 'getUrl',
@@ -458,6 +464,7 @@ class GetTemplatesListResponseInner implements ModelInterface, ArrayAccess, \Jso
         $this->setIfExists('instant', $data ?? [], null);
         $this->setIfExists('batch', $data ?? [], null);
         $this->setIfExists('text', $data ?? [], null);
+        $this->setIfExists('media_urls', $data ?? [], null);
         $this->setIfExists('message', $data ?? [], null);
         $this->setIfExists('icon', $data ?? [], null);
         $this->setIfExists('url', $data ?? [], null);
@@ -1062,6 +1069,33 @@ class GetTemplatesListResponseInner implements ModelInterface, ArrayAccess, \Jso
     }
 
     /**
+     * Gets media_urls
+     *
+     * @return string[]|null
+     */
+    public function getMediaUrls()
+    {
+        return $this->container['media_urls'];
+    }
+
+    /**
+     * Sets media_urls
+     *
+     * @param string[]|null $media_urls Set when sending MMS (outbound).
+     *
+     * @return self
+     */
+    public function setMediaUrls($media_urls)
+    {
+        if (is_null($media_urls)) {
+            throw new \InvalidArgumentException('non-nullable media_urls cannot be null');
+        }
+        $this->container['media_urls'] = $media_urls;
+
+        return $this;
+    }
+
+    /**
      * Gets message
      *
      * @return string
@@ -1398,7 +1432,7 @@ class GetTemplatesListResponseInner implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets metadata
      *
-     * @return \Pingram\Model\GetTemplatesListResponseInnerAnyOf5Metadata|null
+     * @return \Pingram\Model\GetTemplatesListResponseInnerAnyOf6Metadata|null
      */
     public function getMetadata()
     {
@@ -1408,7 +1442,7 @@ class GetTemplatesListResponseInner implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets metadata
      *
-     * @param \Pingram\Model\GetTemplatesListResponseInnerAnyOf5Metadata|null $metadata metadata
+     * @param \Pingram\Model\GetTemplatesListResponseInnerAnyOf6Metadata|null $metadata metadata
      *
      * @return self
      */

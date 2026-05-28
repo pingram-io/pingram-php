@@ -15,6 +15,6 @@ Name | Type | Description | Notes
 **mrkdwn** | **bool** | Enable Slack markup (*bold*, _italic_, &#x60;code&#x60;). Default: true. | [optional]
 **unfurl_links** | **bool** | Unfurl link previews. Default: true. | [optional]
 **unfurl_media** | **bool** | Unfurl media previews. Default: true. | [optional]
-**metadata** | [**\Pingram\Model\GetTemplatesListResponseInnerAnyOf5Metadata**](GetTemplatesListResponseInnerAnyOf5Metadata.md) |  | [optional]
+**metadata** | [**\Pingram\Model\GetTemplatesListResponseInnerAnyOf6Metadata**](GetTemplatesListResponseInnerAnyOf6Metadata.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

@@ -63,18 +63,10 @@ class GetTemplatesListResponseInnerAnyOf5 implements ModelInterface, ArrayAccess
         'channel' => '\Pingram\Model\ChannelsEnum',
         'default' => 'bool',
         'is_default_for' => 'array<string,bool>',
-        'text' => 'string',
-        'blocks' => 'array<string,mixed>[]',
-        'username' => 'string',
+        'title' => 'string',
+        'message' => 'string',
         'icon' => 'string',
-        'thread_ts' => 'string',
-        'reply_broadcast' => 'bool',
-        'parse' => 'string',
-        'link_names' => 'bool',
-        'mrkdwn' => 'bool',
-        'unfurl_links' => 'bool',
-        'unfurl_media' => 'bool',
-        'metadata' => '\Pingram\Model\GetTemplatesListResponseInnerAnyOf5Metadata'
+        'url' => 'string'
     ];
 
     /**
@@ -91,18 +83,10 @@ class GetTemplatesListResponseInnerAnyOf5 implements ModelInterface, ArrayAccess
         'channel' => null,
         'default' => null,
         'is_default_for' => null,
-        'text' => null,
-        'blocks' => null,
-        'username' => null,
+        'title' => null,
+        'message' => null,
         'icon' => null,
-        'thread_ts' => null,
-        'reply_broadcast' => null,
-        'parse' => null,
-        'link_names' => null,
-        'mrkdwn' => null,
-        'unfurl_links' => null,
-        'unfurl_media' => null,
-        'metadata' => null
+        'url' => null
     ];
 
     /**
@@ -117,18 +101,10 @@ class GetTemplatesListResponseInnerAnyOf5 implements ModelInterface, ArrayAccess
         'channel' => false,
         'default' => false,
         'is_default_for' => false,
-        'text' => false,
-        'blocks' => false,
-        'username' => false,
+        'title' => false,
+        'message' => false,
         'icon' => false,
-        'thread_ts' => false,
-        'reply_broadcast' => false,
-        'parse' => false,
-        'link_names' => false,
-        'mrkdwn' => false,
-        'unfurl_links' => false,
-        'unfurl_media' => false,
-        'metadata' => false
+        'url' => false
     ];
 
     /**
@@ -223,18 +199,10 @@ class GetTemplatesListResponseInnerAnyOf5 implements ModelInterface, ArrayAccess
         'channel' => 'channel',
         'default' => 'default',
         'is_default_for' => 'isDefaultFor',
-        'text' => 'text',
-        'blocks' => 'blocks',
-        'username' => 'username',
+        'title' => 'title',
+        'message' => 'message',
         'icon' => 'icon',
-        'thread_ts' => 'thread_ts',
-        'reply_broadcast' => 'reply_broadcast',
-        'parse' => 'parse',
-        'link_names' => 'link_names',
-        'mrkdwn' => 'mrkdwn',
-        'unfurl_links' => 'unfurl_links',
-        'unfurl_media' => 'unfurl_media',
-        'metadata' => 'metadata'
+        'url' => 'url'
     ];
 
     /**
@@ -249,18 +217,10 @@ class GetTemplatesListResponseInnerAnyOf5 implements ModelInterface, ArrayAccess
         'channel' => 'setChannel',
         'default' => 'setDefault',
         'is_default_for' => 'setIsDefaultFor',
-        'text' => 'setText',
-        'blocks' => 'setBlocks',
-        'username' => 'setUsername',
+        'title' => 'setTitle',
+        'message' => 'setMessage',
         'icon' => 'setIcon',
-        'thread_ts' => 'setThreadTs',
-        'reply_broadcast' => 'setReplyBroadcast',
-        'parse' => 'setParse',
-        'link_names' => 'setLinkNames',
-        'mrkdwn' => 'setMrkdwn',
-        'unfurl_links' => 'setUnfurlLinks',
-        'unfurl_media' => 'setUnfurlMedia',
-        'metadata' => 'setMetadata'
+        'url' => 'setUrl'
     ];
 
     /**
@@ -275,18 +235,10 @@ class GetTemplatesListResponseInnerAnyOf5 implements ModelInterface, ArrayAccess
         'channel' => 'getChannel',
         'default' => 'getDefault',
         'is_default_for' => 'getIsDefaultFor',
-        'text' => 'getText',
-        'blocks' => 'getBlocks',
-        'username' => 'getUsername',
+        'title' => 'getTitle',
+        'message' => 'getMessage',
         'icon' => 'getIcon',
-        'thread_ts' => 'getThreadTs',
-        'reply_broadcast' => 'getReplyBroadcast',
-        'parse' => 'getParse',
-        'link_names' => 'getLinkNames',
-        'mrkdwn' => 'getMrkdwn',
-        'unfurl_links' => 'getUnfurlLinks',
-        'unfurl_media' => 'getUnfurlMedia',
-        'metadata' => 'getMetadata'
+        'url' => 'getUrl'
     ];
 
     /**
@@ -330,21 +282,6 @@ class GetTemplatesListResponseInnerAnyOf5 implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
-    public const PARSE_FULL = 'full';
-    public const PARSE_NONE = 'none';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getParseAllowableValues()
-    {
-        return [
-            self::PARSE_FULL,
-            self::PARSE_NONE,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -367,18 +304,10 @@ class GetTemplatesListResponseInnerAnyOf5 implements ModelInterface, ArrayAccess
         $this->setIfExists('channel', $data ?? [], null);
         $this->setIfExists('default', $data ?? [], null);
         $this->setIfExists('is_default_for', $data ?? [], null);
-        $this->setIfExists('text', $data ?? [], null);
-        $this->setIfExists('blocks', $data ?? [], null);
-        $this->setIfExists('username', $data ?? [], null);
+        $this->setIfExists('title', $data ?? [], null);
+        $this->setIfExists('message', $data ?? [], null);
         $this->setIfExists('icon', $data ?? [], null);
-        $this->setIfExists('thread_ts', $data ?? [], null);
-        $this->setIfExists('reply_broadcast', $data ?? [], null);
-        $this->setIfExists('parse', $data ?? [], null);
-        $this->setIfExists('link_names', $data ?? [], null);
-        $this->setIfExists('mrkdwn', $data ?? [], null);
-        $this->setIfExists('unfurl_links', $data ?? [], null);
-        $this->setIfExists('unfurl_media', $data ?? [], null);
-        $this->setIfExists('metadata', $data ?? [], null);
+        $this->setIfExists('url', $data ?? [], null);
     }
 
     /**
@@ -423,18 +352,12 @@ class GetTemplatesListResponseInnerAnyOf5 implements ModelInterface, ArrayAccess
         if ($this->container['default'] === null) {
             $invalidProperties[] = "'default' can't be null";
         }
-        if ($this->container['text'] === null) {
-            $invalidProperties[] = "'text' can't be null";
+        if ($this->container['title'] === null) {
+            $invalidProperties[] = "'title' can't be null";
         }
-        $allowedValues = $this->getParseAllowableValues();
-        if (!is_null($this->container['parse']) && !in_array($this->container['parse'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'parse', must be one of '%s'",
-                $this->container['parse'],
-                implode("', '", $allowedValues)
-            );
+        if ($this->container['message'] === null) {
+            $invalidProperties[] = "'message' can't be null";
         }
-
         return $invalidProperties;
     }
 
@@ -613,82 +536,55 @@ class GetTemplatesListResponseInnerAnyOf5 implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets text
+     * Gets title
      *
      * @return string
      */
-    public function getText()
+    public function getTitle()
     {
-        return $this->container['text'];
+        return $this->container['title'];
     }
 
     /**
-     * Sets text
+     * Sets title
      *
-     * @param string $text text
+     * @param string $title title
      *
      * @return self
      */
-    public function setText($text)
+    public function setTitle($title)
     {
-        if (is_null($text)) {
-            throw new \InvalidArgumentException('non-nullable text cannot be null');
+        if (is_null($title)) {
+            throw new \InvalidArgumentException('non-nullable title cannot be null');
         }
-        $this->container['text'] = $text;
+        $this->container['title'] = $title;
 
         return $this;
     }
 
     /**
-     * Gets blocks
+     * Gets message
      *
-     * @return array<string,mixed>[]|null
+     * @return string
      */
-    public function getBlocks()
+    public function getMessage()
     {
-        return $this->container['blocks'];
+        return $this->container['message'];
     }
 
     /**
-     * Sets blocks
+     * Sets message
      *
-     * @param array<string,mixed>[]|null $blocks blocks
+     * @param string $message message
      *
      * @return self
      */
-    public function setBlocks($blocks)
+    public function setMessage($message)
     {
-        if (is_null($blocks)) {
-            throw new \InvalidArgumentException('non-nullable blocks cannot be null');
+        if (is_null($message)) {
+            throw new \InvalidArgumentException('non-nullable message cannot be null');
         }
-        $this->container['blocks'] = $blocks;
-
-        return $this;
-    }
-
-    /**
-     * Gets username
-     *
-     * @return string|null
-     */
-    public function getUsername()
-    {
-        return $this->container['username'];
-    }
-
-    /**
-     * Sets username
-     *
-     * @param string|null $username username
-     *
-     * @return self
-     */
-    public function setUsername($username)
-    {
-        if (is_null($username)) {
-            throw new \InvalidArgumentException('non-nullable username cannot be null');
-        }
-        $this->container['username'] = $username;
+        $this->container['message'] = $message;
 
         return $this;
     }
@@ -721,227 +617,28 @@ class GetTemplatesListResponseInnerAnyOf5 implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets thread_ts
+     * Gets url
      *
      * @return string|null
      */
-    public function getThreadTs()
+    public function getUrl()
     {
-        return $this->container['thread_ts'];
+        return $this->container['url'];
     }
 
     /**
-     * Sets thread_ts
+     * Sets url
      *
-     * @param string|null $thread_ts thread_ts
+     * @param string|null $url url
      *
      * @return self
      */
-    public function setThreadTs($thread_ts)
+    public function setUrl($url)
     {
-        if (is_null($thread_ts)) {
-            throw new \InvalidArgumentException('non-nullable thread_ts cannot be null');
+        if (is_null($url)) {
+            throw new \InvalidArgumentException('non-nullable url cannot be null');
         }
-        $this->container['thread_ts'] = $thread_ts;
-
-        return $this;
-    }
-
-    /**
-     * Gets reply_broadcast
-     *
-     * @return bool|null
-     */
-    public function getReplyBroadcast()
-    {
-        return $this->container['reply_broadcast'];
-    }
-
-    /**
-     * Sets reply_broadcast
-     *
-     * @param bool|null $reply_broadcast reply_broadcast
-     *
-     * @return self
-     */
-    public function setReplyBroadcast($reply_broadcast)
-    {
-        if (is_null($reply_broadcast)) {
-            throw new \InvalidArgumentException('non-nullable reply_broadcast cannot be null');
-        }
-        $this->container['reply_broadcast'] = $reply_broadcast;
-
-        return $this;
-    }
-
-    /**
-     * Gets parse
-     *
-     * @return string|null
-     */
-    public function getParse()
-    {
-        return $this->container['parse'];
-    }
-
-    /**
-     * Sets parse
-     *
-     * @param string|null $parse parse
-     *
-     * @return self
-     */
-    public function setParse($parse)
-    {
-        if (is_null($parse)) {
-            throw new \InvalidArgumentException('non-nullable parse cannot be null');
-        }
-        $allowedValues = $this->getParseAllowableValues();
-        if (!in_array($parse, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'parse', must be one of '%s'",
-                    $parse,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['parse'] = $parse;
-
-        return $this;
-    }
-
-    /**
-     * Gets link_names
-     *
-     * @return bool|null
-     */
-    public function getLinkNames()
-    {
-        return $this->container['link_names'];
-    }
-
-    /**
-     * Sets link_names
-     *
-     * @param bool|null $link_names link_names
-     *
-     * @return self
-     */
-    public function setLinkNames($link_names)
-    {
-        if (is_null($link_names)) {
-            throw new \InvalidArgumentException('non-nullable link_names cannot be null');
-        }
-        $this->container['link_names'] = $link_names;
-
-        return $this;
-    }
-
-    /**
-     * Gets mrkdwn
-     *
-     * @return bool|null
-     */
-    public function getMrkdwn()
-    {
-        return $this->container['mrkdwn'];
-    }
-
-    /**
-     * Sets mrkdwn
-     *
-     * @param bool|null $mrkdwn mrkdwn
-     *
-     * @return self
-     */
-    public function setMrkdwn($mrkdwn)
-    {
-        if (is_null($mrkdwn)) {
-            throw new \InvalidArgumentException('non-nullable mrkdwn cannot be null');
-        }
-        $this->container['mrkdwn'] = $mrkdwn;
-
-        return $this;
-    }
-
-    /**
-     * Gets unfurl_links
-     *
-     * @return bool|null
-     */
-    public function getUnfurlLinks()
-    {
-        return $this->container['unfurl_links'];
-    }
-
-    /**
-     * Sets unfurl_links
-     *
-     * @param bool|null $unfurl_links unfurl_links
-     *
-     * @return self
-     */
-    public function setUnfurlLinks($unfurl_links)
-    {
-        if (is_null($unfurl_links)) {
-            throw new \InvalidArgumentException('non-nullable unfurl_links cannot be null');
-        }
-        $this->container['unfurl_links'] = $unfurl_links;
-
-        return $this;
-    }
-
-    /**
-     * Gets unfurl_media
-     *
-     * @return bool|null
-     */
-    public function getUnfurlMedia()
-    {
-        return $this->container['unfurl_media'];
-    }
-
-    /**
-     * Sets unfurl_media
-     *
-     * @param bool|null $unfurl_media unfurl_media
-     *
-     * @return self
-     */
-    public function setUnfurlMedia($unfurl_media)
-    {
-        if (is_null($unfurl_media)) {
-            throw new \InvalidArgumentException('non-nullable unfurl_media cannot be null');
-        }
-        $this->container['unfurl_media'] = $unfurl_media;
-
-        return $this;
-    }
-
-    /**
-     * Gets metadata
-     *
-     * @return \Pingram\Model\GetTemplatesListResponseInnerAnyOf5Metadata|null
-     */
-    public function getMetadata()
-    {
-        return $this->container['metadata'];
-    }
-
-    /**
-     * Sets metadata
-     *
-     * @param \Pingram\Model\GetTemplatesListResponseInnerAnyOf5Metadata|null $metadata metadata
-     *
-     * @return self
-     */
-    public function setMetadata($metadata)
-    {
-        if (is_null($metadata)) {
-            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
-        }
-        $this->container['metadata'] = $metadata;
+        $this->container['url'] = $url;
 
         return $this;
     }
