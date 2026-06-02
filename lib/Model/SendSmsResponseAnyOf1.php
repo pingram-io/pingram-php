@@ -1,6 +1,6 @@
 <?php
 /**
- * SenderPostBodyOptionsEmailAttachmentsInnerAnyOf1
+ * SendSmsResponseAnyOf1
  *
  * PHP version 8.1
  *
@@ -32,15 +32,16 @@ use \ArrayAccess;
 use \Pingram\ObjectSerializer;
 
 /**
- * SenderPostBodyOptionsEmailAttachmentsInnerAnyOf1 Class Doc Comment
+ * SendSmsResponseAnyOf1 Class Doc Comment
  *
  * @category Class
+ * @description Error response for &#x60;POST /sms&#x60;.
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SenderPostBodyOptionsEmailAttachmentsInnerAnyOf1 implements ModelInterface, ArrayAccess, \JsonSerializable
+class SendSmsResponseAnyOf1 implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +50,7 @@ class SenderPostBodyOptionsEmailAttachmentsInnerAnyOf1 implements ModelInterface
       *
       * @var string
       */
-    protected static $openAPIModelName = 'SenderPostBody_options_email_attachments_inner_anyOf_1';
+    protected static $openAPIModelName = 'SendSmsResponse_anyOf_1';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,9 +58,8 @@ class SenderPostBodyOptionsEmailAttachmentsInnerAnyOf1 implements ModelInterface
       * @var string[]
       */
     protected static $openAPITypes = [
-        'filename' => 'string',
-        'content' => 'string',
-        'content_type' => 'string'
+        'tracking_id' => 'string',
+        'error' => '\Pingram\Model\SendSmsResponseAnyOf1Error'
     ];
 
     /**
@@ -70,9 +70,8 @@ class SenderPostBodyOptionsEmailAttachmentsInnerAnyOf1 implements ModelInterface
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'filename' => null,
-        'content' => null,
-        'content_type' => null
+        'tracking_id' => null,
+        'error' => null
     ];
 
     /**
@@ -81,9 +80,8 @@ class SenderPostBodyOptionsEmailAttachmentsInnerAnyOf1 implements ModelInterface
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'filename' => false,
-        'content' => false,
-        'content_type' => false
+        'tracking_id' => false,
+        'error' => false
     ];
 
     /**
@@ -172,9 +170,8 @@ class SenderPostBodyOptionsEmailAttachmentsInnerAnyOf1 implements ModelInterface
      * @var string[]
      */
     protected static $attributeMap = [
-        'filename' => 'filename',
-        'content' => 'content',
-        'content_type' => 'contentType'
+        'tracking_id' => 'trackingId',
+        'error' => 'error'
     ];
 
     /**
@@ -183,9 +180,8 @@ class SenderPostBodyOptionsEmailAttachmentsInnerAnyOf1 implements ModelInterface
      * @var string[]
      */
     protected static $setters = [
-        'filename' => 'setFilename',
-        'content' => 'setContent',
-        'content_type' => 'setContentType'
+        'tracking_id' => 'setTrackingId',
+        'error' => 'setError'
     ];
 
     /**
@@ -194,9 +190,8 @@ class SenderPostBodyOptionsEmailAttachmentsInnerAnyOf1 implements ModelInterface
      * @var string[]
      */
     protected static $getters = [
-        'filename' => 'getFilename',
-        'content' => 'getContent',
-        'content_type' => 'getContentType'
+        'tracking_id' => 'getTrackingId',
+        'error' => 'getError'
     ];
 
     /**
@@ -256,9 +251,8 @@ class SenderPostBodyOptionsEmailAttachmentsInnerAnyOf1 implements ModelInterface
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('filename', $data ?? [], null);
-        $this->setIfExists('content', $data ?? [], null);
-        $this->setIfExists('content_type', $data ?? [], null);
+        $this->setIfExists('tracking_id', $data ?? [], null);
+        $this->setIfExists('error', $data ?? [], null);
     }
 
     /**
@@ -288,11 +282,11 @@ class SenderPostBodyOptionsEmailAttachmentsInnerAnyOf1 implements ModelInterface
     {
         $invalidProperties = [];
 
-        if ($this->container['filename'] === null) {
-            $invalidProperties[] = "'filename' can't be null";
+        if ($this->container['tracking_id'] === null) {
+            $invalidProperties[] = "'tracking_id' can't be null";
         }
-        if ($this->container['content'] === null) {
-            $invalidProperties[] = "'content' can't be null";
+        if ($this->container['error'] === null) {
+            $invalidProperties[] = "'error' can't be null";
         }
         return $invalidProperties;
     }
@@ -310,82 +304,55 @@ class SenderPostBodyOptionsEmailAttachmentsInnerAnyOf1 implements ModelInterface
 
 
     /**
-     * Gets filename
+     * Gets tracking_id
      *
      * @return string
      */
-    public function getFilename()
+    public function getTrackingId()
     {
-        return $this->container['filename'];
+        return $this->container['tracking_id'];
     }
 
     /**
-     * Sets filename
+     * Sets tracking_id
      *
-     * @param string $filename filename
+     * @param string $tracking_id tracking_id
      *
      * @return self
      */
-    public function setFilename($filename)
+    public function setTrackingId($tracking_id)
     {
-        if (is_null($filename)) {
-            throw new \InvalidArgumentException('non-nullable filename cannot be null');
+        if (is_null($tracking_id)) {
+            throw new \InvalidArgumentException('non-nullable tracking_id cannot be null');
         }
-        $this->container['filename'] = $filename;
+        $this->container['tracking_id'] = $tracking_id;
 
         return $this;
     }
 
     /**
-     * Gets content
+     * Gets error
      *
-     * @return string
+     * @return \Pingram\Model\SendSmsResponseAnyOf1Error
      */
-    public function getContent()
+    public function getError()
     {
-        return $this->container['content'];
+        return $this->container['error'];
     }
 
     /**
-     * Sets content
+     * Sets error
      *
-     * @param string $content content
+     * @param \Pingram\Model\SendSmsResponseAnyOf1Error $error error
      *
      * @return self
      */
-    public function setContent($content)
+    public function setError($error)
     {
-        if (is_null($content)) {
-            throw new \InvalidArgumentException('non-nullable content cannot be null');
+        if (is_null($error)) {
+            throw new \InvalidArgumentException('non-nullable error cannot be null');
         }
-        $this->container['content'] = $content;
-
-        return $this;
-    }
-
-    /**
-     * Gets content_type
-     *
-     * @return string|null
-     */
-    public function getContentType()
-    {
-        return $this->container['content_type'];
-    }
-
-    /**
-     * Sets content_type
-     *
-     * @param string|null $content_type content_type
-     *
-     * @return self
-     */
-    public function setContentType($content_type)
-    {
-        if (is_null($content_type)) {
-            throw new \InvalidArgumentException('non-nullable content_type cannot be null');
-        }
-        $this->container['content_type'] = $content_type;
+        $this->container['error'] = $error;
 
         return $this;
     }

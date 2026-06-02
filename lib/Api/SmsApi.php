@@ -1,6 +1,6 @@
 <?php
 /**
- * EditorApi
+ * SmsApi
  * PHP version 8.1
  *
  * @category Class
@@ -43,14 +43,14 @@ use Pingram\HeaderSelector;
 use Pingram\ObjectSerializer;
 
 /**
- * EditorApi Class Doc Comment
+ * SmsApi Class Doc Comment
  *
  * @category Class
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class EditorApi
+class SmsApi
 {
     /**
      * @var ClientInterface
@@ -74,7 +74,7 @@ class EditorApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'editorGenerateEditorToken' => [
+        'smsSend' => [
             'application/json',
         ],
     ];
@@ -126,38 +126,38 @@ class EditorApi
     }
 
     /**
-     * Operation editorGenerateEditorToken
+     * Operation smsSend
      *
-     * Get the email editor access token to load it it in your environment
+     * Send an SMS notification directly without templates
      *
-     * @param  \Pingram\Model\EmailAuthTokenPostRequest $email_auth_token_post_request email_auth_token_post_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['editorGenerateEditorToken'] to see the possible values for this operation
+     * @param  \Pingram\Model\SendSmsRequest $send_sms_request send_sms_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['smsSend'] to see the possible values for this operation
      *
      * @throws \Pingram\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Pingram\Model\BeeTokenV2|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse
+     * @return \Pingram\Model\SendSmsResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse
      */
-    public function editorGenerateEditorToken($email_auth_token_post_request, string $contentType = self::contentTypes['editorGenerateEditorToken'][0])
+    public function smsSend($send_sms_request, string $contentType = self::contentTypes['smsSend'][0])
     {
-        list($response) = $this->editorGenerateEditorTokenWithHttpInfo($email_auth_token_post_request, $contentType);
+        list($response) = $this->smsSendWithHttpInfo($send_sms_request, $contentType);
         return $response;
     }
 
     /**
-     * Operation editorGenerateEditorTokenWithHttpInfo
+     * Operation smsSendWithHttpInfo
      *
-     * Get the email editor access token to load it it in your environment
+     * Send an SMS notification directly without templates
      *
-     * @param  \Pingram\Model\EmailAuthTokenPostRequest $email_auth_token_post_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['editorGenerateEditorToken'] to see the possible values for this operation
+     * @param  \Pingram\Model\SendSmsRequest $send_sms_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['smsSend'] to see the possible values for this operation
      *
      * @throws \Pingram\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Pingram\Model\BeeTokenV2|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Pingram\Model\SendSmsResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function editorGenerateEditorTokenWithHttpInfo($email_auth_token_post_request, string $contentType = self::contentTypes['editorGenerateEditorToken'][0])
+    public function smsSendWithHttpInfo($send_sms_request, string $contentType = self::contentTypes['smsSend'][0])
     {
-        $request = $this->editorGenerateEditorTokenRequest($email_auth_token_post_request, $contentType);
+        $request = $this->smsSendRequest($send_sms_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -185,7 +185,7 @@ class EditorApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\Pingram\Model\BeeTokenV2',
+                        '\Pingram\Model\SendSmsResponse',
                         $request,
                         $response,
                     );
@@ -225,7 +225,7 @@ class EditorApi
             }
 
             return $this->handleResponseWithDataType(
-                '\Pingram\Model\BeeTokenV2',
+                '\Pingram\Model\SendSmsResponse',
                 $request,
                 $response,
             );
@@ -234,7 +234,7 @@ class EditorApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Pingram\Model\BeeTokenV2',
+                        '\Pingram\Model\SendSmsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -271,19 +271,19 @@ class EditorApi
     }
 
     /**
-     * Operation editorGenerateEditorTokenAsync
+     * Operation smsSendAsync
      *
-     * Get the email editor access token to load it it in your environment
+     * Send an SMS notification directly without templates
      *
-     * @param  \Pingram\Model\EmailAuthTokenPostRequest $email_auth_token_post_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['editorGenerateEditorToken'] to see the possible values for this operation
+     * @param  \Pingram\Model\SendSmsRequest $send_sms_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['smsSend'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function editorGenerateEditorTokenAsync($email_auth_token_post_request, string $contentType = self::contentTypes['editorGenerateEditorToken'][0])
+    public function smsSendAsync($send_sms_request, string $contentType = self::contentTypes['smsSend'][0])
     {
-        return $this->editorGenerateEditorTokenAsyncWithHttpInfo($email_auth_token_post_request, $contentType)
+        return $this->smsSendAsyncWithHttpInfo($send_sms_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -292,20 +292,20 @@ class EditorApi
     }
 
     /**
-     * Operation editorGenerateEditorTokenAsyncWithHttpInfo
+     * Operation smsSendAsyncWithHttpInfo
      *
-     * Get the email editor access token to load it it in your environment
+     * Send an SMS notification directly without templates
      *
-     * @param  \Pingram\Model\EmailAuthTokenPostRequest $email_auth_token_post_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['editorGenerateEditorToken'] to see the possible values for this operation
+     * @param  \Pingram\Model\SendSmsRequest $send_sms_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['smsSend'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function editorGenerateEditorTokenAsyncWithHttpInfo($email_auth_token_post_request, string $contentType = self::contentTypes['editorGenerateEditorToken'][0])
+    public function smsSendAsyncWithHttpInfo($send_sms_request, string $contentType = self::contentTypes['smsSend'][0])
     {
-        $returnType = '\Pingram\Model\BeeTokenV2';
-        $request = $this->editorGenerateEditorTokenRequest($email_auth_token_post_request, $contentType);
+        $returnType = '\Pingram\Model\SendSmsResponse';
+        $request = $this->smsSendRequest($send_sms_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -344,26 +344,26 @@ class EditorApi
     }
 
     /**
-     * Create request for operation 'editorGenerateEditorToken'
+     * Create request for operation 'smsSend'
      *
-     * @param  \Pingram\Model\EmailAuthTokenPostRequest $email_auth_token_post_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['editorGenerateEditorToken'] to see the possible values for this operation
+     * @param  \Pingram\Model\SendSmsRequest $send_sms_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['smsSend'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function editorGenerateEditorTokenRequest($email_auth_token_post_request, string $contentType = self::contentTypes['editorGenerateEditorToken'][0])
+    public function smsSendRequest($send_sms_request, string $contentType = self::contentTypes['smsSend'][0])
     {
 
-        // verify the required parameter 'email_auth_token_post_request' is set
-        if ($email_auth_token_post_request === null || (is_array($email_auth_token_post_request) && count($email_auth_token_post_request) === 0)) {
+        // verify the required parameter 'send_sms_request' is set
+        if ($send_sms_request === null || (is_array($send_sms_request) && count($send_sms_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $email_auth_token_post_request when calling editorGenerateEditorToken'
+                'Missing the required parameter $send_sms_request when calling smsSend'
             );
         }
 
 
-        $resourcePath = '/editor/token';
+        $resourcePath = '/sms';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -381,12 +381,12 @@ class EditorApi
         );
 
         // for model (json/xml)
-        if (isset($email_auth_token_post_request)) {
+        if (isset($send_sms_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($email_auth_token_post_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($send_sms_request));
             } else {
-                $httpBody = $email_auth_token_post_request;
+                $httpBody = $send_sms_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

@@ -30,6 +30,63 @@ namespace Pingram;
 use \Exception;
 
 /**
+ * Pull user-facing detail from Pingram/OpenAPI-style JSON ({ "error": { "message": "..." } }, "message", "messages").
+ */
+trait ExtractsApiErrorMessage
+{
+    /**
+     * @param \stdClass|string|null $payload
+     */
+    private static function extractApiErrorDetailMsg($payload): string
+    {
+        if ($payload === null || $payload === '') {
+            return '';
+        }
+        $data = $payload;
+        if ($data instanceof \stdClass) {
+            $data = json_decode(json_encode($data), true);
+        }
+        if (!is_string($data)) {
+            return is_array($data) ? self::detailFromDecodedArray($data) : '';
+        }
+        $trimmed = trim($data);
+        if ($trimmed === '' || ($trimmed[0] !== '{' && $trimmed[0] !== '[')) {
+            return '';
+        }
+        $decoded = json_decode($data, true);
+        return is_array($decoded) ? self::detailFromDecodedArray($decoded) : '';
+    }
+
+    /**
+     * @param array<string, mixed> $decoded
+     */
+    private static function detailFromDecodedArray(array $decoded): string
+    {
+        if (
+            isset($decoded['error']) &&
+            is_array($decoded['error']) &&
+            !empty($decoded['error']['message'])
+        ) {
+            return (string) $decoded['error']['message'];
+        }
+        if (!empty($decoded['message']) && is_string($decoded['message'])) {
+            return (string) $decoded['message'];
+        }
+        if (
+            isset($decoded['messages']) &&
+            is_array($decoded['messages']) &&
+            count($decoded['messages']) > 0 &&
+            $decoded['messages'][0] !== null &&
+            $decoded['messages'][0] !== ''
+        ) {
+            return (string) $decoded['messages'][0];
+        }
+
+        return '';
+    }
+}
+
+/**
  * ApiException Class Doc Comment
  *
  * @category Class
@@ -39,6 +96,8 @@ use \Exception;
  */
 class ApiException extends Exception
 {
+    use ExtractsApiErrorMessage;
+
     /**
      * The HTTP body of the server response either as Json or string.
      *
@@ -70,6 +129,10 @@ class ApiException extends Exception
      */
     public function __construct($message = "", $code = 0, $responseHeaders = [], $responseBody = null)
     {
+        $detail = self::extractApiErrorDetailMsg($responseBody);
+        if ($detail !== '') {
+            $message = $detail;
+        }
         parent::__construct($message, $code);
         $this->responseHeaders = $responseHeaders;
         $this->responseBody = $responseBody;

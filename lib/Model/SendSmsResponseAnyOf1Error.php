@@ -1,6 +1,6 @@
 <?php
 /**
- * SenderPostBodySms
+ * SendSmsResponseAnyOf1Error
  *
  * PHP version 8.1
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \Pingram\ObjectSerializer;
 
 /**
- * SenderPostBodySms Class Doc Comment
+ * SendSmsResponseAnyOf1Error Class Doc Comment
  *
  * @category Class
- * @description Inline SMS content (message, autoReply, from, mediaUrls).
+ * @description Error details for SMS send failures.
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SenderPostBodySms implements ModelInterface, ArrayAccess, \JsonSerializable
+class SendSmsResponseAnyOf1Error implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class SenderPostBodySms implements ModelInterface, ArrayAccess, \JsonSerializabl
       *
       * @var string
       */
-    protected static $openAPIModelName = 'SenderPostBody_sms';
+    protected static $openAPIModelName = 'SendSmsResponse_anyOf_1_error';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,10 +58,11 @@ class SenderPostBodySms implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var string[]
       */
     protected static $openAPITypes = [
+        'code' => 'string',
         'message' => 'string',
-        'media_urls' => 'string[]',
-        'auto_reply' => '\Pingram\Model\SenderPostBodySmsAutoReply',
-        'from' => 'string'
+        'fix' => 'string',
+        'provider' => 'string',
+        'provider_code' => 'string'
     ];
 
     /**
@@ -72,10 +73,11 @@ class SenderPostBodySms implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'code' => null,
         'message' => null,
-        'media_urls' => null,
-        'auto_reply' => null,
-        'from' => null
+        'fix' => null,
+        'provider' => null,
+        'provider_code' => null
     ];
 
     /**
@@ -84,10 +86,11 @@ class SenderPostBodySms implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var boolean[]
       */
     protected static array $openAPINullables = [
+        'code' => false,
         'message' => false,
-        'media_urls' => false,
-        'auto_reply' => false,
-        'from' => false
+        'fix' => false,
+        'provider' => false,
+        'provider_code' => false
     ];
 
     /**
@@ -176,10 +179,11 @@ class SenderPostBodySms implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $attributeMap = [
+        'code' => 'code',
         'message' => 'message',
-        'media_urls' => 'mediaUrls',
-        'auto_reply' => 'autoReply',
-        'from' => 'from'
+        'fix' => 'fix',
+        'provider' => 'provider',
+        'provider_code' => 'providerCode'
     ];
 
     /**
@@ -188,10 +192,11 @@ class SenderPostBodySms implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $setters = [
+        'code' => 'setCode',
         'message' => 'setMessage',
-        'media_urls' => 'setMediaUrls',
-        'auto_reply' => 'setAutoReply',
-        'from' => 'setFrom'
+        'fix' => 'setFix',
+        'provider' => 'setProvider',
+        'provider_code' => 'setProviderCode'
     ];
 
     /**
@@ -200,10 +205,11 @@ class SenderPostBodySms implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $getters = [
+        'code' => 'getCode',
         'message' => 'getMessage',
-        'media_urls' => 'getMediaUrls',
-        'auto_reply' => 'getAutoReply',
-        'from' => 'getFrom'
+        'fix' => 'getFix',
+        'provider' => 'getProvider',
+        'provider_code' => 'getProviderCode'
     ];
 
     /**
@@ -263,10 +269,11 @@ class SenderPostBodySms implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function __construct(?array $data = null)
     {
+        $this->setIfExists('code', $data ?? [], null);
         $this->setIfExists('message', $data ?? [], null);
-        $this->setIfExists('media_urls', $data ?? [], null);
-        $this->setIfExists('auto_reply', $data ?? [], null);
-        $this->setIfExists('from', $data ?? [], null);
+        $this->setIfExists('fix', $data ?? [], null);
+        $this->setIfExists('provider', $data ?? [], null);
+        $this->setIfExists('provider_code', $data ?? [], null);
     }
 
     /**
@@ -296,6 +303,12 @@ class SenderPostBodySms implements ModelInterface, ArrayAccess, \JsonSerializabl
     {
         $invalidProperties = [];
 
+        if ($this->container['code'] === null) {
+            $invalidProperties[] = "'code' can't be null";
+        }
+        if ($this->container['message'] === null) {
+            $invalidProperties[] = "'message' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -312,9 +325,36 @@ class SenderPostBodySms implements ModelInterface, ArrayAccess, \JsonSerializabl
 
 
     /**
+     * Gets code
+     *
+     * @return string
+     */
+    public function getCode()
+    {
+        return $this->container['code'];
+    }
+
+    /**
+     * Sets code
+     *
+     * @param string $code Machine-readable error code.
+     *
+     * @return self
+     */
+    public function setCode($code)
+    {
+        if (is_null($code)) {
+            throw new \InvalidArgumentException('non-nullable code cannot be null');
+        }
+        $this->container['code'] = $code;
+
+        return $this;
+    }
+
+    /**
      * Gets message
      *
-     * @return string|null
+     * @return string
      */
     public function getMessage()
     {
@@ -324,7 +364,7 @@ class SenderPostBodySms implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets message
      *
-     * @param string|null $message SMS/MMS body text.
+     * @param string $message Human-readable error message.
      *
      * @return self
      */
@@ -339,82 +379,82 @@ class SenderPostBodySms implements ModelInterface, ArrayAccess, \JsonSerializabl
     }
 
     /**
-     * Gets media_urls
-     *
-     * @return string[]|null
-     */
-    public function getMediaUrls()
-    {
-        return $this->container['media_urls'];
-    }
-
-    /**
-     * Sets media_urls
-     *
-     * @param string[]|null $media_urls Public HTTPS URLs of media to attach (MMS). Carriers fetch these via GET. Total size limits apply per provider.
-     *
-     * @return self
-     */
-    public function setMediaUrls($media_urls)
-    {
-        if (is_null($media_urls)) {
-            throw new \InvalidArgumentException('non-nullable media_urls cannot be null');
-        }
-        $this->container['media_urls'] = $media_urls;
-
-        return $this;
-    }
-
-    /**
-     * Gets auto_reply
-     *
-     * @return \Pingram\Model\SenderPostBodySmsAutoReply|null
-     */
-    public function getAutoReply()
-    {
-        return $this->container['auto_reply'];
-    }
-
-    /**
-     * Sets auto_reply
-     *
-     * @param \Pingram\Model\SenderPostBodySmsAutoReply|null $auto_reply auto_reply
-     *
-     * @return self
-     */
-    public function setAutoReply($auto_reply)
-    {
-        if (is_null($auto_reply)) {
-            throw new \InvalidArgumentException('non-nullable auto_reply cannot be null');
-        }
-        $this->container['auto_reply'] = $auto_reply;
-
-        return $this;
-    }
-
-    /**
-     * Gets from
+     * Gets fix
      *
      * @return string|null
      */
-    public function getFrom()
+    public function getFix()
     {
-        return $this->container['from'];
+        return $this->container['fix'];
     }
 
     /**
-     * Sets from
+     * Sets fix
      *
-     * @param string|null $from Override the sender phone number. Must be a verified number on your account.
+     * @param string|null $fix Actionable hint for fixing the error.
      *
      * @return self
      */
-    public function setFrom($from)
+    public function setFix($fix)
     {
-        if (is_null($from)) {
-            throw new \InvalidArgumentException('non-nullable from cannot be null');
+        if (is_null($fix)) {
+            throw new \InvalidArgumentException('non-nullable fix cannot be null');
         }
-        $this->container['from'] = $from;
+        $this->container['fix'] = $fix;
+
+        return $this;
+    }
+
+    /**
+     * Gets provider
+     *
+     * @return string|null
+     */
+    public function getProvider()
+    {
+        return $this->container['provider'];
+    }
+
+    /**
+     * Sets provider
+     *
+     * @param string|null $provider Provider that rejected the message (e.g. 'telnyx').
+     *
+     * @return self
+     */
+    public function setProvider($provider)
+    {
+        if (is_null($provider)) {
+            throw new \InvalidArgumentException('non-nullable provider cannot be null');
+        }
+        $this->container['provider'] = $provider;
+
+        return $this;
+    }
+
+    /**
+     * Gets provider_code
+     *
+     * @return string|null
+     */
+    public function getProviderCode()
+    {
+        return $this->container['provider_code'];
+    }
+
+    /**
+     * Sets provider_code
+     *
+     * @param string|null $provider_code Provider-specific error code.
+     *
+     * @return self
+     */
+    public function setProviderCode($provider_code)
+    {
+        if (is_null($provider_code)) {
+            throw new \InvalidArgumentException('non-nullable provider_code cannot be null');
+        }
+        $this->container['provider_code'] = $provider_code;
 
         return $this;
     }

@@ -140,7 +140,7 @@ class NumbersApi
      *
      * @throws \Pingram\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Pingram\Model\ListPhoneNumbersResponse
+     * @return \Pingram\Model\ListPhoneNumbersResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse
      */
     public function numbersList(string $contentType = self::contentTypes['numbersList'][0])
     {
@@ -157,7 +157,7 @@ class NumbersApi
      *
      * @throws \Pingram\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Pingram\Model\ListPhoneNumbersResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Pingram\Model\ListPhoneNumbersResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function numbersListWithHttpInfo(string $contentType = self::contentTypes['numbersList'][0])
     {
@@ -193,6 +193,24 @@ class NumbersApi
                         $request,
                         $response,
                     );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\Pingram\Model\ApiErrorResponse',
+                        $request,
+                        $response,
+                    );
+                case 402:
+                    return $this->handleResponseWithDataType(
+                        '\Pingram\Model\ApiErrorResponse',
+                        $request,
+                        $response,
+                    );
+                case 502:
+                    return $this->handleResponseWithDataType(
+                        '\Pingram\Model\ApiErrorResponse',
+                        $request,
+                        $response,
+                    );
             }
 
             
@@ -221,6 +239,30 @@ class NumbersApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Pingram\Model\ListPhoneNumbersResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Pingram\Model\ApiErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 402:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Pingram\Model\ApiErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 502:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Pingram\Model\ApiErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -398,14 +440,14 @@ class NumbersApi
     /**
      * Operation numbersOrderNumber
      *
-     * Purchase a Telnyx phone number for the authenticated account
+     * Purchase a phone number for the authenticated account
      *
      * @param  \Pingram\Model\OrderPhoneNumberRequest $order_phone_number_request order_phone_number_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['numbersOrderNumber'] to see the possible values for this operation
      *
      * @throws \Pingram\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Pingram\Model\OrderPhoneNumberResponse
+     * @return \Pingram\Model\OrderPhoneNumberResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse
      */
     public function numbersOrderNumber($order_phone_number_request, string $contentType = self::contentTypes['numbersOrderNumber'][0])
     {
@@ -416,14 +458,14 @@ class NumbersApi
     /**
      * Operation numbersOrderNumberWithHttpInfo
      *
-     * Purchase a Telnyx phone number for the authenticated account
+     * Purchase a phone number for the authenticated account
      *
      * @param  \Pingram\Model\OrderPhoneNumberRequest $order_phone_number_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['numbersOrderNumber'] to see the possible values for this operation
      *
      * @throws \Pingram\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Pingram\Model\OrderPhoneNumberResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Pingram\Model\OrderPhoneNumberResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function numbersOrderNumberWithHttpInfo($order_phone_number_request, string $contentType = self::contentTypes['numbersOrderNumber'][0])
     {
@@ -459,6 +501,24 @@ class NumbersApi
                         $request,
                         $response,
                     );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\Pingram\Model\ApiErrorResponse',
+                        $request,
+                        $response,
+                    );
+                case 402:
+                    return $this->handleResponseWithDataType(
+                        '\Pingram\Model\ApiErrorResponse',
+                        $request,
+                        $response,
+                    );
+                case 502:
+                    return $this->handleResponseWithDataType(
+                        '\Pingram\Model\ApiErrorResponse',
+                        $request,
+                        $response,
+                    );
             }
 
             
@@ -491,6 +551,30 @@ class NumbersApi
                     );
                     $e->setResponseObject($data);
                     throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Pingram\Model\ApiErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 402:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Pingram\Model\ApiErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 502:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Pingram\Model\ApiErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
             }
         
 
@@ -501,7 +585,7 @@ class NumbersApi
     /**
      * Operation numbersOrderNumberAsync
      *
-     * Purchase a Telnyx phone number for the authenticated account
+     * Purchase a phone number for the authenticated account
      *
      * @param  \Pingram\Model\OrderPhoneNumberRequest $order_phone_number_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['numbersOrderNumber'] to see the possible values for this operation
@@ -522,7 +606,7 @@ class NumbersApi
     /**
      * Operation numbersOrderNumberAsyncWithHttpInfo
      *
-     * Purchase a Telnyx phone number for the authenticated account
+     * Purchase a phone number for the authenticated account
      *
      * @param  \Pingram\Model\OrderPhoneNumberRequest $order_phone_number_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['numbersOrderNumber'] to see the possible values for this operation
@@ -681,7 +765,7 @@ class NumbersApi
     /**
      * Operation numbersSearchAvailable
      *
-     * Search for available Telnyx phone numbers
+     * Search for available phone numbers
      *
      * @param  string $country_code ISO 3166-1 alpha-2 country code (e.g., US, CA) (required)
      * @param  string|null $features Comma-separated (optional)
@@ -691,7 +775,7 @@ class NumbersApi
      *
      * @throws \Pingram\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Pingram\Model\SearchAvailablePhoneNumbersResponse
+     * @return \Pingram\Model\SearchAvailablePhoneNumbersResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse
      */
     public function numbersSearchAvailable($country_code, $features = null, $area_code = null, $limit = null, string $contentType = self::contentTypes['numbersSearchAvailable'][0])
     {
@@ -702,7 +786,7 @@ class NumbersApi
     /**
      * Operation numbersSearchAvailableWithHttpInfo
      *
-     * Search for available Telnyx phone numbers
+     * Search for available phone numbers
      *
      * @param  string $country_code ISO 3166-1 alpha-2 country code (e.g., US, CA) (required)
      * @param  string|null $features Comma-separated (optional)
@@ -712,7 +796,7 @@ class NumbersApi
      *
      * @throws \Pingram\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Pingram\Model\SearchAvailablePhoneNumbersResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Pingram\Model\SearchAvailablePhoneNumbersResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function numbersSearchAvailableWithHttpInfo($country_code, $features = null, $area_code = null, $limit = null, string $contentType = self::contentTypes['numbersSearchAvailable'][0])
     {
@@ -748,6 +832,24 @@ class NumbersApi
                         $request,
                         $response,
                     );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\Pingram\Model\ApiErrorResponse',
+                        $request,
+                        $response,
+                    );
+                case 402:
+                    return $this->handleResponseWithDataType(
+                        '\Pingram\Model\ApiErrorResponse',
+                        $request,
+                        $response,
+                    );
+                case 502:
+                    return $this->handleResponseWithDataType(
+                        '\Pingram\Model\ApiErrorResponse',
+                        $request,
+                        $response,
+                    );
             }
 
             
@@ -780,6 +882,30 @@ class NumbersApi
                     );
                     $e->setResponseObject($data);
                     throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Pingram\Model\ApiErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 402:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Pingram\Model\ApiErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 502:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Pingram\Model\ApiErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
             }
         
 
@@ -790,7 +916,7 @@ class NumbersApi
     /**
      * Operation numbersSearchAvailableAsync
      *
-     * Search for available Telnyx phone numbers
+     * Search for available phone numbers
      *
      * @param  string $country_code ISO 3166-1 alpha-2 country code (e.g., US, CA) (required)
      * @param  string|null $features Comma-separated (optional)
@@ -814,7 +940,7 @@ class NumbersApi
     /**
      * Operation numbersSearchAvailableAsyncWithHttpInfo
      *
-     * Search for available Telnyx phone numbers
+     * Search for available phone numbers
      *
      * @param  string $country_code ISO 3166-1 alpha-2 country code (e.g., US, CA) (required)
      * @param  string|null $features Comma-separated (optional)

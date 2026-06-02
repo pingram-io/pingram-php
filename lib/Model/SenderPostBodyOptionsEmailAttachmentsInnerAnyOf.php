@@ -58,7 +58,8 @@ class SenderPostBodyOptionsEmailAttachmentsInnerAnyOf implements ModelInterface,
       */
     protected static $openAPITypes = [
         'filename' => 'string',
-        'url' => 'string'
+        'content' => 'string',
+        'content_type' => 'string'
     ];
 
     /**
@@ -70,7 +71,8 @@ class SenderPostBodyOptionsEmailAttachmentsInnerAnyOf implements ModelInterface,
       */
     protected static $openAPIFormats = [
         'filename' => null,
-        'url' => null
+        'content' => null,
+        'content_type' => null
     ];
 
     /**
@@ -80,7 +82,8 @@ class SenderPostBodyOptionsEmailAttachmentsInnerAnyOf implements ModelInterface,
       */
     protected static array $openAPINullables = [
         'filename' => false,
-        'url' => false
+        'content' => false,
+        'content_type' => false
     ];
 
     /**
@@ -170,7 +173,8 @@ class SenderPostBodyOptionsEmailAttachmentsInnerAnyOf implements ModelInterface,
      */
     protected static $attributeMap = [
         'filename' => 'filename',
-        'url' => 'url'
+        'content' => 'content',
+        'content_type' => 'contentType'
     ];
 
     /**
@@ -180,7 +184,8 @@ class SenderPostBodyOptionsEmailAttachmentsInnerAnyOf implements ModelInterface,
      */
     protected static $setters = [
         'filename' => 'setFilename',
-        'url' => 'setUrl'
+        'content' => 'setContent',
+        'content_type' => 'setContentType'
     ];
 
     /**
@@ -190,7 +195,8 @@ class SenderPostBodyOptionsEmailAttachmentsInnerAnyOf implements ModelInterface,
      */
     protected static $getters = [
         'filename' => 'getFilename',
-        'url' => 'getUrl'
+        'content' => 'getContent',
+        'content_type' => 'getContentType'
     ];
 
     /**
@@ -251,7 +257,8 @@ class SenderPostBodyOptionsEmailAttachmentsInnerAnyOf implements ModelInterface,
     public function __construct(?array $data = null)
     {
         $this->setIfExists('filename', $data ?? [], null);
-        $this->setIfExists('url', $data ?? [], null);
+        $this->setIfExists('content', $data ?? [], null);
+        $this->setIfExists('content_type', $data ?? [], null);
     }
 
     /**
@@ -284,8 +291,8 @@ class SenderPostBodyOptionsEmailAttachmentsInnerAnyOf implements ModelInterface,
         if ($this->container['filename'] === null) {
             $invalidProperties[] = "'filename' can't be null";
         }
-        if ($this->container['url'] === null) {
-            $invalidProperties[] = "'url' can't be null";
+        if ($this->container['content'] === null) {
+            $invalidProperties[] = "'content' can't be null";
         }
         return $invalidProperties;
     }
@@ -330,28 +337,55 @@ class SenderPostBodyOptionsEmailAttachmentsInnerAnyOf implements ModelInterface,
     }
 
     /**
-     * Gets url
+     * Gets content
      *
      * @return string
      */
-    public function getUrl()
+    public function getContent()
     {
-        return $this->container['url'];
+        return $this->container['content'];
     }
 
     /**
-     * Sets url
+     * Sets content
      *
-     * @param string $url url
+     * @param string $content content
      *
      * @return self
      */
-    public function setUrl($url)
+    public function setContent($content)
     {
-        if (is_null($url)) {
-            throw new \InvalidArgumentException('non-nullable url cannot be null');
+        if (is_null($content)) {
+            throw new \InvalidArgumentException('non-nullable content cannot be null');
         }
-        $this->container['url'] = $url;
+        $this->container['content'] = $content;
+
+        return $this;
+    }
+
+    /**
+     * Gets content_type
+     *
+     * @return string|null
+     */
+    public function getContentType()
+    {
+        return $this->container['content_type'];
+    }
+
+    /**
+     * Sets content_type
+     *
+     * @param string|null $content_type content_type
+     *
+     * @return self
+     */
+    public function setContentType($content_type)
+    {
+        if (is_null($content_type)) {
+            throw new \InvalidArgumentException('non-nullable content_type cannot be null');
+        }
+        $this->container['content_type'] = $content_type;
 
         return $this;
     }

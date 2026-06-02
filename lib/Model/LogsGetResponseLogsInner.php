@@ -89,6 +89,7 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         'email_sent_at' => 'string',
         'email_sent_message_id' => 'string',
         'email_sent_after' => 'float',
+        'email_preview' => 'string',
         'email_delivered_at' => 'string',
         'email_delivered_recipients' => 'string',
         'email_delivered_after' => 'float',
@@ -171,7 +172,6 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         'inapp_routing_reason' => 'string',
         'slack_routing' => 'string',
         'slack_routing_reason' => 'string',
-        'email_preview' => 'string',
         'sms_preview' => 'string',
         'call_preview' => 'string',
         'web_push_preview' => 'string',
@@ -263,6 +263,7 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         'email_sent_at' => null,
         'email_sent_message_id' => null,
         'email_sent_after' => null,
+        'email_preview' => null,
         'email_delivered_at' => null,
         'email_delivered_recipients' => null,
         'email_delivered_after' => null,
@@ -345,7 +346,6 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         'inapp_routing_reason' => null,
         'slack_routing' => null,
         'slack_routing_reason' => null,
-        'email_preview' => null,
         'sms_preview' => null,
         'call_preview' => null,
         'web_push_preview' => null,
@@ -435,6 +435,7 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         'email_sent_at' => false,
         'email_sent_message_id' => false,
         'email_sent_after' => false,
+        'email_preview' => false,
         'email_delivered_at' => false,
         'email_delivered_recipients' => false,
         'email_delivered_after' => false,
@@ -517,7 +518,6 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         'inapp_routing_reason' => false,
         'slack_routing' => false,
         'slack_routing_reason' => false,
-        'email_preview' => false,
         'sms_preview' => false,
         'call_preview' => false,
         'web_push_preview' => false,
@@ -687,6 +687,7 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         'email_sent_at' => 'email_sent_at',
         'email_sent_message_id' => 'email_sent_message_id',
         'email_sent_after' => 'email_sent_after',
+        'email_preview' => 'email_preview',
         'email_delivered_at' => 'email_delivered_at',
         'email_delivered_recipients' => 'email_delivered_recipients',
         'email_delivered_after' => 'email_delivered_after',
@@ -769,7 +770,6 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         'inapp_routing_reason' => 'inapp_routing_reason',
         'slack_routing' => 'slack_routing',
         'slack_routing_reason' => 'slack_routing_reason',
-        'email_preview' => 'email_preview',
         'sms_preview' => 'sms_preview',
         'call_preview' => 'call_preview',
         'web_push_preview' => 'web_push_preview',
@@ -859,6 +859,7 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         'email_sent_at' => 'setEmailSentAt',
         'email_sent_message_id' => 'setEmailSentMessageId',
         'email_sent_after' => 'setEmailSentAfter',
+        'email_preview' => 'setEmailPreview',
         'email_delivered_at' => 'setEmailDeliveredAt',
         'email_delivered_recipients' => 'setEmailDeliveredRecipients',
         'email_delivered_after' => 'setEmailDeliveredAfter',
@@ -941,7 +942,6 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         'inapp_routing_reason' => 'setInappRoutingReason',
         'slack_routing' => 'setSlackRouting',
         'slack_routing_reason' => 'setSlackRoutingReason',
-        'email_preview' => 'setEmailPreview',
         'sms_preview' => 'setSmsPreview',
         'call_preview' => 'setCallPreview',
         'web_push_preview' => 'setWebPushPreview',
@@ -1031,6 +1031,7 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         'email_sent_at' => 'getEmailSentAt',
         'email_sent_message_id' => 'getEmailSentMessageId',
         'email_sent_after' => 'getEmailSentAfter',
+        'email_preview' => 'getEmailPreview',
         'email_delivered_at' => 'getEmailDeliveredAt',
         'email_delivered_recipients' => 'getEmailDeliveredRecipients',
         'email_delivered_after' => 'getEmailDeliveredAfter',
@@ -1113,7 +1114,6 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         'inapp_routing_reason' => 'getInappRoutingReason',
         'slack_routing' => 'getSlackRouting',
         'slack_routing_reason' => 'getSlackRoutingReason',
-        'email_preview' => 'getEmailPreview',
         'sms_preview' => 'getSmsPreview',
         'call_preview' => 'getCallPreview',
         'web_push_preview' => 'getWebPushPreview',
@@ -1209,6 +1209,7 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
     public const FAILED_CODE_SPAM_CONTENT = 'SPAM_CONTENT';
     public const FAILED_CODE_INVALID_SCHEDULE_FORMAT = 'INVALID_SCHEDULE_FORMAT';
     public const FAILED_CODE_SCHEDULE_RESOURCE_NOT_FOUND = 'SCHEDULE_RESOURCE_NOT_FOUND';
+    public const FAILED_CODE_MISSING_NOTIFICATION_TYPE = 'MISSING_NOTIFICATION_TYPE';
     public const FAILED_CODE_UNKNOWN = 'UNKNOWN';
     public const INAPP_FAILED_CODE_IN_APP_WEB_FAILED = 'IN_APP_WEB_FAILED';
     public const INAPP_FAILED_CODE_UNKNOWN = 'UNKNOWN';
@@ -1235,6 +1236,9 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
     public const EMAIL_FAILED_CODE_COMPLAINT_VIRUS = 'COMPLAINT_VIRUS';
     public const EMAIL_FAILED_CODE_SUPPRESSED_COMPLAINT = 'SUPPRESSED_COMPLAINT';
     public const EMAIL_FAILED_CODE_SUPPRESSED_BOUNCE = 'SUPPRESSED_BOUNCE';
+    public const EMAIL_FAILED_CODE_MISSING_EMAIL_RECIPIENT = 'MISSING_EMAIL_RECIPIENT';
+    public const EMAIL_FAILED_CODE_MISSING_EMAIL_SUBJECT = 'MISSING_EMAIL_SUBJECT';
+    public const EMAIL_FAILED_CODE_MISSING_EMAIL_HTML = 'MISSING_EMAIL_HTML';
     public const EMAIL_FAILED_CODE_NO_ADDRESS = 'NO_ADDRESS';
     public const EMAIL_FAILED_CODE_USAGE_LIMIT = 'USAGE_LIMIT';
     public const EMAIL_FAILED_CODE_VERIFICATION_LIMIT = 'VERIFICATION_LIMIT';
@@ -1361,6 +1365,9 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
     public const CALL_FAILED_CODE__40002 = '40002';
     public const CALL_FAILED_CODE__40300 = '40300';
     public const CALL_FAILED_CODE_UNKNOWN = 'Unknown';
+    public const CALL_FAILED_CODE_MISSING_SMS_RECIPIENT = 'MISSING_SMS_RECIPIENT';
+    public const CALL_FAILED_CODE_MISSING_SMS_MESSAGE = 'MISSING_SMS_MESSAGE';
+    public const CALL_FAILED_CODE_INVALID_PHONE_NUMBER = 'INVALID_PHONE_NUMBER';
     public const CALL_FAILED_CODE_NO_ADDRESS = 'NO_ADDRESS';
     public const CALL_FAILED_CODE_USAGE_LIMIT = 'USAGE_LIMIT';
     public const CALL_FAILED_CODE_VERIFICATION_LIMIT = 'VERIFICATION_LIMIT';
@@ -1383,6 +1390,9 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
     public const SMS_FAILED_CODE__40002 = '40002';
     public const SMS_FAILED_CODE__40300 = '40300';
     public const SMS_FAILED_CODE_UNKNOWN = 'Unknown';
+    public const SMS_FAILED_CODE_MISSING_SMS_RECIPIENT = 'MISSING_SMS_RECIPIENT';
+    public const SMS_FAILED_CODE_MISSING_SMS_MESSAGE = 'MISSING_SMS_MESSAGE';
+    public const SMS_FAILED_CODE_INVALID_PHONE_NUMBER = 'INVALID_PHONE_NUMBER';
     public const SMS_FAILED_CODE_NO_ADDRESS = 'NO_ADDRESS';
     public const SMS_FAILED_CODE_USAGE_LIMIT = 'USAGE_LIMIT';
     public const SMS_FAILED_CODE_VERIFICATION_LIMIT = 'VERIFICATION_LIMIT';
@@ -1401,6 +1411,7 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
             self::FAILED_CODE_SPAM_CONTENT,
             self::FAILED_CODE_INVALID_SCHEDULE_FORMAT,
             self::FAILED_CODE_SCHEDULE_RESOURCE_NOT_FOUND,
+            self::FAILED_CODE_MISSING_NOTIFICATION_TYPE,
             self::FAILED_CODE_UNKNOWN,
         ];
     }
@@ -1460,6 +1471,9 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
             self::EMAIL_FAILED_CODE_COMPLAINT_VIRUS,
             self::EMAIL_FAILED_CODE_SUPPRESSED_COMPLAINT,
             self::EMAIL_FAILED_CODE_SUPPRESSED_BOUNCE,
+            self::EMAIL_FAILED_CODE_MISSING_EMAIL_RECIPIENT,
+            self::EMAIL_FAILED_CODE_MISSING_EMAIL_SUBJECT,
+            self::EMAIL_FAILED_CODE_MISSING_EMAIL_HTML,
             self::EMAIL_FAILED_CODE_NO_ADDRESS,
             self::EMAIL_FAILED_CODE_USAGE_LIMIT,
             self::EMAIL_FAILED_CODE_VERIFICATION_LIMIT,
@@ -1806,6 +1820,9 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
             self::CALL_FAILED_CODE__40002,
             self::CALL_FAILED_CODE__40300,
             self::CALL_FAILED_CODE_UNKNOWN,
+            self::CALL_FAILED_CODE_MISSING_SMS_RECIPIENT,
+            self::CALL_FAILED_CODE_MISSING_SMS_MESSAGE,
+            self::CALL_FAILED_CODE_INVALID_PHONE_NUMBER,
             self::CALL_FAILED_CODE_NO_ADDRESS,
             self::CALL_FAILED_CODE_USAGE_LIMIT,
             self::CALL_FAILED_CODE_VERIFICATION_LIMIT,
@@ -1839,6 +1856,9 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
             self::SMS_FAILED_CODE__40002,
             self::SMS_FAILED_CODE__40300,
             self::SMS_FAILED_CODE_UNKNOWN,
+            self::SMS_FAILED_CODE_MISSING_SMS_RECIPIENT,
+            self::SMS_FAILED_CODE_MISSING_SMS_MESSAGE,
+            self::SMS_FAILED_CODE_INVALID_PHONE_NUMBER,
             self::SMS_FAILED_CODE_NO_ADDRESS,
             self::SMS_FAILED_CODE_USAGE_LIMIT,
             self::SMS_FAILED_CODE_VERIFICATION_LIMIT,
@@ -1895,6 +1915,7 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         $this->setIfExists('email_sent_at', $data ?? [], null);
         $this->setIfExists('email_sent_message_id', $data ?? [], null);
         $this->setIfExists('email_sent_after', $data ?? [], null);
+        $this->setIfExists('email_preview', $data ?? [], null);
         $this->setIfExists('email_delivered_at', $data ?? [], null);
         $this->setIfExists('email_delivered_recipients', $data ?? [], null);
         $this->setIfExists('email_delivered_after', $data ?? [], null);
@@ -1977,7 +1998,6 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         $this->setIfExists('inapp_routing_reason', $data ?? [], null);
         $this->setIfExists('slack_routing', $data ?? [], null);
         $this->setIfExists('slack_routing_reason', $data ?? [], null);
-        $this->setIfExists('email_preview', $data ?? [], null);
         $this->setIfExists('sms_preview', $data ?? [], null);
         $this->setIfExists('call_preview', $data ?? [], null);
         $this->setIfExists('web_push_preview', $data ?? [], null);
@@ -3192,6 +3212,33 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
             throw new \InvalidArgumentException('non-nullable email_sent_after cannot be null');
         }
         $this->container['email_sent_after'] = $email_sent_after;
+
+        return $this;
+    }
+
+    /**
+     * Gets email_preview
+     *
+     * @return string|null
+     */
+    public function getEmailPreview()
+    {
+        return $this->container['email_preview'];
+    }
+
+    /**
+     * Sets email_preview
+     *
+     * @param string|null $email_preview Bare `POST /email` may set this on the `email_sent` row so Logs Insights `latest(email_preview)` still resolves after delivered/opened rows. Sender / SQS consumer paths omit this field (unchanged behavior).
+     *
+     * @return self
+     */
+    public function setEmailPreview($email_preview)
+    {
+        if (is_null($email_preview)) {
+            throw new \InvalidArgumentException('non-nullable email_preview cannot be null');
+        }
+        $this->container['email_preview'] = $email_preview;
 
         return $this;
     }
@@ -5591,33 +5638,6 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
     }
 
     /**
-     * Gets email_preview
-     *
-     * @return string|null
-     */
-    public function getEmailPreview()
-    {
-        return $this->container['email_preview'];
-    }
-
-    /**
-     * Sets email_preview
-     *
-     * @param string|null $email_preview email_preview
-     *
-     * @return self
-     */
-    public function setEmailPreview($email_preview)
-    {
-        if (is_null($email_preview)) {
-            throw new \InvalidArgumentException('non-nullable email_preview cannot be null');
-        }
-        $this->container['email_preview'] = $email_preview;
-
-        return $this;
-    }
-
-    /**
      * Gets sms_preview
      *
      * @return string|null
@@ -6696,7 +6716,7 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets sms_sent_message_id
      *
-     * @param string|null $sms_sent_message_id Unique message ID from provider (Twilio SID or Telnyx ID)
+     * @param string|null $sms_sent_message_id Unique message ID from the SMS provider
      *
      * @return self
      */
@@ -6750,7 +6770,7 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets sms_carrier_cost_internal
      *
-     * @param float|null $sms_carrier_cost_internal Actual cost from Telnyx/Twilio (internal)
+     * @param float|null $sms_carrier_cost_internal Actual carrier cost (internal)
      *
      * @return self
      */
@@ -6885,7 +6905,7 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets sms_delivered_cost_internal
      *
-     * @param float|null $sms_delivered_cost_internal Actual cost from Twilio webhook (USD), for internal logging
+     * @param float|null $sms_delivered_cost_internal Actual delivery cost from carrier webhook (USD), for internal logging
      *
      * @return self
      */

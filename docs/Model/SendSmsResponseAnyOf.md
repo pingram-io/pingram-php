@@ -1,11 +1,10 @@
-# # SenderPostBodyOptionsEmailAttachmentsInnerAnyOf1
+# # SendSmsResponseAnyOf
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**filename** | **string** |  |
-**content** | **string** |  |
-**content_type** | **string** |  | [optional]
+**tracking_id** | **string** |  |
+**messages** | **string[]** |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

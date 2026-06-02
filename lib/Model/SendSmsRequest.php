@@ -1,6 +1,6 @@
 <?php
 /**
- * SenderPostBodySms
+ * SendSmsRequest
  *
  * PHP version 8.1
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \Pingram\ObjectSerializer;
 
 /**
- * SenderPostBodySms Class Doc Comment
+ * SendSmsRequest Class Doc Comment
  *
  * @category Class
- * @description Inline SMS content (message, autoReply, from, mediaUrls).
+ * @description Request body for &#x60;POST /sms&#x60; (send SMS without a template).
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SenderPostBodySms implements ModelInterface, ArrayAccess, \JsonSerializable
+class SendSmsRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class SenderPostBodySms implements ModelInterface, ArrayAccess, \JsonSerializabl
       *
       * @var string
       */
-    protected static $openAPIModelName = 'SenderPostBody_sms';
+    protected static $openAPIModelName = 'SendSmsRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,10 +58,12 @@ class SenderPostBodySms implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var string[]
       */
     protected static $openAPITypes = [
+        'type' => 'string',
+        'to' => 'string',
         'message' => 'string',
-        'media_urls' => 'string[]',
-        'auto_reply' => '\Pingram\Model\SenderPostBodySmsAutoReply',
-        'from' => 'string'
+        'schedule' => 'string',
+        'from' => 'string',
+        'auto_reply' => '\Pingram\Model\SenderPostBodySmsAutoReply'
     ];
 
     /**
@@ -72,10 +74,12 @@ class SenderPostBodySms implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'type' => null,
+        'to' => null,
         'message' => null,
-        'media_urls' => null,
-        'auto_reply' => null,
-        'from' => null
+        'schedule' => null,
+        'from' => null,
+        'auto_reply' => null
     ];
 
     /**
@@ -84,10 +88,12 @@ class SenderPostBodySms implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var boolean[]
       */
     protected static array $openAPINullables = [
+        'type' => false,
+        'to' => false,
         'message' => false,
-        'media_urls' => false,
-        'auto_reply' => false,
-        'from' => false
+        'schedule' => false,
+        'from' => false,
+        'auto_reply' => false
     ];
 
     /**
@@ -176,10 +182,12 @@ class SenderPostBodySms implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $attributeMap = [
+        'type' => 'type',
+        'to' => 'to',
         'message' => 'message',
-        'media_urls' => 'mediaUrls',
-        'auto_reply' => 'autoReply',
-        'from' => 'from'
+        'schedule' => 'schedule',
+        'from' => 'from',
+        'auto_reply' => 'autoReply'
     ];
 
     /**
@@ -188,10 +196,12 @@ class SenderPostBodySms implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $setters = [
+        'type' => 'setType',
+        'to' => 'setTo',
         'message' => 'setMessage',
-        'media_urls' => 'setMediaUrls',
-        'auto_reply' => 'setAutoReply',
-        'from' => 'setFrom'
+        'schedule' => 'setSchedule',
+        'from' => 'setFrom',
+        'auto_reply' => 'setAutoReply'
     ];
 
     /**
@@ -200,10 +210,12 @@ class SenderPostBodySms implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $getters = [
+        'type' => 'getType',
+        'to' => 'getTo',
         'message' => 'getMessage',
-        'media_urls' => 'getMediaUrls',
-        'auto_reply' => 'getAutoReply',
-        'from' => 'getFrom'
+        'schedule' => 'getSchedule',
+        'from' => 'getFrom',
+        'auto_reply' => 'getAutoReply'
     ];
 
     /**
@@ -263,10 +275,12 @@ class SenderPostBodySms implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function __construct(?array $data = null)
     {
+        $this->setIfExists('type', $data ?? [], null);
+        $this->setIfExists('to', $data ?? [], null);
         $this->setIfExists('message', $data ?? [], null);
-        $this->setIfExists('media_urls', $data ?? [], null);
-        $this->setIfExists('auto_reply', $data ?? [], null);
+        $this->setIfExists('schedule', $data ?? [], null);
         $this->setIfExists('from', $data ?? [], null);
+        $this->setIfExists('auto_reply', $data ?? [], null);
     }
 
     /**
@@ -296,6 +310,15 @@ class SenderPostBodySms implements ModelInterface, ArrayAccess, \JsonSerializabl
     {
         $invalidProperties = [];
 
+        if ($this->container['type'] === null) {
+            $invalidProperties[] = "'type' can't be null";
+        }
+        if ($this->container['to'] === null) {
+            $invalidProperties[] = "'to' can't be null";
+        }
+        if ($this->container['message'] === null) {
+            $invalidProperties[] = "'message' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -312,9 +335,63 @@ class SenderPostBodySms implements ModelInterface, ArrayAccess, \JsonSerializabl
 
 
     /**
+     * Gets type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string $type The notification type to send.
+     *
+     * @return self
+     */
+    public function setType($type)
+    {
+        if (is_null($type)) {
+            throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets to
+     *
+     * @return string
+     */
+    public function getTo()
+    {
+        return $this->container['to'];
+    }
+
+    /**
+     * Sets to
+     *
+     * @param string $to The phone number of the recipient.
+     *
+     * @return self
+     */
+    public function setTo($to)
+    {
+        if (is_null($to)) {
+            throw new \InvalidArgumentException('non-nullable to cannot be null');
+        }
+        $this->container['to'] = $to;
+
+        return $this;
+    }
+
+    /**
      * Gets message
      *
-     * @return string|null
+     * @return string
      */
     public function getMessage()
     {
@@ -324,7 +401,7 @@ class SenderPostBodySms implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets message
      *
-     * @param string|null $message SMS/MMS body text.
+     * @param string $message The message of the SMS notification.
      *
      * @return self
      */
@@ -339,28 +416,55 @@ class SenderPostBodySms implements ModelInterface, ArrayAccess, \JsonSerializabl
     }
 
     /**
-     * Gets media_urls
+     * Gets schedule
      *
-     * @return string[]|null
+     * @return string|null
      */
-    public function getMediaUrls()
+    public function getSchedule()
     {
-        return $this->container['media_urls'];
+        return $this->container['schedule'];
     }
 
     /**
-     * Sets media_urls
+     * Sets schedule
      *
-     * @param string[]|null $media_urls Public HTTPS URLs of media to attach (MMS). Carriers fetch these via GET. Total size limits apply per provider.
+     * @param string|null $schedule The ISO 8601 datetime to schedule the SMS notification.
      *
      * @return self
      */
-    public function setMediaUrls($media_urls)
+    public function setSchedule($schedule)
     {
-        if (is_null($media_urls)) {
-            throw new \InvalidArgumentException('non-nullable media_urls cannot be null');
+        if (is_null($schedule)) {
+            throw new \InvalidArgumentException('non-nullable schedule cannot be null');
         }
-        $this->container['media_urls'] = $media_urls;
+        $this->container['schedule'] = $schedule;
+
+        return $this;
+    }
+
+    /**
+     * Gets from
+     *
+     * @return string|null
+     */
+    public function getFrom()
+    {
+        return $this->container['from'];
+    }
+
+    /**
+     * Sets from
+     *
+     * @param string|null $from Override the sender phone number. Must be a verified number in your Telnyx account.
+     *
+     * @return self
+     */
+    public function setFrom($from)
+    {
+        if (is_null($from)) {
+            throw new \InvalidArgumentException('non-nullable from cannot be null');
+        }
+        $this->container['from'] = $from;
 
         return $this;
     }
@@ -388,33 +492,6 @@ class SenderPostBodySms implements ModelInterface, ArrayAccess, \JsonSerializabl
             throw new \InvalidArgumentException('non-nullable auto_reply cannot be null');
         }
         $this->container['auto_reply'] = $auto_reply;
-
-        return $this;
-    }
-
-    /**
-     * Gets from
-     *
-     * @return string|null
-     */
-    public function getFrom()
-    {
-        return $this->container['from'];
-    }
-
-    /**
-     * Sets from
-     *
-     * @param string|null $from Override the sender phone number. Must be a verified number on your account.
-     *
-     * @return self
-     */
-    public function setFrom($from)
-    {
-        if (is_null($from)) {
-            throw new \InvalidArgumentException('non-nullable from cannot be null');
-        }
-        $this->container['from'] = $from;
 
         return $this;
     }

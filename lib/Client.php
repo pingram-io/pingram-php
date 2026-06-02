@@ -24,6 +24,8 @@ use Pingram\Api\DomainsApi;
 
 use Pingram\Api\EditorApi;
 
+use Pingram\Api\EmailApi;
+
 use Pingram\Api\EnvironmentsApi;
 
 use Pingram\Api\HealthApi;
@@ -45,6 +47,8 @@ use Pingram\Api\ProfileApi;
 use Pingram\Api\PushSettingsApi;
 
 use Pingram\Api\SenderApi;
+
+use Pingram\Api\SmsApi;
 
 use Pingram\Api\TemplatesApi;
 
@@ -98,6 +102,9 @@ class Client
     /** @var EditorApi */
     private $editor;
 
+    /** @var EmailApi */
+    private $email;
+
     /** @var EnvironmentsApi */
     private $environments;
 
@@ -130,6 +137,9 @@ class Client
 
     /** @var SenderApi */
     private $sender;
+
+    /** @var SmsApi */
+    private $sms;
 
     /** @var TemplatesApi */
     private $templates;
@@ -175,6 +185,8 @@ class Client
 
         $this->editor = new EditorApi($this->httpClient, $this->config);
 
+        $this->email = new EmailApi($this->httpClient, $this->config);
+
         $this->environments = new EnvironmentsApi($this->httpClient, $this->config);
 
         $this->health = new HealthApi($this->httpClient, $this->config);
@@ -196,6 +208,8 @@ class Client
         $this->pushSettings = new PushSettingsApi($this->httpClient, $this->config);
 
         $this->sender = new SenderApi($this->httpClient, $this->config);
+
+        $this->sms = new SmsApi($this->httpClient, $this->config);
 
         $this->templates = new TemplatesApi($this->httpClient, $this->config);
 
@@ -273,6 +287,15 @@ class Client
     public function getEditor(): \Pingram\Api\EditorApi
     {
         return $this->editor;
+    }
+
+
+    /**
+     * @return EmailApi
+     */
+    public function getEmail(): \Pingram\Api\EmailApi
+    {
+        return $this->email;
     }
 
 
@@ -372,6 +395,15 @@ class Client
     public function getSender(): \Pingram\Api\SenderApi
     {
         return $this->sender;
+    }
+
+
+    /**
+     * @return SmsApi
+     */
+    public function getSms(): \Pingram\Api\SmsApi
+    {
+        return $this->sms;
     }
 
 
