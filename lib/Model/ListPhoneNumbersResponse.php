@@ -58,7 +58,8 @@ class ListPhoneNumbersResponse implements ModelInterface, ArrayAccess, \JsonSeri
       * @var string[]
       */
     protected static $openAPITypes = [
-        'numbers' => '\Pingram\Model\ListPhoneNumbersResponseNumbersInner[]'
+        'numbers' => '\Pingram\Model\ListPhoneNumbersResponseNumbersInner[]',
+        'shared_number' => 'string'
     ];
 
     /**
@@ -69,7 +70,8 @@ class ListPhoneNumbersResponse implements ModelInterface, ArrayAccess, \JsonSeri
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'numbers' => null
+        'numbers' => null,
+        'shared_number' => null
     ];
 
     /**
@@ -78,7 +80,8 @@ class ListPhoneNumbersResponse implements ModelInterface, ArrayAccess, \JsonSeri
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'numbers' => false
+        'numbers' => false,
+        'shared_number' => false
     ];
 
     /**
@@ -167,7 +170,8 @@ class ListPhoneNumbersResponse implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $attributeMap = [
-        'numbers' => 'numbers'
+        'numbers' => 'numbers',
+        'shared_number' => 'sharedNumber'
     ];
 
     /**
@@ -176,7 +180,8 @@ class ListPhoneNumbersResponse implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $setters = [
-        'numbers' => 'setNumbers'
+        'numbers' => 'setNumbers',
+        'shared_number' => 'setSharedNumber'
     ];
 
     /**
@@ -185,7 +190,8 @@ class ListPhoneNumbersResponse implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $getters = [
-        'numbers' => 'getNumbers'
+        'numbers' => 'getNumbers',
+        'shared_number' => 'getSharedNumber'
     ];
 
     /**
@@ -246,6 +252,7 @@ class ListPhoneNumbersResponse implements ModelInterface, ArrayAccess, \JsonSeri
     public function __construct(?array $data = null)
     {
         $this->setIfExists('numbers', $data ?? [], null);
+        $this->setIfExists('shared_number', $data ?? [], null);
     }
 
     /**
@@ -277,6 +284,9 @@ class ListPhoneNumbersResponse implements ModelInterface, ArrayAccess, \JsonSeri
 
         if ($this->container['numbers'] === null) {
             $invalidProperties[] = "'numbers' can't be null";
+        }
+        if ($this->container['shared_number'] === null) {
+            $invalidProperties[] = "'shared_number' can't be null";
         }
         return $invalidProperties;
     }
@@ -316,6 +326,33 @@ class ListPhoneNumbersResponse implements ModelInterface, ArrayAccess, \JsonSeri
             throw new \InvalidArgumentException('non-nullable numbers cannot be null');
         }
         $this->container['numbers'] = $numbers;
+
+        return $this;
+    }
+
+    /**
+     * Gets shared_number
+     *
+     * @return string
+     */
+    public function getSharedNumber()
+    {
+        return $this->container['shared_number'];
+    }
+
+    /**
+     * Sets shared_number
+     *
+     * @param string $shared_number E.164 shared number the account can send from when it has no dedicated number.
+     *
+     * @return self
+     */
+    public function setSharedNumber($shared_number)
+    {
+        if (is_null($shared_number)) {
+            throw new \InvalidArgumentException('non-nullable shared_number cannot be null');
+        }
+        $this->container['shared_number'] = $shared_number;
 
         return $this;
     }
