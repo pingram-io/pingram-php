@@ -60,7 +60,8 @@ class EventsWebhookResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     protected static $openAPITypes = [
         'webhook_id' => 'string',
         'webhook' => 'string',
-        'events' => 'string[]'
+        'events' => 'string[]',
+        'secret' => 'string'
     ];
 
     /**
@@ -73,7 +74,8 @@ class EventsWebhookResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     protected static $openAPIFormats = [
         'webhook_id' => null,
         'webhook' => null,
-        'events' => null
+        'events' => null,
+        'secret' => null
     ];
 
     /**
@@ -84,7 +86,8 @@ class EventsWebhookResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     protected static array $openAPINullables = [
         'webhook_id' => false,
         'webhook' => false,
-        'events' => false
+        'events' => false,
+        'secret' => false
     ];
 
     /**
@@ -175,7 +178,8 @@ class EventsWebhookResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     protected static $attributeMap = [
         'webhook_id' => 'webhookId',
         'webhook' => 'webhook',
-        'events' => 'events'
+        'events' => 'events',
+        'secret' => 'secret'
     ];
 
     /**
@@ -186,7 +190,8 @@ class EventsWebhookResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     protected static $setters = [
         'webhook_id' => 'setWebhookId',
         'webhook' => 'setWebhook',
-        'events' => 'setEvents'
+        'events' => 'setEvents',
+        'secret' => 'setSecret'
     ];
 
     /**
@@ -197,7 +202,8 @@ class EventsWebhookResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     protected static $getters = [
         'webhook_id' => 'getWebhookId',
         'webhook' => 'getWebhook',
-        'events' => 'getEvents'
+        'events' => 'getEvents',
+        'secret' => 'getSecret'
     ];
 
     /**
@@ -252,6 +258,7 @@ class EventsWebhookResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     public const EVENTS_SMS_DELIVERED = 'SMS_DELIVERED';
     public const EVENTS_SMS_FAILED = 'SMS_FAILED';
     public const EVENTS_SMS_UNSUBSCRIBE = 'SMS_UNSUBSCRIBE';
+    public const EVENTS_SMS_SUBSCRIBE = 'SMS_SUBSCRIBE';
     public const EVENTS_SMS_INBOUND = 'SMS_INBOUND';
     public const EVENTS_PUSH_FAILED = 'PUSH_FAILED';
     public const EVENTS_PUSH_UNSUBSCRIBE = 'PUSH_UNSUBSCRIBE';
@@ -282,6 +289,7 @@ class EventsWebhookResponse implements ModelInterface, ArrayAccess, \JsonSeriali
             self::EVENTS_SMS_DELIVERED,
             self::EVENTS_SMS_FAILED,
             self::EVENTS_SMS_UNSUBSCRIBE,
+            self::EVENTS_SMS_SUBSCRIBE,
             self::EVENTS_SMS_INBOUND,
             self::EVENTS_PUSH_FAILED,
             self::EVENTS_PUSH_UNSUBSCRIBE,
@@ -313,6 +321,7 @@ class EventsWebhookResponse implements ModelInterface, ArrayAccess, \JsonSeriali
         $this->setIfExists('webhook_id', $data ?? [], null);
         $this->setIfExists('webhook', $data ?? [], null);
         $this->setIfExists('events', $data ?? [], null);
+        $this->setIfExists('secret', $data ?? [], null);
     }
 
     /**
@@ -350,6 +359,9 @@ class EventsWebhookResponse implements ModelInterface, ArrayAccess, \JsonSeriali
         }
         if ($this->container['events'] === null) {
             $invalidProperties[] = "'events' can't be null";
+        }
+        if ($this->container['secret'] === null) {
+            $invalidProperties[] = "'secret' can't be null";
         }
         return $invalidProperties;
     }
@@ -452,6 +464,33 @@ class EventsWebhookResponse implements ModelInterface, ArrayAccess, \JsonSeriali
             );
         }
         $this->container['events'] = $events;
+
+        return $this;
+    }
+
+    /**
+     * Gets secret
+     *
+     * @return string
+     */
+    public function getSecret()
+    {
+        return $this->container['secret'];
+    }
+
+    /**
+     * Sets secret
+     *
+     * @param string $secret HMAC secret for verifying webhook signatures. Use this with your X-Pingram-Signature verification.
+     *
+     * @return self
+     */
+    public function setSecret($secret)
+    {
+        if (is_null($secret)) {
+            throw new \InvalidArgumentException('non-nullable secret cannot be null');
+        }
+        $this->container['secret'] = $secret;
 
         return $this;
     }

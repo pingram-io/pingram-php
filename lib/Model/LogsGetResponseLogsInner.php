@@ -141,6 +141,16 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         'sms_replied_text' => 'string',
         'sms_replied_segments' => 'float',
         'sms_replied_encoding' => 'string',
+        'sms_unsubscribe_at' => 'string',
+        'sms_unsubscribe_from' => 'string',
+        'sms_unsubscribe_keyword' => 'string',
+        'sms_unsubscribe_webhook_delivered' => 'bool',
+        'sms_unsubscribe_webhook_res' => 'string',
+        'sms_subscribe_at' => 'string',
+        'sms_subscribe_from' => 'string',
+        'sms_subscribe_keyword' => 'string',
+        'sms_subscribe_webhook_delivered' => 'bool',
+        'sms_subscribe_webhook_res' => 'string',
         'web_push_sent_token' => 'string',
         'web_push_sent_at' => 'string',
         'web_push_sent_after' => 'float',
@@ -315,6 +325,16 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         'sms_replied_text' => null,
         'sms_replied_segments' => null,
         'sms_replied_encoding' => null,
+        'sms_unsubscribe_at' => null,
+        'sms_unsubscribe_from' => null,
+        'sms_unsubscribe_keyword' => null,
+        'sms_unsubscribe_webhook_delivered' => null,
+        'sms_unsubscribe_webhook_res' => null,
+        'sms_subscribe_at' => null,
+        'sms_subscribe_from' => null,
+        'sms_subscribe_keyword' => null,
+        'sms_subscribe_webhook_delivered' => null,
+        'sms_subscribe_webhook_res' => null,
         'web_push_sent_token' => null,
         'web_push_sent_at' => null,
         'web_push_sent_after' => null,
@@ -487,6 +507,16 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         'sms_replied_text' => false,
         'sms_replied_segments' => false,
         'sms_replied_encoding' => false,
+        'sms_unsubscribe_at' => false,
+        'sms_unsubscribe_from' => false,
+        'sms_unsubscribe_keyword' => false,
+        'sms_unsubscribe_webhook_delivered' => false,
+        'sms_unsubscribe_webhook_res' => false,
+        'sms_subscribe_at' => false,
+        'sms_subscribe_from' => false,
+        'sms_subscribe_keyword' => false,
+        'sms_subscribe_webhook_delivered' => false,
+        'sms_subscribe_webhook_res' => false,
         'web_push_sent_token' => false,
         'web_push_sent_at' => false,
         'web_push_sent_after' => false,
@@ -739,6 +769,16 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         'sms_replied_text' => 'sms_replied_text',
         'sms_replied_segments' => 'sms_replied_segments',
         'sms_replied_encoding' => 'sms_replied_encoding',
+        'sms_unsubscribe_at' => 'sms_unsubscribe_at',
+        'sms_unsubscribe_from' => 'sms_unsubscribe_from',
+        'sms_unsubscribe_keyword' => 'sms_unsubscribe_keyword',
+        'sms_unsubscribe_webhook_delivered' => 'sms_unsubscribe_webhook_delivered',
+        'sms_unsubscribe_webhook_res' => 'sms_unsubscribe_webhook_res',
+        'sms_subscribe_at' => 'sms_subscribe_at',
+        'sms_subscribe_from' => 'sms_subscribe_from',
+        'sms_subscribe_keyword' => 'sms_subscribe_keyword',
+        'sms_subscribe_webhook_delivered' => 'sms_subscribe_webhook_delivered',
+        'sms_subscribe_webhook_res' => 'sms_subscribe_webhook_res',
         'web_push_sent_token' => 'web_push_sent_token',
         'web_push_sent_at' => 'web_push_sent_at',
         'web_push_sent_after' => 'web_push_sent_after',
@@ -911,6 +951,16 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         'sms_replied_text' => 'setSmsRepliedText',
         'sms_replied_segments' => 'setSmsRepliedSegments',
         'sms_replied_encoding' => 'setSmsRepliedEncoding',
+        'sms_unsubscribe_at' => 'setSmsUnsubscribeAt',
+        'sms_unsubscribe_from' => 'setSmsUnsubscribeFrom',
+        'sms_unsubscribe_keyword' => 'setSmsUnsubscribeKeyword',
+        'sms_unsubscribe_webhook_delivered' => 'setSmsUnsubscribeWebhookDelivered',
+        'sms_unsubscribe_webhook_res' => 'setSmsUnsubscribeWebhookRes',
+        'sms_subscribe_at' => 'setSmsSubscribeAt',
+        'sms_subscribe_from' => 'setSmsSubscribeFrom',
+        'sms_subscribe_keyword' => 'setSmsSubscribeKeyword',
+        'sms_subscribe_webhook_delivered' => 'setSmsSubscribeWebhookDelivered',
+        'sms_subscribe_webhook_res' => 'setSmsSubscribeWebhookRes',
         'web_push_sent_token' => 'setWebPushSentToken',
         'web_push_sent_at' => 'setWebPushSentAt',
         'web_push_sent_after' => 'setWebPushSentAfter',
@@ -1083,6 +1133,16 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         'sms_replied_text' => 'getSmsRepliedText',
         'sms_replied_segments' => 'getSmsRepliedSegments',
         'sms_replied_encoding' => 'getSmsRepliedEncoding',
+        'sms_unsubscribe_at' => 'getSmsUnsubscribeAt',
+        'sms_unsubscribe_from' => 'getSmsUnsubscribeFrom',
+        'sms_unsubscribe_keyword' => 'getSmsUnsubscribeKeyword',
+        'sms_unsubscribe_webhook_delivered' => 'getSmsUnsubscribeWebhookDelivered',
+        'sms_unsubscribe_webhook_res' => 'getSmsUnsubscribeWebhookRes',
+        'sms_subscribe_at' => 'getSmsSubscribeAt',
+        'sms_subscribe_from' => 'getSmsSubscribeFrom',
+        'sms_subscribe_keyword' => 'getSmsSubscribeKeyword',
+        'sms_subscribe_webhook_delivered' => 'getSmsSubscribeWebhookDelivered',
+        'sms_subscribe_webhook_res' => 'getSmsSubscribeWebhookRes',
         'web_push_sent_token' => 'getWebPushSentToken',
         'web_push_sent_at' => 'getWebPushSentAt',
         'web_push_sent_after' => 'getWebPushSentAfter',
@@ -1967,6 +2027,16 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         $this->setIfExists('sms_replied_text', $data ?? [], null);
         $this->setIfExists('sms_replied_segments', $data ?? [], null);
         $this->setIfExists('sms_replied_encoding', $data ?? [], null);
+        $this->setIfExists('sms_unsubscribe_at', $data ?? [], null);
+        $this->setIfExists('sms_unsubscribe_from', $data ?? [], null);
+        $this->setIfExists('sms_unsubscribe_keyword', $data ?? [], null);
+        $this->setIfExists('sms_unsubscribe_webhook_delivered', $data ?? [], null);
+        $this->setIfExists('sms_unsubscribe_webhook_res', $data ?? [], null);
+        $this->setIfExists('sms_subscribe_at', $data ?? [], null);
+        $this->setIfExists('sms_subscribe_from', $data ?? [], null);
+        $this->setIfExists('sms_subscribe_keyword', $data ?? [], null);
+        $this->setIfExists('sms_subscribe_webhook_delivered', $data ?? [], null);
+        $this->setIfExists('sms_subscribe_webhook_res', $data ?? [], null);
         $this->setIfExists('web_push_sent_token', $data ?? [], null);
         $this->setIfExists('web_push_sent_at', $data ?? [], null);
         $this->setIfExists('web_push_sent_after', $data ?? [], null);
@@ -4636,6 +4706,276 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
             throw new \InvalidArgumentException('non-nullable sms_replied_encoding cannot be null');
         }
         $this->container['sms_replied_encoding'] = $sms_replied_encoding;
+
+        return $this;
+    }
+
+    /**
+     * Gets sms_unsubscribe_at
+     *
+     * @return string|null
+     */
+    public function getSmsUnsubscribeAt()
+    {
+        return $this->container['sms_unsubscribe_at'];
+    }
+
+    /**
+     * Sets sms_unsubscribe_at
+     *
+     * @param string|null $sms_unsubscribe_at sms_unsubscribe_at
+     *
+     * @return self
+     */
+    public function setSmsUnsubscribeAt($sms_unsubscribe_at)
+    {
+        if (is_null($sms_unsubscribe_at)) {
+            throw new \InvalidArgumentException('non-nullable sms_unsubscribe_at cannot be null');
+        }
+        $this->container['sms_unsubscribe_at'] = $sms_unsubscribe_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets sms_unsubscribe_from
+     *
+     * @return string|null
+     */
+    public function getSmsUnsubscribeFrom()
+    {
+        return $this->container['sms_unsubscribe_from'];
+    }
+
+    /**
+     * Sets sms_unsubscribe_from
+     *
+     * @param string|null $sms_unsubscribe_from sms_unsubscribe_from
+     *
+     * @return self
+     */
+    public function setSmsUnsubscribeFrom($sms_unsubscribe_from)
+    {
+        if (is_null($sms_unsubscribe_from)) {
+            throw new \InvalidArgumentException('non-nullable sms_unsubscribe_from cannot be null');
+        }
+        $this->container['sms_unsubscribe_from'] = $sms_unsubscribe_from;
+
+        return $this;
+    }
+
+    /**
+     * Gets sms_unsubscribe_keyword
+     *
+     * @return string|null
+     */
+    public function getSmsUnsubscribeKeyword()
+    {
+        return $this->container['sms_unsubscribe_keyword'];
+    }
+
+    /**
+     * Sets sms_unsubscribe_keyword
+     *
+     * @param string|null $sms_unsubscribe_keyword sms_unsubscribe_keyword
+     *
+     * @return self
+     */
+    public function setSmsUnsubscribeKeyword($sms_unsubscribe_keyword)
+    {
+        if (is_null($sms_unsubscribe_keyword)) {
+            throw new \InvalidArgumentException('non-nullable sms_unsubscribe_keyword cannot be null');
+        }
+        $this->container['sms_unsubscribe_keyword'] = $sms_unsubscribe_keyword;
+
+        return $this;
+    }
+
+    /**
+     * Gets sms_unsubscribe_webhook_delivered
+     *
+     * @return bool|null
+     */
+    public function getSmsUnsubscribeWebhookDelivered()
+    {
+        return $this->container['sms_unsubscribe_webhook_delivered'];
+    }
+
+    /**
+     * Sets sms_unsubscribe_webhook_delivered
+     *
+     * @param bool|null $sms_unsubscribe_webhook_delivered sms_unsubscribe_webhook_delivered
+     *
+     * @return self
+     */
+    public function setSmsUnsubscribeWebhookDelivered($sms_unsubscribe_webhook_delivered)
+    {
+        if (is_null($sms_unsubscribe_webhook_delivered)) {
+            throw new \InvalidArgumentException('non-nullable sms_unsubscribe_webhook_delivered cannot be null');
+        }
+        $this->container['sms_unsubscribe_webhook_delivered'] = $sms_unsubscribe_webhook_delivered;
+
+        return $this;
+    }
+
+    /**
+     * Gets sms_unsubscribe_webhook_res
+     *
+     * @return string|null
+     */
+    public function getSmsUnsubscribeWebhookRes()
+    {
+        return $this->container['sms_unsubscribe_webhook_res'];
+    }
+
+    /**
+     * Sets sms_unsubscribe_webhook_res
+     *
+     * @param string|null $sms_unsubscribe_webhook_res sms_unsubscribe_webhook_res
+     *
+     * @return self
+     */
+    public function setSmsUnsubscribeWebhookRes($sms_unsubscribe_webhook_res)
+    {
+        if (is_null($sms_unsubscribe_webhook_res)) {
+            throw new \InvalidArgumentException('non-nullable sms_unsubscribe_webhook_res cannot be null');
+        }
+        $this->container['sms_unsubscribe_webhook_res'] = $sms_unsubscribe_webhook_res;
+
+        return $this;
+    }
+
+    /**
+     * Gets sms_subscribe_at
+     *
+     * @return string|null
+     */
+    public function getSmsSubscribeAt()
+    {
+        return $this->container['sms_subscribe_at'];
+    }
+
+    /**
+     * Sets sms_subscribe_at
+     *
+     * @param string|null $sms_subscribe_at sms_subscribe_at
+     *
+     * @return self
+     */
+    public function setSmsSubscribeAt($sms_subscribe_at)
+    {
+        if (is_null($sms_subscribe_at)) {
+            throw new \InvalidArgumentException('non-nullable sms_subscribe_at cannot be null');
+        }
+        $this->container['sms_subscribe_at'] = $sms_subscribe_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets sms_subscribe_from
+     *
+     * @return string|null
+     */
+    public function getSmsSubscribeFrom()
+    {
+        return $this->container['sms_subscribe_from'];
+    }
+
+    /**
+     * Sets sms_subscribe_from
+     *
+     * @param string|null $sms_subscribe_from sms_subscribe_from
+     *
+     * @return self
+     */
+    public function setSmsSubscribeFrom($sms_subscribe_from)
+    {
+        if (is_null($sms_subscribe_from)) {
+            throw new \InvalidArgumentException('non-nullable sms_subscribe_from cannot be null');
+        }
+        $this->container['sms_subscribe_from'] = $sms_subscribe_from;
+
+        return $this;
+    }
+
+    /**
+     * Gets sms_subscribe_keyword
+     *
+     * @return string|null
+     */
+    public function getSmsSubscribeKeyword()
+    {
+        return $this->container['sms_subscribe_keyword'];
+    }
+
+    /**
+     * Sets sms_subscribe_keyword
+     *
+     * @param string|null $sms_subscribe_keyword sms_subscribe_keyword
+     *
+     * @return self
+     */
+    public function setSmsSubscribeKeyword($sms_subscribe_keyword)
+    {
+        if (is_null($sms_subscribe_keyword)) {
+            throw new \InvalidArgumentException('non-nullable sms_subscribe_keyword cannot be null');
+        }
+        $this->container['sms_subscribe_keyword'] = $sms_subscribe_keyword;
+
+        return $this;
+    }
+
+    /**
+     * Gets sms_subscribe_webhook_delivered
+     *
+     * @return bool|null
+     */
+    public function getSmsSubscribeWebhookDelivered()
+    {
+        return $this->container['sms_subscribe_webhook_delivered'];
+    }
+
+    /**
+     * Sets sms_subscribe_webhook_delivered
+     *
+     * @param bool|null $sms_subscribe_webhook_delivered sms_subscribe_webhook_delivered
+     *
+     * @return self
+     */
+    public function setSmsSubscribeWebhookDelivered($sms_subscribe_webhook_delivered)
+    {
+        if (is_null($sms_subscribe_webhook_delivered)) {
+            throw new \InvalidArgumentException('non-nullable sms_subscribe_webhook_delivered cannot be null');
+        }
+        $this->container['sms_subscribe_webhook_delivered'] = $sms_subscribe_webhook_delivered;
+
+        return $this;
+    }
+
+    /**
+     * Gets sms_subscribe_webhook_res
+     *
+     * @return string|null
+     */
+    public function getSmsSubscribeWebhookRes()
+    {
+        return $this->container['sms_subscribe_webhook_res'];
+    }
+
+    /**
+     * Sets sms_subscribe_webhook_res
+     *
+     * @param string|null $sms_subscribe_webhook_res sms_subscribe_webhook_res
+     *
+     * @return self
+     */
+    public function setSmsSubscribeWebhookRes($sms_subscribe_webhook_res)
+    {
+        if (is_null($sms_subscribe_webhook_res)) {
+            throw new \InvalidArgumentException('non-nullable sms_subscribe_webhook_res cannot be null');
+        }
+        $this->container['sms_subscribe_webhook_res'] = $sms_subscribe_webhook_res;
 
         return $this;
     }

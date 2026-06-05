@@ -246,6 +246,7 @@ class EventsWebhookUpsertRequest implements ModelInterface, ArrayAccess, \JsonSe
     public const EVENTS_SMS_DELIVERED = 'SMS_DELIVERED';
     public const EVENTS_SMS_FAILED = 'SMS_FAILED';
     public const EVENTS_SMS_UNSUBSCRIBE = 'SMS_UNSUBSCRIBE';
+    public const EVENTS_SMS_SUBSCRIBE = 'SMS_SUBSCRIBE';
     public const EVENTS_SMS_INBOUND = 'SMS_INBOUND';
     public const EVENTS_PUSH_FAILED = 'PUSH_FAILED';
     public const EVENTS_PUSH_UNSUBSCRIBE = 'PUSH_UNSUBSCRIBE';
@@ -276,6 +277,7 @@ class EventsWebhookUpsertRequest implements ModelInterface, ArrayAccess, \JsonSe
             self::EVENTS_SMS_DELIVERED,
             self::EVENTS_SMS_FAILED,
             self::EVENTS_SMS_UNSUBSCRIBE,
+            self::EVENTS_SMS_SUBSCRIBE,
             self::EVENTS_SMS_INBOUND,
             self::EVENTS_PUSH_FAILED,
             self::EVENTS_PUSH_UNSUBSCRIBE,

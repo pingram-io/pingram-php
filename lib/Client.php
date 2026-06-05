@@ -68,6 +68,16 @@ use Pingram\Model\SenderPostBody;
  * Pingram client: high-level wrapper over the generated API classes.
  *
  * Use with your API key, then call send() or the namespaced APIs (getDomains(), getSender(), etc.).
+ *
+ * Webhook verification:
+ * ```php
+ * $event = Client::webhookVerification()->constructEvent(
+ *     $payload,
+ *     $_SERVER['HTTP_X_PINGRAM_SIGNATURE'],
+ *     $_SERVER['HTTP_X_PINGRAM_TIMESTAMP'],
+ *     getenv('PINGRAM_WEBHOOK_SECRET')
+ * );
+ * ```
  */
 class Client
 {
@@ -82,6 +92,9 @@ class Client
 
     /** @var ClientInterface */
     private $httpClient;
+
+    /** @var Webhooks */
+    private static $webhookVerification;
 
 
     /** @var AccountApi */
@@ -464,4 +477,17 @@ class Client
         return $this->default_api->send($sender_post_body);
     }
 
+
+    /**
+     * Get the webhook verification helper.
+     *
+     * @return Webhooks
+     */
+    public static function webhookVerification(): Webhooks
+    {
+        if (self::$webhookVerification === null) {
+            self::$webhookVerification = new Webhooks();
+        }
+        return self::$webhookVerification;
+    }
 }
