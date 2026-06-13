@@ -62,7 +62,8 @@ class SearchAvailablePhoneNumbersResponseNumbersInner implements ModelInterface,
         'locality' => 'string',
         'administrative_area' => 'string',
         'phone_number_type' => 'string',
-        'features' => 'string[]'
+        'features' => 'string[]',
+        'monthly_price' => 'float'
     ];
 
     /**
@@ -77,7 +78,8 @@ class SearchAvailablePhoneNumbersResponseNumbersInner implements ModelInterface,
         'locality' => null,
         'administrative_area' => null,
         'phone_number_type' => null,
-        'features' => null
+        'features' => null,
+        'monthly_price' => null
     ];
 
     /**
@@ -90,7 +92,8 @@ class SearchAvailablePhoneNumbersResponseNumbersInner implements ModelInterface,
         'locality' => false,
         'administrative_area' => false,
         'phone_number_type' => false,
-        'features' => false
+        'features' => false,
+        'monthly_price' => false
     ];
 
     /**
@@ -183,7 +186,8 @@ class SearchAvailablePhoneNumbersResponseNumbersInner implements ModelInterface,
         'locality' => 'locality',
         'administrative_area' => 'administrativeArea',
         'phone_number_type' => 'phoneNumberType',
-        'features' => 'features'
+        'features' => 'features',
+        'monthly_price' => 'monthlyPrice'
     ];
 
     /**
@@ -196,7 +200,8 @@ class SearchAvailablePhoneNumbersResponseNumbersInner implements ModelInterface,
         'locality' => 'setLocality',
         'administrative_area' => 'setAdministrativeArea',
         'phone_number_type' => 'setPhoneNumberType',
-        'features' => 'setFeatures'
+        'features' => 'setFeatures',
+        'monthly_price' => 'setMonthlyPrice'
     ];
 
     /**
@@ -209,7 +214,8 @@ class SearchAvailablePhoneNumbersResponseNumbersInner implements ModelInterface,
         'locality' => 'getLocality',
         'administrative_area' => 'getAdministrativeArea',
         'phone_number_type' => 'getPhoneNumberType',
-        'features' => 'getFeatures'
+        'features' => 'getFeatures',
+        'monthly_price' => 'getMonthlyPrice'
     ];
 
     /**
@@ -274,6 +280,7 @@ class SearchAvailablePhoneNumbersResponseNumbersInner implements ModelInterface,
         $this->setIfExists('administrative_area', $data ?? [], null);
         $this->setIfExists('phone_number_type', $data ?? [], null);
         $this->setIfExists('features', $data ?? [], null);
+        $this->setIfExists('monthly_price', $data ?? [], null);
     }
 
     /**
@@ -305,6 +312,9 @@ class SearchAvailablePhoneNumbersResponseNumbersInner implements ModelInterface,
 
         if ($this->container['phone_number'] === null) {
             $invalidProperties[] = "'phone_number' can't be null";
+        }
+        if ($this->container['monthly_price'] === null) {
+            $invalidProperties[] = "'monthly_price' can't be null";
         }
         return $invalidProperties;
     }
@@ -452,6 +462,33 @@ class SearchAvailablePhoneNumbersResponseNumbersInner implements ModelInterface,
             throw new \InvalidArgumentException('non-nullable features cannot be null');
         }
         $this->container['features'] = $features;
+
+        return $this;
+    }
+
+    /**
+     * Gets monthly_price
+     *
+     * @return float
+     */
+    public function getMonthlyPrice()
+    {
+        return $this->container['monthly_price'];
+    }
+
+    /**
+     * Sets monthly_price
+     *
+     * @param float $monthly_price Monthly cost in USD
+     *
+     * @return self
+     */
+    public function setMonthlyPrice($monthly_price)
+    {
+        if (is_null($monthly_price)) {
+            throw new \InvalidArgumentException('non-nullable monthly_price cannot be null');
+        }
+        $this->container['monthly_price'] = $monthly_price;
 
         return $this;
     }

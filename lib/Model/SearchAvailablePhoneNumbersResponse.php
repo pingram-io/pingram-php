@@ -35,7 +35,6 @@ use \Pingram\ObjectSerializer;
  * SearchAvailablePhoneNumbersResponse Class Doc Comment
  *
  * @category Class
- * @description Response for GET /numbers/available
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

@@ -35,7 +35,6 @@ use \Pingram\ObjectSerializer;
  * OrderPhoneNumberResponse Class Doc Comment
  *
  * @category Class
- * @description Response for POST /numbers/order
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

@@ -63,6 +63,7 @@ class OrganizationUsageHistoryItemsInner implements ModelInterface, ArrayAccess,
         'budget_usage' => 'float',
         'cost_sms' => 'float',
         'cost_call' => 'float',
+        'cost_number' => 'float',
         'channel_usages' => 'array<string,float>'
     ];
 
@@ -79,6 +80,7 @@ class OrganizationUsageHistoryItemsInner implements ModelInterface, ArrayAccess,
         'budget_usage' => null,
         'cost_sms' => null,
         'cost_call' => null,
+        'cost_number' => null,
         'channel_usages' => null
     ];
 
@@ -93,6 +95,7 @@ class OrganizationUsageHistoryItemsInner implements ModelInterface, ArrayAccess,
         'budget_usage' => false,
         'cost_sms' => false,
         'cost_call' => false,
+        'cost_number' => false,
         'channel_usages' => false
     ];
 
@@ -187,6 +190,7 @@ class OrganizationUsageHistoryItemsInner implements ModelInterface, ArrayAccess,
         'budget_usage' => 'budgetUsage',
         'cost_sms' => 'costSms',
         'cost_call' => 'costCall',
+        'cost_number' => 'costNumber',
         'channel_usages' => 'channelUsages'
     ];
 
@@ -201,6 +205,7 @@ class OrganizationUsageHistoryItemsInner implements ModelInterface, ArrayAccess,
         'budget_usage' => 'setBudgetUsage',
         'cost_sms' => 'setCostSms',
         'cost_call' => 'setCostCall',
+        'cost_number' => 'setCostNumber',
         'channel_usages' => 'setChannelUsages'
     ];
 
@@ -215,6 +220,7 @@ class OrganizationUsageHistoryItemsInner implements ModelInterface, ArrayAccess,
         'budget_usage' => 'getBudgetUsage',
         'cost_sms' => 'getCostSms',
         'cost_call' => 'getCostCall',
+        'cost_number' => 'getCostNumber',
         'channel_usages' => 'getChannelUsages'
     ];
 
@@ -280,6 +286,7 @@ class OrganizationUsageHistoryItemsInner implements ModelInterface, ArrayAccess,
         $this->setIfExists('budget_usage', $data ?? [], null);
         $this->setIfExists('cost_sms', $data ?? [], null);
         $this->setIfExists('cost_call', $data ?? [], null);
+        $this->setIfExists('cost_number', $data ?? [], null);
         $this->setIfExists('channel_usages', $data ?? [], null);
     }
 
@@ -324,6 +331,9 @@ class OrganizationUsageHistoryItemsInner implements ModelInterface, ArrayAccess,
         }
         if ($this->container['cost_call'] === null) {
             $invalidProperties[] = "'cost_call' can't be null";
+        }
+        if ($this->container['cost_number'] === null) {
+            $invalidProperties[] = "'cost_number' can't be null";
         }
         if ($this->container['channel_usages'] === null) {
             $invalidProperties[] = "'channel_usages' can't be null";
@@ -410,7 +420,7 @@ class OrganizationUsageHistoryItemsInner implements ModelInterface, ArrayAccess,
     /**
      * Sets budget_usage
      *
-     * @param float $budget_usage Total budget usage in USD (cost_SMS + cost_CALL)
+     * @param float $budget_usage Total budget usage in USD (cost_SMS + cost_CALL + cost_NUMBER)
      *
      * @return self
      */
@@ -474,6 +484,33 @@ class OrganizationUsageHistoryItemsInner implements ModelInterface, ArrayAccess,
             throw new \InvalidArgumentException('non-nullable cost_call cannot be null');
         }
         $this->container['cost_call'] = $cost_call;
+
+        return $this;
+    }
+
+    /**
+     * Gets cost_number
+     *
+     * @return float
+     */
+    public function getCostNumber()
+    {
+        return $this->container['cost_number'];
+    }
+
+    /**
+     * Sets cost_number
+     *
+     * @param float $cost_number Phone number rent in USD
+     *
+     * @return self
+     */
+    public function setCostNumber($cost_number)
+    {
+        if (is_null($cost_number)) {
+            throw new \InvalidArgumentException('non-nullable cost_number cannot be null');
+        }
+        $this->container['cost_number'] = $cost_number;
 
         return $this;
     }

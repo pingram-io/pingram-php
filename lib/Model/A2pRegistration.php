@@ -35,7 +35,7 @@ use \Pingram\ObjectSerializer;
  * A2pRegistration Class Doc Comment
  *
  * @category Class
- * @description Public response type for A2P registration - excludes internal Telnyx IDs
+ * @description Public response type for A2P registration
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

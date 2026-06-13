@@ -77,7 +77,13 @@ class NumbersApi
         'numbersList' => [
             'application/json',
         ],
+        'numbersListReleased' => [
+            'application/json',
+        ],
         'numbersOrderNumber' => [
+            'application/json',
+        ],
+        'numbersReleaseNumber' => [
             'application/json',
         ],
         'numbersSearchAvailable' => [
@@ -134,7 +140,7 @@ class NumbersApi
     /**
      * Operation numbersList
      *
-     * List all phone numbers registered for the account
+     * List active phone numbers registered for the account
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['numbersList'] to see the possible values for this operation
      *
@@ -151,7 +157,7 @@ class NumbersApi
     /**
      * Operation numbersListWithHttpInfo
      *
-     * List all phone numbers registered for the account
+     * List active phone numbers registered for the account
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['numbersList'] to see the possible values for this operation
      *
@@ -277,7 +283,7 @@ class NumbersApi
     /**
      * Operation numbersListAsync
      *
-     * List all phone numbers registered for the account
+     * List active phone numbers registered for the account
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['numbersList'] to see the possible values for this operation
      *
@@ -297,7 +303,7 @@ class NumbersApi
     /**
      * Operation numbersListAsyncWithHttpInfo
      *
-     * List all phone numbers registered for the account
+     * List active phone numbers registered for the account
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['numbersList'] to see the possible values for this operation
      *
@@ -438,9 +444,315 @@ class NumbersApi
     }
 
     /**
+     * Operation numbersListReleased
+     *
+     * List released phone numbers. Released numbers may be purchased again with 2 weeks of being released. Released numbers may be removed from released list after 2 weeks.
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['numbersListReleased'] to see the possible values for this operation
+     *
+     * @throws \Pingram\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \Pingram\Model\ListReleasedPhoneNumbersResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse
+     */
+    public function numbersListReleased(string $contentType = self::contentTypes['numbersListReleased'][0])
+    {
+        list($response) = $this->numbersListReleasedWithHttpInfo($contentType);
+        return $response;
+    }
+
+    /**
+     * Operation numbersListReleasedWithHttpInfo
+     *
+     * List released phone numbers. Released numbers may be purchased again with 2 weeks of being released. Released numbers may be removed from released list after 2 weeks.
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['numbersListReleased'] to see the possible values for this operation
+     *
+     * @throws \Pingram\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Pingram\Model\ListReleasedPhoneNumbersResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function numbersListReleasedWithHttpInfo(string $contentType = self::contentTypes['numbersListReleased'][0])
+    {
+        $request = $this->numbersListReleasedRequest($contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\Pingram\Model\ListReleasedPhoneNumbersResponse',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\Pingram\Model\ApiErrorResponse',
+                        $request,
+                        $response,
+                    );
+                case 402:
+                    return $this->handleResponseWithDataType(
+                        '\Pingram\Model\ApiErrorResponse',
+                        $request,
+                        $response,
+                    );
+                case 502:
+                    return $this->handleResponseWithDataType(
+                        '\Pingram\Model\ApiErrorResponse',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\Pingram\Model\ListReleasedPhoneNumbersResponse',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Pingram\Model\ListReleasedPhoneNumbersResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Pingram\Model\ApiErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 402:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Pingram\Model\ApiErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 502:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Pingram\Model\ApiErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation numbersListReleasedAsync
+     *
+     * List released phone numbers. Released numbers may be purchased again with 2 weeks of being released. Released numbers may be removed from released list after 2 weeks.
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['numbersListReleased'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function numbersListReleasedAsync(string $contentType = self::contentTypes['numbersListReleased'][0])
+    {
+        return $this->numbersListReleasedAsyncWithHttpInfo($contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation numbersListReleasedAsyncWithHttpInfo
+     *
+     * List released phone numbers. Released numbers may be purchased again with 2 weeks of being released. Released numbers may be removed from released list after 2 weeks.
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['numbersListReleased'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function numbersListReleasedAsyncWithHttpInfo(string $contentType = self::contentTypes['numbersListReleased'][0])
+    {
+        $returnType = '\Pingram\Model\ListReleasedPhoneNumbersResponse';
+        $request = $this->numbersListReleasedRequest($contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'numbersListReleased'
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['numbersListReleased'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function numbersListReleasedRequest(string $contentType = self::contentTypes['numbersListReleased'][0])
+    {
+
+
+        $resourcePath = '/numbers/released';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+        // this endpoint requires Bearer (JWT) authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation numbersOrderNumber
      *
-     * Purchase a phone number for the authenticated account
+     * Purchase a phone number for the authenticated account, or reactivate a released number owned by the account (preserves original createdAt).
      *
      * @param  \Pingram\Model\OrderPhoneNumberRequest $order_phone_number_request order_phone_number_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['numbersOrderNumber'] to see the possible values for this operation
@@ -458,7 +770,7 @@ class NumbersApi
     /**
      * Operation numbersOrderNumberWithHttpInfo
      *
-     * Purchase a phone number for the authenticated account
+     * Purchase a phone number for the authenticated account, or reactivate a released number owned by the account (preserves original createdAt).
      *
      * @param  \Pingram\Model\OrderPhoneNumberRequest $order_phone_number_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['numbersOrderNumber'] to see the possible values for this operation
@@ -585,7 +897,7 @@ class NumbersApi
     /**
      * Operation numbersOrderNumberAsync
      *
-     * Purchase a phone number for the authenticated account
+     * Purchase a phone number for the authenticated account, or reactivate a released number owned by the account (preserves original createdAt).
      *
      * @param  \Pingram\Model\OrderPhoneNumberRequest $order_phone_number_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['numbersOrderNumber'] to see the possible values for this operation
@@ -606,7 +918,7 @@ class NumbersApi
     /**
      * Operation numbersOrderNumberAsyncWithHttpInfo
      *
-     * Purchase a phone number for the authenticated account
+     * Purchase a phone number for the authenticated account, or reactivate a released number owned by the account (preserves original createdAt).
      *
      * @param  \Pingram\Model\OrderPhoneNumberRequest $order_phone_number_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['numbersOrderNumber'] to see the possible values for this operation
@@ -756,6 +1068,332 @@ class NumbersApi
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation numbersReleaseNumber
+     *
+     * Release a phone number from the account. No refund for the current billing month.
+     *
+     * @param  string $phone_number E.164 phone number to release (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['numbersReleaseNumber'] to see the possible values for this operation
+     *
+     * @throws \Pingram\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \Pingram\Model\ReleasePhoneNumberResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse
+     */
+    public function numbersReleaseNumber($phone_number, string $contentType = self::contentTypes['numbersReleaseNumber'][0])
+    {
+        list($response) = $this->numbersReleaseNumberWithHttpInfo($phone_number, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation numbersReleaseNumberWithHttpInfo
+     *
+     * Release a phone number from the account. No refund for the current billing month.
+     *
+     * @param  string $phone_number E.164 phone number to release (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['numbersReleaseNumber'] to see the possible values for this operation
+     *
+     * @throws \Pingram\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Pingram\Model\ReleasePhoneNumberResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function numbersReleaseNumberWithHttpInfo($phone_number, string $contentType = self::contentTypes['numbersReleaseNumber'][0])
+    {
+        $request = $this->numbersReleaseNumberRequest($phone_number, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\Pingram\Model\ReleasePhoneNumberResponse',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\Pingram\Model\ApiErrorResponse',
+                        $request,
+                        $response,
+                    );
+                case 402:
+                    return $this->handleResponseWithDataType(
+                        '\Pingram\Model\ApiErrorResponse',
+                        $request,
+                        $response,
+                    );
+                case 502:
+                    return $this->handleResponseWithDataType(
+                        '\Pingram\Model\ApiErrorResponse',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\Pingram\Model\ReleasePhoneNumberResponse',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Pingram\Model\ReleasePhoneNumberResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Pingram\Model\ApiErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 402:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Pingram\Model\ApiErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 502:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Pingram\Model\ApiErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation numbersReleaseNumberAsync
+     *
+     * Release a phone number from the account. No refund for the current billing month.
+     *
+     * @param  string $phone_number E.164 phone number to release (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['numbersReleaseNumber'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function numbersReleaseNumberAsync($phone_number, string $contentType = self::contentTypes['numbersReleaseNumber'][0])
+    {
+        return $this->numbersReleaseNumberAsyncWithHttpInfo($phone_number, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation numbersReleaseNumberAsyncWithHttpInfo
+     *
+     * Release a phone number from the account. No refund for the current billing month.
+     *
+     * @param  string $phone_number E.164 phone number to release (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['numbersReleaseNumber'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function numbersReleaseNumberAsyncWithHttpInfo($phone_number, string $contentType = self::contentTypes['numbersReleaseNumber'][0])
+    {
+        $returnType = '\Pingram\Model\ReleasePhoneNumberResponse';
+        $request = $this->numbersReleaseNumberRequest($phone_number, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'numbersReleaseNumber'
+     *
+     * @param  string $phone_number E.164 phone number to release (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['numbersReleaseNumber'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function numbersReleaseNumberRequest($phone_number, string $contentType = self::contentTypes['numbersReleaseNumber'][0])
+    {
+
+        // verify the required parameter 'phone_number' is set
+        if ($phone_number === null || (is_array($phone_number) && count($phone_number) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $phone_number when calling numbersReleaseNumber'
+            );
+        }
+
+
+        $resourcePath = '/numbers/{phoneNumber}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($phone_number !== null) {
+            $resourcePath = str_replace(
+                '{' . 'phoneNumber' . '}',
+                ObjectSerializer::toPathValue($phone_number),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+        // this endpoint requires Bearer (JWT) authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'DELETE',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

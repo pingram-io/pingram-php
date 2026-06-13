@@ -9,5 +9,6 @@ Name | Type | Description | Notes
 **administrative_area** | **string** |  | [optional]
 **phone_number_type** | **string** | e.g. local, toll_free | [optional]
 **features** | **string[]** | e.g. sms, voice, mms | [optional]
+**monthly_price** | **float** | Monthly cost in USD |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

@@ -455,7 +455,7 @@ class SendSmsRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets from
      *
-     * @param string|null $from Override the sender phone number. Must be a verified number in your Telnyx account.
+     * @param string|null $from Override the sender phone number. Must be a dedicated number on your Pingram account.
      *
      * @return self
      */

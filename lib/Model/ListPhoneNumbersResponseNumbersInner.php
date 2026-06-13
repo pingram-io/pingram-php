@@ -35,7 +35,7 @@ use \Pingram\ObjectSerializer;
  * ListPhoneNumbersResponseNumbersInner Class Doc Comment
  *
  * @category Class
- * @description One phone number owned by the account
+ * @description Represents a phone number in the account
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -60,7 +60,14 @@ class ListPhoneNumbersResponseNumbersInner implements ModelInterface, ArrayAcces
     protected static $openAPITypes = [
         'phone_number' => 'string',
         'label' => 'string',
-        'created_at' => 'string'
+        'created_at' => 'string',
+        'country_code' => 'string',
+        'number_type' => 'string',
+        'billing_status' => 'string',
+        'next_billing_date' => 'string',
+        'monthly_price' => 'float',
+        'a2p_status' => 'string',
+        'released_at' => 'string'
     ];
 
     /**
@@ -73,7 +80,14 @@ class ListPhoneNumbersResponseNumbersInner implements ModelInterface, ArrayAcces
     protected static $openAPIFormats = [
         'phone_number' => null,
         'label' => null,
-        'created_at' => null
+        'created_at' => null,
+        'country_code' => null,
+        'number_type' => null,
+        'billing_status' => null,
+        'next_billing_date' => null,
+        'monthly_price' => null,
+        'a2p_status' => null,
+        'released_at' => null
     ];
 
     /**
@@ -84,7 +98,14 @@ class ListPhoneNumbersResponseNumbersInner implements ModelInterface, ArrayAcces
     protected static array $openAPINullables = [
         'phone_number' => false,
         'label' => false,
-        'created_at' => false
+        'created_at' => false,
+        'country_code' => false,
+        'number_type' => false,
+        'billing_status' => false,
+        'next_billing_date' => false,
+        'monthly_price' => false,
+        'a2p_status' => false,
+        'released_at' => false
     ];
 
     /**
@@ -175,7 +196,14 @@ class ListPhoneNumbersResponseNumbersInner implements ModelInterface, ArrayAcces
     protected static $attributeMap = [
         'phone_number' => 'phoneNumber',
         'label' => 'label',
-        'created_at' => 'createdAt'
+        'created_at' => 'createdAt',
+        'country_code' => 'countryCode',
+        'number_type' => 'numberType',
+        'billing_status' => 'billingStatus',
+        'next_billing_date' => 'nextBillingDate',
+        'monthly_price' => 'monthlyPrice',
+        'a2p_status' => 'a2pStatus',
+        'released_at' => 'releasedAt'
     ];
 
     /**
@@ -186,7 +214,14 @@ class ListPhoneNumbersResponseNumbersInner implements ModelInterface, ArrayAcces
     protected static $setters = [
         'phone_number' => 'setPhoneNumber',
         'label' => 'setLabel',
-        'created_at' => 'setCreatedAt'
+        'created_at' => 'setCreatedAt',
+        'country_code' => 'setCountryCode',
+        'number_type' => 'setNumberType',
+        'billing_status' => 'setBillingStatus',
+        'next_billing_date' => 'setNextBillingDate',
+        'monthly_price' => 'setMonthlyPrice',
+        'a2p_status' => 'setA2pStatus',
+        'released_at' => 'setReleasedAt'
     ];
 
     /**
@@ -197,7 +232,14 @@ class ListPhoneNumbersResponseNumbersInner implements ModelInterface, ArrayAcces
     protected static $getters = [
         'phone_number' => 'getPhoneNumber',
         'label' => 'getLabel',
-        'created_at' => 'getCreatedAt'
+        'created_at' => 'getCreatedAt',
+        'country_code' => 'getCountryCode',
+        'number_type' => 'getNumberType',
+        'billing_status' => 'getBillingStatus',
+        'next_billing_date' => 'getNextBillingDate',
+        'monthly_price' => 'getMonthlyPrice',
+        'a2p_status' => 'getA2pStatus',
+        'released_at' => 'getReleasedAt'
     ];
 
     /**
@@ -241,6 +283,38 @@ class ListPhoneNumbersResponseNumbersInner implements ModelInterface, ArrayAcces
         return self::$openAPIModelName;
     }
 
+    public const BILLING_STATUS_ACTIVE = 'active';
+    public const BILLING_STATUS_RELEASED = 'released';
+    public const A2P_STATUS_PENDING = 'pending';
+    public const A2P_STATUS_TESTING = 'testing';
+    public const A2P_STATUS_APPROVED = 'approved';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getBillingStatusAllowableValues()
+    {
+        return [
+            self::BILLING_STATUS_ACTIVE,
+            self::BILLING_STATUS_RELEASED,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getA2pStatusAllowableValues()
+    {
+        return [
+            self::A2P_STATUS_PENDING,
+            self::A2P_STATUS_TESTING,
+            self::A2P_STATUS_APPROVED,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -260,6 +334,13 @@ class ListPhoneNumbersResponseNumbersInner implements ModelInterface, ArrayAcces
         $this->setIfExists('phone_number', $data ?? [], null);
         $this->setIfExists('label', $data ?? [], null);
         $this->setIfExists('created_at', $data ?? [], null);
+        $this->setIfExists('country_code', $data ?? [], null);
+        $this->setIfExists('number_type', $data ?? [], null);
+        $this->setIfExists('billing_status', $data ?? [], null);
+        $this->setIfExists('next_billing_date', $data ?? [], null);
+        $this->setIfExists('monthly_price', $data ?? [], null);
+        $this->setIfExists('a2p_status', $data ?? [], null);
+        $this->setIfExists('released_at', $data ?? [], null);
     }
 
     /**
@@ -295,6 +376,39 @@ class ListPhoneNumbersResponseNumbersInner implements ModelInterface, ArrayAcces
         if ($this->container['created_at'] === null) {
             $invalidProperties[] = "'created_at' can't be null";
         }
+        if ($this->container['country_code'] === null) {
+            $invalidProperties[] = "'country_code' can't be null";
+        }
+        if ($this->container['number_type'] === null) {
+            $invalidProperties[] = "'number_type' can't be null";
+        }
+        if ($this->container['billing_status'] === null) {
+            $invalidProperties[] = "'billing_status' can't be null";
+        }
+        $allowedValues = $this->getBillingStatusAllowableValues();
+        if (!is_null($this->container['billing_status']) && !in_array($this->container['billing_status'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'billing_status', must be one of '%s'",
+                $this->container['billing_status'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['next_billing_date'] === null) {
+            $invalidProperties[] = "'next_billing_date' can't be null";
+        }
+        if ($this->container['monthly_price'] === null) {
+            $invalidProperties[] = "'monthly_price' can't be null";
+        }
+        $allowedValues = $this->getA2pStatusAllowableValues();
+        if (!is_null($this->container['a2p_status']) && !in_array($this->container['a2p_status'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'a2p_status', must be one of '%s'",
+                $this->container['a2p_status'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -387,6 +501,215 @@ class ListPhoneNumbersResponseNumbersInner implements ModelInterface, ArrayAcces
             throw new \InvalidArgumentException('non-nullable created_at cannot be null');
         }
         $this->container['created_at'] = $created_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets country_code
+     *
+     * @return string
+     */
+    public function getCountryCode()
+    {
+        return $this->container['country_code'];
+    }
+
+    /**
+     * Sets country_code
+     *
+     * @param string $country_code ISO 3166-1 alpha-2 country code
+     *
+     * @return self
+     */
+    public function setCountryCode($country_code)
+    {
+        if (is_null($country_code)) {
+            throw new \InvalidArgumentException('non-nullable country_code cannot be null');
+        }
+        $this->container['country_code'] = $country_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets number_type
+     *
+     * @return string
+     */
+    public function getNumberType()
+    {
+        return $this->container['number_type'];
+    }
+
+    /**
+     * Sets number_type
+     *
+     * @param string $number_type e.g. local, toll_free
+     *
+     * @return self
+     */
+    public function setNumberType($number_type)
+    {
+        if (is_null($number_type)) {
+            throw new \InvalidArgumentException('non-nullable number_type cannot be null');
+        }
+        $this->container['number_type'] = $number_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets billing_status
+     *
+     * @return string
+     */
+    public function getBillingStatus()
+    {
+        return $this->container['billing_status'];
+    }
+
+    /**
+     * Sets billing_status
+     *
+     * @param string $billing_status active or released
+     *
+     * @return self
+     */
+    public function setBillingStatus($billing_status)
+    {
+        if (is_null($billing_status)) {
+            throw new \InvalidArgumentException('non-nullable billing_status cannot be null');
+        }
+        $allowedValues = $this->getBillingStatusAllowableValues();
+        if (!in_array($billing_status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'billing_status', must be one of '%s'",
+                    $billing_status,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['billing_status'] = $billing_status;
+
+        return $this;
+    }
+
+    /**
+     * Gets next_billing_date
+     *
+     * @return string
+     */
+    public function getNextBillingDate()
+    {
+        return $this->container['next_billing_date'];
+    }
+
+    /**
+     * Sets next_billing_date
+     *
+     * @param string $next_billing_date YYYY-MM-DD next monthly rent charge
+     *
+     * @return self
+     */
+    public function setNextBillingDate($next_billing_date)
+    {
+        if (is_null($next_billing_date)) {
+            throw new \InvalidArgumentException('non-nullable next_billing_date cannot be null');
+        }
+        $this->container['next_billing_date'] = $next_billing_date;
+
+        return $this;
+    }
+
+    /**
+     * Gets monthly_price
+     *
+     * @return float
+     */
+    public function getMonthlyPrice()
+    {
+        return $this->container['monthly_price'];
+    }
+
+    /**
+     * Sets monthly_price
+     *
+     * @param float $monthly_price Monthly cost in USD
+     *
+     * @return self
+     */
+    public function setMonthlyPrice($monthly_price)
+    {
+        if (is_null($monthly_price)) {
+            throw new \InvalidArgumentException('non-nullable monthly_price cannot be null');
+        }
+        $this->container['monthly_price'] = $monthly_price;
+
+        return $this;
+    }
+
+    /**
+     * Gets a2p_status
+     *
+     * @return string|null
+     */
+    public function getA2pStatus()
+    {
+        return $this->container['a2p_status'];
+    }
+
+    /**
+     * Sets a2p_status
+     *
+     * @param string|null $a2p_status US 10DLC readiness derived from stored campaign assignment
+     *
+     * @return self
+     */
+    public function setA2pStatus($a2p_status)
+    {
+        if (is_null($a2p_status)) {
+            throw new \InvalidArgumentException('non-nullable a2p_status cannot be null');
+        }
+        $allowedValues = $this->getA2pStatusAllowableValues();
+        if (!in_array($a2p_status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'a2p_status', must be one of '%s'",
+                    $a2p_status,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['a2p_status'] = $a2p_status;
+
+        return $this;
+    }
+
+    /**
+     * Gets released_at
+     *
+     * @return string|null
+     */
+    public function getReleasedAt()
+    {
+        return $this->container['released_at'];
+    }
+
+    /**
+     * Sets released_at
+     *
+     * @param string|null $released_at ISO timestamp when the number was released (released numbers only)
+     *
+     * @return self
+     */
+    public function setReleasedAt($released_at)
+    {
+        if (is_null($released_at)) {
+            throw new \InvalidArgumentException('non-nullable released_at cannot be null');
+        }
+        $this->container['released_at'] = $released_at;
 
         return $this;
     }
