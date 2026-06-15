@@ -35,7 +35,7 @@ use \Pingram\ObjectSerializer;
  * SendSmsRequest Class Doc Comment
  *
  * @category Class
- * @description Request body for &#x60;POST /sms&#x60; (send SMS without a template).
+ * @description Request body for &#x60;POST /sms&#x60; (send SMS or MMS without a template).
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -61,6 +61,7 @@ class SendSmsRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'type' => 'string',
         'to' => 'string',
         'message' => 'string',
+        'media_urls' => 'string[]',
         'schedule' => 'string',
         'from' => 'string'
     ];
@@ -76,6 +77,7 @@ class SendSmsRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'type' => null,
         'to' => null,
         'message' => null,
+        'media_urls' => null,
         'schedule' => null,
         'from' => null
     ];
@@ -89,6 +91,7 @@ class SendSmsRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'type' => false,
         'to' => false,
         'message' => false,
+        'media_urls' => false,
         'schedule' => false,
         'from' => false
     ];
@@ -182,6 +185,7 @@ class SendSmsRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'type' => 'type',
         'to' => 'to',
         'message' => 'message',
+        'media_urls' => 'mediaUrls',
         'schedule' => 'schedule',
         'from' => 'from'
     ];
@@ -195,6 +199,7 @@ class SendSmsRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'type' => 'setType',
         'to' => 'setTo',
         'message' => 'setMessage',
+        'media_urls' => 'setMediaUrls',
         'schedule' => 'setSchedule',
         'from' => 'setFrom'
     ];
@@ -208,6 +213,7 @@ class SendSmsRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'type' => 'getType',
         'to' => 'getTo',
         'message' => 'getMessage',
+        'media_urls' => 'getMediaUrls',
         'schedule' => 'getSchedule',
         'from' => 'getFrom'
     ];
@@ -272,6 +278,7 @@ class SendSmsRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('to', $data ?? [], null);
         $this->setIfExists('message', $data ?? [], null);
+        $this->setIfExists('media_urls', $data ?? [], null);
         $this->setIfExists('schedule', $data ?? [], null);
         $this->setIfExists('from', $data ?? [], null);
     }
@@ -308,9 +315,6 @@ class SendSmsRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         }
         if ($this->container['to'] === null) {
             $invalidProperties[] = "'to' can't be null";
-        }
-        if ($this->container['message'] === null) {
-            $invalidProperties[] = "'message' can't be null";
         }
         return $invalidProperties;
     }
@@ -384,7 +388,7 @@ class SendSmsRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets message
      *
-     * @return string
+     * @return string|null
      */
     public function getMessage()
     {
@@ -394,7 +398,7 @@ class SendSmsRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets message
      *
-     * @param string $message The message of the SMS notification.
+     * @param string|null $message The message of the SMS or MMS notification. Optional when `mediaUrls` is provided.
      *
      * @return self
      */
@@ -404,6 +408,33 @@ class SendSmsRequest implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable message cannot be null');
         }
         $this->container['message'] = $message;
+
+        return $this;
+    }
+
+    /**
+     * Gets media_urls
+     *
+     * @return string[]|null
+     */
+    public function getMediaUrls()
+    {
+        return $this->container['media_urls'];
+    }
+
+    /**
+     * Sets media_urls
+     *
+     * @param string[]|null $media_urls Public HTTPS URLs of media to attach (MMS).
+     *
+     * @return self
+     */
+    public function setMediaUrls($media_urls)
+    {
+        if (is_null($media_urls)) {
+            throw new \InvalidArgumentException('non-nullable media_urls cannot be null');
+        }
+        $this->container['media_urls'] = $media_urls;
 
         return $this;
     }

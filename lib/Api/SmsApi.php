@@ -128,7 +128,7 @@ class SmsApi
     /**
      * Operation smsSend
      *
-     * Send an SMS notification directly without templates
+     * Send an SMS or MMS notification directly without templates
      *
      * @param  \Pingram\Model\SendSmsRequest $send_sms_request send_sms_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['smsSend'] to see the possible values for this operation
@@ -146,7 +146,7 @@ class SmsApi
     /**
      * Operation smsSendWithHttpInfo
      *
-     * Send an SMS notification directly without templates
+     * Send an SMS or MMS notification directly without templates
      *
      * @param  \Pingram\Model\SendSmsRequest $send_sms_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['smsSend'] to see the possible values for this operation
@@ -273,7 +273,7 @@ class SmsApi
     /**
      * Operation smsSendAsync
      *
-     * Send an SMS notification directly without templates
+     * Send an SMS or MMS notification directly without templates
      *
      * @param  \Pingram\Model\SendSmsRequest $send_sms_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['smsSend'] to see the possible values for this operation
@@ -294,7 +294,7 @@ class SmsApi
     /**
      * Operation smsSendAsyncWithHttpInfo
      *
-     * Send an SMS notification directly without templates
+     * Send an SMS or MMS notification directly without templates
      *
      * @param  \Pingram\Model\SendSmsRequest $send_sms_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['smsSend'] to see the possible values for this operation
