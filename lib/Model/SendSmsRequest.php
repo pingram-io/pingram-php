@@ -62,8 +62,7 @@ class SendSmsRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'to' => 'string',
         'message' => 'string',
         'schedule' => 'string',
-        'from' => 'string',
-        'auto_reply' => '\Pingram\Model\SenderPostBodySmsAutoReply'
+        'from' => 'string'
     ];
 
     /**
@@ -78,8 +77,7 @@ class SendSmsRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'to' => null,
         'message' => null,
         'schedule' => null,
-        'from' => null,
-        'auto_reply' => null
+        'from' => null
     ];
 
     /**
@@ -92,8 +90,7 @@ class SendSmsRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'to' => false,
         'message' => false,
         'schedule' => false,
-        'from' => false,
-        'auto_reply' => false
+        'from' => false
     ];
 
     /**
@@ -186,8 +183,7 @@ class SendSmsRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'to' => 'to',
         'message' => 'message',
         'schedule' => 'schedule',
-        'from' => 'from',
-        'auto_reply' => 'autoReply'
+        'from' => 'from'
     ];
 
     /**
@@ -200,8 +196,7 @@ class SendSmsRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'to' => 'setTo',
         'message' => 'setMessage',
         'schedule' => 'setSchedule',
-        'from' => 'setFrom',
-        'auto_reply' => 'setAutoReply'
+        'from' => 'setFrom'
     ];
 
     /**
@@ -214,8 +209,7 @@ class SendSmsRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'to' => 'getTo',
         'message' => 'getMessage',
         'schedule' => 'getSchedule',
-        'from' => 'getFrom',
-        'auto_reply' => 'getAutoReply'
+        'from' => 'getFrom'
     ];
 
     /**
@@ -280,7 +274,6 @@ class SendSmsRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('message', $data ?? [], null);
         $this->setIfExists('schedule', $data ?? [], null);
         $this->setIfExists('from', $data ?? [], null);
-        $this->setIfExists('auto_reply', $data ?? [], null);
     }
 
     /**
@@ -465,33 +458,6 @@ class SendSmsRequest implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable from cannot be null');
         }
         $this->container['from'] = $from;
-
-        return $this;
-    }
-
-    /**
-     * Gets auto_reply
-     *
-     * @return \Pingram\Model\SenderPostBodySmsAutoReply|null
-     */
-    public function getAutoReply()
-    {
-        return $this->container['auto_reply'];
-    }
-
-    /**
-     * Sets auto_reply
-     *
-     * @param \Pingram\Model\SenderPostBodySmsAutoReply|null $auto_reply auto_reply
-     *
-     * @return self
-     */
-    public function setAutoReply($auto_reply)
-    {
-        if (is_null($auto_reply)) {
-            throw new \InvalidArgumentException('non-nullable auto_reply cannot be null');
-        }
-        $this->container['auto_reply'] = $auto_reply;
 
         return $this;
     }
