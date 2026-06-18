@@ -1,6 +1,6 @@
 <?php
 /**
- * GetMembersResponseInner
+ * MFAVerifyRequest
  *
  * PHP version 8.1
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \Pingram\ObjectSerializer;
 
 /**
- * GetMembersResponseInner Class Doc Comment
+ * MFAVerifyRequest Class Doc Comment
  *
  * @category Class
  * @package  Pingram
@@ -40,7 +40,7 @@ use \Pingram\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class GetMembersResponseInner implements ModelInterface, ArrayAccess, \JsonSerializable
+class MFAVerifyRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class GetMembersResponseInner implements ModelInterface, ArrayAccess, \JsonSeria
       *
       * @var string
       */
-    protected static $openAPIModelName = 'GetMembersResponse_inner';
+    protected static $openAPIModelName = 'MFAVerifyRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,13 +57,9 @@ class GetMembersResponseInner implements ModelInterface, ArrayAccess, \JsonSeria
       * @var string[]
       */
     protected static $openAPITypes = [
-        'organization_id' => 'string',
-        'account_id' => 'string',
-        'user_id' => 'string',
-        'created_at' => 'string',
-        'email' => 'string',
-        'groups' => 'string[]',
-        'enabled_mfas' => 'string[]'
+        'type' => 'string',
+        'code' => 'string',
+        'session' => 'string'
     ];
 
     /**
@@ -74,13 +70,9 @@ class GetMembersResponseInner implements ModelInterface, ArrayAccess, \JsonSeria
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'organization_id' => null,
-        'account_id' => null,
-        'user_id' => null,
-        'created_at' => null,
-        'email' => null,
-        'groups' => null,
-        'enabled_mfas' => null
+        'type' => null,
+        'code' => null,
+        'session' => null
     ];
 
     /**
@@ -89,13 +81,9 @@ class GetMembersResponseInner implements ModelInterface, ArrayAccess, \JsonSeria
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'organization_id' => false,
-        'account_id' => false,
-        'user_id' => false,
-        'created_at' => false,
-        'email' => false,
-        'groups' => false,
-        'enabled_mfas' => false
+        'type' => false,
+        'code' => false,
+        'session' => false
     ];
 
     /**
@@ -184,13 +172,9 @@ class GetMembersResponseInner implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $attributeMap = [
-        'organization_id' => 'organizationId',
-        'account_id' => 'accountId',
-        'user_id' => 'userId',
-        'created_at' => 'createdAt',
-        'email' => 'email',
-        'groups' => 'groups',
-        'enabled_mfas' => 'enabledMFAs'
+        'type' => 'type',
+        'code' => 'code',
+        'session' => 'session'
     ];
 
     /**
@@ -199,13 +183,9 @@ class GetMembersResponseInner implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $setters = [
-        'organization_id' => 'setOrganizationId',
-        'account_id' => 'setAccountId',
-        'user_id' => 'setUserId',
-        'created_at' => 'setCreatedAt',
-        'email' => 'setEmail',
-        'groups' => 'setGroups',
-        'enabled_mfas' => 'setEnabledMfas'
+        'type' => 'setType',
+        'code' => 'setCode',
+        'session' => 'setSession'
     ];
 
     /**
@@ -214,13 +194,9 @@ class GetMembersResponseInner implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $getters = [
-        'organization_id' => 'getOrganizationId',
-        'account_id' => 'getAccountId',
-        'user_id' => 'getUserId',
-        'created_at' => 'getCreatedAt',
-        'email' => 'getEmail',
-        'groups' => 'getGroups',
-        'enabled_mfas' => 'getEnabledMfas'
+        'type' => 'getType',
+        'code' => 'getCode',
+        'session' => 'getSession'
     ];
 
     /**
@@ -264,17 +240,17 @@ class GetMembersResponseInner implements ModelInterface, ArrayAccess, \JsonSeria
         return self::$openAPIModelName;
     }
 
-    public const ENABLED_MFAS_SOFTWARE_TOKEN_MFA = 'SOFTWARE_TOKEN_MFA';
+    public const TYPE_SOFTWARE_TOKEN_MFA = 'SOFTWARE_TOKEN_MFA';
 
     /**
      * Gets allowable values of the enum
      *
      * @return string[]
      */
-    public function getEnabledMfasAllowableValues()
+    public function getTypeAllowableValues()
     {
         return [
-            self::ENABLED_MFAS_SOFTWARE_TOKEN_MFA,
+            self::TYPE_SOFTWARE_TOKEN_MFA,
         ];
     }
 
@@ -293,13 +269,9 @@ class GetMembersResponseInner implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('organization_id', $data ?? [], null);
-        $this->setIfExists('account_id', $data ?? [], null);
-        $this->setIfExists('user_id', $data ?? [], null);
-        $this->setIfExists('created_at', $data ?? [], null);
-        $this->setIfExists('email', $data ?? [], null);
-        $this->setIfExists('groups', $data ?? [], null);
-        $this->setIfExists('enabled_mfas', $data ?? [], null);
+        $this->setIfExists('type', $data ?? [], null);
+        $this->setIfExists('code', $data ?? [], null);
+        $this->setIfExists('session', $data ?? [], null);
     }
 
     /**
@@ -329,17 +301,23 @@ class GetMembersResponseInner implements ModelInterface, ArrayAccess, \JsonSeria
     {
         $invalidProperties = [];
 
-        if ($this->container['organization_id'] === null) {
-            $invalidProperties[] = "'organization_id' can't be null";
+        if ($this->container['type'] === null) {
+            $invalidProperties[] = "'type' can't be null";
         }
-        if ($this->container['account_id'] === null) {
-            $invalidProperties[] = "'account_id' can't be null";
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
         }
-        if ($this->container['user_id'] === null) {
-            $invalidProperties[] = "'user_id' can't be null";
+
+        if ($this->container['code'] === null) {
+            $invalidProperties[] = "'code' can't be null";
         }
-        if ($this->container['created_at'] === null) {
-            $invalidProperties[] = "'created_at' can't be null";
+        if ($this->container['session'] === null) {
+            $invalidProperties[] = "'session' can't be null";
         }
         return $invalidProperties;
     }
@@ -357,199 +335,92 @@ class GetMembersResponseInner implements ModelInterface, ArrayAccess, \JsonSeria
 
 
     /**
-     * Gets organization_id
+     * Gets type
      *
      * @return string
      */
-    public function getOrganizationId()
+    public function getType()
     {
-        return $this->container['organization_id'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets organization_id
+     * Sets type
      *
-     * @param string $organization_id organization_id
+     * @param string $type MFA methods supported by the profile MFA API.
      *
      * @return self
      */
-    public function setOrganizationId($organization_id)
+    public function setType($type)
     {
-        if (is_null($organization_id)) {
-            throw new \InvalidArgumentException('non-nullable organization_id cannot be null');
+        if (is_null($type)) {
+            throw new \InvalidArgumentException('non-nullable type cannot be null');
         }
-        $this->container['organization_id'] = $organization_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets account_id
-     *
-     * @return string
-     */
-    public function getAccountId()
-    {
-        return $this->container['account_id'];
-    }
-
-    /**
-     * Sets account_id
-     *
-     * @param string $account_id account_id
-     *
-     * @return self
-     */
-    public function setAccountId($account_id)
-    {
-        if (is_null($account_id)) {
-            throw new \InvalidArgumentException('non-nullable account_id cannot be null');
-        }
-        $this->container['account_id'] = $account_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets user_id
-     *
-     * @return string
-     */
-    public function getUserId()
-    {
-        return $this->container['user_id'];
-    }
-
-    /**
-     * Sets user_id
-     *
-     * @param string $user_id user_id
-     *
-     * @return self
-     */
-    public function setUserId($user_id)
-    {
-        if (is_null($user_id)) {
-            throw new \InvalidArgumentException('non-nullable user_id cannot be null');
-        }
-        $this->container['user_id'] = $user_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets created_at
-     *
-     * @return string
-     */
-    public function getCreatedAt()
-    {
-        return $this->container['created_at'];
-    }
-
-    /**
-     * Sets created_at
-     *
-     * @param string $created_at created_at
-     *
-     * @return self
-     */
-    public function setCreatedAt($created_at)
-    {
-        if (is_null($created_at)) {
-            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
-        }
-        $this->container['created_at'] = $created_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets email
-     *
-     * @return string|null
-     */
-    public function getEmail()
-    {
-        return $this->container['email'];
-    }
-
-    /**
-     * Sets email
-     *
-     * @param string|null $email email
-     *
-     * @return self
-     */
-    public function setEmail($email)
-    {
-        if (is_null($email)) {
-            throw new \InvalidArgumentException('non-nullable email cannot be null');
-        }
-        $this->container['email'] = $email;
-
-        return $this;
-    }
-
-    /**
-     * Gets groups
-     *
-     * @return string[]|null
-     */
-    public function getGroups()
-    {
-        return $this->container['groups'];
-    }
-
-    /**
-     * Sets groups
-     *
-     * @param string[]|null $groups groups
-     *
-     * @return self
-     */
-    public function setGroups($groups)
-    {
-        if (is_null($groups)) {
-            throw new \InvalidArgumentException('non-nullable groups cannot be null');
-        }
-        $this->container['groups'] = $groups;
-
-        return $this;
-    }
-
-    /**
-     * Gets enabled_mfas
-     *
-     * @return string[]|null
-     */
-    public function getEnabledMfas()
-    {
-        return $this->container['enabled_mfas'];
-    }
-
-    /**
-     * Sets enabled_mfas
-     *
-     * @param string[]|null $enabled_mfas enabled_mfas
-     *
-     * @return self
-     */
-    public function setEnabledMfas($enabled_mfas)
-    {
-        if (is_null($enabled_mfas)) {
-            throw new \InvalidArgumentException('non-nullable enabled_mfas cannot be null');
-        }
-        $allowedValues = $this->getEnabledMfasAllowableValues();
-        if (array_diff($enabled_mfas, $allowedValues)) {
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'enabled_mfas', must be one of '%s'",
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['enabled_mfas'] = $enabled_mfas;
+        $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets code
+     *
+     * @return string
+     */
+    public function getCode()
+    {
+        return $this->container['code'];
+    }
+
+    /**
+     * Sets code
+     *
+     * @param string $code code
+     *
+     * @return self
+     */
+    public function setCode($code)
+    {
+        if (is_null($code)) {
+            throw new \InvalidArgumentException('non-nullable code cannot be null');
+        }
+        $this->container['code'] = $code;
+
+        return $this;
+    }
+
+    /**
+     * Gets session
+     *
+     * @return string
+     */
+    public function getSession()
+    {
+        return $this->container['session'];
+    }
+
+    /**
+     * Sets session
+     *
+     * @param string $session session
+     *
+     * @return self
+     */
+    public function setSession($session)
+    {
+        if (is_null($session)) {
+            throw new \InvalidArgumentException('non-nullable session cannot be null');
+        }
+        $this->container['session'] = $session;
 
         return $this;
     }

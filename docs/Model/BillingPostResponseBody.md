@@ -7,25 +7,15 @@ Name | Type | Description | Notes
 **organization_id** | **string** |  |
 **organization_type** | **string** |  |
 **creator** | **string** |  |
+**name** | **string** |  |
 **messages_cap** | **float** |  |
 **cost_cap** | **float** |  |
-**created_at** | **string** |  |
-**updated_at** | **string** |  |
-**anniversary_date** | **string** | ISO date (YYYY-MM-DD) when the billing cycle resets. |
-**allow_overage** | **bool** |  |
-**name** | **string** |  |
 **sms_cap** | **float** |  | [optional]
 **call_cap** | **float** |  | [optional]
-**stripe_customer_id** | **string** | Stripe subscription ID. | [optional]
-**stripe_subscription_id** | **string** |  | [optional]
-**subscription_status** | **string** |  | [optional]
-**status** | **string** | Verification status. | [optional]
-**pending_downgrade_cost_cap** | **float** |  | [optional]
-**pending_downgrade_messages_cap** | **float** |  | [optional]
-**pending_downgrade_sms_cap** | **float** |  | [optional]
-**pending_downgrade_call_cap** | **float** |  | [optional]
-**pending_downgrade_effective_date** | **string** |  | [optional]
-**pending_downgrade_account_type** | **string** |  | [optional]
+**anniversary_date** | **string** | ISO date (YYYY-MM-DD) when the billing cycle resets. |
+**allow_overage** | **bool** |  |
+**created_at** | **string** |  |
+**updated_at** | **string** |  |
 **session_id** | **string** |  | [optional]
 **url** | **string** |  | [optional]
 
