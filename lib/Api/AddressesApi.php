@@ -134,7 +134,7 @@ class AddressesApi
     /**
      * Operation addressesCreateAddress
      *
-     * Create a new email address for inbound/outbound purposes. Each account can have one builtin address and many custom addresses. Custom addresses must belong to configured domains.
+     * Create a new email inbox. Omit &#x60;domain&#x60; for a built-in &#x60;@mail.pingram.io&#x60; address; set &#x60;domain&#x60; and &#x60;displayName&#x60; for a custom address on a verified domain.
      *
      * @param  \Pingram\Model\CreateAddressRequest $create_address_request create_address_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addressesCreateAddress'] to see the possible values for this operation
@@ -152,7 +152,7 @@ class AddressesApi
     /**
      * Operation addressesCreateAddressWithHttpInfo
      *
-     * Create a new email address for inbound/outbound purposes. Each account can have one builtin address and many custom addresses. Custom addresses must belong to configured domains.
+     * Create a new email inbox. Omit &#x60;domain&#x60; for a built-in &#x60;@mail.pingram.io&#x60; address; set &#x60;domain&#x60; and &#x60;displayName&#x60; for a custom address on a verified domain.
      *
      * @param  \Pingram\Model\CreateAddressRequest $create_address_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addressesCreateAddress'] to see the possible values for this operation
@@ -279,7 +279,7 @@ class AddressesApi
     /**
      * Operation addressesCreateAddressAsync
      *
-     * Create a new email address for inbound/outbound purposes. Each account can have one builtin address and many custom addresses. Custom addresses must belong to configured domains.
+     * Create a new email inbox. Omit &#x60;domain&#x60; for a built-in &#x60;@mail.pingram.io&#x60; address; set &#x60;domain&#x60; and &#x60;displayName&#x60; for a custom address on a verified domain.
      *
      * @param  \Pingram\Model\CreateAddressRequest $create_address_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addressesCreateAddress'] to see the possible values for this operation
@@ -300,7 +300,7 @@ class AddressesApi
     /**
      * Operation addressesCreateAddressAsyncWithHttpInfo
      *
-     * Create a new email address for inbound/outbound purposes. Each account can have one builtin address and many custom addresses. Custom addresses must belong to configured domains.
+     * Create a new email inbox. Omit &#x60;domain&#x60; for a built-in &#x60;@mail.pingram.io&#x60; address; set &#x60;domain&#x60; and &#x60;displayName&#x60; for a custom address on a verified domain.
      *
      * @param  \Pingram\Model\CreateAddressRequest $create_address_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addressesCreateAddress'] to see the possible values for this operation
@@ -459,7 +459,7 @@ class AddressesApi
     /**
      * Operation addressesListAddresses
      *
-     * Lists all email addresses the account has configured to send and receive emails. Custom addresses must belong to configured domains.
+     * List email inboxes (addresses) configured for receiving. Custom addresses must use a verified domain.
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addressesListAddresses'] to see the possible values for this operation
      *
@@ -476,7 +476,7 @@ class AddressesApi
     /**
      * Operation addressesListAddressesWithHttpInfo
      *
-     * Lists all email addresses the account has configured to send and receive emails. Custom addresses must belong to configured domains.
+     * List email inboxes (addresses) configured for receiving. Custom addresses must use a verified domain.
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addressesListAddresses'] to see the possible values for this operation
      *
@@ -602,7 +602,7 @@ class AddressesApi
     /**
      * Operation addressesListAddressesAsync
      *
-     * Lists all email addresses the account has configured to send and receive emails. Custom addresses must belong to configured domains.
+     * List email inboxes (addresses) configured for receiving. Custom addresses must use a verified domain.
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addressesListAddresses'] to see the possible values for this operation
      *
@@ -622,7 +622,7 @@ class AddressesApi
     /**
      * Operation addressesListAddressesAsyncWithHttpInfo
      *
-     * Lists all email addresses the account has configured to send and receive emails. Custom addresses must belong to configured domains.
+     * List email inboxes (addresses) configured for receiving. Custom addresses must use a verified domain.
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addressesListAddresses'] to see the possible values for this operation
      *
@@ -765,7 +765,7 @@ class AddressesApi
     /**
      * Operation addressesUpdateAddress
      *
-     * Update an existing address
+     * Update an inbox prefix or display name.
      *
      * @param  \Pingram\Model\UpdateAddressRequest $update_address_request update_address_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addressesUpdateAddress'] to see the possible values for this operation
@@ -783,7 +783,7 @@ class AddressesApi
     /**
      * Operation addressesUpdateAddressWithHttpInfo
      *
-     * Update an existing address
+     * Update an inbox prefix or display name.
      *
      * @param  \Pingram\Model\UpdateAddressRequest $update_address_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addressesUpdateAddress'] to see the possible values for this operation
@@ -910,7 +910,7 @@ class AddressesApi
     /**
      * Operation addressesUpdateAddressAsync
      *
-     * Update an existing address
+     * Update an inbox prefix or display name.
      *
      * @param  \Pingram\Model\UpdateAddressRequest $update_address_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addressesUpdateAddress'] to see the possible values for this operation
@@ -931,7 +931,7 @@ class AddressesApi
     /**
      * Operation addressesUpdateAddressAsyncWithHttpInfo
      *
-     * Update an existing address
+     * Update an inbox prefix or display name.
      *
      * @param  \Pingram\Model\UpdateAddressRequest $update_address_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addressesUpdateAddress'] to see the possible values for this operation

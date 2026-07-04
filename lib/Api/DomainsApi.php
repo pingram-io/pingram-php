@@ -134,7 +134,7 @@ class DomainsApi
     /**
      * Operation domainsAddDomain
      *
-     * Request to verify a new sender domain
+     * Add and start verification for a new sender domain. Pass the domain only (not a full email address).
      *
      * @param  \Pingram\Model\PostSendersRequestBody $post_senders_request_body post_senders_request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainsAddDomain'] to see the possible values for this operation
@@ -152,7 +152,7 @@ class DomainsApi
     /**
      * Operation domainsAddDomainWithHttpInfo
      *
-     * Request to verify a new sender domain
+     * Add and start verification for a new sender domain. Pass the domain only (not a full email address).
      *
      * @param  \Pingram\Model\PostSendersRequestBody $post_senders_request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainsAddDomain'] to see the possible values for this operation
@@ -279,7 +279,7 @@ class DomainsApi
     /**
      * Operation domainsAddDomainAsync
      *
-     * Request to verify a new sender domain
+     * Add and start verification for a new sender domain. Pass the domain only (not a full email address).
      *
      * @param  \Pingram\Model\PostSendersRequestBody $post_senders_request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainsAddDomain'] to see the possible values for this operation
@@ -300,7 +300,7 @@ class DomainsApi
     /**
      * Operation domainsAddDomainAsyncWithHttpInfo
      *
-     * Request to verify a new sender domain
+     * Add and start verification for a new sender domain. Pass the domain only (not a full email address).
      *
      * @param  \Pingram\Model\PostSendersRequestBody $post_senders_request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainsAddDomain'] to see the possible values for this operation
@@ -459,9 +459,9 @@ class DomainsApi
     /**
      * Operation domainsDeleteDomain
      *
-     * Delete a sender domain or email address
+     * Remove a sender domain from the account.
      *
-     * @param  string $sender Sender domain or email address (URL encoded) (required)
+     * @param  string $sender Sender domain (URL encoded) (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainsDeleteDomain'] to see the possible values for this operation
      *
      * @throws \Pingram\ApiException on non-2xx response or if the response body is not in the expected format
@@ -477,9 +477,9 @@ class DomainsApi
     /**
      * Operation domainsDeleteDomainWithHttpInfo
      *
-     * Delete a sender domain or email address
+     * Remove a sender domain from the account.
      *
-     * @param  string $sender Sender domain or email address (URL encoded) (required)
+     * @param  string $sender Sender domain (URL encoded) (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainsDeleteDomain'] to see the possible values for this operation
      *
      * @throws \Pingram\ApiException on non-2xx response or if the response body is not in the expected format
@@ -604,9 +604,9 @@ class DomainsApi
     /**
      * Operation domainsDeleteDomainAsync
      *
-     * Delete a sender domain or email address
+     * Remove a sender domain from the account.
      *
-     * @param  string $sender Sender domain or email address (URL encoded) (required)
+     * @param  string $sender Sender domain (URL encoded) (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainsDeleteDomain'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -625,9 +625,9 @@ class DomainsApi
     /**
      * Operation domainsDeleteDomainAsyncWithHttpInfo
      *
-     * Delete a sender domain or email address
+     * Remove a sender domain from the account.
      *
-     * @param  string $sender Sender domain or email address (URL encoded) (required)
+     * @param  string $sender Sender domain (URL encoded) (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainsDeleteDomain'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -677,7 +677,7 @@ class DomainsApi
     /**
      * Create request for operation 'domainsDeleteDomain'
      *
-     * @param  string $sender Sender domain or email address (URL encoded) (required)
+     * @param  string $sender Sender domain (URL encoded) (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainsDeleteDomain'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -785,7 +785,7 @@ class DomainsApi
     /**
      * Operation domainsListDomains
      *
-     * Get all sender domains configured for the account
+     * List sender domains configured for the account (for outbound email).
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainsListDomains'] to see the possible values for this operation
      *
@@ -802,7 +802,7 @@ class DomainsApi
     /**
      * Operation domainsListDomainsWithHttpInfo
      *
-     * Get all sender domains configured for the account
+     * List sender domains configured for the account (for outbound email).
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainsListDomains'] to see the possible values for this operation
      *
@@ -928,7 +928,7 @@ class DomainsApi
     /**
      * Operation domainsListDomainsAsync
      *
-     * Get all sender domains configured for the account
+     * List sender domains configured for the account (for outbound email).
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainsListDomains'] to see the possible values for this operation
      *
@@ -948,7 +948,7 @@ class DomainsApi
     /**
      * Operation domainsListDomainsAsyncWithHttpInfo
      *
-     * Get all sender domains configured for the account
+     * List sender domains configured for the account (for outbound email).
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainsListDomains'] to see the possible values for this operation
      *

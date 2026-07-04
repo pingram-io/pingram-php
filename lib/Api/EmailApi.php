@@ -128,7 +128,7 @@ class EmailApi
     /**
      * Operation emailSend
      *
-     * Send an email notification directly without templates
+     * Send an email. Requires &#x60;type&#x60;, &#x60;to&#x60;, &#x60;subject&#x60;, and &#x60;html&#x60;. Optional: &#x60;fromAddress&#x60;, &#x60;fromName&#x60;, &#x60;schedule&#x60;, attachments. The fromAddress must be a verified domain; otherwise our built-in address will be used which is fine for testing purposes.
      *
      * @param  \Pingram\Model\SendEmailRequest $send_email_request send_email_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailSend'] to see the possible values for this operation
@@ -146,7 +146,7 @@ class EmailApi
     /**
      * Operation emailSendWithHttpInfo
      *
-     * Send an email notification directly without templates
+     * Send an email. Requires &#x60;type&#x60;, &#x60;to&#x60;, &#x60;subject&#x60;, and &#x60;html&#x60;. Optional: &#x60;fromAddress&#x60;, &#x60;fromName&#x60;, &#x60;schedule&#x60;, attachments. The fromAddress must be a verified domain; otherwise our built-in address will be used which is fine for testing purposes.
      *
      * @param  \Pingram\Model\SendEmailRequest $send_email_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailSend'] to see the possible values for this operation
@@ -273,7 +273,7 @@ class EmailApi
     /**
      * Operation emailSendAsync
      *
-     * Send an email notification directly without templates
+     * Send an email. Requires &#x60;type&#x60;, &#x60;to&#x60;, &#x60;subject&#x60;, and &#x60;html&#x60;. Optional: &#x60;fromAddress&#x60;, &#x60;fromName&#x60;, &#x60;schedule&#x60;, attachments. The fromAddress must be a verified domain; otherwise our built-in address will be used which is fine for testing purposes.
      *
      * @param  \Pingram\Model\SendEmailRequest $send_email_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailSend'] to see the possible values for this operation
@@ -294,7 +294,7 @@ class EmailApi
     /**
      * Operation emailSendAsyncWithHttpInfo
      *
-     * Send an email notification directly without templates
+     * Send an email. Requires &#x60;type&#x60;, &#x60;to&#x60;, &#x60;subject&#x60;, and &#x60;html&#x60;. Optional: &#x60;fromAddress&#x60;, &#x60;fromName&#x60;, &#x60;schedule&#x60;, attachments. The fromAddress must be a verified domain; otherwise our built-in address will be used which is fine for testing purposes.
      *
      * @param  \Pingram\Model\SendEmailRequest $send_email_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailSend'] to see the possible values for this operation

@@ -128,7 +128,7 @@ class DefaultApi
     /**
      * Operation send
      *
-     * Send a notification
+     * Send a notification (email, SMS, etc.) to one user. Requires a notification &#x60;type&#x60; which categorizes this messages for future reporting, and channel-specific payloads such as &#x60;email&#x60; or &#x60;sms&#x60;. Recipient is specified with the &#x60;to&#x60; parameter. Returns a &#x60;trackingId&#x60; for error or delivery lookup through our Logs.
      *
      * @param  \Pingram\Model\SenderPostBody $sender_post_body sender_post_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['send'] to see the possible values for this operation
@@ -146,7 +146,7 @@ class DefaultApi
     /**
      * Operation sendWithHttpInfo
      *
-     * Send a notification
+     * Send a notification (email, SMS, etc.) to one user. Requires a notification &#x60;type&#x60; which categorizes this messages for future reporting, and channel-specific payloads such as &#x60;email&#x60; or &#x60;sms&#x60;. Recipient is specified with the &#x60;to&#x60; parameter. Returns a &#x60;trackingId&#x60; for error or delivery lookup through our Logs.
      *
      * @param  \Pingram\Model\SenderPostBody $sender_post_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['send'] to see the possible values for this operation
@@ -273,7 +273,7 @@ class DefaultApi
     /**
      * Operation sendAsync
      *
-     * Send a notification
+     * Send a notification (email, SMS, etc.) to one user. Requires a notification &#x60;type&#x60; which categorizes this messages for future reporting, and channel-specific payloads such as &#x60;email&#x60; or &#x60;sms&#x60;. Recipient is specified with the &#x60;to&#x60; parameter. Returns a &#x60;trackingId&#x60; for error or delivery lookup through our Logs.
      *
      * @param  \Pingram\Model\SenderPostBody $sender_post_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['send'] to see the possible values for this operation
@@ -294,7 +294,7 @@ class DefaultApi
     /**
      * Operation sendAsyncWithHttpInfo
      *
-     * Send a notification
+     * Send a notification (email, SMS, etc.) to one user. Requires a notification &#x60;type&#x60; which categorizes this messages for future reporting, and channel-specific payloads such as &#x60;email&#x60; or &#x60;sms&#x60;. Recipient is specified with the &#x60;to&#x60; parameter. Returns a &#x60;trackingId&#x60; for error or delivery lookup through our Logs.
      *
      * @param  \Pingram\Model\SenderPostBody $sender_post_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['send'] to see the possible values for this operation

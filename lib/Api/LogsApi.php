@@ -449,7 +449,7 @@ class LogsApi
     /**
      * Operation logsGetLogs
      *
-     * List logs for the authenticated account
+     * List recent notification logs for the authenticated account, newest first.
      *
      * @param  float|null $limit Maximum number of logs to return (default (optional)
      * @param  string|null $cursor Pagination cursor for next page (optional)
@@ -468,7 +468,7 @@ class LogsApi
     /**
      * Operation logsGetLogsWithHttpInfo
      *
-     * List logs for the authenticated account
+     * List recent notification logs for the authenticated account, newest first.
      *
      * @param  float|null $limit Maximum number of logs to return (default (optional)
      * @param  string|null $cursor Pagination cursor for next page (optional)
@@ -596,7 +596,7 @@ class LogsApi
     /**
      * Operation logsGetLogsAsync
      *
-     * List logs for the authenticated account
+     * List recent notification logs for the authenticated account, newest first.
      *
      * @param  float|null $limit Maximum number of logs to return (default (optional)
      * @param  string|null $cursor Pagination cursor for next page (optional)
@@ -618,7 +618,7 @@ class LogsApi
     /**
      * Operation logsGetLogsAsyncWithHttpInfo
      *
-     * List logs for the authenticated account
+     * List recent notification logs for the authenticated account, newest first.
      *
      * @param  float|null $limit Maximum number of logs to return (default (optional)
      * @param  string|null $cursor Pagination cursor for next page (optional)
@@ -785,7 +785,7 @@ class LogsApi
     /**
      * Operation logsGetLogsByTrackingIds
      *
-     * Get logs by tracking IDs (comma-separated, max 25 IDs)
+     * Get logs by tracking IDs (comma-separated, max 25 IDs). Use after sending email or SMS to look up delivery status.
      *
      * @param  string $tracking_ids Comma-separated tracking IDs (URL encoded) (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['logsGetLogsByTrackingIds'] to see the possible values for this operation
@@ -803,7 +803,7 @@ class LogsApi
     /**
      * Operation logsGetLogsByTrackingIdsWithHttpInfo
      *
-     * Get logs by tracking IDs (comma-separated, max 25 IDs)
+     * Get logs by tracking IDs (comma-separated, max 25 IDs). Use after sending email or SMS to look up delivery status.
      *
      * @param  string $tracking_ids Comma-separated tracking IDs (URL encoded) (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['logsGetLogsByTrackingIds'] to see the possible values for this operation
@@ -930,7 +930,7 @@ class LogsApi
     /**
      * Operation logsGetLogsByTrackingIdsAsync
      *
-     * Get logs by tracking IDs (comma-separated, max 25 IDs)
+     * Get logs by tracking IDs (comma-separated, max 25 IDs). Use after sending email or SMS to look up delivery status.
      *
      * @param  string $tracking_ids Comma-separated tracking IDs (URL encoded) (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['logsGetLogsByTrackingIds'] to see the possible values for this operation
@@ -951,7 +951,7 @@ class LogsApi
     /**
      * Operation logsGetLogsByTrackingIdsAsyncWithHttpInfo
      *
-     * Get logs by tracking IDs (comma-separated, max 25 IDs)
+     * Get logs by tracking IDs (comma-separated, max 25 IDs). Use after sending email or SMS to look up delivery status.
      *
      * @param  string $tracking_ids Comma-separated tracking IDs (URL encoded) (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['logsGetLogsByTrackingIds'] to see the possible values for this operation
@@ -1111,9 +1111,9 @@ class LogsApi
     /**
      * Operation logsGetLogsQueryResult
      *
-     * Get results from a query ID
+     * Get results from a log query started with Start Log Query. Poll until status is Complete.
      *
-     * @param  string $query_id Query ID (required)
+     * @param  string $query_id Query ID returned by Start Log Query (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['logsGetLogsQueryResult'] to see the possible values for this operation
      *
      * @throws \Pingram\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1129,9 +1129,9 @@ class LogsApi
     /**
      * Operation logsGetLogsQueryResultWithHttpInfo
      *
-     * Get results from a query ID
+     * Get results from a log query started with Start Log Query. Poll until status is Complete.
      *
-     * @param  string $query_id Query ID (required)
+     * @param  string $query_id Query ID returned by Start Log Query (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['logsGetLogsQueryResult'] to see the possible values for this operation
      *
      * @throws \Pingram\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1256,9 +1256,9 @@ class LogsApi
     /**
      * Operation logsGetLogsQueryResultAsync
      *
-     * Get results from a query ID
+     * Get results from a log query started with Start Log Query. Poll until status is Complete.
      *
-     * @param  string $query_id Query ID (required)
+     * @param  string $query_id Query ID returned by Start Log Query (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['logsGetLogsQueryResult'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1277,9 +1277,9 @@ class LogsApi
     /**
      * Operation logsGetLogsQueryResultAsyncWithHttpInfo
      *
-     * Get results from a query ID
+     * Get results from a log query started with Start Log Query. Poll until status is Complete.
      *
-     * @param  string $query_id Query ID (required)
+     * @param  string $query_id Query ID returned by Start Log Query (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['logsGetLogsQueryResult'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1329,7 +1329,7 @@ class LogsApi
     /**
      * Create request for operation 'logsGetLogsQueryResult'
      *
-     * @param  string $query_id Query ID (required)
+     * @param  string $query_id Query ID returned by Start Log Query (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['logsGetLogsQueryResult'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1437,7 +1437,7 @@ class LogsApi
     /**
      * Operation logsStartLogsQuery
      *
-     * Start a log query and return query ID for asynchronous log searching
+     * Start an asynchronous log search over a date range. Returns a &#x60;queryId&#x60;; poll with Get Log Query Results until status is Complete.
      *
      * @param  \Pingram\Model\LogQueryPostBody $log_query_post_body log_query_post_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['logsStartLogsQuery'] to see the possible values for this operation
@@ -1455,7 +1455,7 @@ class LogsApi
     /**
      * Operation logsStartLogsQueryWithHttpInfo
      *
-     * Start a log query and return query ID for asynchronous log searching
+     * Start an asynchronous log search over a date range. Returns a &#x60;queryId&#x60;; poll with Get Log Query Results until status is Complete.
      *
      * @param  \Pingram\Model\LogQueryPostBody $log_query_post_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['logsStartLogsQuery'] to see the possible values for this operation
@@ -1582,7 +1582,7 @@ class LogsApi
     /**
      * Operation logsStartLogsQueryAsync
      *
-     * Start a log query and return query ID for asynchronous log searching
+     * Start an asynchronous log search over a date range. Returns a &#x60;queryId&#x60;; poll with Get Log Query Results until status is Complete.
      *
      * @param  \Pingram\Model\LogQueryPostBody $log_query_post_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['logsStartLogsQuery'] to see the possible values for this operation
@@ -1603,7 +1603,7 @@ class LogsApi
     /**
      * Operation logsStartLogsQueryAsyncWithHttpInfo
      *
-     * Start a log query and return query ID for asynchronous log searching
+     * Start an asynchronous log search over a date range. Returns a &#x60;queryId&#x60;; poll with Get Log Query Results until status is Complete.
      *
      * @param  \Pingram\Model\LogQueryPostBody $log_query_post_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['logsStartLogsQuery'] to see the possible values for this operation
