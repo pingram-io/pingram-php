@@ -662,7 +662,7 @@ class SendEmailRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets attachments
      *
-     * @param \Pingram\Model\SendEmailRequestAttachmentsInner[]|null $attachments The attachments of the email.
+     * @param \Pingram\Model\SendEmailRequestAttachmentsInner[]|null $attachments URL-based file attachments. Up to 20 MB per file.
      *
      * @return self
      */

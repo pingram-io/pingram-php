@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **reply_to_addresses** | **string[]** | The reply-to addresses of the email. | [optional]
 **cc_addresses** | **string[]** | The CC addresses of the email. | [optional]
 **bcc_addresses** | **string[]** | The BCC addresses of the email. | [optional]
-**attachments** | [**\Pingram\Model\SendEmailRequestAttachmentsInner[]**](SendEmailRequestAttachmentsInner.md) | The attachments of the email. | [optional]
+**attachments** | [**\Pingram\Model\SendEmailRequestAttachmentsInner[]**](SendEmailRequestAttachmentsInner.md) | URL-based file attachments. Up to 20 MB per file. | [optional]
 **schedule** | **string** | The ISO 8601 datetime to schedule the email. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

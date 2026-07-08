@@ -480,7 +480,7 @@ class SenderPostBodyOptionsEmail implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets attachments
      *
-     * @param \Pingram\Model\SenderPostBodyOptionsEmailAttachmentsInner[]|null $attachments File attachments (by URL or inline base64 content).
+     * @param \Pingram\Model\SenderPostBodyOptionsEmailAttachmentsInner[]|null $attachments File attachments (by URL or inline base64 content). Inline `content`: ~4 MB raw per file (413 if exceeded). URL `url`: up to 20 MB per file.
      *
      * @return self
      */
