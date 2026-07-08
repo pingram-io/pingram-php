@@ -60,9 +60,7 @@ class SendSmsResponseAnyOf1Error implements ModelInterface, ArrayAccess, \JsonSe
     protected static $openAPITypes = [
         'code' => 'string',
         'message' => 'string',
-        'fix' => 'string',
-        'provider' => 'string',
-        'provider_code' => 'string'
+        'fix' => 'string'
     ];
 
     /**
@@ -75,9 +73,7 @@ class SendSmsResponseAnyOf1Error implements ModelInterface, ArrayAccess, \JsonSe
     protected static $openAPIFormats = [
         'code' => null,
         'message' => null,
-        'fix' => null,
-        'provider' => null,
-        'provider_code' => null
+        'fix' => null
     ];
 
     /**
@@ -88,9 +84,7 @@ class SendSmsResponseAnyOf1Error implements ModelInterface, ArrayAccess, \JsonSe
     protected static array $openAPINullables = [
         'code' => false,
         'message' => false,
-        'fix' => false,
-        'provider' => false,
-        'provider_code' => false
+        'fix' => false
     ];
 
     /**
@@ -181,9 +175,7 @@ class SendSmsResponseAnyOf1Error implements ModelInterface, ArrayAccess, \JsonSe
     protected static $attributeMap = [
         'code' => 'code',
         'message' => 'message',
-        'fix' => 'fix',
-        'provider' => 'provider',
-        'provider_code' => 'providerCode'
+        'fix' => 'fix'
     ];
 
     /**
@@ -194,9 +186,7 @@ class SendSmsResponseAnyOf1Error implements ModelInterface, ArrayAccess, \JsonSe
     protected static $setters = [
         'code' => 'setCode',
         'message' => 'setMessage',
-        'fix' => 'setFix',
-        'provider' => 'setProvider',
-        'provider_code' => 'setProviderCode'
+        'fix' => 'setFix'
     ];
 
     /**
@@ -207,9 +197,7 @@ class SendSmsResponseAnyOf1Error implements ModelInterface, ArrayAccess, \JsonSe
     protected static $getters = [
         'code' => 'getCode',
         'message' => 'getMessage',
-        'fix' => 'getFix',
-        'provider' => 'getProvider',
-        'provider_code' => 'getProviderCode'
+        'fix' => 'getFix'
     ];
 
     /**
@@ -272,8 +260,6 @@ class SendSmsResponseAnyOf1Error implements ModelInterface, ArrayAccess, \JsonSe
         $this->setIfExists('code', $data ?? [], null);
         $this->setIfExists('message', $data ?? [], null);
         $this->setIfExists('fix', $data ?? [], null);
-        $this->setIfExists('provider', $data ?? [], null);
-        $this->setIfExists('provider_code', $data ?? [], null);
     }
 
     /**
@@ -401,60 +387,6 @@ class SendSmsResponseAnyOf1Error implements ModelInterface, ArrayAccess, \JsonSe
             throw new \InvalidArgumentException('non-nullable fix cannot be null');
         }
         $this->container['fix'] = $fix;
-
-        return $this;
-    }
-
-    /**
-     * Gets provider
-     *
-     * @return string|null
-     */
-    public function getProvider()
-    {
-        return $this->container['provider'];
-    }
-
-    /**
-     * Sets provider
-     *
-     * @param string|null $provider Provider that rejected the message (e.g. 'telnyx').
-     *
-     * @return self
-     */
-    public function setProvider($provider)
-    {
-        if (is_null($provider)) {
-            throw new \InvalidArgumentException('non-nullable provider cannot be null');
-        }
-        $this->container['provider'] = $provider;
-
-        return $this;
-    }
-
-    /**
-     * Gets provider_code
-     *
-     * @return string|null
-     */
-    public function getProviderCode()
-    {
-        return $this->container['provider_code'];
-    }
-
-    /**
-     * Sets provider_code
-     *
-     * @param string|null $provider_code Provider-specific error code.
-     *
-     * @return self
-     */
-    public function setProviderCode($provider_code)
-    {
-        if (is_null($provider_code)) {
-            throw new \InvalidArgumentException('non-nullable provider_code cannot be null');
-        }
-        $this->container['provider_code'] = $provider_code;
 
         return $this;
     }
