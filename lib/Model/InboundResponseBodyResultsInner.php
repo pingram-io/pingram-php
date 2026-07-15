@@ -238,10 +238,12 @@ class InboundResponseBodyResultsInner implements ModelInterface, ArrayAccess, \J
     public const WEBHOOK_NOT_SET = 'not_set';
     public const WEBHOOK_NOT_ENABLED = 'not_enabled';
     public const WEBHOOK_FAILED = 'failed';
+    public const WEBHOOK_DROPPED = 'dropped';
     public const AUTO_REPLY_SENT = 'sent';
     public const AUTO_REPLY_SKIPPED_OPT_OUT = 'skipped_opt_out';
     public const AUTO_REPLY_SKIPPED_ALREADY_REPLIED = 'skipped_already_replied';
     public const AUTO_REPLY_SKIPPED_NO_CONFIG = 'skipped_no_config';
+    public const AUTO_REPLY_SKIPPED_DROPPED = 'skipped_dropped';
     public const AUTO_REPLY_FAILED = 'failed';
 
     /**
@@ -256,6 +258,7 @@ class InboundResponseBodyResultsInner implements ModelInterface, ArrayAccess, \J
             self::WEBHOOK_NOT_SET,
             self::WEBHOOK_NOT_ENABLED,
             self::WEBHOOK_FAILED,
+            self::WEBHOOK_DROPPED,
         ];
     }
 
@@ -271,6 +274,7 @@ class InboundResponseBodyResultsInner implements ModelInterface, ArrayAccess, \J
             self::AUTO_REPLY_SKIPPED_OPT_OUT,
             self::AUTO_REPLY_SKIPPED_ALREADY_REPLIED,
             self::AUTO_REPLY_SKIPPED_NO_CONFIG,
+            self::AUTO_REPLY_SKIPPED_DROPPED,
             self::AUTO_REPLY_FAILED,
         ];
     }
