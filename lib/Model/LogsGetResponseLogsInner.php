@@ -1423,6 +1423,7 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
     public const CALL_FAILED_CODE__30453 = '30453';
     public const CALL_FAILED_CODE__40001 = '40001';
     public const CALL_FAILED_CODE__40002 = '40002';
+    public const CALL_FAILED_CODE__40010 = '40010';
     public const CALL_FAILED_CODE__40300 = '40300';
     public const CALL_FAILED_CODE_UNKNOWN = 'Unknown';
     public const CALL_FAILED_CODE_MISSING_SMS_RECIPIENT = 'MISSING_SMS_RECIPIENT';
@@ -1448,6 +1449,7 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
     public const SMS_FAILED_CODE__30453 = '30453';
     public const SMS_FAILED_CODE__40001 = '40001';
     public const SMS_FAILED_CODE__40002 = '40002';
+    public const SMS_FAILED_CODE__40010 = '40010';
     public const SMS_FAILED_CODE__40300 = '40300';
     public const SMS_FAILED_CODE_UNKNOWN = 'Unknown';
     public const SMS_FAILED_CODE_MISSING_SMS_RECIPIENT = 'MISSING_SMS_RECIPIENT';
@@ -1878,6 +1880,7 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
             self::CALL_FAILED_CODE__30453,
             self::CALL_FAILED_CODE__40001,
             self::CALL_FAILED_CODE__40002,
+            self::CALL_FAILED_CODE__40010,
             self::CALL_FAILED_CODE__40300,
             self::CALL_FAILED_CODE_UNKNOWN,
             self::CALL_FAILED_CODE_MISSING_SMS_RECIPIENT,
@@ -1914,6 +1917,7 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
             self::SMS_FAILED_CODE__30453,
             self::SMS_FAILED_CODE__40001,
             self::SMS_FAILED_CODE__40002,
+            self::SMS_FAILED_CODE__40010,
             self::SMS_FAILED_CODE__40300,
             self::SMS_FAILED_CODE_UNKNOWN,
             self::SMS_FAILED_CODE_MISSING_SMS_RECIPIENT,
