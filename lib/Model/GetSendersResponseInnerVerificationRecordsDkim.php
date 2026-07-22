@@ -1,6 +1,6 @@
 <?php
 /**
- * BillingPostRequestBody
+ * GetSendersResponseInnerVerificationRecordsDkim
  *
  * PHP version 8.1
  *
@@ -32,15 +32,16 @@ use \ArrayAccess;
 use \Pingram\ObjectSerializer;
 
 /**
- * BillingPostRequestBody Class Doc Comment
+ * GetSendersResponseInnerVerificationRecordsDkim Class Doc Comment
  *
  * @category Class
+ * @description DNS record the customer must publish for domain verification.
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerializable
+class GetSendersResponseInnerVerificationRecordsDkim implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +50,7 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
       *
       * @var string
       */
-    protected static $openAPIModelName = 'BillingPostRequestBody';
+    protected static $openAPIModelName = 'GetSendersResponse_inner_verificationRecords_dkim';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,9 +58,12 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
       * @var string[]
       */
     protected static $openAPITypes = [
-        'budget_price_id' => 'string',
-        'success_url' => 'string',
-        'cancel_url' => 'string'
+        'record_type' => 'string',
+        'record_name' => 'string',
+        'host' => 'string',
+        'record_value' => 'string',
+        'priority' => 'float',
+        'required' => 'bool'
     ];
 
     /**
@@ -70,9 +74,12 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'budget_price_id' => null,
-        'success_url' => null,
-        'cancel_url' => null
+        'record_type' => null,
+        'record_name' => null,
+        'host' => null,
+        'record_value' => null,
+        'priority' => null,
+        'required' => null
     ];
 
     /**
@@ -81,9 +88,12 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'budget_price_id' => false,
-        'success_url' => false,
-        'cancel_url' => false
+        'record_type' => false,
+        'record_name' => false,
+        'host' => false,
+        'record_value' => false,
+        'priority' => false,
+        'required' => false
     ];
 
     /**
@@ -172,9 +182,12 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $attributeMap = [
-        'budget_price_id' => 'budgetPriceId',
-        'success_url' => 'successUrl',
-        'cancel_url' => 'cancelUrl'
+        'record_type' => 'recordType',
+        'record_name' => 'recordName',
+        'host' => 'host',
+        'record_value' => 'recordValue',
+        'priority' => 'priority',
+        'required' => 'required'
     ];
 
     /**
@@ -183,9 +196,12 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $setters = [
-        'budget_price_id' => 'setBudgetPriceId',
-        'success_url' => 'setSuccessUrl',
-        'cancel_url' => 'setCancelUrl'
+        'record_type' => 'setRecordType',
+        'record_name' => 'setRecordName',
+        'host' => 'setHost',
+        'record_value' => 'setRecordValue',
+        'priority' => 'setPriority',
+        'required' => 'setRequired'
     ];
 
     /**
@@ -194,9 +210,12 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $getters = [
-        'budget_price_id' => 'getBudgetPriceId',
-        'success_url' => 'getSuccessUrl',
-        'cancel_url' => 'getCancelUrl'
+        'record_type' => 'getRecordType',
+        'record_name' => 'getRecordName',
+        'host' => 'getHost',
+        'record_value' => 'getRecordValue',
+        'priority' => 'getPriority',
+        'required' => 'getRequired'
     ];
 
     /**
@@ -240,6 +259,21 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
         return self::$openAPIModelName;
     }
 
+    public const RECORD_TYPE_TXT = 'TXT';
+    public const RECORD_TYPE_MX = 'MX';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getRecordTypeAllowableValues()
+    {
+        return [
+            self::RECORD_TYPE_TXT,
+            self::RECORD_TYPE_MX,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -256,9 +290,12 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('budget_price_id', $data ?? [], null);
-        $this->setIfExists('success_url', $data ?? [], null);
-        $this->setIfExists('cancel_url', $data ?? [], null);
+        $this->setIfExists('record_type', $data ?? [], null);
+        $this->setIfExists('record_name', $data ?? [], null);
+        $this->setIfExists('host', $data ?? [], null);
+        $this->setIfExists('record_value', $data ?? [], null);
+        $this->setIfExists('priority', $data ?? [], null);
+        $this->setIfExists('required', $data ?? [], null);
     }
 
     /**
@@ -288,11 +325,26 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
     {
         $invalidProperties = [];
 
-        if ($this->container['success_url'] === null) {
-            $invalidProperties[] = "'success_url' can't be null";
+        if ($this->container['record_type'] === null) {
+            $invalidProperties[] = "'record_type' can't be null";
         }
-        if ($this->container['cancel_url'] === null) {
-            $invalidProperties[] = "'cancel_url' can't be null";
+        $allowedValues = $this->getRecordTypeAllowableValues();
+        if (!is_null($this->container['record_type']) && !in_array($this->container['record_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'record_type', must be one of '%s'",
+                $this->container['record_type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['record_name'] === null) {
+            $invalidProperties[] = "'record_name' can't be null";
+        }
+        if ($this->container['host'] === null) {
+            $invalidProperties[] = "'host' can't be null";
+        }
+        if ($this->container['record_value'] === null) {
+            $invalidProperties[] = "'record_value' can't be null";
         }
         return $invalidProperties;
     }
@@ -310,82 +362,173 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
 
 
     /**
-     * Gets budget_price_id
+     * Gets record_type
      *
-     * @return string|null
+     * @return string
      */
-    public function getBudgetPriceId()
+    public function getRecordType()
     {
-        return $this->container['budget_price_id'];
+        return $this->container['record_type'];
     }
 
     /**
-     * Sets budget_price_id
+     * Sets record_type
      *
-     * @param string|null $budget_price_id Price ID for a monthly budget tier (all channels).
+     * @param string $record_type record_type
      *
      * @return self
      */
-    public function setBudgetPriceId($budget_price_id)
+    public function setRecordType($record_type)
     {
-        if (is_null($budget_price_id)) {
-            throw new \InvalidArgumentException('non-nullable budget_price_id cannot be null');
+        if (is_null($record_type)) {
+            throw new \InvalidArgumentException('non-nullable record_type cannot be null');
         }
-        $this->container['budget_price_id'] = $budget_price_id;
+        $allowedValues = $this->getRecordTypeAllowableValues();
+        if (!in_array($record_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'record_type', must be one of '%s'",
+                    $record_type,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['record_type'] = $record_type;
 
         return $this;
     }
 
     /**
-     * Gets success_url
+     * Gets record_name
      *
      * @return string
      */
-    public function getSuccessUrl()
+    public function getRecordName()
     {
-        return $this->container['success_url'];
+        return $this->container['record_name'];
     }
 
     /**
-     * Sets success_url
+     * Sets record_name
      *
-     * @param string $success_url success_url
+     * @param string $record_name Relative name for the parent DNS zone UI (e.g. pingram._domainkey.testing).
      *
      * @return self
      */
-    public function setSuccessUrl($success_url)
+    public function setRecordName($record_name)
     {
-        if (is_null($success_url)) {
-            throw new \InvalidArgumentException('non-nullable success_url cannot be null');
+        if (is_null($record_name)) {
+            throw new \InvalidArgumentException('non-nullable record_name cannot be null');
         }
-        $this->container['success_url'] = $success_url;
+        $this->container['record_name'] = $record_name;
 
         return $this;
     }
 
     /**
-     * Gets cancel_url
+     * Gets host
      *
      * @return string
      */
-    public function getCancelUrl()
+    public function getHost()
     {
-        return $this->container['cancel_url'];
+        return $this->container['host'];
     }
 
     /**
-     * Sets cancel_url
+     * Sets host
      *
-     * @param string $cancel_url cancel_url
+     * @param string $host Full hostname (e.g. pingram._domainkey.testing.something.com).
      *
      * @return self
      */
-    public function setCancelUrl($cancel_url)
+    public function setHost($host)
     {
-        if (is_null($cancel_url)) {
-            throw new \InvalidArgumentException('non-nullable cancel_url cannot be null');
+        if (is_null($host)) {
+            throw new \InvalidArgumentException('non-nullable host cannot be null');
         }
-        $this->container['cancel_url'] = $cancel_url;
+        $this->container['host'] = $host;
+
+        return $this;
+    }
+
+    /**
+     * Gets record_value
+     *
+     * @return string
+     */
+    public function getRecordValue()
+    {
+        return $this->container['record_value'];
+    }
+
+    /**
+     * Sets record_value
+     *
+     * @param string $record_value record_value
+     *
+     * @return self
+     */
+    public function setRecordValue($record_value)
+    {
+        if (is_null($record_value)) {
+            throw new \InvalidArgumentException('non-nullable record_value cannot be null');
+        }
+        $this->container['record_value'] = $record_value;
+
+        return $this;
+    }
+
+    /**
+     * Gets priority
+     *
+     * @return float|null
+     */
+    public function getPriority()
+    {
+        return $this->container['priority'];
+    }
+
+    /**
+     * Sets priority
+     *
+     * @param float|null $priority priority
+     *
+     * @return self
+     */
+    public function setPriority($priority)
+    {
+        if (is_null($priority)) {
+            throw new \InvalidArgumentException('non-nullable priority cannot be null');
+        }
+        $this->container['priority'] = $priority;
+
+        return $this;
+    }
+
+    /**
+     * Gets required
+     *
+     * @return bool|null
+     */
+    public function getRequired()
+    {
+        return $this->container['required'];
+    }
+
+    /**
+     * Sets required
+     *
+     * @param bool|null $required required
+     *
+     * @return self
+     */
+    public function setRequired($required)
+    {
+        if (is_null($required)) {
+            throw new \InvalidArgumentException('non-nullable required cannot be null');
+        }
+        $this->container['required'] = $required;
 
         return $this;
     }

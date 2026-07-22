@@ -59,12 +59,7 @@ class OrganizationUsageHistoryItemsInner implements ModelInterface, ArrayAccess,
       */
     protected static $openAPITypes = [
         'year_month' => 'string',
-        'message_usage' => 'float',
-        'budget_usage' => 'float',
-        'cost_sms' => 'float',
-        'cost_call' => 'float',
-        'cost_number' => 'float',
-        'channel_usages' => 'array<string,float>'
+        'counts' => '\Pingram\Model\OrganizationUsageHistoryItemsInnerCounts'
     ];
 
     /**
@@ -76,12 +71,7 @@ class OrganizationUsageHistoryItemsInner implements ModelInterface, ArrayAccess,
       */
     protected static $openAPIFormats = [
         'year_month' => null,
-        'message_usage' => null,
-        'budget_usage' => null,
-        'cost_sms' => null,
-        'cost_call' => null,
-        'cost_number' => null,
-        'channel_usages' => null
+        'counts' => null
     ];
 
     /**
@@ -91,12 +81,7 @@ class OrganizationUsageHistoryItemsInner implements ModelInterface, ArrayAccess,
       */
     protected static array $openAPINullables = [
         'year_month' => false,
-        'message_usage' => false,
-        'budget_usage' => false,
-        'cost_sms' => false,
-        'cost_call' => false,
-        'cost_number' => false,
-        'channel_usages' => false
+        'counts' => false
     ];
 
     /**
@@ -186,12 +171,7 @@ class OrganizationUsageHistoryItemsInner implements ModelInterface, ArrayAccess,
      */
     protected static $attributeMap = [
         'year_month' => 'yearMonth',
-        'message_usage' => 'messageUsage',
-        'budget_usage' => 'budgetUsage',
-        'cost_sms' => 'costSms',
-        'cost_call' => 'costCall',
-        'cost_number' => 'costNumber',
-        'channel_usages' => 'channelUsages'
+        'counts' => 'counts'
     ];
 
     /**
@@ -201,12 +181,7 @@ class OrganizationUsageHistoryItemsInner implements ModelInterface, ArrayAccess,
      */
     protected static $setters = [
         'year_month' => 'setYearMonth',
-        'message_usage' => 'setMessageUsage',
-        'budget_usage' => 'setBudgetUsage',
-        'cost_sms' => 'setCostSms',
-        'cost_call' => 'setCostCall',
-        'cost_number' => 'setCostNumber',
-        'channel_usages' => 'setChannelUsages'
+        'counts' => 'setCounts'
     ];
 
     /**
@@ -216,12 +191,7 @@ class OrganizationUsageHistoryItemsInner implements ModelInterface, ArrayAccess,
      */
     protected static $getters = [
         'year_month' => 'getYearMonth',
-        'message_usage' => 'getMessageUsage',
-        'budget_usage' => 'getBudgetUsage',
-        'cost_sms' => 'getCostSms',
-        'cost_call' => 'getCostCall',
-        'cost_number' => 'getCostNumber',
-        'channel_usages' => 'getChannelUsages'
+        'counts' => 'getCounts'
     ];
 
     /**
@@ -282,12 +252,7 @@ class OrganizationUsageHistoryItemsInner implements ModelInterface, ArrayAccess,
     public function __construct(?array $data = null)
     {
         $this->setIfExists('year_month', $data ?? [], null);
-        $this->setIfExists('message_usage', $data ?? [], null);
-        $this->setIfExists('budget_usage', $data ?? [], null);
-        $this->setIfExists('cost_sms', $data ?? [], null);
-        $this->setIfExists('cost_call', $data ?? [], null);
-        $this->setIfExists('cost_number', $data ?? [], null);
-        $this->setIfExists('channel_usages', $data ?? [], null);
+        $this->setIfExists('counts', $data ?? [], null);
     }
 
     /**
@@ -320,23 +285,8 @@ class OrganizationUsageHistoryItemsInner implements ModelInterface, ArrayAccess,
         if ($this->container['year_month'] === null) {
             $invalidProperties[] = "'year_month' can't be null";
         }
-        if ($this->container['message_usage'] === null) {
-            $invalidProperties[] = "'message_usage' can't be null";
-        }
-        if ($this->container['budget_usage'] === null) {
-            $invalidProperties[] = "'budget_usage' can't be null";
-        }
-        if ($this->container['cost_sms'] === null) {
-            $invalidProperties[] = "'cost_sms' can't be null";
-        }
-        if ($this->container['cost_call'] === null) {
-            $invalidProperties[] = "'cost_call' can't be null";
-        }
-        if ($this->container['cost_number'] === null) {
-            $invalidProperties[] = "'cost_number' can't be null";
-        }
-        if ($this->container['channel_usages'] === null) {
-            $invalidProperties[] = "'channel_usages' can't be null";
+        if ($this->container['counts'] === null) {
+            $invalidProperties[] = "'counts' can't be null";
         }
         return $invalidProperties;
     }
@@ -381,163 +331,28 @@ class OrganizationUsageHistoryItemsInner implements ModelInterface, ArrayAccess,
     }
 
     /**
-     * Gets message_usage
+     * Gets counts
      *
-     * @return float
+     * @return \Pingram\Model\OrganizationUsageHistoryItemsInnerCounts
      */
-    public function getMessageUsage()
+    public function getCounts()
     {
-        return $this->container['message_usage'];
+        return $this->container['counts'];
     }
 
     /**
-     * Sets message_usage
+     * Sets counts
      *
-     * @param float $message_usage Total message usage (EMAIL + INAPP_WEB + WEB_PUSH + PUSH + SLACK)
+     * @param \Pingram\Model\OrganizationUsageHistoryItemsInnerCounts $counts counts
      *
      * @return self
      */
-    public function setMessageUsage($message_usage)
+    public function setCounts($counts)
     {
-        if (is_null($message_usage)) {
-            throw new \InvalidArgumentException('non-nullable message_usage cannot be null');
+        if (is_null($counts)) {
+            throw new \InvalidArgumentException('non-nullable counts cannot be null');
         }
-        $this->container['message_usage'] = $message_usage;
-
-        return $this;
-    }
-
-    /**
-     * Gets budget_usage
-     *
-     * @return float
-     */
-    public function getBudgetUsage()
-    {
-        return $this->container['budget_usage'];
-    }
-
-    /**
-     * Sets budget_usage
-     *
-     * @param float $budget_usage Total budget usage in USD (cost_SMS + cost_CALL + cost_NUMBER)
-     *
-     * @return self
-     */
-    public function setBudgetUsage($budget_usage)
-    {
-        if (is_null($budget_usage)) {
-            throw new \InvalidArgumentException('non-nullable budget_usage cannot be null');
-        }
-        $this->container['budget_usage'] = $budget_usage;
-
-        return $this;
-    }
-
-    /**
-     * Gets cost_sms
-     *
-     * @return float
-     */
-    public function getCostSms()
-    {
-        return $this->container['cost_sms'];
-    }
-
-    /**
-     * Sets cost_sms
-     *
-     * @param float $cost_sms SMS cost in USD
-     *
-     * @return self
-     */
-    public function setCostSms($cost_sms)
-    {
-        if (is_null($cost_sms)) {
-            throw new \InvalidArgumentException('non-nullable cost_sms cannot be null');
-        }
-        $this->container['cost_sms'] = $cost_sms;
-
-        return $this;
-    }
-
-    /**
-     * Gets cost_call
-     *
-     * @return float
-     */
-    public function getCostCall()
-    {
-        return $this->container['cost_call'];
-    }
-
-    /**
-     * Sets cost_call
-     *
-     * @param float $cost_call Call cost in USD
-     *
-     * @return self
-     */
-    public function setCostCall($cost_call)
-    {
-        if (is_null($cost_call)) {
-            throw new \InvalidArgumentException('non-nullable cost_call cannot be null');
-        }
-        $this->container['cost_call'] = $cost_call;
-
-        return $this;
-    }
-
-    /**
-     * Gets cost_number
-     *
-     * @return float
-     */
-    public function getCostNumber()
-    {
-        return $this->container['cost_number'];
-    }
-
-    /**
-     * Sets cost_number
-     *
-     * @param float $cost_number Phone number rent in USD
-     *
-     * @return self
-     */
-    public function setCostNumber($cost_number)
-    {
-        if (is_null($cost_number)) {
-            throw new \InvalidArgumentException('non-nullable cost_number cannot be null');
-        }
-        $this->container['cost_number'] = $cost_number;
-
-        return $this;
-    }
-
-    /**
-     * Gets channel_usages
-     *
-     * @return array<string,float>
-     */
-    public function getChannelUsages()
-    {
-        return $this->container['channel_usages'];
-    }
-
-    /**
-     * Sets channel_usages
-     *
-     * @param array<string,float> $channel_usages Per-channel usage breakdown
-     *
-     * @return self
-     */
-    public function setChannelUsages($channel_usages)
-    {
-        if (is_null($channel_usages)) {
-            throw new \InvalidArgumentException('non-nullable channel_usages cannot be null');
-        }
-        $this->container['channel_usages'] = $channel_usages;
+        $this->container['counts'] = $counts;
 
         return $this;
     }

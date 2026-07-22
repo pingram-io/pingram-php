@@ -1,4 +1,4 @@
-# # A2pRegistrationUpdateRequest
+# # TenDlcBrandUpdateRequest
 
 ## Properties
 
@@ -10,7 +10,10 @@ Name | Type | Description | Notes
 **tax_id** | **string** |  | [optional]
 **website** | **string** |  | [optional]
 **country** | **string** |  | [optional]
-**full_address** | **string** |  | [optional]
+**street** | **string** |  | [optional]
+**city** | **string** |  | [optional]
+**state** | **string** |  | [optional]
+**postal_code** | **string** |  | [optional]
 **compliance_contact_email** | **string** |  | [optional]
 **compliance_contact_phone** | **string** |  | [optional]
 

@@ -1,6 +1,6 @@
 <?php
 /**
- * A2pRegistrationUpdateRequest
+ * OrganizationUsageCounts
  *
  * PHP version 8.1
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \Pingram\ObjectSerializer;
 
 /**
- * A2pRegistrationUpdateRequest Class Doc Comment
+ * OrganizationUsageCounts Class Doc Comment
  *
  * @category Class
- * @description Request body for PUT /registrations/a2p
+ * @description Per-channel usage breakdown
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class A2pRegistrationUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class OrganizationUsageCounts implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class A2pRegistrationUpdateRequest implements ModelInterface, ArrayAccess, \Json
       *
       * @var string
       */
-    protected static $openAPIModelName = 'A2pRegistrationUpdateRequest';
+    protected static $openAPIModelName = 'OrganizationUsage_counts';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,15 +58,13 @@ class A2pRegistrationUpdateRequest implements ModelInterface, ArrayAccess, \Json
       * @var string[]
       */
     protected static $openAPITypes = [
-        'scenario_id' => 'string',
-        'business_type' => 'string',
-        'legal_name' => 'string',
-        'tax_id' => 'string',
-        'website' => 'string',
-        'country' => 'string',
-        'full_address' => 'string',
-        'compliance_contact_email' => 'string',
-        'compliance_contact_phone' => 'string'
+        'email' => 'float',
+        'inapp_web' => 'float',
+        'sms' => 'float',
+        'call' => 'float',
+        'push' => 'float',
+        'web_push' => 'float',
+        'slack' => 'float'
     ];
 
     /**
@@ -77,15 +75,13 @@ class A2pRegistrationUpdateRequest implements ModelInterface, ArrayAccess, \Json
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'scenario_id' => null,
-        'business_type' => null,
-        'legal_name' => null,
-        'tax_id' => null,
-        'website' => null,
-        'country' => null,
-        'full_address' => null,
-        'compliance_contact_email' => null,
-        'compliance_contact_phone' => null
+        'email' => null,
+        'inapp_web' => null,
+        'sms' => null,
+        'call' => null,
+        'push' => null,
+        'web_push' => null,
+        'slack' => null
     ];
 
     /**
@@ -94,15 +90,13 @@ class A2pRegistrationUpdateRequest implements ModelInterface, ArrayAccess, \Json
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'scenario_id' => false,
-        'business_type' => false,
-        'legal_name' => false,
-        'tax_id' => false,
-        'website' => false,
-        'country' => false,
-        'full_address' => false,
-        'compliance_contact_email' => false,
-        'compliance_contact_phone' => false
+        'email' => false,
+        'inapp_web' => false,
+        'sms' => false,
+        'call' => false,
+        'push' => false,
+        'web_push' => false,
+        'slack' => false
     ];
 
     /**
@@ -191,15 +185,13 @@ class A2pRegistrationUpdateRequest implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $attributeMap = [
-        'scenario_id' => 'scenarioId',
-        'business_type' => 'businessType',
-        'legal_name' => 'legalName',
-        'tax_id' => 'taxId',
-        'website' => 'website',
-        'country' => 'country',
-        'full_address' => 'fullAddress',
-        'compliance_contact_email' => 'complianceContactEmail',
-        'compliance_contact_phone' => 'complianceContactPhone'
+        'email' => 'EMAIL',
+        'inapp_web' => 'INAPP_WEB',
+        'sms' => 'SMS',
+        'call' => 'CALL',
+        'push' => 'PUSH',
+        'web_push' => 'WEB_PUSH',
+        'slack' => 'SLACK'
     ];
 
     /**
@@ -208,15 +200,13 @@ class A2pRegistrationUpdateRequest implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $setters = [
-        'scenario_id' => 'setScenarioId',
-        'business_type' => 'setBusinessType',
-        'legal_name' => 'setLegalName',
-        'tax_id' => 'setTaxId',
-        'website' => 'setWebsite',
-        'country' => 'setCountry',
-        'full_address' => 'setFullAddress',
-        'compliance_contact_email' => 'setComplianceContactEmail',
-        'compliance_contact_phone' => 'setComplianceContactPhone'
+        'email' => 'setEmail',
+        'inapp_web' => 'setInappWeb',
+        'sms' => 'setSms',
+        'call' => 'setCall',
+        'push' => 'setPush',
+        'web_push' => 'setWebPush',
+        'slack' => 'setSlack'
     ];
 
     /**
@@ -225,15 +215,13 @@ class A2pRegistrationUpdateRequest implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $getters = [
-        'scenario_id' => 'getScenarioId',
-        'business_type' => 'getBusinessType',
-        'legal_name' => 'getLegalName',
-        'tax_id' => 'getTaxId',
-        'website' => 'getWebsite',
-        'country' => 'getCountry',
-        'full_address' => 'getFullAddress',
-        'compliance_contact_email' => 'getComplianceContactEmail',
-        'compliance_contact_phone' => 'getComplianceContactPhone'
+        'email' => 'getEmail',
+        'inapp_web' => 'getInappWeb',
+        'sms' => 'getSms',
+        'call' => 'getCall',
+        'push' => 'getPush',
+        'web_push' => 'getWebPush',
+        'slack' => 'getSlack'
     ];
 
     /**
@@ -293,15 +281,13 @@ class A2pRegistrationUpdateRequest implements ModelInterface, ArrayAccess, \Json
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('scenario_id', $data ?? [], null);
-        $this->setIfExists('business_type', $data ?? [], null);
-        $this->setIfExists('legal_name', $data ?? [], null);
-        $this->setIfExists('tax_id', $data ?? [], null);
-        $this->setIfExists('website', $data ?? [], null);
-        $this->setIfExists('country', $data ?? [], null);
-        $this->setIfExists('full_address', $data ?? [], null);
-        $this->setIfExists('compliance_contact_email', $data ?? [], null);
-        $this->setIfExists('compliance_contact_phone', $data ?? [], null);
+        $this->setIfExists('email', $data ?? [], null);
+        $this->setIfExists('inapp_web', $data ?? [], null);
+        $this->setIfExists('sms', $data ?? [], null);
+        $this->setIfExists('call', $data ?? [], null);
+        $this->setIfExists('push', $data ?? [], null);
+        $this->setIfExists('web_push', $data ?? [], null);
+        $this->setIfExists('slack', $data ?? [], null);
     }
 
     /**
@@ -331,6 +317,27 @@ class A2pRegistrationUpdateRequest implements ModelInterface, ArrayAccess, \Json
     {
         $invalidProperties = [];
 
+        if ($this->container['email'] === null) {
+            $invalidProperties[] = "'email' can't be null";
+        }
+        if ($this->container['inapp_web'] === null) {
+            $invalidProperties[] = "'inapp_web' can't be null";
+        }
+        if ($this->container['sms'] === null) {
+            $invalidProperties[] = "'sms' can't be null";
+        }
+        if ($this->container['call'] === null) {
+            $invalidProperties[] = "'call' can't be null";
+        }
+        if ($this->container['push'] === null) {
+            $invalidProperties[] = "'push' can't be null";
+        }
+        if ($this->container['web_push'] === null) {
+            $invalidProperties[] = "'web_push' can't be null";
+        }
+        if ($this->container['slack'] === null) {
+            $invalidProperties[] = "'slack' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -347,244 +354,190 @@ class A2pRegistrationUpdateRequest implements ModelInterface, ArrayAccess, \Json
 
 
     /**
-     * Gets scenario_id
+     * Gets email
      *
-     * @return string|null
+     * @return float
      */
-    public function getScenarioId()
+    public function getEmail()
     {
-        return $this->container['scenario_id'];
+        return $this->container['email'];
     }
 
     /**
-     * Sets scenario_id
+     * Sets email
      *
-     * @param string|null $scenario_id scenario_id
+     * @param float $email email
      *
      * @return self
      */
-    public function setScenarioId($scenario_id)
+    public function setEmail($email)
     {
-        if (is_null($scenario_id)) {
-            throw new \InvalidArgumentException('non-nullable scenario_id cannot be null');
+        if (is_null($email)) {
+            throw new \InvalidArgumentException('non-nullable email cannot be null');
         }
-        $this->container['scenario_id'] = $scenario_id;
+        $this->container['email'] = $email;
 
         return $this;
     }
 
     /**
-     * Gets business_type
+     * Gets inapp_web
      *
-     * @return string|null
+     * @return float
      */
-    public function getBusinessType()
+    public function getInappWeb()
     {
-        return $this->container['business_type'];
+        return $this->container['inapp_web'];
     }
 
     /**
-     * Sets business_type
+     * Sets inapp_web
      *
-     * @param string|null $business_type business_type
+     * @param float $inapp_web inapp_web
      *
      * @return self
      */
-    public function setBusinessType($business_type)
+    public function setInappWeb($inapp_web)
     {
-        if (is_null($business_type)) {
-            throw new \InvalidArgumentException('non-nullable business_type cannot be null');
+        if (is_null($inapp_web)) {
+            throw new \InvalidArgumentException('non-nullable inapp_web cannot be null');
         }
-        $this->container['business_type'] = $business_type;
+        $this->container['inapp_web'] = $inapp_web;
 
         return $this;
     }
 
     /**
-     * Gets legal_name
+     * Gets sms
      *
-     * @return string|null
+     * @return float
      */
-    public function getLegalName()
+    public function getSms()
     {
-        return $this->container['legal_name'];
+        return $this->container['sms'];
     }
 
     /**
-     * Sets legal_name
+     * Sets sms
      *
-     * @param string|null $legal_name legal_name
+     * @param float $sms sms
      *
      * @return self
      */
-    public function setLegalName($legal_name)
+    public function setSms($sms)
     {
-        if (is_null($legal_name)) {
-            throw new \InvalidArgumentException('non-nullable legal_name cannot be null');
+        if (is_null($sms)) {
+            throw new \InvalidArgumentException('non-nullable sms cannot be null');
         }
-        $this->container['legal_name'] = $legal_name;
+        $this->container['sms'] = $sms;
 
         return $this;
     }
 
     /**
-     * Gets tax_id
+     * Gets call
      *
-     * @return string|null
+     * @return float
      */
-    public function getTaxId()
+    public function getCall()
     {
-        return $this->container['tax_id'];
+        return $this->container['call'];
     }
 
     /**
-     * Sets tax_id
+     * Sets call
      *
-     * @param string|null $tax_id tax_id
+     * @param float $call call
      *
      * @return self
      */
-    public function setTaxId($tax_id)
+    public function setCall($call)
     {
-        if (is_null($tax_id)) {
-            throw new \InvalidArgumentException('non-nullable tax_id cannot be null');
+        if (is_null($call)) {
+            throw new \InvalidArgumentException('non-nullable call cannot be null');
         }
-        $this->container['tax_id'] = $tax_id;
+        $this->container['call'] = $call;
 
         return $this;
     }
 
     /**
-     * Gets website
+     * Gets push
      *
-     * @return string|null
+     * @return float
      */
-    public function getWebsite()
+    public function getPush()
     {
-        return $this->container['website'];
+        return $this->container['push'];
     }
 
     /**
-     * Sets website
+     * Sets push
      *
-     * @param string|null $website website
+     * @param float $push push
      *
      * @return self
      */
-    public function setWebsite($website)
+    public function setPush($push)
     {
-        if (is_null($website)) {
-            throw new \InvalidArgumentException('non-nullable website cannot be null');
+        if (is_null($push)) {
+            throw new \InvalidArgumentException('non-nullable push cannot be null');
         }
-        $this->container['website'] = $website;
+        $this->container['push'] = $push;
 
         return $this;
     }
 
     /**
-     * Gets country
+     * Gets web_push
      *
-     * @return string|null
+     * @return float
      */
-    public function getCountry()
+    public function getWebPush()
     {
-        return $this->container['country'];
+        return $this->container['web_push'];
     }
 
     /**
-     * Sets country
+     * Sets web_push
      *
-     * @param string|null $country country
+     * @param float $web_push web_push
      *
      * @return self
      */
-    public function setCountry($country)
+    public function setWebPush($web_push)
     {
-        if (is_null($country)) {
-            throw new \InvalidArgumentException('non-nullable country cannot be null');
+        if (is_null($web_push)) {
+            throw new \InvalidArgumentException('non-nullable web_push cannot be null');
         }
-        $this->container['country'] = $country;
+        $this->container['web_push'] = $web_push;
 
         return $this;
     }
 
     /**
-     * Gets full_address
+     * Gets slack
      *
-     * @return string|null
+     * @return float
      */
-    public function getFullAddress()
+    public function getSlack()
     {
-        return $this->container['full_address'];
+        return $this->container['slack'];
     }
 
     /**
-     * Sets full_address
+     * Sets slack
      *
-     * @param string|null $full_address full_address
+     * @param float $slack slack
      *
      * @return self
      */
-    public function setFullAddress($full_address)
+    public function setSlack($slack)
     {
-        if (is_null($full_address)) {
-            throw new \InvalidArgumentException('non-nullable full_address cannot be null');
+        if (is_null($slack)) {
+            throw new \InvalidArgumentException('non-nullable slack cannot be null');
         }
-        $this->container['full_address'] = $full_address;
-
-        return $this;
-    }
-
-    /**
-     * Gets compliance_contact_email
-     *
-     * @return string|null
-     */
-    public function getComplianceContactEmail()
-    {
-        return $this->container['compliance_contact_email'];
-    }
-
-    /**
-     * Sets compliance_contact_email
-     *
-     * @param string|null $compliance_contact_email compliance_contact_email
-     *
-     * @return self
-     */
-    public function setComplianceContactEmail($compliance_contact_email)
-    {
-        if (is_null($compliance_contact_email)) {
-            throw new \InvalidArgumentException('non-nullable compliance_contact_email cannot be null');
-        }
-        $this->container['compliance_contact_email'] = $compliance_contact_email;
-
-        return $this;
-    }
-
-    /**
-     * Gets compliance_contact_phone
-     *
-     * @return string|null
-     */
-    public function getComplianceContactPhone()
-    {
-        return $this->container['compliance_contact_phone'];
-    }
-
-    /**
-     * Sets compliance_contact_phone
-     *
-     * @param string|null $compliance_contact_phone compliance_contact_phone
-     *
-     * @return self
-     */
-    public function setComplianceContactPhone($compliance_contact_phone)
-    {
-        if (is_null($compliance_contact_phone)) {
-            throw new \InvalidArgumentException('non-nullable compliance_contact_phone cannot be null');
-        }
-        $this->container['compliance_contact_phone'] = $compliance_contact_phone;
+        $this->container['slack'] = $slack;
 
         return $this;
     }

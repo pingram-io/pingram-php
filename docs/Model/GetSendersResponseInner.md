@@ -13,5 +13,6 @@ Name | Type | Description | Notes
 **private_dkim_key** | **string** |  | [optional]
 **reminder_sent_at** | **string** |  | [optional]
 **selector** | **string** |  |
+**verification_records** | [**\Pingram\Model\GetSendersResponseInnerVerificationRecords**](GetSendersResponseInnerVerificationRecords.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

@@ -1,6 +1,6 @@
 <?php
 /**
- * BillingPostRequestBody
+ * OrganizationUsageHistoryItemsInnerCounts
  *
  * PHP version 8.1
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \Pingram\ObjectSerializer;
 
 /**
- * BillingPostRequestBody Class Doc Comment
+ * OrganizationUsageHistoryItemsInnerCounts Class Doc Comment
  *
  * @category Class
  * @package  Pingram
@@ -40,7 +40,7 @@ use \Pingram\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerializable
+class OrganizationUsageHistoryItemsInnerCounts implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
       *
       * @var string
       */
-    protected static $openAPIModelName = 'BillingPostRequestBody';
+    protected static $openAPIModelName = 'OrganizationUsageHistory_items_inner_counts';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,9 +57,13 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
       * @var string[]
       */
     protected static $openAPITypes = [
-        'budget_price_id' => 'string',
-        'success_url' => 'string',
-        'cancel_url' => 'string'
+        'email' => 'float',
+        'inapp_web' => 'float',
+        'sms' => 'float',
+        'call' => 'float',
+        'push' => 'float',
+        'web_push' => 'float',
+        'slack' => 'float'
     ];
 
     /**
@@ -70,9 +74,13 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'budget_price_id' => null,
-        'success_url' => null,
-        'cancel_url' => null
+        'email' => null,
+        'inapp_web' => null,
+        'sms' => null,
+        'call' => null,
+        'push' => null,
+        'web_push' => null,
+        'slack' => null
     ];
 
     /**
@@ -81,9 +89,13 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'budget_price_id' => false,
-        'success_url' => false,
-        'cancel_url' => false
+        'email' => false,
+        'inapp_web' => false,
+        'sms' => false,
+        'call' => false,
+        'push' => false,
+        'web_push' => false,
+        'slack' => false
     ];
 
     /**
@@ -172,9 +184,13 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $attributeMap = [
-        'budget_price_id' => 'budgetPriceId',
-        'success_url' => 'successUrl',
-        'cancel_url' => 'cancelUrl'
+        'email' => 'EMAIL',
+        'inapp_web' => 'INAPP_WEB',
+        'sms' => 'SMS',
+        'call' => 'CALL',
+        'push' => 'PUSH',
+        'web_push' => 'WEB_PUSH',
+        'slack' => 'SLACK'
     ];
 
     /**
@@ -183,9 +199,13 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $setters = [
-        'budget_price_id' => 'setBudgetPriceId',
-        'success_url' => 'setSuccessUrl',
-        'cancel_url' => 'setCancelUrl'
+        'email' => 'setEmail',
+        'inapp_web' => 'setInappWeb',
+        'sms' => 'setSms',
+        'call' => 'setCall',
+        'push' => 'setPush',
+        'web_push' => 'setWebPush',
+        'slack' => 'setSlack'
     ];
 
     /**
@@ -194,9 +214,13 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $getters = [
-        'budget_price_id' => 'getBudgetPriceId',
-        'success_url' => 'getSuccessUrl',
-        'cancel_url' => 'getCancelUrl'
+        'email' => 'getEmail',
+        'inapp_web' => 'getInappWeb',
+        'sms' => 'getSms',
+        'call' => 'getCall',
+        'push' => 'getPush',
+        'web_push' => 'getWebPush',
+        'slack' => 'getSlack'
     ];
 
     /**
@@ -256,9 +280,13 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('budget_price_id', $data ?? [], null);
-        $this->setIfExists('success_url', $data ?? [], null);
-        $this->setIfExists('cancel_url', $data ?? [], null);
+        $this->setIfExists('email', $data ?? [], null);
+        $this->setIfExists('inapp_web', $data ?? [], null);
+        $this->setIfExists('sms', $data ?? [], null);
+        $this->setIfExists('call', $data ?? [], null);
+        $this->setIfExists('push', $data ?? [], null);
+        $this->setIfExists('web_push', $data ?? [], null);
+        $this->setIfExists('slack', $data ?? [], null);
     }
 
     /**
@@ -288,11 +316,26 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
     {
         $invalidProperties = [];
 
-        if ($this->container['success_url'] === null) {
-            $invalidProperties[] = "'success_url' can't be null";
+        if ($this->container['email'] === null) {
+            $invalidProperties[] = "'email' can't be null";
         }
-        if ($this->container['cancel_url'] === null) {
-            $invalidProperties[] = "'cancel_url' can't be null";
+        if ($this->container['inapp_web'] === null) {
+            $invalidProperties[] = "'inapp_web' can't be null";
+        }
+        if ($this->container['sms'] === null) {
+            $invalidProperties[] = "'sms' can't be null";
+        }
+        if ($this->container['call'] === null) {
+            $invalidProperties[] = "'call' can't be null";
+        }
+        if ($this->container['push'] === null) {
+            $invalidProperties[] = "'push' can't be null";
+        }
+        if ($this->container['web_push'] === null) {
+            $invalidProperties[] = "'web_push' can't be null";
+        }
+        if ($this->container['slack'] === null) {
+            $invalidProperties[] = "'slack' can't be null";
         }
         return $invalidProperties;
     }
@@ -310,82 +353,190 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
 
 
     /**
-     * Gets budget_price_id
+     * Gets email
      *
-     * @return string|null
+     * @return float
      */
-    public function getBudgetPriceId()
+    public function getEmail()
     {
-        return $this->container['budget_price_id'];
+        return $this->container['email'];
     }
 
     /**
-     * Sets budget_price_id
+     * Sets email
      *
-     * @param string|null $budget_price_id Price ID for a monthly budget tier (all channels).
+     * @param float $email email
      *
      * @return self
      */
-    public function setBudgetPriceId($budget_price_id)
+    public function setEmail($email)
     {
-        if (is_null($budget_price_id)) {
-            throw new \InvalidArgumentException('non-nullable budget_price_id cannot be null');
+        if (is_null($email)) {
+            throw new \InvalidArgumentException('non-nullable email cannot be null');
         }
-        $this->container['budget_price_id'] = $budget_price_id;
+        $this->container['email'] = $email;
 
         return $this;
     }
 
     /**
-     * Gets success_url
+     * Gets inapp_web
      *
-     * @return string
+     * @return float
      */
-    public function getSuccessUrl()
+    public function getInappWeb()
     {
-        return $this->container['success_url'];
+        return $this->container['inapp_web'];
     }
 
     /**
-     * Sets success_url
+     * Sets inapp_web
      *
-     * @param string $success_url success_url
+     * @param float $inapp_web inapp_web
      *
      * @return self
      */
-    public function setSuccessUrl($success_url)
+    public function setInappWeb($inapp_web)
     {
-        if (is_null($success_url)) {
-            throw new \InvalidArgumentException('non-nullable success_url cannot be null');
+        if (is_null($inapp_web)) {
+            throw new \InvalidArgumentException('non-nullable inapp_web cannot be null');
         }
-        $this->container['success_url'] = $success_url;
+        $this->container['inapp_web'] = $inapp_web;
 
         return $this;
     }
 
     /**
-     * Gets cancel_url
+     * Gets sms
      *
-     * @return string
+     * @return float
      */
-    public function getCancelUrl()
+    public function getSms()
     {
-        return $this->container['cancel_url'];
+        return $this->container['sms'];
     }
 
     /**
-     * Sets cancel_url
+     * Sets sms
      *
-     * @param string $cancel_url cancel_url
+     * @param float $sms sms
      *
      * @return self
      */
-    public function setCancelUrl($cancel_url)
+    public function setSms($sms)
     {
-        if (is_null($cancel_url)) {
-            throw new \InvalidArgumentException('non-nullable cancel_url cannot be null');
+        if (is_null($sms)) {
+            throw new \InvalidArgumentException('non-nullable sms cannot be null');
         }
-        $this->container['cancel_url'] = $cancel_url;
+        $this->container['sms'] = $sms;
+
+        return $this;
+    }
+
+    /**
+     * Gets call
+     *
+     * @return float
+     */
+    public function getCall()
+    {
+        return $this->container['call'];
+    }
+
+    /**
+     * Sets call
+     *
+     * @param float $call call
+     *
+     * @return self
+     */
+    public function setCall($call)
+    {
+        if (is_null($call)) {
+            throw new \InvalidArgumentException('non-nullable call cannot be null');
+        }
+        $this->container['call'] = $call;
+
+        return $this;
+    }
+
+    /**
+     * Gets push
+     *
+     * @return float
+     */
+    public function getPush()
+    {
+        return $this->container['push'];
+    }
+
+    /**
+     * Sets push
+     *
+     * @param float $push push
+     *
+     * @return self
+     */
+    public function setPush($push)
+    {
+        if (is_null($push)) {
+            throw new \InvalidArgumentException('non-nullable push cannot be null');
+        }
+        $this->container['push'] = $push;
+
+        return $this;
+    }
+
+    /**
+     * Gets web_push
+     *
+     * @return float
+     */
+    public function getWebPush()
+    {
+        return $this->container['web_push'];
+    }
+
+    /**
+     * Sets web_push
+     *
+     * @param float $web_push web_push
+     *
+     * @return self
+     */
+    public function setWebPush($web_push)
+    {
+        if (is_null($web_push)) {
+            throw new \InvalidArgumentException('non-nullable web_push cannot be null');
+        }
+        $this->container['web_push'] = $web_push;
+
+        return $this;
+    }
+
+    /**
+     * Gets slack
+     *
+     * @return float
+     */
+    public function getSlack()
+    {
+        return $this->container['slack'];
+    }
+
+    /**
+     * Sets slack
+     *
+     * @param float $slack slack
+     *
+     * @return self
+     */
+    public function setSlack($slack)
+    {
+        if (is_null($slack)) {
+            throw new \InvalidArgumentException('non-nullable slack cannot be null');
+        }
+        $this->container['slack'] = $slack;
 
         return $this;
     }

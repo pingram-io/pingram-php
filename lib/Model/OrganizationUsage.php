@@ -58,12 +58,8 @@ class OrganizationUsage implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var string[]
       */
     protected static $openAPITypes = [
-        'message_usage' => 'float',
-        'budget_usage' => 'float',
-        'cost_sms' => 'float',
-        'cost_call' => 'float',
-        'cost_number' => 'float',
-        'channel_usages' => 'array<string,float>',
+        'costs' => '\Pingram\Model\OrganizationUsageCosts',
+        'counts' => '\Pingram\Model\OrganizationUsageCounts',
         'billing_cycle_start' => 'string',
         'billing_cycle_end' => 'string'
     ];
@@ -76,12 +72,8 @@ class OrganizationUsage implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'message_usage' => null,
-        'budget_usage' => null,
-        'cost_sms' => null,
-        'cost_call' => null,
-        'cost_number' => null,
-        'channel_usages' => null,
+        'costs' => null,
+        'counts' => null,
         'billing_cycle_start' => null,
         'billing_cycle_end' => null
     ];
@@ -92,12 +84,8 @@ class OrganizationUsage implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'message_usage' => false,
-        'budget_usage' => false,
-        'cost_sms' => false,
-        'cost_call' => false,
-        'cost_number' => false,
-        'channel_usages' => false,
+        'costs' => false,
+        'counts' => false,
         'billing_cycle_start' => false,
         'billing_cycle_end' => false
     ];
@@ -188,12 +176,8 @@ class OrganizationUsage implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $attributeMap = [
-        'message_usage' => 'messageUsage',
-        'budget_usage' => 'budgetUsage',
-        'cost_sms' => 'costSms',
-        'cost_call' => 'costCall',
-        'cost_number' => 'costNumber',
-        'channel_usages' => 'channelUsages',
+        'costs' => 'costs',
+        'counts' => 'counts',
         'billing_cycle_start' => 'billingCycleStart',
         'billing_cycle_end' => 'billingCycleEnd'
     ];
@@ -204,12 +188,8 @@ class OrganizationUsage implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $setters = [
-        'message_usage' => 'setMessageUsage',
-        'budget_usage' => 'setBudgetUsage',
-        'cost_sms' => 'setCostSms',
-        'cost_call' => 'setCostCall',
-        'cost_number' => 'setCostNumber',
-        'channel_usages' => 'setChannelUsages',
+        'costs' => 'setCosts',
+        'counts' => 'setCounts',
         'billing_cycle_start' => 'setBillingCycleStart',
         'billing_cycle_end' => 'setBillingCycleEnd'
     ];
@@ -220,12 +200,8 @@ class OrganizationUsage implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $getters = [
-        'message_usage' => 'getMessageUsage',
-        'budget_usage' => 'getBudgetUsage',
-        'cost_sms' => 'getCostSms',
-        'cost_call' => 'getCostCall',
-        'cost_number' => 'getCostNumber',
-        'channel_usages' => 'getChannelUsages',
+        'costs' => 'getCosts',
+        'counts' => 'getCounts',
         'billing_cycle_start' => 'getBillingCycleStart',
         'billing_cycle_end' => 'getBillingCycleEnd'
     ];
@@ -287,12 +263,8 @@ class OrganizationUsage implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('message_usage', $data ?? [], null);
-        $this->setIfExists('budget_usage', $data ?? [], null);
-        $this->setIfExists('cost_sms', $data ?? [], null);
-        $this->setIfExists('cost_call', $data ?? [], null);
-        $this->setIfExists('cost_number', $data ?? [], null);
-        $this->setIfExists('channel_usages', $data ?? [], null);
+        $this->setIfExists('costs', $data ?? [], null);
+        $this->setIfExists('counts', $data ?? [], null);
         $this->setIfExists('billing_cycle_start', $data ?? [], null);
         $this->setIfExists('billing_cycle_end', $data ?? [], null);
     }
@@ -324,24 +296,6 @@ class OrganizationUsage implements ModelInterface, ArrayAccess, \JsonSerializabl
     {
         $invalidProperties = [];
 
-        if ($this->container['message_usage'] === null) {
-            $invalidProperties[] = "'message_usage' can't be null";
-        }
-        if ($this->container['budget_usage'] === null) {
-            $invalidProperties[] = "'budget_usage' can't be null";
-        }
-        if ($this->container['cost_sms'] === null) {
-            $invalidProperties[] = "'cost_sms' can't be null";
-        }
-        if ($this->container['cost_call'] === null) {
-            $invalidProperties[] = "'cost_call' can't be null";
-        }
-        if ($this->container['cost_number'] === null) {
-            $invalidProperties[] = "'cost_number' can't be null";
-        }
-        if ($this->container['channel_usages'] === null) {
-            $invalidProperties[] = "'channel_usages' can't be null";
-        }
         if ($this->container['billing_cycle_start'] === null) {
             $invalidProperties[] = "'billing_cycle_start' can't be null";
         }
@@ -364,163 +318,55 @@ class OrganizationUsage implements ModelInterface, ArrayAccess, \JsonSerializabl
 
 
     /**
-     * Gets message_usage
+     * Gets costs
      *
-     * @return float
+     * @return \Pingram\Model\OrganizationUsageCosts|null
      */
-    public function getMessageUsage()
+    public function getCosts()
     {
-        return $this->container['message_usage'];
+        return $this->container['costs'];
     }
 
     /**
-     * Sets message_usage
+     * Sets costs
      *
-     * @param float $message_usage Total message usage (EMAIL + INAPP_WEB + WEB_PUSH + PUSH + SLACK)
+     * @param \Pingram\Model\OrganizationUsageCosts|null $costs costs
      *
      * @return self
      */
-    public function setMessageUsage($message_usage)
+    public function setCosts($costs)
     {
-        if (is_null($message_usage)) {
-            throw new \InvalidArgumentException('non-nullable message_usage cannot be null');
+        if (is_null($costs)) {
+            throw new \InvalidArgumentException('non-nullable costs cannot be null');
         }
-        $this->container['message_usage'] = $message_usage;
+        $this->container['costs'] = $costs;
 
         return $this;
     }
 
     /**
-     * Gets budget_usage
+     * Gets counts
      *
-     * @return float
+     * @return \Pingram\Model\OrganizationUsageCounts|null
      */
-    public function getBudgetUsage()
+    public function getCounts()
     {
-        return $this->container['budget_usage'];
+        return $this->container['counts'];
     }
 
     /**
-     * Sets budget_usage
+     * Sets counts
      *
-     * @param float $budget_usage Total budget usage in USD (cost_SMS + cost_CALL + cost_NUMBER)
+     * @param \Pingram\Model\OrganizationUsageCounts|null $counts counts
      *
      * @return self
      */
-    public function setBudgetUsage($budget_usage)
+    public function setCounts($counts)
     {
-        if (is_null($budget_usage)) {
-            throw new \InvalidArgumentException('non-nullable budget_usage cannot be null');
+        if (is_null($counts)) {
+            throw new \InvalidArgumentException('non-nullable counts cannot be null');
         }
-        $this->container['budget_usage'] = $budget_usage;
-
-        return $this;
-    }
-
-    /**
-     * Gets cost_sms
-     *
-     * @return float
-     */
-    public function getCostSms()
-    {
-        return $this->container['cost_sms'];
-    }
-
-    /**
-     * Sets cost_sms
-     *
-     * @param float $cost_sms SMS cost in USD
-     *
-     * @return self
-     */
-    public function setCostSms($cost_sms)
-    {
-        if (is_null($cost_sms)) {
-            throw new \InvalidArgumentException('non-nullable cost_sms cannot be null');
-        }
-        $this->container['cost_sms'] = $cost_sms;
-
-        return $this;
-    }
-
-    /**
-     * Gets cost_call
-     *
-     * @return float
-     */
-    public function getCostCall()
-    {
-        return $this->container['cost_call'];
-    }
-
-    /**
-     * Sets cost_call
-     *
-     * @param float $cost_call Call cost in USD
-     *
-     * @return self
-     */
-    public function setCostCall($cost_call)
-    {
-        if (is_null($cost_call)) {
-            throw new \InvalidArgumentException('non-nullable cost_call cannot be null');
-        }
-        $this->container['cost_call'] = $cost_call;
-
-        return $this;
-    }
-
-    /**
-     * Gets cost_number
-     *
-     * @return float
-     */
-    public function getCostNumber()
-    {
-        return $this->container['cost_number'];
-    }
-
-    /**
-     * Sets cost_number
-     *
-     * @param float $cost_number Phone number rent in USD
-     *
-     * @return self
-     */
-    public function setCostNumber($cost_number)
-    {
-        if (is_null($cost_number)) {
-            throw new \InvalidArgumentException('non-nullable cost_number cannot be null');
-        }
-        $this->container['cost_number'] = $cost_number;
-
-        return $this;
-    }
-
-    /**
-     * Gets channel_usages
-     *
-     * @return array<string,float>
-     */
-    public function getChannelUsages()
-    {
-        return $this->container['channel_usages'];
-    }
-
-    /**
-     * Sets channel_usages
-     *
-     * @param array<string,float> $channel_usages Per-channel usage breakdown
-     *
-     * @return self
-     */
-    public function setChannelUsages($channel_usages)
-    {
-        if (is_null($channel_usages)) {
-            throw new \InvalidArgumentException('non-nullable channel_usages cannot be null');
-        }
-        $this->container['channel_usages'] = $channel_usages;
+        $this->container['counts'] = $counts;
 
         return $this;
     }

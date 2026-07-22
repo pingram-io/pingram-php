@@ -1,11 +1,9 @@
-# # BillingPostRequestBody
+# # OrganizationUsageCosts
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**budget_price_id** | **string** | Price ID for a monthly budget tier (all channels). | [optional]
-**success_url** | **string** |  |
-**cancel_url** | **string** |  |
+**number** | **float** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

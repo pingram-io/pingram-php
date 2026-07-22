@@ -1,6 +1,6 @@
 <?php
 /**
- * A2pRegistrationCreateRequest
+ * GetSendersResponseInnerVerificationRecords
  *
  * PHP version 8.1
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \Pingram\ObjectSerializer;
 
 /**
- * A2pRegistrationCreateRequest Class Doc Comment
+ * GetSendersResponseInnerVerificationRecords Class Doc Comment
  *
  * @category Class
- * @description Request body for POST /registrations/a2p
+ * @description Keyed by record id — computed on domain API responses, not stored in DB.
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class A2pRegistrationCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class GetSendersResponseInnerVerificationRecords implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class A2pRegistrationCreateRequest implements ModelInterface, ArrayAccess, \Json
       *
       * @var string
       */
-    protected static $openAPIModelName = 'A2pRegistrationCreateRequest';
+    protected static $openAPIModelName = 'GetSendersResponse_inner_verificationRecords';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,15 +58,11 @@ class A2pRegistrationCreateRequest implements ModelInterface, ArrayAccess, \Json
       * @var string[]
       */
     protected static $openAPITypes = [
-        'scenario_id' => 'string',
-        'business_type' => 'string',
-        'legal_name' => 'string',
-        'tax_id' => 'string',
-        'website' => 'string',
-        'country' => 'string',
-        'full_address' => 'string',
-        'compliance_contact_email' => 'string',
-        'compliance_contact_phone' => 'string'
+        'dkim' => '\Pingram\Model\GetSendersResponseInnerVerificationRecordsDkim',
+        'mail_from_spf' => '\Pingram\Model\GetSendersResponseInnerVerificationRecordsDkim',
+        'mail_from_mx' => '\Pingram\Model\GetSendersResponseInnerVerificationRecordsDkim',
+        'dmarc' => '\Pingram\Model\GetSendersResponseInnerVerificationRecordsDkim',
+        'inbound_mx' => '\Pingram\Model\GetSendersResponseInnerVerificationRecordsDkim'
     ];
 
     /**
@@ -77,15 +73,11 @@ class A2pRegistrationCreateRequest implements ModelInterface, ArrayAccess, \Json
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'scenario_id' => null,
-        'business_type' => null,
-        'legal_name' => null,
-        'tax_id' => null,
-        'website' => null,
-        'country' => null,
-        'full_address' => null,
-        'compliance_contact_email' => null,
-        'compliance_contact_phone' => null
+        'dkim' => null,
+        'mail_from_spf' => null,
+        'mail_from_mx' => null,
+        'dmarc' => null,
+        'inbound_mx' => null
     ];
 
     /**
@@ -94,15 +86,11 @@ class A2pRegistrationCreateRequest implements ModelInterface, ArrayAccess, \Json
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'scenario_id' => false,
-        'business_type' => false,
-        'legal_name' => false,
-        'tax_id' => false,
-        'website' => false,
-        'country' => false,
-        'full_address' => false,
-        'compliance_contact_email' => false,
-        'compliance_contact_phone' => false
+        'dkim' => false,
+        'mail_from_spf' => false,
+        'mail_from_mx' => false,
+        'dmarc' => false,
+        'inbound_mx' => false
     ];
 
     /**
@@ -191,15 +179,11 @@ class A2pRegistrationCreateRequest implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $attributeMap = [
-        'scenario_id' => 'scenarioId',
-        'business_type' => 'businessType',
-        'legal_name' => 'legalName',
-        'tax_id' => 'taxId',
-        'website' => 'website',
-        'country' => 'country',
-        'full_address' => 'fullAddress',
-        'compliance_contact_email' => 'complianceContactEmail',
-        'compliance_contact_phone' => 'complianceContactPhone'
+        'dkim' => 'dkim',
+        'mail_from_spf' => 'mail_from_spf',
+        'mail_from_mx' => 'mail_from_mx',
+        'dmarc' => 'dmarc',
+        'inbound_mx' => 'inbound_mx'
     ];
 
     /**
@@ -208,15 +192,11 @@ class A2pRegistrationCreateRequest implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $setters = [
-        'scenario_id' => 'setScenarioId',
-        'business_type' => 'setBusinessType',
-        'legal_name' => 'setLegalName',
-        'tax_id' => 'setTaxId',
-        'website' => 'setWebsite',
-        'country' => 'setCountry',
-        'full_address' => 'setFullAddress',
-        'compliance_contact_email' => 'setComplianceContactEmail',
-        'compliance_contact_phone' => 'setComplianceContactPhone'
+        'dkim' => 'setDkim',
+        'mail_from_spf' => 'setMailFromSpf',
+        'mail_from_mx' => 'setMailFromMx',
+        'dmarc' => 'setDmarc',
+        'inbound_mx' => 'setInboundMx'
     ];
 
     /**
@@ -225,15 +205,11 @@ class A2pRegistrationCreateRequest implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $getters = [
-        'scenario_id' => 'getScenarioId',
-        'business_type' => 'getBusinessType',
-        'legal_name' => 'getLegalName',
-        'tax_id' => 'getTaxId',
-        'website' => 'getWebsite',
-        'country' => 'getCountry',
-        'full_address' => 'getFullAddress',
-        'compliance_contact_email' => 'getComplianceContactEmail',
-        'compliance_contact_phone' => 'getComplianceContactPhone'
+        'dkim' => 'getDkim',
+        'mail_from_spf' => 'getMailFromSpf',
+        'mail_from_mx' => 'getMailFromMx',
+        'dmarc' => 'getDmarc',
+        'inbound_mx' => 'getInboundMx'
     ];
 
     /**
@@ -293,15 +269,11 @@ class A2pRegistrationCreateRequest implements ModelInterface, ArrayAccess, \Json
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('scenario_id', $data ?? [], null);
-        $this->setIfExists('business_type', $data ?? [], null);
-        $this->setIfExists('legal_name', $data ?? [], null);
-        $this->setIfExists('tax_id', $data ?? [], null);
-        $this->setIfExists('website', $data ?? [], null);
-        $this->setIfExists('country', $data ?? [], null);
-        $this->setIfExists('full_address', $data ?? [], null);
-        $this->setIfExists('compliance_contact_email', $data ?? [], null);
-        $this->setIfExists('compliance_contact_phone', $data ?? [], null);
+        $this->setIfExists('dkim', $data ?? [], null);
+        $this->setIfExists('mail_from_spf', $data ?? [], null);
+        $this->setIfExists('mail_from_mx', $data ?? [], null);
+        $this->setIfExists('dmarc', $data ?? [], null);
+        $this->setIfExists('inbound_mx', $data ?? [], null);
     }
 
     /**
@@ -331,30 +303,6 @@ class A2pRegistrationCreateRequest implements ModelInterface, ArrayAccess, \Json
     {
         $invalidProperties = [];
 
-        if ($this->container['scenario_id'] === null) {
-            $invalidProperties[] = "'scenario_id' can't be null";
-        }
-        if ($this->container['business_type'] === null) {
-            $invalidProperties[] = "'business_type' can't be null";
-        }
-        if ($this->container['legal_name'] === null) {
-            $invalidProperties[] = "'legal_name' can't be null";
-        }
-        if ($this->container['website'] === null) {
-            $invalidProperties[] = "'website' can't be null";
-        }
-        if ($this->container['country'] === null) {
-            $invalidProperties[] = "'country' can't be null";
-        }
-        if ($this->container['full_address'] === null) {
-            $invalidProperties[] = "'full_address' can't be null";
-        }
-        if ($this->container['compliance_contact_email'] === null) {
-            $invalidProperties[] = "'compliance_contact_email' can't be null";
-        }
-        if ($this->container['compliance_contact_phone'] === null) {
-            $invalidProperties[] = "'compliance_contact_phone' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -371,244 +319,136 @@ class A2pRegistrationCreateRequest implements ModelInterface, ArrayAccess, \Json
 
 
     /**
-     * Gets scenario_id
+     * Gets dkim
      *
-     * @return string
+     * @return \Pingram\Model\GetSendersResponseInnerVerificationRecordsDkim|null
      */
-    public function getScenarioId()
+    public function getDkim()
     {
-        return $this->container['scenario_id'];
+        return $this->container['dkim'];
     }
 
     /**
-     * Sets scenario_id
+     * Sets dkim
      *
-     * @param string $scenario_id scenario_id
+     * @param \Pingram\Model\GetSendersResponseInnerVerificationRecordsDkim|null $dkim dkim
      *
      * @return self
      */
-    public function setScenarioId($scenario_id)
+    public function setDkim($dkim)
     {
-        if (is_null($scenario_id)) {
-            throw new \InvalidArgumentException('non-nullable scenario_id cannot be null');
+        if (is_null($dkim)) {
+            throw new \InvalidArgumentException('non-nullable dkim cannot be null');
         }
-        $this->container['scenario_id'] = $scenario_id;
+        $this->container['dkim'] = $dkim;
 
         return $this;
     }
 
     /**
-     * Gets business_type
+     * Gets mail_from_spf
      *
-     * @return string
+     * @return \Pingram\Model\GetSendersResponseInnerVerificationRecordsDkim|null
      */
-    public function getBusinessType()
+    public function getMailFromSpf()
     {
-        return $this->container['business_type'];
+        return $this->container['mail_from_spf'];
     }
 
     /**
-     * Sets business_type
+     * Sets mail_from_spf
      *
-     * @param string $business_type business_type
+     * @param \Pingram\Model\GetSendersResponseInnerVerificationRecordsDkim|null $mail_from_spf mail_from_spf
      *
      * @return self
      */
-    public function setBusinessType($business_type)
+    public function setMailFromSpf($mail_from_spf)
     {
-        if (is_null($business_type)) {
-            throw new \InvalidArgumentException('non-nullable business_type cannot be null');
+        if (is_null($mail_from_spf)) {
+            throw new \InvalidArgumentException('non-nullable mail_from_spf cannot be null');
         }
-        $this->container['business_type'] = $business_type;
+        $this->container['mail_from_spf'] = $mail_from_spf;
 
         return $this;
     }
 
     /**
-     * Gets legal_name
+     * Gets mail_from_mx
      *
-     * @return string
+     * @return \Pingram\Model\GetSendersResponseInnerVerificationRecordsDkim|null
      */
-    public function getLegalName()
+    public function getMailFromMx()
     {
-        return $this->container['legal_name'];
+        return $this->container['mail_from_mx'];
     }
 
     /**
-     * Sets legal_name
+     * Sets mail_from_mx
      *
-     * @param string $legal_name legal_name
+     * @param \Pingram\Model\GetSendersResponseInnerVerificationRecordsDkim|null $mail_from_mx mail_from_mx
      *
      * @return self
      */
-    public function setLegalName($legal_name)
+    public function setMailFromMx($mail_from_mx)
     {
-        if (is_null($legal_name)) {
-            throw new \InvalidArgumentException('non-nullable legal_name cannot be null');
+        if (is_null($mail_from_mx)) {
+            throw new \InvalidArgumentException('non-nullable mail_from_mx cannot be null');
         }
-        $this->container['legal_name'] = $legal_name;
+        $this->container['mail_from_mx'] = $mail_from_mx;
 
         return $this;
     }
 
     /**
-     * Gets tax_id
+     * Gets dmarc
      *
-     * @return string|null
+     * @return \Pingram\Model\GetSendersResponseInnerVerificationRecordsDkim|null
      */
-    public function getTaxId()
+    public function getDmarc()
     {
-        return $this->container['tax_id'];
+        return $this->container['dmarc'];
     }
 
     /**
-     * Sets tax_id
+     * Sets dmarc
      *
-     * @param string|null $tax_id tax_id
+     * @param \Pingram\Model\GetSendersResponseInnerVerificationRecordsDkim|null $dmarc dmarc
      *
      * @return self
      */
-    public function setTaxId($tax_id)
+    public function setDmarc($dmarc)
     {
-        if (is_null($tax_id)) {
-            throw new \InvalidArgumentException('non-nullable tax_id cannot be null');
+        if (is_null($dmarc)) {
+            throw new \InvalidArgumentException('non-nullable dmarc cannot be null');
         }
-        $this->container['tax_id'] = $tax_id;
+        $this->container['dmarc'] = $dmarc;
 
         return $this;
     }
 
     /**
-     * Gets website
+     * Gets inbound_mx
      *
-     * @return string
+     * @return \Pingram\Model\GetSendersResponseInnerVerificationRecordsDkim|null
      */
-    public function getWebsite()
+    public function getInboundMx()
     {
-        return $this->container['website'];
+        return $this->container['inbound_mx'];
     }
 
     /**
-     * Sets website
+     * Sets inbound_mx
      *
-     * @param string $website website
+     * @param \Pingram\Model\GetSendersResponseInnerVerificationRecordsDkim|null $inbound_mx inbound_mx
      *
      * @return self
      */
-    public function setWebsite($website)
+    public function setInboundMx($inbound_mx)
     {
-        if (is_null($website)) {
-            throw new \InvalidArgumentException('non-nullable website cannot be null');
+        if (is_null($inbound_mx)) {
+            throw new \InvalidArgumentException('non-nullable inbound_mx cannot be null');
         }
-        $this->container['website'] = $website;
-
-        return $this;
-    }
-
-    /**
-     * Gets country
-     *
-     * @return string
-     */
-    public function getCountry()
-    {
-        return $this->container['country'];
-    }
-
-    /**
-     * Sets country
-     *
-     * @param string $country country
-     *
-     * @return self
-     */
-    public function setCountry($country)
-    {
-        if (is_null($country)) {
-            throw new \InvalidArgumentException('non-nullable country cannot be null');
-        }
-        $this->container['country'] = $country;
-
-        return $this;
-    }
-
-    /**
-     * Gets full_address
-     *
-     * @return string
-     */
-    public function getFullAddress()
-    {
-        return $this->container['full_address'];
-    }
-
-    /**
-     * Sets full_address
-     *
-     * @param string $full_address full_address
-     *
-     * @return self
-     */
-    public function setFullAddress($full_address)
-    {
-        if (is_null($full_address)) {
-            throw new \InvalidArgumentException('non-nullable full_address cannot be null');
-        }
-        $this->container['full_address'] = $full_address;
-
-        return $this;
-    }
-
-    /**
-     * Gets compliance_contact_email
-     *
-     * @return string
-     */
-    public function getComplianceContactEmail()
-    {
-        return $this->container['compliance_contact_email'];
-    }
-
-    /**
-     * Sets compliance_contact_email
-     *
-     * @param string $compliance_contact_email compliance_contact_email
-     *
-     * @return self
-     */
-    public function setComplianceContactEmail($compliance_contact_email)
-    {
-        if (is_null($compliance_contact_email)) {
-            throw new \InvalidArgumentException('non-nullable compliance_contact_email cannot be null');
-        }
-        $this->container['compliance_contact_email'] = $compliance_contact_email;
-
-        return $this;
-    }
-
-    /**
-     * Gets compliance_contact_phone
-     *
-     * @return string
-     */
-    public function getComplianceContactPhone()
-    {
-        return $this->container['compliance_contact_phone'];
-    }
-
-    /**
-     * Sets compliance_contact_phone
-     *
-     * @param string $compliance_contact_phone compliance_contact_phone
-     *
-     * @return self
-     */
-    public function setComplianceContactPhone($compliance_contact_phone)
-    {
-        if (is_null($compliance_contact_phone)) {
-            throw new \InvalidArgumentException('non-nullable compliance_contact_phone cannot be null');
-        }
-        $this->container['compliance_contact_phone'] = $compliance_contact_phone;
+        $this->container['inbound_mx'] = $inbound_mx;
 
         return $this;
     }

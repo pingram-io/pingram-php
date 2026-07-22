@@ -66,6 +66,7 @@ class BillingPostResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
         'cost_cap' => 'float',
         'sms_cap' => 'float',
         'call_cap' => 'float',
+        'billing_version' => 'float',
         'anniversary_date' => 'string',
         'allow_overage' => 'bool',
         'created_at' => 'string',
@@ -90,6 +91,7 @@ class BillingPostResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
         'cost_cap' => null,
         'sms_cap' => null,
         'call_cap' => null,
+        'billing_version' => null,
         'anniversary_date' => null,
         'allow_overage' => null,
         'created_at' => null,
@@ -112,6 +114,7 @@ class BillingPostResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
         'cost_cap' => false,
         'sms_cap' => false,
         'call_cap' => false,
+        'billing_version' => false,
         'anniversary_date' => false,
         'allow_overage' => false,
         'created_at' => false,
@@ -214,6 +217,7 @@ class BillingPostResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
         'cost_cap' => 'costCap',
         'sms_cap' => 'smsCap',
         'call_cap' => 'callCap',
+        'billing_version' => 'billingVersion',
         'anniversary_date' => 'anniversaryDate',
         'allow_overage' => 'allowOverage',
         'created_at' => 'createdAt',
@@ -236,6 +240,7 @@ class BillingPostResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
         'cost_cap' => 'setCostCap',
         'sms_cap' => 'setSmsCap',
         'call_cap' => 'setCallCap',
+        'billing_version' => 'setBillingVersion',
         'anniversary_date' => 'setAnniversaryDate',
         'allow_overage' => 'setAllowOverage',
         'created_at' => 'setCreatedAt',
@@ -258,6 +263,7 @@ class BillingPostResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
         'cost_cap' => 'getCostCap',
         'sms_cap' => 'getSmsCap',
         'call_cap' => 'getCallCap',
+        'billing_version' => 'getBillingVersion',
         'anniversary_date' => 'getAnniversaryDate',
         'allow_overage' => 'getAllowOverage',
         'created_at' => 'getCreatedAt',
@@ -309,6 +315,8 @@ class BillingPostResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
 
     public const ORGANIZATION_TYPE_FREE = 'free';
     public const ORGANIZATION_TYPE_PAID = 'paid';
+    public const BILLING_VERSION_NUMBER_1 = 1;
+    public const BILLING_VERSION_NUMBER_3 = 3;
 
     /**
      * Gets allowable values of the enum
@@ -320,6 +328,19 @@ class BillingPostResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
         return [
             self::ORGANIZATION_TYPE_FREE,
             self::ORGANIZATION_TYPE_PAID,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getBillingVersionAllowableValues()
+    {
+        return [
+            self::BILLING_VERSION_NUMBER_1,
+            self::BILLING_VERSION_NUMBER_3,
         ];
     }
 
@@ -346,6 +367,7 @@ class BillingPostResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
         $this->setIfExists('cost_cap', $data ?? [], null);
         $this->setIfExists('sms_cap', $data ?? [], null);
         $this->setIfExists('call_cap', $data ?? [], null);
+        $this->setIfExists('billing_version', $data ?? [], null);
         $this->setIfExists('anniversary_date', $data ?? [], null);
         $this->setIfExists('allow_overage', $data ?? [], null);
         $this->setIfExists('created_at', $data ?? [], null);
@@ -408,6 +430,15 @@ class BillingPostResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
         if ($this->container['cost_cap'] === null) {
             $invalidProperties[] = "'cost_cap' can't be null";
         }
+        $allowedValues = $this->getBillingVersionAllowableValues();
+        if (!is_null($this->container['billing_version']) && !in_array($this->container['billing_version'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'billing_version', must be one of '%s'",
+                $this->container['billing_version'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['anniversary_date'] === null) {
             $invalidProperties[] = "'anniversary_date' can't be null";
         }
@@ -657,6 +688,43 @@ class BillingPostResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
             throw new \InvalidArgumentException('non-nullable call_cap cannot be null');
         }
         $this->container['call_cap'] = $call_cap;
+
+        return $this;
+    }
+
+    /**
+     * Gets billing_version
+     *
+     * @return float|null
+     */
+    public function getBillingVersion()
+    {
+        return $this->container['billing_version'];
+    }
+
+    /**
+     * Sets billing_version
+     *
+     * @param float|null $billing_version billing_version
+     *
+     * @return self
+     */
+    public function setBillingVersion($billing_version)
+    {
+        if (is_null($billing_version)) {
+            throw new \InvalidArgumentException('non-nullable billing_version cannot be null');
+        }
+        $allowedValues = $this->getBillingVersionAllowableValues();
+        if (!in_array($billing_version, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'billing_version', must be one of '%s'",
+                    $billing_version,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['billing_version'] = $billing_version;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 <?php
 /**
- * A2pRegistration
+ * TenDlcBrandCreateRequest
  *
  * PHP version 8.1
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \Pingram\ObjectSerializer;
 
 /**
- * A2pRegistration Class Doc Comment
+ * TenDlcBrandCreateRequest Class Doc Comment
  *
  * @category Class
- * @description Public response type for A2P registration
+ * @description Request body for POST /registrations/us/10dlc/brand
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class A2pRegistration implements ModelInterface, ArrayAccess, \JsonSerializable
+class TenDlcBrandCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class A2pRegistration implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'A2pRegistration';
+    protected static $openAPIModelName = 'TenDlcBrandCreateRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,20 +58,18 @@ class A2pRegistration implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'account_id' => 'string',
         'scenario_id' => 'string',
         'business_type' => 'string',
         'legal_name' => 'string',
         'tax_id' => 'string',
         'website' => 'string',
         'country' => 'string',
-        'full_address' => 'string',
+        'street' => 'string',
+        'city' => 'string',
+        'state' => 'string',
+        'postal_code' => 'string',
         'compliance_contact_email' => 'string',
-        'compliance_contact_phone' => 'string',
-        'brand_status' => 'string',
-        'campaign_status' => 'string',
-        'created_at' => 'string',
-        'updated_at' => 'string'
+        'compliance_contact_phone' => 'string'
     ];
 
     /**
@@ -82,20 +80,18 @@ class A2pRegistration implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'account_id' => null,
         'scenario_id' => null,
         'business_type' => null,
         'legal_name' => null,
         'tax_id' => null,
         'website' => null,
         'country' => null,
-        'full_address' => null,
+        'street' => null,
+        'city' => null,
+        'state' => null,
+        'postal_code' => null,
         'compliance_contact_email' => null,
-        'compliance_contact_phone' => null,
-        'brand_status' => null,
-        'campaign_status' => null,
-        'created_at' => null,
-        'updated_at' => null
+        'compliance_contact_phone' => null
     ];
 
     /**
@@ -104,20 +100,18 @@ class A2pRegistration implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'account_id' => false,
         'scenario_id' => false,
         'business_type' => false,
         'legal_name' => false,
         'tax_id' => false,
         'website' => false,
         'country' => false,
-        'full_address' => false,
+        'street' => false,
+        'city' => false,
+        'state' => false,
+        'postal_code' => false,
         'compliance_contact_email' => false,
-        'compliance_contact_phone' => false,
-        'brand_status' => false,
-        'campaign_status' => false,
-        'created_at' => false,
-        'updated_at' => false
+        'compliance_contact_phone' => false
     ];
 
     /**
@@ -206,20 +200,18 @@ class A2pRegistration implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'account_id' => 'accountId',
         'scenario_id' => 'scenarioId',
         'business_type' => 'businessType',
         'legal_name' => 'legalName',
         'tax_id' => 'taxId',
         'website' => 'website',
         'country' => 'country',
-        'full_address' => 'fullAddress',
+        'street' => 'street',
+        'city' => 'city',
+        'state' => 'state',
+        'postal_code' => 'postalCode',
         'compliance_contact_email' => 'complianceContactEmail',
-        'compliance_contact_phone' => 'complianceContactPhone',
-        'brand_status' => 'brandStatus',
-        'campaign_status' => 'campaignStatus',
-        'created_at' => 'createdAt',
-        'updated_at' => 'updatedAt'
+        'compliance_contact_phone' => 'complianceContactPhone'
     ];
 
     /**
@@ -228,20 +220,18 @@ class A2pRegistration implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'account_id' => 'setAccountId',
         'scenario_id' => 'setScenarioId',
         'business_type' => 'setBusinessType',
         'legal_name' => 'setLegalName',
         'tax_id' => 'setTaxId',
         'website' => 'setWebsite',
         'country' => 'setCountry',
-        'full_address' => 'setFullAddress',
+        'street' => 'setStreet',
+        'city' => 'setCity',
+        'state' => 'setState',
+        'postal_code' => 'setPostalCode',
         'compliance_contact_email' => 'setComplianceContactEmail',
-        'compliance_contact_phone' => 'setComplianceContactPhone',
-        'brand_status' => 'setBrandStatus',
-        'campaign_status' => 'setCampaignStatus',
-        'created_at' => 'setCreatedAt',
-        'updated_at' => 'setUpdatedAt'
+        'compliance_contact_phone' => 'setComplianceContactPhone'
     ];
 
     /**
@@ -250,20 +240,18 @@ class A2pRegistration implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'account_id' => 'getAccountId',
         'scenario_id' => 'getScenarioId',
         'business_type' => 'getBusinessType',
         'legal_name' => 'getLegalName',
         'tax_id' => 'getTaxId',
         'website' => 'getWebsite',
         'country' => 'getCountry',
-        'full_address' => 'getFullAddress',
+        'street' => 'getStreet',
+        'city' => 'getCity',
+        'state' => 'getState',
+        'postal_code' => 'getPostalCode',
         'compliance_contact_email' => 'getComplianceContactEmail',
-        'compliance_contact_phone' => 'getComplianceContactPhone',
-        'brand_status' => 'getBrandStatus',
-        'campaign_status' => 'getCampaignStatus',
-        'created_at' => 'getCreatedAt',
-        'updated_at' => 'getUpdatedAt'
+        'compliance_contact_phone' => 'getComplianceContactPhone'
     ];
 
     /**
@@ -307,52 +295,6 @@ class A2pRegistration implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
-    public const BRAND_STATUS_NOT_STARTED = 'not_started';
-    public const BRAND_STATUS_IN_PROGRESS = 'in_progress';
-    public const BRAND_STATUS_PENDING_REVIEW = 'pending_review';
-    public const BRAND_STATUS_APPROVED = 'approved';
-    public const BRAND_STATUS_REJECTED = 'rejected';
-    public const BRAND_STATUS_INFO_NEEDED = 'info_needed';
-    public const CAMPAIGN_STATUS_NOT_STARTED = 'not_started';
-    public const CAMPAIGN_STATUS_IN_PROGRESS = 'in_progress';
-    public const CAMPAIGN_STATUS_PENDING_REVIEW = 'pending_review';
-    public const CAMPAIGN_STATUS_APPROVED = 'approved';
-    public const CAMPAIGN_STATUS_REJECTED = 'rejected';
-    public const CAMPAIGN_STATUS_INFO_NEEDED = 'info_needed';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getBrandStatusAllowableValues()
-    {
-        return [
-            self::BRAND_STATUS_NOT_STARTED,
-            self::BRAND_STATUS_IN_PROGRESS,
-            self::BRAND_STATUS_PENDING_REVIEW,
-            self::BRAND_STATUS_APPROVED,
-            self::BRAND_STATUS_REJECTED,
-            self::BRAND_STATUS_INFO_NEEDED,
-        ];
-    }
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getCampaignStatusAllowableValues()
-    {
-        return [
-            self::CAMPAIGN_STATUS_NOT_STARTED,
-            self::CAMPAIGN_STATUS_IN_PROGRESS,
-            self::CAMPAIGN_STATUS_PENDING_REVIEW,
-            self::CAMPAIGN_STATUS_APPROVED,
-            self::CAMPAIGN_STATUS_REJECTED,
-            self::CAMPAIGN_STATUS_INFO_NEEDED,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -369,20 +311,18 @@ class A2pRegistration implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('account_id', $data ?? [], null);
         $this->setIfExists('scenario_id', $data ?? [], null);
         $this->setIfExists('business_type', $data ?? [], null);
         $this->setIfExists('legal_name', $data ?? [], null);
         $this->setIfExists('tax_id', $data ?? [], null);
         $this->setIfExists('website', $data ?? [], null);
         $this->setIfExists('country', $data ?? [], null);
-        $this->setIfExists('full_address', $data ?? [], null);
+        $this->setIfExists('street', $data ?? [], null);
+        $this->setIfExists('city', $data ?? [], null);
+        $this->setIfExists('state', $data ?? [], null);
+        $this->setIfExists('postal_code', $data ?? [], null);
         $this->setIfExists('compliance_contact_email', $data ?? [], null);
         $this->setIfExists('compliance_contact_phone', $data ?? [], null);
-        $this->setIfExists('brand_status', $data ?? [], null);
-        $this->setIfExists('campaign_status', $data ?? [], null);
-        $this->setIfExists('created_at', $data ?? [], null);
-        $this->setIfExists('updated_at', $data ?? [], null);
     }
 
     /**
@@ -412,9 +352,6 @@ class A2pRegistration implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['account_id'] === null) {
-            $invalidProperties[] = "'account_id' can't be null";
-        }
         if ($this->container['scenario_id'] === null) {
             $invalidProperties[] = "'scenario_id' can't be null";
         }
@@ -430,44 +367,11 @@ class A2pRegistration implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['country'] === null) {
             $invalidProperties[] = "'country' can't be null";
         }
-        if ($this->container['full_address'] === null) {
-            $invalidProperties[] = "'full_address' can't be null";
-        }
         if ($this->container['compliance_contact_email'] === null) {
             $invalidProperties[] = "'compliance_contact_email' can't be null";
         }
         if ($this->container['compliance_contact_phone'] === null) {
             $invalidProperties[] = "'compliance_contact_phone' can't be null";
-        }
-        if ($this->container['brand_status'] === null) {
-            $invalidProperties[] = "'brand_status' can't be null";
-        }
-        $allowedValues = $this->getBrandStatusAllowableValues();
-        if (!is_null($this->container['brand_status']) && !in_array($this->container['brand_status'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'brand_status', must be one of '%s'",
-                $this->container['brand_status'],
-                implode("', '", $allowedValues)
-            );
-        }
-
-        if ($this->container['campaign_status'] === null) {
-            $invalidProperties[] = "'campaign_status' can't be null";
-        }
-        $allowedValues = $this->getCampaignStatusAllowableValues();
-        if (!is_null($this->container['campaign_status']) && !in_array($this->container['campaign_status'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'campaign_status', must be one of '%s'",
-                $this->container['campaign_status'],
-                implode("', '", $allowedValues)
-            );
-        }
-
-        if ($this->container['created_at'] === null) {
-            $invalidProperties[] = "'created_at' can't be null";
-        }
-        if ($this->container['updated_at'] === null) {
-            $invalidProperties[] = "'updated_at' can't be null";
         }
         return $invalidProperties;
     }
@@ -483,33 +387,6 @@ class A2pRegistration implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets account_id
-     *
-     * @return string
-     */
-    public function getAccountId()
-    {
-        return $this->container['account_id'];
-    }
-
-    /**
-     * Sets account_id
-     *
-     * @param string $account_id account_id
-     *
-     * @return self
-     */
-    public function setAccountId($account_id)
-    {
-        if (is_null($account_id)) {
-            throw new \InvalidArgumentException('non-nullable account_id cannot be null');
-        }
-        $this->container['account_id'] = $account_id;
-
-        return $this;
-    }
 
     /**
      * Gets scenario_id
@@ -674,28 +551,109 @@ class A2pRegistration implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets full_address
+     * Gets street
      *
-     * @return string
+     * @return string|null
      */
-    public function getFullAddress()
+    public function getStreet()
     {
-        return $this->container['full_address'];
+        return $this->container['street'];
     }
 
     /**
-     * Sets full_address
+     * Sets street
      *
-     * @param string $full_address full_address
+     * @param string|null $street street
      *
      * @return self
      */
-    public function setFullAddress($full_address)
+    public function setStreet($street)
     {
-        if (is_null($full_address)) {
-            throw new \InvalidArgumentException('non-nullable full_address cannot be null');
+        if (is_null($street)) {
+            throw new \InvalidArgumentException('non-nullable street cannot be null');
         }
-        $this->container['full_address'] = $full_address;
+        $this->container['street'] = $street;
+
+        return $this;
+    }
+
+    /**
+     * Gets city
+     *
+     * @return string|null
+     */
+    public function getCity()
+    {
+        return $this->container['city'];
+    }
+
+    /**
+     * Sets city
+     *
+     * @param string|null $city city
+     *
+     * @return self
+     */
+    public function setCity($city)
+    {
+        if (is_null($city)) {
+            throw new \InvalidArgumentException('non-nullable city cannot be null');
+        }
+        $this->container['city'] = $city;
+
+        return $this;
+    }
+
+    /**
+     * Gets state
+     *
+     * @return string|null
+     */
+    public function getState()
+    {
+        return $this->container['state'];
+    }
+
+    /**
+     * Sets state
+     *
+     * @param string|null $state state
+     *
+     * @return self
+     */
+    public function setState($state)
+    {
+        if (is_null($state)) {
+            throw new \InvalidArgumentException('non-nullable state cannot be null');
+        }
+        $this->container['state'] = $state;
+
+        return $this;
+    }
+
+    /**
+     * Gets postal_code
+     *
+     * @return string|null
+     */
+    public function getPostalCode()
+    {
+        return $this->container['postal_code'];
+    }
+
+    /**
+     * Sets postal_code
+     *
+     * @param string|null $postal_code postal_code
+     *
+     * @return self
+     */
+    public function setPostalCode($postal_code)
+    {
+        if (is_null($postal_code)) {
+            throw new \InvalidArgumentException('non-nullable postal_code cannot be null');
+        }
+        $this->container['postal_code'] = $postal_code;
 
         return $this;
     }
@@ -750,134 +708,6 @@ class A2pRegistration implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable compliance_contact_phone cannot be null');
         }
         $this->container['compliance_contact_phone'] = $compliance_contact_phone;
-
-        return $this;
-    }
-
-    /**
-     * Gets brand_status
-     *
-     * @return string
-     */
-    public function getBrandStatus()
-    {
-        return $this->container['brand_status'];
-    }
-
-    /**
-     * Sets brand_status
-     *
-     * @param string $brand_status brand_status
-     *
-     * @return self
-     */
-    public function setBrandStatus($brand_status)
-    {
-        if (is_null($brand_status)) {
-            throw new \InvalidArgumentException('non-nullable brand_status cannot be null');
-        }
-        $allowedValues = $this->getBrandStatusAllowableValues();
-        if (!in_array($brand_status, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'brand_status', must be one of '%s'",
-                    $brand_status,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['brand_status'] = $brand_status;
-
-        return $this;
-    }
-
-    /**
-     * Gets campaign_status
-     *
-     * @return string
-     */
-    public function getCampaignStatus()
-    {
-        return $this->container['campaign_status'];
-    }
-
-    /**
-     * Sets campaign_status
-     *
-     * @param string $campaign_status campaign_status
-     *
-     * @return self
-     */
-    public function setCampaignStatus($campaign_status)
-    {
-        if (is_null($campaign_status)) {
-            throw new \InvalidArgumentException('non-nullable campaign_status cannot be null');
-        }
-        $allowedValues = $this->getCampaignStatusAllowableValues();
-        if (!in_array($campaign_status, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'campaign_status', must be one of '%s'",
-                    $campaign_status,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['campaign_status'] = $campaign_status;
-
-        return $this;
-    }
-
-    /**
-     * Gets created_at
-     *
-     * @return string
-     */
-    public function getCreatedAt()
-    {
-        return $this->container['created_at'];
-    }
-
-    /**
-     * Sets created_at
-     *
-     * @param string $created_at created_at
-     *
-     * @return self
-     */
-    public function setCreatedAt($created_at)
-    {
-        if (is_null($created_at)) {
-            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
-        }
-        $this->container['created_at'] = $created_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets updated_at
-     *
-     * @return string
-     */
-    public function getUpdatedAt()
-    {
-        return $this->container['updated_at'];
-    }
-
-    /**
-     * Sets updated_at
-     *
-     * @param string $updated_at updated_at
-     *
-     * @return self
-     */
-    public function setUpdatedAt($updated_at)
-    {
-        if (is_null($updated_at)) {
-            throw new \InvalidArgumentException('non-nullable updated_at cannot be null');
-        }
-        $this->container['updated_at'] = $updated_at;
 
         return $this;
     }

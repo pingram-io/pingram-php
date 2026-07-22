@@ -1,6 +1,6 @@
 <?php
 /**
- * BillingPostRequestBody
+ * OrganizationUsageCosts
  *
  * PHP version 8.1
  *
@@ -32,15 +32,16 @@ use \ArrayAccess;
 use \Pingram\ObjectSerializer;
 
 /**
- * BillingPostRequestBody Class Doc Comment
+ * OrganizationUsageCosts Class Doc Comment
  *
  * @category Class
+ * @description Total costs for the billing cycle (all channel costs + number rent)
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerializable
+class OrganizationUsageCosts implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +50,7 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
       *
       * @var string
       */
-    protected static $openAPIModelName = 'BillingPostRequestBody';
+    protected static $openAPIModelName = 'OrganizationUsage_costs';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,9 +58,7 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
       * @var string[]
       */
     protected static $openAPITypes = [
-        'budget_price_id' => 'string',
-        'success_url' => 'string',
-        'cancel_url' => 'string'
+        'number' => 'float'
     ];
 
     /**
@@ -70,9 +69,7 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'budget_price_id' => null,
-        'success_url' => null,
-        'cancel_url' => null
+        'number' => null
     ];
 
     /**
@@ -81,9 +78,7 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'budget_price_id' => false,
-        'success_url' => false,
-        'cancel_url' => false
+        'number' => false
     ];
 
     /**
@@ -172,9 +167,7 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $attributeMap = [
-        'budget_price_id' => 'budgetPriceId',
-        'success_url' => 'successUrl',
-        'cancel_url' => 'cancelUrl'
+        'number' => 'NUMBER'
     ];
 
     /**
@@ -183,9 +176,7 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $setters = [
-        'budget_price_id' => 'setBudgetPriceId',
-        'success_url' => 'setSuccessUrl',
-        'cancel_url' => 'setCancelUrl'
+        'number' => 'setNumber'
     ];
 
     /**
@@ -194,9 +185,7 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $getters = [
-        'budget_price_id' => 'getBudgetPriceId',
-        'success_url' => 'getSuccessUrl',
-        'cancel_url' => 'getCancelUrl'
+        'number' => 'getNumber'
     ];
 
     /**
@@ -256,9 +245,7 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('budget_price_id', $data ?? [], null);
-        $this->setIfExists('success_url', $data ?? [], null);
-        $this->setIfExists('cancel_url', $data ?? [], null);
+        $this->setIfExists('number', $data ?? [], null);
     }
 
     /**
@@ -288,12 +275,6 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
     {
         $invalidProperties = [];
 
-        if ($this->container['success_url'] === null) {
-            $invalidProperties[] = "'success_url' can't be null";
-        }
-        if ($this->container['cancel_url'] === null) {
-            $invalidProperties[] = "'cancel_url' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -310,82 +291,28 @@ class BillingPostRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
 
 
     /**
-     * Gets budget_price_id
+     * Gets number
      *
-     * @return string|null
+     * @return float|null
      */
-    public function getBudgetPriceId()
+    public function getNumber()
     {
-        return $this->container['budget_price_id'];
+        return $this->container['number'];
     }
 
     /**
-     * Sets budget_price_id
+     * Sets number
      *
-     * @param string|null $budget_price_id Price ID for a monthly budget tier (all channels).
+     * @param float|null $number number
      *
      * @return self
      */
-    public function setBudgetPriceId($budget_price_id)
+    public function setNumber($number)
     {
-        if (is_null($budget_price_id)) {
-            throw new \InvalidArgumentException('non-nullable budget_price_id cannot be null');
+        if (is_null($number)) {
+            throw new \InvalidArgumentException('non-nullable number cannot be null');
         }
-        $this->container['budget_price_id'] = $budget_price_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets success_url
-     *
-     * @return string
-     */
-    public function getSuccessUrl()
-    {
-        return $this->container['success_url'];
-    }
-
-    /**
-     * Sets success_url
-     *
-     * @param string $success_url success_url
-     *
-     * @return self
-     */
-    public function setSuccessUrl($success_url)
-    {
-        if (is_null($success_url)) {
-            throw new \InvalidArgumentException('non-nullable success_url cannot be null');
-        }
-        $this->container['success_url'] = $success_url;
-
-        return $this;
-    }
-
-    /**
-     * Gets cancel_url
-     *
-     * @return string
-     */
-    public function getCancelUrl()
-    {
-        return $this->container['cancel_url'];
-    }
-
-    /**
-     * Sets cancel_url
-     *
-     * @param string $cancel_url cancel_url
-     *
-     * @return self
-     */
-    public function setCancelUrl($cancel_url)
-    {
-        if (is_null($cancel_url)) {
-            throw new \InvalidArgumentException('non-nullable cancel_url cannot be null');
-        }
-        $this->container['cancel_url'] = $cancel_url;
+        $this->container['number'] = $number;
 
         return $this;
     }

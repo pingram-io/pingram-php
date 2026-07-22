@@ -65,7 +65,8 @@ class GetSendersResponseInner implements ModelInterface, ArrayAccess, \JsonSeria
         'created_at' => 'string',
         'private_dkim_key' => 'string',
         'reminder_sent_at' => 'string',
-        'selector' => 'string'
+        'selector' => 'string',
+        'verification_records' => '\Pingram\Model\GetSendersResponseInnerVerificationRecords'
     ];
 
     /**
@@ -84,7 +85,8 @@ class GetSendersResponseInner implements ModelInterface, ArrayAccess, \JsonSeria
         'created_at' => null,
         'private_dkim_key' => null,
         'reminder_sent_at' => null,
-        'selector' => null
+        'selector' => null,
+        'verification_records' => null
     ];
 
     /**
@@ -101,7 +103,8 @@ class GetSendersResponseInner implements ModelInterface, ArrayAccess, \JsonSeria
         'created_at' => false,
         'private_dkim_key' => false,
         'reminder_sent_at' => false,
-        'selector' => false
+        'selector' => false,
+        'verification_records' => false
     ];
 
     /**
@@ -198,7 +201,8 @@ class GetSendersResponseInner implements ModelInterface, ArrayAccess, \JsonSeria
         'created_at' => 'createdAt',
         'private_dkim_key' => 'privateDKIMKey',
         'reminder_sent_at' => 'reminderSentAt',
-        'selector' => 'selector'
+        'selector' => 'selector',
+        'verification_records' => 'verificationRecords'
     ];
 
     /**
@@ -215,7 +219,8 @@ class GetSendersResponseInner implements ModelInterface, ArrayAccess, \JsonSeria
         'created_at' => 'setCreatedAt',
         'private_dkim_key' => 'setPrivateDkimKey',
         'reminder_sent_at' => 'setReminderSentAt',
-        'selector' => 'setSelector'
+        'selector' => 'setSelector',
+        'verification_records' => 'setVerificationRecords'
     ];
 
     /**
@@ -232,7 +237,8 @@ class GetSendersResponseInner implements ModelInterface, ArrayAccess, \JsonSeria
         'created_at' => 'getCreatedAt',
         'private_dkim_key' => 'getPrivateDkimKey',
         'reminder_sent_at' => 'getReminderSentAt',
-        'selector' => 'getSelector'
+        'selector' => 'getSelector',
+        'verification_records' => 'getVerificationRecords'
     ];
 
     /**
@@ -341,6 +347,7 @@ class GetSendersResponseInner implements ModelInterface, ArrayAccess, \JsonSeria
         $this->setIfExists('private_dkim_key', $data ?? [], null);
         $this->setIfExists('reminder_sent_at', $data ?? [], null);
         $this->setIfExists('selector', $data ?? [], null);
+        $this->setIfExists('verification_records', $data ?? [], null);
     }
 
     /**
@@ -677,6 +684,33 @@ class GetSendersResponseInner implements ModelInterface, ArrayAccess, \JsonSeria
             throw new \InvalidArgumentException('non-nullable selector cannot be null');
         }
         $this->container['selector'] = $selector;
+
+        return $this;
+    }
+
+    /**
+     * Gets verification_records
+     *
+     * @return \Pingram\Model\GetSendersResponseInnerVerificationRecords|null
+     */
+    public function getVerificationRecords()
+    {
+        return $this->container['verification_records'];
+    }
+
+    /**
+     * Sets verification_records
+     *
+     * @param \Pingram\Model\GetSendersResponseInnerVerificationRecords|null $verification_records verification_records
+     *
+     * @return self
+     */
+    public function setVerificationRecords($verification_records)
+    {
+        if (is_null($verification_records)) {
+            throw new \InvalidArgumentException('non-nullable verification_records cannot be null');
+        }
+        $this->container['verification_records'] = $verification_records;
 
         return $this;
     }
