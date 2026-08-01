@@ -292,7 +292,6 @@ class WebhookEvent implements ModelInterface, ArrayAccess, \JsonSerializable
     public const EVENT_TYPE_WEB_PUSH_UNSUBSCRIBE = 'WEB_PUSH_UNSUBSCRIBE';
     public const EVENT_TYPE_SLACK_FAILED = 'SLACK_FAILED';
     public const EVENT_TYPE_SLACK_UNSUBSCRIBE = 'SLACK_UNSUBSCRIBE';
-    public const EVENT_TYPE_VOICE_INBOUND = 'VOICE_INBOUND';
 
     /**
      * Gets allowable values of the enum
@@ -323,7 +322,6 @@ class WebhookEvent implements ModelInterface, ArrayAccess, \JsonSerializable
             self::EVENT_TYPE_WEB_PUSH_UNSUBSCRIBE,
             self::EVENT_TYPE_SLACK_FAILED,
             self::EVENT_TYPE_SLACK_UNSUBSCRIBE,
-            self::EVENT_TYPE_VOICE_INBOUND,
         ];
     }
 

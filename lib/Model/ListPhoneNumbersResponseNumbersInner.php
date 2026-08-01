@@ -67,7 +67,8 @@ class ListPhoneNumbersResponseNumbersInner implements ModelInterface, ArrayAcces
         'next_billing_date' => 'string',
         'monthly_price' => 'float',
         'a2p_status' => 'string',
-        'released_at' => 'string'
+        'released_at' => 'string',
+        'bound_agent_id' => 'string'
     ];
 
     /**
@@ -87,7 +88,8 @@ class ListPhoneNumbersResponseNumbersInner implements ModelInterface, ArrayAcces
         'next_billing_date' => null,
         'monthly_price' => null,
         'a2p_status' => null,
-        'released_at' => null
+        'released_at' => null,
+        'bound_agent_id' => null
     ];
 
     /**
@@ -105,7 +107,8 @@ class ListPhoneNumbersResponseNumbersInner implements ModelInterface, ArrayAcces
         'next_billing_date' => false,
         'monthly_price' => false,
         'a2p_status' => false,
-        'released_at' => false
+        'released_at' => false,
+        'bound_agent_id' => false
     ];
 
     /**
@@ -203,7 +206,8 @@ class ListPhoneNumbersResponseNumbersInner implements ModelInterface, ArrayAcces
         'next_billing_date' => 'nextBillingDate',
         'monthly_price' => 'monthlyPrice',
         'a2p_status' => 'a2pStatus',
-        'released_at' => 'releasedAt'
+        'released_at' => 'releasedAt',
+        'bound_agent_id' => 'boundAgentId'
     ];
 
     /**
@@ -221,7 +225,8 @@ class ListPhoneNumbersResponseNumbersInner implements ModelInterface, ArrayAcces
         'next_billing_date' => 'setNextBillingDate',
         'monthly_price' => 'setMonthlyPrice',
         'a2p_status' => 'setA2pStatus',
-        'released_at' => 'setReleasedAt'
+        'released_at' => 'setReleasedAt',
+        'bound_agent_id' => 'setBoundAgentId'
     ];
 
     /**
@@ -239,7 +244,8 @@ class ListPhoneNumbersResponseNumbersInner implements ModelInterface, ArrayAcces
         'next_billing_date' => 'getNextBillingDate',
         'monthly_price' => 'getMonthlyPrice',
         'a2p_status' => 'getA2pStatus',
-        'released_at' => 'getReleasedAt'
+        'released_at' => 'getReleasedAt',
+        'bound_agent_id' => 'getBoundAgentId'
     ];
 
     /**
@@ -341,6 +347,7 @@ class ListPhoneNumbersResponseNumbersInner implements ModelInterface, ArrayAcces
         $this->setIfExists('monthly_price', $data ?? [], null);
         $this->setIfExists('a2p_status', $data ?? [], null);
         $this->setIfExists('released_at', $data ?? [], null);
+        $this->setIfExists('bound_agent_id', $data ?? [], null);
     }
 
     /**
@@ -710,6 +717,33 @@ class ListPhoneNumbersResponseNumbersInner implements ModelInterface, ArrayAcces
             throw new \InvalidArgumentException('non-nullable released_at cannot be null');
         }
         $this->container['released_at'] = $released_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets bound_agent_id
+     *
+     * @return string|null
+     */
+    public function getBoundAgentId()
+    {
+        return $this->container['bound_agent_id'];
+    }
+
+    /**
+     * Sets bound_agent_id
+     *
+     * @param string|null $bound_agent_id Voice agent id bound for inbound AI voice, if any
+     *
+     * @return self
+     */
+    public function setBoundAgentId($bound_agent_id)
+    {
+        if (is_null($bound_agent_id)) {
+            throw new \InvalidArgumentException('non-nullable bound_agent_id cannot be null');
+        }
+        $this->container['bound_agent_id'] = $bound_agent_id;
 
         return $this;
     }

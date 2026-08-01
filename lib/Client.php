@@ -58,6 +58,8 @@ use Pingram\Api\UserApi;
 
 use Pingram\Api\UsersApi;
 
+use Pingram\Api\VoiceApi;
+
 use Pingram\Api\WebhooksApi;
 
 
@@ -166,6 +168,9 @@ class Client
     /** @var UsersApi */
     private $users;
 
+    /** @var VoiceApi */
+    private $voice;
+
     /** @var WebhooksApi */
     private $webhooks;
 
@@ -231,6 +236,8 @@ class Client
         $this->user = new UserApi($this->httpClient, $this->config);
 
         $this->users = new UsersApi($this->httpClient, $this->config);
+
+        $this->voice = new VoiceApi($this->httpClient, $this->config);
 
         $this->webhooks = new WebhooksApi($this->httpClient, $this->config);
 
@@ -453,6 +460,15 @@ class Client
     public function getUsers(): \Pingram\Api\UsersApi
     {
         return $this->users;
+    }
+
+
+    /**
+     * @return VoiceApi
+     */
+    public function getVoice(): \Pingram\Api\VoiceApi
+    {
+        return $this->voice;
     }
 
 

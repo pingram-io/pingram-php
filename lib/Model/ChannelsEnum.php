@@ -50,6 +50,8 @@ class ChannelsEnum
 
     public const CALL = 'CALL';
 
+    public const VOICE = 'VOICE';
+
     public const PUSH = 'PUSH';
 
     public const WEB_PUSH = 'WEB_PUSH';
@@ -67,6 +69,7 @@ class ChannelsEnum
             self::INAPP_WEB,
             self::SMS,
             self::CALL,
+            self::VOICE,
             self::PUSH,
             self::WEB_PUSH,
             self::SLACK

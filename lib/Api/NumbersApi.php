@@ -140,7 +140,7 @@ class NumbersApi
     /**
      * Operation numbersList
      *
-     * List active phone numbers registered for the account.
+     * List active phone numbers registered for the account, including voice agent binding state.
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['numbersList'] to see the possible values for this operation
      *
@@ -157,7 +157,7 @@ class NumbersApi
     /**
      * Operation numbersListWithHttpInfo
      *
-     * List active phone numbers registered for the account.
+     * List active phone numbers registered for the account, including voice agent binding state.
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['numbersList'] to see the possible values for this operation
      *
@@ -283,7 +283,7 @@ class NumbersApi
     /**
      * Operation numbersListAsync
      *
-     * List active phone numbers registered for the account.
+     * List active phone numbers registered for the account, including voice agent binding state.
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['numbersList'] to see the possible values for this operation
      *
@@ -303,7 +303,7 @@ class NumbersApi
     /**
      * Operation numbersListAsyncWithHttpInfo
      *
-     * List active phone numbers registered for the account.
+     * List active phone numbers registered for the account, including voice agent binding state.
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['numbersList'] to see the possible values for this operation
      *

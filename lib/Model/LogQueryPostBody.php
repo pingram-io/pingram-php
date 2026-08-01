@@ -262,6 +262,7 @@ class LogQueryPostBody implements ModelInterface, ArrayAccess, \JsonSerializable
     public const CHANNEL_FILTER_INAPP = 'inapp';
     public const CHANNEL_FILTER_SMS = 'sms';
     public const CHANNEL_FILTER_CALL = 'call';
+    public const CHANNEL_FILTER_VOICE = 'voice';
     public const CHANNEL_FILTER_WEB_PUSH = 'web_push';
     public const CHANNEL_FILTER_MOBILE_PUSH = 'mobile_push';
     public const CHANNEL_FILTER_SLACK = 'slack';
@@ -278,6 +279,7 @@ class LogQueryPostBody implements ModelInterface, ArrayAccess, \JsonSerializable
             self::CHANNEL_FILTER_INAPP,
             self::CHANNEL_FILTER_SMS,
             self::CHANNEL_FILTER_CALL,
+            self::CHANNEL_FILTER_VOICE,
             self::CHANNEL_FILTER_WEB_PUSH,
             self::CHANNEL_FILTER_MOBILE_PUSH,
             self::CHANNEL_FILTER_SLACK,

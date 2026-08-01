@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **inapp_web** | **float** |  |
 **sms** | **float** |  |
 **call** | **float** |  |
+**voice** | **float** |  |
 **push** | **float** |  |
 **web_push** | **float** |  |
 **slack** | **float** |  |

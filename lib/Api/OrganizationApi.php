@@ -136,15 +136,16 @@ class OrganizationApi
      *
      * Create organization after SMS verification bypass
      *
+     * @param  \Pingram\Model\CreateOrganizationRequest $create_organization_request create_organization_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['organizationCreate'] to see the possible values for this operation
      *
      * @throws \Pingram\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \Pingram\Model\CreateOrganizationResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse
      */
-    public function organizationCreate(string $contentType = self::contentTypes['organizationCreate'][0])
+    public function organizationCreate($create_organization_request, string $contentType = self::contentTypes['organizationCreate'][0])
     {
-        list($response) = $this->organizationCreateWithHttpInfo($contentType);
+        list($response) = $this->organizationCreateWithHttpInfo($create_organization_request, $contentType);
         return $response;
     }
 
@@ -153,15 +154,16 @@ class OrganizationApi
      *
      * Create organization after SMS verification bypass
      *
+     * @param  \Pingram\Model\CreateOrganizationRequest $create_organization_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['organizationCreate'] to see the possible values for this operation
      *
      * @throws \Pingram\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \Pingram\Model\CreateOrganizationResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function organizationCreateWithHttpInfo(string $contentType = self::contentTypes['organizationCreate'][0])
+    public function organizationCreateWithHttpInfo($create_organization_request, string $contentType = self::contentTypes['organizationCreate'][0])
     {
-        $request = $this->organizationCreateRequest($contentType);
+        $request = $this->organizationCreateRequest($create_organization_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -279,14 +281,15 @@ class OrganizationApi
      *
      * Create organization after SMS verification bypass
      *
+     * @param  \Pingram\Model\CreateOrganizationRequest $create_organization_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['organizationCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function organizationCreateAsync(string $contentType = self::contentTypes['organizationCreate'][0])
+    public function organizationCreateAsync($create_organization_request, string $contentType = self::contentTypes['organizationCreate'][0])
     {
-        return $this->organizationCreateAsyncWithHttpInfo($contentType)
+        return $this->organizationCreateAsyncWithHttpInfo($create_organization_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -299,15 +302,16 @@ class OrganizationApi
      *
      * Create organization after SMS verification bypass
      *
+     * @param  \Pingram\Model\CreateOrganizationRequest $create_organization_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['organizationCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function organizationCreateAsyncWithHttpInfo(string $contentType = self::contentTypes['organizationCreate'][0])
+    public function organizationCreateAsyncWithHttpInfo($create_organization_request, string $contentType = self::contentTypes['organizationCreate'][0])
     {
         $returnType = '\Pingram\Model\CreateOrganizationResponse';
-        $request = $this->organizationCreateRequest($contentType);
+        $request = $this->organizationCreateRequest($create_organization_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -348,13 +352,21 @@ class OrganizationApi
     /**
      * Create request for operation 'organizationCreate'
      *
+     * @param  \Pingram\Model\CreateOrganizationRequest $create_organization_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['organizationCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function organizationCreateRequest(string $contentType = self::contentTypes['organizationCreate'][0])
+    public function organizationCreateRequest($create_organization_request, string $contentType = self::contentTypes['organizationCreate'][0])
     {
+
+        // verify the required parameter 'create_organization_request' is set
+        if ($create_organization_request === null || (is_array($create_organization_request) && count($create_organization_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $create_organization_request when calling organizationCreate'
+            );
+        }
 
 
         $resourcePath = '/organizations';
@@ -375,7 +387,14 @@ class OrganizationApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($create_organization_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($create_organization_request));
+            } else {
+                $httpBody = $create_organization_request;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {

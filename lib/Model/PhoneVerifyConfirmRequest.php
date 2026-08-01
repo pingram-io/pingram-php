@@ -58,7 +58,8 @@ class PhoneVerifyConfirmRequest implements ModelInterface, ArrayAccess, \JsonSer
       */
     protected static $openAPITypes = [
         'code' => 'string',
-        'turnstile_token' => 'string'
+        'turnstile_token' => 'string',
+        'attribution' => 'array<string,string>'
     ];
 
     /**
@@ -70,7 +71,8 @@ class PhoneVerifyConfirmRequest implements ModelInterface, ArrayAccess, \JsonSer
       */
     protected static $openAPIFormats = [
         'code' => null,
-        'turnstile_token' => null
+        'turnstile_token' => null,
+        'attribution' => null
     ];
 
     /**
@@ -80,7 +82,8 @@ class PhoneVerifyConfirmRequest implements ModelInterface, ArrayAccess, \JsonSer
       */
     protected static array $openAPINullables = [
         'code' => false,
-        'turnstile_token' => false
+        'turnstile_token' => false,
+        'attribution' => false
     ];
 
     /**
@@ -170,7 +173,8 @@ class PhoneVerifyConfirmRequest implements ModelInterface, ArrayAccess, \JsonSer
      */
     protected static $attributeMap = [
         'code' => 'code',
-        'turnstile_token' => 'turnstileToken'
+        'turnstile_token' => 'turnstileToken',
+        'attribution' => 'attribution'
     ];
 
     /**
@@ -180,7 +184,8 @@ class PhoneVerifyConfirmRequest implements ModelInterface, ArrayAccess, \JsonSer
      */
     protected static $setters = [
         'code' => 'setCode',
-        'turnstile_token' => 'setTurnstileToken'
+        'turnstile_token' => 'setTurnstileToken',
+        'attribution' => 'setAttribution'
     ];
 
     /**
@@ -190,7 +195,8 @@ class PhoneVerifyConfirmRequest implements ModelInterface, ArrayAccess, \JsonSer
      */
     protected static $getters = [
         'code' => 'getCode',
-        'turnstile_token' => 'getTurnstileToken'
+        'turnstile_token' => 'getTurnstileToken',
+        'attribution' => 'getAttribution'
     ];
 
     /**
@@ -252,6 +258,7 @@ class PhoneVerifyConfirmRequest implements ModelInterface, ArrayAccess, \JsonSer
     {
         $this->setIfExists('code', $data ?? [], null);
         $this->setIfExists('turnstile_token', $data ?? [], null);
+        $this->setIfExists('attribution', $data ?? [], null);
     }
 
     /**
@@ -352,6 +359,33 @@ class PhoneVerifyConfirmRequest implements ModelInterface, ArrayAccess, \JsonSer
             throw new \InvalidArgumentException('non-nullable turnstile_token cannot be null');
         }
         $this->container['turnstile_token'] = $turnstile_token;
+
+        return $this;
+    }
+
+    /**
+     * Gets attribution
+     *
+     * @return array<string,string>|null
+     */
+    public function getAttribution()
+    {
+        return $this->container['attribution'];
+    }
+
+    /**
+     * Sets attribution
+     *
+     * @param array<string,string>|null $attribution First-touch PostHog props from the client; attached to signup events.
+     *
+     * @return self
+     */
+    public function setAttribution($attribution)
+    {
+        if (is_null($attribution)) {
+            throw new \InvalidArgumentException('non-nullable attribution cannot be null');
+        }
+        $this->container['attribution'] = $attribution;
 
         return $this;
     }

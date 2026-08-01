@@ -61,6 +61,7 @@ class GetNotificationsResponseInnerOptions implements ModelInterface, ArrayAcces
         'inapp_web' => '\Pingram\Model\GetInappNotificationsResponseNotificationsInnerDeliveryOptions',
         'sms' => '\Pingram\Model\GetNotificationsResponseInnerOptionsEMAIL',
         'call' => '\Pingram\Model\GetNotificationsResponseInnerOptionsEMAIL',
+        'voice' => '\Pingram\Model\GetNotificationsResponseInnerOptionsEMAIL',
         'push' => '\Pingram\Model\GetNotificationsResponseInnerOptionsEMAIL',
         'web_push' => '\Pingram\Model\GetNotificationsResponseInnerOptionsEMAIL',
         'slack' => '\Pingram\Model\GetNotificationsResponseInnerOptionsEMAIL'
@@ -78,6 +79,7 @@ class GetNotificationsResponseInnerOptions implements ModelInterface, ArrayAcces
         'inapp_web' => null,
         'sms' => null,
         'call' => null,
+        'voice' => null,
         'push' => null,
         'web_push' => null,
         'slack' => null
@@ -93,6 +95,7 @@ class GetNotificationsResponseInnerOptions implements ModelInterface, ArrayAcces
         'inapp_web' => false,
         'sms' => false,
         'call' => false,
+        'voice' => false,
         'push' => false,
         'web_push' => false,
         'slack' => false
@@ -188,6 +191,7 @@ class GetNotificationsResponseInnerOptions implements ModelInterface, ArrayAcces
         'inapp_web' => 'INAPP_WEB',
         'sms' => 'SMS',
         'call' => 'CALL',
+        'voice' => 'VOICE',
         'push' => 'PUSH',
         'web_push' => 'WEB_PUSH',
         'slack' => 'SLACK'
@@ -203,6 +207,7 @@ class GetNotificationsResponseInnerOptions implements ModelInterface, ArrayAcces
         'inapp_web' => 'setInappWeb',
         'sms' => 'setSms',
         'call' => 'setCall',
+        'voice' => 'setVoice',
         'push' => 'setPush',
         'web_push' => 'setWebPush',
         'slack' => 'setSlack'
@@ -218,6 +223,7 @@ class GetNotificationsResponseInnerOptions implements ModelInterface, ArrayAcces
         'inapp_web' => 'getInappWeb',
         'sms' => 'getSms',
         'call' => 'getCall',
+        'voice' => 'getVoice',
         'push' => 'getPush',
         'web_push' => 'getWebPush',
         'slack' => 'getSlack'
@@ -284,6 +290,7 @@ class GetNotificationsResponseInnerOptions implements ModelInterface, ArrayAcces
         $this->setIfExists('inapp_web', $data ?? [], null);
         $this->setIfExists('sms', $data ?? [], null);
         $this->setIfExists('call', $data ?? [], null);
+        $this->setIfExists('voice', $data ?? [], null);
         $this->setIfExists('push', $data ?? [], null);
         $this->setIfExists('web_push', $data ?? [], null);
         $this->setIfExists('slack', $data ?? [], null);
@@ -435,6 +442,33 @@ class GetNotificationsResponseInnerOptions implements ModelInterface, ArrayAcces
             throw new \InvalidArgumentException('non-nullable call cannot be null');
         }
         $this->container['call'] = $call;
+
+        return $this;
+    }
+
+    /**
+     * Gets voice
+     *
+     * @return \Pingram\Model\GetNotificationsResponseInnerOptionsEMAIL|null
+     */
+    public function getVoice()
+    {
+        return $this->container['voice'];
+    }
+
+    /**
+     * Sets voice
+     *
+     * @param \Pingram\Model\GetNotificationsResponseInnerOptionsEMAIL|null $voice voice
+     *
+     * @return self
+     */
+    public function setVoice($voice)
+    {
+        if (is_null($voice)) {
+            throw new \InvalidArgumentException('non-nullable voice cannot be null');
+        }
+        $this->container['voice'] = $voice;
 
         return $this;
     }

@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **inapp_web** | [**\Pingram\Model\GetInappNotificationsResponseNotificationsInnerDeliveryOptions**](GetInappNotificationsResponseNotificationsInnerDeliveryOptions.md) |  | [optional]
 **sms** | [**\Pingram\Model\GetNotificationsResponseInnerOptionsEMAIL**](GetNotificationsResponseInnerOptionsEMAIL.md) |  | [optional]
 **call** | [**\Pingram\Model\GetNotificationsResponseInnerOptionsEMAIL**](GetNotificationsResponseInnerOptionsEMAIL.md) |  | [optional]
+**voice** | [**\Pingram\Model\GetNotificationsResponseInnerOptionsEMAIL**](GetNotificationsResponseInnerOptionsEMAIL.md) |  | [optional]
 **push** | [**\Pingram\Model\GetNotificationsResponseInnerOptionsEMAIL**](GetNotificationsResponseInnerOptionsEMAIL.md) |  | [optional]
 **web_push** | [**\Pingram\Model\GetNotificationsResponseInnerOptionsEMAIL**](GetNotificationsResponseInnerOptionsEMAIL.md) |  | [optional]
 **slack** | [**\Pingram\Model\GetNotificationsResponseInnerOptionsEMAIL**](GetNotificationsResponseInnerOptionsEMAIL.md) |  | [optional]

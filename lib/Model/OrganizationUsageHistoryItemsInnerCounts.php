@@ -61,6 +61,7 @@ class OrganizationUsageHistoryItemsInnerCounts implements ModelInterface, ArrayA
         'inapp_web' => 'float',
         'sms' => 'float',
         'call' => 'float',
+        'voice' => 'float',
         'push' => 'float',
         'web_push' => 'float',
         'slack' => 'float'
@@ -78,6 +79,7 @@ class OrganizationUsageHistoryItemsInnerCounts implements ModelInterface, ArrayA
         'inapp_web' => null,
         'sms' => null,
         'call' => null,
+        'voice' => null,
         'push' => null,
         'web_push' => null,
         'slack' => null
@@ -93,6 +95,7 @@ class OrganizationUsageHistoryItemsInnerCounts implements ModelInterface, ArrayA
         'inapp_web' => false,
         'sms' => false,
         'call' => false,
+        'voice' => false,
         'push' => false,
         'web_push' => false,
         'slack' => false
@@ -188,6 +191,7 @@ class OrganizationUsageHistoryItemsInnerCounts implements ModelInterface, ArrayA
         'inapp_web' => 'INAPP_WEB',
         'sms' => 'SMS',
         'call' => 'CALL',
+        'voice' => 'VOICE',
         'push' => 'PUSH',
         'web_push' => 'WEB_PUSH',
         'slack' => 'SLACK'
@@ -203,6 +207,7 @@ class OrganizationUsageHistoryItemsInnerCounts implements ModelInterface, ArrayA
         'inapp_web' => 'setInappWeb',
         'sms' => 'setSms',
         'call' => 'setCall',
+        'voice' => 'setVoice',
         'push' => 'setPush',
         'web_push' => 'setWebPush',
         'slack' => 'setSlack'
@@ -218,6 +223,7 @@ class OrganizationUsageHistoryItemsInnerCounts implements ModelInterface, ArrayA
         'inapp_web' => 'getInappWeb',
         'sms' => 'getSms',
         'call' => 'getCall',
+        'voice' => 'getVoice',
         'push' => 'getPush',
         'web_push' => 'getWebPush',
         'slack' => 'getSlack'
@@ -284,6 +290,7 @@ class OrganizationUsageHistoryItemsInnerCounts implements ModelInterface, ArrayA
         $this->setIfExists('inapp_web', $data ?? [], null);
         $this->setIfExists('sms', $data ?? [], null);
         $this->setIfExists('call', $data ?? [], null);
+        $this->setIfExists('voice', $data ?? [], null);
         $this->setIfExists('push', $data ?? [], null);
         $this->setIfExists('web_push', $data ?? [], null);
         $this->setIfExists('slack', $data ?? [], null);
@@ -327,6 +334,9 @@ class OrganizationUsageHistoryItemsInnerCounts implements ModelInterface, ArrayA
         }
         if ($this->container['call'] === null) {
             $invalidProperties[] = "'call' can't be null";
+        }
+        if ($this->container['voice'] === null) {
+            $invalidProperties[] = "'voice' can't be null";
         }
         if ($this->container['push'] === null) {
             $invalidProperties[] = "'push' can't be null";
@@ -456,6 +466,33 @@ class OrganizationUsageHistoryItemsInnerCounts implements ModelInterface, ArrayA
             throw new \InvalidArgumentException('non-nullable call cannot be null');
         }
         $this->container['call'] = $call;
+
+        return $this;
+    }
+
+    /**
+     * Gets voice
+     *
+     * @return float
+     */
+    public function getVoice()
+    {
+        return $this->container['voice'];
+    }
+
+    /**
+     * Sets voice
+     *
+     * @param float $voice voice
+     *
+     * @return self
+     */
+    public function setVoice($voice)
+    {
+        if (is_null($voice)) {
+            throw new \InvalidArgumentException('non-nullable voice cannot be null');
+        }
+        $this->container['voice'] = $voice;
 
         return $this;
     }

@@ -14,5 +14,6 @@ Name | Type | Description | Notes
 **monthly_price** | **float** | Monthly cost in USD |
 **a2p_status** | **string** | US 10DLC readiness derived from stored campaign assignment | [optional]
 **released_at** | **string** | ISO timestamp when the number was released (released numbers only) | [optional]
+**bound_agent_id** | **string** | Voice agent id bound for inbound AI voice, if any | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
