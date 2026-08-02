@@ -1,6 +1,6 @@
 <?php
 /**
- * TenDlcBrandUpdateRequest
+ * TenDlcBrandRegistrationDetails
  *
  * PHP version 8.1
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \Pingram\ObjectSerializer;
 
 /**
- * TenDlcBrandUpdateRequest Class Doc Comment
+ * TenDlcBrandRegistrationDetails Class Doc Comment
  *
  * @category Class
- * @description Request body for PATCH /registrations/us/10dlc/brand
+ * @description System-access GET response; includes internal Telnyx provider IDs and admin-only fields.
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class TenDlcBrandUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class TenDlcBrandRegistrationDetails implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class TenDlcBrandUpdateRequest implements ModelInterface, ArrayAccess, \JsonSeri
       *
       * @var string
       */
-    protected static $openAPIModelName = 'TenDlcBrandUpdateRequest';
+    protected static $openAPIModelName = 'TenDlcBrandRegistrationDetails';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,15 +58,13 @@ class TenDlcBrandUpdateRequest implements ModelInterface, ArrayAccess, \JsonSeri
       * @var string[]
       */
     protected static $openAPITypes = [
+        'account_id' => 'string',
         'scenario_id' => 'string',
         'business_type' => 'string',
         'legal_name' => 'string',
         'display_name' => 'string',
         'first_name' => 'string',
         'last_name' => 'string',
-        'vertical' => 'string',
-        'entity_type' => 'string',
-        'brand_status' => 'string',
         'tax_id' => 'string',
         'website' => 'string',
         'country' => 'string',
@@ -74,8 +72,17 @@ class TenDlcBrandUpdateRequest implements ModelInterface, ArrayAccess, \JsonSeri
         'city' => 'string',
         'state' => 'string',
         'postal_code' => 'string',
+        'full_address' => 'string',
         'compliance_contact_email' => 'string',
-        'compliance_contact_phone' => 'string'
+        'compliance_contact_phone' => 'string',
+        'brand_status' => 'string',
+        'campaign_status' => 'string',
+        'created_at' => 'string',
+        'updated_at' => 'string',
+        'vertical' => 'string',
+        'entity_type' => 'string',
+        'telnyx_profile_id' => 'string',
+        'telnyx_brand_id' => 'string'
     ];
 
     /**
@@ -86,15 +93,13 @@ class TenDlcBrandUpdateRequest implements ModelInterface, ArrayAccess, \JsonSeri
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'account_id' => null,
         'scenario_id' => null,
         'business_type' => null,
         'legal_name' => null,
         'display_name' => null,
         'first_name' => null,
         'last_name' => null,
-        'vertical' => null,
-        'entity_type' => null,
-        'brand_status' => null,
         'tax_id' => null,
         'website' => null,
         'country' => null,
@@ -102,8 +107,17 @@ class TenDlcBrandUpdateRequest implements ModelInterface, ArrayAccess, \JsonSeri
         'city' => null,
         'state' => null,
         'postal_code' => null,
+        'full_address' => null,
         'compliance_contact_email' => null,
-        'compliance_contact_phone' => null
+        'compliance_contact_phone' => null,
+        'brand_status' => null,
+        'campaign_status' => null,
+        'created_at' => null,
+        'updated_at' => null,
+        'vertical' => null,
+        'entity_type' => null,
+        'telnyx_profile_id' => null,
+        'telnyx_brand_id' => null
     ];
 
     /**
@@ -112,15 +126,13 @@ class TenDlcBrandUpdateRequest implements ModelInterface, ArrayAccess, \JsonSeri
       * @var boolean[]
       */
     protected static array $openAPINullables = [
+        'account_id' => false,
         'scenario_id' => false,
         'business_type' => false,
         'legal_name' => false,
         'display_name' => false,
         'first_name' => false,
         'last_name' => false,
-        'vertical' => false,
-        'entity_type' => false,
-        'brand_status' => false,
         'tax_id' => false,
         'website' => false,
         'country' => false,
@@ -128,8 +140,17 @@ class TenDlcBrandUpdateRequest implements ModelInterface, ArrayAccess, \JsonSeri
         'city' => false,
         'state' => false,
         'postal_code' => false,
+        'full_address' => false,
         'compliance_contact_email' => false,
-        'compliance_contact_phone' => false
+        'compliance_contact_phone' => false,
+        'brand_status' => false,
+        'campaign_status' => false,
+        'created_at' => false,
+        'updated_at' => false,
+        'vertical' => false,
+        'entity_type' => false,
+        'telnyx_profile_id' => false,
+        'telnyx_brand_id' => false
     ];
 
     /**
@@ -218,15 +239,13 @@ class TenDlcBrandUpdateRequest implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $attributeMap = [
+        'account_id' => 'accountId',
         'scenario_id' => 'scenarioId',
         'business_type' => 'businessType',
         'legal_name' => 'legalName',
         'display_name' => 'displayName',
         'first_name' => 'firstName',
         'last_name' => 'lastName',
-        'vertical' => 'vertical',
-        'entity_type' => 'entityType',
-        'brand_status' => 'brandStatus',
         'tax_id' => 'taxId',
         'website' => 'website',
         'country' => 'country',
@@ -234,8 +253,17 @@ class TenDlcBrandUpdateRequest implements ModelInterface, ArrayAccess, \JsonSeri
         'city' => 'city',
         'state' => 'state',
         'postal_code' => 'postalCode',
+        'full_address' => 'fullAddress',
         'compliance_contact_email' => 'complianceContactEmail',
-        'compliance_contact_phone' => 'complianceContactPhone'
+        'compliance_contact_phone' => 'complianceContactPhone',
+        'brand_status' => 'brandStatus',
+        'campaign_status' => 'campaignStatus',
+        'created_at' => 'createdAt',
+        'updated_at' => 'updatedAt',
+        'vertical' => 'vertical',
+        'entity_type' => 'entityType',
+        'telnyx_profile_id' => 'telnyxProfileId',
+        'telnyx_brand_id' => 'telnyxBrandId'
     ];
 
     /**
@@ -244,15 +272,13 @@ class TenDlcBrandUpdateRequest implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $setters = [
+        'account_id' => 'setAccountId',
         'scenario_id' => 'setScenarioId',
         'business_type' => 'setBusinessType',
         'legal_name' => 'setLegalName',
         'display_name' => 'setDisplayName',
         'first_name' => 'setFirstName',
         'last_name' => 'setLastName',
-        'vertical' => 'setVertical',
-        'entity_type' => 'setEntityType',
-        'brand_status' => 'setBrandStatus',
         'tax_id' => 'setTaxId',
         'website' => 'setWebsite',
         'country' => 'setCountry',
@@ -260,8 +286,17 @@ class TenDlcBrandUpdateRequest implements ModelInterface, ArrayAccess, \JsonSeri
         'city' => 'setCity',
         'state' => 'setState',
         'postal_code' => 'setPostalCode',
+        'full_address' => 'setFullAddress',
         'compliance_contact_email' => 'setComplianceContactEmail',
-        'compliance_contact_phone' => 'setComplianceContactPhone'
+        'compliance_contact_phone' => 'setComplianceContactPhone',
+        'brand_status' => 'setBrandStatus',
+        'campaign_status' => 'setCampaignStatus',
+        'created_at' => 'setCreatedAt',
+        'updated_at' => 'setUpdatedAt',
+        'vertical' => 'setVertical',
+        'entity_type' => 'setEntityType',
+        'telnyx_profile_id' => 'setTelnyxProfileId',
+        'telnyx_brand_id' => 'setTelnyxBrandId'
     ];
 
     /**
@@ -270,15 +305,13 @@ class TenDlcBrandUpdateRequest implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $getters = [
+        'account_id' => 'getAccountId',
         'scenario_id' => 'getScenarioId',
         'business_type' => 'getBusinessType',
         'legal_name' => 'getLegalName',
         'display_name' => 'getDisplayName',
         'first_name' => 'getFirstName',
         'last_name' => 'getLastName',
-        'vertical' => 'getVertical',
-        'entity_type' => 'getEntityType',
-        'brand_status' => 'getBrandStatus',
         'tax_id' => 'getTaxId',
         'website' => 'getWebsite',
         'country' => 'getCountry',
@@ -286,8 +319,17 @@ class TenDlcBrandUpdateRequest implements ModelInterface, ArrayAccess, \JsonSeri
         'city' => 'getCity',
         'state' => 'getState',
         'postal_code' => 'getPostalCode',
+        'full_address' => 'getFullAddress',
         'compliance_contact_email' => 'getComplianceContactEmail',
-        'compliance_contact_phone' => 'getComplianceContactPhone'
+        'compliance_contact_phone' => 'getComplianceContactPhone',
+        'brand_status' => 'getBrandStatus',
+        'campaign_status' => 'getCampaignStatus',
+        'created_at' => 'getCreatedAt',
+        'updated_at' => 'getUpdatedAt',
+        'vertical' => 'getVertical',
+        'entity_type' => 'getEntityType',
+        'telnyx_profile_id' => 'getTelnyxProfileId',
+        'telnyx_brand_id' => 'getTelnyxBrandId'
     ];
 
     /**
@@ -337,6 +379,12 @@ class TenDlcBrandUpdateRequest implements ModelInterface, ArrayAccess, \JsonSeri
     public const BRAND_STATUS_APPROVED = 'approved';
     public const BRAND_STATUS_REJECTED = 'rejected';
     public const BRAND_STATUS_INFO_NEEDED = 'info_needed';
+    public const CAMPAIGN_STATUS_NOT_STARTED = 'not_started';
+    public const CAMPAIGN_STATUS_IN_PROGRESS = 'in_progress';
+    public const CAMPAIGN_STATUS_PENDING_REVIEW = 'pending_review';
+    public const CAMPAIGN_STATUS_APPROVED = 'approved';
+    public const CAMPAIGN_STATUS_REJECTED = 'rejected';
+    public const CAMPAIGN_STATUS_INFO_NEEDED = 'info_needed';
 
     /**
      * Gets allowable values of the enum
@@ -356,6 +404,23 @@ class TenDlcBrandUpdateRequest implements ModelInterface, ArrayAccess, \JsonSeri
     }
 
     /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getCampaignStatusAllowableValues()
+    {
+        return [
+            self::CAMPAIGN_STATUS_NOT_STARTED,
+            self::CAMPAIGN_STATUS_IN_PROGRESS,
+            self::CAMPAIGN_STATUS_PENDING_REVIEW,
+            self::CAMPAIGN_STATUS_APPROVED,
+            self::CAMPAIGN_STATUS_REJECTED,
+            self::CAMPAIGN_STATUS_INFO_NEEDED,
+        ];
+    }
+
+    /**
      * Associative array for storing property values
      *
      * @var mixed[]
@@ -370,15 +435,13 @@ class TenDlcBrandUpdateRequest implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function __construct(?array $data = null)
     {
+        $this->setIfExists('account_id', $data ?? [], null);
         $this->setIfExists('scenario_id', $data ?? [], null);
         $this->setIfExists('business_type', $data ?? [], null);
         $this->setIfExists('legal_name', $data ?? [], null);
         $this->setIfExists('display_name', $data ?? [], null);
         $this->setIfExists('first_name', $data ?? [], null);
         $this->setIfExists('last_name', $data ?? [], null);
-        $this->setIfExists('vertical', $data ?? [], null);
-        $this->setIfExists('entity_type', $data ?? [], null);
-        $this->setIfExists('brand_status', $data ?? [], null);
         $this->setIfExists('tax_id', $data ?? [], null);
         $this->setIfExists('website', $data ?? [], null);
         $this->setIfExists('country', $data ?? [], null);
@@ -386,8 +449,17 @@ class TenDlcBrandUpdateRequest implements ModelInterface, ArrayAccess, \JsonSeri
         $this->setIfExists('city', $data ?? [], null);
         $this->setIfExists('state', $data ?? [], null);
         $this->setIfExists('postal_code', $data ?? [], null);
+        $this->setIfExists('full_address', $data ?? [], null);
         $this->setIfExists('compliance_contact_email', $data ?? [], null);
         $this->setIfExists('compliance_contact_phone', $data ?? [], null);
+        $this->setIfExists('brand_status', $data ?? [], null);
+        $this->setIfExists('campaign_status', $data ?? [], null);
+        $this->setIfExists('created_at', $data ?? [], null);
+        $this->setIfExists('updated_at', $data ?? [], null);
+        $this->setIfExists('vertical', $data ?? [], null);
+        $this->setIfExists('entity_type', $data ?? [], null);
+        $this->setIfExists('telnyx_profile_id', $data ?? [], null);
+        $this->setIfExists('telnyx_brand_id', $data ?? [], null);
     }
 
     /**
@@ -417,6 +489,33 @@ class TenDlcBrandUpdateRequest implements ModelInterface, ArrayAccess, \JsonSeri
     {
         $invalidProperties = [];
 
+        if ($this->container['account_id'] === null) {
+            $invalidProperties[] = "'account_id' can't be null";
+        }
+        if ($this->container['scenario_id'] === null) {
+            $invalidProperties[] = "'scenario_id' can't be null";
+        }
+        if ($this->container['business_type'] === null) {
+            $invalidProperties[] = "'business_type' can't be null";
+        }
+        if ($this->container['legal_name'] === null) {
+            $invalidProperties[] = "'legal_name' can't be null";
+        }
+        if ($this->container['website'] === null) {
+            $invalidProperties[] = "'website' can't be null";
+        }
+        if ($this->container['country'] === null) {
+            $invalidProperties[] = "'country' can't be null";
+        }
+        if ($this->container['compliance_contact_email'] === null) {
+            $invalidProperties[] = "'compliance_contact_email' can't be null";
+        }
+        if ($this->container['compliance_contact_phone'] === null) {
+            $invalidProperties[] = "'compliance_contact_phone' can't be null";
+        }
+        if ($this->container['brand_status'] === null) {
+            $invalidProperties[] = "'brand_status' can't be null";
+        }
         $allowedValues = $this->getBrandStatusAllowableValues();
         if (!is_null($this->container['brand_status']) && !in_array($this->container['brand_status'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -426,6 +525,24 @@ class TenDlcBrandUpdateRequest implements ModelInterface, ArrayAccess, \JsonSeri
             );
         }
 
+        if ($this->container['campaign_status'] === null) {
+            $invalidProperties[] = "'campaign_status' can't be null";
+        }
+        $allowedValues = $this->getCampaignStatusAllowableValues();
+        if (!is_null($this->container['campaign_status']) && !in_array($this->container['campaign_status'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'campaign_status', must be one of '%s'",
+                $this->container['campaign_status'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['created_at'] === null) {
+            $invalidProperties[] = "'created_at' can't be null";
+        }
+        if ($this->container['updated_at'] === null) {
+            $invalidProperties[] = "'updated_at' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -442,9 +559,36 @@ class TenDlcBrandUpdateRequest implements ModelInterface, ArrayAccess, \JsonSeri
 
 
     /**
+     * Gets account_id
+     *
+     * @return string
+     */
+    public function getAccountId()
+    {
+        return $this->container['account_id'];
+    }
+
+    /**
+     * Sets account_id
+     *
+     * @param string $account_id account_id
+     *
+     * @return self
+     */
+    public function setAccountId($account_id)
+    {
+        if (is_null($account_id)) {
+            throw new \InvalidArgumentException('non-nullable account_id cannot be null');
+        }
+        $this->container['account_id'] = $account_id;
+
+        return $this;
+    }
+
+    /**
      * Gets scenario_id
      *
-     * @return string|null
+     * @return string
      */
     public function getScenarioId()
     {
@@ -454,7 +598,7 @@ class TenDlcBrandUpdateRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets scenario_id
      *
-     * @param string|null $scenario_id scenario_id
+     * @param string $scenario_id scenario_id
      *
      * @return self
      */
@@ -471,7 +615,7 @@ class TenDlcBrandUpdateRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets business_type
      *
-     * @return string|null
+     * @return string
      */
     public function getBusinessType()
     {
@@ -481,7 +625,7 @@ class TenDlcBrandUpdateRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets business_type
      *
-     * @param string|null $business_type business_type
+     * @param string $business_type business_type
      *
      * @return self
      */
@@ -498,7 +642,7 @@ class TenDlcBrandUpdateRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets legal_name
      *
-     * @return string|null
+     * @return string
      */
     public function getLegalName()
     {
@@ -508,7 +652,7 @@ class TenDlcBrandUpdateRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets legal_name
      *
-     * @param string|null $legal_name legal_name
+     * @param string $legal_name legal_name
      *
      * @return self
      */
@@ -535,7 +679,7 @@ class TenDlcBrandUpdateRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets display_name
      *
-     * @param string|null $display_name Brand display name (marketing/DBA); defaults to legalName when omitted on legalName-only updates.
+     * @param string|null $display_name Brand display name (marketing/DBA); defaults to legalName on customer submit.
      *
      * @return self
      */
@@ -604,97 +748,6 @@ class TenDlcBrandUpdateRequest implements ModelInterface, ArrayAccess, \JsonSeri
     }
 
     /**
-     * Gets vertical
-     *
-     * @return string|null
-     */
-    public function getVertical()
-    {
-        return $this->container['vertical'];
-    }
-
-    /**
-     * Sets vertical
-     *
-     * @param string|null $vertical vertical
-     *
-     * @return self
-     */
-    public function setVertical($vertical)
-    {
-        if (is_null($vertical)) {
-            throw new \InvalidArgumentException('non-nullable vertical cannot be null');
-        }
-        $this->container['vertical'] = $vertical;
-
-        return $this;
-    }
-
-    /**
-     * Gets entity_type
-     *
-     * @return string|null
-     */
-    public function getEntityType()
-    {
-        return $this->container['entity_type'];
-    }
-
-    /**
-     * Sets entity_type
-     *
-     * @param string|null $entity_type Admin-only; legacy Other records. Ignored on customer PATCH.
-     *
-     * @return self
-     */
-    public function setEntityType($entity_type)
-    {
-        if (is_null($entity_type)) {
-            throw new \InvalidArgumentException('non-nullable entity_type cannot be null');
-        }
-        $this->container['entity_type'] = $entity_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets brand_status
-     *
-     * @return string|null
-     */
-    public function getBrandStatus()
-    {
-        return $this->container['brand_status'];
-    }
-
-    /**
-     * Sets brand_status
-     *
-     * @param string|null $brand_status Pingram-side brand registration workflow status. - not_started: no customer submission yet - pending_review: customer submitted; Pingram has not submitted to carriers - in_progress: submitted for carrier review - approved | rejected | info_needed: review outcome
-     *
-     * @return self
-     */
-    public function setBrandStatus($brand_status)
-    {
-        if (is_null($brand_status)) {
-            throw new \InvalidArgumentException('non-nullable brand_status cannot be null');
-        }
-        $allowedValues = $this->getBrandStatusAllowableValues();
-        if (!in_array($brand_status, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'brand_status', must be one of '%s'",
-                    $brand_status,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['brand_status'] = $brand_status;
-
-        return $this;
-    }
-
-    /**
      * Gets tax_id
      *
      * @return string|null
@@ -724,7 +777,7 @@ class TenDlcBrandUpdateRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets website
      *
-     * @return string|null
+     * @return string
      */
     public function getWebsite()
     {
@@ -734,7 +787,7 @@ class TenDlcBrandUpdateRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets website
      *
-     * @param string|null $website website
+     * @param string $website website
      *
      * @return self
      */
@@ -751,7 +804,7 @@ class TenDlcBrandUpdateRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets country
      *
-     * @return string|null
+     * @return string
      */
     public function getCountry()
     {
@@ -761,7 +814,7 @@ class TenDlcBrandUpdateRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets country
      *
-     * @param string|null $country country
+     * @param string $country country
      *
      * @return self
      */
@@ -884,9 +937,36 @@ class TenDlcBrandUpdateRequest implements ModelInterface, ArrayAccess, \JsonSeri
     }
 
     /**
-     * Gets compliance_contact_email
+     * Gets full_address
      *
      * @return string|null
+     */
+    public function getFullAddress()
+    {
+        return $this->container['full_address'];
+    }
+
+    /**
+     * Sets full_address
+     *
+     * @param string|null $full_address Legacy records only; new submissions use structured address fields.
+     *
+     * @return self
+     */
+    public function setFullAddress($full_address)
+    {
+        if (is_null($full_address)) {
+            throw new \InvalidArgumentException('non-nullable full_address cannot be null');
+        }
+        $this->container['full_address'] = $full_address;
+
+        return $this;
+    }
+
+    /**
+     * Gets compliance_contact_email
+     *
+     * @return string
      */
     public function getComplianceContactEmail()
     {
@@ -896,7 +976,7 @@ class TenDlcBrandUpdateRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets compliance_contact_email
      *
-     * @param string|null $compliance_contact_email compliance_contact_email
+     * @param string $compliance_contact_email compliance_contact_email
      *
      * @return self
      */
@@ -913,7 +993,7 @@ class TenDlcBrandUpdateRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets compliance_contact_phone
      *
-     * @return string|null
+     * @return string
      */
     public function getComplianceContactPhone()
     {
@@ -923,7 +1003,7 @@ class TenDlcBrandUpdateRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets compliance_contact_phone
      *
-     * @param string|null $compliance_contact_phone compliance_contact_phone
+     * @param string $compliance_contact_phone compliance_contact_phone
      *
      * @return self
      */
@@ -933,6 +1013,242 @@ class TenDlcBrandUpdateRequest implements ModelInterface, ArrayAccess, \JsonSeri
             throw new \InvalidArgumentException('non-nullable compliance_contact_phone cannot be null');
         }
         $this->container['compliance_contact_phone'] = $compliance_contact_phone;
+
+        return $this;
+    }
+
+    /**
+     * Gets brand_status
+     *
+     * @return string
+     */
+    public function getBrandStatus()
+    {
+        return $this->container['brand_status'];
+    }
+
+    /**
+     * Sets brand_status
+     *
+     * @param string $brand_status Pingram-side brand registration workflow status. - not_started: no customer submission yet - pending_review: customer submitted; Pingram has not submitted to carriers - in_progress: submitted for carrier review - approved | rejected | info_needed: review outcome
+     *
+     * @return self
+     */
+    public function setBrandStatus($brand_status)
+    {
+        if (is_null($brand_status)) {
+            throw new \InvalidArgumentException('non-nullable brand_status cannot be null');
+        }
+        $allowedValues = $this->getBrandStatusAllowableValues();
+        if (!in_array($brand_status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'brand_status', must be one of '%s'",
+                    $brand_status,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['brand_status'] = $brand_status;
+
+        return $this;
+    }
+
+    /**
+     * Gets campaign_status
+     *
+     * @return string
+     */
+    public function getCampaignStatus()
+    {
+        return $this->container['campaign_status'];
+    }
+
+    /**
+     * Sets campaign_status
+     *
+     * @param string $campaign_status Pingram-side brand registration workflow status. - not_started: no customer submission yet - pending_review: customer submitted; Pingram has not submitted to carriers - in_progress: submitted for carrier review - approved | rejected | info_needed: review outcome
+     *
+     * @return self
+     */
+    public function setCampaignStatus($campaign_status)
+    {
+        if (is_null($campaign_status)) {
+            throw new \InvalidArgumentException('non-nullable campaign_status cannot be null');
+        }
+        $allowedValues = $this->getCampaignStatusAllowableValues();
+        if (!in_array($campaign_status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'campaign_status', must be one of '%s'",
+                    $campaign_status,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['campaign_status'] = $campaign_status;
+
+        return $this;
+    }
+
+    /**
+     * Gets created_at
+     *
+     * @return string
+     */
+    public function getCreatedAt()
+    {
+        return $this->container['created_at'];
+    }
+
+    /**
+     * Sets created_at
+     *
+     * @param string $created_at created_at
+     *
+     * @return self
+     */
+    public function setCreatedAt($created_at)
+    {
+        if (is_null($created_at)) {
+            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
+        }
+        $this->container['created_at'] = $created_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets updated_at
+     *
+     * @return string
+     */
+    public function getUpdatedAt()
+    {
+        return $this->container['updated_at'];
+    }
+
+    /**
+     * Sets updated_at
+     *
+     * @param string $updated_at updated_at
+     *
+     * @return self
+     */
+    public function setUpdatedAt($updated_at)
+    {
+        if (is_null($updated_at)) {
+            throw new \InvalidArgumentException('non-nullable updated_at cannot be null');
+        }
+        $this->container['updated_at'] = $updated_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets vertical
+     *
+     * @return string|null
+     */
+    public function getVertical()
+    {
+        return $this->container['vertical'];
+    }
+
+    /**
+     * Sets vertical
+     *
+     * @param string|null $vertical vertical
+     *
+     * @return self
+     */
+    public function setVertical($vertical)
+    {
+        if (is_null($vertical)) {
+            throw new \InvalidArgumentException('non-nullable vertical cannot be null');
+        }
+        $this->container['vertical'] = $vertical;
+
+        return $this;
+    }
+
+    /**
+     * Gets entity_type
+     *
+     * @return string|null
+     */
+    public function getEntityType()
+    {
+        return $this->container['entity_type'];
+    }
+
+    /**
+     * Sets entity_type
+     *
+     * @param string|null $entity_type Legacy only when businessType is Other.
+     *
+     * @return self
+     */
+    public function setEntityType($entity_type)
+    {
+        if (is_null($entity_type)) {
+            throw new \InvalidArgumentException('non-nullable entity_type cannot be null');
+        }
+        $this->container['entity_type'] = $entity_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets telnyx_profile_id
+     *
+     * @return string|null
+     */
+    public function getTelnyxProfileId()
+    {
+        return $this->container['telnyx_profile_id'];
+    }
+
+    /**
+     * Sets telnyx_profile_id
+     *
+     * @param string|null $telnyx_profile_id telnyx_profile_id
+     *
+     * @return self
+     */
+    public function setTelnyxProfileId($telnyx_profile_id)
+    {
+        if (is_null($telnyx_profile_id)) {
+            throw new \InvalidArgumentException('non-nullable telnyx_profile_id cannot be null');
+        }
+        $this->container['telnyx_profile_id'] = $telnyx_profile_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets telnyx_brand_id
+     *
+     * @return string|null
+     */
+    public function getTelnyxBrandId()
+    {
+        return $this->container['telnyx_brand_id'];
+    }
+
+    /**
+     * Sets telnyx_brand_id
+     *
+     * @param string|null $telnyx_brand_id telnyx_brand_id
+     *
+     * @return self
+     */
+    public function setTelnyxBrandId($telnyx_brand_id)
+    {
+        if (is_null($telnyx_brand_id)) {
+            throw new \InvalidArgumentException('non-nullable telnyx_brand_id cannot be null');
+        }
+        $this->container['telnyx_brand_id'] = $telnyx_brand_id;
 
         return $this;
     }

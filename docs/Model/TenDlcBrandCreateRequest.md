@@ -7,6 +7,8 @@ Name | Type | Description | Notes
 **scenario_id** | **string** |  |
 **business_type** | **string** |  |
 **legal_name** | **string** |  |
+**first_name** | **string** |  | [optional]
+**last_name** | **string** |  | [optional]
 **tax_id** | **string** |  | [optional]
 **website** | **string** |  |
 **country** | **string** |  |

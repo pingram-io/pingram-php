@@ -61,6 +61,8 @@ class TenDlcBrandCreateRequest implements ModelInterface, ArrayAccess, \JsonSeri
         'scenario_id' => 'string',
         'business_type' => 'string',
         'legal_name' => 'string',
+        'first_name' => 'string',
+        'last_name' => 'string',
         'tax_id' => 'string',
         'website' => 'string',
         'country' => 'string',
@@ -83,6 +85,8 @@ class TenDlcBrandCreateRequest implements ModelInterface, ArrayAccess, \JsonSeri
         'scenario_id' => null,
         'business_type' => null,
         'legal_name' => null,
+        'first_name' => null,
+        'last_name' => null,
         'tax_id' => null,
         'website' => null,
         'country' => null,
@@ -103,6 +107,8 @@ class TenDlcBrandCreateRequest implements ModelInterface, ArrayAccess, \JsonSeri
         'scenario_id' => false,
         'business_type' => false,
         'legal_name' => false,
+        'first_name' => false,
+        'last_name' => false,
         'tax_id' => false,
         'website' => false,
         'country' => false,
@@ -203,6 +209,8 @@ class TenDlcBrandCreateRequest implements ModelInterface, ArrayAccess, \JsonSeri
         'scenario_id' => 'scenarioId',
         'business_type' => 'businessType',
         'legal_name' => 'legalName',
+        'first_name' => 'firstName',
+        'last_name' => 'lastName',
         'tax_id' => 'taxId',
         'website' => 'website',
         'country' => 'country',
@@ -223,6 +231,8 @@ class TenDlcBrandCreateRequest implements ModelInterface, ArrayAccess, \JsonSeri
         'scenario_id' => 'setScenarioId',
         'business_type' => 'setBusinessType',
         'legal_name' => 'setLegalName',
+        'first_name' => 'setFirstName',
+        'last_name' => 'setLastName',
         'tax_id' => 'setTaxId',
         'website' => 'setWebsite',
         'country' => 'setCountry',
@@ -243,6 +253,8 @@ class TenDlcBrandCreateRequest implements ModelInterface, ArrayAccess, \JsonSeri
         'scenario_id' => 'getScenarioId',
         'business_type' => 'getBusinessType',
         'legal_name' => 'getLegalName',
+        'first_name' => 'getFirstName',
+        'last_name' => 'getLastName',
         'tax_id' => 'getTaxId',
         'website' => 'getWebsite',
         'country' => 'getCountry',
@@ -314,6 +326,8 @@ class TenDlcBrandCreateRequest implements ModelInterface, ArrayAccess, \JsonSeri
         $this->setIfExists('scenario_id', $data ?? [], null);
         $this->setIfExists('business_type', $data ?? [], null);
         $this->setIfExists('legal_name', $data ?? [], null);
+        $this->setIfExists('first_name', $data ?? [], null);
+        $this->setIfExists('last_name', $data ?? [], null);
         $this->setIfExists('tax_id', $data ?? [], null);
         $this->setIfExists('website', $data ?? [], null);
         $this->setIfExists('country', $data ?? [], null);
@@ -465,6 +479,60 @@ class TenDlcBrandCreateRequest implements ModelInterface, ArrayAccess, \JsonSeri
             throw new \InvalidArgumentException('non-nullable legal_name cannot be null');
         }
         $this->container['legal_name'] = $legal_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets first_name
+     *
+     * @return string|null
+     */
+    public function getFirstName()
+    {
+        return $this->container['first_name'];
+    }
+
+    /**
+     * Sets first_name
+     *
+     * @param string|null $first_name first_name
+     *
+     * @return self
+     */
+    public function setFirstName($first_name)
+    {
+        if (is_null($first_name)) {
+            throw new \InvalidArgumentException('non-nullable first_name cannot be null');
+        }
+        $this->container['first_name'] = $first_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets last_name
+     *
+     * @return string|null
+     */
+    public function getLastName()
+    {
+        return $this->container['last_name'];
+    }
+
+    /**
+     * Sets last_name
+     *
+     * @param string|null $last_name last_name
+     *
+     * @return self
+     */
+    public function setLastName($last_name)
+    {
+        if (is_null($last_name)) {
+            throw new \InvalidArgumentException('non-nullable last_name cannot be null');
+        }
+        $this->container['last_name'] = $last_name;
 
         return $this;
     }
