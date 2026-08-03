@@ -57,7 +57,6 @@ class GetMembersResponseInner implements ModelInterface, ArrayAccess, \JsonSeria
       * @var string[]
       */
     protected static $openAPITypes = [
-        'organization_id' => 'string',
         'account_id' => 'string',
         'user_id' => 'string',
         'created_at' => 'string',
@@ -74,7 +73,6 @@ class GetMembersResponseInner implements ModelInterface, ArrayAccess, \JsonSeria
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'organization_id' => null,
         'account_id' => null,
         'user_id' => null,
         'created_at' => null,
@@ -89,7 +87,6 @@ class GetMembersResponseInner implements ModelInterface, ArrayAccess, \JsonSeria
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'organization_id' => false,
         'account_id' => false,
         'user_id' => false,
         'created_at' => false,
@@ -184,7 +181,6 @@ class GetMembersResponseInner implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $attributeMap = [
-        'organization_id' => 'organizationId',
         'account_id' => 'accountId',
         'user_id' => 'userId',
         'created_at' => 'createdAt',
@@ -199,7 +195,6 @@ class GetMembersResponseInner implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $setters = [
-        'organization_id' => 'setOrganizationId',
         'account_id' => 'setAccountId',
         'user_id' => 'setUserId',
         'created_at' => 'setCreatedAt',
@@ -214,7 +209,6 @@ class GetMembersResponseInner implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $getters = [
-        'organization_id' => 'getOrganizationId',
         'account_id' => 'getAccountId',
         'user_id' => 'getUserId',
         'created_at' => 'getCreatedAt',
@@ -293,7 +287,6 @@ class GetMembersResponseInner implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('organization_id', $data ?? [], null);
         $this->setIfExists('account_id', $data ?? [], null);
         $this->setIfExists('user_id', $data ?? [], null);
         $this->setIfExists('created_at', $data ?? [], null);
@@ -329,9 +322,6 @@ class GetMembersResponseInner implements ModelInterface, ArrayAccess, \JsonSeria
     {
         $invalidProperties = [];
 
-        if ($this->container['organization_id'] === null) {
-            $invalidProperties[] = "'organization_id' can't be null";
-        }
         if ($this->container['account_id'] === null) {
             $invalidProperties[] = "'account_id' can't be null";
         }
@@ -355,33 +345,6 @@ class GetMembersResponseInner implements ModelInterface, ArrayAccess, \JsonSeria
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets organization_id
-     *
-     * @return string
-     */
-    public function getOrganizationId()
-    {
-        return $this->container['organization_id'];
-    }
-
-    /**
-     * Sets organization_id
-     *
-     * @param string $organization_id organization_id
-     *
-     * @return self
-     */
-    public function setOrganizationId($organization_id)
-    {
-        if (is_null($organization_id)) {
-            throw new \InvalidArgumentException('non-nullable organization_id cannot be null');
-        }
-        $this->container['organization_id'] = $organization_id;
-
-        return $this;
-    }
 
     /**
      * Gets account_id

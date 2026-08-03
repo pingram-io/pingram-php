@@ -35,7 +35,7 @@ use \Pingram\ObjectSerializer;
  * BillingPostResponseBody Class Doc Comment
  *
  * @category Class
- * @description POST /billing response: organization usage limits + optional Checkout session.
+ * @description POST /billing response: account fields + optional Checkout session.
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -58,8 +58,8 @@ class BillingPostResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
       * @var string[]
       */
     protected static $openAPITypes = [
-        'organization_id' => 'string',
-        'organization_type' => 'string',
+        'account_id' => 'string',
+        'account_type' => 'string',
         'creator' => 'string',
         'name' => 'string',
         'messages_cap' => 'float',
@@ -83,8 +83,8 @@ class BillingPostResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'organization_id' => null,
-        'organization_type' => null,
+        'account_id' => null,
+        'account_type' => null,
         'creator' => null,
         'name' => null,
         'messages_cap' => null,
@@ -106,8 +106,8 @@ class BillingPostResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'organization_id' => false,
-        'organization_type' => false,
+        'account_id' => false,
+        'account_type' => false,
         'creator' => false,
         'name' => false,
         'messages_cap' => false,
@@ -209,8 +209,8 @@ class BillingPostResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $attributeMap = [
-        'organization_id' => 'organizationId',
-        'organization_type' => 'organizationType',
+        'account_id' => 'accountId',
+        'account_type' => 'accountType',
         'creator' => 'creator',
         'name' => 'name',
         'messages_cap' => 'messagesCap',
@@ -232,8 +232,8 @@ class BillingPostResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $setters = [
-        'organization_id' => 'setOrganizationId',
-        'organization_type' => 'setOrganizationType',
+        'account_id' => 'setAccountId',
+        'account_type' => 'setAccountType',
         'creator' => 'setCreator',
         'name' => 'setName',
         'messages_cap' => 'setMessagesCap',
@@ -255,8 +255,8 @@ class BillingPostResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $getters = [
-        'organization_id' => 'getOrganizationId',
-        'organization_type' => 'getOrganizationType',
+        'account_id' => 'getAccountId',
+        'account_type' => 'getAccountType',
         'creator' => 'getCreator',
         'name' => 'getName',
         'messages_cap' => 'getMessagesCap',
@@ -313,8 +313,8 @@ class BillingPostResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
         return self::$openAPIModelName;
     }
 
-    public const ORGANIZATION_TYPE_FREE = 'free';
-    public const ORGANIZATION_TYPE_PAID = 'paid';
+    public const ACCOUNT_TYPE_FREE = 'free';
+    public const ACCOUNT_TYPE_PAID = 'paid';
     public const BILLING_VERSION_NUMBER_1 = 1;
     public const BILLING_VERSION_NUMBER_3 = 3;
 
@@ -323,11 +323,11 @@ class BillingPostResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
      *
      * @return string[]
      */
-    public function getOrganizationTypeAllowableValues()
+    public function getAccountTypeAllowableValues()
     {
         return [
-            self::ORGANIZATION_TYPE_FREE,
-            self::ORGANIZATION_TYPE_PAID,
+            self::ACCOUNT_TYPE_FREE,
+            self::ACCOUNT_TYPE_PAID,
         ];
     }
 
@@ -359,8 +359,8 @@ class BillingPostResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('organization_id', $data ?? [], null);
-        $this->setIfExists('organization_type', $data ?? [], null);
+        $this->setIfExists('account_id', $data ?? [], null);
+        $this->setIfExists('account_type', $data ?? [], null);
         $this->setIfExists('creator', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('messages_cap', $data ?? [], null);
@@ -403,27 +403,21 @@ class BillingPostResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
     {
         $invalidProperties = [];
 
-        if ($this->container['organization_id'] === null) {
-            $invalidProperties[] = "'organization_id' can't be null";
+        if ($this->container['account_id'] === null) {
+            $invalidProperties[] = "'account_id' can't be null";
         }
-        if ($this->container['organization_type'] === null) {
-            $invalidProperties[] = "'organization_type' can't be null";
+        if ($this->container['account_type'] === null) {
+            $invalidProperties[] = "'account_type' can't be null";
         }
-        $allowedValues = $this->getOrganizationTypeAllowableValues();
-        if (!is_null($this->container['organization_type']) && !in_array($this->container['organization_type'], $allowedValues, true)) {
+        $allowedValues = $this->getAccountTypeAllowableValues();
+        if (!is_null($this->container['account_type']) && !in_array($this->container['account_type'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'organization_type', must be one of '%s'",
-                $this->container['organization_type'],
+                "invalid value '%s' for 'account_type', must be one of '%s'",
+                $this->container['account_type'],
                 implode("', '", $allowedValues)
             );
         }
 
-        if ($this->container['creator'] === null) {
-            $invalidProperties[] = "'creator' can't be null";
-        }
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
-        }
         if ($this->container['messages_cap'] === null) {
             $invalidProperties[] = "'messages_cap' can't be null";
         }
@@ -467,65 +461,65 @@ class BillingPostResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
 
 
     /**
-     * Gets organization_id
+     * Gets account_id
      *
      * @return string
      */
-    public function getOrganizationId()
+    public function getAccountId()
     {
-        return $this->container['organization_id'];
+        return $this->container['account_id'];
     }
 
     /**
-     * Sets organization_id
+     * Sets account_id
      *
-     * @param string $organization_id organization_id
+     * @param string $account_id account_id
      *
      * @return self
      */
-    public function setOrganizationId($organization_id)
+    public function setAccountId($account_id)
     {
-        if (is_null($organization_id)) {
-            throw new \InvalidArgumentException('non-nullable organization_id cannot be null');
+        if (is_null($account_id)) {
+            throw new \InvalidArgumentException('non-nullable account_id cannot be null');
         }
-        $this->container['organization_id'] = $organization_id;
+        $this->container['account_id'] = $account_id;
 
         return $this;
     }
 
     /**
-     * Gets organization_type
+     * Gets account_type
      *
      * @return string
      */
-    public function getOrganizationType()
+    public function getAccountType()
     {
-        return $this->container['organization_type'];
+        return $this->container['account_type'];
     }
 
     /**
-     * Sets organization_type
+     * Sets account_type
      *
-     * @param string $organization_type organization_type
+     * @param string $account_type account_type
      *
      * @return self
      */
-    public function setOrganizationType($organization_type)
+    public function setAccountType($account_type)
     {
-        if (is_null($organization_type)) {
-            throw new \InvalidArgumentException('non-nullable organization_type cannot be null');
+        if (is_null($account_type)) {
+            throw new \InvalidArgumentException('non-nullable account_type cannot be null');
         }
-        $allowedValues = $this->getOrganizationTypeAllowableValues();
-        if (!in_array($organization_type, $allowedValues, true)) {
+        $allowedValues = $this->getAccountTypeAllowableValues();
+        if (!in_array($account_type, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value '%s' for 'organization_type', must be one of '%s'",
-                    $organization_type,
+                    "Invalid value '%s' for 'account_type', must be one of '%s'",
+                    $account_type,
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['organization_type'] = $organization_type;
+        $this->container['account_type'] = $account_type;
 
         return $this;
     }
@@ -533,7 +527,7 @@ class BillingPostResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets creator
      *
-     * @return string
+     * @return string|null
      */
     public function getCreator()
     {
@@ -543,7 +537,7 @@ class BillingPostResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets creator
      *
-     * @param string $creator creator
+     * @param string|null $creator creator
      *
      * @return self
      */
@@ -560,7 +554,7 @@ class BillingPostResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets name
      *
-     * @return string
+     * @return string|null
      */
     public function getName()
     {
@@ -570,7 +564,7 @@ class BillingPostResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets name
      *
-     * @param string $name name
+     * @param string|null $name name
      *
      * @return self
      */
@@ -705,7 +699,7 @@ class BillingPostResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets billing_version
      *
-     * @param float|null $billing_version billing_version
+     * @param float|null $billing_version When omitted, defaults to LATEST_BILLING_VERSION.
      *
      * @return self
      */

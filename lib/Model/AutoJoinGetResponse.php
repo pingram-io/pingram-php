@@ -57,7 +57,7 @@ class AutoJoinGetResponse implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'organization_id' => 'string',
+        'account_id' => 'string',
         'domains' => 'string[]'
     ];
 
@@ -69,7 +69,7 @@ class AutoJoinGetResponse implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'organization_id' => null,
+        'account_id' => null,
         'domains' => null
     ];
 
@@ -79,7 +79,7 @@ class AutoJoinGetResponse implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'organization_id' => false,
+        'account_id' => false,
         'domains' => false
     ];
 
@@ -169,7 +169,7 @@ class AutoJoinGetResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'organization_id' => 'organizationId',
+        'account_id' => 'accountId',
         'domains' => 'domains'
     ];
 
@@ -179,7 +179,7 @@ class AutoJoinGetResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'organization_id' => 'setOrganizationId',
+        'account_id' => 'setAccountId',
         'domains' => 'setDomains'
     ];
 
@@ -189,7 +189,7 @@ class AutoJoinGetResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'organization_id' => 'getOrganizationId',
+        'account_id' => 'getAccountId',
         'domains' => 'getDomains'
     ];
 
@@ -250,7 +250,7 @@ class AutoJoinGetResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('organization_id', $data ?? [], null);
+        $this->setIfExists('account_id', $data ?? [], null);
         $this->setIfExists('domains', $data ?? [], null);
     }
 
@@ -281,8 +281,8 @@ class AutoJoinGetResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     {
         $invalidProperties = [];
 
-        if ($this->container['organization_id'] === null) {
-            $invalidProperties[] = "'organization_id' can't be null";
+        if ($this->container['account_id'] === null) {
+            $invalidProperties[] = "'account_id' can't be null";
         }
         if ($this->container['domains'] === null) {
             $invalidProperties[] = "'domains' can't be null";
@@ -303,28 +303,28 @@ class AutoJoinGetResponse implements ModelInterface, ArrayAccess, \JsonSerializa
 
 
     /**
-     * Gets organization_id
+     * Gets account_id
      *
      * @return string
      */
-    public function getOrganizationId()
+    public function getAccountId()
     {
-        return $this->container['organization_id'];
+        return $this->container['account_id'];
     }
 
     /**
-     * Sets organization_id
+     * Sets account_id
      *
-     * @param string $organization_id organization_id
+     * @param string $account_id account_id
      *
      * @return self
      */
-    public function setOrganizationId($organization_id)
+    public function setAccountId($account_id)
     {
-        if (is_null($organization_id)) {
-            throw new \InvalidArgumentException('non-nullable organization_id cannot be null');
+        if (is_null($account_id)) {
+            throw new \InvalidArgumentException('non-nullable account_id cannot be null');
         }
-        $this->container['organization_id'] = $organization_id;
+        $this->container['account_id'] = $account_id;
 
         return $this;
     }

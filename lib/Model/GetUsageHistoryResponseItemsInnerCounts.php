@@ -1,6 +1,6 @@
 <?php
 /**
- * OrganizationUsageHistoryItemsInner
+ * GetUsageHistoryResponseItemsInnerCounts
  *
  * PHP version 8.1
  *
@@ -32,16 +32,15 @@ use \ArrayAccess;
 use \Pingram\ObjectSerializer;
 
 /**
- * OrganizationUsageHistoryItemsInner Class Doc Comment
+ * GetUsageHistoryResponseItemsInnerCounts Class Doc Comment
  *
  * @category Class
- * @description Single usage item in historical response
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class OrganizationUsageHistoryItemsInner implements ModelInterface, ArrayAccess, \JsonSerializable
+class GetUsageHistoryResponseItemsInnerCounts implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +49,7 @@ class OrganizationUsageHistoryItemsInner implements ModelInterface, ArrayAccess,
       *
       * @var string
       */
-    protected static $openAPIModelName = 'OrganizationUsageHistory_items_inner';
+    protected static $openAPIModelName = 'GetUsageHistoryResponse_items_inner_counts';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,8 +57,14 @@ class OrganizationUsageHistoryItemsInner implements ModelInterface, ArrayAccess,
       * @var string[]
       */
     protected static $openAPITypes = [
-        'year_month' => 'string',
-        'counts' => '\Pingram\Model\OrganizationUsageHistoryItemsInnerCounts'
+        'email' => 'float',
+        'inapp_web' => 'float',
+        'sms' => 'float',
+        'call' => 'float',
+        'voice' => 'float',
+        'push' => 'float',
+        'web_push' => 'float',
+        'slack' => 'float'
     ];
 
     /**
@@ -70,8 +75,14 @@ class OrganizationUsageHistoryItemsInner implements ModelInterface, ArrayAccess,
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'year_month' => null,
-        'counts' => null
+        'email' => null,
+        'inapp_web' => null,
+        'sms' => null,
+        'call' => null,
+        'voice' => null,
+        'push' => null,
+        'web_push' => null,
+        'slack' => null
     ];
 
     /**
@@ -80,8 +91,14 @@ class OrganizationUsageHistoryItemsInner implements ModelInterface, ArrayAccess,
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'year_month' => false,
-        'counts' => false
+        'email' => false,
+        'inapp_web' => false,
+        'sms' => false,
+        'call' => false,
+        'voice' => false,
+        'push' => false,
+        'web_push' => false,
+        'slack' => false
     ];
 
     /**
@@ -170,8 +187,14 @@ class OrganizationUsageHistoryItemsInner implements ModelInterface, ArrayAccess,
      * @var string[]
      */
     protected static $attributeMap = [
-        'year_month' => 'yearMonth',
-        'counts' => 'counts'
+        'email' => 'EMAIL',
+        'inapp_web' => 'INAPP_WEB',
+        'sms' => 'SMS',
+        'call' => 'CALL',
+        'voice' => 'VOICE',
+        'push' => 'PUSH',
+        'web_push' => 'WEB_PUSH',
+        'slack' => 'SLACK'
     ];
 
     /**
@@ -180,8 +203,14 @@ class OrganizationUsageHistoryItemsInner implements ModelInterface, ArrayAccess,
      * @var string[]
      */
     protected static $setters = [
-        'year_month' => 'setYearMonth',
-        'counts' => 'setCounts'
+        'email' => 'setEmail',
+        'inapp_web' => 'setInappWeb',
+        'sms' => 'setSms',
+        'call' => 'setCall',
+        'voice' => 'setVoice',
+        'push' => 'setPush',
+        'web_push' => 'setWebPush',
+        'slack' => 'setSlack'
     ];
 
     /**
@@ -190,8 +219,14 @@ class OrganizationUsageHistoryItemsInner implements ModelInterface, ArrayAccess,
      * @var string[]
      */
     protected static $getters = [
-        'year_month' => 'getYearMonth',
-        'counts' => 'getCounts'
+        'email' => 'getEmail',
+        'inapp_web' => 'getInappWeb',
+        'sms' => 'getSms',
+        'call' => 'getCall',
+        'voice' => 'getVoice',
+        'push' => 'getPush',
+        'web_push' => 'getWebPush',
+        'slack' => 'getSlack'
     ];
 
     /**
@@ -251,8 +286,14 @@ class OrganizationUsageHistoryItemsInner implements ModelInterface, ArrayAccess,
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('year_month', $data ?? [], null);
-        $this->setIfExists('counts', $data ?? [], null);
+        $this->setIfExists('email', $data ?? [], null);
+        $this->setIfExists('inapp_web', $data ?? [], null);
+        $this->setIfExists('sms', $data ?? [], null);
+        $this->setIfExists('call', $data ?? [], null);
+        $this->setIfExists('voice', $data ?? [], null);
+        $this->setIfExists('push', $data ?? [], null);
+        $this->setIfExists('web_push', $data ?? [], null);
+        $this->setIfExists('slack', $data ?? [], null);
     }
 
     /**
@@ -282,11 +323,29 @@ class OrganizationUsageHistoryItemsInner implements ModelInterface, ArrayAccess,
     {
         $invalidProperties = [];
 
-        if ($this->container['year_month'] === null) {
-            $invalidProperties[] = "'year_month' can't be null";
+        if ($this->container['email'] === null) {
+            $invalidProperties[] = "'email' can't be null";
         }
-        if ($this->container['counts'] === null) {
-            $invalidProperties[] = "'counts' can't be null";
+        if ($this->container['inapp_web'] === null) {
+            $invalidProperties[] = "'inapp_web' can't be null";
+        }
+        if ($this->container['sms'] === null) {
+            $invalidProperties[] = "'sms' can't be null";
+        }
+        if ($this->container['call'] === null) {
+            $invalidProperties[] = "'call' can't be null";
+        }
+        if ($this->container['voice'] === null) {
+            $invalidProperties[] = "'voice' can't be null";
+        }
+        if ($this->container['push'] === null) {
+            $invalidProperties[] = "'push' can't be null";
+        }
+        if ($this->container['web_push'] === null) {
+            $invalidProperties[] = "'web_push' can't be null";
+        }
+        if ($this->container['slack'] === null) {
+            $invalidProperties[] = "'slack' can't be null";
         }
         return $invalidProperties;
     }
@@ -304,55 +363,217 @@ class OrganizationUsageHistoryItemsInner implements ModelInterface, ArrayAccess,
 
 
     /**
-     * Gets year_month
+     * Gets email
      *
-     * @return string
+     * @return float
      */
-    public function getYearMonth()
+    public function getEmail()
     {
-        return $this->container['year_month'];
+        return $this->container['email'];
     }
 
     /**
-     * Sets year_month
+     * Sets email
      *
-     * @param string $year_month Year-month (YYYY-MM) for this usage period
+     * @param float $email email
      *
      * @return self
      */
-    public function setYearMonth($year_month)
+    public function setEmail($email)
     {
-        if (is_null($year_month)) {
-            throw new \InvalidArgumentException('non-nullable year_month cannot be null');
+        if (is_null($email)) {
+            throw new \InvalidArgumentException('non-nullable email cannot be null');
         }
-        $this->container['year_month'] = $year_month;
+        $this->container['email'] = $email;
 
         return $this;
     }
 
     /**
-     * Gets counts
+     * Gets inapp_web
      *
-     * @return \Pingram\Model\OrganizationUsageHistoryItemsInnerCounts
+     * @return float
      */
-    public function getCounts()
+    public function getInappWeb()
     {
-        return $this->container['counts'];
+        return $this->container['inapp_web'];
     }
 
     /**
-     * Sets counts
+     * Sets inapp_web
      *
-     * @param \Pingram\Model\OrganizationUsageHistoryItemsInnerCounts $counts counts
+     * @param float $inapp_web inapp_web
      *
      * @return self
      */
-    public function setCounts($counts)
+    public function setInappWeb($inapp_web)
     {
-        if (is_null($counts)) {
-            throw new \InvalidArgumentException('non-nullable counts cannot be null');
+        if (is_null($inapp_web)) {
+            throw new \InvalidArgumentException('non-nullable inapp_web cannot be null');
         }
-        $this->container['counts'] = $counts;
+        $this->container['inapp_web'] = $inapp_web;
+
+        return $this;
+    }
+
+    /**
+     * Gets sms
+     *
+     * @return float
+     */
+    public function getSms()
+    {
+        return $this->container['sms'];
+    }
+
+    /**
+     * Sets sms
+     *
+     * @param float $sms sms
+     *
+     * @return self
+     */
+    public function setSms($sms)
+    {
+        if (is_null($sms)) {
+            throw new \InvalidArgumentException('non-nullable sms cannot be null');
+        }
+        $this->container['sms'] = $sms;
+
+        return $this;
+    }
+
+    /**
+     * Gets call
+     *
+     * @return float
+     */
+    public function getCall()
+    {
+        return $this->container['call'];
+    }
+
+    /**
+     * Sets call
+     *
+     * @param float $call call
+     *
+     * @return self
+     */
+    public function setCall($call)
+    {
+        if (is_null($call)) {
+            throw new \InvalidArgumentException('non-nullable call cannot be null');
+        }
+        $this->container['call'] = $call;
+
+        return $this;
+    }
+
+    /**
+     * Gets voice
+     *
+     * @return float
+     */
+    public function getVoice()
+    {
+        return $this->container['voice'];
+    }
+
+    /**
+     * Sets voice
+     *
+     * @param float $voice voice
+     *
+     * @return self
+     */
+    public function setVoice($voice)
+    {
+        if (is_null($voice)) {
+            throw new \InvalidArgumentException('non-nullable voice cannot be null');
+        }
+        $this->container['voice'] = $voice;
+
+        return $this;
+    }
+
+    /**
+     * Gets push
+     *
+     * @return float
+     */
+    public function getPush()
+    {
+        return $this->container['push'];
+    }
+
+    /**
+     * Sets push
+     *
+     * @param float $push push
+     *
+     * @return self
+     */
+    public function setPush($push)
+    {
+        if (is_null($push)) {
+            throw new \InvalidArgumentException('non-nullable push cannot be null');
+        }
+        $this->container['push'] = $push;
+
+        return $this;
+    }
+
+    /**
+     * Gets web_push
+     *
+     * @return float
+     */
+    public function getWebPush()
+    {
+        return $this->container['web_push'];
+    }
+
+    /**
+     * Sets web_push
+     *
+     * @param float $web_push web_push
+     *
+     * @return self
+     */
+    public function setWebPush($web_push)
+    {
+        if (is_null($web_push)) {
+            throw new \InvalidArgumentException('non-nullable web_push cannot be null');
+        }
+        $this->container['web_push'] = $web_push;
+
+        return $this;
+    }
+
+    /**
+     * Gets slack
+     *
+     * @return float
+     */
+    public function getSlack()
+    {
+        return $this->container['slack'];
+    }
+
+    /**
+     * Sets slack
+     *
+     * @param float $slack slack
+     *
+     * @return self
+     */
+    public function setSlack($slack)
+    {
+        if (is_null($slack)) {
+            throw new \InvalidArgumentException('non-nullable slack cannot be null');
+        }
+        $this->container['slack'] = $slack;
 
         return $this;
     }

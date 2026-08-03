@@ -1,6 +1,6 @@
 <?php
 /**
- * OrganizationUsageHistory
+ * GetUsageHistoryResponseItemsInner
  *
  * PHP version 8.1
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \Pingram\ObjectSerializer;
 
 /**
- * OrganizationUsageHistory Class Doc Comment
+ * GetUsageHistoryResponseItemsInner Class Doc Comment
  *
  * @category Class
- * @description Response for GET /organization/usage/history
+ * @description Single usage item in historical response
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class OrganizationUsageHistory implements ModelInterface, ArrayAccess, \JsonSerializable
+class GetUsageHistoryResponseItemsInner implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class OrganizationUsageHistory implements ModelInterface, ArrayAccess, \JsonSeri
       *
       * @var string
       */
-    protected static $openAPIModelName = 'OrganizationUsageHistory';
+    protected static $openAPIModelName = 'GetUsageHistoryResponse_items_inner';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,7 +58,8 @@ class OrganizationUsageHistory implements ModelInterface, ArrayAccess, \JsonSeri
       * @var string[]
       */
     protected static $openAPITypes = [
-        'items' => '\Pingram\Model\OrganizationUsageHistoryItemsInner[]'
+        'year_month' => 'string',
+        'counts' => '\Pingram\Model\GetUsageHistoryResponseItemsInnerCounts'
     ];
 
     /**
@@ -69,7 +70,8 @@ class OrganizationUsageHistory implements ModelInterface, ArrayAccess, \JsonSeri
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'items' => null
+        'year_month' => null,
+        'counts' => null
     ];
 
     /**
@@ -78,7 +80,8 @@ class OrganizationUsageHistory implements ModelInterface, ArrayAccess, \JsonSeri
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'items' => false
+        'year_month' => false,
+        'counts' => false
     ];
 
     /**
@@ -167,7 +170,8 @@ class OrganizationUsageHistory implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $attributeMap = [
-        'items' => 'items'
+        'year_month' => 'yearMonth',
+        'counts' => 'counts'
     ];
 
     /**
@@ -176,7 +180,8 @@ class OrganizationUsageHistory implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $setters = [
-        'items' => 'setItems'
+        'year_month' => 'setYearMonth',
+        'counts' => 'setCounts'
     ];
 
     /**
@@ -185,7 +190,8 @@ class OrganizationUsageHistory implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $getters = [
-        'items' => 'getItems'
+        'year_month' => 'getYearMonth',
+        'counts' => 'getCounts'
     ];
 
     /**
@@ -245,7 +251,8 @@ class OrganizationUsageHistory implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('items', $data ?? [], null);
+        $this->setIfExists('year_month', $data ?? [], null);
+        $this->setIfExists('counts', $data ?? [], null);
     }
 
     /**
@@ -275,8 +282,11 @@ class OrganizationUsageHistory implements ModelInterface, ArrayAccess, \JsonSeri
     {
         $invalidProperties = [];
 
-        if ($this->container['items'] === null) {
-            $invalidProperties[] = "'items' can't be null";
+        if ($this->container['year_month'] === null) {
+            $invalidProperties[] = "'year_month' can't be null";
+        }
+        if ($this->container['counts'] === null) {
+            $invalidProperties[] = "'counts' can't be null";
         }
         return $invalidProperties;
     }
@@ -294,28 +304,55 @@ class OrganizationUsageHistory implements ModelInterface, ArrayAccess, \JsonSeri
 
 
     /**
-     * Gets items
+     * Gets year_month
      *
-     * @return \Pingram\Model\OrganizationUsageHistoryItemsInner[]
+     * @return string
      */
-    public function getItems()
+    public function getYearMonth()
     {
-        return $this->container['items'];
+        return $this->container['year_month'];
     }
 
     /**
-     * Sets items
+     * Sets year_month
      *
-     * @param \Pingram\Model\OrganizationUsageHistoryItemsInner[] $items Array of usage items, one per month in the requested range
+     * @param string $year_month Year-month (YYYY-MM) for this usage period
      *
      * @return self
      */
-    public function setItems($items)
+    public function setYearMonth($year_month)
     {
-        if (is_null($items)) {
-            throw new \InvalidArgumentException('non-nullable items cannot be null');
+        if (is_null($year_month)) {
+            throw new \InvalidArgumentException('non-nullable year_month cannot be null');
         }
-        $this->container['items'] = $items;
+        $this->container['year_month'] = $year_month;
+
+        return $this;
+    }
+
+    /**
+     * Gets counts
+     *
+     * @return \Pingram\Model\GetUsageHistoryResponseItemsInnerCounts
+     */
+    public function getCounts()
+    {
+        return $this->container['counts'];
+    }
+
+    /**
+     * Sets counts
+     *
+     * @param \Pingram\Model\GetUsageHistoryResponseItemsInnerCounts $counts counts
+     *
+     * @return self
+     */
+    public function setCounts($counts)
+    {
+        if (is_null($counts)) {
+            throw new \InvalidArgumentException('non-nullable counts cannot be null');
+        }
+        $this->container['counts'] = $counts;
 
         return $this;
     }

@@ -1,4 +1,4 @@
-# # OrganizationUsageCounts
+# # GetUsageResponseCounts
 
 ## Properties
 

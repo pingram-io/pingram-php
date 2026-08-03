@@ -63,8 +63,7 @@ class SenderPostBodyOptionsEmail implements ModelInterface, ArrayAccess, \JsonSe
         'bcc_addresses' => 'string[]',
         'from_address' => 'string',
         'from_name' => 'string',
-        'attachments' => '\Pingram\Model\SenderPostBodyOptionsEmailAttachmentsInner[]',
-        'condition' => 'string'
+        'attachments' => '\Pingram\Model\SenderPostBodyOptionsEmailAttachmentsInner[]'
     ];
 
     /**
@@ -80,8 +79,7 @@ class SenderPostBodyOptionsEmail implements ModelInterface, ArrayAccess, \JsonSe
         'bcc_addresses' => null,
         'from_address' => null,
         'from_name' => null,
-        'attachments' => null,
-        'condition' => null
+        'attachments' => null
     ];
 
     /**
@@ -95,8 +93,7 @@ class SenderPostBodyOptionsEmail implements ModelInterface, ArrayAccess, \JsonSe
         'bcc_addresses' => false,
         'from_address' => false,
         'from_name' => false,
-        'attachments' => false,
-        'condition' => false
+        'attachments' => false
     ];
 
     /**
@@ -190,8 +187,7 @@ class SenderPostBodyOptionsEmail implements ModelInterface, ArrayAccess, \JsonSe
         'bcc_addresses' => 'bccAddresses',
         'from_address' => 'fromAddress',
         'from_name' => 'fromName',
-        'attachments' => 'attachments',
-        'condition' => 'condition'
+        'attachments' => 'attachments'
     ];
 
     /**
@@ -205,8 +201,7 @@ class SenderPostBodyOptionsEmail implements ModelInterface, ArrayAccess, \JsonSe
         'bcc_addresses' => 'setBccAddresses',
         'from_address' => 'setFromAddress',
         'from_name' => 'setFromName',
-        'attachments' => 'setAttachments',
-        'condition' => 'setCondition'
+        'attachments' => 'setAttachments'
     ];
 
     /**
@@ -220,8 +215,7 @@ class SenderPostBodyOptionsEmail implements ModelInterface, ArrayAccess, \JsonSe
         'bcc_addresses' => 'getBccAddresses',
         'from_address' => 'getFromAddress',
         'from_name' => 'getFromName',
-        'attachments' => 'getAttachments',
-        'condition' => 'getCondition'
+        'attachments' => 'getAttachments'
     ];
 
     /**
@@ -287,7 +281,6 @@ class SenderPostBodyOptionsEmail implements ModelInterface, ArrayAccess, \JsonSe
         $this->setIfExists('from_address', $data ?? [], null);
         $this->setIfExists('from_name', $data ?? [], null);
         $this->setIfExists('attachments', $data ?? [], null);
-        $this->setIfExists('condition', $data ?? [], null);
     }
 
     /**
@@ -490,33 +483,6 @@ class SenderPostBodyOptionsEmail implements ModelInterface, ArrayAccess, \JsonSe
             throw new \InvalidArgumentException('non-nullable attachments cannot be null');
         }
         $this->container['attachments'] = $attachments;
-
-        return $this;
-    }
-
-    /**
-     * Gets condition
-     *
-     * @return string|null
-     */
-    public function getCondition()
-    {
-        return $this->container['condition'];
-    }
-
-    /**
-     * Sets condition
-     *
-     * @param string|null $condition Conditional expression for when to send (e.g. merge tag logic).
-     *
-     * @return self
-     */
-    public function setCondition($condition)
-    {
-        if (is_null($condition)) {
-            throw new \InvalidArgumentException('non-nullable condition cannot be null');
-        }
-        $this->container['condition'] = $condition;
 
         return $this;
     }

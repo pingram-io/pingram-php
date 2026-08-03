@@ -1,4 +1,4 @@
-# # OrganizationUsageCosts
+# # GetUsageResponseCosts
 
 ## Properties
 

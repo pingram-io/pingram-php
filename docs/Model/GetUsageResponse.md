@@ -1,11 +1,11 @@
-# # OrganizationUsage
+# # GetUsageResponse
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**costs** | [**\Pingram\Model\OrganizationUsageCosts**](OrganizationUsageCosts.md) |  | [optional]
-**counts** | [**\Pingram\Model\OrganizationUsageCounts**](OrganizationUsageCounts.md) |  | [optional]
+**costs** | [**\Pingram\Model\GetUsageResponseCosts**](GetUsageResponseCosts.md) |  | [optional]
+**counts** | [**\Pingram\Model\GetUsageResponseCounts**](GetUsageResponseCounts.md) |  | [optional]
 **billing_cycle_start** | **string** | Billing cycle start date (ISO string) |
 **billing_cycle_end** | **string** | Billing cycle end date (ISO string) |
 

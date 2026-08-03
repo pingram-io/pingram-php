@@ -35,7 +35,7 @@ use \Pingram\ObjectSerializer;
  * GetUsageHistoryQuery Class Doc Comment
  *
  * @category Class
- * @description Query parameters for GET /organization/usage/history
+ * @description Query parameters for GET /account/usage/history
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

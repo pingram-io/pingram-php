@@ -143,7 +143,7 @@ class MembersApi
     /**
      * Operation membersGetAutoJoin
      *
-     * Get auto-join domains for the organization
+     * Get auto-join domains for the account
      *
      * @param  string $env_id Environment ID (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['membersGetAutoJoin'] to see the possible values for this operation
@@ -161,7 +161,7 @@ class MembersApi
     /**
      * Operation membersGetAutoJoinWithHttpInfo
      *
-     * Get auto-join domains for the organization
+     * Get auto-join domains for the account
      *
      * @param  string $env_id Environment ID (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['membersGetAutoJoin'] to see the possible values for this operation
@@ -288,7 +288,7 @@ class MembersApi
     /**
      * Operation membersGetAutoJoinAsync
      *
-     * Get auto-join domains for the organization
+     * Get auto-join domains for the account
      *
      * @param  string $env_id Environment ID (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['membersGetAutoJoin'] to see the possible values for this operation
@@ -309,7 +309,7 @@ class MembersApi
     /**
      * Operation membersGetAutoJoinAsyncWithHttpInfo
      *
-     * Get auto-join domains for the organization
+     * Get auto-join domains for the account
      *
      * @param  string $env_id Environment ID (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['membersGetAutoJoin'] to see the possible values for this operation
@@ -469,7 +469,7 @@ class MembersApi
     /**
      * Operation membersInviteMember
      *
-     * Invite a new member to the organization
+     * Invite a new member to the account
      *
      * @param  string $env_id Environment ID (required)
      * @param  \Pingram\Model\MemberInviteRequest $member_invite_request member_invite_request (required)
@@ -488,7 +488,7 @@ class MembersApi
     /**
      * Operation membersInviteMemberWithHttpInfo
      *
-     * Invite a new member to the organization
+     * Invite a new member to the account
      *
      * @param  string $env_id Environment ID (required)
      * @param  \Pingram\Model\MemberInviteRequest $member_invite_request (required)
@@ -616,7 +616,7 @@ class MembersApi
     /**
      * Operation membersInviteMemberAsync
      *
-     * Invite a new member to the organization
+     * Invite a new member to the account
      *
      * @param  string $env_id Environment ID (required)
      * @param  \Pingram\Model\MemberInviteRequest $member_invite_request (required)
@@ -638,7 +638,7 @@ class MembersApi
     /**
      * Operation membersInviteMemberAsyncWithHttpInfo
      *
-     * Invite a new member to the organization
+     * Invite a new member to the account
      *
      * @param  string $env_id Environment ID (required)
      * @param  \Pingram\Model\MemberInviteRequest $member_invite_request (required)
@@ -814,7 +814,7 @@ class MembersApi
     /**
      * Operation membersListMembers
      *
-     * Get a list of team members in the organization
+     * Get a list of team members in the account
      *
      * @param  string $env_id Environment ID (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['membersListMembers'] to see the possible values for this operation
@@ -832,7 +832,7 @@ class MembersApi
     /**
      * Operation membersListMembersWithHttpInfo
      *
-     * Get a list of team members in the organization
+     * Get a list of team members in the account
      *
      * @param  string $env_id Environment ID (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['membersListMembers'] to see the possible values for this operation
@@ -959,7 +959,7 @@ class MembersApi
     /**
      * Operation membersListMembersAsync
      *
-     * Get a list of team members in the organization
+     * Get a list of team members in the account
      *
      * @param  string $env_id Environment ID (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['membersListMembers'] to see the possible values for this operation
@@ -980,7 +980,7 @@ class MembersApi
     /**
      * Operation membersListMembersAsyncWithHttpInfo
      *
-     * Get a list of team members in the organization
+     * Get a list of team members in the account
      *
      * @param  string $env_id Environment ID (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['membersListMembers'] to see the possible values for this operation
@@ -1140,7 +1140,7 @@ class MembersApi
     /**
      * Operation membersRemoveMember
      *
-     * Remove a member from the organization
+     * Remove a member from the account
      *
      * @param  string $env_id Environment ID (required)
      * @param  string $user_id User ID or email address (URL encoded) (required)
@@ -1159,7 +1159,7 @@ class MembersApi
     /**
      * Operation membersRemoveMemberWithHttpInfo
      *
-     * Remove a member from the organization
+     * Remove a member from the account
      *
      * @param  string $env_id Environment ID (required)
      * @param  string $user_id User ID or email address (URL encoded) (required)
@@ -1287,7 +1287,7 @@ class MembersApi
     /**
      * Operation membersRemoveMemberAsync
      *
-     * Remove a member from the organization
+     * Remove a member from the account
      *
      * @param  string $env_id Environment ID (required)
      * @param  string $user_id User ID or email address (URL encoded) (required)
@@ -1309,7 +1309,7 @@ class MembersApi
     /**
      * Operation membersRemoveMemberAsyncWithHttpInfo
      *
-     * Remove a member from the organization
+     * Remove a member from the account
      *
      * @param  string $env_id Environment ID (required)
      * @param  string $user_id User ID or email address (URL encoded) (required)
@@ -1486,7 +1486,7 @@ class MembersApi
     /**
      * Operation membersSetAutoJoin
      *
-     * Set auto-join domains for the organization
+     * Set auto-join domains for the account
      *
      * @param  string $env_id Environment ID (required)
      * @param  \Pingram\Model\AutoJoinRequestBody $auto_join_request_body auto_join_request_body (required)
@@ -1505,7 +1505,7 @@ class MembersApi
     /**
      * Operation membersSetAutoJoinWithHttpInfo
      *
-     * Set auto-join domains for the organization
+     * Set auto-join domains for the account
      *
      * @param  string $env_id Environment ID (required)
      * @param  \Pingram\Model\AutoJoinRequestBody $auto_join_request_body (required)
@@ -1633,7 +1633,7 @@ class MembersApi
     /**
      * Operation membersSetAutoJoinAsync
      *
-     * Set auto-join domains for the organization
+     * Set auto-join domains for the account
      *
      * @param  string $env_id Environment ID (required)
      * @param  \Pingram\Model\AutoJoinRequestBody $auto_join_request_body (required)
@@ -1655,7 +1655,7 @@ class MembersApi
     /**
      * Operation membersSetAutoJoinAsyncWithHttpInfo
      *
-     * Set auto-join domains for the organization
+     * Set auto-join domains for the account
      *
      * @param  string $env_id Environment ID (required)
      * @param  \Pingram\Model\AutoJoinRequestBody $auto_join_request_body (required)

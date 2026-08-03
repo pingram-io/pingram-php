@@ -1,6 +1,6 @@
 <?php
 /**
- * CreateOrganizationRequest
+ * GetUsageResponseCosts
  *
  * PHP version 8.1
  *
@@ -32,15 +32,16 @@ use \ArrayAccess;
 use \Pingram\ObjectSerializer;
 
 /**
- * CreateOrganizationRequest Class Doc Comment
+ * GetUsageResponseCosts Class Doc Comment
  *
  * @category Class
+ * @description Total costs for the billing cycle (all channel costs + number rent)
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class CreateOrganizationRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class GetUsageResponseCosts implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +50,7 @@ class CreateOrganizationRequest implements ModelInterface, ArrayAccess, \JsonSer
       *
       * @var string
       */
-    protected static $openAPIModelName = 'CreateOrganizationRequest';
+    protected static $openAPIModelName = 'GetUsageResponse_costs';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +58,7 @@ class CreateOrganizationRequest implements ModelInterface, ArrayAccess, \JsonSer
       * @var string[]
       */
     protected static $openAPITypes = [
-        'attribution' => 'array<string,string>'
+        'number' => 'float'
     ];
 
     /**
@@ -68,7 +69,7 @@ class CreateOrganizationRequest implements ModelInterface, ArrayAccess, \JsonSer
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'attribution' => null
+        'number' => null
     ];
 
     /**
@@ -77,7 +78,7 @@ class CreateOrganizationRequest implements ModelInterface, ArrayAccess, \JsonSer
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'attribution' => false
+        'number' => false
     ];
 
     /**
@@ -166,7 +167,7 @@ class CreateOrganizationRequest implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $attributeMap = [
-        'attribution' => 'attribution'
+        'number' => 'NUMBER'
     ];
 
     /**
@@ -175,7 +176,7 @@ class CreateOrganizationRequest implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $setters = [
-        'attribution' => 'setAttribution'
+        'number' => 'setNumber'
     ];
 
     /**
@@ -184,7 +185,7 @@ class CreateOrganizationRequest implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $getters = [
-        'attribution' => 'getAttribution'
+        'number' => 'getNumber'
     ];
 
     /**
@@ -244,7 +245,7 @@ class CreateOrganizationRequest implements ModelInterface, ArrayAccess, \JsonSer
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('attribution', $data ?? [], null);
+        $this->setIfExists('number', $data ?? [], null);
     }
 
     /**
@@ -290,28 +291,28 @@ class CreateOrganizationRequest implements ModelInterface, ArrayAccess, \JsonSer
 
 
     /**
-     * Gets attribution
+     * Gets number
      *
-     * @return array<string,string>|null
+     * @return float|null
      */
-    public function getAttribution()
+    public function getNumber()
     {
-        return $this->container['attribution'];
+        return $this->container['number'];
     }
 
     /**
-     * Sets attribution
+     * Sets number
      *
-     * @param array<string,string>|null $attribution First-touch PostHog props from the client; attached to signup events.
+     * @param float|null $number number
      *
      * @return self
      */
-    public function setAttribution($attribution)
+    public function setNumber($number)
     {
-        if (is_null($attribution)) {
-            throw new \InvalidArgumentException('non-nullable attribution cannot be null');
+        if (is_null($number)) {
+            throw new \InvalidArgumentException('non-nullable number cannot be null');
         }
-        $this->container['attribution'] = $attribution;
+        $this->container['number'] = $number;
 
         return $this;
     }

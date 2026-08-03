@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**organization_id** | **string** |  |
-**organization_type** | **string** |  |
-**creator** | **string** |  |
-**name** | **string** |  |
+**account_id** | **string** |  |
+**account_type** | **string** |  |
+**creator** | **string** |  | [optional]
+**name** | **string** |  | [optional]
 **messages_cap** | **float** |  |
 **cost_cap** | **float** |  |
 **sms_cap** | **float** |  | [optional]
 **call_cap** | **float** |  | [optional]
-**billing_version** | **float** |  | [optional]
+**billing_version** | **float** | When omitted, defaults to LATEST_BILLING_VERSION. | [optional]
 **anniversary_date** | **string** | ISO date (YYYY-MM-DD) when the billing cycle resets. |
 **allow_overage** | **bool** |  |
 **created_at** | **string** |  |

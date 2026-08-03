@@ -35,7 +35,7 @@ use \Pingram\ObjectSerializer;
  * AccountGetResponse Class Doc Comment
  *
  * @category Class
- * @description GET /account response: basic account info (billing fields are on the organization).
+ * @description GET /account response: public plan fields for the authenticated account.
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -59,9 +59,18 @@ class AccountGetResponse implements ModelInterface, ArrayAccess, \JsonSerializab
       */
     protected static $openAPITypes = [
         'account_id' => 'string',
-        'organization_id' => 'string',
+        'account_type' => 'string',
+        'creator' => 'string',
         'name' => 'string',
-        'created_at' => 'string'
+        'messages_cap' => 'float',
+        'cost_cap' => 'float',
+        'sms_cap' => 'float',
+        'call_cap' => 'float',
+        'billing_version' => 'float',
+        'anniversary_date' => 'string',
+        'allow_overage' => 'bool',
+        'created_at' => 'string',
+        'updated_at' => 'string'
     ];
 
     /**
@@ -73,9 +82,18 @@ class AccountGetResponse implements ModelInterface, ArrayAccess, \JsonSerializab
       */
     protected static $openAPIFormats = [
         'account_id' => null,
-        'organization_id' => null,
+        'account_type' => null,
+        'creator' => null,
         'name' => null,
-        'created_at' => null
+        'messages_cap' => null,
+        'cost_cap' => null,
+        'sms_cap' => null,
+        'call_cap' => null,
+        'billing_version' => null,
+        'anniversary_date' => null,
+        'allow_overage' => null,
+        'created_at' => null,
+        'updated_at' => null
     ];
 
     /**
@@ -85,9 +103,18 @@ class AccountGetResponse implements ModelInterface, ArrayAccess, \JsonSerializab
       */
     protected static array $openAPINullables = [
         'account_id' => false,
-        'organization_id' => false,
+        'account_type' => false,
+        'creator' => false,
         'name' => false,
-        'created_at' => false
+        'messages_cap' => false,
+        'cost_cap' => false,
+        'sms_cap' => false,
+        'call_cap' => false,
+        'billing_version' => false,
+        'anniversary_date' => false,
+        'allow_overage' => false,
+        'created_at' => false,
+        'updated_at' => false
     ];
 
     /**
@@ -177,9 +204,18 @@ class AccountGetResponse implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     protected static $attributeMap = [
         'account_id' => 'accountId',
-        'organization_id' => 'organizationId',
+        'account_type' => 'accountType',
+        'creator' => 'creator',
         'name' => 'name',
-        'created_at' => 'createdAt'
+        'messages_cap' => 'messagesCap',
+        'cost_cap' => 'costCap',
+        'sms_cap' => 'smsCap',
+        'call_cap' => 'callCap',
+        'billing_version' => 'billingVersion',
+        'anniversary_date' => 'anniversaryDate',
+        'allow_overage' => 'allowOverage',
+        'created_at' => 'createdAt',
+        'updated_at' => 'updatedAt'
     ];
 
     /**
@@ -189,9 +225,18 @@ class AccountGetResponse implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     protected static $setters = [
         'account_id' => 'setAccountId',
-        'organization_id' => 'setOrganizationId',
+        'account_type' => 'setAccountType',
+        'creator' => 'setCreator',
         'name' => 'setName',
-        'created_at' => 'setCreatedAt'
+        'messages_cap' => 'setMessagesCap',
+        'cost_cap' => 'setCostCap',
+        'sms_cap' => 'setSmsCap',
+        'call_cap' => 'setCallCap',
+        'billing_version' => 'setBillingVersion',
+        'anniversary_date' => 'setAnniversaryDate',
+        'allow_overage' => 'setAllowOverage',
+        'created_at' => 'setCreatedAt',
+        'updated_at' => 'setUpdatedAt'
     ];
 
     /**
@@ -201,9 +246,18 @@ class AccountGetResponse implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     protected static $getters = [
         'account_id' => 'getAccountId',
-        'organization_id' => 'getOrganizationId',
+        'account_type' => 'getAccountType',
+        'creator' => 'getCreator',
         'name' => 'getName',
-        'created_at' => 'getCreatedAt'
+        'messages_cap' => 'getMessagesCap',
+        'cost_cap' => 'getCostCap',
+        'sms_cap' => 'getSmsCap',
+        'call_cap' => 'getCallCap',
+        'billing_version' => 'getBillingVersion',
+        'anniversary_date' => 'getAnniversaryDate',
+        'allow_overage' => 'getAllowOverage',
+        'created_at' => 'getCreatedAt',
+        'updated_at' => 'getUpdatedAt'
     ];
 
     /**
@@ -247,6 +301,36 @@ class AccountGetResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         return self::$openAPIModelName;
     }
 
+    public const ACCOUNT_TYPE_FREE = 'free';
+    public const ACCOUNT_TYPE_PAID = 'paid';
+    public const BILLING_VERSION_NUMBER_1 = 1;
+    public const BILLING_VERSION_NUMBER_3 = 3;
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getAccountTypeAllowableValues()
+    {
+        return [
+            self::ACCOUNT_TYPE_FREE,
+            self::ACCOUNT_TYPE_PAID,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getBillingVersionAllowableValues()
+    {
+        return [
+            self::BILLING_VERSION_NUMBER_1,
+            self::BILLING_VERSION_NUMBER_3,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -264,9 +348,18 @@ class AccountGetResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     public function __construct(?array $data = null)
     {
         $this->setIfExists('account_id', $data ?? [], null);
-        $this->setIfExists('organization_id', $data ?? [], null);
+        $this->setIfExists('account_type', $data ?? [], null);
+        $this->setIfExists('creator', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('messages_cap', $data ?? [], null);
+        $this->setIfExists('cost_cap', $data ?? [], null);
+        $this->setIfExists('sms_cap', $data ?? [], null);
+        $this->setIfExists('call_cap', $data ?? [], null);
+        $this->setIfExists('billing_version', $data ?? [], null);
+        $this->setIfExists('anniversary_date', $data ?? [], null);
+        $this->setIfExists('allow_overage', $data ?? [], null);
         $this->setIfExists('created_at', $data ?? [], null);
+        $this->setIfExists('updated_at', $data ?? [], null);
     }
 
     /**
@@ -299,14 +392,44 @@ class AccountGetResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         if ($this->container['account_id'] === null) {
             $invalidProperties[] = "'account_id' can't be null";
         }
-        if ($this->container['organization_id'] === null) {
-            $invalidProperties[] = "'organization_id' can't be null";
+        if ($this->container['account_type'] === null) {
+            $invalidProperties[] = "'account_type' can't be null";
         }
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
+        $allowedValues = $this->getAccountTypeAllowableValues();
+        if (!is_null($this->container['account_type']) && !in_array($this->container['account_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'account_type', must be one of '%s'",
+                $this->container['account_type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['messages_cap'] === null) {
+            $invalidProperties[] = "'messages_cap' can't be null";
+        }
+        if ($this->container['cost_cap'] === null) {
+            $invalidProperties[] = "'cost_cap' can't be null";
+        }
+        $allowedValues = $this->getBillingVersionAllowableValues();
+        if (!is_null($this->container['billing_version']) && !in_array($this->container['billing_version'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'billing_version', must be one of '%s'",
+                $this->container['billing_version'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['anniversary_date'] === null) {
+            $invalidProperties[] = "'anniversary_date' can't be null";
+        }
+        if ($this->container['allow_overage'] === null) {
+            $invalidProperties[] = "'allow_overage' can't be null";
         }
         if ($this->container['created_at'] === null) {
             $invalidProperties[] = "'created_at' can't be null";
+        }
+        if ($this->container['updated_at'] === null) {
+            $invalidProperties[] = "'updated_at' can't be null";
         }
         return $invalidProperties;
     }
@@ -351,28 +474,65 @@ class AccountGetResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
-     * Gets organization_id
+     * Gets account_type
      *
      * @return string
      */
-    public function getOrganizationId()
+    public function getAccountType()
     {
-        return $this->container['organization_id'];
+        return $this->container['account_type'];
     }
 
     /**
-     * Sets organization_id
+     * Sets account_type
      *
-     * @param string $organization_id organization_id
+     * @param string $account_type account_type
      *
      * @return self
      */
-    public function setOrganizationId($organization_id)
+    public function setAccountType($account_type)
     {
-        if (is_null($organization_id)) {
-            throw new \InvalidArgumentException('non-nullable organization_id cannot be null');
+        if (is_null($account_type)) {
+            throw new \InvalidArgumentException('non-nullable account_type cannot be null');
         }
-        $this->container['organization_id'] = $organization_id;
+        $allowedValues = $this->getAccountTypeAllowableValues();
+        if (!in_array($account_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'account_type', must be one of '%s'",
+                    $account_type,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['account_type'] = $account_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets creator
+     *
+     * @return string|null
+     */
+    public function getCreator()
+    {
+        return $this->container['creator'];
+    }
+
+    /**
+     * Sets creator
+     *
+     * @param string|null $creator creator
+     *
+     * @return self
+     */
+    public function setCreator($creator)
+    {
+        if (is_null($creator)) {
+            throw new \InvalidArgumentException('non-nullable creator cannot be null');
+        }
+        $this->container['creator'] = $creator;
 
         return $this;
     }
@@ -380,7 +540,7 @@ class AccountGetResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets name
      *
-     * @return string
+     * @return string|null
      */
     public function getName()
     {
@@ -390,7 +550,7 @@ class AccountGetResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets name
      *
-     * @param string $name name
+     * @param string|null $name name
      *
      * @return self
      */
@@ -400,6 +560,205 @@ class AccountGetResponse implements ModelInterface, ArrayAccess, \JsonSerializab
             throw new \InvalidArgumentException('non-nullable name cannot be null');
         }
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets messages_cap
+     *
+     * @return float
+     */
+    public function getMessagesCap()
+    {
+        return $this->container['messages_cap'];
+    }
+
+    /**
+     * Sets messages_cap
+     *
+     * @param float $messages_cap messages_cap
+     *
+     * @return self
+     */
+    public function setMessagesCap($messages_cap)
+    {
+        if (is_null($messages_cap)) {
+            throw new \InvalidArgumentException('non-nullable messages_cap cannot be null');
+        }
+        $this->container['messages_cap'] = $messages_cap;
+
+        return $this;
+    }
+
+    /**
+     * Gets cost_cap
+     *
+     * @return float
+     */
+    public function getCostCap()
+    {
+        return $this->container['cost_cap'];
+    }
+
+    /**
+     * Sets cost_cap
+     *
+     * @param float $cost_cap cost_cap
+     *
+     * @return self
+     */
+    public function setCostCap($cost_cap)
+    {
+        if (is_null($cost_cap)) {
+            throw new \InvalidArgumentException('non-nullable cost_cap cannot be null');
+        }
+        $this->container['cost_cap'] = $cost_cap;
+
+        return $this;
+    }
+
+    /**
+     * Gets sms_cap
+     *
+     * @return float|null
+     */
+    public function getSmsCap()
+    {
+        return $this->container['sms_cap'];
+    }
+
+    /**
+     * Sets sms_cap
+     *
+     * @param float|null $sms_cap sms_cap
+     *
+     * @return self
+     */
+    public function setSmsCap($sms_cap)
+    {
+        if (is_null($sms_cap)) {
+            throw new \InvalidArgumentException('non-nullable sms_cap cannot be null');
+        }
+        $this->container['sms_cap'] = $sms_cap;
+
+        return $this;
+    }
+
+    /**
+     * Gets call_cap
+     *
+     * @return float|null
+     */
+    public function getCallCap()
+    {
+        return $this->container['call_cap'];
+    }
+
+    /**
+     * Sets call_cap
+     *
+     * @param float|null $call_cap call_cap
+     *
+     * @return self
+     */
+    public function setCallCap($call_cap)
+    {
+        if (is_null($call_cap)) {
+            throw new \InvalidArgumentException('non-nullable call_cap cannot be null');
+        }
+        $this->container['call_cap'] = $call_cap;
+
+        return $this;
+    }
+
+    /**
+     * Gets billing_version
+     *
+     * @return float|null
+     */
+    public function getBillingVersion()
+    {
+        return $this->container['billing_version'];
+    }
+
+    /**
+     * Sets billing_version
+     *
+     * @param float|null $billing_version When omitted, defaults to LATEST_BILLING_VERSION.
+     *
+     * @return self
+     */
+    public function setBillingVersion($billing_version)
+    {
+        if (is_null($billing_version)) {
+            throw new \InvalidArgumentException('non-nullable billing_version cannot be null');
+        }
+        $allowedValues = $this->getBillingVersionAllowableValues();
+        if (!in_array($billing_version, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'billing_version', must be one of '%s'",
+                    $billing_version,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['billing_version'] = $billing_version;
+
+        return $this;
+    }
+
+    /**
+     * Gets anniversary_date
+     *
+     * @return string
+     */
+    public function getAnniversaryDate()
+    {
+        return $this->container['anniversary_date'];
+    }
+
+    /**
+     * Sets anniversary_date
+     *
+     * @param string $anniversary_date ISO date (YYYY-MM-DD) when the billing cycle resets.
+     *
+     * @return self
+     */
+    public function setAnniversaryDate($anniversary_date)
+    {
+        if (is_null($anniversary_date)) {
+            throw new \InvalidArgumentException('non-nullable anniversary_date cannot be null');
+        }
+        $this->container['anniversary_date'] = $anniversary_date;
+
+        return $this;
+    }
+
+    /**
+     * Gets allow_overage
+     *
+     * @return bool
+     */
+    public function getAllowOverage()
+    {
+        return $this->container['allow_overage'];
+    }
+
+    /**
+     * Sets allow_overage
+     *
+     * @param bool $allow_overage allow_overage
+     *
+     * @return self
+     */
+    public function setAllowOverage($allow_overage)
+    {
+        if (is_null($allow_overage)) {
+            throw new \InvalidArgumentException('non-nullable allow_overage cannot be null');
+        }
+        $this->container['allow_overage'] = $allow_overage;
 
         return $this;
     }
@@ -427,6 +786,33 @@ class AccountGetResponse implements ModelInterface, ArrayAccess, \JsonSerializab
             throw new \InvalidArgumentException('non-nullable created_at cannot be null');
         }
         $this->container['created_at'] = $created_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets updated_at
+     *
+     * @return string
+     */
+    public function getUpdatedAt()
+    {
+        return $this->container['updated_at'];
+    }
+
+    /**
+     * Sets updated_at
+     *
+     * @param string $updated_at updated_at
+     *
+     * @return self
+     */
+    public function setUpdatedAt($updated_at)
+    {
+        if (is_null($updated_at)) {
+            throw new \InvalidArgumentException('non-nullable updated_at cannot be null');
+        }
+        $this->container['updated_at'] = $updated_at;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 <?php
 /**
- * OrganizationUsageCosts
+ * GetUsageResponse
  *
  * PHP version 8.1
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \Pingram\ObjectSerializer;
 
 /**
- * OrganizationUsageCosts Class Doc Comment
+ * GetUsageResponse Class Doc Comment
  *
  * @category Class
- * @description Total costs for the billing cycle (all channel costs + number rent)
+ * @description Response for GET /account/usage
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class OrganizationUsageCosts implements ModelInterface, ArrayAccess, \JsonSerializable
+class GetUsageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class OrganizationUsageCosts implements ModelInterface, ArrayAccess, \JsonSerial
       *
       * @var string
       */
-    protected static $openAPIModelName = 'OrganizationUsage_costs';
+    protected static $openAPIModelName = 'GetUsageResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,7 +58,10 @@ class OrganizationUsageCosts implements ModelInterface, ArrayAccess, \JsonSerial
       * @var string[]
       */
     protected static $openAPITypes = [
-        'number' => 'float'
+        'costs' => '\Pingram\Model\GetUsageResponseCosts',
+        'counts' => '\Pingram\Model\GetUsageResponseCounts',
+        'billing_cycle_start' => 'string',
+        'billing_cycle_end' => 'string'
     ];
 
     /**
@@ -69,7 +72,10 @@ class OrganizationUsageCosts implements ModelInterface, ArrayAccess, \JsonSerial
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'number' => null
+        'costs' => null,
+        'counts' => null,
+        'billing_cycle_start' => null,
+        'billing_cycle_end' => null
     ];
 
     /**
@@ -78,7 +84,10 @@ class OrganizationUsageCosts implements ModelInterface, ArrayAccess, \JsonSerial
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'number' => false
+        'costs' => false,
+        'counts' => false,
+        'billing_cycle_start' => false,
+        'billing_cycle_end' => false
     ];
 
     /**
@@ -167,7 +176,10 @@ class OrganizationUsageCosts implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $attributeMap = [
-        'number' => 'NUMBER'
+        'costs' => 'costs',
+        'counts' => 'counts',
+        'billing_cycle_start' => 'billingCycleStart',
+        'billing_cycle_end' => 'billingCycleEnd'
     ];
 
     /**
@@ -176,7 +188,10 @@ class OrganizationUsageCosts implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $setters = [
-        'number' => 'setNumber'
+        'costs' => 'setCosts',
+        'counts' => 'setCounts',
+        'billing_cycle_start' => 'setBillingCycleStart',
+        'billing_cycle_end' => 'setBillingCycleEnd'
     ];
 
     /**
@@ -185,7 +200,10 @@ class OrganizationUsageCosts implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $getters = [
-        'number' => 'getNumber'
+        'costs' => 'getCosts',
+        'counts' => 'getCounts',
+        'billing_cycle_start' => 'getBillingCycleStart',
+        'billing_cycle_end' => 'getBillingCycleEnd'
     ];
 
     /**
@@ -245,7 +263,10 @@ class OrganizationUsageCosts implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('number', $data ?? [], null);
+        $this->setIfExists('costs', $data ?? [], null);
+        $this->setIfExists('counts', $data ?? [], null);
+        $this->setIfExists('billing_cycle_start', $data ?? [], null);
+        $this->setIfExists('billing_cycle_end', $data ?? [], null);
     }
 
     /**
@@ -275,6 +296,12 @@ class OrganizationUsageCosts implements ModelInterface, ArrayAccess, \JsonSerial
     {
         $invalidProperties = [];
 
+        if ($this->container['billing_cycle_start'] === null) {
+            $invalidProperties[] = "'billing_cycle_start' can't be null";
+        }
+        if ($this->container['billing_cycle_end'] === null) {
+            $invalidProperties[] = "'billing_cycle_end' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -291,28 +318,109 @@ class OrganizationUsageCosts implements ModelInterface, ArrayAccess, \JsonSerial
 
 
     /**
-     * Gets number
+     * Gets costs
      *
-     * @return float|null
+     * @return \Pingram\Model\GetUsageResponseCosts|null
      */
-    public function getNumber()
+    public function getCosts()
     {
-        return $this->container['number'];
+        return $this->container['costs'];
     }
 
     /**
-     * Sets number
+     * Sets costs
      *
-     * @param float|null $number number
+     * @param \Pingram\Model\GetUsageResponseCosts|null $costs costs
      *
      * @return self
      */
-    public function setNumber($number)
+    public function setCosts($costs)
     {
-        if (is_null($number)) {
-            throw new \InvalidArgumentException('non-nullable number cannot be null');
+        if (is_null($costs)) {
+            throw new \InvalidArgumentException('non-nullable costs cannot be null');
         }
-        $this->container['number'] = $number;
+        $this->container['costs'] = $costs;
+
+        return $this;
+    }
+
+    /**
+     * Gets counts
+     *
+     * @return \Pingram\Model\GetUsageResponseCounts|null
+     */
+    public function getCounts()
+    {
+        return $this->container['counts'];
+    }
+
+    /**
+     * Sets counts
+     *
+     * @param \Pingram\Model\GetUsageResponseCounts|null $counts counts
+     *
+     * @return self
+     */
+    public function setCounts($counts)
+    {
+        if (is_null($counts)) {
+            throw new \InvalidArgumentException('non-nullable counts cannot be null');
+        }
+        $this->container['counts'] = $counts;
+
+        return $this;
+    }
+
+    /**
+     * Gets billing_cycle_start
+     *
+     * @return string
+     */
+    public function getBillingCycleStart()
+    {
+        return $this->container['billing_cycle_start'];
+    }
+
+    /**
+     * Sets billing_cycle_start
+     *
+     * @param string $billing_cycle_start Billing cycle start date (ISO string)
+     *
+     * @return self
+     */
+    public function setBillingCycleStart($billing_cycle_start)
+    {
+        if (is_null($billing_cycle_start)) {
+            throw new \InvalidArgumentException('non-nullable billing_cycle_start cannot be null');
+        }
+        $this->container['billing_cycle_start'] = $billing_cycle_start;
+
+        return $this;
+    }
+
+    /**
+     * Gets billing_cycle_end
+     *
+     * @return string
+     */
+    public function getBillingCycleEnd()
+    {
+        return $this->container['billing_cycle_end'];
+    }
+
+    /**
+     * Sets billing_cycle_end
+     *
+     * @param string $billing_cycle_end Billing cycle end date (ISO string)
+     *
+     * @return self
+     */
+    public function setBillingCycleEnd($billing_cycle_end)
+    {
+        if (is_null($billing_cycle_end)) {
+            throw new \InvalidArgumentException('non-nullable billing_cycle_end cannot be null');
+        }
+        $this->container['billing_cycle_end'] = $billing_cycle_end;
 
         return $this;
     }

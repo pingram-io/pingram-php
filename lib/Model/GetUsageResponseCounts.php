@@ -1,6 +1,6 @@
 <?php
 /**
- * OrganizationUsageCounts
+ * GetUsageResponseCounts
  *
  * PHP version 8.1
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \Pingram\ObjectSerializer;
 
 /**
- * OrganizationUsageCounts Class Doc Comment
+ * GetUsageResponseCounts Class Doc Comment
  *
  * @category Class
  * @description Per-channel usage breakdown
@@ -41,7 +41,7 @@ use \Pingram\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class OrganizationUsageCounts implements ModelInterface, ArrayAccess, \JsonSerializable
+class GetUsageResponseCounts implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class OrganizationUsageCounts implements ModelInterface, ArrayAccess, \JsonSeria
       *
       * @var string
       */
-    protected static $openAPIModelName = 'OrganizationUsage_counts';
+    protected static $openAPIModelName = 'GetUsageResponse_counts';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**organization_id** | **string** |  |
 **account_id** | **string** |  |
 **user_id** | **string** |  |
 **created_at** | **string** |  |
