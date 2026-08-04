@@ -7,7 +7,6 @@ Name | Type | Description | Notes
 **notification_id** | **string** | @deprecated Use type instead | [optional]
 **user** | [**\Pingram\Model\SenderPostBodyUser**](SenderPostBodyUser.md) |  | [optional]
 **merge_tags** | **object** |  | [optional]
-**replace** | **array<string,string>** | @deprecated Use parameters instead | [optional]
 **type** | **string** | ID of the notification type (e.g. \&quot;welcome_email\&quot;). Creates a new notification if it does not exist. | [optional]
 **to** | [**\Pingram\Model\SenderPostBodyTo**](SenderPostBodyTo.md) |  | [optional]
 **force_channels** | [**\Pingram\Model\ChannelsEnum[]**](ChannelsEnum.md) | Override which channels to send to (e.g. [\&quot;EMAIL\&quot;, \&quot;SMS\&quot;]). Bypasses notification channel config. | [optional]

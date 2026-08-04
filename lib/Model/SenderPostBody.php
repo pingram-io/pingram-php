@@ -60,7 +60,6 @@ class SenderPostBody implements ModelInterface, ArrayAccess, \JsonSerializable
         'notification_id' => 'string',
         'user' => '\Pingram\Model\SenderPostBodyUser',
         'merge_tags' => 'object',
-        'replace' => 'array<string,string>',
         'type' => 'string',
         'to' => '\Pingram\Model\SenderPostBodyTo',
         'force_channels' => '\Pingram\Model\ChannelsEnum[]',
@@ -90,7 +89,6 @@ class SenderPostBody implements ModelInterface, ArrayAccess, \JsonSerializable
         'notification_id' => null,
         'user' => null,
         'merge_tags' => null,
-        'replace' => null,
         'type' => null,
         'to' => null,
         'force_channels' => null,
@@ -118,7 +116,6 @@ class SenderPostBody implements ModelInterface, ArrayAccess, \JsonSerializable
         'notification_id' => false,
         'user' => false,
         'merge_tags' => false,
-        'replace' => false,
         'type' => false,
         'to' => false,
         'force_channels' => false,
@@ -226,7 +223,6 @@ class SenderPostBody implements ModelInterface, ArrayAccess, \JsonSerializable
         'notification_id' => 'notificationId',
         'user' => 'user',
         'merge_tags' => 'mergeTags',
-        'replace' => 'replace',
         'type' => 'type',
         'to' => 'to',
         'force_channels' => 'forceChannels',
@@ -254,7 +250,6 @@ class SenderPostBody implements ModelInterface, ArrayAccess, \JsonSerializable
         'notification_id' => 'setNotificationId',
         'user' => 'setUser',
         'merge_tags' => 'setMergeTags',
-        'replace' => 'setReplace',
         'type' => 'setType',
         'to' => 'setTo',
         'force_channels' => 'setForceChannels',
@@ -282,7 +277,6 @@ class SenderPostBody implements ModelInterface, ArrayAccess, \JsonSerializable
         'notification_id' => 'getNotificationId',
         'user' => 'getUser',
         'merge_tags' => 'getMergeTags',
-        'replace' => 'getReplace',
         'type' => 'getType',
         'to' => 'getTo',
         'force_channels' => 'getForceChannels',
@@ -361,7 +355,6 @@ class SenderPostBody implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('notification_id', $data ?? [], null);
         $this->setIfExists('user', $data ?? [], null);
         $this->setIfExists('merge_tags', $data ?? [], null);
-        $this->setIfExists('replace', $data ?? [], null);
         $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('to', $data ?? [], null);
         $this->setIfExists('force_channels', $data ?? [], null);
@@ -505,35 +498,6 @@ class SenderPostBody implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable merge_tags cannot be null');
         }
         $this->container['merge_tags'] = $merge_tags;
-
-        return $this;
-    }
-
-    /**
-     * Gets replace
-     *
-     * @return array<string,string>|null
-     * @deprecated
-     */
-    public function getReplace()
-    {
-        return $this->container['replace'];
-    }
-
-    /**
-     * Sets replace
-     *
-     * @param array<string,string>|null $replace @deprecated Use parameters instead
-     *
-     * @return self
-     * @deprecated
-     */
-    public function setReplace($replace)
-    {
-        if (is_null($replace)) {
-            throw new \InvalidArgumentException('non-nullable replace cannot be null');
-        }
-        $this->container['replace'] = $replace;
 
         return $this;
     }
