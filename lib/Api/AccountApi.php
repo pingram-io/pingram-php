@@ -89,6 +89,9 @@ class AccountApi
         'accountGetUsageHistory' => [
             'application/json',
         ],
+        'accountListInvoices' => [
+            'application/json',
+        ],
         'accountListSupabaseProjects' => [
             'application/json',
         ],
@@ -1669,6 +1672,387 @@ class AccountApi
             'form', // style
             true, // explode
             true // required
+        ) ?? []);
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+        // this endpoint requires Bearer (JWT) authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation accountListInvoices
+     *
+     * List Stripe invoices for the authenticated account, newest first.
+     *
+     * @param  float|null $limit Max invoices to return (1-100, default 10) (optional)
+     * @param  string|null $starting_after Pagination cursor (invoice id from a previous response) (optional)
+     * @param  string|null $status Filter by status (optional)
+     * @param  string|null $created_after Inclusive lower bound (YYYY-MM-DD or unix seconds) (optional)
+     * @param  string|null $created_before Inclusive upper bound (YYYY-MM-DD or unix seconds) (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountListInvoices'] to see the possible values for this operation
+     *
+     * @throws \Pingram\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \Pingram\Model\ListInvoicesResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse
+     */
+    public function accountListInvoices($limit = null, $starting_after = null, $status = null, $created_after = null, $created_before = null, string $contentType = self::contentTypes['accountListInvoices'][0])
+    {
+        list($response) = $this->accountListInvoicesWithHttpInfo($limit, $starting_after, $status, $created_after, $created_before, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation accountListInvoicesWithHttpInfo
+     *
+     * List Stripe invoices for the authenticated account, newest first.
+     *
+     * @param  float|null $limit Max invoices to return (1-100, default 10) (optional)
+     * @param  string|null $starting_after Pagination cursor (invoice id from a previous response) (optional)
+     * @param  string|null $status Filter by status (optional)
+     * @param  string|null $created_after Inclusive lower bound (YYYY-MM-DD or unix seconds) (optional)
+     * @param  string|null $created_before Inclusive upper bound (YYYY-MM-DD or unix seconds) (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountListInvoices'] to see the possible values for this operation
+     *
+     * @throws \Pingram\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Pingram\Model\ListInvoicesResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function accountListInvoicesWithHttpInfo($limit = null, $starting_after = null, $status = null, $created_after = null, $created_before = null, string $contentType = self::contentTypes['accountListInvoices'][0])
+    {
+        $request = $this->accountListInvoicesRequest($limit, $starting_after, $status, $created_after, $created_before, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\Pingram\Model\ListInvoicesResponse',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\Pingram\Model\ApiErrorResponse',
+                        $request,
+                        $response,
+                    );
+                case 402:
+                    return $this->handleResponseWithDataType(
+                        '\Pingram\Model\ApiErrorResponse',
+                        $request,
+                        $response,
+                    );
+                case 502:
+                    return $this->handleResponseWithDataType(
+                        '\Pingram\Model\ApiErrorResponse',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\Pingram\Model\ListInvoicesResponse',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Pingram\Model\ListInvoicesResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Pingram\Model\ApiErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 402:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Pingram\Model\ApiErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 502:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Pingram\Model\ApiErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation accountListInvoicesAsync
+     *
+     * List Stripe invoices for the authenticated account, newest first.
+     *
+     * @param  float|null $limit Max invoices to return (1-100, default 10) (optional)
+     * @param  string|null $starting_after Pagination cursor (invoice id from a previous response) (optional)
+     * @param  string|null $status Filter by status (optional)
+     * @param  string|null $created_after Inclusive lower bound (YYYY-MM-DD or unix seconds) (optional)
+     * @param  string|null $created_before Inclusive upper bound (YYYY-MM-DD or unix seconds) (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountListInvoices'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function accountListInvoicesAsync($limit = null, $starting_after = null, $status = null, $created_after = null, $created_before = null, string $contentType = self::contentTypes['accountListInvoices'][0])
+    {
+        return $this->accountListInvoicesAsyncWithHttpInfo($limit, $starting_after, $status, $created_after, $created_before, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation accountListInvoicesAsyncWithHttpInfo
+     *
+     * List Stripe invoices for the authenticated account, newest first.
+     *
+     * @param  float|null $limit Max invoices to return (1-100, default 10) (optional)
+     * @param  string|null $starting_after Pagination cursor (invoice id from a previous response) (optional)
+     * @param  string|null $status Filter by status (optional)
+     * @param  string|null $created_after Inclusive lower bound (YYYY-MM-DD or unix seconds) (optional)
+     * @param  string|null $created_before Inclusive upper bound (YYYY-MM-DD or unix seconds) (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountListInvoices'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function accountListInvoicesAsyncWithHttpInfo($limit = null, $starting_after = null, $status = null, $created_after = null, $created_before = null, string $contentType = self::contentTypes['accountListInvoices'][0])
+    {
+        $returnType = '\Pingram\Model\ListInvoicesResponse';
+        $request = $this->accountListInvoicesRequest($limit, $starting_after, $status, $created_after, $created_before, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'accountListInvoices'
+     *
+     * @param  float|null $limit Max invoices to return (1-100, default 10) (optional)
+     * @param  string|null $starting_after Pagination cursor (invoice id from a previous response) (optional)
+     * @param  string|null $status Filter by status (optional)
+     * @param  string|null $created_after Inclusive lower bound (YYYY-MM-DD or unix seconds) (optional)
+     * @param  string|null $created_before Inclusive upper bound (YYYY-MM-DD or unix seconds) (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountListInvoices'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function accountListInvoicesRequest($limit = null, $starting_after = null, $status = null, $created_after = null, $created_before = null, string $contentType = self::contentTypes['accountListInvoices'][0])
+    {
+
+
+
+
+
+
+
+        $resourcePath = '/account/invoices';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $limit,
+            'limit', // param base name
+            'number', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $starting_after,
+            'startingAfter', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $status,
+            'status', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $created_after,
+            'createdAfter', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $created_before,
+            'createdBefore', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
         ) ?? []);
 
 
