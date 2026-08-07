@@ -1,6 +1,6 @@
 <?php
 /**
- * CreateAccountRequestBody
+ * CreateAccountRequest
  *
  * PHP version 8.1
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \Pingram\ObjectSerializer;
 
 /**
- * CreateAccountRequestBody Class Doc Comment
+ * CreateAccountRequest Class Doc Comment
  *
  * @category Class
  * @package  Pingram
@@ -40,7 +40,7 @@ use \Pingram\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class CreateAccountRequestBody implements ModelInterface, ArrayAccess, \JsonSerializable
+class CreateAccountRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class CreateAccountRequestBody implements ModelInterface, ArrayAccess, \JsonSeri
       *
       * @var string
       */
-    protected static $openAPIModelName = 'CreateAccountRequestBody';
+    protected static $openAPIModelName = 'CreateAccountRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +57,7 @@ class CreateAccountRequestBody implements ModelInterface, ArrayAccess, \JsonSeri
       * @var string[]
       */
     protected static $openAPITypes = [
-        'name' => 'string'
+        'attribution' => 'array<string,string>'
     ];
 
     /**
@@ -68,7 +68,7 @@ class CreateAccountRequestBody implements ModelInterface, ArrayAccess, \JsonSeri
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'name' => null
+        'attribution' => null
     ];
 
     /**
@@ -77,7 +77,7 @@ class CreateAccountRequestBody implements ModelInterface, ArrayAccess, \JsonSeri
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'name' => false
+        'attribution' => false
     ];
 
     /**
@@ -166,7 +166,7 @@ class CreateAccountRequestBody implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'name'
+        'attribution' => 'attribution'
     ];
 
     /**
@@ -175,7 +175,7 @@ class CreateAccountRequestBody implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName'
+        'attribution' => 'setAttribution'
     ];
 
     /**
@@ -184,7 +184,7 @@ class CreateAccountRequestBody implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName'
+        'attribution' => 'getAttribution'
     ];
 
     /**
@@ -244,7 +244,7 @@ class CreateAccountRequestBody implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('attribution', $data ?? [], null);
     }
 
     /**
@@ -274,9 +274,6 @@ class CreateAccountRequestBody implements ModelInterface, ArrayAccess, \JsonSeri
     {
         $invalidProperties = [];
 
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -293,28 +290,28 @@ class CreateAccountRequestBody implements ModelInterface, ArrayAccess, \JsonSeri
 
 
     /**
-     * Gets name
+     * Gets attribution
      *
-     * @return string
+     * @return array<string,string>|null
      */
-    public function getName()
+    public function getAttribution()
     {
-        return $this->container['name'];
+        return $this->container['attribution'];
     }
 
     /**
-     * Sets name
+     * Sets attribution
      *
-     * @param string $name name
+     * @param array<string,string>|null $attribution First-touch PostHog props from the client; attached to signup events.
      *
      * @return self
      */
-    public function setName($name)
+    public function setAttribution($attribution)
     {
-        if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+        if (is_null($attribution)) {
+            throw new \InvalidArgumentException('non-nullable attribution cannot be null');
         }
-        $this->container['name'] = $name;
+        $this->container['attribution'] = $attribution;
 
         return $this;
     }

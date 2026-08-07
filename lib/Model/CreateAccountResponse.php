@@ -57,8 +57,8 @@ class CreateAccountResponse implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var string[]
       */
     protected static $openAPITypes = [
-        'account_id' => 'string',
-        'name' => 'string'
+        'success' => 'bool',
+        'account_id' => 'string'
     ];
 
     /**
@@ -69,8 +69,8 @@ class CreateAccountResponse implements ModelInterface, ArrayAccess, \JsonSeriali
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'account_id' => null,
-        'name' => null
+        'success' => null,
+        'account_id' => null
     ];
 
     /**
@@ -79,8 +79,8 @@ class CreateAccountResponse implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'account_id' => false,
-        'name' => false
+        'success' => false,
+        'account_id' => false
     ];
 
     /**
@@ -169,8 +169,8 @@ class CreateAccountResponse implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $attributeMap = [
-        'account_id' => 'accountId',
-        'name' => 'name'
+        'success' => 'success',
+        'account_id' => 'accountId'
     ];
 
     /**
@@ -179,8 +179,8 @@ class CreateAccountResponse implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $setters = [
-        'account_id' => 'setAccountId',
-        'name' => 'setName'
+        'success' => 'setSuccess',
+        'account_id' => 'setAccountId'
     ];
 
     /**
@@ -189,8 +189,8 @@ class CreateAccountResponse implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $getters = [
-        'account_id' => 'getAccountId',
-        'name' => 'getName'
+        'success' => 'getSuccess',
+        'account_id' => 'getAccountId'
     ];
 
     /**
@@ -250,8 +250,8 @@ class CreateAccountResponse implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function __construct(?array $data = null)
     {
+        $this->setIfExists('success', $data ?? [], null);
         $this->setIfExists('account_id', $data ?? [], null);
-        $this->setIfExists('name', $data ?? [], null);
     }
 
     /**
@@ -281,11 +281,11 @@ class CreateAccountResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     {
         $invalidProperties = [];
 
+        if ($this->container['success'] === null) {
+            $invalidProperties[] = "'success' can't be null";
+        }
         if ($this->container['account_id'] === null) {
             $invalidProperties[] = "'account_id' can't be null";
-        }
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
         }
         return $invalidProperties;
     }
@@ -301,6 +301,33 @@ class CreateAccountResponse implements ModelInterface, ArrayAccess, \JsonSeriali
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets success
+     *
+     * @return bool
+     */
+    public function getSuccess()
+    {
+        return $this->container['success'];
+    }
+
+    /**
+     * Sets success
+     *
+     * @param bool $success success
+     *
+     * @return self
+     */
+    public function setSuccess($success)
+    {
+        if (is_null($success)) {
+            throw new \InvalidArgumentException('non-nullable success cannot be null');
+        }
+        $this->container['success'] = $success;
+
+        return $this;
+    }
 
     /**
      * Gets account_id
@@ -325,33 +352,6 @@ class CreateAccountResponse implements ModelInterface, ArrayAccess, \JsonSeriali
             throw new \InvalidArgumentException('non-nullable account_id cannot be null');
         }
         $this->container['account_id'] = $account_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string $name name
-     *
-     * @return self
-     */
-    public function setName($name)
-    {
-        if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
-        }
-        $this->container['name'] = $name;
 
         return $this;
     }
