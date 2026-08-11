@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 **updated_at** | **string** |  |
 **vertical** | **string** |  | [optional]
 **entity_type** | **string** | Legacy only when businessType is Other. | [optional]
-**telnyx_profile_id** | **string** |  | [optional]
-**telnyx_brand_id** | **string** |  | [optional]
+**profile_id** | **string** |  | [optional]
+**brand_id** | **string** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

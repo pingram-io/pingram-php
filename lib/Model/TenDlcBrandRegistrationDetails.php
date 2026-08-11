@@ -35,7 +35,7 @@ use \Pingram\ObjectSerializer;
  * TenDlcBrandRegistrationDetails Class Doc Comment
  *
  * @category Class
- * @description System-access GET response; includes internal Telnyx provider IDs and admin-only fields.
+ * @description Admin GET response; includes carrier-assigned IDs and admin-only fields.
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -81,8 +81,8 @@ class TenDlcBrandRegistrationDetails implements ModelInterface, ArrayAccess, \Js
         'updated_at' => 'string',
         'vertical' => 'string',
         'entity_type' => 'string',
-        'telnyx_profile_id' => 'string',
-        'telnyx_brand_id' => 'string'
+        'profile_id' => 'string',
+        'brand_id' => 'string'
     ];
 
     /**
@@ -116,8 +116,8 @@ class TenDlcBrandRegistrationDetails implements ModelInterface, ArrayAccess, \Js
         'updated_at' => null,
         'vertical' => null,
         'entity_type' => null,
-        'telnyx_profile_id' => null,
-        'telnyx_brand_id' => null
+        'profile_id' => null,
+        'brand_id' => null
     ];
 
     /**
@@ -149,8 +149,8 @@ class TenDlcBrandRegistrationDetails implements ModelInterface, ArrayAccess, \Js
         'updated_at' => false,
         'vertical' => false,
         'entity_type' => false,
-        'telnyx_profile_id' => false,
-        'telnyx_brand_id' => false
+        'profile_id' => false,
+        'brand_id' => false
     ];
 
     /**
@@ -262,8 +262,8 @@ class TenDlcBrandRegistrationDetails implements ModelInterface, ArrayAccess, \Js
         'updated_at' => 'updatedAt',
         'vertical' => 'vertical',
         'entity_type' => 'entityType',
-        'telnyx_profile_id' => 'telnyxProfileId',
-        'telnyx_brand_id' => 'telnyxBrandId'
+        'profile_id' => 'profileId',
+        'brand_id' => 'brandId'
     ];
 
     /**
@@ -295,8 +295,8 @@ class TenDlcBrandRegistrationDetails implements ModelInterface, ArrayAccess, \Js
         'updated_at' => 'setUpdatedAt',
         'vertical' => 'setVertical',
         'entity_type' => 'setEntityType',
-        'telnyx_profile_id' => 'setTelnyxProfileId',
-        'telnyx_brand_id' => 'setTelnyxBrandId'
+        'profile_id' => 'setProfileId',
+        'brand_id' => 'setBrandId'
     ];
 
     /**
@@ -328,8 +328,8 @@ class TenDlcBrandRegistrationDetails implements ModelInterface, ArrayAccess, \Js
         'updated_at' => 'getUpdatedAt',
         'vertical' => 'getVertical',
         'entity_type' => 'getEntityType',
-        'telnyx_profile_id' => 'getTelnyxProfileId',
-        'telnyx_brand_id' => 'getTelnyxBrandId'
+        'profile_id' => 'getProfileId',
+        'brand_id' => 'getBrandId'
     ];
 
     /**
@@ -458,8 +458,8 @@ class TenDlcBrandRegistrationDetails implements ModelInterface, ArrayAccess, \Js
         $this->setIfExists('updated_at', $data ?? [], null);
         $this->setIfExists('vertical', $data ?? [], null);
         $this->setIfExists('entity_type', $data ?? [], null);
-        $this->setIfExists('telnyx_profile_id', $data ?? [], null);
-        $this->setIfExists('telnyx_brand_id', $data ?? [], null);
+        $this->setIfExists('profile_id', $data ?? [], null);
+        $this->setIfExists('brand_id', $data ?? [], null);
     }
 
     /**
@@ -1200,55 +1200,55 @@ class TenDlcBrandRegistrationDetails implements ModelInterface, ArrayAccess, \Js
     }
 
     /**
-     * Gets telnyx_profile_id
+     * Gets profile_id
      *
      * @return string|null
      */
-    public function getTelnyxProfileId()
+    public function getProfileId()
     {
-        return $this->container['telnyx_profile_id'];
+        return $this->container['profile_id'];
     }
 
     /**
-     * Sets telnyx_profile_id
+     * Sets profile_id
      *
-     * @param string|null $telnyx_profile_id telnyx_profile_id
+     * @param string|null $profile_id profile_id
      *
      * @return self
      */
-    public function setTelnyxProfileId($telnyx_profile_id)
+    public function setProfileId($profile_id)
     {
-        if (is_null($telnyx_profile_id)) {
-            throw new \InvalidArgumentException('non-nullable telnyx_profile_id cannot be null');
+        if (is_null($profile_id)) {
+            throw new \InvalidArgumentException('non-nullable profile_id cannot be null');
         }
-        $this->container['telnyx_profile_id'] = $telnyx_profile_id;
+        $this->container['profile_id'] = $profile_id;
 
         return $this;
     }
 
     /**
-     * Gets telnyx_brand_id
+     * Gets brand_id
      *
      * @return string|null
      */
-    public function getTelnyxBrandId()
+    public function getBrandId()
     {
-        return $this->container['telnyx_brand_id'];
+        return $this->container['brand_id'];
     }
 
     /**
-     * Sets telnyx_brand_id
+     * Sets brand_id
      *
-     * @param string|null $telnyx_brand_id telnyx_brand_id
+     * @param string|null $brand_id brand_id
      *
      * @return self
      */
-    public function setTelnyxBrandId($telnyx_brand_id)
+    public function setBrandId($brand_id)
     {
-        if (is_null($telnyx_brand_id)) {
-            throw new \InvalidArgumentException('non-nullable telnyx_brand_id cannot be null');
+        if (is_null($brand_id)) {
+            throw new \InvalidArgumentException('non-nullable brand_id cannot be null');
         }
-        $this->container['telnyx_brand_id'] = $telnyx_brand_id;
+        $this->container['brand_id'] = $brand_id;
 
         return $this;
     }
