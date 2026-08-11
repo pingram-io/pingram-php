@@ -1,6 +1,6 @@
 <?php
 /**
- * GetMembersResponseInner
+ * CreatePersonalAccessTokenResponse
  *
  * PHP version 8.1
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \Pingram\ObjectSerializer;
 
 /**
- * GetMembersResponseInner Class Doc Comment
+ * CreatePersonalAccessTokenResponse Class Doc Comment
  *
  * @category Class
  * @package  Pingram
@@ -40,7 +40,7 @@ use \Pingram\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class GetMembersResponseInner implements ModelInterface, ArrayAccess, \JsonSerializable
+class CreatePersonalAccessTokenResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class GetMembersResponseInner implements ModelInterface, ArrayAccess, \JsonSeria
       *
       * @var string
       */
-    protected static $openAPIModelName = 'GetMembersResponse_inner';
+    protected static $openAPIModelName = 'CreatePersonalAccessTokenResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,13 +57,14 @@ class GetMembersResponseInner implements ModelInterface, ArrayAccess, \JsonSeria
       * @var string[]
       */
     protected static $openAPITypes = [
-        'account_id' => 'string',
-        'user_id' => 'string',
+        'id' => 'string',
+        'name' => 'string',
+        'token_prefix' => 'string',
         'created_at' => 'string',
-        'role' => 'string',
-        'email' => 'string',
-        'groups' => 'string[]',
-        'enabled_mfas' => 'string[]'
+        'expires_at' => 'string',
+        'last_used_at' => 'string',
+        'revoked' => 'bool',
+        'token' => 'string'
     ];
 
     /**
@@ -74,13 +75,14 @@ class GetMembersResponseInner implements ModelInterface, ArrayAccess, \JsonSeria
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'account_id' => null,
-        'user_id' => null,
+        'id' => null,
+        'name' => null,
+        'token_prefix' => null,
         'created_at' => null,
-        'role' => null,
-        'email' => null,
-        'groups' => null,
-        'enabled_mfas' => null
+        'expires_at' => null,
+        'last_used_at' => null,
+        'revoked' => null,
+        'token' => null
     ];
 
     /**
@@ -89,13 +91,14 @@ class GetMembersResponseInner implements ModelInterface, ArrayAccess, \JsonSeria
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'account_id' => false,
-        'user_id' => false,
+        'id' => false,
+        'name' => false,
+        'token_prefix' => false,
         'created_at' => false,
-        'role' => false,
-        'email' => false,
-        'groups' => false,
-        'enabled_mfas' => false
+        'expires_at' => false,
+        'last_used_at' => false,
+        'revoked' => false,
+        'token' => false
     ];
 
     /**
@@ -184,13 +187,14 @@ class GetMembersResponseInner implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $attributeMap = [
-        'account_id' => 'accountId',
-        'user_id' => 'userId',
+        'id' => 'id',
+        'name' => 'name',
+        'token_prefix' => 'tokenPrefix',
         'created_at' => 'createdAt',
-        'role' => 'role',
-        'email' => 'email',
-        'groups' => 'groups',
-        'enabled_mfas' => 'enabledMFAs'
+        'expires_at' => 'expiresAt',
+        'last_used_at' => 'lastUsedAt',
+        'revoked' => 'revoked',
+        'token' => 'token'
     ];
 
     /**
@@ -199,13 +203,14 @@ class GetMembersResponseInner implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $setters = [
-        'account_id' => 'setAccountId',
-        'user_id' => 'setUserId',
+        'id' => 'setId',
+        'name' => 'setName',
+        'token_prefix' => 'setTokenPrefix',
         'created_at' => 'setCreatedAt',
-        'role' => 'setRole',
-        'email' => 'setEmail',
-        'groups' => 'setGroups',
-        'enabled_mfas' => 'setEnabledMfas'
+        'expires_at' => 'setExpiresAt',
+        'last_used_at' => 'setLastUsedAt',
+        'revoked' => 'setRevoked',
+        'token' => 'setToken'
     ];
 
     /**
@@ -214,13 +219,14 @@ class GetMembersResponseInner implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $getters = [
-        'account_id' => 'getAccountId',
-        'user_id' => 'getUserId',
+        'id' => 'getId',
+        'name' => 'getName',
+        'token_prefix' => 'getTokenPrefix',
         'created_at' => 'getCreatedAt',
-        'role' => 'getRole',
-        'email' => 'getEmail',
-        'groups' => 'getGroups',
-        'enabled_mfas' => 'getEnabledMfas'
+        'expires_at' => 'getExpiresAt',
+        'last_used_at' => 'getLastUsedAt',
+        'revoked' => 'getRevoked',
+        'token' => 'getToken'
     ];
 
     /**
@@ -264,34 +270,6 @@ class GetMembersResponseInner implements ModelInterface, ArrayAccess, \JsonSeria
         return self::$openAPIModelName;
     }
 
-    public const ROLE_OWNER = 'owner';
-    public const ROLE_ADMIN = 'admin';
-    public const ENABLED_MFAS_SOFTWARE_TOKEN_MFA = 'SOFTWARE_TOKEN_MFA';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getRoleAllowableValues()
-    {
-        return [
-            self::ROLE_OWNER,
-            self::ROLE_ADMIN,
-        ];
-    }
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getEnabledMfasAllowableValues()
-    {
-        return [
-            self::ENABLED_MFAS_SOFTWARE_TOKEN_MFA,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -308,13 +286,14 @@ class GetMembersResponseInner implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('account_id', $data ?? [], null);
-        $this->setIfExists('user_id', $data ?? [], null);
+        $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('token_prefix', $data ?? [], null);
         $this->setIfExists('created_at', $data ?? [], null);
-        $this->setIfExists('role', $data ?? [], null);
-        $this->setIfExists('email', $data ?? [], null);
-        $this->setIfExists('groups', $data ?? [], null);
-        $this->setIfExists('enabled_mfas', $data ?? [], null);
+        $this->setIfExists('expires_at', $data ?? [], null);
+        $this->setIfExists('last_used_at', $data ?? [], null);
+        $this->setIfExists('revoked', $data ?? [], null);
+        $this->setIfExists('token', $data ?? [], null);
     }
 
     /**
@@ -344,27 +323,24 @@ class GetMembersResponseInner implements ModelInterface, ArrayAccess, \JsonSeria
     {
         $invalidProperties = [];
 
-        if ($this->container['account_id'] === null) {
-            $invalidProperties[] = "'account_id' can't be null";
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
         }
-        if ($this->container['user_id'] === null) {
-            $invalidProperties[] = "'user_id' can't be null";
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
+        if ($this->container['token_prefix'] === null) {
+            $invalidProperties[] = "'token_prefix' can't be null";
         }
         if ($this->container['created_at'] === null) {
             $invalidProperties[] = "'created_at' can't be null";
         }
-        if ($this->container['role'] === null) {
-            $invalidProperties[] = "'role' can't be null";
+        if ($this->container['revoked'] === null) {
+            $invalidProperties[] = "'revoked' can't be null";
         }
-        $allowedValues = $this->getRoleAllowableValues();
-        if (!is_null($this->container['role']) && !in_array($this->container['role'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'role', must be one of '%s'",
-                $this->container['role'],
-                implode("', '", $allowedValues)
-            );
+        if ($this->container['token'] === null) {
+            $invalidProperties[] = "'token' can't be null";
         }
-
         return $invalidProperties;
     }
 
@@ -381,55 +357,82 @@ class GetMembersResponseInner implements ModelInterface, ArrayAccess, \JsonSeria
 
 
     /**
-     * Gets account_id
+     * Gets id
      *
      * @return string
      */
-    public function getAccountId()
+    public function getId()
     {
-        return $this->container['account_id'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets account_id
+     * Sets id
      *
-     * @param string $account_id account_id
+     * @param string $id id
      *
      * @return self
      */
-    public function setAccountId($account_id)
+    public function setId($id)
     {
-        if (is_null($account_id)) {
-            throw new \InvalidArgumentException('non-nullable account_id cannot be null');
+        if (is_null($id)) {
+            throw new \InvalidArgumentException('non-nullable id cannot be null');
         }
-        $this->container['account_id'] = $account_id;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets user_id
+     * Gets name
      *
      * @return string
      */
-    public function getUserId()
+    public function getName()
     {
-        return $this->container['user_id'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets user_id
+     * Sets name
      *
-     * @param string $user_id user_id
+     * @param string $name name
      *
      * @return self
      */
-    public function setUserId($user_id)
+    public function setName($name)
     {
-        if (is_null($user_id)) {
-            throw new \InvalidArgumentException('non-nullable user_id cannot be null');
+        if (is_null($name)) {
+            throw new \InvalidArgumentException('non-nullable name cannot be null');
         }
-        $this->container['user_id'] = $user_id;
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets token_prefix
+     *
+     * @return string
+     */
+    public function getTokenPrefix()
+    {
+        return $this->container['token_prefix'];
+    }
+
+    /**
+     * Sets token_prefix
+     *
+     * @param string $token_prefix token_prefix
+     *
+     * @return self
+     */
+    public function setTokenPrefix($token_prefix)
+    {
+        if (is_null($token_prefix)) {
+            throw new \InvalidArgumentException('non-nullable token_prefix cannot be null');
+        }
+        $this->container['token_prefix'] = $token_prefix;
 
         return $this;
     }
@@ -462,128 +465,109 @@ class GetMembersResponseInner implements ModelInterface, ArrayAccess, \JsonSeria
     }
 
     /**
-     * Gets role
-     *
-     * @return string
-     */
-    public function getRole()
-    {
-        return $this->container['role'];
-    }
-
-    /**
-     * Sets role
-     *
-     * @param string $role role
-     *
-     * @return self
-     */
-    public function setRole($role)
-    {
-        if (is_null($role)) {
-            throw new \InvalidArgumentException('non-nullable role cannot be null');
-        }
-        $allowedValues = $this->getRoleAllowableValues();
-        if (!in_array($role, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'role', must be one of '%s'",
-                    $role,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['role'] = $role;
-
-        return $this;
-    }
-
-    /**
-     * Gets email
+     * Gets expires_at
      *
      * @return string|null
      */
-    public function getEmail()
+    public function getExpiresAt()
     {
-        return $this->container['email'];
+        return $this->container['expires_at'];
     }
 
     /**
-     * Sets email
+     * Sets expires_at
      *
-     * @param string|null $email email
+     * @param string|null $expires_at expires_at
      *
      * @return self
      */
-    public function setEmail($email)
+    public function setExpiresAt($expires_at)
     {
-        if (is_null($email)) {
-            throw new \InvalidArgumentException('non-nullable email cannot be null');
+        if (is_null($expires_at)) {
+            throw new \InvalidArgumentException('non-nullable expires_at cannot be null');
         }
-        $this->container['email'] = $email;
+        $this->container['expires_at'] = $expires_at;
 
         return $this;
     }
 
     /**
-     * Gets groups
+     * Gets last_used_at
      *
-     * @return string[]|null
+     * @return string|null
      */
-    public function getGroups()
+    public function getLastUsedAt()
     {
-        return $this->container['groups'];
+        return $this->container['last_used_at'];
     }
 
     /**
-     * Sets groups
+     * Sets last_used_at
      *
-     * @param string[]|null $groups groups
+     * @param string|null $last_used_at last_used_at
      *
      * @return self
      */
-    public function setGroups($groups)
+    public function setLastUsedAt($last_used_at)
     {
-        if (is_null($groups)) {
-            throw new \InvalidArgumentException('non-nullable groups cannot be null');
+        if (is_null($last_used_at)) {
+            throw new \InvalidArgumentException('non-nullable last_used_at cannot be null');
         }
-        $this->container['groups'] = $groups;
+        $this->container['last_used_at'] = $last_used_at;
 
         return $this;
     }
 
     /**
-     * Gets enabled_mfas
+     * Gets revoked
      *
-     * @return string[]|null
+     * @return bool
      */
-    public function getEnabledMfas()
+    public function getRevoked()
     {
-        return $this->container['enabled_mfas'];
+        return $this->container['revoked'];
     }
 
     /**
-     * Sets enabled_mfas
+     * Sets revoked
      *
-     * @param string[]|null $enabled_mfas enabled_mfas
+     * @param bool $revoked revoked
      *
      * @return self
      */
-    public function setEnabledMfas($enabled_mfas)
+    public function setRevoked($revoked)
     {
-        if (is_null($enabled_mfas)) {
-            throw new \InvalidArgumentException('non-nullable enabled_mfas cannot be null');
+        if (is_null($revoked)) {
+            throw new \InvalidArgumentException('non-nullable revoked cannot be null');
         }
-        $allowedValues = $this->getEnabledMfasAllowableValues();
-        if (array_diff($enabled_mfas, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'enabled_mfas', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+        $this->container['revoked'] = $revoked;
+
+        return $this;
+    }
+
+    /**
+     * Gets token
+     *
+     * @return string
+     */
+    public function getToken()
+    {
+        return $this->container['token'];
+    }
+
+    /**
+     * Sets token
+     *
+     * @param string $token Full token — returned only on create. Store it securely; it cannot be retrieved again.
+     *
+     * @return self
+     */
+    public function setToken($token)
+    {
+        if (is_null($token)) {
+            throw new \InvalidArgumentException('non-nullable token cannot be null');
         }
-        $this->container['enabled_mfas'] = $enabled_mfas;
+        $this->container['token'] = $token;
 
         return $this;
     }

@@ -1,15 +1,15 @@
-# # GetMembersResponseInner
+# # ListPersonalAccessTokensResponseTokensInner
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**account_id** | **string** |  |
-**user_id** | **string** |  |
+**id** | **string** |  |
+**name** | **string** |  |
+**token_prefix** | **string** |  |
 **created_at** | **string** |  |
-**role** | **string** |  |
-**email** | **string** |  | [optional]
-**groups** | **string[]** |  | [optional]
-**enabled_mfas** | **string[]** |  | [optional]
+**expires_at** | **string** |  | [optional]
+**last_used_at** | **string** |  | [optional]
+**revoked** | **bool** |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

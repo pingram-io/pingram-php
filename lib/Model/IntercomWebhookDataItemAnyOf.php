@@ -107,7 +107,7 @@ class IntercomWebhookDataItemAnyOf implements ModelInterface, ArrayAccess, \Json
         'updated_at' => false,
         'title' => false,
         'admin_assignee_id' => true,
-        'team_assignee_id' => false,
+        'team_assignee_id' => true,
         'source' => false,
         'contacts' => false,
         'state' => false,
@@ -674,7 +674,14 @@ class IntercomWebhookDataItemAnyOf implements ModelInterface, ArrayAccess, \Json
     public function setTeamAssigneeId($team_assignee_id)
     {
         if (is_null($team_assignee_id)) {
-            throw new \InvalidArgumentException('non-nullable team_assignee_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'team_assignee_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('team_assignee_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['team_assignee_id'] = $team_assignee_id;
 

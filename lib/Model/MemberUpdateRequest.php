@@ -305,7 +305,7 @@ class MemberUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets role
      *
-     * @param string $role role
+     * @param string $role Account role ('owner' or 'admin'), or a Bluedrop Cognito group role.
      *
      * @return self
      */
