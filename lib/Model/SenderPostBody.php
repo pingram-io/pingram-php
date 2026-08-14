@@ -64,7 +64,6 @@ class SenderPostBody implements ModelInterface, ArrayAccess, \JsonSerializable
         'to' => '\Pingram\Model\SenderPostBodyTo',
         'force_channels' => '\Pingram\Model\ChannelsEnum[]',
         'parameters' => 'array<string,mixed>',
-        'secondary_id' => 'string',
         'template_id' => 'string',
         'sub_notification_id' => 'string',
         'options' => '\Pingram\Model\SenderPostBodyOptions',
@@ -93,7 +92,6 @@ class SenderPostBody implements ModelInterface, ArrayAccess, \JsonSerializable
         'to' => null,
         'force_channels' => null,
         'parameters' => null,
-        'secondary_id' => null,
         'template_id' => null,
         'sub_notification_id' => null,
         'options' => null,
@@ -120,7 +118,6 @@ class SenderPostBody implements ModelInterface, ArrayAccess, \JsonSerializable
         'to' => false,
         'force_channels' => false,
         'parameters' => false,
-        'secondary_id' => false,
         'template_id' => false,
         'sub_notification_id' => false,
         'options' => false,
@@ -227,7 +224,6 @@ class SenderPostBody implements ModelInterface, ArrayAccess, \JsonSerializable
         'to' => 'to',
         'force_channels' => 'forceChannels',
         'parameters' => 'parameters',
-        'secondary_id' => 'secondaryId',
         'template_id' => 'templateId',
         'sub_notification_id' => 'subNotificationId',
         'options' => 'options',
@@ -254,7 +250,6 @@ class SenderPostBody implements ModelInterface, ArrayAccess, \JsonSerializable
         'to' => 'setTo',
         'force_channels' => 'setForceChannels',
         'parameters' => 'setParameters',
-        'secondary_id' => 'setSecondaryId',
         'template_id' => 'setTemplateId',
         'sub_notification_id' => 'setSubNotificationId',
         'options' => 'setOptions',
@@ -281,7 +276,6 @@ class SenderPostBody implements ModelInterface, ArrayAccess, \JsonSerializable
         'to' => 'getTo',
         'force_channels' => 'getForceChannels',
         'parameters' => 'getParameters',
-        'secondary_id' => 'getSecondaryId',
         'template_id' => 'getTemplateId',
         'sub_notification_id' => 'getSubNotificationId',
         'options' => 'getOptions',
@@ -359,7 +353,6 @@ class SenderPostBody implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('to', $data ?? [], null);
         $this->setIfExists('force_channels', $data ?? [], null);
         $this->setIfExists('parameters', $data ?? [], null);
-        $this->setIfExists('secondary_id', $data ?? [], null);
         $this->setIfExists('template_id', $data ?? [], null);
         $this->setIfExists('sub_notification_id', $data ?? [], null);
         $this->setIfExists('options', $data ?? [], null);
@@ -606,33 +599,6 @@ class SenderPostBody implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable parameters cannot be null');
         }
         $this->container['parameters'] = $parameters;
-
-        return $this;
-    }
-
-    /**
-     * Gets secondary_id
-     *
-     * @return string|null
-     */
-    public function getSecondaryId()
-    {
-        return $this->container['secondary_id'];
-    }
-
-    /**
-     * Sets secondary_id
-     *
-     * @param string|null $secondary_id Optional sub-notification identifier for grouping or tracking.
-     *
-     * @return self
-     */
-    public function setSecondaryId($secondary_id)
-    {
-        if (is_null($secondary_id)) {
-            throw new \InvalidArgumentException('non-nullable secondary_id cannot be null');
-        }
-        $this->container['secondary_id'] = $secondary_id;
 
         return $this;
     }

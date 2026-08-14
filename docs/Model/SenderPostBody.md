@@ -11,7 +11,6 @@ Name | Type | Description | Notes
 **to** | [**\Pingram\Model\SenderPostBodyTo**](SenderPostBodyTo.md) |  | [optional]
 **force_channels** | [**\Pingram\Model\ChannelsEnum[]**](ChannelsEnum.md) | Override which channels to send to (e.g. [\&quot;EMAIL\&quot;, \&quot;SMS\&quot;]). Bypasses notification channel config. | [optional]
 **parameters** | **array<string,mixed>** | Key-value pairs for template merge tags. Replaces placeholders like {{firstName}} in templates. | [optional]
-**secondary_id** | **string** | Optional sub-notification identifier for grouping or tracking. | [optional]
 **template_id** | **string** | Specific template ID to use. If omitted, uses the default template for each channel. | [optional]
 **sub_notification_id** | **string** | Sub-notification identifier (e.g. for grouping related notifications). | [optional]
 **options** | [**\Pingram\Model\SenderPostBodyOptions**](SenderPostBodyOptions.md) |  | [optional]
