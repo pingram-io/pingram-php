@@ -1,6 +1,6 @@
 {
     "name": "pingram/php",
-    "version": "1.0.23",
+    "version": "1.0.24",
     "description": "Official PHP SDK for Pingram - Send notifications via Email, SMS, Push, In-App, and more",
     "keywords": [
         "pingram",
