@@ -1,6 +1,6 @@
 <?php
 /**
- * PhoneVerifyConfirmResponse
+ * CreateAccountRequestPlan
  *
  * PHP version 8.1
  *
@@ -32,15 +32,16 @@ use \ArrayAccess;
 use \Pingram\ObjectSerializer;
 
 /**
- * PhoneVerifyConfirmResponse Class Doc Comment
+ * CreateAccountRequestPlan Class Doc Comment
  *
  * @category Class
+ * @description Billing to copy onto a new additional account.
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class PhoneVerifyConfirmResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class CreateAccountRequestPlan implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +50,7 @@ class PhoneVerifyConfirmResponse implements ModelInterface, ArrayAccess, \JsonSe
       *
       * @var string
       */
-    protected static $openAPIModelName = 'PhoneVerifyConfirmResponse';
+    protected static $openAPIModelName = 'CreateAccountRequest_plan';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,8 +58,8 @@ class PhoneVerifyConfirmResponse implements ModelInterface, ArrayAccess, \JsonSe
       * @var string[]
       */
     protected static $openAPITypes = [
-        'verified' => 'bool',
-        'account_id' => 'string'
+        'tier' => 'string',
+        'source_billing_account_id' => 'string'
     ];
 
     /**
@@ -69,8 +70,8 @@ class PhoneVerifyConfirmResponse implements ModelInterface, ArrayAccess, \JsonSe
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'verified' => null,
-        'account_id' => null
+        'tier' => null,
+        'source_billing_account_id' => null
     ];
 
     /**
@@ -79,8 +80,8 @@ class PhoneVerifyConfirmResponse implements ModelInterface, ArrayAccess, \JsonSe
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'verified' => false,
-        'account_id' => false
+        'tier' => false,
+        'source_billing_account_id' => false
     ];
 
     /**
@@ -169,8 +170,8 @@ class PhoneVerifyConfirmResponse implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $attributeMap = [
-        'verified' => 'verified',
-        'account_id' => 'accountId'
+        'tier' => 'tier',
+        'source_billing_account_id' => 'sourceBillingAccountId'
     ];
 
     /**
@@ -179,8 +180,8 @@ class PhoneVerifyConfirmResponse implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $setters = [
-        'verified' => 'setVerified',
-        'account_id' => 'setAccountId'
+        'tier' => 'setTier',
+        'source_billing_account_id' => 'setSourceBillingAccountId'
     ];
 
     /**
@@ -189,8 +190,8 @@ class PhoneVerifyConfirmResponse implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $getters = [
-        'verified' => 'getVerified',
-        'account_id' => 'getAccountId'
+        'tier' => 'getTier',
+        'source_billing_account_id' => 'getSourceBillingAccountId'
     ];
 
     /**
@@ -234,6 +235,33 @@ class PhoneVerifyConfirmResponse implements ModelInterface, ArrayAccess, \JsonSe
         return self::$openAPIModelName;
     }
 
+    public const TIER_BUDGET_20 = 'budget_20';
+    public const TIER_BUDGET_50 = 'budget_50';
+    public const TIER_BUDGET_100 = 'budget_100';
+    public const TIER_BUDGET_250 = 'budget_250';
+    public const TIER_BUDGET_500 = 'budget_500';
+    public const TIER_BUDGET_1000 = 'budget_1000';
+    public const TIER_BUDGET_2000 = 'budget_2000';
+    public const TIER_BUDGET_5000 = 'budget_5000';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTierAllowableValues()
+    {
+        return [
+            self::TIER_BUDGET_20,
+            self::TIER_BUDGET_50,
+            self::TIER_BUDGET_100,
+            self::TIER_BUDGET_250,
+            self::TIER_BUDGET_500,
+            self::TIER_BUDGET_1000,
+            self::TIER_BUDGET_2000,
+            self::TIER_BUDGET_5000,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -250,8 +278,8 @@ class PhoneVerifyConfirmResponse implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('verified', $data ?? [], null);
-        $this->setIfExists('account_id', $data ?? [], null);
+        $this->setIfExists('tier', $data ?? [], null);
+        $this->setIfExists('source_billing_account_id', $data ?? [], null);
     }
 
     /**
@@ -281,8 +309,20 @@ class PhoneVerifyConfirmResponse implements ModelInterface, ArrayAccess, \JsonSe
     {
         $invalidProperties = [];
 
-        if ($this->container['verified'] === null) {
-            $invalidProperties[] = "'verified' can't be null";
+        if ($this->container['tier'] === null) {
+            $invalidProperties[] = "'tier' can't be null";
+        }
+        $allowedValues = $this->getTierAllowableValues();
+        if (!is_null($this->container['tier']) && !in_array($this->container['tier'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'tier', must be one of '%s'",
+                $this->container['tier'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['source_billing_account_id'] === null) {
+            $invalidProperties[] = "'source_billing_account_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -300,55 +340,65 @@ class PhoneVerifyConfirmResponse implements ModelInterface, ArrayAccess, \JsonSe
 
 
     /**
-     * Gets verified
+     * Gets tier
      *
-     * @return bool
+     * @return string
      */
-    public function getVerified()
+    public function getTier()
     {
-        return $this->container['verified'];
+        return $this->container['tier'];
     }
 
     /**
-     * Sets verified
+     * Sets tier
      *
-     * @param bool $verified verified
+     * @param string $tier tier
      *
      * @return self
      */
-    public function setVerified($verified)
+    public function setTier($tier)
     {
-        if (is_null($verified)) {
-            throw new \InvalidArgumentException('non-nullable verified cannot be null');
+        if (is_null($tier)) {
+            throw new \InvalidArgumentException('non-nullable tier cannot be null');
         }
-        $this->container['verified'] = $verified;
+        $allowedValues = $this->getTierAllowableValues();
+        if (!in_array($tier, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'tier', must be one of '%s'",
+                    $tier,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['tier'] = $tier;
 
         return $this;
     }
 
     /**
-     * Gets account_id
+     * Gets source_billing_account_id
      *
-     * @return string|null
+     * @return string
      */
-    public function getAccountId()
+    public function getSourceBillingAccountId()
     {
-        return $this->container['account_id'];
+        return $this->container['source_billing_account_id'];
     }
 
     /**
-     * Sets account_id
+     * Sets source_billing_account_id
      *
-     * @param string|null $account_id account_id
+     * @param string $source_billing_account_id Account whose saved payment method is copied onto the new account. The caller must be an owner of this account.
      *
      * @return self
      */
-    public function setAccountId($account_id)
+    public function setSourceBillingAccountId($source_billing_account_id)
     {
-        if (is_null($account_id)) {
-            throw new \InvalidArgumentException('non-nullable account_id cannot be null');
+        if (is_null($source_billing_account_id)) {
+            throw new \InvalidArgumentException('non-nullable source_billing_account_id cannot be null');
         }
-        $this->container['account_id'] = $account_id;
+        $this->container['source_billing_account_id'] = $source_billing_account_id;
 
         return $this;
     }

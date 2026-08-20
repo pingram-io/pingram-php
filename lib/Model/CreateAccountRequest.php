@@ -35,6 +35,7 @@ use \Pingram\ObjectSerializer;
  * CreateAccountRequest Class Doc Comment
  *
  * @category Class
+ * @description Request body for POST /accounts (create additional account).
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -57,7 +58,9 @@ class CreateAccountRequest implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var string[]
       */
     protected static $openAPITypes = [
-        'attribution' => 'array<string,string>'
+        'name' => 'string',
+        'plan' => '\Pingram\Model\CreateAccountRequestPlan',
+        'member_emails' => 'string[]'
     ];
 
     /**
@@ -68,7 +71,9 @@ class CreateAccountRequest implements ModelInterface, ArrayAccess, \JsonSerializ
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'attribution' => null
+        'name' => null,
+        'plan' => null,
+        'member_emails' => null
     ];
 
     /**
@@ -77,7 +82,9 @@ class CreateAccountRequest implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'attribution' => false
+        'name' => false,
+        'plan' => false,
+        'member_emails' => false
     ];
 
     /**
@@ -166,7 +173,9 @@ class CreateAccountRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $attributeMap = [
-        'attribution' => 'attribution'
+        'name' => 'name',
+        'plan' => 'plan',
+        'member_emails' => 'memberEmails'
     ];
 
     /**
@@ -175,7 +184,9 @@ class CreateAccountRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $setters = [
-        'attribution' => 'setAttribution'
+        'name' => 'setName',
+        'plan' => 'setPlan',
+        'member_emails' => 'setMemberEmails'
     ];
 
     /**
@@ -184,7 +195,9 @@ class CreateAccountRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $getters = [
-        'attribution' => 'getAttribution'
+        'name' => 'getName',
+        'plan' => 'getPlan',
+        'member_emails' => 'getMemberEmails'
     ];
 
     /**
@@ -244,7 +257,9 @@ class CreateAccountRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('attribution', $data ?? [], null);
+        $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('plan', $data ?? [], null);
+        $this->setIfExists('member_emails', $data ?? [], null);
     }
 
     /**
@@ -274,6 +289,9 @@ class CreateAccountRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     {
         $invalidProperties = [];
 
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -290,28 +308,82 @@ class CreateAccountRequest implements ModelInterface, ArrayAccess, \JsonSerializ
 
 
     /**
-     * Gets attribution
+     * Gets name
      *
-     * @return array<string,string>|null
+     * @return string
      */
-    public function getAttribution()
+    public function getName()
     {
-        return $this->container['attribution'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets attribution
+     * Sets name
      *
-     * @param array<string,string>|null $attribution First-touch PostHog props from the client; attached to signup events.
+     * @param string $name name
      *
      * @return self
      */
-    public function setAttribution($attribution)
+    public function setName($name)
     {
-        if (is_null($attribution)) {
-            throw new \InvalidArgumentException('non-nullable attribution cannot be null');
+        if (is_null($name)) {
+            throw new \InvalidArgumentException('non-nullable name cannot be null');
         }
-        $this->container['attribution'] = $attribution;
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets plan
+     *
+     * @return \Pingram\Model\CreateAccountRequestPlan|null
+     */
+    public function getPlan()
+    {
+        return $this->container['plan'];
+    }
+
+    /**
+     * Sets plan
+     *
+     * @param \Pingram\Model\CreateAccountRequestPlan|null $plan plan
+     *
+     * @return self
+     */
+    public function setPlan($plan)
+    {
+        if (is_null($plan)) {
+            throw new \InvalidArgumentException('non-nullable plan cannot be null');
+        }
+        $this->container['plan'] = $plan;
+
+        return $this;
+    }
+
+    /**
+     * Gets member_emails
+     *
+     * @return string[]|null
+     */
+    public function getMemberEmails()
+    {
+        return $this->container['member_emails'];
+    }
+
+    /**
+     * Sets member_emails
+     *
+     * @param string[]|null $member_emails Emails to add or invite to the new account. Existing members of any account the caller belongs to are added directly; everyone else is invited.
+     *
+     * @return self
+     */
+    public function setMemberEmails($member_emails)
+    {
+        if (is_null($member_emails)) {
+            throw new \InvalidArgumentException('non-nullable member_emails cannot be null');
+        }
+        $this->container['member_emails'] = $member_emails;
 
         return $this;
     }

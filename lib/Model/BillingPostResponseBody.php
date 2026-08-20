@@ -71,6 +71,7 @@ class BillingPostResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
         'allow_overage' => 'bool',
         'created_at' => 'string',
         'updated_at' => 'string',
+        'status' => 'string',
         'session_id' => 'string',
         'url' => 'string'
     ];
@@ -96,6 +97,7 @@ class BillingPostResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
         'allow_overage' => null,
         'created_at' => null,
         'updated_at' => null,
+        'status' => null,
         'session_id' => null,
         'url' => null
     ];
@@ -119,6 +121,7 @@ class BillingPostResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
         'allow_overage' => false,
         'created_at' => false,
         'updated_at' => false,
+        'status' => false,
         'session_id' => false,
         'url' => false
     ];
@@ -222,6 +225,7 @@ class BillingPostResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
         'allow_overage' => 'allowOverage',
         'created_at' => 'createdAt',
         'updated_at' => 'updatedAt',
+        'status' => 'status',
         'session_id' => 'sessionId',
         'url' => 'url'
     ];
@@ -245,6 +249,7 @@ class BillingPostResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
         'allow_overage' => 'setAllowOverage',
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt',
+        'status' => 'setStatus',
         'session_id' => 'setSessionId',
         'url' => 'setUrl'
     ];
@@ -268,6 +273,7 @@ class BillingPostResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
         'allow_overage' => 'getAllowOverage',
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt',
+        'status' => 'getStatus',
         'session_id' => 'getSessionId',
         'url' => 'getUrl'
     ];
@@ -317,6 +323,9 @@ class BillingPostResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
     public const ACCOUNT_TYPE_PAID = 'paid';
     public const BILLING_VERSION_NUMBER_1 = 1;
     public const BILLING_VERSION_NUMBER_3 = 3;
+    public const STATUS_VERIFIED = 'verified';
+    public const STATUS_UNVERIFIED = 'unverified';
+    public const STATUS_BLOCKED = 'blocked';
 
     /**
      * Gets allowable values of the enum
@@ -341,6 +350,20 @@ class BillingPostResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
         return [
             self::BILLING_VERSION_NUMBER_1,
             self::BILLING_VERSION_NUMBER_3,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getStatusAllowableValues()
+    {
+        return [
+            self::STATUS_VERIFIED,
+            self::STATUS_UNVERIFIED,
+            self::STATUS_BLOCKED,
         ];
     }
 
@@ -372,6 +395,7 @@ class BillingPostResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
         $this->setIfExists('allow_overage', $data ?? [], null);
         $this->setIfExists('created_at', $data ?? [], null);
         $this->setIfExists('updated_at', $data ?? [], null);
+        $this->setIfExists('status', $data ?? [], null);
         $this->setIfExists('session_id', $data ?? [], null);
         $this->setIfExists('url', $data ?? [], null);
     }
@@ -445,6 +469,15 @@ class BillingPostResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
         if ($this->container['updated_at'] === null) {
             $invalidProperties[] = "'updated_at' can't be null";
         }
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'status', must be one of '%s'",
+                $this->container['status'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -827,6 +860,43 @@ class BillingPostResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
             throw new \InvalidArgumentException('non-nullable updated_at cannot be null');
         }
         $this->container['updated_at'] = $updated_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return string|null
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param string|null $status status
+     *
+     * @return self
+     */
+    public function setStatus($status)
+    {
+        if (is_null($status)) {
+            throw new \InvalidArgumentException('non-nullable status cannot be null');
+        }
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!in_array($status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'status', must be one of '%s'",
+                    $status,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['status'] = $status;
 
         return $this;
     }

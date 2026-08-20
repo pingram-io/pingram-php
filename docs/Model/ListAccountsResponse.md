@@ -1,10 +1,9 @@
-# # PhoneVerifyConfirmResponse
+# # ListAccountsResponse
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**verified** | **bool** |  |
-**account_id** | **string** |  | [optional]
+**accounts** | [**\Pingram\Model\ListAccountsResponseAccountsInner[]**](ListAccountsResponseAccountsInner.md) |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

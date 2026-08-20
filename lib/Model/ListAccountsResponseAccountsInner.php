@@ -1,6 +1,6 @@
 <?php
 /**
- * PhoneVerifyConfirmResponse
+ * ListAccountsResponseAccountsInner
  *
  * PHP version 8.1
  *
@@ -32,15 +32,16 @@ use \ArrayAccess;
 use \Pingram\ObjectSerializer;
 
 /**
- * PhoneVerifyConfirmResponse Class Doc Comment
+ * ListAccountsResponseAccountsInner Class Doc Comment
  *
  * @category Class
+ * @description Summary of an account the user can access (GET /accounts).
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class PhoneVerifyConfirmResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class ListAccountsResponseAccountsInner implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +50,7 @@ class PhoneVerifyConfirmResponse implements ModelInterface, ArrayAccess, \JsonSe
       *
       * @var string
       */
-    protected static $openAPIModelName = 'PhoneVerifyConfirmResponse';
+    protected static $openAPIModelName = 'ListAccountsResponse_accounts_inner';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,8 +58,12 @@ class PhoneVerifyConfirmResponse implements ModelInterface, ArrayAccess, \JsonSe
       * @var string[]
       */
     protected static $openAPITypes = [
-        'verified' => 'bool',
-        'account_id' => 'string'
+        'account_id' => 'string',
+        'name' => 'string',
+        'account_type' => 'string',
+        'created_at' => 'string',
+        'status' => 'string',
+        'cost_cap' => 'float'
     ];
 
     /**
@@ -69,8 +74,12 @@ class PhoneVerifyConfirmResponse implements ModelInterface, ArrayAccess, \JsonSe
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'verified' => null,
-        'account_id' => null
+        'account_id' => null,
+        'name' => null,
+        'account_type' => null,
+        'created_at' => null,
+        'status' => null,
+        'cost_cap' => null
     ];
 
     /**
@@ -79,8 +88,12 @@ class PhoneVerifyConfirmResponse implements ModelInterface, ArrayAccess, \JsonSe
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'verified' => false,
-        'account_id' => false
+        'account_id' => false,
+        'name' => false,
+        'account_type' => false,
+        'created_at' => false,
+        'status' => false,
+        'cost_cap' => false
     ];
 
     /**
@@ -169,8 +182,12 @@ class PhoneVerifyConfirmResponse implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $attributeMap = [
-        'verified' => 'verified',
-        'account_id' => 'accountId'
+        'account_id' => 'accountId',
+        'name' => 'name',
+        'account_type' => 'accountType',
+        'created_at' => 'createdAt',
+        'status' => 'status',
+        'cost_cap' => 'costCap'
     ];
 
     /**
@@ -179,8 +196,12 @@ class PhoneVerifyConfirmResponse implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $setters = [
-        'verified' => 'setVerified',
-        'account_id' => 'setAccountId'
+        'account_id' => 'setAccountId',
+        'name' => 'setName',
+        'account_type' => 'setAccountType',
+        'created_at' => 'setCreatedAt',
+        'status' => 'setStatus',
+        'cost_cap' => 'setCostCap'
     ];
 
     /**
@@ -189,8 +210,12 @@ class PhoneVerifyConfirmResponse implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $getters = [
-        'verified' => 'getVerified',
-        'account_id' => 'getAccountId'
+        'account_id' => 'getAccountId',
+        'name' => 'getName',
+        'account_type' => 'getAccountType',
+        'created_at' => 'getCreatedAt',
+        'status' => 'getStatus',
+        'cost_cap' => 'getCostCap'
     ];
 
     /**
@@ -234,6 +259,38 @@ class PhoneVerifyConfirmResponse implements ModelInterface, ArrayAccess, \JsonSe
         return self::$openAPIModelName;
     }
 
+    public const ACCOUNT_TYPE_FREE = 'free';
+    public const ACCOUNT_TYPE_PAID = 'paid';
+    public const STATUS_VERIFIED = 'verified';
+    public const STATUS_UNVERIFIED = 'unverified';
+    public const STATUS_BLOCKED = 'blocked';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getAccountTypeAllowableValues()
+    {
+        return [
+            self::ACCOUNT_TYPE_FREE,
+            self::ACCOUNT_TYPE_PAID,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getStatusAllowableValues()
+    {
+        return [
+            self::STATUS_VERIFIED,
+            self::STATUS_UNVERIFIED,
+            self::STATUS_BLOCKED,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -250,8 +307,12 @@ class PhoneVerifyConfirmResponse implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('verified', $data ?? [], null);
         $this->setIfExists('account_id', $data ?? [], null);
+        $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('account_type', $data ?? [], null);
+        $this->setIfExists('created_at', $data ?? [], null);
+        $this->setIfExists('status', $data ?? [], null);
+        $this->setIfExists('cost_cap', $data ?? [], null);
     }
 
     /**
@@ -281,8 +342,38 @@ class PhoneVerifyConfirmResponse implements ModelInterface, ArrayAccess, \JsonSe
     {
         $invalidProperties = [];
 
-        if ($this->container['verified'] === null) {
-            $invalidProperties[] = "'verified' can't be null";
+        if ($this->container['account_id'] === null) {
+            $invalidProperties[] = "'account_id' can't be null";
+        }
+        if ($this->container['account_type'] === null) {
+            $invalidProperties[] = "'account_type' can't be null";
+        }
+        $allowedValues = $this->getAccountTypeAllowableValues();
+        if (!is_null($this->container['account_type']) && !in_array($this->container['account_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'account_type', must be one of '%s'",
+                $this->container['account_type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['created_at'] === null) {
+            $invalidProperties[] = "'created_at' can't be null";
+        }
+        if ($this->container['status'] === null) {
+            $invalidProperties[] = "'status' can't be null";
+        }
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'status', must be one of '%s'",
+                $this->container['status'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['cost_cap'] === null) {
+            $invalidProperties[] = "'cost_cap' can't be null";
         }
         return $invalidProperties;
     }
@@ -300,36 +391,9 @@ class PhoneVerifyConfirmResponse implements ModelInterface, ArrayAccess, \JsonSe
 
 
     /**
-     * Gets verified
-     *
-     * @return bool
-     */
-    public function getVerified()
-    {
-        return $this->container['verified'];
-    }
-
-    /**
-     * Sets verified
-     *
-     * @param bool $verified verified
-     *
-     * @return self
-     */
-    public function setVerified($verified)
-    {
-        if (is_null($verified)) {
-            throw new \InvalidArgumentException('non-nullable verified cannot be null');
-        }
-        $this->container['verified'] = $verified;
-
-        return $this;
-    }
-
-    /**
      * Gets account_id
      *
-     * @return string|null
+     * @return string
      */
     public function getAccountId()
     {
@@ -339,7 +403,7 @@ class PhoneVerifyConfirmResponse implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets account_id
      *
-     * @param string|null $account_id account_id
+     * @param string $account_id account_id
      *
      * @return self
      */
@@ -349,6 +413,161 @@ class PhoneVerifyConfirmResponse implements ModelInterface, ArrayAccess, \JsonSe
             throw new \InvalidArgumentException('non-nullable account_id cannot be null');
         }
         $this->container['account_id'] = $account_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string|null
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string|null $name name
+     *
+     * @return self
+     */
+    public function setName($name)
+    {
+        if (is_null($name)) {
+            throw new \InvalidArgumentException('non-nullable name cannot be null');
+        }
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets account_type
+     *
+     * @return string
+     */
+    public function getAccountType()
+    {
+        return $this->container['account_type'];
+    }
+
+    /**
+     * Sets account_type
+     *
+     * @param string $account_type account_type
+     *
+     * @return self
+     */
+    public function setAccountType($account_type)
+    {
+        if (is_null($account_type)) {
+            throw new \InvalidArgumentException('non-nullable account_type cannot be null');
+        }
+        $allowedValues = $this->getAccountTypeAllowableValues();
+        if (!in_array($account_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'account_type', must be one of '%s'",
+                    $account_type,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['account_type'] = $account_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets created_at
+     *
+     * @return string
+     */
+    public function getCreatedAt()
+    {
+        return $this->container['created_at'];
+    }
+
+    /**
+     * Sets created_at
+     *
+     * @param string $created_at created_at
+     *
+     * @return self
+     */
+    public function setCreatedAt($created_at)
+    {
+        if (is_null($created_at)) {
+            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
+        }
+        $this->container['created_at'] = $created_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param string $status status
+     *
+     * @return self
+     */
+    public function setStatus($status)
+    {
+        if (is_null($status)) {
+            throw new \InvalidArgumentException('non-nullable status cannot be null');
+        }
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!in_array($status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'status', must be one of '%s'",
+                    $status,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets cost_cap
+     *
+     * @return float
+     */
+    public function getCostCap()
+    {
+        return $this->container['cost_cap'];
+    }
+
+    /**
+     * Sets cost_cap
+     *
+     * @param float $cost_cap cost_cap
+     *
+     * @return self
+     */
+    public function setCostCap($cost_cap)
+    {
+        if (is_null($cost_cap)) {
+            throw new \InvalidArgumentException('non-nullable cost_cap cannot be null');
+        }
+        $this->container['cost_cap'] = $cost_cap;
 
         return $this;
     }

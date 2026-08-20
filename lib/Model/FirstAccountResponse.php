@@ -1,6 +1,6 @@
 <?php
 /**
- * PhoneVerifyConfirmResponse
+ * FirstAccountResponse
  *
  * PHP version 8.1
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \Pingram\ObjectSerializer;
 
 /**
- * PhoneVerifyConfirmResponse Class Doc Comment
+ * FirstAccountResponse Class Doc Comment
  *
  * @category Class
  * @package  Pingram
@@ -40,7 +40,7 @@ use \Pingram\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class PhoneVerifyConfirmResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class FirstAccountResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class PhoneVerifyConfirmResponse implements ModelInterface, ArrayAccess, \JsonSe
       *
       * @var string
       */
-    protected static $openAPIModelName = 'PhoneVerifyConfirmResponse';
+    protected static $openAPIModelName = 'FirstAccountResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +57,7 @@ class PhoneVerifyConfirmResponse implements ModelInterface, ArrayAccess, \JsonSe
       * @var string[]
       */
     protected static $openAPITypes = [
-        'verified' => 'bool',
+        'success' => 'bool',
         'account_id' => 'string'
     ];
 
@@ -69,7 +69,7 @@ class PhoneVerifyConfirmResponse implements ModelInterface, ArrayAccess, \JsonSe
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'verified' => null,
+        'success' => null,
         'account_id' => null
     ];
 
@@ -79,7 +79,7 @@ class PhoneVerifyConfirmResponse implements ModelInterface, ArrayAccess, \JsonSe
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'verified' => false,
+        'success' => false,
         'account_id' => false
     ];
 
@@ -169,7 +169,7 @@ class PhoneVerifyConfirmResponse implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $attributeMap = [
-        'verified' => 'verified',
+        'success' => 'success',
         'account_id' => 'accountId'
     ];
 
@@ -179,7 +179,7 @@ class PhoneVerifyConfirmResponse implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $setters = [
-        'verified' => 'setVerified',
+        'success' => 'setSuccess',
         'account_id' => 'setAccountId'
     ];
 
@@ -189,7 +189,7 @@ class PhoneVerifyConfirmResponse implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $getters = [
-        'verified' => 'getVerified',
+        'success' => 'getSuccess',
         'account_id' => 'getAccountId'
     ];
 
@@ -250,7 +250,7 @@ class PhoneVerifyConfirmResponse implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('verified', $data ?? [], null);
+        $this->setIfExists('success', $data ?? [], null);
         $this->setIfExists('account_id', $data ?? [], null);
     }
 
@@ -281,8 +281,11 @@ class PhoneVerifyConfirmResponse implements ModelInterface, ArrayAccess, \JsonSe
     {
         $invalidProperties = [];
 
-        if ($this->container['verified'] === null) {
-            $invalidProperties[] = "'verified' can't be null";
+        if ($this->container['success'] === null) {
+            $invalidProperties[] = "'success' can't be null";
+        }
+        if ($this->container['account_id'] === null) {
+            $invalidProperties[] = "'account_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -300,28 +303,28 @@ class PhoneVerifyConfirmResponse implements ModelInterface, ArrayAccess, \JsonSe
 
 
     /**
-     * Gets verified
+     * Gets success
      *
      * @return bool
      */
-    public function getVerified()
+    public function getSuccess()
     {
-        return $this->container['verified'];
+        return $this->container['success'];
     }
 
     /**
-     * Sets verified
+     * Sets success
      *
-     * @param bool $verified verified
+     * @param bool $success success
      *
      * @return self
      */
-    public function setVerified($verified)
+    public function setSuccess($success)
     {
-        if (is_null($verified)) {
-            throw new \InvalidArgumentException('non-nullable verified cannot be null');
+        if (is_null($success)) {
+            throw new \InvalidArgumentException('non-nullable success cannot be null');
         }
-        $this->container['verified'] = $verified;
+        $this->container['success'] = $success;
 
         return $this;
     }
@@ -329,7 +332,7 @@ class PhoneVerifyConfirmResponse implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets account_id
      *
-     * @return string|null
+     * @return string
      */
     public function getAccountId()
     {
@@ -339,7 +342,7 @@ class PhoneVerifyConfirmResponse implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets account_id
      *
-     * @param string|null $account_id account_id
+     * @param string $account_id account_id
      *
      * @return self
      */

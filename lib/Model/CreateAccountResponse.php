@@ -35,6 +35,7 @@ use \Pingram\ObjectSerializer;
  * CreateAccountResponse Class Doc Comment
  *
  * @category Class
+ * @description Response for POST /accounts
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -57,8 +58,10 @@ class CreateAccountResponse implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var string[]
       */
     protected static $openAPITypes = [
-        'success' => 'bool',
-        'account_id' => 'string'
+        'account_id' => 'string',
+        'name' => 'string',
+        'status' => 'string',
+        'subscription_status' => 'string'
     ];
 
     /**
@@ -69,8 +72,10 @@ class CreateAccountResponse implements ModelInterface, ArrayAccess, \JsonSeriali
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'success' => null,
-        'account_id' => null
+        'account_id' => null,
+        'name' => null,
+        'status' => null,
+        'subscription_status' => null
     ];
 
     /**
@@ -79,8 +84,10 @@ class CreateAccountResponse implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'success' => false,
-        'account_id' => false
+        'account_id' => false,
+        'name' => false,
+        'status' => false,
+        'subscription_status' => true
     ];
 
     /**
@@ -169,8 +176,10 @@ class CreateAccountResponse implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $attributeMap = [
-        'success' => 'success',
-        'account_id' => 'accountId'
+        'account_id' => 'accountId',
+        'name' => 'name',
+        'status' => 'status',
+        'subscription_status' => 'subscriptionStatus'
     ];
 
     /**
@@ -179,8 +188,10 @@ class CreateAccountResponse implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $setters = [
-        'success' => 'setSuccess',
-        'account_id' => 'setAccountId'
+        'account_id' => 'setAccountId',
+        'name' => 'setName',
+        'status' => 'setStatus',
+        'subscription_status' => 'setSubscriptionStatus'
     ];
 
     /**
@@ -189,8 +200,10 @@ class CreateAccountResponse implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $getters = [
-        'success' => 'getSuccess',
-        'account_id' => 'getAccountId'
+        'account_id' => 'getAccountId',
+        'name' => 'getName',
+        'status' => 'getStatus',
+        'subscription_status' => 'getSubscriptionStatus'
     ];
 
     /**
@@ -234,6 +247,42 @@ class CreateAccountResponse implements ModelInterface, ArrayAccess, \JsonSeriali
         return self::$openAPIModelName;
     }
 
+    public const STATUS_VERIFIED = 'verified';
+    public const STATUS_UNVERIFIED = 'unverified';
+    public const STATUS_BLOCKED = 'blocked';
+    public const SUBSCRIPTION_STATUS_ACTIVE = 'active';
+    public const SUBSCRIPTION_STATUS_CANCELED = 'canceled';
+    public const SUBSCRIPTION_STATUS_PAST_DUE = 'past_due';
+    public const SUBSCRIPTION_STATUS_PAUSED = 'paused';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getStatusAllowableValues()
+    {
+        return [
+            self::STATUS_VERIFIED,
+            self::STATUS_UNVERIFIED,
+            self::STATUS_BLOCKED,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getSubscriptionStatusAllowableValues()
+    {
+        return [
+            self::SUBSCRIPTION_STATUS_ACTIVE,
+            self::SUBSCRIPTION_STATUS_CANCELED,
+            self::SUBSCRIPTION_STATUS_PAST_DUE,
+            self::SUBSCRIPTION_STATUS_PAUSED,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -250,8 +299,10 @@ class CreateAccountResponse implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('success', $data ?? [], null);
         $this->setIfExists('account_id', $data ?? [], null);
+        $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('status', $data ?? [], null);
+        $this->setIfExists('subscription_status', $data ?? [], null);
     }
 
     /**
@@ -281,12 +332,33 @@ class CreateAccountResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     {
         $invalidProperties = [];
 
-        if ($this->container['success'] === null) {
-            $invalidProperties[] = "'success' can't be null";
-        }
         if ($this->container['account_id'] === null) {
             $invalidProperties[] = "'account_id' can't be null";
         }
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
+        if ($this->container['status'] === null) {
+            $invalidProperties[] = "'status' can't be null";
+        }
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'status', must be one of '%s'",
+                $this->container['status'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getSubscriptionStatusAllowableValues();
+        if (!is_null($this->container['subscription_status']) && !in_array($this->container['subscription_status'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'subscription_status', must be one of '%s'",
+                $this->container['subscription_status'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -301,33 +373,6 @@ class CreateAccountResponse implements ModelInterface, ArrayAccess, \JsonSeriali
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets success
-     *
-     * @return bool
-     */
-    public function getSuccess()
-    {
-        return $this->container['success'];
-    }
-
-    /**
-     * Sets success
-     *
-     * @param bool $success success
-     *
-     * @return self
-     */
-    public function setSuccess($success)
-    {
-        if (is_null($success)) {
-            throw new \InvalidArgumentException('non-nullable success cannot be null');
-        }
-        $this->container['success'] = $success;
-
-        return $this;
-    }
 
     /**
      * Gets account_id
@@ -352,6 +397,114 @@ class CreateAccountResponse implements ModelInterface, ArrayAccess, \JsonSeriali
             throw new \InvalidArgumentException('non-nullable account_id cannot be null');
         }
         $this->container['account_id'] = $account_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string $name name
+     *
+     * @return self
+     */
+    public function setName($name)
+    {
+        if (is_null($name)) {
+            throw new \InvalidArgumentException('non-nullable name cannot be null');
+        }
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param string $status status
+     *
+     * @return self
+     */
+    public function setStatus($status)
+    {
+        if (is_null($status)) {
+            throw new \InvalidArgumentException('non-nullable status cannot be null');
+        }
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!in_array($status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'status', must be one of '%s'",
+                    $status,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets subscription_status
+     *
+     * @return string|null
+     */
+    public function getSubscriptionStatus()
+    {
+        return $this->container['subscription_status'];
+    }
+
+    /**
+     * Sets subscription_status
+     *
+     * @param string|null $subscription_status subscription_status
+     *
+     * @return self
+     */
+    public function setSubscriptionStatus($subscription_status)
+    {
+        if (is_null($subscription_status)) {
+            array_push($this->openAPINullablesSetToNull, 'subscription_status');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('subscription_status', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $allowedValues = $this->getSubscriptionStatusAllowableValues();
+        if (!is_null($subscription_status) && !in_array($subscription_status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'subscription_status', must be one of '%s'",
+                    $subscription_status,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['subscription_status'] = $subscription_status;
 
         return $this;
     }

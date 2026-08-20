@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **allow_overage** | **bool** |  |
 **created_at** | **string** |  |
 **updated_at** | **string** |  |
+**status** | **string** |  | [optional]
 **session_id** | **string** |  | [optional]
 **url** | **string** |  | [optional]
 

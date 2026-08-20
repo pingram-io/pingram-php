@@ -14,6 +14,8 @@ use GuzzleHttp\ClientInterface;
 
 use Pingram\Api\AccountApi;
 
+use Pingram\Api\AccountsApi;
+
 use Pingram\Api\AddressesApi;
 
 use Pingram\Api\ComponentsApi;
@@ -97,6 +99,9 @@ class Client
 
     /** @var AccountApi */
     private $account;
+
+    /** @var AccountsApi */
+    private $accounts;
 
     /** @var AddressesApi */
     private $addresses;
@@ -183,6 +188,8 @@ class Client
 
         $this->account = new AccountApi($this->httpClient, $this->config);
 
+        $this->accounts = new AccountsApi($this->httpClient, $this->config);
+
         $this->addresses = new AddressesApi($this->httpClient, $this->config);
 
         $this->components = new ComponentsApi($this->httpClient, $this->config);
@@ -248,6 +255,15 @@ class Client
     public function getAccount(): \Pingram\Api\AccountApi
     {
         return $this->account;
+    }
+
+
+    /**
+     * @return AccountsApi
+     */
+    public function getAccounts(): \Pingram\Api\AccountsApi
+    {
+        return $this->accounts;
     }
 
 

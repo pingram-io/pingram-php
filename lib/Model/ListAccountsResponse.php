@@ -1,6 +1,6 @@
 <?php
 /**
- * PhoneVerifyConfirmResponse
+ * ListAccountsResponse
  *
  * PHP version 8.1
  *
@@ -32,15 +32,16 @@ use \ArrayAccess;
 use \Pingram\ObjectSerializer;
 
 /**
- * PhoneVerifyConfirmResponse Class Doc Comment
+ * ListAccountsResponse Class Doc Comment
  *
  * @category Class
+ * @description Response for GET /accounts
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class PhoneVerifyConfirmResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class ListAccountsResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +50,7 @@ class PhoneVerifyConfirmResponse implements ModelInterface, ArrayAccess, \JsonSe
       *
       * @var string
       */
-    protected static $openAPIModelName = 'PhoneVerifyConfirmResponse';
+    protected static $openAPIModelName = 'ListAccountsResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,8 +58,7 @@ class PhoneVerifyConfirmResponse implements ModelInterface, ArrayAccess, \JsonSe
       * @var string[]
       */
     protected static $openAPITypes = [
-        'verified' => 'bool',
-        'account_id' => 'string'
+        'accounts' => '\Pingram\Model\ListAccountsResponseAccountsInner[]'
     ];
 
     /**
@@ -69,8 +69,7 @@ class PhoneVerifyConfirmResponse implements ModelInterface, ArrayAccess, \JsonSe
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'verified' => null,
-        'account_id' => null
+        'accounts' => null
     ];
 
     /**
@@ -79,8 +78,7 @@ class PhoneVerifyConfirmResponse implements ModelInterface, ArrayAccess, \JsonSe
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'verified' => false,
-        'account_id' => false
+        'accounts' => false
     ];
 
     /**
@@ -169,8 +167,7 @@ class PhoneVerifyConfirmResponse implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $attributeMap = [
-        'verified' => 'verified',
-        'account_id' => 'accountId'
+        'accounts' => 'accounts'
     ];
 
     /**
@@ -179,8 +176,7 @@ class PhoneVerifyConfirmResponse implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $setters = [
-        'verified' => 'setVerified',
-        'account_id' => 'setAccountId'
+        'accounts' => 'setAccounts'
     ];
 
     /**
@@ -189,8 +185,7 @@ class PhoneVerifyConfirmResponse implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $getters = [
-        'verified' => 'getVerified',
-        'account_id' => 'getAccountId'
+        'accounts' => 'getAccounts'
     ];
 
     /**
@@ -250,8 +245,7 @@ class PhoneVerifyConfirmResponse implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('verified', $data ?? [], null);
-        $this->setIfExists('account_id', $data ?? [], null);
+        $this->setIfExists('accounts', $data ?? [], null);
     }
 
     /**
@@ -281,8 +275,8 @@ class PhoneVerifyConfirmResponse implements ModelInterface, ArrayAccess, \JsonSe
     {
         $invalidProperties = [];
 
-        if ($this->container['verified'] === null) {
-            $invalidProperties[] = "'verified' can't be null";
+        if ($this->container['accounts'] === null) {
+            $invalidProperties[] = "'accounts' can't be null";
         }
         return $invalidProperties;
     }
@@ -300,55 +294,28 @@ class PhoneVerifyConfirmResponse implements ModelInterface, ArrayAccess, \JsonSe
 
 
     /**
-     * Gets verified
+     * Gets accounts
      *
-     * @return bool
+     * @return \Pingram\Model\ListAccountsResponseAccountsInner[]
      */
-    public function getVerified()
+    public function getAccounts()
     {
-        return $this->container['verified'];
+        return $this->container['accounts'];
     }
 
     /**
-     * Sets verified
+     * Sets accounts
      *
-     * @param bool $verified verified
+     * @param \Pingram\Model\ListAccountsResponseAccountsInner[] $accounts accounts
      *
      * @return self
      */
-    public function setVerified($verified)
+    public function setAccounts($accounts)
     {
-        if (is_null($verified)) {
-            throw new \InvalidArgumentException('non-nullable verified cannot be null');
+        if (is_null($accounts)) {
+            throw new \InvalidArgumentException('non-nullable accounts cannot be null');
         }
-        $this->container['verified'] = $verified;
-
-        return $this;
-    }
-
-    /**
-     * Gets account_id
-     *
-     * @return string|null
-     */
-    public function getAccountId()
-    {
-        return $this->container['account_id'];
-    }
-
-    /**
-     * Sets account_id
-     *
-     * @param string|null $account_id account_id
-     *
-     * @return self
-     */
-    public function setAccountId($account_id)
-    {
-        if (is_null($account_id)) {
-            throw new \InvalidArgumentException('non-nullable account_id cannot be null');
-        }
-        $this->container['account_id'] = $account_id;
+        $this->container['accounts'] = $accounts;
 
         return $this;
     }

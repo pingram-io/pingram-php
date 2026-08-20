@@ -1,10 +1,10 @@
-# # PhoneVerifyConfirmResponse
+# # FirstAccountResponse
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**verified** | **bool** |  |
-**account_id** | **string** |  | [optional]
+**success** | **bool** |  |
+**account_id** | **string** |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

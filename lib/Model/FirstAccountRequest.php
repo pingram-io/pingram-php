@@ -1,6 +1,6 @@
 <?php
 /**
- * PhoneVerifyConfirmResponse
+ * FirstAccountRequest
  *
  * PHP version 8.1
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \Pingram\ObjectSerializer;
 
 /**
- * PhoneVerifyConfirmResponse Class Doc Comment
+ * FirstAccountRequest Class Doc Comment
  *
  * @category Class
  * @package  Pingram
@@ -40,7 +40,7 @@ use \Pingram\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class PhoneVerifyConfirmResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class FirstAccountRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class PhoneVerifyConfirmResponse implements ModelInterface, ArrayAccess, \JsonSe
       *
       * @var string
       */
-    protected static $openAPIModelName = 'PhoneVerifyConfirmResponse';
+    protected static $openAPIModelName = 'FirstAccountRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,8 +57,7 @@ class PhoneVerifyConfirmResponse implements ModelInterface, ArrayAccess, \JsonSe
       * @var string[]
       */
     protected static $openAPITypes = [
-        'verified' => 'bool',
-        'account_id' => 'string'
+        'attribution' => 'array<string,string>'
     ];
 
     /**
@@ -69,8 +68,7 @@ class PhoneVerifyConfirmResponse implements ModelInterface, ArrayAccess, \JsonSe
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'verified' => null,
-        'account_id' => null
+        'attribution' => null
     ];
 
     /**
@@ -79,8 +77,7 @@ class PhoneVerifyConfirmResponse implements ModelInterface, ArrayAccess, \JsonSe
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'verified' => false,
-        'account_id' => false
+        'attribution' => false
     ];
 
     /**
@@ -169,8 +166,7 @@ class PhoneVerifyConfirmResponse implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $attributeMap = [
-        'verified' => 'verified',
-        'account_id' => 'accountId'
+        'attribution' => 'attribution'
     ];
 
     /**
@@ -179,8 +175,7 @@ class PhoneVerifyConfirmResponse implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $setters = [
-        'verified' => 'setVerified',
-        'account_id' => 'setAccountId'
+        'attribution' => 'setAttribution'
     ];
 
     /**
@@ -189,8 +184,7 @@ class PhoneVerifyConfirmResponse implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $getters = [
-        'verified' => 'getVerified',
-        'account_id' => 'getAccountId'
+        'attribution' => 'getAttribution'
     ];
 
     /**
@@ -250,8 +244,7 @@ class PhoneVerifyConfirmResponse implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('verified', $data ?? [], null);
-        $this->setIfExists('account_id', $data ?? [], null);
+        $this->setIfExists('attribution', $data ?? [], null);
     }
 
     /**
@@ -281,9 +274,6 @@ class PhoneVerifyConfirmResponse implements ModelInterface, ArrayAccess, \JsonSe
     {
         $invalidProperties = [];
 
-        if ($this->container['verified'] === null) {
-            $invalidProperties[] = "'verified' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -300,55 +290,28 @@ class PhoneVerifyConfirmResponse implements ModelInterface, ArrayAccess, \JsonSe
 
 
     /**
-     * Gets verified
+     * Gets attribution
      *
-     * @return bool
+     * @return array<string,string>|null
      */
-    public function getVerified()
+    public function getAttribution()
     {
-        return $this->container['verified'];
+        return $this->container['attribution'];
     }
 
     /**
-     * Sets verified
+     * Sets attribution
      *
-     * @param bool $verified verified
+     * @param array<string,string>|null $attribution First-touch PostHog props from the client; attached to signup events.
      *
      * @return self
      */
-    public function setVerified($verified)
+    public function setAttribution($attribution)
     {
-        if (is_null($verified)) {
-            throw new \InvalidArgumentException('non-nullable verified cannot be null');
+        if (is_null($attribution)) {
+            throw new \InvalidArgumentException('non-nullable attribution cannot be null');
         }
-        $this->container['verified'] = $verified;
-
-        return $this;
-    }
-
-    /**
-     * Gets account_id
-     *
-     * @return string|null
-     */
-    public function getAccountId()
-    {
-        return $this->container['account_id'];
-    }
-
-    /**
-     * Sets account_id
-     *
-     * @param string|null $account_id account_id
-     *
-     * @return self
-     */
-    public function setAccountId($account_id)
-    {
-        if (is_null($account_id)) {
-            throw new \InvalidArgumentException('non-nullable account_id cannot be null');
-        }
-        $this->container['account_id'] = $account_id;
+        $this->container['attribution'] = $attribution;
 
         return $this;
     }

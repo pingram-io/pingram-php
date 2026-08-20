@@ -70,7 +70,8 @@ class AccountGetResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         'anniversary_date' => 'string',
         'allow_overage' => 'bool',
         'created_at' => 'string',
-        'updated_at' => 'string'
+        'updated_at' => 'string',
+        'status' => 'string'
     ];
 
     /**
@@ -93,7 +94,8 @@ class AccountGetResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         'anniversary_date' => null,
         'allow_overage' => null,
         'created_at' => null,
-        'updated_at' => null
+        'updated_at' => null,
+        'status' => null
     ];
 
     /**
@@ -114,7 +116,8 @@ class AccountGetResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         'anniversary_date' => false,
         'allow_overage' => false,
         'created_at' => false,
-        'updated_at' => false
+        'updated_at' => false,
+        'status' => false
     ];
 
     /**
@@ -215,7 +218,8 @@ class AccountGetResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         'anniversary_date' => 'anniversaryDate',
         'allow_overage' => 'allowOverage',
         'created_at' => 'createdAt',
-        'updated_at' => 'updatedAt'
+        'updated_at' => 'updatedAt',
+        'status' => 'status'
     ];
 
     /**
@@ -236,7 +240,8 @@ class AccountGetResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         'anniversary_date' => 'setAnniversaryDate',
         'allow_overage' => 'setAllowOverage',
         'created_at' => 'setCreatedAt',
-        'updated_at' => 'setUpdatedAt'
+        'updated_at' => 'setUpdatedAt',
+        'status' => 'setStatus'
     ];
 
     /**
@@ -257,7 +262,8 @@ class AccountGetResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         'anniversary_date' => 'getAnniversaryDate',
         'allow_overage' => 'getAllowOverage',
         'created_at' => 'getCreatedAt',
-        'updated_at' => 'getUpdatedAt'
+        'updated_at' => 'getUpdatedAt',
+        'status' => 'getStatus'
     ];
 
     /**
@@ -305,6 +311,9 @@ class AccountGetResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     public const ACCOUNT_TYPE_PAID = 'paid';
     public const BILLING_VERSION_NUMBER_1 = 1;
     public const BILLING_VERSION_NUMBER_3 = 3;
+    public const STATUS_VERIFIED = 'verified';
+    public const STATUS_UNVERIFIED = 'unverified';
+    public const STATUS_BLOCKED = 'blocked';
 
     /**
      * Gets allowable values of the enum
@@ -329,6 +338,20 @@ class AccountGetResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         return [
             self::BILLING_VERSION_NUMBER_1,
             self::BILLING_VERSION_NUMBER_3,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getStatusAllowableValues()
+    {
+        return [
+            self::STATUS_VERIFIED,
+            self::STATUS_UNVERIFIED,
+            self::STATUS_BLOCKED,
         ];
     }
 
@@ -360,6 +383,7 @@ class AccountGetResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->setIfExists('allow_overage', $data ?? [], null);
         $this->setIfExists('created_at', $data ?? [], null);
         $this->setIfExists('updated_at', $data ?? [], null);
+        $this->setIfExists('status', $data ?? [], null);
     }
 
     /**
@@ -431,6 +455,15 @@ class AccountGetResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         if ($this->container['updated_at'] === null) {
             $invalidProperties[] = "'updated_at' can't be null";
         }
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'status', must be one of '%s'",
+                $this->container['status'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -813,6 +846,43 @@ class AccountGetResponse implements ModelInterface, ArrayAccess, \JsonSerializab
             throw new \InvalidArgumentException('non-nullable updated_at cannot be null');
         }
         $this->container['updated_at'] = $updated_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return string|null
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param string|null $status status
+     *
+     * @return self
+     */
+    public function setStatus($status)
+    {
+        if (is_null($status)) {
+            throw new \InvalidArgumentException('non-nullable status cannot be null');
+        }
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!in_array($status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'status', must be one of '%s'",
+                    $status,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['status'] = $status;
 
         return $this;
     }
