@@ -1305,6 +1305,7 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
     public const EMAIL_FAILED_CODE_TEMPLATE_NOT_FOUND = 'TEMPLATE_NOT_FOUND';
     public const EMAIL_FAILED_CODE_NO_DEFAULT_TEMPLATE = 'NO_DEFAULT_TEMPLATE';
     public const EMAIL_FAILED_CODE_SPAM_CONTENT = 'SPAM_CONTENT';
+    public const EMAIL_FAILED_CODE_SMS_FREE_RESTRICTED = 'SMS_FREE_RESTRICTED';
     public const EMAIL_INBOUND_RESOLUTION_TYPE_REPLY = 'reply';
     public const EMAIL_INBOUND_RESOLUTION_TYPE_BUILTIN = 'builtin';
     public const EMAIL_INBOUND_RESOLUTION_TYPE_CUSTOM = 'custom';
@@ -1316,6 +1317,7 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
     public const WEB_PUSH_FAILED_CODE_TEMPLATE_NOT_FOUND = 'TEMPLATE_NOT_FOUND';
     public const WEB_PUSH_FAILED_CODE_NO_DEFAULT_TEMPLATE = 'NO_DEFAULT_TEMPLATE';
     public const WEB_PUSH_FAILED_CODE_SPAM_CONTENT = 'SPAM_CONTENT';
+    public const WEB_PUSH_FAILED_CODE_SMS_FREE_RESTRICTED = 'SMS_FREE_RESTRICTED';
     public const IGNORED_THROTTLING = 'THROTTLING';
     public const IGNORED_DEDUPLICATION = 'DEDUPLICATION';
     public const IGNORED_DISABLED_NOTIFICATION = 'DISABLED_NOTIFICATION';
@@ -1405,6 +1407,7 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
     public const SLACK_FAILED_CODE_TEMPLATE_NOT_FOUND = 'TEMPLATE_NOT_FOUND';
     public const SLACK_FAILED_CODE_NO_DEFAULT_TEMPLATE = 'NO_DEFAULT_TEMPLATE';
     public const SLACK_FAILED_CODE_SPAM_CONTENT = 'SPAM_CONTENT';
+    public const SLACK_FAILED_CODE_SMS_FREE_RESTRICTED = 'SMS_FREE_RESTRICTED';
     public const CALL_DELIVERED_CODE_COMPLETED = 'COMPLETED';
     public const CALL_DELIVERED_CODE_BUSY = 'BUSY';
     public const CALL_DELIVERED_CODE_NO_ANSWER = 'NO_ANSWER';
@@ -1435,6 +1438,7 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
     public const CALL_FAILED_CODE_TEMPLATE_NOT_FOUND = 'TEMPLATE_NOT_FOUND';
     public const CALL_FAILED_CODE_NO_DEFAULT_TEMPLATE = 'NO_DEFAULT_TEMPLATE';
     public const CALL_FAILED_CODE_SPAM_CONTENT = 'SPAM_CONTENT';
+    public const CALL_FAILED_CODE_SMS_FREE_RESTRICTED = 'SMS_FREE_RESTRICTED';
     public const SMS_FAILED_CODE__13224 = '13224';
     public const SMS_FAILED_CODE__21211 = '21211';
     public const SMS_FAILED_CODE__21215 = '21215';
@@ -1461,6 +1465,7 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
     public const SMS_FAILED_CODE_TEMPLATE_NOT_FOUND = 'TEMPLATE_NOT_FOUND';
     public const SMS_FAILED_CODE_NO_DEFAULT_TEMPLATE = 'NO_DEFAULT_TEMPLATE';
     public const SMS_FAILED_CODE_SPAM_CONTENT = 'SPAM_CONTENT';
+    public const SMS_FAILED_CODE_SMS_FREE_RESTRICTED = 'SMS_FREE_RESTRICTED';
 
     /**
      * Gets allowable values of the enum
@@ -1542,6 +1547,7 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
             self::EMAIL_FAILED_CODE_TEMPLATE_NOT_FOUND,
             self::EMAIL_FAILED_CODE_NO_DEFAULT_TEMPLATE,
             self::EMAIL_FAILED_CODE_SPAM_CONTENT,
+            self::EMAIL_FAILED_CODE_SMS_FREE_RESTRICTED,
         ];
     }
 
@@ -1575,6 +1581,7 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
             self::WEB_PUSH_FAILED_CODE_TEMPLATE_NOT_FOUND,
             self::WEB_PUSH_FAILED_CODE_NO_DEFAULT_TEMPLATE,
             self::WEB_PUSH_FAILED_CODE_SPAM_CONTENT,
+            self::WEB_PUSH_FAILED_CODE_SMS_FREE_RESTRICTED,
         ];
     }
 
@@ -1840,6 +1847,7 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
             self::SLACK_FAILED_CODE_TEMPLATE_NOT_FOUND,
             self::SLACK_FAILED_CODE_NO_DEFAULT_TEMPLATE,
             self::SLACK_FAILED_CODE_SPAM_CONTENT,
+            self::SLACK_FAILED_CODE_SMS_FREE_RESTRICTED,
         ];
     }
 
@@ -1892,6 +1900,7 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
             self::CALL_FAILED_CODE_TEMPLATE_NOT_FOUND,
             self::CALL_FAILED_CODE_NO_DEFAULT_TEMPLATE,
             self::CALL_FAILED_CODE_SPAM_CONTENT,
+            self::CALL_FAILED_CODE_SMS_FREE_RESTRICTED,
         ];
     }
 
@@ -1929,6 +1938,7 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
             self::SMS_FAILED_CODE_TEMPLATE_NOT_FOUND,
             self::SMS_FAILED_CODE_NO_DEFAULT_TEMPLATE,
             self::SMS_FAILED_CODE_SPAM_CONTENT,
+            self::SMS_FAILED_CODE_SMS_FREE_RESTRICTED,
         ];
     }
 
