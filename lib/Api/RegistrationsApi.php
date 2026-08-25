@@ -1,6 +1,6 @@
 <?php
 /**
- * EmailApi
+ * RegistrationsApi
  * PHP version 8.1
  *
  * @category Class
@@ -43,14 +43,14 @@ use Pingram\HeaderSelector;
 use Pingram\ObjectSerializer;
 
 /**
- * EmailApi Class Doc Comment
+ * RegistrationsApi Class Doc Comment
  *
  * @category Class
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class EmailApi
+class RegistrationsApi
 {
     /**
      * @var ClientInterface
@@ -74,10 +74,13 @@ class EmailApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'emailDeleteSuppressions' => [
+        'registrationsCreateUs10dlcBrand' => [
             'application/json',
         ],
-        'emailSend' => [
+        'registrationsGetUs10dlcBrand' => [
+            'application/json',
+        ],
+        'registrationsUpdateUs10dlcBrand' => [
             'application/json',
         ],
     ];
@@ -129,38 +132,38 @@ class EmailApi
     }
 
     /**
-     * Operation emailDeleteSuppressions
+     * Operation registrationsCreateUs10dlcBrand
      *
-     * Start removing all email suppressions of the given reason (&#x60;retryable&#x60; or &#x60;bounces&#x60;) for users in the environment. Returns immediately after the job is queued — suppressions are not yet cleared when this response is received. Large removals are processed in the background in batches.
+     * Create a new 10DLC brand registration. Sets brandStatus to pending_review; Pingram handles carrier submission after review.
      *
-     * @param  string $reason Suppression reason to clear (retryable | bounces) (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailDeleteSuppressions'] to see the possible values for this operation
+     * @param  \Pingram\Model\TenDlcBrandCreateRequest $ten_dlc_brand_create_request ten_dlc_brand_create_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['registrationsCreateUs10dlcBrand'] to see the possible values for this operation
      *
      * @throws \Pingram\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Pingram\Model\MessageResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse
+     * @return \Pingram\Model\TenDlcBrandRegistration|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse
      */
-    public function emailDeleteSuppressions($reason, string $contentType = self::contentTypes['emailDeleteSuppressions'][0])
+    public function registrationsCreateUs10dlcBrand($ten_dlc_brand_create_request, string $contentType = self::contentTypes['registrationsCreateUs10dlcBrand'][0])
     {
-        list($response) = $this->emailDeleteSuppressionsWithHttpInfo($reason, $contentType);
+        list($response) = $this->registrationsCreateUs10dlcBrandWithHttpInfo($ten_dlc_brand_create_request, $contentType);
         return $response;
     }
 
     /**
-     * Operation emailDeleteSuppressionsWithHttpInfo
+     * Operation registrationsCreateUs10dlcBrandWithHttpInfo
      *
-     * Start removing all email suppressions of the given reason (&#x60;retryable&#x60; or &#x60;bounces&#x60;) for users in the environment. Returns immediately after the job is queued — suppressions are not yet cleared when this response is received. Large removals are processed in the background in batches.
+     * Create a new 10DLC brand registration. Sets brandStatus to pending_review; Pingram handles carrier submission after review.
      *
-     * @param  string $reason Suppression reason to clear (retryable | bounces) (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailDeleteSuppressions'] to see the possible values for this operation
+     * @param  \Pingram\Model\TenDlcBrandCreateRequest $ten_dlc_brand_create_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['registrationsCreateUs10dlcBrand'] to see the possible values for this operation
      *
      * @throws \Pingram\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Pingram\Model\MessageResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Pingram\Model\TenDlcBrandRegistration|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function emailDeleteSuppressionsWithHttpInfo($reason, string $contentType = self::contentTypes['emailDeleteSuppressions'][0])
+    public function registrationsCreateUs10dlcBrandWithHttpInfo($ten_dlc_brand_create_request, string $contentType = self::contentTypes['registrationsCreateUs10dlcBrand'][0])
     {
-        $request = $this->emailDeleteSuppressionsRequest($reason, $contentType);
+        $request = $this->registrationsCreateUs10dlcBrandRequest($ten_dlc_brand_create_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -188,7 +191,7 @@ class EmailApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\Pingram\Model\MessageResponse',
+                        '\Pingram\Model\TenDlcBrandRegistration',
                         $request,
                         $response,
                     );
@@ -228,7 +231,7 @@ class EmailApi
             }
 
             return $this->handleResponseWithDataType(
-                '\Pingram\Model\MessageResponse',
+                '\Pingram\Model\TenDlcBrandRegistration',
                 $request,
                 $response,
             );
@@ -237,7 +240,7 @@ class EmailApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Pingram\Model\MessageResponse',
+                        '\Pingram\Model\TenDlcBrandRegistration',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -274,19 +277,19 @@ class EmailApi
     }
 
     /**
-     * Operation emailDeleteSuppressionsAsync
+     * Operation registrationsCreateUs10dlcBrandAsync
      *
-     * Start removing all email suppressions of the given reason (&#x60;retryable&#x60; or &#x60;bounces&#x60;) for users in the environment. Returns immediately after the job is queued — suppressions are not yet cleared when this response is received. Large removals are processed in the background in batches.
+     * Create a new 10DLC brand registration. Sets brandStatus to pending_review; Pingram handles carrier submission after review.
      *
-     * @param  string $reason Suppression reason to clear (retryable | bounces) (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailDeleteSuppressions'] to see the possible values for this operation
+     * @param  \Pingram\Model\TenDlcBrandCreateRequest $ten_dlc_brand_create_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['registrationsCreateUs10dlcBrand'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function emailDeleteSuppressionsAsync($reason, string $contentType = self::contentTypes['emailDeleteSuppressions'][0])
+    public function registrationsCreateUs10dlcBrandAsync($ten_dlc_brand_create_request, string $contentType = self::contentTypes['registrationsCreateUs10dlcBrand'][0])
     {
-        return $this->emailDeleteSuppressionsAsyncWithHttpInfo($reason, $contentType)
+        return $this->registrationsCreateUs10dlcBrandAsyncWithHttpInfo($ten_dlc_brand_create_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -295,20 +298,20 @@ class EmailApi
     }
 
     /**
-     * Operation emailDeleteSuppressionsAsyncWithHttpInfo
+     * Operation registrationsCreateUs10dlcBrandAsyncWithHttpInfo
      *
-     * Start removing all email suppressions of the given reason (&#x60;retryable&#x60; or &#x60;bounces&#x60;) for users in the environment. Returns immediately after the job is queued — suppressions are not yet cleared when this response is received. Large removals are processed in the background in batches.
+     * Create a new 10DLC brand registration. Sets brandStatus to pending_review; Pingram handles carrier submission after review.
      *
-     * @param  string $reason Suppression reason to clear (retryable | bounces) (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailDeleteSuppressions'] to see the possible values for this operation
+     * @param  \Pingram\Model\TenDlcBrandCreateRequest $ten_dlc_brand_create_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['registrationsCreateUs10dlcBrand'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function emailDeleteSuppressionsAsyncWithHttpInfo($reason, string $contentType = self::contentTypes['emailDeleteSuppressions'][0])
+    public function registrationsCreateUs10dlcBrandAsyncWithHttpInfo($ten_dlc_brand_create_request, string $contentType = self::contentTypes['registrationsCreateUs10dlcBrand'][0])
     {
-        $returnType = '\Pingram\Model\MessageResponse';
-        $request = $this->emailDeleteSuppressionsRequest($reason, $contentType);
+        $returnType = '\Pingram\Model\TenDlcBrandRegistration';
+        $request = $this->registrationsCreateUs10dlcBrandRequest($ten_dlc_brand_create_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -347,26 +350,26 @@ class EmailApi
     }
 
     /**
-     * Create request for operation 'emailDeleteSuppressions'
+     * Create request for operation 'registrationsCreateUs10dlcBrand'
      *
-     * @param  string $reason Suppression reason to clear (retryable | bounces) (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailDeleteSuppressions'] to see the possible values for this operation
+     * @param  \Pingram\Model\TenDlcBrandCreateRequest $ten_dlc_brand_create_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['registrationsCreateUs10dlcBrand'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function emailDeleteSuppressionsRequest($reason, string $contentType = self::contentTypes['emailDeleteSuppressions'][0])
+    public function registrationsCreateUs10dlcBrandRequest($ten_dlc_brand_create_request, string $contentType = self::contentTypes['registrationsCreateUs10dlcBrand'][0])
     {
 
-        // verify the required parameter 'reason' is set
-        if ($reason === null || (is_array($reason) && count($reason) === 0)) {
+        // verify the required parameter 'ten_dlc_brand_create_request' is set
+        if ($ten_dlc_brand_create_request === null || (is_array($ten_dlc_brand_create_request) && count($ten_dlc_brand_create_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $reason when calling emailDeleteSuppressions'
+                'Missing the required parameter $ten_dlc_brand_create_request when calling registrationsCreateUs10dlcBrand'
             );
         }
 
 
-        $resourcePath = '/email/suppressions/{reason}';
+        $resourcePath = '/registrations/us/10dlc/brand';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -375,14 +378,319 @@ class EmailApi
 
 
 
-        // path params
-        if ($reason !== null) {
-            $resourcePath = str_replace(
-                '{' . 'reason' . '}',
-                ObjectSerializer::toPathValue($reason),
-                $resourcePath
-            );
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($ten_dlc_brand_create_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($ten_dlc_brand_create_request));
+            } else {
+                $httpBody = $ten_dlc_brand_create_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
         }
+
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+        // this endpoint requires Bearer (JWT) authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation registrationsGetUs10dlcBrand
+     *
+     * Get the 10DLC brand registration for the authenticated account. Returns null when no registration exists yet.
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['registrationsGetUs10dlcBrand'] to see the possible values for this operation
+     *
+     * @throws \Pingram\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \Pingram\Model\TenDlcBrandRegistration|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse
+     */
+    public function registrationsGetUs10dlcBrand(string $contentType = self::contentTypes['registrationsGetUs10dlcBrand'][0])
+    {
+        list($response) = $this->registrationsGetUs10dlcBrandWithHttpInfo($contentType);
+        return $response;
+    }
+
+    /**
+     * Operation registrationsGetUs10dlcBrandWithHttpInfo
+     *
+     * Get the 10DLC brand registration for the authenticated account. Returns null when no registration exists yet.
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['registrationsGetUs10dlcBrand'] to see the possible values for this operation
+     *
+     * @throws \Pingram\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Pingram\Model\TenDlcBrandRegistration|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function registrationsGetUs10dlcBrandWithHttpInfo(string $contentType = self::contentTypes['registrationsGetUs10dlcBrand'][0])
+    {
+        $request = $this->registrationsGetUs10dlcBrandRequest($contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\Pingram\Model\TenDlcBrandRegistration',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\Pingram\Model\ApiErrorResponse',
+                        $request,
+                        $response,
+                    );
+                case 402:
+                    return $this->handleResponseWithDataType(
+                        '\Pingram\Model\ApiErrorResponse',
+                        $request,
+                        $response,
+                    );
+                case 502:
+                    return $this->handleResponseWithDataType(
+                        '\Pingram\Model\ApiErrorResponse',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\Pingram\Model\TenDlcBrandRegistration',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Pingram\Model\TenDlcBrandRegistration',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Pingram\Model\ApiErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 402:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Pingram\Model\ApiErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 502:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Pingram\Model\ApiErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation registrationsGetUs10dlcBrandAsync
+     *
+     * Get the 10DLC brand registration for the authenticated account. Returns null when no registration exists yet.
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['registrationsGetUs10dlcBrand'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function registrationsGetUs10dlcBrandAsync(string $contentType = self::contentTypes['registrationsGetUs10dlcBrand'][0])
+    {
+        return $this->registrationsGetUs10dlcBrandAsyncWithHttpInfo($contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation registrationsGetUs10dlcBrandAsyncWithHttpInfo
+     *
+     * Get the 10DLC brand registration for the authenticated account. Returns null when no registration exists yet.
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['registrationsGetUs10dlcBrand'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function registrationsGetUs10dlcBrandAsyncWithHttpInfo(string $contentType = self::contentTypes['registrationsGetUs10dlcBrand'][0])
+    {
+        $returnType = '\Pingram\Model\TenDlcBrandRegistration';
+        $request = $this->registrationsGetUs10dlcBrandRequest($contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'registrationsGetUs10dlcBrand'
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['registrationsGetUs10dlcBrand'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function registrationsGetUs10dlcBrandRequest(string $contentType = self::contentTypes['registrationsGetUs10dlcBrand'][0])
+    {
+
+
+        $resourcePath = '/registrations/us/10dlc/brand';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -447,7 +755,7 @@ class EmailApi
         $operationHost = $this->config->getHost();
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
-            'DELETE',
+            'GET',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
@@ -455,38 +763,38 @@ class EmailApi
     }
 
     /**
-     * Operation emailSend
+     * Operation registrationsUpdateUs10dlcBrand
      *
-     * Send an email. Requires &#x60;type&#x60;, &#x60;to&#x60;, &#x60;subject&#x60;, and &#x60;html&#x60;. Optional: &#x60;fromAddress&#x60;, &#x60;fromName&#x60;, &#x60;schedule&#x60;, attachments. The fromAddress must be a verified domain; otherwise our built-in address will be used which is fine for testing purposes.
+     * Update an existing 10DLC brand registration. Business fields are editable before carrier submission; workflow status is managed by Pingram.
      *
-     * @param  \Pingram\Model\SendEmailRequest $send_email_request send_email_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailSend'] to see the possible values for this operation
+     * @param  \Pingram\Model\TenDlcBrandUpdateRequest $ten_dlc_brand_update_request ten_dlc_brand_update_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['registrationsUpdateUs10dlcBrand'] to see the possible values for this operation
      *
      * @throws \Pingram\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Pingram\Model\SendEmailApiResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse
+     * @return \Pingram\Model\TenDlcBrandRegistration|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse
      */
-    public function emailSend($send_email_request, string $contentType = self::contentTypes['emailSend'][0])
+    public function registrationsUpdateUs10dlcBrand($ten_dlc_brand_update_request, string $contentType = self::contentTypes['registrationsUpdateUs10dlcBrand'][0])
     {
-        list($response) = $this->emailSendWithHttpInfo($send_email_request, $contentType);
+        list($response) = $this->registrationsUpdateUs10dlcBrandWithHttpInfo($ten_dlc_brand_update_request, $contentType);
         return $response;
     }
 
     /**
-     * Operation emailSendWithHttpInfo
+     * Operation registrationsUpdateUs10dlcBrandWithHttpInfo
      *
-     * Send an email. Requires &#x60;type&#x60;, &#x60;to&#x60;, &#x60;subject&#x60;, and &#x60;html&#x60;. Optional: &#x60;fromAddress&#x60;, &#x60;fromName&#x60;, &#x60;schedule&#x60;, attachments. The fromAddress must be a verified domain; otherwise our built-in address will be used which is fine for testing purposes.
+     * Update an existing 10DLC brand registration. Business fields are editable before carrier submission; workflow status is managed by Pingram.
      *
-     * @param  \Pingram\Model\SendEmailRequest $send_email_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailSend'] to see the possible values for this operation
+     * @param  \Pingram\Model\TenDlcBrandUpdateRequest $ten_dlc_brand_update_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['registrationsUpdateUs10dlcBrand'] to see the possible values for this operation
      *
      * @throws \Pingram\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Pingram\Model\SendEmailApiResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Pingram\Model\TenDlcBrandRegistration|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function emailSendWithHttpInfo($send_email_request, string $contentType = self::contentTypes['emailSend'][0])
+    public function registrationsUpdateUs10dlcBrandWithHttpInfo($ten_dlc_brand_update_request, string $contentType = self::contentTypes['registrationsUpdateUs10dlcBrand'][0])
     {
-        $request = $this->emailSendRequest($send_email_request, $contentType);
+        $request = $this->registrationsUpdateUs10dlcBrandRequest($ten_dlc_brand_update_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -514,7 +822,7 @@ class EmailApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\Pingram\Model\SendEmailApiResponse',
+                        '\Pingram\Model\TenDlcBrandRegistration',
                         $request,
                         $response,
                     );
@@ -554,7 +862,7 @@ class EmailApi
             }
 
             return $this->handleResponseWithDataType(
-                '\Pingram\Model\SendEmailApiResponse',
+                '\Pingram\Model\TenDlcBrandRegistration',
                 $request,
                 $response,
             );
@@ -563,7 +871,7 @@ class EmailApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Pingram\Model\SendEmailApiResponse',
+                        '\Pingram\Model\TenDlcBrandRegistration',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -600,19 +908,19 @@ class EmailApi
     }
 
     /**
-     * Operation emailSendAsync
+     * Operation registrationsUpdateUs10dlcBrandAsync
      *
-     * Send an email. Requires &#x60;type&#x60;, &#x60;to&#x60;, &#x60;subject&#x60;, and &#x60;html&#x60;. Optional: &#x60;fromAddress&#x60;, &#x60;fromName&#x60;, &#x60;schedule&#x60;, attachments. The fromAddress must be a verified domain; otherwise our built-in address will be used which is fine for testing purposes.
+     * Update an existing 10DLC brand registration. Business fields are editable before carrier submission; workflow status is managed by Pingram.
      *
-     * @param  \Pingram\Model\SendEmailRequest $send_email_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailSend'] to see the possible values for this operation
+     * @param  \Pingram\Model\TenDlcBrandUpdateRequest $ten_dlc_brand_update_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['registrationsUpdateUs10dlcBrand'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function emailSendAsync($send_email_request, string $contentType = self::contentTypes['emailSend'][0])
+    public function registrationsUpdateUs10dlcBrandAsync($ten_dlc_brand_update_request, string $contentType = self::contentTypes['registrationsUpdateUs10dlcBrand'][0])
     {
-        return $this->emailSendAsyncWithHttpInfo($send_email_request, $contentType)
+        return $this->registrationsUpdateUs10dlcBrandAsyncWithHttpInfo($ten_dlc_brand_update_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -621,20 +929,20 @@ class EmailApi
     }
 
     /**
-     * Operation emailSendAsyncWithHttpInfo
+     * Operation registrationsUpdateUs10dlcBrandAsyncWithHttpInfo
      *
-     * Send an email. Requires &#x60;type&#x60;, &#x60;to&#x60;, &#x60;subject&#x60;, and &#x60;html&#x60;. Optional: &#x60;fromAddress&#x60;, &#x60;fromName&#x60;, &#x60;schedule&#x60;, attachments. The fromAddress must be a verified domain; otherwise our built-in address will be used which is fine for testing purposes.
+     * Update an existing 10DLC brand registration. Business fields are editable before carrier submission; workflow status is managed by Pingram.
      *
-     * @param  \Pingram\Model\SendEmailRequest $send_email_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailSend'] to see the possible values for this operation
+     * @param  \Pingram\Model\TenDlcBrandUpdateRequest $ten_dlc_brand_update_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['registrationsUpdateUs10dlcBrand'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function emailSendAsyncWithHttpInfo($send_email_request, string $contentType = self::contentTypes['emailSend'][0])
+    public function registrationsUpdateUs10dlcBrandAsyncWithHttpInfo($ten_dlc_brand_update_request, string $contentType = self::contentTypes['registrationsUpdateUs10dlcBrand'][0])
     {
-        $returnType = '\Pingram\Model\SendEmailApiResponse';
-        $request = $this->emailSendRequest($send_email_request, $contentType);
+        $returnType = '\Pingram\Model\TenDlcBrandRegistration';
+        $request = $this->registrationsUpdateUs10dlcBrandRequest($ten_dlc_brand_update_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -673,26 +981,26 @@ class EmailApi
     }
 
     /**
-     * Create request for operation 'emailSend'
+     * Create request for operation 'registrationsUpdateUs10dlcBrand'
      *
-     * @param  \Pingram\Model\SendEmailRequest $send_email_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailSend'] to see the possible values for this operation
+     * @param  \Pingram\Model\TenDlcBrandUpdateRequest $ten_dlc_brand_update_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['registrationsUpdateUs10dlcBrand'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function emailSendRequest($send_email_request, string $contentType = self::contentTypes['emailSend'][0])
+    public function registrationsUpdateUs10dlcBrandRequest($ten_dlc_brand_update_request, string $contentType = self::contentTypes['registrationsUpdateUs10dlcBrand'][0])
     {
 
-        // verify the required parameter 'send_email_request' is set
-        if ($send_email_request === null || (is_array($send_email_request) && count($send_email_request) === 0)) {
+        // verify the required parameter 'ten_dlc_brand_update_request' is set
+        if ($ten_dlc_brand_update_request === null || (is_array($ten_dlc_brand_update_request) && count($ten_dlc_brand_update_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $send_email_request when calling emailSend'
+                'Missing the required parameter $ten_dlc_brand_update_request when calling registrationsUpdateUs10dlcBrand'
             );
         }
 
 
-        $resourcePath = '/email';
+        $resourcePath = '/registrations/us/10dlc/brand';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -710,12 +1018,12 @@ class EmailApi
         );
 
         // for model (json/xml)
-        if (isset($send_email_request)) {
+        if (isset($ten_dlc_brand_update_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($send_email_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($ten_dlc_brand_update_request));
             } else {
-                $httpBody = $send_email_request;
+                $httpBody = $ten_dlc_brand_update_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -772,7 +1080,7 @@ class EmailApi
         $operationHost = $this->config->getHost();
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
-            'POST',
+            'PATCH',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

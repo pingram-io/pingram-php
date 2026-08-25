@@ -44,6 +44,8 @@ use Pingram\Api\NumbersApi;
 
 use Pingram\Api\ProfileApi;
 
+use Pingram\Api\RegistrationsApi;
+
 use Pingram\Api\SenderApi;
 
 use Pingram\Api\SmsApi;
@@ -145,6 +147,9 @@ class Client
     /** @var ProfileApi */
     private $profile;
 
+    /** @var RegistrationsApi */
+    private $registrations;
+
     /** @var SenderApi */
     private $sender;
 
@@ -217,6 +222,8 @@ class Client
         $this->numbers = new NumbersApi($this->httpClient, $this->config);
 
         $this->profile = new ProfileApi($this->httpClient, $this->config);
+
+        $this->registrations = new RegistrationsApi($this->httpClient, $this->config);
 
         $this->sender = new SenderApi($this->httpClient, $this->config);
 
@@ -390,6 +397,15 @@ class Client
     public function getProfile(): \Pingram\Api\ProfileApi
     {
         return $this->profile;
+    }
+
+
+    /**
+     * @return RegistrationsApi
+     */
+    public function getRegistrations(): \Pingram\Api\RegistrationsApi
+    {
+        return $this->registrations;
     }
 
 

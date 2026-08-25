@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **created_at** | **string** |  |
 **updated_at** | **string** |  |
 **status** | **string** |  | [optional]
+**subscription_status** | **string** |  | [optional]
 **session_id** | **string** |  | [optional]
 **url** | **string** |  | [optional]
 

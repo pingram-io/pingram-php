@@ -1,4 +1,4 @@
-# # TenDlcBrandUpdateRequest
+# # TenDlcBrandAdminUpdateRequest
 
 ## Properties
 
@@ -19,5 +19,8 @@ Name | Type | Description | Notes
 **postal_code** | **string** |  | [optional]
 **compliance_contact_email** | **string** |  | [optional]
 **compliance_contact_phone** | **string** |  | [optional]
+**vertical** | **string** | Industry vertical required before Pingram submits the brand to carriers. | [optional]
+**entity_type** | **string** | Legacy only when businessType is Other. | [optional]
+**brand_status** | **string** | Pingram-side brand registration workflow status. - not_started: no customer submission yet - pending_review: customer submitted; Pingram has not submitted to carriers - in_progress: submitted for carrier review - approved | rejected | info_needed: review outcome | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

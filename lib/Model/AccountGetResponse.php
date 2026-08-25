@@ -71,7 +71,8 @@ class AccountGetResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         'allow_overage' => 'bool',
         'created_at' => 'string',
         'updated_at' => 'string',
-        'status' => 'string'
+        'status' => 'string',
+        'subscription_status' => 'string'
     ];
 
     /**
@@ -95,7 +96,8 @@ class AccountGetResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         'allow_overage' => null,
         'created_at' => null,
         'updated_at' => null,
-        'status' => null
+        'status' => null,
+        'subscription_status' => null
     ];
 
     /**
@@ -117,7 +119,8 @@ class AccountGetResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         'allow_overage' => false,
         'created_at' => false,
         'updated_at' => false,
-        'status' => false
+        'status' => false,
+        'subscription_status' => true
     ];
 
     /**
@@ -219,7 +222,8 @@ class AccountGetResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         'allow_overage' => 'allowOverage',
         'created_at' => 'createdAt',
         'updated_at' => 'updatedAt',
-        'status' => 'status'
+        'status' => 'status',
+        'subscription_status' => 'subscriptionStatus'
     ];
 
     /**
@@ -241,7 +245,8 @@ class AccountGetResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         'allow_overage' => 'setAllowOverage',
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt',
-        'status' => 'setStatus'
+        'status' => 'setStatus',
+        'subscription_status' => 'setSubscriptionStatus'
     ];
 
     /**
@@ -263,7 +268,8 @@ class AccountGetResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         'allow_overage' => 'getAllowOverage',
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt',
-        'status' => 'getStatus'
+        'status' => 'getStatus',
+        'subscription_status' => 'getSubscriptionStatus'
     ];
 
     /**
@@ -314,6 +320,10 @@ class AccountGetResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     public const STATUS_VERIFIED = 'verified';
     public const STATUS_UNVERIFIED = 'unverified';
     public const STATUS_BLOCKED = 'blocked';
+    public const SUBSCRIPTION_STATUS_ACTIVE = 'active';
+    public const SUBSCRIPTION_STATUS_CANCELED = 'canceled';
+    public const SUBSCRIPTION_STATUS_PAST_DUE = 'past_due';
+    public const SUBSCRIPTION_STATUS_PAUSED = 'paused';
 
     /**
      * Gets allowable values of the enum
@@ -356,6 +366,21 @@ class AccountGetResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getSubscriptionStatusAllowableValues()
+    {
+        return [
+            self::SUBSCRIPTION_STATUS_ACTIVE,
+            self::SUBSCRIPTION_STATUS_CANCELED,
+            self::SUBSCRIPTION_STATUS_PAST_DUE,
+            self::SUBSCRIPTION_STATUS_PAUSED,
+        ];
+    }
+
+    /**
      * Associative array for storing property values
      *
      * @var mixed[]
@@ -384,6 +409,7 @@ class AccountGetResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->setIfExists('created_at', $data ?? [], null);
         $this->setIfExists('updated_at', $data ?? [], null);
         $this->setIfExists('status', $data ?? [], null);
+        $this->setIfExists('subscription_status', $data ?? [], null);
     }
 
     /**
@@ -460,6 +486,15 @@ class AccountGetResponse implements ModelInterface, ArrayAccess, \JsonSerializab
             $invalidProperties[] = sprintf(
                 "invalid value '%s' for 'status', must be one of '%s'",
                 $this->container['status'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getSubscriptionStatusAllowableValues();
+        if (!is_null($this->container['subscription_status']) && !in_array($this->container['subscription_status'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'subscription_status', must be one of '%s'",
+                $this->container['subscription_status'],
                 implode("', '", $allowedValues)
             );
         }
@@ -883,6 +918,50 @@ class AccountGetResponse implements ModelInterface, ArrayAccess, \JsonSerializab
             );
         }
         $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets subscription_status
+     *
+     * @return string|null
+     */
+    public function getSubscriptionStatus()
+    {
+        return $this->container['subscription_status'];
+    }
+
+    /**
+     * Sets subscription_status
+     *
+     * @param string|null $subscription_status subscription_status
+     *
+     * @return self
+     */
+    public function setSubscriptionStatus($subscription_status)
+    {
+        if (is_null($subscription_status)) {
+            array_push($this->openAPINullablesSetToNull, 'subscription_status');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('subscription_status', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $allowedValues = $this->getSubscriptionStatusAllowableValues();
+        if (!is_null($subscription_status) && !in_array($subscription_status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'subscription_status', must be one of '%s'",
+                    $subscription_status,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['subscription_status'] = $subscription_status;
 
         return $this;
     }

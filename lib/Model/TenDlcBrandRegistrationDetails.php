@@ -1158,7 +1158,7 @@ class TenDlcBrandRegistrationDetails implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets vertical
      *
-     * @param string|null $vertical vertical
+     * @param string|null $vertical Industry vertical required before Pingram submits the brand to carriers (for example TECHNOLOGY, HEALTHCARE, RETAIL, or FINANCIAL).
      *
      * @return self
      */
