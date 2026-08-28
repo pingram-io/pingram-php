@@ -1,6 +1,6 @@
 <?php
 /**
- * TenDlcCampaignRegistrationDetails
+ * TenDlcCampaignRegistration
  *
  * PHP version 8.1
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \Pingram\ObjectSerializer;
 
 /**
- * TenDlcCampaignRegistrationDetails Class Doc Comment
+ * TenDlcCampaignRegistration Class Doc Comment
  *
  * @category Class
- * @description Admin GET/PATCH response for 10DLC campaign registration
+ * @description Public response type for 10DLC campaign registration
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class TenDlcCampaignRegistrationDetails implements ModelInterface, ArrayAccess, \JsonSerializable
+class TenDlcCampaignRegistration implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class TenDlcCampaignRegistrationDetails implements ModelInterface, ArrayAccess, 
       *
       * @var string
       */
-    protected static $openAPIModelName = 'TenDlcCampaignRegistrationDetails';
+    protected static $openAPIModelName = 'TenDlcCampaignRegistration';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -81,8 +81,7 @@ class TenDlcCampaignRegistrationDetails implements ModelInterface, ArrayAccess, 
         'campaign_terms_and_conditions_link' => 'string',
         'campaign_usecase' => 'string',
         'created_at' => 'string',
-        'updated_at' => 'string',
-        'campaign_id' => 'string'
+        'updated_at' => 'string'
     ];
 
     /**
@@ -116,8 +115,7 @@ class TenDlcCampaignRegistrationDetails implements ModelInterface, ArrayAccess, 
         'campaign_terms_and_conditions_link' => null,
         'campaign_usecase' => null,
         'created_at' => null,
-        'updated_at' => null,
-        'campaign_id' => null
+        'updated_at' => null
     ];
 
     /**
@@ -149,8 +147,7 @@ class TenDlcCampaignRegistrationDetails implements ModelInterface, ArrayAccess, 
         'campaign_terms_and_conditions_link' => false,
         'campaign_usecase' => false,
         'created_at' => false,
-        'updated_at' => false,
-        'campaign_id' => false
+        'updated_at' => false
     ];
 
     /**
@@ -262,8 +259,7 @@ class TenDlcCampaignRegistrationDetails implements ModelInterface, ArrayAccess, 
         'campaign_terms_and_conditions_link' => 'campaignTermsAndConditionsLink',
         'campaign_usecase' => 'campaignUsecase',
         'created_at' => 'createdAt',
-        'updated_at' => 'updatedAt',
-        'campaign_id' => 'campaignId'
+        'updated_at' => 'updatedAt'
     ];
 
     /**
@@ -295,8 +291,7 @@ class TenDlcCampaignRegistrationDetails implements ModelInterface, ArrayAccess, 
         'campaign_terms_and_conditions_link' => 'setCampaignTermsAndConditionsLink',
         'campaign_usecase' => 'setCampaignUsecase',
         'created_at' => 'setCreatedAt',
-        'updated_at' => 'setUpdatedAt',
-        'campaign_id' => 'setCampaignId'
+        'updated_at' => 'setUpdatedAt'
     ];
 
     /**
@@ -328,8 +323,7 @@ class TenDlcCampaignRegistrationDetails implements ModelInterface, ArrayAccess, 
         'campaign_terms_and_conditions_link' => 'getCampaignTermsAndConditionsLink',
         'campaign_usecase' => 'getCampaignUsecase',
         'created_at' => 'getCreatedAt',
-        'updated_at' => 'getUpdatedAt',
-        'campaign_id' => 'getCampaignId'
+        'updated_at' => 'getUpdatedAt'
     ];
 
     /**
@@ -436,7 +430,6 @@ class TenDlcCampaignRegistrationDetails implements ModelInterface, ArrayAccess, 
         $this->setIfExists('campaign_usecase', $data ?? [], null);
         $this->setIfExists('created_at', $data ?? [], null);
         $this->setIfExists('updated_at', $data ?? [], null);
-        $this->setIfExists('campaign_id', $data ?? [], null);
     }
 
     /**
@@ -1156,33 +1149,6 @@ class TenDlcCampaignRegistrationDetails implements ModelInterface, ArrayAccess, 
             throw new \InvalidArgumentException('non-nullable updated_at cannot be null');
         }
         $this->container['updated_at'] = $updated_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets campaign_id
-     *
-     * @return string|null
-     */
-    public function getCampaignId()
-    {
-        return $this->container['campaign_id'];
-    }
-
-    /**
-     * Sets campaign_id
-     *
-     * @param string|null $campaign_id campaign_id
-     *
-     * @return self
-     */
-    public function setCampaignId($campaign_id)
-    {
-        if (is_null($campaign_id)) {
-            throw new \InvalidArgumentException('non-nullable campaign_id cannot be null');
-        }
-        $this->container['campaign_id'] = $campaign_id;
 
         return $this;
     }

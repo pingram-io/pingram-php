@@ -80,7 +80,13 @@ class RegistrationsApi
         'registrationsGetUs10dlcBrand' => [
             'application/json',
         ],
+        'registrationsGetUs10dlcCampaign' => [
+            'application/json',
+        ],
         'registrationsUpdateUs10dlcBrand' => [
+            'application/json',
+        ],
+        'registrationsUpdateUs10dlcCampaign' => [
             'application/json',
         ],
     ];
@@ -763,6 +769,312 @@ class RegistrationsApi
     }
 
     /**
+     * Operation registrationsGetUs10dlcCampaign
+     *
+     * Get the 10DLC campaign registration for the authenticated account. Returns null when no brand registration exists yet.
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['registrationsGetUs10dlcCampaign'] to see the possible values for this operation
+     *
+     * @throws \Pingram\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \Pingram\Model\TenDlcCampaignRegistration|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse
+     */
+    public function registrationsGetUs10dlcCampaign(string $contentType = self::contentTypes['registrationsGetUs10dlcCampaign'][0])
+    {
+        list($response) = $this->registrationsGetUs10dlcCampaignWithHttpInfo($contentType);
+        return $response;
+    }
+
+    /**
+     * Operation registrationsGetUs10dlcCampaignWithHttpInfo
+     *
+     * Get the 10DLC campaign registration for the authenticated account. Returns null when no brand registration exists yet.
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['registrationsGetUs10dlcCampaign'] to see the possible values for this operation
+     *
+     * @throws \Pingram\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Pingram\Model\TenDlcCampaignRegistration|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function registrationsGetUs10dlcCampaignWithHttpInfo(string $contentType = self::contentTypes['registrationsGetUs10dlcCampaign'][0])
+    {
+        $request = $this->registrationsGetUs10dlcCampaignRequest($contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\Pingram\Model\TenDlcCampaignRegistration',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\Pingram\Model\ApiErrorResponse',
+                        $request,
+                        $response,
+                    );
+                case 402:
+                    return $this->handleResponseWithDataType(
+                        '\Pingram\Model\ApiErrorResponse',
+                        $request,
+                        $response,
+                    );
+                case 502:
+                    return $this->handleResponseWithDataType(
+                        '\Pingram\Model\ApiErrorResponse',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\Pingram\Model\TenDlcCampaignRegistration',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Pingram\Model\TenDlcCampaignRegistration',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Pingram\Model\ApiErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 402:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Pingram\Model\ApiErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 502:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Pingram\Model\ApiErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation registrationsGetUs10dlcCampaignAsync
+     *
+     * Get the 10DLC campaign registration for the authenticated account. Returns null when no brand registration exists yet.
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['registrationsGetUs10dlcCampaign'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function registrationsGetUs10dlcCampaignAsync(string $contentType = self::contentTypes['registrationsGetUs10dlcCampaign'][0])
+    {
+        return $this->registrationsGetUs10dlcCampaignAsyncWithHttpInfo($contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation registrationsGetUs10dlcCampaignAsyncWithHttpInfo
+     *
+     * Get the 10DLC campaign registration for the authenticated account. Returns null when no brand registration exists yet.
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['registrationsGetUs10dlcCampaign'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function registrationsGetUs10dlcCampaignAsyncWithHttpInfo(string $contentType = self::contentTypes['registrationsGetUs10dlcCampaign'][0])
+    {
+        $returnType = '\Pingram\Model\TenDlcCampaignRegistration';
+        $request = $this->registrationsGetUs10dlcCampaignRequest($contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'registrationsGetUs10dlcCampaign'
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['registrationsGetUs10dlcCampaign'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function registrationsGetUs10dlcCampaignRequest(string $contentType = self::contentTypes['registrationsGetUs10dlcCampaign'][0])
+    {
+
+
+        $resourcePath = '/registrations/us/10dlc/campaign';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+        // this endpoint requires Bearer (JWT) authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation registrationsUpdateUs10dlcBrand
      *
      * Update an existing 10DLC brand registration. Business fields are editable before carrier submission; workflow status is managed by Pingram.
@@ -1024,6 +1336,331 @@ class RegistrationsApi
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($ten_dlc_brand_update_request));
             } else {
                 $httpBody = $ten_dlc_brand_update_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+        // this endpoint requires Bearer (JWT) authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PATCH',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation registrationsUpdateUs10dlcCampaign
+     *
+     * Update an existing 10DLC campaign registration. Campaign fields are editable before carrier submission; workflow status is managed by Pingram.
+     *
+     * @param  \Pingram\Model\TenDlcCampaignUpdateRequest $ten_dlc_campaign_update_request ten_dlc_campaign_update_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['registrationsUpdateUs10dlcCampaign'] to see the possible values for this operation
+     *
+     * @throws \Pingram\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \Pingram\Model\TenDlcCampaignRegistration|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse
+     */
+    public function registrationsUpdateUs10dlcCampaign($ten_dlc_campaign_update_request, string $contentType = self::contentTypes['registrationsUpdateUs10dlcCampaign'][0])
+    {
+        list($response) = $this->registrationsUpdateUs10dlcCampaignWithHttpInfo($ten_dlc_campaign_update_request, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation registrationsUpdateUs10dlcCampaignWithHttpInfo
+     *
+     * Update an existing 10DLC campaign registration. Campaign fields are editable before carrier submission; workflow status is managed by Pingram.
+     *
+     * @param  \Pingram\Model\TenDlcCampaignUpdateRequest $ten_dlc_campaign_update_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['registrationsUpdateUs10dlcCampaign'] to see the possible values for this operation
+     *
+     * @throws \Pingram\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Pingram\Model\TenDlcCampaignRegistration|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function registrationsUpdateUs10dlcCampaignWithHttpInfo($ten_dlc_campaign_update_request, string $contentType = self::contentTypes['registrationsUpdateUs10dlcCampaign'][0])
+    {
+        $request = $this->registrationsUpdateUs10dlcCampaignRequest($ten_dlc_campaign_update_request, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\Pingram\Model\TenDlcCampaignRegistration',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\Pingram\Model\ApiErrorResponse',
+                        $request,
+                        $response,
+                    );
+                case 402:
+                    return $this->handleResponseWithDataType(
+                        '\Pingram\Model\ApiErrorResponse',
+                        $request,
+                        $response,
+                    );
+                case 502:
+                    return $this->handleResponseWithDataType(
+                        '\Pingram\Model\ApiErrorResponse',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\Pingram\Model\TenDlcCampaignRegistration',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Pingram\Model\TenDlcCampaignRegistration',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Pingram\Model\ApiErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 402:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Pingram\Model\ApiErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 502:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Pingram\Model\ApiErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation registrationsUpdateUs10dlcCampaignAsync
+     *
+     * Update an existing 10DLC campaign registration. Campaign fields are editable before carrier submission; workflow status is managed by Pingram.
+     *
+     * @param  \Pingram\Model\TenDlcCampaignUpdateRequest $ten_dlc_campaign_update_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['registrationsUpdateUs10dlcCampaign'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function registrationsUpdateUs10dlcCampaignAsync($ten_dlc_campaign_update_request, string $contentType = self::contentTypes['registrationsUpdateUs10dlcCampaign'][0])
+    {
+        return $this->registrationsUpdateUs10dlcCampaignAsyncWithHttpInfo($ten_dlc_campaign_update_request, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation registrationsUpdateUs10dlcCampaignAsyncWithHttpInfo
+     *
+     * Update an existing 10DLC campaign registration. Campaign fields are editable before carrier submission; workflow status is managed by Pingram.
+     *
+     * @param  \Pingram\Model\TenDlcCampaignUpdateRequest $ten_dlc_campaign_update_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['registrationsUpdateUs10dlcCampaign'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function registrationsUpdateUs10dlcCampaignAsyncWithHttpInfo($ten_dlc_campaign_update_request, string $contentType = self::contentTypes['registrationsUpdateUs10dlcCampaign'][0])
+    {
+        $returnType = '\Pingram\Model\TenDlcCampaignRegistration';
+        $request = $this->registrationsUpdateUs10dlcCampaignRequest($ten_dlc_campaign_update_request, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'registrationsUpdateUs10dlcCampaign'
+     *
+     * @param  \Pingram\Model\TenDlcCampaignUpdateRequest $ten_dlc_campaign_update_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['registrationsUpdateUs10dlcCampaign'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function registrationsUpdateUs10dlcCampaignRequest($ten_dlc_campaign_update_request, string $contentType = self::contentTypes['registrationsUpdateUs10dlcCampaign'][0])
+    {
+
+        // verify the required parameter 'ten_dlc_campaign_update_request' is set
+        if ($ten_dlc_campaign_update_request === null || (is_array($ten_dlc_campaign_update_request) && count($ten_dlc_campaign_update_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $ten_dlc_campaign_update_request when calling registrationsUpdateUs10dlcCampaign'
+            );
+        }
+
+
+        $resourcePath = '/registrations/us/10dlc/campaign';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($ten_dlc_campaign_update_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($ten_dlc_campaign_update_request));
+            } else {
+                $httpBody = $ten_dlc_campaign_update_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

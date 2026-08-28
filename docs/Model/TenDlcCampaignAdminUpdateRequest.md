@@ -1,11 +1,9 @@
-# # TenDlcCampaignRegistrationDetails
+# # TenDlcCampaignAdminUpdateRequest
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**account_id** | **string** |  |
-**campaign_status** | **string** | Pingram-side 10DLC registration workflow status (brand or campaign). - not_started: no customer submission yet - pending_review: customer submitted; Pingram has not submitted to carriers - in_progress: submitted for carrier review - approved | rejected | info_needed: review outcome |
 **campaign_description** | **string** |  | [optional]
 **campaign_sample1** | **string** |  | [optional]
 **campaign_sample2** | **string** |  | [optional]
@@ -26,8 +24,6 @@ Name | Type | Description | Notes
 **campaign_privacy_policy_link** | **string** |  | [optional]
 **campaign_terms_and_conditions_link** | **string** |  | [optional]
 **campaign_usecase** | **string** |  | [optional]
-**created_at** | **string** |  |
-**updated_at** | **string** |  |
-**campaign_id** | **string** |  | [optional]
+**campaign_status** | **string** | Pingram-side 10DLC registration workflow status (brand or campaign). - not_started: no customer submission yet - pending_review: customer submitted; Pingram has not submitted to carriers - in_progress: submitted for carrier review - approved | rejected | info_needed: review outcome | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

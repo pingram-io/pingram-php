@@ -1,6 +1,6 @@
 <?php
 /**
- * TenDlcCampaignRegistrationDetails
+ * TenDlcCampaignAdminUpdateRequest
  *
  * PHP version 8.1
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \Pingram\ObjectSerializer;
 
 /**
- * TenDlcCampaignRegistrationDetails Class Doc Comment
+ * TenDlcCampaignAdminUpdateRequest Class Doc Comment
  *
  * @category Class
- * @description Admin GET/PATCH response for 10DLC campaign registration
+ * @description Request body for PATCH /registrations/us/10dlc/campaign/admin
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class TenDlcCampaignRegistrationDetails implements ModelInterface, ArrayAccess, \JsonSerializable
+class TenDlcCampaignAdminUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class TenDlcCampaignRegistrationDetails implements ModelInterface, ArrayAccess, 
       *
       * @var string
       */
-    protected static $openAPIModelName = 'TenDlcCampaignRegistrationDetails';
+    protected static $openAPIModelName = 'TenDlcCampaignAdminUpdateRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,8 +58,6 @@ class TenDlcCampaignRegistrationDetails implements ModelInterface, ArrayAccess, 
       * @var string[]
       */
     protected static $openAPITypes = [
-        'account_id' => 'string',
-        'campaign_status' => 'string',
         'campaign_description' => 'string',
         'campaign_sample1' => 'string',
         'campaign_sample2' => 'string',
@@ -80,9 +78,7 @@ class TenDlcCampaignRegistrationDetails implements ModelInterface, ArrayAccess, 
         'campaign_privacy_policy_link' => 'string',
         'campaign_terms_and_conditions_link' => 'string',
         'campaign_usecase' => 'string',
-        'created_at' => 'string',
-        'updated_at' => 'string',
-        'campaign_id' => 'string'
+        'campaign_status' => 'string'
     ];
 
     /**
@@ -93,8 +89,6 @@ class TenDlcCampaignRegistrationDetails implements ModelInterface, ArrayAccess, 
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'account_id' => null,
-        'campaign_status' => null,
         'campaign_description' => null,
         'campaign_sample1' => null,
         'campaign_sample2' => null,
@@ -115,9 +109,7 @@ class TenDlcCampaignRegistrationDetails implements ModelInterface, ArrayAccess, 
         'campaign_privacy_policy_link' => null,
         'campaign_terms_and_conditions_link' => null,
         'campaign_usecase' => null,
-        'created_at' => null,
-        'updated_at' => null,
-        'campaign_id' => null
+        'campaign_status' => null
     ];
 
     /**
@@ -126,8 +118,6 @@ class TenDlcCampaignRegistrationDetails implements ModelInterface, ArrayAccess, 
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'account_id' => false,
-        'campaign_status' => false,
         'campaign_description' => false,
         'campaign_sample1' => false,
         'campaign_sample2' => false,
@@ -148,9 +138,7 @@ class TenDlcCampaignRegistrationDetails implements ModelInterface, ArrayAccess, 
         'campaign_privacy_policy_link' => false,
         'campaign_terms_and_conditions_link' => false,
         'campaign_usecase' => false,
-        'created_at' => false,
-        'updated_at' => false,
-        'campaign_id' => false
+        'campaign_status' => false
     ];
 
     /**
@@ -239,8 +227,6 @@ class TenDlcCampaignRegistrationDetails implements ModelInterface, ArrayAccess, 
      * @var string[]
      */
     protected static $attributeMap = [
-        'account_id' => 'accountId',
-        'campaign_status' => 'campaignStatus',
         'campaign_description' => 'campaignDescription',
         'campaign_sample1' => 'campaignSample1',
         'campaign_sample2' => 'campaignSample2',
@@ -261,9 +247,7 @@ class TenDlcCampaignRegistrationDetails implements ModelInterface, ArrayAccess, 
         'campaign_privacy_policy_link' => 'campaignPrivacyPolicyLink',
         'campaign_terms_and_conditions_link' => 'campaignTermsAndConditionsLink',
         'campaign_usecase' => 'campaignUsecase',
-        'created_at' => 'createdAt',
-        'updated_at' => 'updatedAt',
-        'campaign_id' => 'campaignId'
+        'campaign_status' => 'campaignStatus'
     ];
 
     /**
@@ -272,8 +256,6 @@ class TenDlcCampaignRegistrationDetails implements ModelInterface, ArrayAccess, 
      * @var string[]
      */
     protected static $setters = [
-        'account_id' => 'setAccountId',
-        'campaign_status' => 'setCampaignStatus',
         'campaign_description' => 'setCampaignDescription',
         'campaign_sample1' => 'setCampaignSample1',
         'campaign_sample2' => 'setCampaignSample2',
@@ -294,9 +276,7 @@ class TenDlcCampaignRegistrationDetails implements ModelInterface, ArrayAccess, 
         'campaign_privacy_policy_link' => 'setCampaignPrivacyPolicyLink',
         'campaign_terms_and_conditions_link' => 'setCampaignTermsAndConditionsLink',
         'campaign_usecase' => 'setCampaignUsecase',
-        'created_at' => 'setCreatedAt',
-        'updated_at' => 'setUpdatedAt',
-        'campaign_id' => 'setCampaignId'
+        'campaign_status' => 'setCampaignStatus'
     ];
 
     /**
@@ -305,8 +285,6 @@ class TenDlcCampaignRegistrationDetails implements ModelInterface, ArrayAccess, 
      * @var string[]
      */
     protected static $getters = [
-        'account_id' => 'getAccountId',
-        'campaign_status' => 'getCampaignStatus',
         'campaign_description' => 'getCampaignDescription',
         'campaign_sample1' => 'getCampaignSample1',
         'campaign_sample2' => 'getCampaignSample2',
@@ -327,9 +305,7 @@ class TenDlcCampaignRegistrationDetails implements ModelInterface, ArrayAccess, 
         'campaign_privacy_policy_link' => 'getCampaignPrivacyPolicyLink',
         'campaign_terms_and_conditions_link' => 'getCampaignTermsAndConditionsLink',
         'campaign_usecase' => 'getCampaignUsecase',
-        'created_at' => 'getCreatedAt',
-        'updated_at' => 'getUpdatedAt',
-        'campaign_id' => 'getCampaignId'
+        'campaign_status' => 'getCampaignStatus'
     ];
 
     /**
@@ -412,8 +388,6 @@ class TenDlcCampaignRegistrationDetails implements ModelInterface, ArrayAccess, 
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('account_id', $data ?? [], null);
-        $this->setIfExists('campaign_status', $data ?? [], null);
         $this->setIfExists('campaign_description', $data ?? [], null);
         $this->setIfExists('campaign_sample1', $data ?? [], null);
         $this->setIfExists('campaign_sample2', $data ?? [], null);
@@ -434,9 +408,7 @@ class TenDlcCampaignRegistrationDetails implements ModelInterface, ArrayAccess, 
         $this->setIfExists('campaign_privacy_policy_link', $data ?? [], null);
         $this->setIfExists('campaign_terms_and_conditions_link', $data ?? [], null);
         $this->setIfExists('campaign_usecase', $data ?? [], null);
-        $this->setIfExists('created_at', $data ?? [], null);
-        $this->setIfExists('updated_at', $data ?? [], null);
-        $this->setIfExists('campaign_id', $data ?? [], null);
+        $this->setIfExists('campaign_status', $data ?? [], null);
     }
 
     /**
@@ -466,12 +438,6 @@ class TenDlcCampaignRegistrationDetails implements ModelInterface, ArrayAccess, 
     {
         $invalidProperties = [];
 
-        if ($this->container['account_id'] === null) {
-            $invalidProperties[] = "'account_id' can't be null";
-        }
-        if ($this->container['campaign_status'] === null) {
-            $invalidProperties[] = "'campaign_status' can't be null";
-        }
         $allowedValues = $this->getCampaignStatusAllowableValues();
         if (!is_null($this->container['campaign_status']) && !in_array($this->container['campaign_status'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -481,12 +447,6 @@ class TenDlcCampaignRegistrationDetails implements ModelInterface, ArrayAccess, 
             );
         }
 
-        if ($this->container['created_at'] === null) {
-            $invalidProperties[] = "'created_at' can't be null";
-        }
-        if ($this->container['updated_at'] === null) {
-            $invalidProperties[] = "'updated_at' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -501,70 +461,6 @@ class TenDlcCampaignRegistrationDetails implements ModelInterface, ArrayAccess, 
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets account_id
-     *
-     * @return string
-     */
-    public function getAccountId()
-    {
-        return $this->container['account_id'];
-    }
-
-    /**
-     * Sets account_id
-     *
-     * @param string $account_id account_id
-     *
-     * @return self
-     */
-    public function setAccountId($account_id)
-    {
-        if (is_null($account_id)) {
-            throw new \InvalidArgumentException('non-nullable account_id cannot be null');
-        }
-        $this->container['account_id'] = $account_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets campaign_status
-     *
-     * @return string
-     */
-    public function getCampaignStatus()
-    {
-        return $this->container['campaign_status'];
-    }
-
-    /**
-     * Sets campaign_status
-     *
-     * @param string $campaign_status Pingram-side 10DLC registration workflow status (brand or campaign). - not_started: no customer submission yet - pending_review: customer submitted; Pingram has not submitted to carriers - in_progress: submitted for carrier review - approved | rejected | info_needed: review outcome
-     *
-     * @return self
-     */
-    public function setCampaignStatus($campaign_status)
-    {
-        if (is_null($campaign_status)) {
-            throw new \InvalidArgumentException('non-nullable campaign_status cannot be null');
-        }
-        $allowedValues = $this->getCampaignStatusAllowableValues();
-        if (!in_array($campaign_status, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'campaign_status', must be one of '%s'",
-                    $campaign_status,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['campaign_status'] = $campaign_status;
-
-        return $this;
-    }
 
     /**
      * Gets campaign_description
@@ -1107,82 +1003,38 @@ class TenDlcCampaignRegistrationDetails implements ModelInterface, ArrayAccess, 
     }
 
     /**
-     * Gets created_at
-     *
-     * @return string
-     */
-    public function getCreatedAt()
-    {
-        return $this->container['created_at'];
-    }
-
-    /**
-     * Sets created_at
-     *
-     * @param string $created_at created_at
-     *
-     * @return self
-     */
-    public function setCreatedAt($created_at)
-    {
-        if (is_null($created_at)) {
-            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
-        }
-        $this->container['created_at'] = $created_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets updated_at
-     *
-     * @return string
-     */
-    public function getUpdatedAt()
-    {
-        return $this->container['updated_at'];
-    }
-
-    /**
-     * Sets updated_at
-     *
-     * @param string $updated_at updated_at
-     *
-     * @return self
-     */
-    public function setUpdatedAt($updated_at)
-    {
-        if (is_null($updated_at)) {
-            throw new \InvalidArgumentException('non-nullable updated_at cannot be null');
-        }
-        $this->container['updated_at'] = $updated_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets campaign_id
+     * Gets campaign_status
      *
      * @return string|null
      */
-    public function getCampaignId()
+    public function getCampaignStatus()
     {
-        return $this->container['campaign_id'];
+        return $this->container['campaign_status'];
     }
 
     /**
-     * Sets campaign_id
+     * Sets campaign_status
      *
-     * @param string|null $campaign_id campaign_id
+     * @param string|null $campaign_status Pingram-side 10DLC registration workflow status (brand or campaign). - not_started: no customer submission yet - pending_review: customer submitted; Pingram has not submitted to carriers - in_progress: submitted for carrier review - approved | rejected | info_needed: review outcome
      *
      * @return self
      */
-    public function setCampaignId($campaign_id)
+    public function setCampaignStatus($campaign_status)
     {
-        if (is_null($campaign_id)) {
-            throw new \InvalidArgumentException('non-nullable campaign_id cannot be null');
+        if (is_null($campaign_status)) {
+            throw new \InvalidArgumentException('non-nullable campaign_status cannot be null');
         }
-        $this->container['campaign_id'] = $campaign_id;
+        $allowedValues = $this->getCampaignStatusAllowableValues();
+        if (!in_array($campaign_status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'campaign_status', must be one of '%s'",
+                    $campaign_status,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['campaign_status'] = $campaign_status;
 
         return $this;
     }

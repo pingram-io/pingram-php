@@ -21,8 +21,8 @@ Name | Type | Description | Notes
 **full_address** | **string** | Legacy records only; new submissions use structured address fields. | [optional]
 **compliance_contact_email** | **string** |  |
 **compliance_contact_phone** | **string** |  |
-**brand_status** | **string** | Pingram-side brand registration workflow status. - not_started: no customer submission yet - pending_review: customer submitted; Pingram has not submitted to carriers - in_progress: submitted for carrier review - approved | rejected | info_needed: review outcome |
-**campaign_status** | **string** | Pingram-side brand registration workflow status. - not_started: no customer submission yet - pending_review: customer submitted; Pingram has not submitted to carriers - in_progress: submitted for carrier review - approved | rejected | info_needed: review outcome |
+**brand_status** | **string** | Pingram-side 10DLC registration workflow status (brand or campaign). - not_started: no customer submission yet - pending_review: customer submitted; Pingram has not submitted to carriers - in_progress: submitted for carrier review - approved | rejected | info_needed: review outcome |
+**campaign_status** | **string** | Pingram-side 10DLC registration workflow status (brand or campaign). - not_started: no customer submission yet - pending_review: customer submitted; Pingram has not submitted to carriers - in_progress: submitted for carrier review - approved | rejected | info_needed: review outcome |
 **created_at** | **string** |  |
 **updated_at** | **string** |  |
 **vertical** | **string** | Industry vertical required before Pingram submits the brand to carriers (for example TECHNOLOGY, HEALTHCARE, RETAIL, or FINANCIAL). | [optional]

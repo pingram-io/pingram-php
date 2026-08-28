@@ -35,7 +35,7 @@ use \Pingram\ObjectSerializer;
  * TenDlcCampaignUpdateRequest Class Doc Comment
  *
  * @category Class
- * @description Request body for PATCH /registrations/us/10dlc/campaign (admin only)
+ * @description Request body for PATCH /registrations/us/10dlc/campaign
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -77,8 +77,7 @@ class TenDlcCampaignUpdateRequest implements ModelInterface, ArrayAccess, \JsonS
         'campaign_direct_lending' => 'bool',
         'campaign_privacy_policy_link' => 'string',
         'campaign_terms_and_conditions_link' => 'string',
-        'campaign_usecase' => 'string',
-        'campaign_status' => 'string'
+        'campaign_usecase' => 'string'
     ];
 
     /**
@@ -108,8 +107,7 @@ class TenDlcCampaignUpdateRequest implements ModelInterface, ArrayAccess, \JsonS
         'campaign_direct_lending' => null,
         'campaign_privacy_policy_link' => null,
         'campaign_terms_and_conditions_link' => null,
-        'campaign_usecase' => null,
-        'campaign_status' => null
+        'campaign_usecase' => null
     ];
 
     /**
@@ -137,8 +135,7 @@ class TenDlcCampaignUpdateRequest implements ModelInterface, ArrayAccess, \JsonS
         'campaign_direct_lending' => false,
         'campaign_privacy_policy_link' => false,
         'campaign_terms_and_conditions_link' => false,
-        'campaign_usecase' => false,
-        'campaign_status' => false
+        'campaign_usecase' => false
     ];
 
     /**
@@ -246,8 +243,7 @@ class TenDlcCampaignUpdateRequest implements ModelInterface, ArrayAccess, \JsonS
         'campaign_direct_lending' => 'campaignDirectLending',
         'campaign_privacy_policy_link' => 'campaignPrivacyPolicyLink',
         'campaign_terms_and_conditions_link' => 'campaignTermsAndConditionsLink',
-        'campaign_usecase' => 'campaignUsecase',
-        'campaign_status' => 'campaignStatus'
+        'campaign_usecase' => 'campaignUsecase'
     ];
 
     /**
@@ -275,8 +271,7 @@ class TenDlcCampaignUpdateRequest implements ModelInterface, ArrayAccess, \JsonS
         'campaign_direct_lending' => 'setCampaignDirectLending',
         'campaign_privacy_policy_link' => 'setCampaignPrivacyPolicyLink',
         'campaign_terms_and_conditions_link' => 'setCampaignTermsAndConditionsLink',
-        'campaign_usecase' => 'setCampaignUsecase',
-        'campaign_status' => 'setCampaignStatus'
+        'campaign_usecase' => 'setCampaignUsecase'
     ];
 
     /**
@@ -304,8 +299,7 @@ class TenDlcCampaignUpdateRequest implements ModelInterface, ArrayAccess, \JsonS
         'campaign_direct_lending' => 'getCampaignDirectLending',
         'campaign_privacy_policy_link' => 'getCampaignPrivacyPolicyLink',
         'campaign_terms_and_conditions_link' => 'getCampaignTermsAndConditionsLink',
-        'campaign_usecase' => 'getCampaignUsecase',
-        'campaign_status' => 'getCampaignStatus'
+        'campaign_usecase' => 'getCampaignUsecase'
     ];
 
     /**
@@ -349,29 +343,6 @@ class TenDlcCampaignUpdateRequest implements ModelInterface, ArrayAccess, \JsonS
         return self::$openAPIModelName;
     }
 
-    public const CAMPAIGN_STATUS_NOT_STARTED = 'not_started';
-    public const CAMPAIGN_STATUS_IN_PROGRESS = 'in_progress';
-    public const CAMPAIGN_STATUS_PENDING_REVIEW = 'pending_review';
-    public const CAMPAIGN_STATUS_APPROVED = 'approved';
-    public const CAMPAIGN_STATUS_REJECTED = 'rejected';
-    public const CAMPAIGN_STATUS_INFO_NEEDED = 'info_needed';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getCampaignStatusAllowableValues()
-    {
-        return [
-            self::CAMPAIGN_STATUS_NOT_STARTED,
-            self::CAMPAIGN_STATUS_IN_PROGRESS,
-            self::CAMPAIGN_STATUS_PENDING_REVIEW,
-            self::CAMPAIGN_STATUS_APPROVED,
-            self::CAMPAIGN_STATUS_REJECTED,
-            self::CAMPAIGN_STATUS_INFO_NEEDED,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -408,7 +379,6 @@ class TenDlcCampaignUpdateRequest implements ModelInterface, ArrayAccess, \JsonS
         $this->setIfExists('campaign_privacy_policy_link', $data ?? [], null);
         $this->setIfExists('campaign_terms_and_conditions_link', $data ?? [], null);
         $this->setIfExists('campaign_usecase', $data ?? [], null);
-        $this->setIfExists('campaign_status', $data ?? [], null);
     }
 
     /**
@@ -437,15 +407,6 @@ class TenDlcCampaignUpdateRequest implements ModelInterface, ArrayAccess, \JsonS
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getCampaignStatusAllowableValues();
-        if (!is_null($this->container['campaign_status']) && !in_array($this->container['campaign_status'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'campaign_status', must be one of '%s'",
-                $this->container['campaign_status'],
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -998,43 +959,6 @@ class TenDlcCampaignUpdateRequest implements ModelInterface, ArrayAccess, \JsonS
             throw new \InvalidArgumentException('non-nullable campaign_usecase cannot be null');
         }
         $this->container['campaign_usecase'] = $campaign_usecase;
-
-        return $this;
-    }
-
-    /**
-     * Gets campaign_status
-     *
-     * @return string|null
-     */
-    public function getCampaignStatus()
-    {
-        return $this->container['campaign_status'];
-    }
-
-    /**
-     * Sets campaign_status
-     *
-     * @param string|null $campaign_status Pingram-side brand registration workflow status. - not_started: no customer submission yet - pending_review: customer submitted; Pingram has not submitted to carriers - in_progress: submitted for carrier review - approved | rejected | info_needed: review outcome
-     *
-     * @return self
-     */
-    public function setCampaignStatus($campaign_status)
-    {
-        if (is_null($campaign_status)) {
-            throw new \InvalidArgumentException('non-nullable campaign_status cannot be null');
-        }
-        $allowedValues = $this->getCampaignStatusAllowableValues();
-        if (!in_array($campaign_status, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'campaign_status', must be one of '%s'",
-                    $campaign_status,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['campaign_status'] = $campaign_status;
 
         return $this;
     }

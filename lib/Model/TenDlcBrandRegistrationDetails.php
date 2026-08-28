@@ -1030,7 +1030,7 @@ class TenDlcBrandRegistrationDetails implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets brand_status
      *
-     * @param string $brand_status Pingram-side brand registration workflow status. - not_started: no customer submission yet - pending_review: customer submitted; Pingram has not submitted to carriers - in_progress: submitted for carrier review - approved | rejected | info_needed: review outcome
+     * @param string $brand_status Pingram-side 10DLC registration workflow status (brand or campaign). - not_started: no customer submission yet - pending_review: customer submitted; Pingram has not submitted to carriers - in_progress: submitted for carrier review - approved | rejected | info_needed: review outcome
      *
      * @return self
      */
@@ -1067,7 +1067,7 @@ class TenDlcBrandRegistrationDetails implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets campaign_status
      *
-     * @param string $campaign_status Pingram-side brand registration workflow status. - not_started: no customer submission yet - pending_review: customer submitted; Pingram has not submitted to carriers - in_progress: submitted for carrier review - approved | rejected | info_needed: review outcome
+     * @param string $campaign_status Pingram-side 10DLC registration workflow status (brand or campaign). - not_started: no customer submission yet - pending_review: customer submitted; Pingram has not submitted to carriers - in_progress: submitted for carrier review - approved | rejected | info_needed: review outcome
      *
      * @return self
      */

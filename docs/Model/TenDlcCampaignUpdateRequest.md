@@ -24,6 +24,5 @@ Name | Type | Description | Notes
 **campaign_privacy_policy_link** | **string** |  | [optional]
 **campaign_terms_and_conditions_link** | **string** |  | [optional]
 **campaign_usecase** | **string** |  | [optional]
-**campaign_status** | **string** | Pingram-side brand registration workflow status. - not_started: no customer submission yet - pending_review: customer submitted; Pingram has not submitted to carriers - in_progress: submitted for carrier review - approved | rejected | info_needed: review outcome | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

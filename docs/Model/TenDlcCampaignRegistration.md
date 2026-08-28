@@ -1,4 +1,4 @@
-# # TenDlcCampaignRegistrationDetails
+# # TenDlcCampaignRegistration
 
 ## Properties
 
@@ -28,6 +28,5 @@ Name | Type | Description | Notes
 **campaign_usecase** | **string** |  | [optional]
 **created_at** | **string** |  |
 **updated_at** | **string** |  |
-**campaign_id** | **string** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
