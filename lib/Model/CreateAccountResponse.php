@@ -61,7 +61,8 @@ class CreateAccountResponse implements ModelInterface, ArrayAccess, \JsonSeriali
         'account_id' => 'string',
         'name' => 'string',
         'status' => 'string',
-        'subscription_status' => 'string'
+        'subscription_status' => 'string',
+        'api_key' => 'string'
     ];
 
     /**
@@ -75,7 +76,8 @@ class CreateAccountResponse implements ModelInterface, ArrayAccess, \JsonSeriali
         'account_id' => null,
         'name' => null,
         'status' => null,
-        'subscription_status' => null
+        'subscription_status' => null,
+        'api_key' => null
     ];
 
     /**
@@ -87,7 +89,8 @@ class CreateAccountResponse implements ModelInterface, ArrayAccess, \JsonSeriali
         'account_id' => false,
         'name' => false,
         'status' => false,
-        'subscription_status' => true
+        'subscription_status' => true,
+        'api_key' => false
     ];
 
     /**
@@ -179,7 +182,8 @@ class CreateAccountResponse implements ModelInterface, ArrayAccess, \JsonSeriali
         'account_id' => 'accountId',
         'name' => 'name',
         'status' => 'status',
-        'subscription_status' => 'subscriptionStatus'
+        'subscription_status' => 'subscriptionStatus',
+        'api_key' => 'apiKey'
     ];
 
     /**
@@ -191,7 +195,8 @@ class CreateAccountResponse implements ModelInterface, ArrayAccess, \JsonSeriali
         'account_id' => 'setAccountId',
         'name' => 'setName',
         'status' => 'setStatus',
-        'subscription_status' => 'setSubscriptionStatus'
+        'subscription_status' => 'setSubscriptionStatus',
+        'api_key' => 'setApiKey'
     ];
 
     /**
@@ -203,7 +208,8 @@ class CreateAccountResponse implements ModelInterface, ArrayAccess, \JsonSeriali
         'account_id' => 'getAccountId',
         'name' => 'getName',
         'status' => 'getStatus',
-        'subscription_status' => 'getSubscriptionStatus'
+        'subscription_status' => 'getSubscriptionStatus',
+        'api_key' => 'getApiKey'
     ];
 
     /**
@@ -303,6 +309,7 @@ class CreateAccountResponse implements ModelInterface, ArrayAccess, \JsonSeriali
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('status', $data ?? [], null);
         $this->setIfExists('subscription_status', $data ?? [], null);
+        $this->setIfExists('api_key', $data ?? [], null);
     }
 
     /**
@@ -359,6 +366,9 @@ class CreateAccountResponse implements ModelInterface, ArrayAccess, \JsonSeriali
             );
         }
 
+        if ($this->container['api_key'] === null) {
+            $invalidProperties[] = "'api_key' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -505,6 +515,33 @@ class CreateAccountResponse implements ModelInterface, ArrayAccess, \JsonSeriali
             );
         }
         $this->container['subscription_status'] = $subscription_status;
+
+        return $this;
+    }
+
+    /**
+     * Gets api_key
+     *
+     * @return string
+     */
+    public function getApiKey()
+    {
+        return $this->container['api_key'];
+    }
+
+    /**
+     * Sets api_key
+     *
+     * @param string $api_key Default secret API key for the new account (`pingram_sk_…`).
+     *
+     * @return self
+     */
+    public function setApiKey($api_key)
+    {
+        if (is_null($api_key)) {
+            throw new \InvalidArgumentException('non-nullable api_key cannot be null');
+        }
+        $this->container['api_key'] = $api_key;
 
         return $this;
     }
