@@ -14,11 +14,13 @@ Name | Type | Description | Notes
 **call_cap** | **float** |  | [optional]
 **billing_version** | **float** | When omitted, defaults to LATEST_BILLING_VERSION. | [optional]
 **anniversary_date** | **string** | ISO date (YYYY-MM-DD) when the billing cycle resets. |
-**allow_overage** | **bool** |  |
 **created_at** | **string** |  |
 **updated_at** | **string** |  |
 **status** | **string** |  | [optional]
 **subscription_status** | **string** |  | [optional]
+**pending_downgrade_effective_date** | **string** |  | [optional]
+**pending_downgrade_cost_cap** | **float** |  | [optional]
+**pending_downgrade_account_type** | **string** |  | [optional]
 **session_id** | **string** |  | [optional]
 **url** | **string** |  | [optional]
 
