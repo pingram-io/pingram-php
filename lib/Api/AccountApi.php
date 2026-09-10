@@ -104,6 +104,9 @@ class AccountApi
         'accountSupabaseOAuth' => [
             'application/json',
         ],
+        'accountUpdateAccountSettings' => [
+            'application/json',
+        ],
     ];
 
     /**
@@ -3380,6 +3383,331 @@ class AccountApi
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation accountUpdateAccountSettings
+     *
+     * Update account billing preferences. Only account owners can change these settings.
+     *
+     * @param  \Pingram\Model\AccountPatchRequest $account_patch_request account_patch_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountUpdateAccountSettings'] to see the possible values for this operation
+     *
+     * @throws \Pingram\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \Pingram\Model\AccountGetResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse
+     */
+    public function accountUpdateAccountSettings($account_patch_request, string $contentType = self::contentTypes['accountUpdateAccountSettings'][0])
+    {
+        list($response) = $this->accountUpdateAccountSettingsWithHttpInfo($account_patch_request, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation accountUpdateAccountSettingsWithHttpInfo
+     *
+     * Update account billing preferences. Only account owners can change these settings.
+     *
+     * @param  \Pingram\Model\AccountPatchRequest $account_patch_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountUpdateAccountSettings'] to see the possible values for this operation
+     *
+     * @throws \Pingram\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Pingram\Model\AccountGetResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function accountUpdateAccountSettingsWithHttpInfo($account_patch_request, string $contentType = self::contentTypes['accountUpdateAccountSettings'][0])
+    {
+        $request = $this->accountUpdateAccountSettingsRequest($account_patch_request, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\Pingram\Model\AccountGetResponse',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\Pingram\Model\ApiErrorResponse',
+                        $request,
+                        $response,
+                    );
+                case 402:
+                    return $this->handleResponseWithDataType(
+                        '\Pingram\Model\ApiErrorResponse',
+                        $request,
+                        $response,
+                    );
+                case 502:
+                    return $this->handleResponseWithDataType(
+                        '\Pingram\Model\ApiErrorResponse',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\Pingram\Model\AccountGetResponse',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Pingram\Model\AccountGetResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Pingram\Model\ApiErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 402:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Pingram\Model\ApiErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 502:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Pingram\Model\ApiErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation accountUpdateAccountSettingsAsync
+     *
+     * Update account billing preferences. Only account owners can change these settings.
+     *
+     * @param  \Pingram\Model\AccountPatchRequest $account_patch_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountUpdateAccountSettings'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function accountUpdateAccountSettingsAsync($account_patch_request, string $contentType = self::contentTypes['accountUpdateAccountSettings'][0])
+    {
+        return $this->accountUpdateAccountSettingsAsyncWithHttpInfo($account_patch_request, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation accountUpdateAccountSettingsAsyncWithHttpInfo
+     *
+     * Update account billing preferences. Only account owners can change these settings.
+     *
+     * @param  \Pingram\Model\AccountPatchRequest $account_patch_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountUpdateAccountSettings'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function accountUpdateAccountSettingsAsyncWithHttpInfo($account_patch_request, string $contentType = self::contentTypes['accountUpdateAccountSettings'][0])
+    {
+        $returnType = '\Pingram\Model\AccountGetResponse';
+        $request = $this->accountUpdateAccountSettingsRequest($account_patch_request, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'accountUpdateAccountSettings'
+     *
+     * @param  \Pingram\Model\AccountPatchRequest $account_patch_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountUpdateAccountSettings'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function accountUpdateAccountSettingsRequest($account_patch_request, string $contentType = self::contentTypes['accountUpdateAccountSettings'][0])
+    {
+
+        // verify the required parameter 'account_patch_request' is set
+        if ($account_patch_request === null || (is_array($account_patch_request) && count($account_patch_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $account_patch_request when calling accountUpdateAccountSettings'
+            );
+        }
+
+
+        $resourcePath = '/account';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($account_patch_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($account_patch_request));
+            } else {
+                $httpBody = $account_patch_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+        // this endpoint requires Bearer (JWT) authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PATCH',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

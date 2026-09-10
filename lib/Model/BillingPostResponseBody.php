@@ -75,6 +75,7 @@ class BillingPostResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
         'pending_downgrade_effective_date' => 'string',
         'pending_downgrade_cost_cap' => 'float',
         'pending_downgrade_account_type' => 'string',
+        'auto_upgrade' => 'bool',
         'session_id' => 'string',
         'url' => 'string'
     ];
@@ -104,6 +105,7 @@ class BillingPostResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
         'pending_downgrade_effective_date' => null,
         'pending_downgrade_cost_cap' => null,
         'pending_downgrade_account_type' => null,
+        'auto_upgrade' => null,
         'session_id' => null,
         'url' => null
     ];
@@ -131,6 +133,7 @@ class BillingPostResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
         'pending_downgrade_effective_date' => false,
         'pending_downgrade_cost_cap' => false,
         'pending_downgrade_account_type' => false,
+        'auto_upgrade' => false,
         'session_id' => false,
         'url' => false
     ];
@@ -238,6 +241,7 @@ class BillingPostResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
         'pending_downgrade_effective_date' => 'pendingDowngradeEffectiveDate',
         'pending_downgrade_cost_cap' => 'pendingDowngradeCostCap',
         'pending_downgrade_account_type' => 'pendingDowngradeAccountType',
+        'auto_upgrade' => 'autoUpgrade',
         'session_id' => 'sessionId',
         'url' => 'url'
     ];
@@ -265,6 +269,7 @@ class BillingPostResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
         'pending_downgrade_effective_date' => 'setPendingDowngradeEffectiveDate',
         'pending_downgrade_cost_cap' => 'setPendingDowngradeCostCap',
         'pending_downgrade_account_type' => 'setPendingDowngradeAccountType',
+        'auto_upgrade' => 'setAutoUpgrade',
         'session_id' => 'setSessionId',
         'url' => 'setUrl'
     ];
@@ -292,6 +297,7 @@ class BillingPostResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
         'pending_downgrade_effective_date' => 'getPendingDowngradeEffectiveDate',
         'pending_downgrade_cost_cap' => 'getPendingDowngradeCostCap',
         'pending_downgrade_account_type' => 'getPendingDowngradeAccountType',
+        'auto_upgrade' => 'getAutoUpgrade',
         'session_id' => 'getSessionId',
         'url' => 'getUrl'
     ];
@@ -449,6 +455,7 @@ class BillingPostResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
         $this->setIfExists('pending_downgrade_effective_date', $data ?? [], null);
         $this->setIfExists('pending_downgrade_cost_cap', $data ?? [], null);
         $this->setIfExists('pending_downgrade_account_type', $data ?? [], null);
+        $this->setIfExists('auto_upgrade', $data ?? [], null);
         $this->setIfExists('session_id', $data ?? [], null);
         $this->setIfExists('url', $data ?? [], null);
     }
@@ -1073,6 +1080,33 @@ class BillingPostResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
             );
         }
         $this->container['pending_downgrade_account_type'] = $pending_downgrade_account_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets auto_upgrade
+     *
+     * @return bool|null
+     */
+    public function getAutoUpgrade()
+    {
+        return $this->container['auto_upgrade'];
+    }
+
+    /**
+     * Sets auto_upgrade
+     *
+     * @param bool|null $auto_upgrade When true, paid accounts move up one budget tier at 90% of the monthly budget.
+     *
+     * @return self
+     */
+    public function setAutoUpgrade($auto_upgrade)
+    {
+        if (is_null($auto_upgrade)) {
+            throw new \InvalidArgumentException('non-nullable auto_upgrade cannot be null');
+        }
+        $this->container['auto_upgrade'] = $auto_upgrade;
 
         return $this;
     }

@@ -74,7 +74,8 @@ class AccountGetResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         'subscription_status' => 'string',
         'pending_downgrade_effective_date' => 'string',
         'pending_downgrade_cost_cap' => 'float',
-        'pending_downgrade_account_type' => 'string'
+        'pending_downgrade_account_type' => 'string',
+        'auto_upgrade' => 'bool'
     ];
 
     /**
@@ -101,7 +102,8 @@ class AccountGetResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         'subscription_status' => null,
         'pending_downgrade_effective_date' => null,
         'pending_downgrade_cost_cap' => null,
-        'pending_downgrade_account_type' => null
+        'pending_downgrade_account_type' => null,
+        'auto_upgrade' => null
     ];
 
     /**
@@ -126,7 +128,8 @@ class AccountGetResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         'subscription_status' => true,
         'pending_downgrade_effective_date' => false,
         'pending_downgrade_cost_cap' => false,
-        'pending_downgrade_account_type' => false
+        'pending_downgrade_account_type' => false,
+        'auto_upgrade' => false
     ];
 
     /**
@@ -231,7 +234,8 @@ class AccountGetResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         'subscription_status' => 'subscriptionStatus',
         'pending_downgrade_effective_date' => 'pendingDowngradeEffectiveDate',
         'pending_downgrade_cost_cap' => 'pendingDowngradeCostCap',
-        'pending_downgrade_account_type' => 'pendingDowngradeAccountType'
+        'pending_downgrade_account_type' => 'pendingDowngradeAccountType',
+        'auto_upgrade' => 'autoUpgrade'
     ];
 
     /**
@@ -256,7 +260,8 @@ class AccountGetResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         'subscription_status' => 'setSubscriptionStatus',
         'pending_downgrade_effective_date' => 'setPendingDowngradeEffectiveDate',
         'pending_downgrade_cost_cap' => 'setPendingDowngradeCostCap',
-        'pending_downgrade_account_type' => 'setPendingDowngradeAccountType'
+        'pending_downgrade_account_type' => 'setPendingDowngradeAccountType',
+        'auto_upgrade' => 'setAutoUpgrade'
     ];
 
     /**
@@ -281,7 +286,8 @@ class AccountGetResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         'subscription_status' => 'getSubscriptionStatus',
         'pending_downgrade_effective_date' => 'getPendingDowngradeEffectiveDate',
         'pending_downgrade_cost_cap' => 'getPendingDowngradeCostCap',
-        'pending_downgrade_account_type' => 'getPendingDowngradeAccountType'
+        'pending_downgrade_account_type' => 'getPendingDowngradeAccountType',
+        'auto_upgrade' => 'getAutoUpgrade'
     ];
 
     /**
@@ -437,6 +443,7 @@ class AccountGetResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->setIfExists('pending_downgrade_effective_date', $data ?? [], null);
         $this->setIfExists('pending_downgrade_cost_cap', $data ?? [], null);
         $this->setIfExists('pending_downgrade_account_type', $data ?? [], null);
+        $this->setIfExists('auto_upgrade', $data ?? [], null);
     }
 
     /**
@@ -1059,6 +1066,33 @@ class AccountGetResponse implements ModelInterface, ArrayAccess, \JsonSerializab
             );
         }
         $this->container['pending_downgrade_account_type'] = $pending_downgrade_account_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets auto_upgrade
+     *
+     * @return bool|null
+     */
+    public function getAutoUpgrade()
+    {
+        return $this->container['auto_upgrade'];
+    }
+
+    /**
+     * Sets auto_upgrade
+     *
+     * @param bool|null $auto_upgrade When true, paid accounts move up one budget tier at 90% of the monthly budget.
+     *
+     * @return self
+     */
+    public function setAutoUpgrade($auto_upgrade)
+    {
+        if (is_null($auto_upgrade)) {
+            throw new \InvalidArgumentException('non-nullable auto_upgrade cannot be null');
+        }
+        $this->container['auto_upgrade'] = $auto_upgrade;
 
         return $this;
     }
