@@ -436,7 +436,7 @@ class TenDlcCampaignUpdateRequest implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets campaign_description
      *
-     * @param string|null $campaign_description campaign_description
+     * @param string|null $campaign_description Summary of what this campaign sends and why, including audience and typical message content. Required before carrier submission.
      *
      * @return self
      */
@@ -463,7 +463,7 @@ class TenDlcCampaignUpdateRequest implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets campaign_sample1
      *
-     * @param string|null $campaign_sample1 campaign_sample1
+     * @param string|null $campaign_sample1 Example SMS that represents actual campaign traffic. Required before carrier submission. Should match the use case and typically identify the brand and include STOP/HELP language.
      *
      * @return self
      */
@@ -490,7 +490,7 @@ class TenDlcCampaignUpdateRequest implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets campaign_sample2
      *
-     * @param string|null $campaign_sample2 campaign_sample2
+     * @param string|null $campaign_sample2 Second example SMS. Required before carrier submission. Required for MARKETING and MIXED use cases.
      *
      * @return self
      */
@@ -517,7 +517,7 @@ class TenDlcCampaignUpdateRequest implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets campaign_sample3
      *
-     * @param string|null $campaign_sample3 campaign_sample3
+     * @param string|null $campaign_sample3 Optional third example SMS.
      *
      * @return self
      */
@@ -544,7 +544,7 @@ class TenDlcCampaignUpdateRequest implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets campaign_sample4
      *
-     * @param string|null $campaign_sample4 campaign_sample4
+     * @param string|null $campaign_sample4 Optional fourth example SMS.
      *
      * @return self
      */
@@ -571,7 +571,7 @@ class TenDlcCampaignUpdateRequest implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets campaign_message_flow
      *
-     * @param string|null $campaign_message_flow campaign_message_flow
+     * @param string|null $campaign_message_flow How recipients opt in (for example website form, checkout, or keyword). Describe the call-to-action and where consent is collected. Required before carrier submission.
      *
      * @return self
      */
@@ -598,7 +598,7 @@ class TenDlcCampaignUpdateRequest implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets campaign_optin_keywords
      *
-     * @param string|null $campaign_optin_keywords campaign_optin_keywords
+     * @param string|null $campaign_optin_keywords Extra opt-in keywords as a comma-separated list. START is always included.
      *
      * @return self
      */
@@ -625,7 +625,7 @@ class TenDlcCampaignUpdateRequest implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets campaign_optin_message
      *
-     * @param string|null $campaign_optin_message campaign_optin_message
+     * @param string|null $campaign_optin_message Auto-reply sent when a recipient opts in. Required before carrier submission. Should confirm the subscription, mention message frequency, and include STOP and HELP instructions.
      *
      * @return self
      */
@@ -652,7 +652,7 @@ class TenDlcCampaignUpdateRequest implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets campaign_optout_keywords
      *
-     * @param string|null $campaign_optout_keywords campaign_optout_keywords
+     * @param string|null $campaign_optout_keywords Extra opt-out keywords as a comma-separated list. STOP is always included.
      *
      * @return self
      */
@@ -679,7 +679,7 @@ class TenDlcCampaignUpdateRequest implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets campaign_optout_message
      *
-     * @param string|null $campaign_optout_message campaign_optout_message
+     * @param string|null $campaign_optout_message Auto-reply sent when a recipient opts out. Required before carrier submission. Should confirm they will receive no further messages.
      *
      * @return self
      */
@@ -706,7 +706,7 @@ class TenDlcCampaignUpdateRequest implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets campaign_help_keywords
      *
-     * @param string|null $campaign_help_keywords campaign_help_keywords
+     * @param string|null $campaign_help_keywords Extra help keywords as a comma-separated list. HELP is always included.
      *
      * @return self
      */
@@ -733,7 +733,7 @@ class TenDlcCampaignUpdateRequest implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets campaign_help_message
      *
-     * @param string|null $campaign_help_message campaign_help_message
+     * @param string|null $campaign_help_message Auto-reply sent when a recipient texts a help keyword. Required before carrier submission. Should include a support contact (email and/or phone).
      *
      * @return self
      */
@@ -760,7 +760,7 @@ class TenDlcCampaignUpdateRequest implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets campaign_embedded_link
      *
-     * @param bool|null $campaign_embedded_link campaign_embedded_link
+     * @param bool|null $campaign_embedded_link Whether campaign messages include URLs.
      *
      * @return self
      */
@@ -787,7 +787,7 @@ class TenDlcCampaignUpdateRequest implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets campaign_embedded_link_url
      *
-     * @param string|null $campaign_embedded_link_url campaign_embedded_link_url
+     * @param string|null $campaign_embedded_link_url Sample URL that appears in messages. Provide when campaignEmbeddedLink is true.
      *
      * @return self
      */
@@ -814,7 +814,7 @@ class TenDlcCampaignUpdateRequest implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets campaign_embedded_phone
      *
-     * @param bool|null $campaign_embedded_phone campaign_embedded_phone
+     * @param bool|null $campaign_embedded_phone Whether campaign messages include phone numbers.
      *
      * @return self
      */
@@ -841,7 +841,7 @@ class TenDlcCampaignUpdateRequest implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets campaign_age_gated
      *
-     * @param bool|null $campaign_age_gated campaign_age_gated
+     * @param bool|null $campaign_age_gated Whether campaign content is age-restricted (18+).
      *
      * @return self
      */
@@ -868,7 +868,7 @@ class TenDlcCampaignUpdateRequest implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets campaign_direct_lending
      *
-     * @param bool|null $campaign_direct_lending campaign_direct_lending
+     * @param bool|null $campaign_direct_lending Whether the campaign relates to direct lending or loan products.
      *
      * @return self
      */
@@ -895,7 +895,7 @@ class TenDlcCampaignUpdateRequest implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets campaign_privacy_policy_link
      *
-     * @param string|null $campaign_privacy_policy_link campaign_privacy_policy_link
+     * @param string|null $campaign_privacy_policy_link Public URL of the privacy policy that covers this SMS program.
      *
      * @return self
      */
@@ -922,7 +922,7 @@ class TenDlcCampaignUpdateRequest implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets campaign_terms_and_conditions_link
      *
-     * @param string|null $campaign_terms_and_conditions_link campaign_terms_and_conditions_link
+     * @param string|null $campaign_terms_and_conditions_link Public URL of the terms and conditions that cover this SMS program.
      *
      * @return self
      */
@@ -949,7 +949,7 @@ class TenDlcCampaignUpdateRequest implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets campaign_usecase
      *
-     * @param string|null $campaign_usecase campaign_usecase
+     * @param string|null $campaign_usecase 10DLC campaign use case submitted to carriers. Required before carrier submission. One of 2FA, ACCOUNT_NOTIFICATION, CUSTOMER_CARE, DELIVERY_NOTIFICATION, FRAUD_ALERT, MARKETING, MIXED, POLLING_VOTING, PUBLIC_SERVICE_ANNOUNCEMENT, or SECURITY_ALERT. For MIXED, append comma-separated sub-use cases after MIXED (sub-use cases cannot include MIXED), for example MIXED,2FA,ACCOUNT_NOTIFICATION.
      *
      * @return self
      */

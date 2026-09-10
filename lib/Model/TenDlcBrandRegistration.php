@@ -624,7 +624,7 @@ class TenDlcBrandRegistration implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets legal_name
      *
-     * @param string $legal_name legal_name
+     * @param string $legal_name Official registered legal business name. For SOLE_PROPRIETOR, may be a DBA or trade name.
      *
      * @return self
      */
@@ -651,7 +651,7 @@ class TenDlcBrandRegistration implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets display_name
      *
-     * @param string|null $display_name Brand display name (marketing/DBA); defaults to legalName on customer submit.
+     * @param string|null $display_name Public brand name shown to recipients and carriers.
      *
      * @return self
      */
@@ -678,7 +678,7 @@ class TenDlcBrandRegistration implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets first_name
      *
-     * @param string|null $first_name first_name
+     * @param string|null $first_name Legal first name of the sole proprietor. Present when businessType is SOLE_PROPRIETOR.
      *
      * @return self
      */
@@ -705,7 +705,7 @@ class TenDlcBrandRegistration implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets last_name
      *
-     * @param string|null $last_name last_name
+     * @param string|null $last_name Legal last name of the sole proprietor. Present when businessType is SOLE_PROPRIETOR.
      *
      * @return self
      */
@@ -732,7 +732,7 @@ class TenDlcBrandRegistration implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets tax_id
      *
-     * @param string|null $tax_id tax_id
+     * @param string|null $tax_id For US companies (country US): 9-digit EIN (Employer Identification Number). For Canada (country CA): 9-digit BN (Business Number). For other countries: national business tax identifier. Omitted when businessType is SOLE_PROPRIETOR.
      *
      * @return self
      */
@@ -759,7 +759,7 @@ class TenDlcBrandRegistration implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets website
      *
-     * @param string $website website
+     * @param string $website Public website for the brand.
      *
      * @return self
      */
@@ -786,7 +786,7 @@ class TenDlcBrandRegistration implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets country
      *
-     * @param string $country country
+     * @param string $country ISO 3166-1 alpha-2 country of incorporation (for example US or CA).
      *
      * @return self
      */
@@ -813,7 +813,7 @@ class TenDlcBrandRegistration implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets street
      *
-     * @param string|null $street street
+     * @param string|null $street Street address that matches official tax registration.
      *
      * @return self
      */
@@ -840,7 +840,7 @@ class TenDlcBrandRegistration implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets city
      *
-     * @param string|null $city city
+     * @param string|null $city City that matches official tax registration.
      *
      * @return self
      */
@@ -867,7 +867,7 @@ class TenDlcBrandRegistration implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets state
      *
-     * @param string|null $state state
+     * @param string|null $state State (US) or province (CA) that matches official tax registration.
      *
      * @return self
      */
@@ -894,7 +894,7 @@ class TenDlcBrandRegistration implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets postal_code
      *
-     * @param string|null $postal_code postal_code
+     * @param string|null $postal_code ZIP code (US) or postal code (CA) that matches official tax registration.
      *
      * @return self
      */
@@ -948,7 +948,7 @@ class TenDlcBrandRegistration implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets compliance_contact_email
      *
-     * @param string $compliance_contact_email compliance_contact_email
+     * @param string $compliance_contact_email Email for the 10DLC compliance contact.
      *
      * @return self
      */
@@ -975,7 +975,7 @@ class TenDlcBrandRegistration implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets compliance_contact_phone
      *
-     * @param string $compliance_contact_phone compliance_contact_phone
+     * @param string $compliance_contact_phone Phone number for the 10DLC compliance contact.
      *
      * @return self
      */

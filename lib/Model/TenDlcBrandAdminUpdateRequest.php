@@ -648,7 +648,7 @@ class TenDlcBrandAdminUpdateRequest implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets legal_name
      *
-     * @param string|null $legal_name legal_name
+     * @param string|null $legal_name Official registered legal business name. For SOLE_PROPRIETOR, optional DBA or trade name (defaults to firstName and lastName).
      *
      * @return self
      */
@@ -675,7 +675,7 @@ class TenDlcBrandAdminUpdateRequest implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets display_name
      *
-     * @param string|null $display_name Brand display name (marketing/DBA); defaults to legalName when omitted on legalName-only updates.
+     * @param string|null $display_name Public brand name shown to recipients and carriers. Use the name customers recognize (your DBA or trade name). For SOLE_PROPRIETOR, this is the brand you send as — not the individual's legal name. Omit to keep the existing value. If you change legalName and omit displayName, displayName is reset to the new legalName.
      *
      * @return self
      */
@@ -702,7 +702,7 @@ class TenDlcBrandAdminUpdateRequest implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets first_name
      *
-     * @param string|null $first_name first_name
+     * @param string|null $first_name Legal first name of the sole proprietor. Required when businessType is SOLE_PROPRIETOR.
      *
      * @return self
      */
@@ -729,7 +729,7 @@ class TenDlcBrandAdminUpdateRequest implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets last_name
      *
-     * @param string|null $last_name last_name
+     * @param string|null $last_name Legal last name of the sole proprietor. Required when businessType is SOLE_PROPRIETOR.
      *
      * @return self
      */
@@ -756,7 +756,7 @@ class TenDlcBrandAdminUpdateRequest implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets tax_id
      *
-     * @param string|null $tax_id For US companies (country US): 9-digit EIN (Employer Identification Number). For Canada (country CA): 9-digit BN (Business Number). For other countries: national business tax identifier.
+     * @param string|null $tax_id For US companies (country US): 9-digit EIN (Employer Identification Number). For Canada (country CA): 9-digit BN (Business Number). For other countries: national business tax identifier. Required except when businessType is SOLE_PROPRIETOR.
      *
      * @return self
      */
@@ -783,7 +783,7 @@ class TenDlcBrandAdminUpdateRequest implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets website
      *
-     * @param string|null $website website
+     * @param string|null $website Public website for the brand. Include a scheme (https://) or a domain; https:// is prepended when omitted. Carriers expect a working site with privacy policy and terms.
      *
      * @return self
      */
@@ -810,7 +810,7 @@ class TenDlcBrandAdminUpdateRequest implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets country
      *
-     * @param string|null $country country
+     * @param string|null $country ISO 3166-1 alpha-2 country of incorporation (for example US or CA).
      *
      * @return self
      */
@@ -837,7 +837,7 @@ class TenDlcBrandAdminUpdateRequest implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets street
      *
-     * @param string|null $street street
+     * @param string|null $street Street address that matches official tax registration.
      *
      * @return self
      */
@@ -864,7 +864,7 @@ class TenDlcBrandAdminUpdateRequest implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets city
      *
-     * @param string|null $city city
+     * @param string|null $city City that matches official tax registration.
      *
      * @return self
      */
@@ -891,7 +891,7 @@ class TenDlcBrandAdminUpdateRequest implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets state
      *
-     * @param string|null $state state
+     * @param string|null $state State (US) or province (CA) that matches official tax registration.
      *
      * @return self
      */
@@ -918,7 +918,7 @@ class TenDlcBrandAdminUpdateRequest implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets postal_code
      *
-     * @param string|null $postal_code postal_code
+     * @param string|null $postal_code ZIP code (US) or postal code (CA) that matches official tax registration.
      *
      * @return self
      */
@@ -945,7 +945,7 @@ class TenDlcBrandAdminUpdateRequest implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets compliance_contact_email
      *
-     * @param string|null $compliance_contact_email compliance_contact_email
+     * @param string|null $compliance_contact_email Email for the 10DLC compliance contact. Used for carrier and registration follow-up.
      *
      * @return self
      */
@@ -972,7 +972,7 @@ class TenDlcBrandAdminUpdateRequest implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets compliance_contact_phone
      *
-     * @param string|null $compliance_contact_phone compliance_contact_phone
+     * @param string|null $compliance_contact_phone Phone number for the 10DLC compliance contact. E.164 preferred; national numbers are normalized using country.
      *
      * @return self
      */

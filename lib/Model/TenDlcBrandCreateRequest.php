@@ -61,6 +61,7 @@ class TenDlcBrandCreateRequest implements ModelInterface, ArrayAccess, \JsonSeri
         'scenario_id' => 'string',
         'business_type' => 'string',
         'legal_name' => 'string',
+        'display_name' => 'string',
         'first_name' => 'string',
         'last_name' => 'string',
         'tax_id' => 'string',
@@ -85,6 +86,7 @@ class TenDlcBrandCreateRequest implements ModelInterface, ArrayAccess, \JsonSeri
         'scenario_id' => null,
         'business_type' => null,
         'legal_name' => null,
+        'display_name' => null,
         'first_name' => null,
         'last_name' => null,
         'tax_id' => null,
@@ -107,6 +109,7 @@ class TenDlcBrandCreateRequest implements ModelInterface, ArrayAccess, \JsonSeri
         'scenario_id' => false,
         'business_type' => false,
         'legal_name' => false,
+        'display_name' => false,
         'first_name' => false,
         'last_name' => false,
         'tax_id' => false,
@@ -209,6 +212,7 @@ class TenDlcBrandCreateRequest implements ModelInterface, ArrayAccess, \JsonSeri
         'scenario_id' => 'scenarioId',
         'business_type' => 'businessType',
         'legal_name' => 'legalName',
+        'display_name' => 'displayName',
         'first_name' => 'firstName',
         'last_name' => 'lastName',
         'tax_id' => 'taxId',
@@ -231,6 +235,7 @@ class TenDlcBrandCreateRequest implements ModelInterface, ArrayAccess, \JsonSeri
         'scenario_id' => 'setScenarioId',
         'business_type' => 'setBusinessType',
         'legal_name' => 'setLegalName',
+        'display_name' => 'setDisplayName',
         'first_name' => 'setFirstName',
         'last_name' => 'setLastName',
         'tax_id' => 'setTaxId',
@@ -253,6 +258,7 @@ class TenDlcBrandCreateRequest implements ModelInterface, ArrayAccess, \JsonSeri
         'scenario_id' => 'getScenarioId',
         'business_type' => 'getBusinessType',
         'legal_name' => 'getLegalName',
+        'display_name' => 'getDisplayName',
         'first_name' => 'getFirstName',
         'last_name' => 'getLastName',
         'tax_id' => 'getTaxId',
@@ -362,6 +368,7 @@ class TenDlcBrandCreateRequest implements ModelInterface, ArrayAccess, \JsonSeri
         $this->setIfExists('scenario_id', $data ?? [], null);
         $this->setIfExists('business_type', $data ?? [], null);
         $this->setIfExists('legal_name', $data ?? [], null);
+        $this->setIfExists('display_name', $data ?? [], null);
         $this->setIfExists('first_name', $data ?? [], null);
         $this->setIfExists('last_name', $data ?? [], null);
         $this->setIfExists('tax_id', $data ?? [], null);
@@ -426,14 +433,26 @@ class TenDlcBrandCreateRequest implements ModelInterface, ArrayAccess, \JsonSeri
             );
         }
 
-        if ($this->container['legal_name'] === null) {
-            $invalidProperties[] = "'legal_name' can't be null";
+        if ($this->container['display_name'] === null) {
+            $invalidProperties[] = "'display_name' can't be null";
         }
         if ($this->container['website'] === null) {
             $invalidProperties[] = "'website' can't be null";
         }
         if ($this->container['country'] === null) {
             $invalidProperties[] = "'country' can't be null";
+        }
+        if ($this->container['street'] === null) {
+            $invalidProperties[] = "'street' can't be null";
+        }
+        if ($this->container['city'] === null) {
+            $invalidProperties[] = "'city' can't be null";
+        }
+        if ($this->container['state'] === null) {
+            $invalidProperties[] = "'state' can't be null";
+        }
+        if ($this->container['postal_code'] === null) {
+            $invalidProperties[] = "'postal_code' can't be null";
         }
         if ($this->container['compliance_contact_email'] === null) {
             $invalidProperties[] = "'compliance_contact_email' can't be null";
@@ -533,7 +552,7 @@ class TenDlcBrandCreateRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets legal_name
      *
-     * @return string
+     * @return string|null
      */
     public function getLegalName()
     {
@@ -543,7 +562,7 @@ class TenDlcBrandCreateRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets legal_name
      *
-     * @param string $legal_name legal_name
+     * @param string|null $legal_name Official registered legal business name. For SOLE_PROPRIETOR, optional DBA or trade name (defaults to firstName and lastName).
      *
      * @return self
      */
@@ -553,6 +572,33 @@ class TenDlcBrandCreateRequest implements ModelInterface, ArrayAccess, \JsonSeri
             throw new \InvalidArgumentException('non-nullable legal_name cannot be null');
         }
         $this->container['legal_name'] = $legal_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets display_name
+     *
+     * @return string
+     */
+    public function getDisplayName()
+    {
+        return $this->container['display_name'];
+    }
+
+    /**
+     * Sets display_name
+     *
+     * @param string $display_name Public brand name shown to recipients and carriers. Use the name customers recognize (your DBA or trade name). For companies with no DBA, use the same value as legalName. For SOLE_PROPRIETOR, this is the brand you send as — not the individual's legal name (set firstName and lastName for that). If the sole proprietor has no DBA, use first and last name.
+     *
+     * @return self
+     */
+    public function setDisplayName($display_name)
+    {
+        if (is_null($display_name)) {
+            throw new \InvalidArgumentException('non-nullable display_name cannot be null');
+        }
+        $this->container['display_name'] = $display_name;
 
         return $this;
     }
@@ -570,7 +616,7 @@ class TenDlcBrandCreateRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets first_name
      *
-     * @param string|null $first_name Required when businessType is SOLE_PROPRIETOR.
+     * @param string|null $first_name Legal first name of the sole proprietor. Required when businessType is SOLE_PROPRIETOR.
      *
      * @return self
      */
@@ -597,7 +643,7 @@ class TenDlcBrandCreateRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets last_name
      *
-     * @param string|null $last_name Required when businessType is SOLE_PROPRIETOR.
+     * @param string|null $last_name Legal last name of the sole proprietor. Required when businessType is SOLE_PROPRIETOR.
      *
      * @return self
      */
@@ -651,7 +697,7 @@ class TenDlcBrandCreateRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets website
      *
-     * @param string $website website
+     * @param string $website Public website for the brand. Include a scheme (https://) or a domain; https:// is prepended when omitted. Carriers expect a working site with privacy policy and terms.
      *
      * @return self
      */
@@ -678,7 +724,7 @@ class TenDlcBrandCreateRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets country
      *
-     * @param string $country country
+     * @param string $country ISO 3166-1 alpha-2 country of incorporation (for example US or CA).
      *
      * @return self
      */
@@ -695,7 +741,7 @@ class TenDlcBrandCreateRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets street
      *
-     * @return string|null
+     * @return string
      */
     public function getStreet()
     {
@@ -705,7 +751,7 @@ class TenDlcBrandCreateRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets street
      *
-     * @param string|null $street street
+     * @param string $street Street address that matches official tax registration.
      *
      * @return self
      */
@@ -722,7 +768,7 @@ class TenDlcBrandCreateRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets city
      *
-     * @return string|null
+     * @return string
      */
     public function getCity()
     {
@@ -732,7 +778,7 @@ class TenDlcBrandCreateRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets city
      *
-     * @param string|null $city city
+     * @param string $city City that matches official tax registration.
      *
      * @return self
      */
@@ -749,7 +795,7 @@ class TenDlcBrandCreateRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets state
      *
-     * @return string|null
+     * @return string
      */
     public function getState()
     {
@@ -759,7 +805,7 @@ class TenDlcBrandCreateRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets state
      *
-     * @param string|null $state state
+     * @param string $state State (US) or province (CA) that matches official tax registration.
      *
      * @return self
      */
@@ -776,7 +822,7 @@ class TenDlcBrandCreateRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets postal_code
      *
-     * @return string|null
+     * @return string
      */
     public function getPostalCode()
     {
@@ -786,7 +832,7 @@ class TenDlcBrandCreateRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets postal_code
      *
-     * @param string|null $postal_code postal_code
+     * @param string $postal_code ZIP code (US) or postal code (CA) that matches official tax registration.
      *
      * @return self
      */
@@ -813,7 +859,7 @@ class TenDlcBrandCreateRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets compliance_contact_email
      *
-     * @param string $compliance_contact_email compliance_contact_email
+     * @param string $compliance_contact_email Email for the 10DLC compliance contact. Used for carrier and registration follow-up.
      *
      * @return self
      */
@@ -840,7 +886,7 @@ class TenDlcBrandCreateRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets compliance_contact_phone
      *
-     * @param string $compliance_contact_phone compliance_contact_phone
+     * @param string $compliance_contact_phone Phone number for the 10DLC compliance contact. E.164 preferred; national numbers are normalized using country.
      *
      * @return self
      */
