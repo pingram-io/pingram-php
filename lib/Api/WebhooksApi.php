@@ -74,13 +74,16 @@ class WebhooksApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'webhooksDeleteEventsWebhook' => [
+        'webhooksCreateWebhook' => [
             'application/json',
         ],
-        'webhooksGetEventsWebhook' => [
+        'webhooksDeleteWebhook' => [
             'application/json',
         ],
-        'webhooksUpsertEventsWebhook' => [
+        'webhooksListWebhooks' => [
+            'application/json',
+        ],
+        'webhooksUpdateWebhook' => [
             'application/json',
         ],
     ];
@@ -132,35 +135,362 @@ class WebhooksApi
     }
 
     /**
-     * Operation webhooksDeleteEventsWebhook
+     * Operation webhooksCreateWebhook
      *
-     * Delete the events webhook configuration for the current account/environment.
+     * Create a webhook.
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['webhooksDeleteEventsWebhook'] to see the possible values for this operation
+     * @param  \Pingram\Model\WebhookEndpointUpsertRequest $webhook_endpoint_upsert_request webhook_endpoint_upsert_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['webhooksCreateWebhook'] to see the possible values for this operation
+     *
+     * @throws \Pingram\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \Pingram\Model\WebhookEndpoint|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse
+     */
+    public function webhooksCreateWebhook($webhook_endpoint_upsert_request, string $contentType = self::contentTypes['webhooksCreateWebhook'][0])
+    {
+        list($response) = $this->webhooksCreateWebhookWithHttpInfo($webhook_endpoint_upsert_request, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation webhooksCreateWebhookWithHttpInfo
+     *
+     * Create a webhook.
+     *
+     * @param  \Pingram\Model\WebhookEndpointUpsertRequest $webhook_endpoint_upsert_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['webhooksCreateWebhook'] to see the possible values for this operation
+     *
+     * @throws \Pingram\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Pingram\Model\WebhookEndpoint|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function webhooksCreateWebhookWithHttpInfo($webhook_endpoint_upsert_request, string $contentType = self::contentTypes['webhooksCreateWebhook'][0])
+    {
+        $request = $this->webhooksCreateWebhookRequest($webhook_endpoint_upsert_request, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\Pingram\Model\WebhookEndpoint',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\Pingram\Model\ApiErrorResponse',
+                        $request,
+                        $response,
+                    );
+                case 402:
+                    return $this->handleResponseWithDataType(
+                        '\Pingram\Model\ApiErrorResponse',
+                        $request,
+                        $response,
+                    );
+                case 502:
+                    return $this->handleResponseWithDataType(
+                        '\Pingram\Model\ApiErrorResponse',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\Pingram\Model\WebhookEndpoint',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Pingram\Model\WebhookEndpoint',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Pingram\Model\ApiErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 402:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Pingram\Model\ApiErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 502:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Pingram\Model\ApiErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation webhooksCreateWebhookAsync
+     *
+     * Create a webhook.
+     *
+     * @param  \Pingram\Model\WebhookEndpointUpsertRequest $webhook_endpoint_upsert_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['webhooksCreateWebhook'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function webhooksCreateWebhookAsync($webhook_endpoint_upsert_request, string $contentType = self::contentTypes['webhooksCreateWebhook'][0])
+    {
+        return $this->webhooksCreateWebhookAsyncWithHttpInfo($webhook_endpoint_upsert_request, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation webhooksCreateWebhookAsyncWithHttpInfo
+     *
+     * Create a webhook.
+     *
+     * @param  \Pingram\Model\WebhookEndpointUpsertRequest $webhook_endpoint_upsert_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['webhooksCreateWebhook'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function webhooksCreateWebhookAsyncWithHttpInfo($webhook_endpoint_upsert_request, string $contentType = self::contentTypes['webhooksCreateWebhook'][0])
+    {
+        $returnType = '\Pingram\Model\WebhookEndpoint';
+        $request = $this->webhooksCreateWebhookRequest($webhook_endpoint_upsert_request, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'webhooksCreateWebhook'
+     *
+     * @param  \Pingram\Model\WebhookEndpointUpsertRequest $webhook_endpoint_upsert_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['webhooksCreateWebhook'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function webhooksCreateWebhookRequest($webhook_endpoint_upsert_request, string $contentType = self::contentTypes['webhooksCreateWebhook'][0])
+    {
+
+        // verify the required parameter 'webhook_endpoint_upsert_request' is set
+        if ($webhook_endpoint_upsert_request === null || (is_array($webhook_endpoint_upsert_request) && count($webhook_endpoint_upsert_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $webhook_endpoint_upsert_request when calling webhooksCreateWebhook'
+            );
+        }
+
+
+        $resourcePath = '/webhooks';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($webhook_endpoint_upsert_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($webhook_endpoint_upsert_request));
+            } else {
+                $httpBody = $webhook_endpoint_upsert_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+        // this endpoint requires Bearer (JWT) authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation webhooksDeleteWebhook
+     *
+     * Delete a webhook.
+     *
+     * @param  string $endpoint_id Webhook endpoint id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['webhooksDeleteWebhook'] to see the possible values for this operation
      *
      * @throws \Pingram\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function webhooksDeleteEventsWebhook(string $contentType = self::contentTypes['webhooksDeleteEventsWebhook'][0])
+    public function webhooksDeleteWebhook($endpoint_id, string $contentType = self::contentTypes['webhooksDeleteWebhook'][0])
     {
-        $this->webhooksDeleteEventsWebhookWithHttpInfo($contentType);
+        $this->webhooksDeleteWebhookWithHttpInfo($endpoint_id, $contentType);
     }
 
     /**
-     * Operation webhooksDeleteEventsWebhookWithHttpInfo
+     * Operation webhooksDeleteWebhookWithHttpInfo
      *
-     * Delete the events webhook configuration for the current account/environment.
+     * Delete a webhook.
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['webhooksDeleteEventsWebhook'] to see the possible values for this operation
+     * @param  string $endpoint_id Webhook endpoint id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['webhooksDeleteWebhook'] to see the possible values for this operation
      *
      * @throws \Pingram\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function webhooksDeleteEventsWebhookWithHttpInfo(string $contentType = self::contentTypes['webhooksDeleteEventsWebhook'][0])
+    public function webhooksDeleteWebhookWithHttpInfo($endpoint_id, string $contentType = self::contentTypes['webhooksDeleteWebhook'][0])
     {
-        $request = $this->webhooksDeleteEventsWebhookRequest($contentType);
+        $request = $this->webhooksDeleteWebhookRequest($endpoint_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -220,18 +550,19 @@ class WebhooksApi
     }
 
     /**
-     * Operation webhooksDeleteEventsWebhookAsync
+     * Operation webhooksDeleteWebhookAsync
      *
-     * Delete the events webhook configuration for the current account/environment.
+     * Delete a webhook.
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['webhooksDeleteEventsWebhook'] to see the possible values for this operation
+     * @param  string $endpoint_id Webhook endpoint id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['webhooksDeleteWebhook'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function webhooksDeleteEventsWebhookAsync(string $contentType = self::contentTypes['webhooksDeleteEventsWebhook'][0])
+    public function webhooksDeleteWebhookAsync($endpoint_id, string $contentType = self::contentTypes['webhooksDeleteWebhook'][0])
     {
-        return $this->webhooksDeleteEventsWebhookAsyncWithHttpInfo($contentType)
+        return $this->webhooksDeleteWebhookAsyncWithHttpInfo($endpoint_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -240,19 +571,20 @@ class WebhooksApi
     }
 
     /**
-     * Operation webhooksDeleteEventsWebhookAsyncWithHttpInfo
+     * Operation webhooksDeleteWebhookAsyncWithHttpInfo
      *
-     * Delete the events webhook configuration for the current account/environment.
+     * Delete a webhook.
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['webhooksDeleteEventsWebhook'] to see the possible values for this operation
+     * @param  string $endpoint_id Webhook endpoint id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['webhooksDeleteWebhook'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function webhooksDeleteEventsWebhookAsyncWithHttpInfo(string $contentType = self::contentTypes['webhooksDeleteEventsWebhook'][0])
+    public function webhooksDeleteWebhookAsyncWithHttpInfo($endpoint_id, string $contentType = self::contentTypes['webhooksDeleteWebhook'][0])
     {
         $returnType = '';
-        $request = $this->webhooksDeleteEventsWebhookRequest($contentType);
+        $request = $this->webhooksDeleteWebhookRequest($endpoint_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -278,18 +610,26 @@ class WebhooksApi
     }
 
     /**
-     * Create request for operation 'webhooksDeleteEventsWebhook'
+     * Create request for operation 'webhooksDeleteWebhook'
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['webhooksDeleteEventsWebhook'] to see the possible values for this operation
+     * @param  string $endpoint_id Webhook endpoint id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['webhooksDeleteWebhook'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function webhooksDeleteEventsWebhookRequest(string $contentType = self::contentTypes['webhooksDeleteEventsWebhook'][0])
+    public function webhooksDeleteWebhookRequest($endpoint_id, string $contentType = self::contentTypes['webhooksDeleteWebhook'][0])
     {
 
+        // verify the required parameter 'endpoint_id' is set
+        if ($endpoint_id === null || (is_array($endpoint_id) && count($endpoint_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $endpoint_id when calling webhooksDeleteWebhook'
+            );
+        }
 
-        $resourcePath = '/webhooks/events';
+
+        $resourcePath = '/webhooks/{endpointId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -298,6 +638,14 @@ class WebhooksApi
 
 
 
+        // path params
+        if ($endpoint_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'endpointId' . '}',
+                ObjectSerializer::toPathValue($endpoint_id),
+                $resourcePath
+            );
+        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -370,36 +718,36 @@ class WebhooksApi
     }
 
     /**
-     * Operation webhooksGetEventsWebhook
+     * Operation webhooksListWebhooks
      *
-     * Get the events webhook configuration for the current account/environment.
+     * List webhooks for the current account.
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['webhooksGetEventsWebhook'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['webhooksListWebhooks'] to see the possible values for this operation
      *
      * @throws \Pingram\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Pingram\Model\EventsWebhookResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse
+     * @return \Pingram\Model\WebhookEndpointsResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse
      */
-    public function webhooksGetEventsWebhook(string $contentType = self::contentTypes['webhooksGetEventsWebhook'][0])
+    public function webhooksListWebhooks(string $contentType = self::contentTypes['webhooksListWebhooks'][0])
     {
-        list($response) = $this->webhooksGetEventsWebhookWithHttpInfo($contentType);
+        list($response) = $this->webhooksListWebhooksWithHttpInfo($contentType);
         return $response;
     }
 
     /**
-     * Operation webhooksGetEventsWebhookWithHttpInfo
+     * Operation webhooksListWebhooksWithHttpInfo
      *
-     * Get the events webhook configuration for the current account/environment.
+     * List webhooks for the current account.
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['webhooksGetEventsWebhook'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['webhooksListWebhooks'] to see the possible values for this operation
      *
      * @throws \Pingram\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Pingram\Model\EventsWebhookResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Pingram\Model\WebhookEndpointsResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function webhooksGetEventsWebhookWithHttpInfo(string $contentType = self::contentTypes['webhooksGetEventsWebhook'][0])
+    public function webhooksListWebhooksWithHttpInfo(string $contentType = self::contentTypes['webhooksListWebhooks'][0])
     {
-        $request = $this->webhooksGetEventsWebhookRequest($contentType);
+        $request = $this->webhooksListWebhooksRequest($contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -427,7 +775,7 @@ class WebhooksApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\Pingram\Model\EventsWebhookResponse',
+                        '\Pingram\Model\WebhookEndpointsResponse',
                         $request,
                         $response,
                     );
@@ -467,7 +815,7 @@ class WebhooksApi
             }
 
             return $this->handleResponseWithDataType(
-                '\Pingram\Model\EventsWebhookResponse',
+                '\Pingram\Model\WebhookEndpointsResponse',
                 $request,
                 $response,
             );
@@ -476,7 +824,7 @@ class WebhooksApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Pingram\Model\EventsWebhookResponse',
+                        '\Pingram\Model\WebhookEndpointsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -513,18 +861,18 @@ class WebhooksApi
     }
 
     /**
-     * Operation webhooksGetEventsWebhookAsync
+     * Operation webhooksListWebhooksAsync
      *
-     * Get the events webhook configuration for the current account/environment.
+     * List webhooks for the current account.
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['webhooksGetEventsWebhook'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['webhooksListWebhooks'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function webhooksGetEventsWebhookAsync(string $contentType = self::contentTypes['webhooksGetEventsWebhook'][0])
+    public function webhooksListWebhooksAsync(string $contentType = self::contentTypes['webhooksListWebhooks'][0])
     {
-        return $this->webhooksGetEventsWebhookAsyncWithHttpInfo($contentType)
+        return $this->webhooksListWebhooksAsyncWithHttpInfo($contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -533,19 +881,19 @@ class WebhooksApi
     }
 
     /**
-     * Operation webhooksGetEventsWebhookAsyncWithHttpInfo
+     * Operation webhooksListWebhooksAsyncWithHttpInfo
      *
-     * Get the events webhook configuration for the current account/environment.
+     * List webhooks for the current account.
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['webhooksGetEventsWebhook'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['webhooksListWebhooks'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function webhooksGetEventsWebhookAsyncWithHttpInfo(string $contentType = self::contentTypes['webhooksGetEventsWebhook'][0])
+    public function webhooksListWebhooksAsyncWithHttpInfo(string $contentType = self::contentTypes['webhooksListWebhooks'][0])
     {
-        $returnType = '\Pingram\Model\EventsWebhookResponse';
-        $request = $this->webhooksGetEventsWebhookRequest($contentType);
+        $returnType = '\Pingram\Model\WebhookEndpointsResponse';
+        $request = $this->webhooksListWebhooksRequest($contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -584,18 +932,18 @@ class WebhooksApi
     }
 
     /**
-     * Create request for operation 'webhooksGetEventsWebhook'
+     * Create request for operation 'webhooksListWebhooks'
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['webhooksGetEventsWebhook'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['webhooksListWebhooks'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function webhooksGetEventsWebhookRequest(string $contentType = self::contentTypes['webhooksGetEventsWebhook'][0])
+    public function webhooksListWebhooksRequest(string $contentType = self::contentTypes['webhooksListWebhooks'][0])
     {
 
 
-        $resourcePath = '/webhooks/events';
+        $resourcePath = '/webhooks';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -676,38 +1024,40 @@ class WebhooksApi
     }
 
     /**
-     * Operation webhooksUpsertEventsWebhook
+     * Operation webhooksUpdateWebhook
      *
-     * Create or update the events webhook configuration for the current account/environment.
+     * Update a webhook. The signing secret is preserved.
      *
-     * @param  \Pingram\Model\EventsWebhookUpsertRequest $events_webhook_upsert_request events_webhook_upsert_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['webhooksUpsertEventsWebhook'] to see the possible values for this operation
+     * @param  string $endpoint_id Webhook endpoint id (required)
+     * @param  \Pingram\Model\WebhookEndpointUpsertRequest $webhook_endpoint_upsert_request webhook_endpoint_upsert_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['webhooksUpdateWebhook'] to see the possible values for this operation
      *
      * @throws \Pingram\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Pingram\Model\EventsWebhookResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse
+     * @return \Pingram\Model\WebhookEndpoint|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse
      */
-    public function webhooksUpsertEventsWebhook($events_webhook_upsert_request, string $contentType = self::contentTypes['webhooksUpsertEventsWebhook'][0])
+    public function webhooksUpdateWebhook($endpoint_id, $webhook_endpoint_upsert_request, string $contentType = self::contentTypes['webhooksUpdateWebhook'][0])
     {
-        list($response) = $this->webhooksUpsertEventsWebhookWithHttpInfo($events_webhook_upsert_request, $contentType);
+        list($response) = $this->webhooksUpdateWebhookWithHttpInfo($endpoint_id, $webhook_endpoint_upsert_request, $contentType);
         return $response;
     }
 
     /**
-     * Operation webhooksUpsertEventsWebhookWithHttpInfo
+     * Operation webhooksUpdateWebhookWithHttpInfo
      *
-     * Create or update the events webhook configuration for the current account/environment.
+     * Update a webhook. The signing secret is preserved.
      *
-     * @param  \Pingram\Model\EventsWebhookUpsertRequest $events_webhook_upsert_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['webhooksUpsertEventsWebhook'] to see the possible values for this operation
+     * @param  string $endpoint_id Webhook endpoint id (required)
+     * @param  \Pingram\Model\WebhookEndpointUpsertRequest $webhook_endpoint_upsert_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['webhooksUpdateWebhook'] to see the possible values for this operation
      *
      * @throws \Pingram\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Pingram\Model\EventsWebhookResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Pingram\Model\WebhookEndpoint|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function webhooksUpsertEventsWebhookWithHttpInfo($events_webhook_upsert_request, string $contentType = self::contentTypes['webhooksUpsertEventsWebhook'][0])
+    public function webhooksUpdateWebhookWithHttpInfo($endpoint_id, $webhook_endpoint_upsert_request, string $contentType = self::contentTypes['webhooksUpdateWebhook'][0])
     {
-        $request = $this->webhooksUpsertEventsWebhookRequest($events_webhook_upsert_request, $contentType);
+        $request = $this->webhooksUpdateWebhookRequest($endpoint_id, $webhook_endpoint_upsert_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -735,7 +1085,7 @@ class WebhooksApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\Pingram\Model\EventsWebhookResponse',
+                        '\Pingram\Model\WebhookEndpoint',
                         $request,
                         $response,
                     );
@@ -775,7 +1125,7 @@ class WebhooksApi
             }
 
             return $this->handleResponseWithDataType(
-                '\Pingram\Model\EventsWebhookResponse',
+                '\Pingram\Model\WebhookEndpoint',
                 $request,
                 $response,
             );
@@ -784,7 +1134,7 @@ class WebhooksApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Pingram\Model\EventsWebhookResponse',
+                        '\Pingram\Model\WebhookEndpoint',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -821,19 +1171,20 @@ class WebhooksApi
     }
 
     /**
-     * Operation webhooksUpsertEventsWebhookAsync
+     * Operation webhooksUpdateWebhookAsync
      *
-     * Create or update the events webhook configuration for the current account/environment.
+     * Update a webhook. The signing secret is preserved.
      *
-     * @param  \Pingram\Model\EventsWebhookUpsertRequest $events_webhook_upsert_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['webhooksUpsertEventsWebhook'] to see the possible values for this operation
+     * @param  string $endpoint_id Webhook endpoint id (required)
+     * @param  \Pingram\Model\WebhookEndpointUpsertRequest $webhook_endpoint_upsert_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['webhooksUpdateWebhook'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function webhooksUpsertEventsWebhookAsync($events_webhook_upsert_request, string $contentType = self::contentTypes['webhooksUpsertEventsWebhook'][0])
+    public function webhooksUpdateWebhookAsync($endpoint_id, $webhook_endpoint_upsert_request, string $contentType = self::contentTypes['webhooksUpdateWebhook'][0])
     {
-        return $this->webhooksUpsertEventsWebhookAsyncWithHttpInfo($events_webhook_upsert_request, $contentType)
+        return $this->webhooksUpdateWebhookAsyncWithHttpInfo($endpoint_id, $webhook_endpoint_upsert_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -842,20 +1193,21 @@ class WebhooksApi
     }
 
     /**
-     * Operation webhooksUpsertEventsWebhookAsyncWithHttpInfo
+     * Operation webhooksUpdateWebhookAsyncWithHttpInfo
      *
-     * Create or update the events webhook configuration for the current account/environment.
+     * Update a webhook. The signing secret is preserved.
      *
-     * @param  \Pingram\Model\EventsWebhookUpsertRequest $events_webhook_upsert_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['webhooksUpsertEventsWebhook'] to see the possible values for this operation
+     * @param  string $endpoint_id Webhook endpoint id (required)
+     * @param  \Pingram\Model\WebhookEndpointUpsertRequest $webhook_endpoint_upsert_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['webhooksUpdateWebhook'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function webhooksUpsertEventsWebhookAsyncWithHttpInfo($events_webhook_upsert_request, string $contentType = self::contentTypes['webhooksUpsertEventsWebhook'][0])
+    public function webhooksUpdateWebhookAsyncWithHttpInfo($endpoint_id, $webhook_endpoint_upsert_request, string $contentType = self::contentTypes['webhooksUpdateWebhook'][0])
     {
-        $returnType = '\Pingram\Model\EventsWebhookResponse';
-        $request = $this->webhooksUpsertEventsWebhookRequest($events_webhook_upsert_request, $contentType);
+        $returnType = '\Pingram\Model\WebhookEndpoint';
+        $request = $this->webhooksUpdateWebhookRequest($endpoint_id, $webhook_endpoint_upsert_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -894,26 +1246,34 @@ class WebhooksApi
     }
 
     /**
-     * Create request for operation 'webhooksUpsertEventsWebhook'
+     * Create request for operation 'webhooksUpdateWebhook'
      *
-     * @param  \Pingram\Model\EventsWebhookUpsertRequest $events_webhook_upsert_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['webhooksUpsertEventsWebhook'] to see the possible values for this operation
+     * @param  string $endpoint_id Webhook endpoint id (required)
+     * @param  \Pingram\Model\WebhookEndpointUpsertRequest $webhook_endpoint_upsert_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['webhooksUpdateWebhook'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function webhooksUpsertEventsWebhookRequest($events_webhook_upsert_request, string $contentType = self::contentTypes['webhooksUpsertEventsWebhook'][0])
+    public function webhooksUpdateWebhookRequest($endpoint_id, $webhook_endpoint_upsert_request, string $contentType = self::contentTypes['webhooksUpdateWebhook'][0])
     {
 
-        // verify the required parameter 'events_webhook_upsert_request' is set
-        if ($events_webhook_upsert_request === null || (is_array($events_webhook_upsert_request) && count($events_webhook_upsert_request) === 0)) {
+        // verify the required parameter 'endpoint_id' is set
+        if ($endpoint_id === null || (is_array($endpoint_id) && count($endpoint_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $events_webhook_upsert_request when calling webhooksUpsertEventsWebhook'
+                'Missing the required parameter $endpoint_id when calling webhooksUpdateWebhook'
+            );
+        }
+
+        // verify the required parameter 'webhook_endpoint_upsert_request' is set
+        if ($webhook_endpoint_upsert_request === null || (is_array($webhook_endpoint_upsert_request) && count($webhook_endpoint_upsert_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $webhook_endpoint_upsert_request when calling webhooksUpdateWebhook'
             );
         }
 
 
-        $resourcePath = '/webhooks/events';
+        $resourcePath = '/webhooks/{endpointId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -922,6 +1282,14 @@ class WebhooksApi
 
 
 
+        // path params
+        if ($endpoint_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'endpointId' . '}',
+                ObjectSerializer::toPathValue($endpoint_id),
+                $resourcePath
+            );
+        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -931,12 +1299,12 @@ class WebhooksApi
         );
 
         // for model (json/xml)
-        if (isset($events_webhook_upsert_request)) {
+        if (isset($webhook_endpoint_upsert_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($events_webhook_upsert_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($webhook_endpoint_upsert_request));
             } else {
-                $httpBody = $events_webhook_upsert_request;
+                $httpBody = $webhook_endpoint_upsert_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

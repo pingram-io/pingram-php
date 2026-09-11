@@ -1,6 +1,6 @@
 <?php
 /**
- * EventsWebhookResponse
+ * WebhookEndpointsResponseEndpointsInner
  *
  * PHP version 8.1
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \Pingram\ObjectSerializer;
 
 /**
- * EventsWebhookResponse Class Doc Comment
+ * WebhookEndpointsResponseEndpointsInner Class Doc Comment
  *
  * @category Class
- * @description Events webhook configuration returned by the API.
+ * @description Destination URL that receives signed event payloads for a set of subscribed events.
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class EventsWebhookResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class WebhookEndpointsResponseEndpointsInner implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class EventsWebhookResponse implements ModelInterface, ArrayAccess, \JsonSeriali
       *
       * @var string
       */
-    protected static $openAPIModelName = 'EventsWebhookResponse';
+    protected static $openAPIModelName = 'WebhookEndpointsResponse_endpoints_inner';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,7 +58,7 @@ class EventsWebhookResponse implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var string[]
       */
     protected static $openAPITypes = [
-        'webhook_id' => 'string',
+        'id' => 'string',
         'webhook' => 'string',
         'events' => 'string[]',
         'secret' => 'string'
@@ -72,7 +72,7 @@ class EventsWebhookResponse implements ModelInterface, ArrayAccess, \JsonSeriali
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'webhook_id' => null,
+        'id' => null,
         'webhook' => null,
         'events' => null,
         'secret' => null
@@ -84,7 +84,7 @@ class EventsWebhookResponse implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'webhook_id' => false,
+        'id' => false,
         'webhook' => false,
         'events' => false,
         'secret' => false
@@ -176,7 +176,7 @@ class EventsWebhookResponse implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $attributeMap = [
-        'webhook_id' => 'webhookId',
+        'id' => 'id',
         'webhook' => 'webhook',
         'events' => 'events',
         'secret' => 'secret'
@@ -188,7 +188,7 @@ class EventsWebhookResponse implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $setters = [
-        'webhook_id' => 'setWebhookId',
+        'id' => 'setId',
         'webhook' => 'setWebhook',
         'events' => 'setEvents',
         'secret' => 'setSecret'
@@ -200,7 +200,7 @@ class EventsWebhookResponse implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $getters = [
-        'webhook_id' => 'getWebhookId',
+        'id' => 'getId',
         'webhook' => 'getWebhook',
         'events' => 'getEvents',
         'secret' => 'getSecret'
@@ -316,7 +316,7 @@ class EventsWebhookResponse implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('webhook_id', $data ?? [], null);
+        $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('webhook', $data ?? [], null);
         $this->setIfExists('events', $data ?? [], null);
         $this->setIfExists('secret', $data ?? [], null);
@@ -349,8 +349,8 @@ class EventsWebhookResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     {
         $invalidProperties = [];
 
-        if ($this->container['webhook_id'] === null) {
-            $invalidProperties[] = "'webhook_id' can't be null";
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
         }
         if ($this->container['webhook'] === null) {
             $invalidProperties[] = "'webhook' can't be null";
@@ -377,28 +377,28 @@ class EventsWebhookResponse implements ModelInterface, ArrayAccess, \JsonSeriali
 
 
     /**
-     * Gets webhook_id
+     * Gets id
      *
      * @return string
      */
-    public function getWebhookId()
+    public function getId()
     {
-        return $this->container['webhook_id'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets webhook_id
+     * Sets id
      *
-     * @param string $webhook_id Storage key in the format accountId:envId (currently accountId:accountId for account-scoped usage).
+     * @param string $id Unique identifier for this endpoint within the account.
      *
      * @return self
      */
-    public function setWebhookId($webhook_id)
+    public function setId($id)
     {
-        if (is_null($webhook_id)) {
-            throw new \InvalidArgumentException('non-nullable webhook_id cannot be null');
+        if (is_null($id)) {
+            throw new \InvalidArgumentException('non-nullable id cannot be null');
         }
-        $this->container['webhook_id'] = $webhook_id;
+        $this->container['id'] = $id;
 
         return $this;
     }
@@ -443,7 +443,7 @@ class EventsWebhookResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets events
      *
-     * @param string[] $events List of subscribed event types for this webhook configuration.
+     * @param string[] $events List of subscribed event types for this endpoint.
      *
      * @return self
      */

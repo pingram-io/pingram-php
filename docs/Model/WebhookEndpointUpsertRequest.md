@@ -1,4 +1,4 @@
-# # EventsWebhookUpsertRequest
+# # WebhookEndpointUpsertRequest
 
 ## Properties
 

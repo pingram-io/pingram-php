@@ -1,6 +1,6 @@
 <?php
 /**
- * EventsWebhookUpsertRequest
+ * WebhookEndpointUpsertRequest
  *
  * PHP version 8.1
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \Pingram\ObjectSerializer;
 
 /**
- * EventsWebhookUpsertRequest Class Doc Comment
+ * WebhookEndpointUpsertRequest Class Doc Comment
  *
  * @category Class
- * @description Request body for creating or updating the events webhook configuration.
+ * @description Request body for creating or updating an events webhook endpoint.
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class EventsWebhookUpsertRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class WebhookEndpointUpsertRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class EventsWebhookUpsertRequest implements ModelInterface, ArrayAccess, \JsonSe
       *
       * @var string
       */
-    protected static $openAPIModelName = 'EventsWebhookUpsertRequest';
+    protected static $openAPIModelName = 'WebhookEndpointUpsertRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
