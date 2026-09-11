@@ -1413,6 +1413,7 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
     public const CALL_DELIVERED_CODE_NO_ANSWER = 'NO_ANSWER';
     public const CALL_DELIVERED_CODE_UNKNOWN = 'UNKNOWN';
     public const CALL_FAILED_CODE__13224 = '13224';
+    public const CALL_FAILED_CODE__10002 = '10002';
     public const CALL_FAILED_CODE__21211 = '21211';
     public const CALL_FAILED_CODE__21215 = '21215';
     public const CALL_FAILED_CODE__21265 = '21265';
@@ -1440,6 +1441,7 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
     public const CALL_FAILED_CODE_SPAM_CONTENT = 'SPAM_CONTENT';
     public const CALL_FAILED_CODE_SMS_FREE_RESTRICTED = 'SMS_FREE_RESTRICTED';
     public const SMS_FAILED_CODE__13224 = '13224';
+    public const SMS_FAILED_CODE__10002 = '10002';
     public const SMS_FAILED_CODE__21211 = '21211';
     public const SMS_FAILED_CODE__21215 = '21215';
     public const SMS_FAILED_CODE__21265 = '21265';
@@ -1875,6 +1877,7 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
     {
         return [
             self::CALL_FAILED_CODE__13224,
+            self::CALL_FAILED_CODE__10002,
             self::CALL_FAILED_CODE__21211,
             self::CALL_FAILED_CODE__21215,
             self::CALL_FAILED_CODE__21265,
@@ -1913,6 +1916,7 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
     {
         return [
             self::SMS_FAILED_CODE__13224,
+            self::SMS_FAILED_CODE__10002,
             self::SMS_FAILED_CODE__21211,
             self::SMS_FAILED_CODE__21215,
             self::SMS_FAILED_CODE__21265,
