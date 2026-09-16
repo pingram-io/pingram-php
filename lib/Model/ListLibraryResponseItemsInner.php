@@ -1,6 +1,6 @@
 <?php
 /**
- * PostUserRequest
+ * ListLibraryResponseItemsInner
  *
  * PHP version 8.1
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \Pingram\ObjectSerializer;
 
 /**
- * PostUserRequest Class Doc Comment
+ * ListLibraryResponseItemsInner Class Doc Comment
  *
  * @category Class
  * @package  Pingram
@@ -40,7 +40,7 @@ use \Pingram\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class PostUserRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class ListLibraryResponseItemsInner implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class PostUserRequest implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'PostUserRequest';
+    protected static $openAPIModelName = 'ListLibraryResponse_items_inner';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,14 +58,12 @@ class PostUserRequest implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'id' => 'string',
-        'email' => 'string',
-        'number' => 'string',
-        'push_tokens' => '\Pingram\Model\GetUsersResponseUsersInnerPushTokensInner[]',
-        'web_push_tokens' => '\Pingram\Model\GetUsersResponseUsersInnerWebPushTokensInner[]',
-        'timezone' => 'string',
-        'slack_channel' => 'string',
-        'slack_token' => '\Pingram\Model\GetUsersResponseUsersInnerSlackToken',
-        'properties' => 'array<string,\Pingram\Model\GetUsersResponseUsersInnerPropertiesValue>'
+        'use_case' => 'string',
+        'filename' => 'string',
+        'key' => 'string',
+        'url' => 'string',
+        'size' => 'float',
+        'last_modified' => 'string'
     ];
 
     /**
@@ -77,14 +75,12 @@ class PostUserRequest implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'id' => null,
-        'email' => null,
-        'number' => null,
-        'push_tokens' => null,
-        'web_push_tokens' => null,
-        'timezone' => null,
-        'slack_channel' => null,
-        'slack_token' => null,
-        'properties' => null
+        'use_case' => null,
+        'filename' => null,
+        'key' => null,
+        'url' => null,
+        'size' => null,
+        'last_modified' => null
     ];
 
     /**
@@ -94,14 +90,12 @@ class PostUserRequest implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static array $openAPINullables = [
         'id' => false,
-        'email' => false,
-        'number' => false,
-        'push_tokens' => false,
-        'web_push_tokens' => false,
-        'timezone' => false,
-        'slack_channel' => false,
-        'slack_token' => false,
-        'properties' => false
+        'use_case' => false,
+        'filename' => false,
+        'key' => false,
+        'url' => false,
+        'size' => false,
+        'last_modified' => false
     ];
 
     /**
@@ -191,14 +185,12 @@ class PostUserRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'id' => 'id',
-        'email' => 'email',
-        'number' => 'number',
-        'push_tokens' => 'pushTokens',
-        'web_push_tokens' => 'webPushTokens',
-        'timezone' => 'timezone',
-        'slack_channel' => 'slackChannel',
-        'slack_token' => 'slackToken',
-        'properties' => 'properties'
+        'use_case' => 'useCase',
+        'filename' => 'filename',
+        'key' => 'key',
+        'url' => 'url',
+        'size' => 'size',
+        'last_modified' => 'lastModified'
     ];
 
     /**
@@ -208,14 +200,12 @@ class PostUserRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'id' => 'setId',
-        'email' => 'setEmail',
-        'number' => 'setNumber',
-        'push_tokens' => 'setPushTokens',
-        'web_push_tokens' => 'setWebPushTokens',
-        'timezone' => 'setTimezone',
-        'slack_channel' => 'setSlackChannel',
-        'slack_token' => 'setSlackToken',
-        'properties' => 'setProperties'
+        'use_case' => 'setUseCase',
+        'filename' => 'setFilename',
+        'key' => 'setKey',
+        'url' => 'setUrl',
+        'size' => 'setSize',
+        'last_modified' => 'setLastModified'
     ];
 
     /**
@@ -225,14 +215,12 @@ class PostUserRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'id' => 'getId',
-        'email' => 'getEmail',
-        'number' => 'getNumber',
-        'push_tokens' => 'getPushTokens',
-        'web_push_tokens' => 'getWebPushTokens',
-        'timezone' => 'getTimezone',
-        'slack_channel' => 'getSlackChannel',
-        'slack_token' => 'getSlackToken',
-        'properties' => 'getProperties'
+        'use_case' => 'getUseCase',
+        'filename' => 'getFilename',
+        'key' => 'getKey',
+        'url' => 'getUrl',
+        'size' => 'getSize',
+        'last_modified' => 'getLastModified'
     ];
 
     /**
@@ -276,6 +264,21 @@ class PostUserRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
+    public const USE_CASE_MEDIA = 'media';
+    public const USE_CASE_LOGOS = 'logos';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getUseCaseAllowableValues()
+    {
+        return [
+            self::USE_CASE_MEDIA,
+            self::USE_CASE_LOGOS,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -293,14 +296,12 @@ class PostUserRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(?array $data = null)
     {
         $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('email', $data ?? [], null);
-        $this->setIfExists('number', $data ?? [], null);
-        $this->setIfExists('push_tokens', $data ?? [], null);
-        $this->setIfExists('web_push_tokens', $data ?? [], null);
-        $this->setIfExists('timezone', $data ?? [], null);
-        $this->setIfExists('slack_channel', $data ?? [], null);
-        $this->setIfExists('slack_token', $data ?? [], null);
-        $this->setIfExists('properties', $data ?? [], null);
+        $this->setIfExists('use_case', $data ?? [], null);
+        $this->setIfExists('filename', $data ?? [], null);
+        $this->setIfExists('key', $data ?? [], null);
+        $this->setIfExists('url', $data ?? [], null);
+        $this->setIfExists('size', $data ?? [], null);
+        $this->setIfExists('last_modified', $data ?? [], null);
     }
 
     /**
@@ -330,6 +331,36 @@ class PostUserRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
+        }
+        if ($this->container['use_case'] === null) {
+            $invalidProperties[] = "'use_case' can't be null";
+        }
+        $allowedValues = $this->getUseCaseAllowableValues();
+        if (!is_null($this->container['use_case']) && !in_array($this->container['use_case'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'use_case', must be one of '%s'",
+                $this->container['use_case'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['filename'] === null) {
+            $invalidProperties[] = "'filename' can't be null";
+        }
+        if ($this->container['key'] === null) {
+            $invalidProperties[] = "'key' can't be null";
+        }
+        if ($this->container['url'] === null) {
+            $invalidProperties[] = "'url' can't be null";
+        }
+        if ($this->container['size'] === null) {
+            $invalidProperties[] = "'size' can't be null";
+        }
+        if ($this->container['last_modified'] === null) {
+            $invalidProperties[] = "'last_modified' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -348,7 +379,7 @@ class PostUserRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets id
      *
-     * @return string|null
+     * @return string
      */
     public function getId()
     {
@@ -358,7 +389,7 @@ class PostUserRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets id
      *
-     * @param string|null $id Unique user identifier. Required.
+     * @param string $id id
      *
      * @return self
      */
@@ -373,217 +404,173 @@ class PostUserRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets email
+     * Gets use_case
      *
-     * @return string|null
+     * @return string
      */
-    public function getEmail()
+    public function getUseCase()
     {
-        return $this->container['email'];
+        return $this->container['use_case'];
     }
 
     /**
-     * Sets email
+     * Sets use_case
      *
-     * @param string|null $email User's email address for email notifications.
+     * @param string $use_case use_case
      *
      * @return self
      */
-    public function setEmail($email)
+    public function setUseCase($use_case)
     {
-        if (is_null($email)) {
-            throw new \InvalidArgumentException('non-nullable email cannot be null');
+        if (is_null($use_case)) {
+            throw new \InvalidArgumentException('non-nullable use_case cannot be null');
         }
-        $this->container['email'] = $email;
+        $allowedValues = $this->getUseCaseAllowableValues();
+        if (!in_array($use_case, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'use_case', must be one of '%s'",
+                    $use_case,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['use_case'] = $use_case;
 
         return $this;
     }
 
     /**
-     * Gets number
+     * Gets filename
      *
-     * @return string|null
+     * @return string
      */
-    public function getNumber()
+    public function getFilename()
     {
-        return $this->container['number'];
+        return $this->container['filename'];
     }
 
     /**
-     * Sets number
+     * Sets filename
      *
-     * @param string|null $number User's phone number for SMS/call notifications.
+     * @param string $filename filename
      *
      * @return self
      */
-    public function setNumber($number)
+    public function setFilename($filename)
     {
-        if (is_null($number)) {
-            throw new \InvalidArgumentException('non-nullable number cannot be null');
+        if (is_null($filename)) {
+            throw new \InvalidArgumentException('non-nullable filename cannot be null');
         }
-        $this->container['number'] = $number;
+        $this->container['filename'] = $filename;
 
         return $this;
     }
 
     /**
-     * Gets push_tokens
+     * Gets key
      *
-     * @return \Pingram\Model\GetUsersResponseUsersInnerPushTokensInner[]|null
+     * @return string
      */
-    public function getPushTokens()
+    public function getKey()
     {
-        return $this->container['push_tokens'];
+        return $this->container['key'];
     }
 
     /**
-     * Sets push_tokens
+     * Sets key
      *
-     * @param \Pingram\Model\GetUsersResponseUsersInnerPushTokensInner[]|null $push_tokens Mobile push tokens (FCM, APN) for push notifications.
+     * @param string $key key
      *
      * @return self
      */
-    public function setPushTokens($push_tokens)
+    public function setKey($key)
     {
-        if (is_null($push_tokens)) {
-            throw new \InvalidArgumentException('non-nullable push_tokens cannot be null');
+        if (is_null($key)) {
+            throw new \InvalidArgumentException('non-nullable key cannot be null');
         }
-        $this->container['push_tokens'] = $push_tokens;
+        $this->container['key'] = $key;
 
         return $this;
     }
 
     /**
-     * Gets web_push_tokens
+     * Gets url
      *
-     * @return \Pingram\Model\GetUsersResponseUsersInnerWebPushTokensInner[]|null
+     * @return string
      */
-    public function getWebPushTokens()
+    public function getUrl()
     {
-        return $this->container['web_push_tokens'];
+        return $this->container['url'];
     }
 
     /**
-     * Sets web_push_tokens
+     * Sets url
      *
-     * @param \Pingram\Model\GetUsersResponseUsersInnerWebPushTokensInner[]|null $web_push_tokens Web push subscription config from the browser.
+     * @param string $url url
      *
      * @return self
      */
-    public function setWebPushTokens($web_push_tokens)
+    public function setUrl($url)
     {
-        if (is_null($web_push_tokens)) {
-            throw new \InvalidArgumentException('non-nullable web_push_tokens cannot be null');
+        if (is_null($url)) {
+            throw new \InvalidArgumentException('non-nullable url cannot be null');
         }
-        $this->container['web_push_tokens'] = $web_push_tokens;
+        $this->container['url'] = $url;
 
         return $this;
     }
 
     /**
-     * Gets timezone
+     * Gets size
      *
-     * @return string|null
+     * @return float
      */
-    public function getTimezone()
+    public function getSize()
     {
-        return $this->container['timezone'];
+        return $this->container['size'];
     }
 
     /**
-     * Sets timezone
+     * Sets size
      *
-     * @param string|null $timezone User's timezone (e.g. \"America/New_York\") for scheduling.
+     * @param float $size size
      *
      * @return self
      */
-    public function setTimezone($timezone)
+    public function setSize($size)
     {
-        if (is_null($timezone)) {
-            throw new \InvalidArgumentException('non-nullable timezone cannot be null');
+        if (is_null($size)) {
+            throw new \InvalidArgumentException('non-nullable size cannot be null');
         }
-        $this->container['timezone'] = $timezone;
+        $this->container['size'] = $size;
 
         return $this;
     }
 
     /**
-     * Gets slack_channel
+     * Gets last_modified
      *
-     * @return string|null
+     * @return string
      */
-    public function getSlackChannel()
+    public function getLastModified()
     {
-        return $this->container['slack_channel'];
+        return $this->container['last_modified'];
     }
 
     /**
-     * Sets slack_channel
+     * Sets last_modified
      *
-     * @param string|null $slack_channel The destination channel of slack notifications sent to this user. Can be either of the following: - Channel name, e.g. \"test\" - Channel name with # prefix, e.g. \"#test\" - Channel ID, e.g. \"C1234567890\" - User ID for DM, e.g. \"U1234567890\" - Username with @ prefix, e.g. \"@test\"
+     * @param string $last_modified last_modified
      *
      * @return self
      */
-    public function setSlackChannel($slack_channel)
+    public function setLastModified($last_modified)
     {
-        if (is_null($slack_channel)) {
-            throw new \InvalidArgumentException('non-nullable slack_channel cannot be null');
+        if (is_null($last_modified)) {
+            throw new \InvalidArgumentException('non-nullable last_modified cannot be null');
         }
-        $this->container['slack_channel'] = $slack_channel;
-
-        return $this;
-    }
-
-    /**
-     * Gets slack_token
-     *
-     * @return \Pingram\Model\GetUsersResponseUsersInnerSlackToken|null
-     */
-    public function getSlackToken()
-    {
-        return $this->container['slack_token'];
-    }
-
-    /**
-     * Sets slack_token
-     *
-     * @param \Pingram\Model\GetUsersResponseUsersInnerSlackToken|null $slack_token slack_token
-     *
-     * @return self
-     */
-    public function setSlackToken($slack_token)
-    {
-        if (is_null($slack_token)) {
-            throw new \InvalidArgumentException('non-nullable slack_token cannot be null');
-        }
-        $this->container['slack_token'] = $slack_token;
-
-        return $this;
-    }
-
-    /**
-     * Gets properties
-     *
-     * @return array<string,\Pingram\Model\GetUsersResponseUsersInnerPropertiesValue>|null
-     */
-    public function getProperties()
-    {
-        return $this->container['properties'];
-    }
-
-    /**
-     * Sets properties
-     *
-     * @param array<string,\Pingram\Model\GetUsersResponseUsersInnerPropertiesValue>|null $properties Custom key-value properties synced by the developer, used for audience segmentation (e.g. broadcast filters on user.properties.plan). Incremental identify calls shallow-merge keys (unset keys are preserved). Limits: max 25 keys, key length <= 64, string values <= 256 chars, serialized size <= 1KB.
-     *
-     * @return self
-     */
-    public function setProperties($properties)
-    {
-        if (is_null($properties)) {
-            throw new \InvalidArgumentException('non-nullable properties cannot be null');
-        }
-        $this->container['properties'] = $properties;
+        $this->container['last_modified'] = $last_modified;
 
         return $this;
     }

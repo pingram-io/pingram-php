@@ -1,6 +1,6 @@
 <?php
 /**
- * SenderPostBodyUser
+ * ListBroadcastRecipientsResponseRecipientsInner
  *
  * PHP version 8.1
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \Pingram\ObjectSerializer;
 
 /**
- * SenderPostBodyUser Class Doc Comment
+ * ListBroadcastRecipientsResponseRecipientsInner Class Doc Comment
  *
  * @category Class
  * @package  Pingram
@@ -40,7 +40,7 @@ use \Pingram\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SenderPostBodyUser implements ModelInterface, ArrayAccess, \JsonSerializable
+class ListBroadcastRecipientsResponseRecipientsInner implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class SenderPostBodyUser implements ModelInterface, ArrayAccess, \JsonSerializab
       *
       * @var string
       */
-    protected static $openAPIModelName = 'SenderPostBody_user';
+    protected static $openAPIModelName = 'ListBroadcastRecipientsResponse_recipients_inner';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,19 +57,21 @@ class SenderPostBodyUser implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'string',
+        'tracking_id' => 'string',
+        'user_id' => 'string',
         'email' => 'string',
-        'number' => 'string',
-        'push_tokens' => '\Pingram\Model\GetUsersResponseUsersInnerPushTokensInner[]',
-        'web_push_tokens' => '\Pingram\Model\GetUsersResponseUsersInnerWebPushTokensInner[]',
-        'timezone' => 'string',
-        'slack_channel' => 'string',
-        'slack_token' => '\Pingram\Model\GetUsersResponseUsersInnerSlackToken',
-        'properties' => 'array<string,\Pingram\Model\GetUsersResponseUsersInnerPropertiesValue>',
-        'last_seen_time' => 'string',
-        'updated_at' => 'string',
-        'created_at' => 'string',
-        'email_suppression_status' => '\Pingram\Model\GetUsersResponseUsersInnerEmailSuppressionStatus'
+        'sent_at' => 'string',
+        'delivered_at' => 'string',
+        'opened_at' => 'string',
+        'clicked_at' => 'string',
+        'bounced_at' => 'string',
+        'bounce_type' => 'string',
+        'complained_at' => 'string',
+        'unsubscribed_at' => 'string',
+        'skipped_at' => 'string',
+        'skip_reason' => 'string',
+        'failed_at' => 'string',
+        'fail_reason' => 'string'
     ];
 
     /**
@@ -80,19 +82,21 @@ class SenderPostBodyUser implements ModelInterface, ArrayAccess, \JsonSerializab
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
+        'tracking_id' => null,
+        'user_id' => null,
         'email' => null,
-        'number' => null,
-        'push_tokens' => null,
-        'web_push_tokens' => null,
-        'timezone' => null,
-        'slack_channel' => null,
-        'slack_token' => null,
-        'properties' => null,
-        'last_seen_time' => null,
-        'updated_at' => null,
-        'created_at' => null,
-        'email_suppression_status' => null
+        'sent_at' => null,
+        'delivered_at' => null,
+        'opened_at' => null,
+        'clicked_at' => null,
+        'bounced_at' => null,
+        'bounce_type' => null,
+        'complained_at' => null,
+        'unsubscribed_at' => null,
+        'skipped_at' => null,
+        'skip_reason' => null,
+        'failed_at' => null,
+        'fail_reason' => null
     ];
 
     /**
@@ -101,19 +105,21 @@ class SenderPostBodyUser implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
+        'tracking_id' => false,
+        'user_id' => false,
         'email' => false,
-        'number' => false,
-        'push_tokens' => false,
-        'web_push_tokens' => false,
-        'timezone' => false,
-        'slack_channel' => false,
-        'slack_token' => false,
-        'properties' => false,
-        'last_seen_time' => false,
-        'updated_at' => false,
-        'created_at' => false,
-        'email_suppression_status' => false
+        'sent_at' => false,
+        'delivered_at' => false,
+        'opened_at' => false,
+        'clicked_at' => false,
+        'bounced_at' => false,
+        'bounce_type' => false,
+        'complained_at' => false,
+        'unsubscribed_at' => false,
+        'skipped_at' => false,
+        'skip_reason' => false,
+        'failed_at' => false,
+        'fail_reason' => false
     ];
 
     /**
@@ -202,19 +208,21 @@ class SenderPostBodyUser implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
+        'tracking_id' => 'trackingId',
+        'user_id' => 'userId',
         'email' => 'email',
-        'number' => 'number',
-        'push_tokens' => 'pushTokens',
-        'web_push_tokens' => 'webPushTokens',
-        'timezone' => 'timezone',
-        'slack_channel' => 'slackChannel',
-        'slack_token' => 'slackToken',
-        'properties' => 'properties',
-        'last_seen_time' => 'lastSeenTime',
-        'updated_at' => 'updatedAt',
-        'created_at' => 'createdAt',
-        'email_suppression_status' => 'emailSuppressionStatus'
+        'sent_at' => 'sentAt',
+        'delivered_at' => 'deliveredAt',
+        'opened_at' => 'openedAt',
+        'clicked_at' => 'clickedAt',
+        'bounced_at' => 'bouncedAt',
+        'bounce_type' => 'bounceType',
+        'complained_at' => 'complainedAt',
+        'unsubscribed_at' => 'unsubscribedAt',
+        'skipped_at' => 'skippedAt',
+        'skip_reason' => 'skipReason',
+        'failed_at' => 'failedAt',
+        'fail_reason' => 'failReason'
     ];
 
     /**
@@ -223,19 +231,21 @@ class SenderPostBodyUser implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
+        'tracking_id' => 'setTrackingId',
+        'user_id' => 'setUserId',
         'email' => 'setEmail',
-        'number' => 'setNumber',
-        'push_tokens' => 'setPushTokens',
-        'web_push_tokens' => 'setWebPushTokens',
-        'timezone' => 'setTimezone',
-        'slack_channel' => 'setSlackChannel',
-        'slack_token' => 'setSlackToken',
-        'properties' => 'setProperties',
-        'last_seen_time' => 'setLastSeenTime',
-        'updated_at' => 'setUpdatedAt',
-        'created_at' => 'setCreatedAt',
-        'email_suppression_status' => 'setEmailSuppressionStatus'
+        'sent_at' => 'setSentAt',
+        'delivered_at' => 'setDeliveredAt',
+        'opened_at' => 'setOpenedAt',
+        'clicked_at' => 'setClickedAt',
+        'bounced_at' => 'setBouncedAt',
+        'bounce_type' => 'setBounceType',
+        'complained_at' => 'setComplainedAt',
+        'unsubscribed_at' => 'setUnsubscribedAt',
+        'skipped_at' => 'setSkippedAt',
+        'skip_reason' => 'setSkipReason',
+        'failed_at' => 'setFailedAt',
+        'fail_reason' => 'setFailReason'
     ];
 
     /**
@@ -244,19 +254,21 @@ class SenderPostBodyUser implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
+        'tracking_id' => 'getTrackingId',
+        'user_id' => 'getUserId',
         'email' => 'getEmail',
-        'number' => 'getNumber',
-        'push_tokens' => 'getPushTokens',
-        'web_push_tokens' => 'getWebPushTokens',
-        'timezone' => 'getTimezone',
-        'slack_channel' => 'getSlackChannel',
-        'slack_token' => 'getSlackToken',
-        'properties' => 'getProperties',
-        'last_seen_time' => 'getLastSeenTime',
-        'updated_at' => 'getUpdatedAt',
-        'created_at' => 'getCreatedAt',
-        'email_suppression_status' => 'getEmailSuppressionStatus'
+        'sent_at' => 'getSentAt',
+        'delivered_at' => 'getDeliveredAt',
+        'opened_at' => 'getOpenedAt',
+        'clicked_at' => 'getClickedAt',
+        'bounced_at' => 'getBouncedAt',
+        'bounce_type' => 'getBounceType',
+        'complained_at' => 'getComplainedAt',
+        'unsubscribed_at' => 'getUnsubscribedAt',
+        'skipped_at' => 'getSkippedAt',
+        'skip_reason' => 'getSkipReason',
+        'failed_at' => 'getFailedAt',
+        'fail_reason' => 'getFailReason'
     ];
 
     /**
@@ -316,19 +328,21 @@ class SenderPostBodyUser implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('tracking_id', $data ?? [], null);
+        $this->setIfExists('user_id', $data ?? [], null);
         $this->setIfExists('email', $data ?? [], null);
-        $this->setIfExists('number', $data ?? [], null);
-        $this->setIfExists('push_tokens', $data ?? [], null);
-        $this->setIfExists('web_push_tokens', $data ?? [], null);
-        $this->setIfExists('timezone', $data ?? [], null);
-        $this->setIfExists('slack_channel', $data ?? [], null);
-        $this->setIfExists('slack_token', $data ?? [], null);
-        $this->setIfExists('properties', $data ?? [], null);
-        $this->setIfExists('last_seen_time', $data ?? [], null);
-        $this->setIfExists('updated_at', $data ?? [], null);
-        $this->setIfExists('created_at', $data ?? [], null);
-        $this->setIfExists('email_suppression_status', $data ?? [], null);
+        $this->setIfExists('sent_at', $data ?? [], null);
+        $this->setIfExists('delivered_at', $data ?? [], null);
+        $this->setIfExists('opened_at', $data ?? [], null);
+        $this->setIfExists('clicked_at', $data ?? [], null);
+        $this->setIfExists('bounced_at', $data ?? [], null);
+        $this->setIfExists('bounce_type', $data ?? [], null);
+        $this->setIfExists('complained_at', $data ?? [], null);
+        $this->setIfExists('unsubscribed_at', $data ?? [], null);
+        $this->setIfExists('skipped_at', $data ?? [], null);
+        $this->setIfExists('skip_reason', $data ?? [], null);
+        $this->setIfExists('failed_at', $data ?? [], null);
+        $this->setIfExists('fail_reason', $data ?? [], null);
     }
 
     /**
@@ -358,8 +372,14 @@ class SenderPostBodyUser implements ModelInterface, ArrayAccess, \JsonSerializab
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
+        if ($this->container['tracking_id'] === null) {
+            $invalidProperties[] = "'tracking_id' can't be null";
+        }
+        if ($this->container['user_id'] === null) {
+            $invalidProperties[] = "'user_id' can't be null";
+        }
+        if ($this->container['email'] === null) {
+            $invalidProperties[] = "'email' can't be null";
         }
         return $invalidProperties;
     }
@@ -377,28 +397,55 @@ class SenderPostBodyUser implements ModelInterface, ArrayAccess, \JsonSerializab
 
 
     /**
-     * Gets id
+     * Gets tracking_id
      *
      * @return string
      */
-    public function getId()
+    public function getTrackingId()
     {
-        return $this->container['id'];
+        return $this->container['tracking_id'];
     }
 
     /**
-     * Sets id
+     * Sets tracking_id
      *
-     * @param string $id Unique user identifier. Required.
+     * @param string $tracking_id tracking_id
      *
      * @return self
      */
-    public function setId($id)
+    public function setTrackingId($tracking_id)
     {
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+        if (is_null($tracking_id)) {
+            throw new \InvalidArgumentException('non-nullable tracking_id cannot be null');
         }
-        $this->container['id'] = $id;
+        $this->container['tracking_id'] = $tracking_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets user_id
+     *
+     * @return string
+     */
+    public function getUserId()
+    {
+        return $this->container['user_id'];
+    }
+
+    /**
+     * Sets user_id
+     *
+     * @param string $user_id user_id
+     *
+     * @return self
+     */
+    public function setUserId($user_id)
+    {
+        if (is_null($user_id)) {
+            throw new \InvalidArgumentException('non-nullable user_id cannot be null');
+        }
+        $this->container['user_id'] = $user_id;
 
         return $this;
     }
@@ -406,7 +453,7 @@ class SenderPostBodyUser implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets email
      *
-     * @return string|null
+     * @return string
      */
     public function getEmail()
     {
@@ -416,7 +463,7 @@ class SenderPostBodyUser implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets email
      *
-     * @param string|null $email User's email address for email notifications.
+     * @param string $email email
      *
      * @return self
      */
@@ -431,298 +478,325 @@ class SenderPostBodyUser implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
-     * Gets number
+     * Gets sent_at
      *
      * @return string|null
      */
-    public function getNumber()
+    public function getSentAt()
     {
-        return $this->container['number'];
+        return $this->container['sent_at'];
     }
 
     /**
-     * Sets number
+     * Sets sent_at
      *
-     * @param string|null $number User's phone number for SMS/call notifications.
+     * @param string|null $sent_at sent_at
      *
      * @return self
      */
-    public function setNumber($number)
+    public function setSentAt($sent_at)
     {
-        if (is_null($number)) {
-            throw new \InvalidArgumentException('non-nullable number cannot be null');
+        if (is_null($sent_at)) {
+            throw new \InvalidArgumentException('non-nullable sent_at cannot be null');
         }
-        $this->container['number'] = $number;
+        $this->container['sent_at'] = $sent_at;
 
         return $this;
     }
 
     /**
-     * Gets push_tokens
-     *
-     * @return \Pingram\Model\GetUsersResponseUsersInnerPushTokensInner[]|null
-     */
-    public function getPushTokens()
-    {
-        return $this->container['push_tokens'];
-    }
-
-    /**
-     * Sets push_tokens
-     *
-     * @param \Pingram\Model\GetUsersResponseUsersInnerPushTokensInner[]|null $push_tokens Mobile push tokens (FCM, APN) for push notifications.
-     *
-     * @return self
-     */
-    public function setPushTokens($push_tokens)
-    {
-        if (is_null($push_tokens)) {
-            throw new \InvalidArgumentException('non-nullable push_tokens cannot be null');
-        }
-        $this->container['push_tokens'] = $push_tokens;
-
-        return $this;
-    }
-
-    /**
-     * Gets web_push_tokens
-     *
-     * @return \Pingram\Model\GetUsersResponseUsersInnerWebPushTokensInner[]|null
-     */
-    public function getWebPushTokens()
-    {
-        return $this->container['web_push_tokens'];
-    }
-
-    /**
-     * Sets web_push_tokens
-     *
-     * @param \Pingram\Model\GetUsersResponseUsersInnerWebPushTokensInner[]|null $web_push_tokens Web push subscription config from the browser.
-     *
-     * @return self
-     */
-    public function setWebPushTokens($web_push_tokens)
-    {
-        if (is_null($web_push_tokens)) {
-            throw new \InvalidArgumentException('non-nullable web_push_tokens cannot be null');
-        }
-        $this->container['web_push_tokens'] = $web_push_tokens;
-
-        return $this;
-    }
-
-    /**
-     * Gets timezone
+     * Gets delivered_at
      *
      * @return string|null
      */
-    public function getTimezone()
+    public function getDeliveredAt()
     {
-        return $this->container['timezone'];
+        return $this->container['delivered_at'];
     }
 
     /**
-     * Sets timezone
+     * Sets delivered_at
      *
-     * @param string|null $timezone User's timezone (e.g. \"America/New_York\") for scheduling.
+     * @param string|null $delivered_at delivered_at
      *
      * @return self
      */
-    public function setTimezone($timezone)
+    public function setDeliveredAt($delivered_at)
     {
-        if (is_null($timezone)) {
-            throw new \InvalidArgumentException('non-nullable timezone cannot be null');
+        if (is_null($delivered_at)) {
+            throw new \InvalidArgumentException('non-nullable delivered_at cannot be null');
         }
-        $this->container['timezone'] = $timezone;
+        $this->container['delivered_at'] = $delivered_at;
 
         return $this;
     }
 
     /**
-     * Gets slack_channel
+     * Gets opened_at
      *
      * @return string|null
      */
-    public function getSlackChannel()
+    public function getOpenedAt()
     {
-        return $this->container['slack_channel'];
+        return $this->container['opened_at'];
     }
 
     /**
-     * Sets slack_channel
+     * Sets opened_at
      *
-     * @param string|null $slack_channel The destination channel of slack notifications sent to this user. Can be either of the following: - Channel name, e.g. \"test\" - Channel name with # prefix, e.g. \"#test\" - Channel ID, e.g. \"C1234567890\" - User ID for DM, e.g. \"U1234567890\" - Username with @ prefix, e.g. \"@test\"
+     * @param string|null $opened_at opened_at
      *
      * @return self
      */
-    public function setSlackChannel($slack_channel)
+    public function setOpenedAt($opened_at)
     {
-        if (is_null($slack_channel)) {
-            throw new \InvalidArgumentException('non-nullable slack_channel cannot be null');
+        if (is_null($opened_at)) {
+            throw new \InvalidArgumentException('non-nullable opened_at cannot be null');
         }
-        $this->container['slack_channel'] = $slack_channel;
+        $this->container['opened_at'] = $opened_at;
 
         return $this;
     }
 
     /**
-     * Gets slack_token
-     *
-     * @return \Pingram\Model\GetUsersResponseUsersInnerSlackToken|null
-     */
-    public function getSlackToken()
-    {
-        return $this->container['slack_token'];
-    }
-
-    /**
-     * Sets slack_token
-     *
-     * @param \Pingram\Model\GetUsersResponseUsersInnerSlackToken|null $slack_token slack_token
-     *
-     * @return self
-     */
-    public function setSlackToken($slack_token)
-    {
-        if (is_null($slack_token)) {
-            throw new \InvalidArgumentException('non-nullable slack_token cannot be null');
-        }
-        $this->container['slack_token'] = $slack_token;
-
-        return $this;
-    }
-
-    /**
-     * Gets properties
-     *
-     * @return array<string,\Pingram\Model\GetUsersResponseUsersInnerPropertiesValue>|null
-     */
-    public function getProperties()
-    {
-        return $this->container['properties'];
-    }
-
-    /**
-     * Sets properties
-     *
-     * @param array<string,\Pingram\Model\GetUsersResponseUsersInnerPropertiesValue>|null $properties Custom key-value properties synced by the developer, used for audience segmentation (e.g. broadcast filters on user.properties.plan). Incremental identify calls shallow-merge keys (unset keys are preserved). Limits: max 25 keys, key length <= 64, string values <= 256 chars, serialized size <= 1KB.
-     *
-     * @return self
-     */
-    public function setProperties($properties)
-    {
-        if (is_null($properties)) {
-            throw new \InvalidArgumentException('non-nullable properties cannot be null');
-        }
-        $this->container['properties'] = $properties;
-
-        return $this;
-    }
-
-    /**
-     * Gets last_seen_time
+     * Gets clicked_at
      *
      * @return string|null
      */
-    public function getLastSeenTime()
+    public function getClickedAt()
     {
-        return $this->container['last_seen_time'];
+        return $this->container['clicked_at'];
     }
 
     /**
-     * Sets last_seen_time
+     * Sets clicked_at
      *
-     * @param string|null $last_seen_time Last activity timestamp. Updated automatically. Read-only.
+     * @param string|null $clicked_at clicked_at
      *
      * @return self
      */
-    public function setLastSeenTime($last_seen_time)
+    public function setClickedAt($clicked_at)
     {
-        if (is_null($last_seen_time)) {
-            throw new \InvalidArgumentException('non-nullable last_seen_time cannot be null');
+        if (is_null($clicked_at)) {
+            throw new \InvalidArgumentException('non-nullable clicked_at cannot be null');
         }
-        $this->container['last_seen_time'] = $last_seen_time;
+        $this->container['clicked_at'] = $clicked_at;
 
         return $this;
     }
 
     /**
-     * Gets updated_at
+     * Gets bounced_at
      *
      * @return string|null
      */
-    public function getUpdatedAt()
+    public function getBouncedAt()
     {
-        return $this->container['updated_at'];
+        return $this->container['bounced_at'];
     }
 
     /**
-     * Sets updated_at
+     * Sets bounced_at
      *
-     * @param string|null $updated_at Last update timestamp. Read-only.
+     * @param string|null $bounced_at bounced_at
      *
      * @return self
      */
-    public function setUpdatedAt($updated_at)
+    public function setBouncedAt($bounced_at)
     {
-        if (is_null($updated_at)) {
-            throw new \InvalidArgumentException('non-nullable updated_at cannot be null');
+        if (is_null($bounced_at)) {
+            throw new \InvalidArgumentException('non-nullable bounced_at cannot be null');
         }
-        $this->container['updated_at'] = $updated_at;
+        $this->container['bounced_at'] = $bounced_at;
 
         return $this;
     }
 
     /**
-     * Gets created_at
+     * Gets bounce_type
      *
      * @return string|null
      */
-    public function getCreatedAt()
+    public function getBounceType()
     {
-        return $this->container['created_at'];
+        return $this->container['bounce_type'];
     }
 
     /**
-     * Sets created_at
+     * Sets bounce_type
      *
-     * @param string|null $created_at Creation timestamp. Read-only.
+     * @param string|null $bounce_type bounce_type
      *
      * @return self
      */
-    public function setCreatedAt($created_at)
+    public function setBounceType($bounce_type)
     {
-        if (is_null($created_at)) {
-            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
+        if (is_null($bounce_type)) {
+            throw new \InvalidArgumentException('non-nullable bounce_type cannot be null');
         }
-        $this->container['created_at'] = $created_at;
+        $this->container['bounce_type'] = $bounce_type;
 
         return $this;
     }
 
     /**
-     * Gets email_suppression_status
+     * Gets complained_at
      *
-     * @return \Pingram\Model\GetUsersResponseUsersInnerEmailSuppressionStatus|null
+     * @return string|null
      */
-    public function getEmailSuppressionStatus()
+    public function getComplainedAt()
     {
-        return $this->container['email_suppression_status'];
+        return $this->container['complained_at'];
     }
 
     /**
-     * Sets email_suppression_status
+     * Sets complained_at
      *
-     * @param \Pingram\Model\GetUsersResponseUsersInnerEmailSuppressionStatus|null $email_suppression_status email_suppression_status
+     * @param string|null $complained_at complained_at
      *
      * @return self
      */
-    public function setEmailSuppressionStatus($email_suppression_status)
+    public function setComplainedAt($complained_at)
     {
-        if (is_null($email_suppression_status)) {
-            throw new \InvalidArgumentException('non-nullable email_suppression_status cannot be null');
+        if (is_null($complained_at)) {
+            throw new \InvalidArgumentException('non-nullable complained_at cannot be null');
         }
-        $this->container['email_suppression_status'] = $email_suppression_status;
+        $this->container['complained_at'] = $complained_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets unsubscribed_at
+     *
+     * @return string|null
+     */
+    public function getUnsubscribedAt()
+    {
+        return $this->container['unsubscribed_at'];
+    }
+
+    /**
+     * Sets unsubscribed_at
+     *
+     * @param string|null $unsubscribed_at unsubscribed_at
+     *
+     * @return self
+     */
+    public function setUnsubscribedAt($unsubscribed_at)
+    {
+        if (is_null($unsubscribed_at)) {
+            throw new \InvalidArgumentException('non-nullable unsubscribed_at cannot be null');
+        }
+        $this->container['unsubscribed_at'] = $unsubscribed_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets skipped_at
+     *
+     * @return string|null
+     */
+    public function getSkippedAt()
+    {
+        return $this->container['skipped_at'];
+    }
+
+    /**
+     * Sets skipped_at
+     *
+     * @param string|null $skipped_at skipped_at
+     *
+     * @return self
+     */
+    public function setSkippedAt($skipped_at)
+    {
+        if (is_null($skipped_at)) {
+            throw new \InvalidArgumentException('non-nullable skipped_at cannot be null');
+        }
+        $this->container['skipped_at'] = $skipped_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets skip_reason
+     *
+     * @return string|null
+     */
+    public function getSkipReason()
+    {
+        return $this->container['skip_reason'];
+    }
+
+    /**
+     * Sets skip_reason
+     *
+     * @param string|null $skip_reason skip_reason
+     *
+     * @return self
+     */
+    public function setSkipReason($skip_reason)
+    {
+        if (is_null($skip_reason)) {
+            throw new \InvalidArgumentException('non-nullable skip_reason cannot be null');
+        }
+        $this->container['skip_reason'] = $skip_reason;
+
+        return $this;
+    }
+
+    /**
+     * Gets failed_at
+     *
+     * @return string|null
+     */
+    public function getFailedAt()
+    {
+        return $this->container['failed_at'];
+    }
+
+    /**
+     * Sets failed_at
+     *
+     * @param string|null $failed_at failed_at
+     *
+     * @return self
+     */
+    public function setFailedAt($failed_at)
+    {
+        if (is_null($failed_at)) {
+            throw new \InvalidArgumentException('non-nullable failed_at cannot be null');
+        }
+        $this->container['failed_at'] = $failed_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets fail_reason
+     *
+     * @return string|null
+     */
+    public function getFailReason()
+    {
+        return $this->container['fail_reason'];
+    }
+
+    /**
+     * Sets fail_reason
+     *
+     * @param string|null $fail_reason fail_reason
+     *
+     * @return self
+     */
+    public function setFailReason($fail_reason)
+    {
+        if (is_null($fail_reason)) {
+            throw new \InvalidArgumentException('non-nullable fail_reason cannot be null');
+        }
+        $this->container['fail_reason'] = $fail_reason;
 
         return $this;
     }

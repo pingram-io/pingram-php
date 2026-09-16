@@ -18,6 +18,8 @@ use Pingram\Api\AccountsApi;
 
 use Pingram\Api\AddressesApi;
 
+use Pingram\Api\BroadcastsApi;
+
 use Pingram\Api\ComponentsApi;
 
 use Pingram\Api\DefaultApi;
@@ -35,6 +37,8 @@ use Pingram\Api\HealthApi;
 use Pingram\Api\InsightsApi;
 
 use Pingram\Api\KeysApi;
+
+use Pingram\Api\LibraryApi;
 
 use Pingram\Api\LogsApi;
 
@@ -108,6 +112,9 @@ class Client
     /** @var AddressesApi */
     private $addresses;
 
+    /** @var BroadcastsApi */
+    private $broadcasts;
+
     /** @var ComponentsApi */
     private $components;
 
@@ -134,6 +141,9 @@ class Client
 
     /** @var KeysApi */
     private $keys;
+
+    /** @var LibraryApi */
+    private $library;
 
     /** @var LogsApi */
     private $logs;
@@ -197,6 +207,8 @@ class Client
 
         $this->addresses = new AddressesApi($this->httpClient, $this->config);
 
+        $this->broadcasts = new BroadcastsApi($this->httpClient, $this->config);
+
         $this->components = new ComponentsApi($this->httpClient, $this->config);
 
         $this->default_api = new DefaultApi($this->httpClient, $this->config);
@@ -214,6 +226,8 @@ class Client
         $this->insights = new InsightsApi($this->httpClient, $this->config);
 
         $this->keys = new KeysApi($this->httpClient, $this->config);
+
+        $this->library = new LibraryApi($this->httpClient, $this->config);
 
         $this->logs = new LogsApi($this->httpClient, $this->config);
 
@@ -280,6 +294,15 @@ class Client
     public function getAddresses(): \Pingram\Api\AddressesApi
     {
         return $this->addresses;
+    }
+
+
+    /**
+     * @return BroadcastsApi
+     */
+    public function getBroadcasts(): \Pingram\Api\BroadcastsApi
+    {
+        return $this->broadcasts;
     }
 
 
@@ -361,6 +384,15 @@ class Client
     public function getKeys(): \Pingram\Api\KeysApi
     {
         return $this->keys;
+    }
+
+
+    /**
+     * @return LibraryApi
+     */
+    public function getLibrary(): \Pingram\Api\LibraryApi
+    {
+        return $this->library;
     }
 
 

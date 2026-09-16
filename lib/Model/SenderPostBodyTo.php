@@ -66,6 +66,7 @@ class SenderPostBodyTo implements ModelInterface, ArrayAccess, \JsonSerializable
         'timezone' => 'string',
         'slack_channel' => 'string',
         'slack_token' => '\Pingram\Model\GetUsersResponseUsersInnerSlackToken',
+        'properties' => 'array<string,\Pingram\Model\GetUsersResponseUsersInnerPropertiesValue>',
         'last_seen_time' => 'string',
         'updated_at' => 'string',
         'created_at' => 'string',
@@ -88,6 +89,7 @@ class SenderPostBodyTo implements ModelInterface, ArrayAccess, \JsonSerializable
         'timezone' => null,
         'slack_channel' => null,
         'slack_token' => null,
+        'properties' => null,
         'last_seen_time' => null,
         'updated_at' => null,
         'created_at' => null,
@@ -108,6 +110,7 @@ class SenderPostBodyTo implements ModelInterface, ArrayAccess, \JsonSerializable
         'timezone' => false,
         'slack_channel' => false,
         'slack_token' => false,
+        'properties' => false,
         'last_seen_time' => false,
         'updated_at' => false,
         'created_at' => false,
@@ -208,6 +211,7 @@ class SenderPostBodyTo implements ModelInterface, ArrayAccess, \JsonSerializable
         'timezone' => 'timezone',
         'slack_channel' => 'slackChannel',
         'slack_token' => 'slackToken',
+        'properties' => 'properties',
         'last_seen_time' => 'lastSeenTime',
         'updated_at' => 'updatedAt',
         'created_at' => 'createdAt',
@@ -228,6 +232,7 @@ class SenderPostBodyTo implements ModelInterface, ArrayAccess, \JsonSerializable
         'timezone' => 'setTimezone',
         'slack_channel' => 'setSlackChannel',
         'slack_token' => 'setSlackToken',
+        'properties' => 'setProperties',
         'last_seen_time' => 'setLastSeenTime',
         'updated_at' => 'setUpdatedAt',
         'created_at' => 'setCreatedAt',
@@ -248,6 +253,7 @@ class SenderPostBodyTo implements ModelInterface, ArrayAccess, \JsonSerializable
         'timezone' => 'getTimezone',
         'slack_channel' => 'getSlackChannel',
         'slack_token' => 'getSlackToken',
+        'properties' => 'getProperties',
         'last_seen_time' => 'getLastSeenTime',
         'updated_at' => 'getUpdatedAt',
         'created_at' => 'getCreatedAt',
@@ -319,6 +325,7 @@ class SenderPostBodyTo implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('timezone', $data ?? [], null);
         $this->setIfExists('slack_channel', $data ?? [], null);
         $this->setIfExists('slack_token', $data ?? [], null);
+        $this->setIfExists('properties', $data ?? [], null);
         $this->setIfExists('last_seen_time', $data ?? [], null);
         $this->setIfExists('updated_at', $data ?? [], null);
         $this->setIfExists('created_at', $data ?? [], null);
@@ -579,6 +586,33 @@ class SenderPostBodyTo implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable slack_token cannot be null');
         }
         $this->container['slack_token'] = $slack_token;
+
+        return $this;
+    }
+
+    /**
+     * Gets properties
+     *
+     * @return array<string,\Pingram\Model\GetUsersResponseUsersInnerPropertiesValue>|null
+     */
+    public function getProperties()
+    {
+        return $this->container['properties'];
+    }
+
+    /**
+     * Sets properties
+     *
+     * @param array<string,\Pingram\Model\GetUsersResponseUsersInnerPropertiesValue>|null $properties Custom key-value properties synced by the developer, used for audience segmentation (e.g. broadcast filters on user.properties.plan). Incremental identify calls shallow-merge keys (unset keys are preserved). Limits: max 25 keys, key length <= 64, string values <= 256 chars, serialized size <= 1KB.
+     *
+     * @return self
+     */
+    public function setProperties($properties)
+    {
+        if (is_null($properties)) {
+            throw new \InvalidArgumentException('non-nullable properties cannot be null');
+        }
+        $this->container['properties'] = $properties;
 
         return $this;
     }

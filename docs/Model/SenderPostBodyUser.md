@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **timezone** | **string** | User&#39;s timezone (e.g. \&quot;America/New_York\&quot;) for scheduling. | [optional]
 **slack_channel** | **string** | The destination channel of slack notifications sent to this user. Can be either of the following: - Channel name, e.g. \&quot;test\&quot; - Channel name with # prefix, e.g. \&quot;#test\&quot; - Channel ID, e.g. \&quot;C1234567890\&quot; - User ID for DM, e.g. \&quot;U1234567890\&quot; - Username with @ prefix, e.g. \&quot;@test\&quot; | [optional]
 **slack_token** | [**\Pingram\Model\GetUsersResponseUsersInnerSlackToken**](GetUsersResponseUsersInnerSlackToken.md) |  | [optional]
+**properties** | [**array<string,\Pingram\Model\GetUsersResponseUsersInnerPropertiesValue>**](GetUsersResponseUsersInnerPropertiesValue.md) | Custom key-value properties synced by the developer, used for audience segmentation (e.g. broadcast filters on user.properties.plan). Incremental identify calls shallow-merge keys (unset keys are preserved). Limits: max 25 keys, key length &lt;&#x3D; 64, string values &lt;&#x3D; 256 chars, serialized size &lt;&#x3D; 1KB. | [optional]
 **last_seen_time** | **string** | Last activity timestamp. Updated automatically. Read-only. | [optional]
 **updated_at** | **string** | Last update timestamp. Read-only. | [optional]
 **created_at** | **string** | Creation timestamp. Read-only. | [optional]
