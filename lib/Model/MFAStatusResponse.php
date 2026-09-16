@@ -408,7 +408,7 @@ class MFAStatusResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets available
      *
-     * @param bool $available Whether the org has the Enterprise add-on required to enable MFA.
+     * @param bool $available Whether the account is on a paid plan required to enable MFA.
      *
      * @return self
      */
