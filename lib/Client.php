@@ -54,6 +54,8 @@ use Pingram\Api\SenderApi;
 
 use Pingram\Api\SmsApi;
 
+use Pingram\Api\SubNotificationsApi;
+
 use Pingram\Api\TemplatesApi;
 
 use Pingram\Api\TypesApi;
@@ -166,6 +168,9 @@ class Client
     /** @var SmsApi */
     private $sms;
 
+    /** @var SubNotificationsApi */
+    private $subNotifications;
+
     /** @var TemplatesApi */
     private $templates;
 
@@ -242,6 +247,8 @@ class Client
         $this->sender = new SenderApi($this->httpClient, $this->config);
 
         $this->sms = new SmsApi($this->httpClient, $this->config);
+
+        $this->subNotifications = new SubNotificationsApi($this->httpClient, $this->config);
 
         $this->templates = new TemplatesApi($this->httpClient, $this->config);
 
@@ -456,6 +463,15 @@ class Client
     public function getSms(): \Pingram\Api\SmsApi
     {
         return $this->sms;
+    }
+
+
+    /**
+     * @return SubNotificationsApi
+     */
+    public function getSubNotifications(): \Pingram\Api\SubNotificationsApi
+    {
+        return $this->subNotifications;
     }
 
 
