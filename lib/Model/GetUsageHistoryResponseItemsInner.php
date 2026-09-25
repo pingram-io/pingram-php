@@ -316,7 +316,7 @@ class GetUsageHistoryResponseItemsInner implements ModelInterface, ArrayAccess, 
     /**
      * Sets year_month
      *
-     * @param string $year_month Year-month (YYYY-MM) for this usage period
+     * @param string $year_month YYYY-MM for calendar months, or YYYY-MM-DD billing-period start.
      *
      * @return self
      */

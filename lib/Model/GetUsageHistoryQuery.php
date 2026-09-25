@@ -59,7 +59,8 @@ class GetUsageHistoryQuery implements ModelInterface, ArrayAccess, \JsonSerializ
       */
     protected static $openAPITypes = [
         'start_date' => 'string',
-        'end_date' => 'string'
+        'end_date' => 'string',
+        'group_by' => 'string'
     ];
 
     /**
@@ -71,7 +72,8 @@ class GetUsageHistoryQuery implements ModelInterface, ArrayAccess, \JsonSerializ
       */
     protected static $openAPIFormats = [
         'start_date' => null,
-        'end_date' => null
+        'end_date' => null,
+        'group_by' => null
     ];
 
     /**
@@ -81,7 +83,8 @@ class GetUsageHistoryQuery implements ModelInterface, ArrayAccess, \JsonSerializ
       */
     protected static array $openAPINullables = [
         'start_date' => false,
-        'end_date' => false
+        'end_date' => false,
+        'group_by' => false
     ];
 
     /**
@@ -171,7 +174,8 @@ class GetUsageHistoryQuery implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     protected static $attributeMap = [
         'start_date' => 'startDate',
-        'end_date' => 'endDate'
+        'end_date' => 'endDate',
+        'group_by' => 'groupBy'
     ];
 
     /**
@@ -181,7 +185,8 @@ class GetUsageHistoryQuery implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     protected static $setters = [
         'start_date' => 'setStartDate',
-        'end_date' => 'setEndDate'
+        'end_date' => 'setEndDate',
+        'group_by' => 'setGroupBy'
     ];
 
     /**
@@ -191,7 +196,8 @@ class GetUsageHistoryQuery implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     protected static $getters = [
         'start_date' => 'getStartDate',
-        'end_date' => 'getEndDate'
+        'end_date' => 'getEndDate',
+        'group_by' => 'getGroupBy'
     ];
 
     /**
@@ -253,6 +259,7 @@ class GetUsageHistoryQuery implements ModelInterface, ArrayAccess, \JsonSerializ
     {
         $this->setIfExists('start_date', $data ?? [], null);
         $this->setIfExists('end_date', $data ?? [], null);
+        $this->setIfExists('group_by', $data ?? [], null);
     }
 
     /**
@@ -353,6 +360,33 @@ class GetUsageHistoryQuery implements ModelInterface, ArrayAccess, \JsonSerializ
             throw new \InvalidArgumentException('non-nullable end_date cannot be null');
         }
         $this->container['end_date'] = $end_date;
+
+        return $this;
+    }
+
+    /**
+     * Gets group_by
+     *
+     * @return string|null
+     */
+    public function getGroupBy()
+    {
+        return $this->container['group_by'];
+    }
+
+    /**
+     * Sets group_by
+     *
+     * @param string|null $group_by calendar = UTC calendar months (YYYY-MM). billing = account billing cycles (YYYY-MM-DD period start). Defaults to calendar.
+     *
+     * @return self
+     */
+    public function setGroupBy($group_by)
+    {
+        if (is_null($group_by)) {
+            throw new \InvalidArgumentException('non-nullable group_by cannot be null');
+        }
+        $this->container['group_by'] = $group_by;
 
         return $this;
     }

@@ -1401,38 +1401,40 @@ class AccountApi
     /**
      * Operation accountGetUsageHistory
      *
-     * Get historical usage for the authenticated account over a date range.
+     * Get historical usage for the authenticated account over a date range, summed by UTC calendar month or billing cycle from daily counts.
      *
      * @param  string $start_date Start date (YYYY-MM-DD) for the range (required)
      * @param  string $end_date End date (YYYY-MM-DD) for the range (required)
+     * @param  string|null $group_by calendar (UTC months, default) or billing (account billing cycles) (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountGetUsageHistory'] to see the possible values for this operation
      *
      * @throws \Pingram\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \Pingram\Model\GetUsageHistoryResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse
      */
-    public function accountGetUsageHistory($start_date, $end_date, string $contentType = self::contentTypes['accountGetUsageHistory'][0])
+    public function accountGetUsageHistory($start_date, $end_date, $group_by = null, string $contentType = self::contentTypes['accountGetUsageHistory'][0])
     {
-        list($response) = $this->accountGetUsageHistoryWithHttpInfo($start_date, $end_date, $contentType);
+        list($response) = $this->accountGetUsageHistoryWithHttpInfo($start_date, $end_date, $group_by, $contentType);
         return $response;
     }
 
     /**
      * Operation accountGetUsageHistoryWithHttpInfo
      *
-     * Get historical usage for the authenticated account over a date range.
+     * Get historical usage for the authenticated account over a date range, summed by UTC calendar month or billing cycle from daily counts.
      *
      * @param  string $start_date Start date (YYYY-MM-DD) for the range (required)
      * @param  string $end_date End date (YYYY-MM-DD) for the range (required)
+     * @param  string|null $group_by calendar (UTC months, default) or billing (account billing cycles) (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountGetUsageHistory'] to see the possible values for this operation
      *
      * @throws \Pingram\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \Pingram\Model\GetUsageHistoryResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function accountGetUsageHistoryWithHttpInfo($start_date, $end_date, string $contentType = self::contentTypes['accountGetUsageHistory'][0])
+    public function accountGetUsageHistoryWithHttpInfo($start_date, $end_date, $group_by = null, string $contentType = self::contentTypes['accountGetUsageHistory'][0])
     {
-        $request = $this->accountGetUsageHistoryRequest($start_date, $end_date, $contentType);
+        $request = $this->accountGetUsageHistoryRequest($start_date, $end_date, $group_by, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1548,18 +1550,19 @@ class AccountApi
     /**
      * Operation accountGetUsageHistoryAsync
      *
-     * Get historical usage for the authenticated account over a date range.
+     * Get historical usage for the authenticated account over a date range, summed by UTC calendar month or billing cycle from daily counts.
      *
      * @param  string $start_date Start date (YYYY-MM-DD) for the range (required)
      * @param  string $end_date End date (YYYY-MM-DD) for the range (required)
+     * @param  string|null $group_by calendar (UTC months, default) or billing (account billing cycles) (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountGetUsageHistory'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function accountGetUsageHistoryAsync($start_date, $end_date, string $contentType = self::contentTypes['accountGetUsageHistory'][0])
+    public function accountGetUsageHistoryAsync($start_date, $end_date, $group_by = null, string $contentType = self::contentTypes['accountGetUsageHistory'][0])
     {
-        return $this->accountGetUsageHistoryAsyncWithHttpInfo($start_date, $end_date, $contentType)
+        return $this->accountGetUsageHistoryAsyncWithHttpInfo($start_date, $end_date, $group_by, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1570,19 +1573,20 @@ class AccountApi
     /**
      * Operation accountGetUsageHistoryAsyncWithHttpInfo
      *
-     * Get historical usage for the authenticated account over a date range.
+     * Get historical usage for the authenticated account over a date range, summed by UTC calendar month or billing cycle from daily counts.
      *
      * @param  string $start_date Start date (YYYY-MM-DD) for the range (required)
      * @param  string $end_date End date (YYYY-MM-DD) for the range (required)
+     * @param  string|null $group_by calendar (UTC months, default) or billing (account billing cycles) (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountGetUsageHistory'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function accountGetUsageHistoryAsyncWithHttpInfo($start_date, $end_date, string $contentType = self::contentTypes['accountGetUsageHistory'][0])
+    public function accountGetUsageHistoryAsyncWithHttpInfo($start_date, $end_date, $group_by = null, string $contentType = self::contentTypes['accountGetUsageHistory'][0])
     {
         $returnType = '\Pingram\Model\GetUsageHistoryResponse';
-        $request = $this->accountGetUsageHistoryRequest($start_date, $end_date, $contentType);
+        $request = $this->accountGetUsageHistoryRequest($start_date, $end_date, $group_by, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1625,12 +1629,13 @@ class AccountApi
      *
      * @param  string $start_date Start date (YYYY-MM-DD) for the range (required)
      * @param  string $end_date End date (YYYY-MM-DD) for the range (required)
+     * @param  string|null $group_by calendar (UTC months, default) or billing (account billing cycles) (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountGetUsageHistory'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function accountGetUsageHistoryRequest($start_date, $end_date, string $contentType = self::contentTypes['accountGetUsageHistory'][0])
+    public function accountGetUsageHistoryRequest($start_date, $end_date, $group_by = null, string $contentType = self::contentTypes['accountGetUsageHistory'][0])
     {
 
         // verify the required parameter 'start_date' is set
@@ -1646,6 +1651,7 @@ class AccountApi
                 'Missing the required parameter $end_date when calling accountGetUsageHistory'
             );
         }
+
 
 
         $resourcePath = '/account/usage/history';
@@ -1672,6 +1678,15 @@ class AccountApi
             'form', // style
             true, // explode
             true // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $group_by,
+            'groupBy', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
         ) ?? []);
 
 

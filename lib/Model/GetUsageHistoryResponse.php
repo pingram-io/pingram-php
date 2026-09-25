@@ -306,7 +306,7 @@ class GetUsageHistoryResponse implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets items
      *
-     * @param \Pingram\Model\GetUsageHistoryResponseItemsInner[] $items Array of usage items, one per month in the requested range
+     * @param \Pingram\Model\GetUsageHistoryResponseItemsInner[] $items Array of usage items, one per calendar month or billing cycle in the range
      *
      * @return self
      */
