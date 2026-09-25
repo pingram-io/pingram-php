@@ -241,8 +241,6 @@ class CreateAccountRequestPlan implements ModelInterface, ArrayAccess, \JsonSeri
     public const TIER_BUDGET_250 = 'budget_250';
     public const TIER_BUDGET_500 = 'budget_500';
     public const TIER_BUDGET_1000 = 'budget_1000';
-    public const TIER_BUDGET_2000 = 'budget_2000';
-    public const TIER_BUDGET_5000 = 'budget_5000';
 
     /**
      * Gets allowable values of the enum
@@ -258,8 +256,6 @@ class CreateAccountRequestPlan implements ModelInterface, ArrayAccess, \JsonSeri
             self::TIER_BUDGET_250,
             self::TIER_BUDGET_500,
             self::TIER_BUDGET_1000,
-            self::TIER_BUDGET_2000,
-            self::TIER_BUDGET_5000,
         ];
     }
 
