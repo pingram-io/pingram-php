@@ -416,7 +416,7 @@ class WebhookEndpointsResponseEndpointsInner implements ModelInterface, ArrayAcc
     /**
      * Sets webhook
      *
-     * @param string $webhook Destination URL that receives webhook event payloads.
+     * @param string $webhook Destination URL that receives signed JSON event payloads.
      *
      * @return self
      */
@@ -443,7 +443,7 @@ class WebhookEndpointsResponseEndpointsInner implements ModelInterface, ArrayAcc
     /**
      * Sets events
      *
-     * @param string[] $events List of subscribed event types for this endpoint.
+     * @param string[] $events Subscribed event types for this endpoint.
      *
      * @return self
      */
@@ -479,7 +479,7 @@ class WebhookEndpointsResponseEndpointsInner implements ModelInterface, ArrayAcc
     /**
      * Sets secret
      *
-     * @param string $secret HMAC secret for verifying webhook signatures. Use this with your X-Pingram-Signature verification.
+     * @param string $secret HMAC secret for verifying X-Pingram-Signature. Returned on create and list; updates keep the same secret. Format: pingram_whsecret_...
      *
      * @return self
      */

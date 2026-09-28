@@ -137,7 +137,7 @@ class WebhooksApi
     /**
      * Operation webhooksCreateWebhook
      *
-     * Create a webhook.
+     * Create a webhook endpoint. Pingram POSTs signed JSON to the URL when one of the subscribed events happens. The response includes id and a signing secret starting with pingram_whsecret_. Save it and verify the X-Pingram-Signature header. Updates keep this secret. At most 10 endpoints per account. The URL must be http or https and should return 2xx.
      *
      * @param  \Pingram\Model\WebhookEndpointUpsertRequest $webhook_endpoint_upsert_request webhook_endpoint_upsert_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['webhooksCreateWebhook'] to see the possible values for this operation
@@ -155,7 +155,7 @@ class WebhooksApi
     /**
      * Operation webhooksCreateWebhookWithHttpInfo
      *
-     * Create a webhook.
+     * Create a webhook endpoint. Pingram POSTs signed JSON to the URL when one of the subscribed events happens. The response includes id and a signing secret starting with pingram_whsecret_. Save it and verify the X-Pingram-Signature header. Updates keep this secret. At most 10 endpoints per account. The URL must be http or https and should return 2xx.
      *
      * @param  \Pingram\Model\WebhookEndpointUpsertRequest $webhook_endpoint_upsert_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['webhooksCreateWebhook'] to see the possible values for this operation
@@ -282,7 +282,7 @@ class WebhooksApi
     /**
      * Operation webhooksCreateWebhookAsync
      *
-     * Create a webhook.
+     * Create a webhook endpoint. Pingram POSTs signed JSON to the URL when one of the subscribed events happens. The response includes id and a signing secret starting with pingram_whsecret_. Save it and verify the X-Pingram-Signature header. Updates keep this secret. At most 10 endpoints per account. The URL must be http or https and should return 2xx.
      *
      * @param  \Pingram\Model\WebhookEndpointUpsertRequest $webhook_endpoint_upsert_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['webhooksCreateWebhook'] to see the possible values for this operation
@@ -303,7 +303,7 @@ class WebhooksApi
     /**
      * Operation webhooksCreateWebhookAsyncWithHttpInfo
      *
-     * Create a webhook.
+     * Create a webhook endpoint. Pingram POSTs signed JSON to the URL when one of the subscribed events happens. The response includes id and a signing secret starting with pingram_whsecret_. Save it and verify the X-Pingram-Signature header. Updates keep this secret. At most 10 endpoints per account. The URL must be http or https and should return 2xx.
      *
      * @param  \Pingram\Model\WebhookEndpointUpsertRequest $webhook_endpoint_upsert_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['webhooksCreateWebhook'] to see the possible values for this operation
@@ -462,9 +462,9 @@ class WebhooksApi
     /**
      * Operation webhooksDeleteWebhook
      *
-     * Delete a webhook.
+     * Delete one webhook endpoint by id from list or create. That URL stops receiving its events. Other endpoints on the account are left as they are.
      *
-     * @param  string $endpoint_id Webhook endpoint id (required)
+     * @param  string $endpoint_id Id of the webhook endpoint, from list or create. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['webhooksDeleteWebhook'] to see the possible values for this operation
      *
      * @throws \Pingram\ApiException on non-2xx response or if the response body is not in the expected format
@@ -479,9 +479,9 @@ class WebhooksApi
     /**
      * Operation webhooksDeleteWebhookWithHttpInfo
      *
-     * Delete a webhook.
+     * Delete one webhook endpoint by id from list or create. That URL stops receiving its events. Other endpoints on the account are left as they are.
      *
-     * @param  string $endpoint_id Webhook endpoint id (required)
+     * @param  string $endpoint_id Id of the webhook endpoint, from list or create. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['webhooksDeleteWebhook'] to see the possible values for this operation
      *
      * @throws \Pingram\ApiException on non-2xx response or if the response body is not in the expected format
@@ -552,9 +552,9 @@ class WebhooksApi
     /**
      * Operation webhooksDeleteWebhookAsync
      *
-     * Delete a webhook.
+     * Delete one webhook endpoint by id from list or create. That URL stops receiving its events. Other endpoints on the account are left as they are.
      *
-     * @param  string $endpoint_id Webhook endpoint id (required)
+     * @param  string $endpoint_id Id of the webhook endpoint, from list or create. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['webhooksDeleteWebhook'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -573,9 +573,9 @@ class WebhooksApi
     /**
      * Operation webhooksDeleteWebhookAsyncWithHttpInfo
      *
-     * Delete a webhook.
+     * Delete one webhook endpoint by id from list or create. That URL stops receiving its events. Other endpoints on the account are left as they are.
      *
-     * @param  string $endpoint_id Webhook endpoint id (required)
+     * @param  string $endpoint_id Id of the webhook endpoint, from list or create. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['webhooksDeleteWebhook'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -612,7 +612,7 @@ class WebhooksApi
     /**
      * Create request for operation 'webhooksDeleteWebhook'
      *
-     * @param  string $endpoint_id Webhook endpoint id (required)
+     * @param  string $endpoint_id Id of the webhook endpoint, from list or create. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['webhooksDeleteWebhook'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -720,7 +720,7 @@ class WebhooksApi
     /**
      * Operation webhooksListWebhooks
      *
-     * List webhooks for the current account.
+     * List webhook endpoints on the current account, including each id, URL, subscribed events, and signing secret. Use the id with update or delete.
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['webhooksListWebhooks'] to see the possible values for this operation
      *
@@ -737,7 +737,7 @@ class WebhooksApi
     /**
      * Operation webhooksListWebhooksWithHttpInfo
      *
-     * List webhooks for the current account.
+     * List webhook endpoints on the current account, including each id, URL, subscribed events, and signing secret. Use the id with update or delete.
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['webhooksListWebhooks'] to see the possible values for this operation
      *
@@ -863,7 +863,7 @@ class WebhooksApi
     /**
      * Operation webhooksListWebhooksAsync
      *
-     * List webhooks for the current account.
+     * List webhook endpoints on the current account, including each id, URL, subscribed events, and signing secret. Use the id with update or delete.
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['webhooksListWebhooks'] to see the possible values for this operation
      *
@@ -883,7 +883,7 @@ class WebhooksApi
     /**
      * Operation webhooksListWebhooksAsyncWithHttpInfo
      *
-     * List webhooks for the current account.
+     * List webhook endpoints on the current account, including each id, URL, subscribed events, and signing secret. Use the id with update or delete.
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['webhooksListWebhooks'] to see the possible values for this operation
      *
@@ -1026,9 +1026,9 @@ class WebhooksApi
     /**
      * Operation webhooksUpdateWebhook
      *
-     * Update a webhook. The signing secret is preserved.
+     * Replace one webhook endpoint&#39;s URL and its full event subscription. endpointId comes from list or create. The signing secret stays the same. events is the complete set; omitting an event unsubscribes it. The URL must be http or https.
      *
-     * @param  string $endpoint_id Webhook endpoint id (required)
+     * @param  string $endpoint_id Id of the webhook endpoint, from list or create. (required)
      * @param  \Pingram\Model\WebhookEndpointUpsertRequest $webhook_endpoint_upsert_request webhook_endpoint_upsert_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['webhooksUpdateWebhook'] to see the possible values for this operation
      *
@@ -1045,9 +1045,9 @@ class WebhooksApi
     /**
      * Operation webhooksUpdateWebhookWithHttpInfo
      *
-     * Update a webhook. The signing secret is preserved.
+     * Replace one webhook endpoint&#39;s URL and its full event subscription. endpointId comes from list or create. The signing secret stays the same. events is the complete set; omitting an event unsubscribes it. The URL must be http or https.
      *
-     * @param  string $endpoint_id Webhook endpoint id (required)
+     * @param  string $endpoint_id Id of the webhook endpoint, from list or create. (required)
      * @param  \Pingram\Model\WebhookEndpointUpsertRequest $webhook_endpoint_upsert_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['webhooksUpdateWebhook'] to see the possible values for this operation
      *
@@ -1173,9 +1173,9 @@ class WebhooksApi
     /**
      * Operation webhooksUpdateWebhookAsync
      *
-     * Update a webhook. The signing secret is preserved.
+     * Replace one webhook endpoint&#39;s URL and its full event subscription. endpointId comes from list or create. The signing secret stays the same. events is the complete set; omitting an event unsubscribes it. The URL must be http or https.
      *
-     * @param  string $endpoint_id Webhook endpoint id (required)
+     * @param  string $endpoint_id Id of the webhook endpoint, from list or create. (required)
      * @param  \Pingram\Model\WebhookEndpointUpsertRequest $webhook_endpoint_upsert_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['webhooksUpdateWebhook'] to see the possible values for this operation
      *
@@ -1195,9 +1195,9 @@ class WebhooksApi
     /**
      * Operation webhooksUpdateWebhookAsyncWithHttpInfo
      *
-     * Update a webhook. The signing secret is preserved.
+     * Replace one webhook endpoint&#39;s URL and its full event subscription. endpointId comes from list or create. The signing secret stays the same. events is the complete set; omitting an event unsubscribes it. The URL must be http or https.
      *
-     * @param  string $endpoint_id Webhook endpoint id (required)
+     * @param  string $endpoint_id Id of the webhook endpoint, from list or create. (required)
      * @param  \Pingram\Model\WebhookEndpointUpsertRequest $webhook_endpoint_upsert_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['webhooksUpdateWebhook'] to see the possible values for this operation
      *
@@ -1248,7 +1248,7 @@ class WebhooksApi
     /**
      * Create request for operation 'webhooksUpdateWebhook'
      *
-     * @param  string $endpoint_id Webhook endpoint id (required)
+     * @param  string $endpoint_id Id of the webhook endpoint, from list or create. (required)
      * @param  \Pingram\Model\WebhookEndpointUpsertRequest $webhook_endpoint_upsert_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['webhooksUpdateWebhook'] to see the possible values for this operation
      *
