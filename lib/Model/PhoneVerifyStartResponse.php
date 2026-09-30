@@ -57,7 +57,8 @@ class PhoneVerifyStartResponse implements ModelInterface, ArrayAccess, \JsonSeri
       * @var string[]
       */
     protected static $openAPITypes = [
-        'started' => 'bool'
+        'started' => 'bool',
+        'resend_after_seconds' => 'float'
     ];
 
     /**
@@ -68,7 +69,8 @@ class PhoneVerifyStartResponse implements ModelInterface, ArrayAccess, \JsonSeri
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'started' => null
+        'started' => null,
+        'resend_after_seconds' => null
     ];
 
     /**
@@ -77,7 +79,8 @@ class PhoneVerifyStartResponse implements ModelInterface, ArrayAccess, \JsonSeri
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'started' => false
+        'started' => false,
+        'resend_after_seconds' => false
     ];
 
     /**
@@ -166,7 +169,8 @@ class PhoneVerifyStartResponse implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $attributeMap = [
-        'started' => 'started'
+        'started' => 'started',
+        'resend_after_seconds' => 'resendAfterSeconds'
     ];
 
     /**
@@ -175,7 +179,8 @@ class PhoneVerifyStartResponse implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $setters = [
-        'started' => 'setStarted'
+        'started' => 'setStarted',
+        'resend_after_seconds' => 'setResendAfterSeconds'
     ];
 
     /**
@@ -184,7 +189,8 @@ class PhoneVerifyStartResponse implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $getters = [
-        'started' => 'getStarted'
+        'started' => 'getStarted',
+        'resend_after_seconds' => 'getResendAfterSeconds'
     ];
 
     /**
@@ -245,6 +251,7 @@ class PhoneVerifyStartResponse implements ModelInterface, ArrayAccess, \JsonSeri
     public function __construct(?array $data = null)
     {
         $this->setIfExists('started', $data ?? [], null);
+        $this->setIfExists('resend_after_seconds', $data ?? [], null);
     }
 
     /**
@@ -315,6 +322,33 @@ class PhoneVerifyStartResponse implements ModelInterface, ArrayAccess, \JsonSeri
             throw new \InvalidArgumentException('non-nullable started cannot be null');
         }
         $this->container['started'] = $started;
+
+        return $this;
+    }
+
+    /**
+     * Gets resend_after_seconds
+     *
+     * @return float|null
+     */
+    public function getResendAfterSeconds()
+    {
+        return $this->container['resend_after_seconds'];
+    }
+
+    /**
+     * Sets resend_after_seconds
+     *
+     * @param float|null $resend_after_seconds Seconds until this signup can request another code for the same number.
+     *
+     * @return self
+     */
+    public function setResendAfterSeconds($resend_after_seconds)
+    {
+        if (is_null($resend_after_seconds)) {
+            throw new \InvalidArgumentException('non-nullable resend_after_seconds cannot be null');
+        }
+        $this->container['resend_after_seconds'] = $resend_after_seconds;
 
         return $this;
     }
