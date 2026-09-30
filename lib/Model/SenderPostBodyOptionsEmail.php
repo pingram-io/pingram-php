@@ -63,6 +63,8 @@ class SenderPostBodyOptionsEmail implements ModelInterface, ArrayAccess, \JsonSe
         'bcc_addresses' => 'string[]',
         'from_address' => 'string',
         'from_name' => 'string',
+        'open_tracking' => 'bool',
+        'click_tracking' => 'bool',
         'attachments' => '\Pingram\Model\SenderPostBodyOptionsEmailAttachmentsInner[]'
     ];
 
@@ -79,6 +81,8 @@ class SenderPostBodyOptionsEmail implements ModelInterface, ArrayAccess, \JsonSe
         'bcc_addresses' => null,
         'from_address' => null,
         'from_name' => null,
+        'open_tracking' => null,
+        'click_tracking' => null,
         'attachments' => null
     ];
 
@@ -93,6 +97,8 @@ class SenderPostBodyOptionsEmail implements ModelInterface, ArrayAccess, \JsonSe
         'bcc_addresses' => false,
         'from_address' => false,
         'from_name' => false,
+        'open_tracking' => false,
+        'click_tracking' => false,
         'attachments' => false
     ];
 
@@ -187,6 +193,8 @@ class SenderPostBodyOptionsEmail implements ModelInterface, ArrayAccess, \JsonSe
         'bcc_addresses' => 'bccAddresses',
         'from_address' => 'fromAddress',
         'from_name' => 'fromName',
+        'open_tracking' => 'openTracking',
+        'click_tracking' => 'clickTracking',
         'attachments' => 'attachments'
     ];
 
@@ -201,6 +209,8 @@ class SenderPostBodyOptionsEmail implements ModelInterface, ArrayAccess, \JsonSe
         'bcc_addresses' => 'setBccAddresses',
         'from_address' => 'setFromAddress',
         'from_name' => 'setFromName',
+        'open_tracking' => 'setOpenTracking',
+        'click_tracking' => 'setClickTracking',
         'attachments' => 'setAttachments'
     ];
 
@@ -215,6 +225,8 @@ class SenderPostBodyOptionsEmail implements ModelInterface, ArrayAccess, \JsonSe
         'bcc_addresses' => 'getBccAddresses',
         'from_address' => 'getFromAddress',
         'from_name' => 'getFromName',
+        'open_tracking' => 'getOpenTracking',
+        'click_tracking' => 'getClickTracking',
         'attachments' => 'getAttachments'
     ];
 
@@ -280,6 +292,8 @@ class SenderPostBodyOptionsEmail implements ModelInterface, ArrayAccess, \JsonSe
         $this->setIfExists('bcc_addresses', $data ?? [], null);
         $this->setIfExists('from_address', $data ?? [], null);
         $this->setIfExists('from_name', $data ?? [], null);
+        $this->setIfExists('open_tracking', $data ?? [], null);
+        $this->setIfExists('click_tracking', $data ?? [], null);
         $this->setIfExists('attachments', $data ?? [], null);
     }
 
@@ -456,6 +470,60 @@ class SenderPostBodyOptionsEmail implements ModelInterface, ArrayAccess, \JsonSe
             throw new \InvalidArgumentException('non-nullable from_name cannot be null');
         }
         $this->container['from_name'] = $from_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets open_tracking
+     *
+     * @return bool|null
+     */
+    public function getOpenTracking()
+    {
+        return $this->container['open_tracking'];
+    }
+
+    /**
+     * Sets open_tracking
+     *
+     * @param bool|null $open_tracking When false, this send does not record opens and no open pixel is added. Delivery, bounce, and complaint events are unchanged. Defaults to true.
+     *
+     * @return self
+     */
+    public function setOpenTracking($open_tracking)
+    {
+        if (is_null($open_tracking)) {
+            throw new \InvalidArgumentException('non-nullable open_tracking cannot be null');
+        }
+        $this->container['open_tracking'] = $open_tracking;
+
+        return $this;
+    }
+
+    /**
+     * Gets click_tracking
+     *
+     * @return bool|null
+     */
+    public function getClickTracking()
+    {
+        return $this->container['click_tracking'];
+    }
+
+    /**
+     * Sets click_tracking
+     *
+     * @param bool|null $click_tracking When false, links are left as written and clicks are not recorded. Delivery, bounce, and complaint events are unchanged. Defaults to true.
+     *
+     * @return self
+     */
+    public function setClickTracking($click_tracking)
+    {
+        if (is_null($click_tracking)) {
+            throw new \InvalidArgumentException('non-nullable click_tracking cannot be null');
+        }
+        $this->container['click_tracking'] = $click_tracking;
 
         return $this;
     }

@@ -9,6 +9,8 @@ Name | Type | Description | Notes
 **bcc_addresses** | **string[]** | BCC recipients. | [optional]
 **from_address** | **string** | Override sender email address. | [optional]
 **from_name** | **string** | Override sender display name. | [optional]
+**open_tracking** | **bool** | When false, this send does not record opens and no open pixel is added. Delivery, bounce, and complaint events are unchanged. Defaults to true. | [optional]
+**click_tracking** | **bool** | When false, links are left as written and clicks are not recorded. Delivery, bounce, and complaint events are unchanged. Defaults to true. | [optional]
 **attachments** | [**\Pingram\Model\SenderPostBodyOptionsEmailAttachmentsInner[]**](SenderPostBodyOptionsEmailAttachmentsInner.md) | File attachments (by URL or inline base64 content). Inline &#x60;content&#x60;: ~4 MB raw per file (413 if exceeded). URL &#x60;url&#x60;: up to 20 MB per file. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

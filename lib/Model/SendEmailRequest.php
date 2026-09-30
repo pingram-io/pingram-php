@@ -68,6 +68,8 @@ class SendEmailRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'reply_to_addresses' => 'string[]',
         'cc_addresses' => 'string[]',
         'bcc_addresses' => 'string[]',
+        'open_tracking' => 'bool',
+        'click_tracking' => 'bool',
         'attachments' => '\Pingram\Model\SendEmailRequestAttachmentsInner[]',
         'schedule' => 'string'
     ];
@@ -90,6 +92,8 @@ class SendEmailRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'reply_to_addresses' => null,
         'cc_addresses' => null,
         'bcc_addresses' => null,
+        'open_tracking' => null,
+        'click_tracking' => null,
         'attachments' => null,
         'schedule' => null
     ];
@@ -110,6 +114,8 @@ class SendEmailRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'reply_to_addresses' => false,
         'cc_addresses' => false,
         'bcc_addresses' => false,
+        'open_tracking' => false,
+        'click_tracking' => false,
         'attachments' => false,
         'schedule' => false
     ];
@@ -210,6 +216,8 @@ class SendEmailRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'reply_to_addresses' => 'replyToAddresses',
         'cc_addresses' => 'ccAddresses',
         'bcc_addresses' => 'bccAddresses',
+        'open_tracking' => 'openTracking',
+        'click_tracking' => 'clickTracking',
         'attachments' => 'attachments',
         'schedule' => 'schedule'
     ];
@@ -230,6 +238,8 @@ class SendEmailRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'reply_to_addresses' => 'setReplyToAddresses',
         'cc_addresses' => 'setCcAddresses',
         'bcc_addresses' => 'setBccAddresses',
+        'open_tracking' => 'setOpenTracking',
+        'click_tracking' => 'setClickTracking',
         'attachments' => 'setAttachments',
         'schedule' => 'setSchedule'
     ];
@@ -250,6 +260,8 @@ class SendEmailRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'reply_to_addresses' => 'getReplyToAddresses',
         'cc_addresses' => 'getCcAddresses',
         'bcc_addresses' => 'getBccAddresses',
+        'open_tracking' => 'getOpenTracking',
+        'click_tracking' => 'getClickTracking',
         'attachments' => 'getAttachments',
         'schedule' => 'getSchedule'
     ];
@@ -321,6 +333,8 @@ class SendEmailRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('reply_to_addresses', $data ?? [], null);
         $this->setIfExists('cc_addresses', $data ?? [], null);
         $this->setIfExists('bcc_addresses', $data ?? [], null);
+        $this->setIfExists('open_tracking', $data ?? [], null);
+        $this->setIfExists('click_tracking', $data ?? [], null);
         $this->setIfExists('attachments', $data ?? [], null);
         $this->setIfExists('schedule', $data ?? [], null);
     }
@@ -645,6 +659,60 @@ class SendEmailRequest implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable bcc_addresses cannot be null');
         }
         $this->container['bcc_addresses'] = $bcc_addresses;
+
+        return $this;
+    }
+
+    /**
+     * Gets open_tracking
+     *
+     * @return bool|null
+     */
+    public function getOpenTracking()
+    {
+        return $this->container['open_tracking'];
+    }
+
+    /**
+     * Sets open_tracking
+     *
+     * @param bool|null $open_tracking When false, this send does not record opens and no open pixel is added. Delivery, bounce, and complaint events are unchanged. Defaults to true.
+     *
+     * @return self
+     */
+    public function setOpenTracking($open_tracking)
+    {
+        if (is_null($open_tracking)) {
+            throw new \InvalidArgumentException('non-nullable open_tracking cannot be null');
+        }
+        $this->container['open_tracking'] = $open_tracking;
+
+        return $this;
+    }
+
+    /**
+     * Gets click_tracking
+     *
+     * @return bool|null
+     */
+    public function getClickTracking()
+    {
+        return $this->container['click_tracking'];
+    }
+
+    /**
+     * Sets click_tracking
+     *
+     * @param bool|null $click_tracking When false, links are left as written and clicks are not recorded. Delivery, bounce, and complaint events are unchanged. Defaults to true.
+     *
+     * @return self
+     */
+    public function setClickTracking($click_tracking)
+    {
+        if (is_null($click_tracking)) {
+            throw new \InvalidArgumentException('non-nullable click_tracking cannot be null');
+        }
+        $this->container['click_tracking'] = $click_tracking;
 
         return $this;
     }

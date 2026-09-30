@@ -14,6 +14,8 @@ Name | Type | Description | Notes
 **reply_to_addresses** | **string[]** | The reply-to addresses of the email. | [optional]
 **cc_addresses** | **string[]** | The CC addresses of the email. | [optional]
 **bcc_addresses** | **string[]** | The BCC addresses of the email. | [optional]
+**open_tracking** | **bool** | When false, this send does not record opens and no open pixel is added. Delivery, bounce, and complaint events are unchanged. Defaults to true. | [optional]
+**click_tracking** | **bool** | When false, links are left as written and clicks are not recorded. Delivery, bounce, and complaint events are unchanged. Defaults to true. | [optional]
 **attachments** | [**\Pingram\Model\SendEmailRequestAttachmentsInner[]**](SendEmailRequestAttachmentsInner.md) | URL-based file attachments. Up to 20 MB per file. | [optional]
 **schedule** | **string** | The ISO 8601 datetime to schedule the email. | [optional]
 
