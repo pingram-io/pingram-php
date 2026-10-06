@@ -256,6 +256,7 @@ class WebhookEndpointUpsertRequest implements ModelInterface, ArrayAccess, \Json
     public const EVENTS_WEB_PUSH_UNSUBSCRIBE = 'WEB_PUSH_UNSUBSCRIBE';
     public const EVENTS_SLACK_FAILED = 'SLACK_FAILED';
     public const EVENTS_SLACK_UNSUBSCRIBE = 'SLACK_UNSUBSCRIBE';
+    public const EVENTS_ACCOUNT_USAGE = 'ACCOUNT_USAGE';
 
     /**
      * Gets allowable values of the enum
@@ -286,6 +287,7 @@ class WebhookEndpointUpsertRequest implements ModelInterface, ArrayAccess, \Json
             self::EVENTS_WEB_PUSH_UNSUBSCRIBE,
             self::EVENTS_SLACK_FAILED,
             self::EVENTS_SLACK_UNSUBSCRIBE,
+            self::EVENTS_ACCOUNT_USAGE,
         ];
     }
 

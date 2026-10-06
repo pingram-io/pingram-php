@@ -4356,7 +4356,7 @@ class AccountApi
     /**
      * Operation accountUpdateAccountSettings
      *
-     * Update account billing preferences such as auto upgrade.
+     * Update account billing preferences such as auto upgrade and usage email alerts.
      *
      * @param  \Pingram\Model\AccountPatchRequest $account_patch_request account_patch_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountUpdateAccountSettings'] to see the possible values for this operation
@@ -4374,7 +4374,7 @@ class AccountApi
     /**
      * Operation accountUpdateAccountSettingsWithHttpInfo
      *
-     * Update account billing preferences such as auto upgrade.
+     * Update account billing preferences such as auto upgrade and usage email alerts.
      *
      * @param  \Pingram\Model\AccountPatchRequest $account_patch_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountUpdateAccountSettings'] to see the possible values for this operation
@@ -4501,7 +4501,7 @@ class AccountApi
     /**
      * Operation accountUpdateAccountSettingsAsync
      *
-     * Update account billing preferences such as auto upgrade.
+     * Update account billing preferences such as auto upgrade and usage email alerts.
      *
      * @param  \Pingram\Model\AccountPatchRequest $account_patch_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountUpdateAccountSettings'] to see the possible values for this operation
@@ -4522,7 +4522,7 @@ class AccountApi
     /**
      * Operation accountUpdateAccountSettingsAsyncWithHttpInfo
      *
-     * Update account billing preferences such as auto upgrade.
+     * Update account billing preferences such as auto upgrade and usage email alerts.
      *
      * @param  \Pingram\Model\AccountPatchRequest $account_patch_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountUpdateAccountSettings'] to see the possible values for this operation

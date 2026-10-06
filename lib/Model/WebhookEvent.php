@@ -65,7 +65,15 @@ class WebhookEvent implements ModelInterface, ArrayAccess, \JsonSerializable
         'tracking_id' => 'string',
         'failure_code' => 'string',
         'clicked_link' => 'string',
-        'clicked_link_tags' => 'array<string,string[]>'
+        'clicked_link_tags' => 'array<string,string[]>',
+        'account_id' => 'string',
+        'year_month_day' => 'string',
+        'resets_on' => 'string',
+        'percent' => 'float',
+        'spent' => 'float',
+        'cost_cap' => 'float',
+        'auto_upgrade' => 'bool',
+        'usage' => 'array<string,\Pingram\Model\WebhookEventUsageValue>'
     ];
 
     /**
@@ -83,7 +91,15 @@ class WebhookEvent implements ModelInterface, ArrayAccess, \JsonSerializable
         'tracking_id' => null,
         'failure_code' => null,
         'clicked_link' => null,
-        'clicked_link_tags' => null
+        'clicked_link_tags' => null,
+        'account_id' => null,
+        'year_month_day' => null,
+        'resets_on' => null,
+        'percent' => null,
+        'spent' => null,
+        'cost_cap' => null,
+        'auto_upgrade' => null,
+        'usage' => null
     ];
 
     /**
@@ -99,7 +115,15 @@ class WebhookEvent implements ModelInterface, ArrayAccess, \JsonSerializable
         'tracking_id' => false,
         'failure_code' => false,
         'clicked_link' => false,
-        'clicked_link_tags' => false
+        'clicked_link_tags' => false,
+        'account_id' => false,
+        'year_month_day' => false,
+        'resets_on' => false,
+        'percent' => false,
+        'spent' => false,
+        'cost_cap' => false,
+        'auto_upgrade' => false,
+        'usage' => false
     ];
 
     /**
@@ -195,7 +219,15 @@ class WebhookEvent implements ModelInterface, ArrayAccess, \JsonSerializable
         'tracking_id' => 'trackingId',
         'failure_code' => 'failureCode',
         'clicked_link' => 'clickedLink',
-        'clicked_link_tags' => 'clickedLinkTags'
+        'clicked_link_tags' => 'clickedLinkTags',
+        'account_id' => 'accountId',
+        'year_month_day' => 'yearMonthDay',
+        'resets_on' => 'resetsOn',
+        'percent' => 'percent',
+        'spent' => 'spent',
+        'cost_cap' => 'costCap',
+        'auto_upgrade' => 'autoUpgrade',
+        'usage' => 'usage'
     ];
 
     /**
@@ -211,7 +243,15 @@ class WebhookEvent implements ModelInterface, ArrayAccess, \JsonSerializable
         'tracking_id' => 'setTrackingId',
         'failure_code' => 'setFailureCode',
         'clicked_link' => 'setClickedLink',
-        'clicked_link_tags' => 'setClickedLinkTags'
+        'clicked_link_tags' => 'setClickedLinkTags',
+        'account_id' => 'setAccountId',
+        'year_month_day' => 'setYearMonthDay',
+        'resets_on' => 'setResetsOn',
+        'percent' => 'setPercent',
+        'spent' => 'setSpent',
+        'cost_cap' => 'setCostCap',
+        'auto_upgrade' => 'setAutoUpgrade',
+        'usage' => 'setUsage'
     ];
 
     /**
@@ -227,7 +267,15 @@ class WebhookEvent implements ModelInterface, ArrayAccess, \JsonSerializable
         'tracking_id' => 'getTrackingId',
         'failure_code' => 'getFailureCode',
         'clicked_link' => 'getClickedLink',
-        'clicked_link_tags' => 'getClickedLinkTags'
+        'clicked_link_tags' => 'getClickedLinkTags',
+        'account_id' => 'getAccountId',
+        'year_month_day' => 'getYearMonthDay',
+        'resets_on' => 'getResetsOn',
+        'percent' => 'getPercent',
+        'spent' => 'getSpent',
+        'cost_cap' => 'getCostCap',
+        'auto_upgrade' => 'getAutoUpgrade',
+        'usage' => 'getUsage'
     ];
 
     /**
@@ -292,6 +340,7 @@ class WebhookEvent implements ModelInterface, ArrayAccess, \JsonSerializable
     public const EVENT_TYPE_WEB_PUSH_UNSUBSCRIBE = 'WEB_PUSH_UNSUBSCRIBE';
     public const EVENT_TYPE_SLACK_FAILED = 'SLACK_FAILED';
     public const EVENT_TYPE_SLACK_UNSUBSCRIBE = 'SLACK_UNSUBSCRIBE';
+    public const EVENT_TYPE_ACCOUNT_USAGE = 'ACCOUNT_USAGE';
 
     /**
      * Gets allowable values of the enum
@@ -322,6 +371,7 @@ class WebhookEvent implements ModelInterface, ArrayAccess, \JsonSerializable
             self::EVENT_TYPE_WEB_PUSH_UNSUBSCRIBE,
             self::EVENT_TYPE_SLACK_FAILED,
             self::EVENT_TYPE_SLACK_UNSUBSCRIBE,
+            self::EVENT_TYPE_ACCOUNT_USAGE,
         ];
     }
 
@@ -348,6 +398,14 @@ class WebhookEvent implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('failure_code', $data ?? [], null);
         $this->setIfExists('clicked_link', $data ?? [], null);
         $this->setIfExists('clicked_link_tags', $data ?? [], null);
+        $this->setIfExists('account_id', $data ?? [], null);
+        $this->setIfExists('year_month_day', $data ?? [], null);
+        $this->setIfExists('resets_on', $data ?? [], null);
+        $this->setIfExists('percent', $data ?? [], null);
+        $this->setIfExists('spent', $data ?? [], null);
+        $this->setIfExists('cost_cap', $data ?? [], null);
+        $this->setIfExists('auto_upgrade', $data ?? [], null);
+        $this->setIfExists('usage', $data ?? [], null);
     }
 
     /**
@@ -638,6 +696,222 @@ class WebhookEvent implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable clicked_link_tags cannot be null');
         }
         $this->container['clicked_link_tags'] = $clicked_link_tags;
+
+        return $this;
+    }
+
+    /**
+     * Gets account_id
+     *
+     * @return string|null
+     */
+    public function getAccountId()
+    {
+        return $this->container['account_id'];
+    }
+
+    /**
+     * Sets account_id
+     *
+     * @param string|null $account_id Account id, for ACCOUNT_USAGE.
+     *
+     * @return self
+     */
+    public function setAccountId($account_id)
+    {
+        if (is_null($account_id)) {
+            throw new \InvalidArgumentException('non-nullable account_id cannot be null');
+        }
+        $this->container['account_id'] = $account_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets year_month_day
+     *
+     * @return string|null
+     */
+    public function getYearMonthDay()
+    {
+        return $this->container['year_month_day'];
+    }
+
+    /**
+     * Sets year_month_day
+     *
+     * @param string|null $year_month_day Billing period start (YYYY-MM-DD), for ACCOUNT_USAGE.
+     *
+     * @return self
+     */
+    public function setYearMonthDay($year_month_day)
+    {
+        if (is_null($year_month_day)) {
+            throw new \InvalidArgumentException('non-nullable year_month_day cannot be null');
+        }
+        $this->container['year_month_day'] = $year_month_day;
+
+        return $this;
+    }
+
+    /**
+     * Gets resets_on
+     *
+     * @return string|null
+     */
+    public function getResetsOn()
+    {
+        return $this->container['resets_on'];
+    }
+
+    /**
+     * Sets resets_on
+     *
+     * @param string|null $resets_on Date the monthly budget resets (YYYY-MM-DD), for ACCOUNT_USAGE.
+     *
+     * @return self
+     */
+    public function setResetsOn($resets_on)
+    {
+        if (is_null($resets_on)) {
+            throw new \InvalidArgumentException('non-nullable resets_on cannot be null');
+        }
+        $this->container['resets_on'] = $resets_on;
+
+        return $this;
+    }
+
+    /**
+     * Gets percent
+     *
+     * @return float|null
+     */
+    public function getPercent()
+    {
+        return $this->container['percent'];
+    }
+
+    /**
+     * Sets percent
+     *
+     * @param float|null $percent Whole percent of the monthly budget used, for ACCOUNT_USAGE.
+     *
+     * @return self
+     */
+    public function setPercent($percent)
+    {
+        if (is_null($percent)) {
+            throw new \InvalidArgumentException('non-nullable percent cannot be null');
+        }
+        $this->container['percent'] = $percent;
+
+        return $this;
+    }
+
+    /**
+     * Gets spent
+     *
+     * @return float|null
+     */
+    public function getSpent()
+    {
+        return $this->container['spent'];
+    }
+
+    /**
+     * Sets spent
+     *
+     * @param float|null $spent Amount spent against the monthly budget, for ACCOUNT_USAGE.
+     *
+     * @return self
+     */
+    public function setSpent($spent)
+    {
+        if (is_null($spent)) {
+            throw new \InvalidArgumentException('non-nullable spent cannot be null');
+        }
+        $this->container['spent'] = $spent;
+
+        return $this;
+    }
+
+    /**
+     * Gets cost_cap
+     *
+     * @return float|null
+     */
+    public function getCostCap()
+    {
+        return $this->container['cost_cap'];
+    }
+
+    /**
+     * Sets cost_cap
+     *
+     * @param float|null $cost_cap Monthly budget the percent was measured against, for ACCOUNT_USAGE.
+     *
+     * @return self
+     */
+    public function setCostCap($cost_cap)
+    {
+        if (is_null($cost_cap)) {
+            throw new \InvalidArgumentException('non-nullable cost_cap cannot be null');
+        }
+        $this->container['cost_cap'] = $cost_cap;
+
+        return $this;
+    }
+
+    /**
+     * Gets auto_upgrade
+     *
+     * @return bool|null
+     */
+    public function getAutoUpgrade()
+    {
+        return $this->container['auto_upgrade'];
+    }
+
+    /**
+     * Sets auto_upgrade
+     *
+     * @param bool|null $auto_upgrade Whether the account raises its budget automatically, for ACCOUNT_USAGE.
+     *
+     * @return self
+     */
+    public function setAutoUpgrade($auto_upgrade)
+    {
+        if (is_null($auto_upgrade)) {
+            throw new \InvalidArgumentException('non-nullable auto_upgrade cannot be null');
+        }
+        $this->container['auto_upgrade'] = $auto_upgrade;
+
+        return $this;
+    }
+
+    /**
+     * Gets usage
+     *
+     * @return array<string,\Pingram\Model\WebhookEventUsageValue>|null
+     */
+    public function getUsage()
+    {
+        return $this->container['usage'];
+    }
+
+    /**
+     * Sets usage
+     *
+     * @param array<string,\Pingram\Model\WebhookEventUsageValue>|null $usage Per-channel volume and cost for the current period, for ACCOUNT_USAGE.
+     *
+     * @return self
+     */
+    public function setUsage($usage)
+    {
+        if (is_null($usage)) {
+            throw new \InvalidArgumentException('non-nullable usage cannot be null');
+        }
+        $this->container['usage'] = $usage;
 
         return $this;
     }

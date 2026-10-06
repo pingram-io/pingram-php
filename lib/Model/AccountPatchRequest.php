@@ -58,7 +58,8 @@ class AccountPatchRequest implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'auto_upgrade' => 'bool'
+        'auto_upgrade' => 'bool',
+        'billing_alerts' => '\Pingram\Model\AccountGetResponseBillingAlerts'
     ];
 
     /**
@@ -69,7 +70,8 @@ class AccountPatchRequest implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'auto_upgrade' => null
+        'auto_upgrade' => null,
+        'billing_alerts' => null
     ];
 
     /**
@@ -78,7 +80,8 @@ class AccountPatchRequest implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'auto_upgrade' => false
+        'auto_upgrade' => false,
+        'billing_alerts' => false
     ];
 
     /**
@@ -167,7 +170,8 @@ class AccountPatchRequest implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'auto_upgrade' => 'autoUpgrade'
+        'auto_upgrade' => 'autoUpgrade',
+        'billing_alerts' => 'billingAlerts'
     ];
 
     /**
@@ -176,7 +180,8 @@ class AccountPatchRequest implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'auto_upgrade' => 'setAutoUpgrade'
+        'auto_upgrade' => 'setAutoUpgrade',
+        'billing_alerts' => 'setBillingAlerts'
     ];
 
     /**
@@ -185,7 +190,8 @@ class AccountPatchRequest implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'auto_upgrade' => 'getAutoUpgrade'
+        'auto_upgrade' => 'getAutoUpgrade',
+        'billing_alerts' => 'getBillingAlerts'
     ];
 
     /**
@@ -246,6 +252,7 @@ class AccountPatchRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     public function __construct(?array $data = null)
     {
         $this->setIfExists('auto_upgrade', $data ?? [], null);
+        $this->setIfExists('billing_alerts', $data ?? [], null);
     }
 
     /**
@@ -313,6 +320,33 @@ class AccountPatchRequest implements ModelInterface, ArrayAccess, \JsonSerializa
             throw new \InvalidArgumentException('non-nullable auto_upgrade cannot be null');
         }
         $this->container['auto_upgrade'] = $auto_upgrade;
+
+        return $this;
+    }
+
+    /**
+     * Gets billing_alerts
+     *
+     * @return \Pingram\Model\AccountGetResponseBillingAlerts|null
+     */
+    public function getBillingAlerts()
+    {
+        return $this->container['billing_alerts'];
+    }
+
+    /**
+     * Sets billing_alerts
+     *
+     * @param \Pingram\Model\AccountGetResponseBillingAlerts|null $billing_alerts billing_alerts
+     *
+     * @return self
+     */
+    public function setBillingAlerts($billing_alerts)
+    {
+        if (is_null($billing_alerts)) {
+            throw new \InvalidArgumentException('non-nullable billing_alerts cannot be null');
+        }
+        $this->container['billing_alerts'] = $billing_alerts;
 
         return $this;
     }

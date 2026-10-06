@@ -35,7 +35,7 @@ use \Pingram\ObjectSerializer;
  * SenderPostBodySms Class Doc Comment
  *
  * @category Class
- * @description Inline SMS content (message, autoReply, from, mediaUrls).
+ * @description Inline SMS content (message, from, mediaUrls).
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -369,6 +369,7 @@ class SenderPostBodySms implements ModelInterface, ArrayAccess, \JsonSerializabl
      * Gets auto_reply
      *
      * @return \Pingram\Model\SenderPostBodySmsAutoReply|null
+     * @deprecated
      */
     public function getAutoReply()
     {
@@ -381,6 +382,7 @@ class SenderPostBodySms implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @param \Pingram\Model\SenderPostBodySmsAutoReply|null $auto_reply auto_reply
      *
      * @return self
+     * @deprecated
      */
     public function setAutoReply($auto_reply)
     {

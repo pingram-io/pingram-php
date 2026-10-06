@@ -76,6 +76,7 @@ class BillingPostResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
         'pending_downgrade_cost_cap' => 'float',
         'pending_downgrade_account_type' => 'string',
         'auto_upgrade' => 'bool',
+        'billing_alerts' => '\Pingram\Model\AccountGetResponseBillingAlerts',
         'session_id' => 'string',
         'url' => 'string'
     ];
@@ -106,6 +107,7 @@ class BillingPostResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
         'pending_downgrade_cost_cap' => null,
         'pending_downgrade_account_type' => null,
         'auto_upgrade' => null,
+        'billing_alerts' => null,
         'session_id' => null,
         'url' => null
     ];
@@ -134,6 +136,7 @@ class BillingPostResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
         'pending_downgrade_cost_cap' => false,
         'pending_downgrade_account_type' => false,
         'auto_upgrade' => false,
+        'billing_alerts' => false,
         'session_id' => false,
         'url' => false
     ];
@@ -242,6 +245,7 @@ class BillingPostResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
         'pending_downgrade_cost_cap' => 'pendingDowngradeCostCap',
         'pending_downgrade_account_type' => 'pendingDowngradeAccountType',
         'auto_upgrade' => 'autoUpgrade',
+        'billing_alerts' => 'billingAlerts',
         'session_id' => 'sessionId',
         'url' => 'url'
     ];
@@ -270,6 +274,7 @@ class BillingPostResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
         'pending_downgrade_cost_cap' => 'setPendingDowngradeCostCap',
         'pending_downgrade_account_type' => 'setPendingDowngradeAccountType',
         'auto_upgrade' => 'setAutoUpgrade',
+        'billing_alerts' => 'setBillingAlerts',
         'session_id' => 'setSessionId',
         'url' => 'setUrl'
     ];
@@ -298,6 +303,7 @@ class BillingPostResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
         'pending_downgrade_cost_cap' => 'getPendingDowngradeCostCap',
         'pending_downgrade_account_type' => 'getPendingDowngradeAccountType',
         'auto_upgrade' => 'getAutoUpgrade',
+        'billing_alerts' => 'getBillingAlerts',
         'session_id' => 'getSessionId',
         'url' => 'getUrl'
     ];
@@ -456,6 +462,7 @@ class BillingPostResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
         $this->setIfExists('pending_downgrade_cost_cap', $data ?? [], null);
         $this->setIfExists('pending_downgrade_account_type', $data ?? [], null);
         $this->setIfExists('auto_upgrade', $data ?? [], null);
+        $this->setIfExists('billing_alerts', $data ?? [], null);
         $this->setIfExists('session_id', $data ?? [], null);
         $this->setIfExists('url', $data ?? [], null);
     }
@@ -1107,6 +1114,33 @@ class BillingPostResponseBody implements ModelInterface, ArrayAccess, \JsonSeria
             throw new \InvalidArgumentException('non-nullable auto_upgrade cannot be null');
         }
         $this->container['auto_upgrade'] = $auto_upgrade;
+
+        return $this;
+    }
+
+    /**
+     * Gets billing_alerts
+     *
+     * @return \Pingram\Model\AccountGetResponseBillingAlerts|null
+     */
+    public function getBillingAlerts()
+    {
+        return $this->container['billing_alerts'];
+    }
+
+    /**
+     * Sets billing_alerts
+     *
+     * @param \Pingram\Model\AccountGetResponseBillingAlerts|null $billing_alerts billing_alerts
+     *
+     * @return self
+     */
+    public function setBillingAlerts($billing_alerts)
+    {
+        if (is_null($billing_alerts)) {
+            throw new \InvalidArgumentException('non-nullable billing_alerts cannot be null');
+        }
+        $this->container['billing_alerts'] = $billing_alerts;
 
         return $this;
     }

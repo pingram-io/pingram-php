@@ -35,6 +35,7 @@ use \Pingram\ObjectSerializer;
  * SenderPostBodySmsAutoReply Class Doc Comment
  *
  * @category Class
+ * @description @deprecated Ignored. SMS auto-reply is no longer available. Replacing with SMS_INBOUND: handle that webhook and send your own reply.
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -296,6 +297,7 @@ class SenderPostBodySmsAutoReply implements ModelInterface, ArrayAccess, \JsonSe
      * Gets message
      *
      * @return string
+     * @deprecated
      */
     public function getMessage()
     {
@@ -305,9 +307,10 @@ class SenderPostBodySmsAutoReply implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets message
      *
-     * @param string $message Auto-reply message to send when user texts in.
+     * @param string $message @deprecated Ignored. SMS auto-reply is no longer available. Replacing with SMS_INBOUND: handle that webhook and send your own reply.
      *
      * @return self
+     * @deprecated
      */
     public function setMessage($message)
     {

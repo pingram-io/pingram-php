@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **pending_downgrade_cost_cap** | **float** |  | [optional]
 **pending_downgrade_account_type** | **string** |  | [optional]
 **auto_upgrade** | **bool** | When true, paid accounts move up one budget tier at 90% of the monthly budget. | [optional]
+**billing_alerts** | [**\Pingram\Model\AccountGetResponseBillingAlerts**](AccountGetResponseBillingAlerts.md) |  | [optional]
 **session_id** | **string** |  | [optional]
 **url** | **string** |  | [optional]
 
