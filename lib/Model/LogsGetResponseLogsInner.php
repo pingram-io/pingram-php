@@ -118,6 +118,10 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         'email_inbound_bcc' => 'string',
         'email_inbound_reply_to' => 'string',
         'email_inbound_inbox' => 'string',
+        'email_inbound_to_name' => 'string',
+        'email_inbound_sent_at' => 'string',
+        'email_inbound_retry_key' => 'string',
+        'email_inbound_user_id' => 'string',
         'email_inbound_subject' => 'string',
         'email_inbound_body_text' => 'string',
         'email_inbound_body_html' => 'string',
@@ -302,6 +306,10 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         'email_inbound_bcc' => null,
         'email_inbound_reply_to' => null,
         'email_inbound_inbox' => null,
+        'email_inbound_to_name' => null,
+        'email_inbound_sent_at' => null,
+        'email_inbound_retry_key' => null,
+        'email_inbound_user_id' => null,
         'email_inbound_subject' => null,
         'email_inbound_body_text' => null,
         'email_inbound_body_html' => null,
@@ -484,6 +492,10 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         'email_inbound_bcc' => false,
         'email_inbound_reply_to' => false,
         'email_inbound_inbox' => false,
+        'email_inbound_to_name' => false,
+        'email_inbound_sent_at' => false,
+        'email_inbound_retry_key' => false,
+        'email_inbound_user_id' => false,
         'email_inbound_subject' => false,
         'email_inbound_body_text' => false,
         'email_inbound_body_html' => false,
@@ -746,6 +758,10 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         'email_inbound_bcc' => 'email_inbound_bcc',
         'email_inbound_reply_to' => 'email_inbound_reply_to',
         'email_inbound_inbox' => 'email_inbound_inbox',
+        'email_inbound_to_name' => 'email_inbound_to_name',
+        'email_inbound_sent_at' => 'email_inbound_sent_at',
+        'email_inbound_retry_key' => 'email_inbound_retry_key',
+        'email_inbound_user_id' => 'email_inbound_user_id',
         'email_inbound_subject' => 'email_inbound_subject',
         'email_inbound_body_text' => 'email_inbound_body_text',
         'email_inbound_body_html' => 'email_inbound_body_html',
@@ -928,6 +944,10 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         'email_inbound_bcc' => 'setEmailInboundBcc',
         'email_inbound_reply_to' => 'setEmailInboundReplyTo',
         'email_inbound_inbox' => 'setEmailInboundInbox',
+        'email_inbound_to_name' => 'setEmailInboundToName',
+        'email_inbound_sent_at' => 'setEmailInboundSentAt',
+        'email_inbound_retry_key' => 'setEmailInboundRetryKey',
+        'email_inbound_user_id' => 'setEmailInboundUserId',
         'email_inbound_subject' => 'setEmailInboundSubject',
         'email_inbound_body_text' => 'setEmailInboundBodyText',
         'email_inbound_body_html' => 'setEmailInboundBodyHtml',
@@ -1110,6 +1130,10 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         'email_inbound_bcc' => 'getEmailInboundBcc',
         'email_inbound_reply_to' => 'getEmailInboundReplyTo',
         'email_inbound_inbox' => 'getEmailInboundInbox',
+        'email_inbound_to_name' => 'getEmailInboundToName',
+        'email_inbound_sent_at' => 'getEmailInboundSentAt',
+        'email_inbound_retry_key' => 'getEmailInboundRetryKey',
+        'email_inbound_user_id' => 'getEmailInboundUserId',
         'email_inbound_subject' => 'getEmailInboundSubject',
         'email_inbound_body_text' => 'getEmailInboundBodyText',
         'email_inbound_body_html' => 'getEmailInboundBodyHtml',
@@ -2022,6 +2046,10 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         $this->setIfExists('email_inbound_bcc', $data ?? [], null);
         $this->setIfExists('email_inbound_reply_to', $data ?? [], null);
         $this->setIfExists('email_inbound_inbox', $data ?? [], null);
+        $this->setIfExists('email_inbound_to_name', $data ?? [], null);
+        $this->setIfExists('email_inbound_sent_at', $data ?? [], null);
+        $this->setIfExists('email_inbound_retry_key', $data ?? [], null);
+        $this->setIfExists('email_inbound_user_id', $data ?? [], null);
         $this->setIfExists('email_inbound_subject', $data ?? [], null);
         $this->setIfExists('email_inbound_body_text', $data ?? [], null);
         $this->setIfExists('email_inbound_body_html', $data ?? [], null);
@@ -3894,7 +3922,7 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets email_inbound_at
      *
-     * @param string|null $email_inbound_at email_inbound_at
+     * @param string|null $email_inbound_at When the message was accepted, ISO 8601. Log order and the 30-day resend window use this time.
      *
      * @return self
      */
@@ -3921,7 +3949,7 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets email_inbound_from
      *
-     * @param string|null $email_inbound_from email_inbound_from
+     * @param string|null $email_inbound_from Sender email address.
      *
      * @return self
      */
@@ -3948,7 +3976,7 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets email_inbound_from_name
      *
-     * @param string|null $email_inbound_from_name email_inbound_from_name
+     * @param string|null $email_inbound_from_name Sender display name, when the From header includes one.
      *
      * @return self
      */
@@ -3975,7 +4003,7 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets email_inbound_to
      *
-     * @param string|null $email_inbound_to email_inbound_to
+     * @param string|null $email_inbound_to Comma-separated To header addresses. This is the header, not necessarily the Pingram inbox.
      *
      * @return self
      */
@@ -4002,7 +4030,7 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets email_inbound_cc
      *
-     * @param string|null $email_inbound_cc email_inbound_cc
+     * @param string|null $email_inbound_cc Comma-separated CC header addresses.
      *
      * @return self
      */
@@ -4029,7 +4057,7 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets email_inbound_bcc
      *
-     * @param string|null $email_inbound_bcc email_inbound_bcc
+     * @param string|null $email_inbound_bcc Comma-separated BCC header addresses. Often empty because that header is stripped before delivery.
      *
      * @return self
      */
@@ -4056,7 +4084,7 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets email_inbound_reply_to
      *
-     * @param string|null $email_inbound_reply_to email_inbound_reply_to
+     * @param string|null $email_inbound_reply_to Reply-To header address.
      *
      * @return self
      */
@@ -4083,7 +4111,7 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets email_inbound_inbox
      *
-     * @param string|null $email_inbound_inbox email_inbound_inbox
+     * @param string|null $email_inbound_inbox Address that received the mail. Same value as `matched.email` on the EMAIL_INBOUND webhook, including when that address was only in Cc or Bcc.
      *
      * @return self
      */
@@ -4093,6 +4121,114 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
             throw new \InvalidArgumentException('non-nullable email_inbound_inbox cannot be null');
         }
         $this->container['email_inbound_inbox'] = $email_inbound_inbox;
+
+        return $this;
+    }
+
+    /**
+     * Gets email_inbound_to_name
+     *
+     * @return string|null
+     */
+    public function getEmailInboundToName()
+    {
+        return $this->container['email_inbound_to_name'];
+    }
+
+    /**
+     * Sets email_inbound_to_name
+     *
+     * @param string|null $email_inbound_to_name Display name of `email_inbound_inbox` when the headers include one. Same value as `matched.name`. Omitted when that address has no display name.
+     *
+     * @return self
+     */
+    public function setEmailInboundToName($email_inbound_to_name)
+    {
+        if (is_null($email_inbound_to_name)) {
+            throw new \InvalidArgumentException('non-nullable email_inbound_to_name cannot be null');
+        }
+        $this->container['email_inbound_to_name'] = $email_inbound_to_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets email_inbound_sent_at
+     *
+     * @return string|null
+     */
+    public function getEmailInboundSentAt()
+    {
+        return $this->container['email_inbound_sent_at'];
+    }
+
+    /**
+     * Sets email_inbound_sent_at
+     *
+     * @param string|null $email_inbound_sent_at Sender Date header, ISO 8601. Omitted when that header is missing or invalid.
+     *
+     * @return self
+     */
+    public function setEmailInboundSentAt($email_inbound_sent_at)
+    {
+        if (is_null($email_inbound_sent_at)) {
+            throw new \InvalidArgumentException('non-nullable email_inbound_sent_at cannot be null');
+        }
+        $this->container['email_inbound_sent_at'] = $email_inbound_sent_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets email_inbound_retry_key
+     *
+     * @return string|null
+     */
+    public function getEmailInboundRetryKey()
+    {
+        return $this->container['email_inbound_retry_key'];
+    }
+
+    /**
+     * Sets email_inbound_retry_key
+     *
+     * @param string|null $email_inbound_retry_key Key used to resend this inbound email for 30 days.
+     *
+     * @return self
+     */
+    public function setEmailInboundRetryKey($email_inbound_retry_key)
+    {
+        if (is_null($email_inbound_retry_key)) {
+            throw new \InvalidArgumentException('non-nullable email_inbound_retry_key cannot be null');
+        }
+        $this->container['email_inbound_retry_key'] = $email_inbound_retry_key;
+
+        return $this;
+    }
+
+    /**
+     * Gets email_inbound_user_id
+     *
+     * @return string|null
+     */
+    public function getEmailInboundUserId()
+    {
+        return $this->container['email_inbound_user_id'];
+    }
+
+    /**
+     * Sets email_inbound_user_id
+     *
+     * @param string|null $email_inbound_user_id User id from the original notification when this mail is a reply to one.
+     *
+     * @return self
+     */
+    public function setEmailInboundUserId($email_inbound_user_id)
+    {
+        if (is_null($email_inbound_user_id)) {
+            throw new \InvalidArgumentException('non-nullable email_inbound_user_id cannot be null');
+        }
+        $this->container['email_inbound_user_id'] = $email_inbound_user_id;
 
         return $this;
     }
@@ -4110,7 +4246,7 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets email_inbound_subject
      *
-     * @param string|null $email_inbound_subject email_inbound_subject
+     * @param string|null $email_inbound_subject Subject line.
      *
      * @return self
      */
@@ -4137,7 +4273,7 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets email_inbound_body_text
      *
-     * @param string|null $email_inbound_body_text email_inbound_body_text
+     * @param string|null $email_inbound_body_text Plain-text body.
      *
      * @return self
      */
@@ -4164,7 +4300,7 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets email_inbound_body_html
      *
-     * @param string|null $email_inbound_body_html email_inbound_body_html
+     * @param string|null $email_inbound_body_html HTML body. Inline images use `cid:` values that match attachment content IDs on the webhook payload.
      *
      * @return self
      */
@@ -4191,7 +4327,7 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets email_inbound_has_attachments
      *
-     * @param bool|null $email_inbound_has_attachments email_inbound_has_attachments
+     * @param bool|null $email_inbound_has_attachments True when the message includes at least one attachment.
      *
      * @return self
      */
@@ -4218,7 +4354,7 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets email_inbound_attachment_count
      *
-     * @param float|null $email_inbound_attachment_count email_inbound_attachment_count
+     * @param float|null $email_inbound_attachment_count Number of attachments. File bytes are not stored on this log.
      *
      * @return self
      */
@@ -4245,7 +4381,7 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets email_inbound_message_id
      *
-     * @param string|null $email_inbound_message_id email_inbound_message_id
+     * @param string|null $email_inbound_message_id Message-ID header. Use it to thread later replies.
      *
      * @return self
      */
@@ -4272,7 +4408,7 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets email_inbound_in_reply_to
      *
-     * @param string|null $email_inbound_in_reply_to email_inbound_in_reply_to
+     * @param string|null $email_inbound_in_reply_to In-Reply-To header: the Message-ID this mail replies to.
      *
      * @return self
      */
@@ -4299,7 +4435,7 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets email_inbound_references
      *
-     * @param string|null $email_inbound_references email_inbound_references
+     * @param string|null $email_inbound_references References header: the chain of Message-IDs in the thread.
      *
      * @return self
      */
@@ -4326,7 +4462,7 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets email_inbound_webhook_delivered
      *
-     * @param bool|null $email_inbound_webhook_delivered email_inbound_webhook_delivered
+     * @param bool|null $email_inbound_webhook_delivered True when an EMAIL_INBOUND webhook endpoint returned a 2xx response.
      *
      * @return self
      */
@@ -4353,7 +4489,7 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets email_inbound_webhook_res
      *
-     * @param string|null $email_inbound_webhook_res email_inbound_webhook_res
+     * @param string|null $email_inbound_webhook_res JSON delivery result for each EMAIL_INBOUND endpoint.
      *
      * @return self
      */
@@ -4380,7 +4516,7 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets email_inbound_resolution_type
      *
-     * @param string|null $email_inbound_resolution_type email_inbound_resolution_type
+     * @param string|null $email_inbound_resolution_type How the inbox was matched: `reply` for a reply to a sent notification, `builtin` for a Pingram inbox, or `custom` for a custom domain.
      *
      * @return self
      */

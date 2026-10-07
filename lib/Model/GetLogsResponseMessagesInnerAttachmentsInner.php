@@ -60,7 +60,8 @@ class GetLogsResponseMessagesInnerAttachmentsInner implements ModelInterface, Ar
         'filename' => 'string',
         'content_type' => 'string',
         'size' => 'float',
-        'content_id' => 'string'
+        'content_id' => 'string',
+        'content_disposition' => 'string'
     ];
 
     /**
@@ -74,7 +75,8 @@ class GetLogsResponseMessagesInnerAttachmentsInner implements ModelInterface, Ar
         'filename' => null,
         'content_type' => null,
         'size' => null,
-        'content_id' => null
+        'content_id' => null,
+        'content_disposition' => null
     ];
 
     /**
@@ -86,7 +88,8 @@ class GetLogsResponseMessagesInnerAttachmentsInner implements ModelInterface, Ar
         'filename' => false,
         'content_type' => false,
         'size' => false,
-        'content_id' => false
+        'content_id' => false,
+        'content_disposition' => false
     ];
 
     /**
@@ -178,7 +181,8 @@ class GetLogsResponseMessagesInnerAttachmentsInner implements ModelInterface, Ar
         'filename' => 'filename',
         'content_type' => 'contentType',
         'size' => 'size',
-        'content_id' => 'contentId'
+        'content_id' => 'contentId',
+        'content_disposition' => 'contentDisposition'
     ];
 
     /**
@@ -190,7 +194,8 @@ class GetLogsResponseMessagesInnerAttachmentsInner implements ModelInterface, Ar
         'filename' => 'setFilename',
         'content_type' => 'setContentType',
         'size' => 'setSize',
-        'content_id' => 'setContentId'
+        'content_id' => 'setContentId',
+        'content_disposition' => 'setContentDisposition'
     ];
 
     /**
@@ -202,7 +207,8 @@ class GetLogsResponseMessagesInnerAttachmentsInner implements ModelInterface, Ar
         'filename' => 'getFilename',
         'content_type' => 'getContentType',
         'size' => 'getSize',
-        'content_id' => 'getContentId'
+        'content_id' => 'getContentId',
+        'content_disposition' => 'getContentDisposition'
     ];
 
     /**
@@ -246,6 +252,21 @@ class GetLogsResponseMessagesInnerAttachmentsInner implements ModelInterface, Ar
         return self::$openAPIModelName;
     }
 
+    public const CONTENT_DISPOSITION_INLINE = 'inline';
+    public const CONTENT_DISPOSITION_ATTACHMENT = 'attachment';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getContentDispositionAllowableValues()
+    {
+        return [
+            self::CONTENT_DISPOSITION_INLINE,
+            self::CONTENT_DISPOSITION_ATTACHMENT,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -266,6 +287,7 @@ class GetLogsResponseMessagesInnerAttachmentsInner implements ModelInterface, Ar
         $this->setIfExists('content_type', $data ?? [], null);
         $this->setIfExists('size', $data ?? [], null);
         $this->setIfExists('content_id', $data ?? [], null);
+        $this->setIfExists('content_disposition', $data ?? [], null);
     }
 
     /**
@@ -304,6 +326,15 @@ class GetLogsResponseMessagesInnerAttachmentsInner implements ModelInterface, Ar
         if ($this->container['size'] === null) {
             $invalidProperties[] = "'size' can't be null";
         }
+        $allowedValues = $this->getContentDispositionAllowableValues();
+        if (!is_null($this->container['content_disposition']) && !in_array($this->container['content_disposition'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'content_disposition', must be one of '%s'",
+                $this->container['content_disposition'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -332,7 +363,7 @@ class GetLogsResponseMessagesInnerAttachmentsInner implements ModelInterface, Ar
     /**
      * Sets filename
      *
-     * @param string $filename filename
+     * @param string $filename Original filename from the message.
      *
      * @return self
      */
@@ -359,7 +390,7 @@ class GetLogsResponseMessagesInnerAttachmentsInner implements ModelInterface, Ar
     /**
      * Sets content_type
      *
-     * @param string $content_type content_type
+     * @param string $content_type MIME type of the file.
      *
      * @return self
      */
@@ -386,7 +417,7 @@ class GetLogsResponseMessagesInnerAttachmentsInner implements ModelInterface, Ar
     /**
      * Sets size
      *
-     * @param float $size size
+     * @param float $size Size in bytes. This response does not include the file bytes.
      *
      * @return self
      */
@@ -413,7 +444,7 @@ class GetLogsResponseMessagesInnerAttachmentsInner implements ModelInterface, Ar
     /**
      * Sets content_id
      *
-     * @param string|null $content_id content_id
+     * @param string|null $content_id Content-ID with angle brackets removed, so it matches `cid:` references in `bodyHtml`. Omitted when the part has no Content-ID.
      *
      * @return self
      */
@@ -423,6 +454,43 @@ class GetLogsResponseMessagesInnerAttachmentsInner implements ModelInterface, Ar
             throw new \InvalidArgumentException('non-nullable content_id cannot be null');
         }
         $this->container['content_id'] = $content_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets content_disposition
+     *
+     * @return string|null
+     */
+    public function getContentDisposition()
+    {
+        return $this->container['content_disposition'];
+    }
+
+    /**
+     * Sets content_disposition
+     *
+     * @param string|null $content_disposition `inline` when the HTML body references this file; `attachment` when it is a separate file. Omitted when the message does not say which.
+     *
+     * @return self
+     */
+    public function setContentDisposition($content_disposition)
+    {
+        if (is_null($content_disposition)) {
+            throw new \InvalidArgumentException('non-nullable content_disposition cannot be null');
+        }
+        $allowedValues = $this->getContentDispositionAllowableValues();
+        if (!in_array($content_disposition, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'content_disposition', must be one of '%s'",
+                    $content_disposition,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['content_disposition'] = $content_disposition;
 
         return $this;
     }

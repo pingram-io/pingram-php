@@ -371,7 +371,7 @@ class WebhookEndpointUpsertRequest implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets webhook
      *
-     * @param string $webhook Public http or https URL that accepts POST with a JSON event body. Return 2xx to acknowledge. Requests include X-Pingram-Id, X-Pingram-Signature (v1 HMAC-SHA256), and X-Pingram-Timestamp.
+     * @param string $webhook Public HTTPS URL that accepts POST with a JSON event body. Return 2xx to acknowledge. Private, loopback, and link-local addresses are rejected. Requests include X-Pingram-Id, X-Pingram-Signature (v1 HMAC-SHA256), and X-Pingram-Timestamp.
      *
      * @return self
      */

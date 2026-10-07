@@ -583,7 +583,7 @@ class GetLogsResponseMessagesInner implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets inbox
      *
-     * @param string|null $inbox inbox
+     * @param string|null $inbox Address that received the mail. Same value as `matched.email` on the EMAIL_INBOUND webhook, including when that address was only in Cc or Bcc.
      *
      * @return self
      */
@@ -691,7 +691,7 @@ class GetLogsResponseMessagesInner implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets to
      *
-     * @param string[]|null $to to
+     * @param string[]|null $to Original To header addresses. Not the address that received the mail.
      *
      * @return self
      */
@@ -718,7 +718,7 @@ class GetLogsResponseMessagesInner implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets cc
      *
-     * @param string[]|null $cc cc
+     * @param string[]|null $cc Original Cc header addresses.
      *
      * @return self
      */
@@ -745,7 +745,7 @@ class GetLogsResponseMessagesInner implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets bcc
      *
-     * @param string[]|null $bcc bcc
+     * @param string[]|null $bcc Bcc header addresses still on the delivered message. Usually omitted, because the Bcc header is removed before delivery.
      *
      * @return self
      */

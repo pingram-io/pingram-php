@@ -8,13 +8,13 @@ Name | Type | Description | Notes
 **event_type** | **string** |  |
 **timestamp** | **string** |  |
 **epoch_ms** | **float** |  |
-**inbox** | **string** |  | [optional]
+**inbox** | **string** | Address that received the mail. Same value as &#x60;matched.email&#x60; on the EMAIL_INBOUND webhook, including when that address was only in Cc or Bcc. | [optional]
 **from** | **string** |  | [optional]
 **from_name** | **string** |  | [optional]
 **subject** | **string** |  | [optional]
-**to** | **string[]** |  | [optional]
-**cc** | **string[]** |  | [optional]
-**bcc** | **string[]** |  | [optional]
+**to** | **string[]** | Original To header addresses. Not the address that received the mail. | [optional]
+**cc** | **string[]** | Original Cc header addresses. | [optional]
+**bcc** | **string[]** | Bcc header addresses still on the delivered message. Usually omitted, because the Bcc header is removed before delivery. | [optional]
 **reply_to** | **string** |  | [optional]
 **body_text** | **string** |  | [optional]
 **body_html** | **string** |  | [optional]

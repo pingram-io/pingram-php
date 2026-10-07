@@ -342,7 +342,7 @@ class CreateLibraryRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets content_type
      *
-     * @param string $content_type MIME type of the file that will be uploaded to the returned URL.
+     * @param string $content_type Image MIME type. One of image/png, image/jpeg, image/gif, or image/webp.
      *
      * @return self
      */

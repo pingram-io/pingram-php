@@ -131,7 +131,7 @@ class LibraryApi
     /**
      * Operation libraryCreate
      *
-     * Create an upload slot in the account library. PUT the file to the returned uploadUrl with the same Content-Type, then use the returned url in emails and the editor.
+     * Create an upload slot in the account library. contentType must be image/png, image/jpeg, image/gif, or image/webp. PUT the file to the returned uploadUrl with that Content-Type, then use the returned url in emails and the editor.
      *
      * @param  string $use_case Library use-case (required)
      * @param  \Pingram\Model\CreateLibraryRequest $create_library_request create_library_request (required)
@@ -150,7 +150,7 @@ class LibraryApi
     /**
      * Operation libraryCreateWithHttpInfo
      *
-     * Create an upload slot in the account library. PUT the file to the returned uploadUrl with the same Content-Type, then use the returned url in emails and the editor.
+     * Create an upload slot in the account library. contentType must be image/png, image/jpeg, image/gif, or image/webp. PUT the file to the returned uploadUrl with that Content-Type, then use the returned url in emails and the editor.
      *
      * @param  string $use_case Library use-case (required)
      * @param  \Pingram\Model\CreateLibraryRequest $create_library_request (required)
@@ -278,7 +278,7 @@ class LibraryApi
     /**
      * Operation libraryCreateAsync
      *
-     * Create an upload slot in the account library. PUT the file to the returned uploadUrl with the same Content-Type, then use the returned url in emails and the editor.
+     * Create an upload slot in the account library. contentType must be image/png, image/jpeg, image/gif, or image/webp. PUT the file to the returned uploadUrl with that Content-Type, then use the returned url in emails and the editor.
      *
      * @param  string $use_case Library use-case (required)
      * @param  \Pingram\Model\CreateLibraryRequest $create_library_request (required)
@@ -300,7 +300,7 @@ class LibraryApi
     /**
      * Operation libraryCreateAsyncWithHttpInfo
      *
-     * Create an upload slot in the account library. PUT the file to the returned uploadUrl with the same Content-Type, then use the returned url in emails and the editor.
+     * Create an upload slot in the account library. contentType must be image/png, image/jpeg, image/gif, or image/webp. PUT the file to the returned uploadUrl with that Content-Type, then use the returned url in emails and the editor.
      *
      * @param  string $use_case Library use-case (required)
      * @param  \Pingram\Model\CreateLibraryRequest $create_library_request (required)
