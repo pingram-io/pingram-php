@@ -1,9 +1,9 @@
-# # ChangeEmailRequest
+# # ConfirmChangeEmailRequest
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**new_email** | **string** |  |
+**code** | **string** |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

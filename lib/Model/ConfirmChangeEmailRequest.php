@@ -1,6 +1,6 @@
 <?php
 /**
- * ChangeEmailRequest
+ * ConfirmChangeEmailRequest
  *
  * PHP version 8.1
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \Pingram\ObjectSerializer;
 
 /**
- * ChangeEmailRequest Class Doc Comment
+ * ConfirmChangeEmailRequest Class Doc Comment
  *
  * @category Class
  * @package  Pingram
@@ -40,7 +40,7 @@ use \Pingram\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ChangeEmailRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class ConfirmChangeEmailRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class ChangeEmailRequest implements ModelInterface, ArrayAccess, \JsonSerializab
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ChangeEmailRequest';
+    protected static $openAPIModelName = 'ConfirmChangeEmailRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +57,7 @@ class ChangeEmailRequest implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var string[]
       */
     protected static $openAPITypes = [
-        'new_email' => 'string'
+        'code' => 'string'
     ];
 
     /**
@@ -68,7 +68,7 @@ class ChangeEmailRequest implements ModelInterface, ArrayAccess, \JsonSerializab
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'new_email' => null
+        'code' => null
     ];
 
     /**
@@ -77,7 +77,7 @@ class ChangeEmailRequest implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'new_email' => false
+        'code' => false
     ];
 
     /**
@@ -166,7 +166,7 @@ class ChangeEmailRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $attributeMap = [
-        'new_email' => 'newEmail'
+        'code' => 'code'
     ];
 
     /**
@@ -175,7 +175,7 @@ class ChangeEmailRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $setters = [
-        'new_email' => 'setNewEmail'
+        'code' => 'setCode'
     ];
 
     /**
@@ -184,7 +184,7 @@ class ChangeEmailRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $getters = [
-        'new_email' => 'getNewEmail'
+        'code' => 'getCode'
     ];
 
     /**
@@ -244,7 +244,7 @@ class ChangeEmailRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('new_email', $data ?? [], null);
+        $this->setIfExists('code', $data ?? [], null);
     }
 
     /**
@@ -274,8 +274,8 @@ class ChangeEmailRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     {
         $invalidProperties = [];
 
-        if ($this->container['new_email'] === null) {
-            $invalidProperties[] = "'new_email' can't be null";
+        if ($this->container['code'] === null) {
+            $invalidProperties[] = "'code' can't be null";
         }
         return $invalidProperties;
     }
@@ -293,28 +293,28 @@ class ChangeEmailRequest implements ModelInterface, ArrayAccess, \JsonSerializab
 
 
     /**
-     * Gets new_email
+     * Gets code
      *
      * @return string
      */
-    public function getNewEmail()
+    public function getCode()
     {
-        return $this->container['new_email'];
+        return $this->container['code'];
     }
 
     /**
-     * Sets new_email
+     * Sets code
      *
-     * @param string $new_email new_email
+     * @param string $code code
      *
      * @return self
      */
-    public function setNewEmail($new_email)
+    public function setCode($code)
     {
-        if (is_null($new_email)) {
-            throw new \InvalidArgumentException('non-nullable new_email cannot be null');
+        if (is_null($code)) {
+            throw new \InvalidArgumentException('non-nullable code cannot be null');
         }
-        $this->container['new_email'] = $new_email;
+        $this->container['code'] = $code;
 
         return $this;
     }
