@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**audience** | [**\Pingram\Model\ListBroadcastsResponseBroadcastsInnerAudience**](ListBroadcastsResponseBroadcastsInnerAudience.md) |  |
 **broadcast_id** | **string** | UUIDv7 (time-ordered). |
 **name** | **string** |  |
 **status** | **string** | Lifecycle status of an email broadcast. |
 **paused_reason** | **string** |  | [optional]
 **type** | **string** | Notification type id. Required before send or schedule. | [optional]
 **channel** | **string** | Email-only in v1; forward-compatible field. |
-**audience** | [**\Pingram\Model\BroadcastResponseAudience**](BroadcastResponseAudience.md) |  |
 **from_name** | **string** |  |
 **from_address** | **string** |  |
 **reply_to_address** | **string** |  | [optional]

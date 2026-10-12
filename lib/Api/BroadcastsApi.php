@@ -2122,7 +2122,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsList
      *
-     * List email broadcasts for the account, newest first. Returns metadata and counters without html or internalTemplate bodies. Paginate with limit (default 50, max 100) and nextToken.
+     * List email broadcasts for the account, newest first. Returns metadata without html or internalTemplate bodies. A live-filter audience includes the filter. A raw email audience includes emailCount and omits the addresses. Paginate with limit (default 50, max 100) and nextToken.
      *
      * @param  float|null $limit Max broadcasts to return (default 50) (optional)
      * @param  string|null $next_token Pagination token (optional)
@@ -2141,7 +2141,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsListWithHttpInfo
      *
-     * List email broadcasts for the account, newest first. Returns metadata and counters without html or internalTemplate bodies. Paginate with limit (default 50, max 100) and nextToken.
+     * List email broadcasts for the account, newest first. Returns metadata without html or internalTemplate bodies. A live-filter audience includes the filter. A raw email audience includes emailCount and omits the addresses. Paginate with limit (default 50, max 100) and nextToken.
      *
      * @param  float|null $limit Max broadcasts to return (default 50) (optional)
      * @param  string|null $next_token Pagination token (optional)
@@ -2269,7 +2269,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsListAsync
      *
-     * List email broadcasts for the account, newest first. Returns metadata and counters without html or internalTemplate bodies. Paginate with limit (default 50, max 100) and nextToken.
+     * List email broadcasts for the account, newest first. Returns metadata without html or internalTemplate bodies. A live-filter audience includes the filter. A raw email audience includes emailCount and omits the addresses. Paginate with limit (default 50, max 100) and nextToken.
      *
      * @param  float|null $limit Max broadcasts to return (default 50) (optional)
      * @param  string|null $next_token Pagination token (optional)
@@ -2291,7 +2291,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsListAsyncWithHttpInfo
      *
-     * List email broadcasts for the account, newest first. Returns metadata and counters without html or internalTemplate bodies. Paginate with limit (default 50, max 100) and nextToken.
+     * List email broadcasts for the account, newest first. Returns metadata without html or internalTemplate bodies. A live-filter audience includes the filter. A raw email audience includes emailCount and omits the addresses. Paginate with limit (default 50, max 100) and nextToken.
      *
      * @param  float|null $limit Max broadcasts to return (default 50) (optional)
      * @param  string|null $next_token Pagination token (optional)

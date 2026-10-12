@@ -57,13 +57,13 @@ class ListBroadcastsResponseBroadcastsInner implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $openAPITypes = [
+        'audience' => '\Pingram\Model\ListBroadcastsResponseBroadcastsInnerAudience',
         'broadcast_id' => 'string',
         'name' => 'string',
         'status' => 'string',
         'paused_reason' => 'string',
         'type' => 'string',
         'channel' => 'string',
-        'audience' => '\Pingram\Model\BroadcastResponseAudience',
         'from_name' => 'string',
         'from_address' => 'string',
         'reply_to_address' => 'string',
@@ -82,13 +82,13 @@ class ListBroadcastsResponseBroadcastsInner implements ModelInterface, ArrayAcce
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'audience' => null,
         'broadcast_id' => null,
         'name' => null,
         'status' => null,
         'paused_reason' => null,
         'type' => null,
         'channel' => null,
-        'audience' => null,
         'from_name' => null,
         'from_address' => null,
         'reply_to_address' => null,
@@ -105,13 +105,13 @@ class ListBroadcastsResponseBroadcastsInner implements ModelInterface, ArrayAcce
       * @var boolean[]
       */
     protected static array $openAPINullables = [
+        'audience' => false,
         'broadcast_id' => false,
         'name' => false,
         'status' => false,
         'paused_reason' => false,
         'type' => false,
         'channel' => false,
-        'audience' => false,
         'from_name' => false,
         'from_address' => false,
         'reply_to_address' => false,
@@ -208,13 +208,13 @@ class ListBroadcastsResponseBroadcastsInner implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $attributeMap = [
+        'audience' => 'audience',
         'broadcast_id' => 'broadcastId',
         'name' => 'name',
         'status' => 'status',
         'paused_reason' => 'pausedReason',
         'type' => 'type',
         'channel' => 'channel',
-        'audience' => 'audience',
         'from_name' => 'fromName',
         'from_address' => 'fromAddress',
         'reply_to_address' => 'replyToAddress',
@@ -231,13 +231,13 @@ class ListBroadcastsResponseBroadcastsInner implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $setters = [
+        'audience' => 'setAudience',
         'broadcast_id' => 'setBroadcastId',
         'name' => 'setName',
         'status' => 'setStatus',
         'paused_reason' => 'setPausedReason',
         'type' => 'setType',
         'channel' => 'setChannel',
-        'audience' => 'setAudience',
         'from_name' => 'setFromName',
         'from_address' => 'setFromAddress',
         'reply_to_address' => 'setReplyToAddress',
@@ -254,13 +254,13 @@ class ListBroadcastsResponseBroadcastsInner implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $getters = [
+        'audience' => 'getAudience',
         'broadcast_id' => 'getBroadcastId',
         'name' => 'getName',
         'status' => 'getStatus',
         'paused_reason' => 'getPausedReason',
         'type' => 'getType',
         'channel' => 'getChannel',
-        'audience' => 'getAudience',
         'from_name' => 'getFromName',
         'from_address' => 'getFromAddress',
         'reply_to_address' => 'getReplyToAddress',
@@ -389,13 +389,13 @@ class ListBroadcastsResponseBroadcastsInner implements ModelInterface, ArrayAcce
      */
     public function __construct(?array $data = null)
     {
+        $this->setIfExists('audience', $data ?? [], null);
         $this->setIfExists('broadcast_id', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('status', $data ?? [], null);
         $this->setIfExists('paused_reason', $data ?? [], null);
         $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('channel', $data ?? [], null);
-        $this->setIfExists('audience', $data ?? [], null);
         $this->setIfExists('from_name', $data ?? [], null);
         $this->setIfExists('from_address', $data ?? [], null);
         $this->setIfExists('reply_to_address', $data ?? [], null);
@@ -433,6 +433,9 @@ class ListBroadcastsResponseBroadcastsInner implements ModelInterface, ArrayAcce
     {
         $invalidProperties = [];
 
+        if ($this->container['audience'] === null) {
+            $invalidProperties[] = "'audience' can't be null";
+        }
         if ($this->container['broadcast_id'] === null) {
             $invalidProperties[] = "'broadcast_id' can't be null";
         }
@@ -472,9 +475,6 @@ class ListBroadcastsResponseBroadcastsInner implements ModelInterface, ArrayAcce
             );
         }
 
-        if ($this->container['audience'] === null) {
-            $invalidProperties[] = "'audience' can't be null";
-        }
         if ($this->container['from_name'] === null) {
             $invalidProperties[] = "'from_name' can't be null";
         }
@@ -504,6 +504,33 @@ class ListBroadcastsResponseBroadcastsInner implements ModelInterface, ArrayAcce
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets audience
+     *
+     * @return \Pingram\Model\ListBroadcastsResponseBroadcastsInnerAudience
+     */
+    public function getAudience()
+    {
+        return $this->container['audience'];
+    }
+
+    /**
+     * Sets audience
+     *
+     * @param \Pingram\Model\ListBroadcastsResponseBroadcastsInnerAudience $audience audience
+     *
+     * @return self
+     */
+    public function setAudience($audience)
+    {
+        if (is_null($audience)) {
+            throw new \InvalidArgumentException('non-nullable audience cannot be null');
+        }
+        $this->container['audience'] = $audience;
+
+        return $this;
+    }
 
     /**
      * Gets broadcast_id
@@ -693,33 +720,6 @@ class ListBroadcastsResponseBroadcastsInner implements ModelInterface, ArrayAcce
             );
         }
         $this->container['channel'] = $channel;
-
-        return $this;
-    }
-
-    /**
-     * Gets audience
-     *
-     * @return \Pingram\Model\BroadcastResponseAudience
-     */
-    public function getAudience()
-    {
-        return $this->container['audience'];
-    }
-
-    /**
-     * Sets audience
-     *
-     * @param \Pingram\Model\BroadcastResponseAudience $audience audience
-     *
-     * @return self
-     */
-    public function setAudience($audience)
-    {
-        if (is_null($audience)) {
-            throw new \InvalidArgumentException('non-nullable audience cannot be null');
-        }
-        $this->container['audience'] = $audience;
 
         return $this;
     }
