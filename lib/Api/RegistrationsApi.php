@@ -1077,7 +1077,7 @@ class RegistrationsApi
     /**
      * Operation registrationsUpdateUs10dlcBrand
      *
-     * Update an existing 10DLC brand registration. Business fields are editable before carrier submission; workflow status is managed by Pingram.
+     * Overwrite business fields on this account&#39;s existing US 10DLC brand registration (legal name, address, tax ID, website, compliance contact, and related identity). Fields you omit stay; values you send replace what was stored and are not kept as history. Does not create a registration, submit it to carriers, change brandStatus, or delete it. Workflow status stays under Pingram&#39;s control.
      *
      * @param  \Pingram\Model\TenDlcBrandUpdateRequest $ten_dlc_brand_update_request ten_dlc_brand_update_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['registrationsUpdateUs10dlcBrand'] to see the possible values for this operation
@@ -1095,7 +1095,7 @@ class RegistrationsApi
     /**
      * Operation registrationsUpdateUs10dlcBrandWithHttpInfo
      *
-     * Update an existing 10DLC brand registration. Business fields are editable before carrier submission; workflow status is managed by Pingram.
+     * Overwrite business fields on this account&#39;s existing US 10DLC brand registration (legal name, address, tax ID, website, compliance contact, and related identity). Fields you omit stay; values you send replace what was stored and are not kept as history. Does not create a registration, submit it to carriers, change brandStatus, or delete it. Workflow status stays under Pingram&#39;s control.
      *
      * @param  \Pingram\Model\TenDlcBrandUpdateRequest $ten_dlc_brand_update_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['registrationsUpdateUs10dlcBrand'] to see the possible values for this operation
@@ -1222,7 +1222,7 @@ class RegistrationsApi
     /**
      * Operation registrationsUpdateUs10dlcBrandAsync
      *
-     * Update an existing 10DLC brand registration. Business fields are editable before carrier submission; workflow status is managed by Pingram.
+     * Overwrite business fields on this account&#39;s existing US 10DLC brand registration (legal name, address, tax ID, website, compliance contact, and related identity). Fields you omit stay; values you send replace what was stored and are not kept as history. Does not create a registration, submit it to carriers, change brandStatus, or delete it. Workflow status stays under Pingram&#39;s control.
      *
      * @param  \Pingram\Model\TenDlcBrandUpdateRequest $ten_dlc_brand_update_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['registrationsUpdateUs10dlcBrand'] to see the possible values for this operation
@@ -1243,7 +1243,7 @@ class RegistrationsApi
     /**
      * Operation registrationsUpdateUs10dlcBrandAsyncWithHttpInfo
      *
-     * Update an existing 10DLC brand registration. Business fields are editable before carrier submission; workflow status is managed by Pingram.
+     * Overwrite business fields on this account&#39;s existing US 10DLC brand registration (legal name, address, tax ID, website, compliance contact, and related identity). Fields you omit stay; values you send replace what was stored and are not kept as history. Does not create a registration, submit it to carriers, change brandStatus, or delete it. Workflow status stays under Pingram&#39;s control.
      *
      * @param  \Pingram\Model\TenDlcBrandUpdateRequest $ten_dlc_brand_update_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['registrationsUpdateUs10dlcBrand'] to see the possible values for this operation
@@ -1402,7 +1402,7 @@ class RegistrationsApi
     /**
      * Operation registrationsUpdateUs10dlcCampaign
      *
-     * Update an existing 10DLC campaign registration. Campaign fields are editable before carrier submission; workflow status is managed by Pingram.
+     * Overwrite campaign fields on this account&#39;s existing US 10DLC campaign (description, samples, opt-in and opt-out text, use case, and related settings). Fields you send replace the stored values and the previous text is not kept; omitted fields stay. Editing is refused once the campaign is in_progress or approved. Does not submit the campaign to carriers, change campaignStatus, or delete it.
      *
      * @param  \Pingram\Model\TenDlcCampaignUpdateRequest $ten_dlc_campaign_update_request ten_dlc_campaign_update_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['registrationsUpdateUs10dlcCampaign'] to see the possible values for this operation
@@ -1420,7 +1420,7 @@ class RegistrationsApi
     /**
      * Operation registrationsUpdateUs10dlcCampaignWithHttpInfo
      *
-     * Update an existing 10DLC campaign registration. Campaign fields are editable before carrier submission; workflow status is managed by Pingram.
+     * Overwrite campaign fields on this account&#39;s existing US 10DLC campaign (description, samples, opt-in and opt-out text, use case, and related settings). Fields you send replace the stored values and the previous text is not kept; omitted fields stay. Editing is refused once the campaign is in_progress or approved. Does not submit the campaign to carriers, change campaignStatus, or delete it.
      *
      * @param  \Pingram\Model\TenDlcCampaignUpdateRequest $ten_dlc_campaign_update_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['registrationsUpdateUs10dlcCampaign'] to see the possible values for this operation
@@ -1547,7 +1547,7 @@ class RegistrationsApi
     /**
      * Operation registrationsUpdateUs10dlcCampaignAsync
      *
-     * Update an existing 10DLC campaign registration. Campaign fields are editable before carrier submission; workflow status is managed by Pingram.
+     * Overwrite campaign fields on this account&#39;s existing US 10DLC campaign (description, samples, opt-in and opt-out text, use case, and related settings). Fields you send replace the stored values and the previous text is not kept; omitted fields stay. Editing is refused once the campaign is in_progress or approved. Does not submit the campaign to carriers, change campaignStatus, or delete it.
      *
      * @param  \Pingram\Model\TenDlcCampaignUpdateRequest $ten_dlc_campaign_update_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['registrationsUpdateUs10dlcCampaign'] to see the possible values for this operation
@@ -1568,7 +1568,7 @@ class RegistrationsApi
     /**
      * Operation registrationsUpdateUs10dlcCampaignAsyncWithHttpInfo
      *
-     * Update an existing 10DLC campaign registration. Campaign fields are editable before carrier submission; workflow status is managed by Pingram.
+     * Overwrite campaign fields on this account&#39;s existing US 10DLC campaign (description, samples, opt-in and opt-out text, use case, and related settings). Fields you send replace the stored values and the previous text is not kept; omitted fields stay. Editing is refused once the campaign is in_progress or approved. Does not submit the campaign to carriers, change campaignStatus, or delete it.
      *
      * @param  \Pingram\Model\TenDlcCampaignUpdateRequest $ten_dlc_campaign_update_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['registrationsUpdateUs10dlcCampaign'] to see the possible values for this operation

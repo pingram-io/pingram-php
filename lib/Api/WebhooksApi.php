@@ -137,7 +137,7 @@ class WebhooksApi
     /**
      * Operation webhooksCreateWebhook
      *
-     * Create a webhook endpoint. Pingram POSTs signed JSON to the URL when one of the subscribed events happens. The response includes id and a signing secret starting with pingram_whsecret_. Save it and verify the X-Pingram-Signature header. Updates keep this secret. At most 10 endpoints per account. The URL must be a public HTTPS URL and should return 2xx.
+     * Create a webhook endpoint on a server outside Pingram. Pingram later POSTs signed JSON to that URL when one of the subscribed events happens. This call only saves the endpoint; it does not send a webhook and does not modify the destination server. The response includes id and a signing secret starting with pingram_whsecret_. Save it and verify the X-Pingram-Signature header. Updates keep this secret. At most 10 endpoints per account. The URL must be a public HTTPS URL and should return 2xx.
      *
      * @param  \Pingram\Model\WebhookEndpointUpsertRequest $webhook_endpoint_upsert_request webhook_endpoint_upsert_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['webhooksCreateWebhook'] to see the possible values for this operation
@@ -155,7 +155,7 @@ class WebhooksApi
     /**
      * Operation webhooksCreateWebhookWithHttpInfo
      *
-     * Create a webhook endpoint. Pingram POSTs signed JSON to the URL when one of the subscribed events happens. The response includes id and a signing secret starting with pingram_whsecret_. Save it and verify the X-Pingram-Signature header. Updates keep this secret. At most 10 endpoints per account. The URL must be a public HTTPS URL and should return 2xx.
+     * Create a webhook endpoint on a server outside Pingram. Pingram later POSTs signed JSON to that URL when one of the subscribed events happens. This call only saves the endpoint; it does not send a webhook and does not modify the destination server. The response includes id and a signing secret starting with pingram_whsecret_. Save it and verify the X-Pingram-Signature header. Updates keep this secret. At most 10 endpoints per account. The URL must be a public HTTPS URL and should return 2xx.
      *
      * @param  \Pingram\Model\WebhookEndpointUpsertRequest $webhook_endpoint_upsert_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['webhooksCreateWebhook'] to see the possible values for this operation
@@ -282,7 +282,7 @@ class WebhooksApi
     /**
      * Operation webhooksCreateWebhookAsync
      *
-     * Create a webhook endpoint. Pingram POSTs signed JSON to the URL when one of the subscribed events happens. The response includes id and a signing secret starting with pingram_whsecret_. Save it and verify the X-Pingram-Signature header. Updates keep this secret. At most 10 endpoints per account. The URL must be a public HTTPS URL and should return 2xx.
+     * Create a webhook endpoint on a server outside Pingram. Pingram later POSTs signed JSON to that URL when one of the subscribed events happens. This call only saves the endpoint; it does not send a webhook and does not modify the destination server. The response includes id and a signing secret starting with pingram_whsecret_. Save it and verify the X-Pingram-Signature header. Updates keep this secret. At most 10 endpoints per account. The URL must be a public HTTPS URL and should return 2xx.
      *
      * @param  \Pingram\Model\WebhookEndpointUpsertRequest $webhook_endpoint_upsert_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['webhooksCreateWebhook'] to see the possible values for this operation
@@ -303,7 +303,7 @@ class WebhooksApi
     /**
      * Operation webhooksCreateWebhookAsyncWithHttpInfo
      *
-     * Create a webhook endpoint. Pingram POSTs signed JSON to the URL when one of the subscribed events happens. The response includes id and a signing secret starting with pingram_whsecret_. Save it and verify the X-Pingram-Signature header. Updates keep this secret. At most 10 endpoints per account. The URL must be a public HTTPS URL and should return 2xx.
+     * Create a webhook endpoint on a server outside Pingram. Pingram later POSTs signed JSON to that URL when one of the subscribed events happens. This call only saves the endpoint; it does not send a webhook and does not modify the destination server. The response includes id and a signing secret starting with pingram_whsecret_. Save it and verify the X-Pingram-Signature header. Updates keep this secret. At most 10 endpoints per account. The URL must be a public HTTPS URL and should return 2xx.
      *
      * @param  \Pingram\Model\WebhookEndpointUpsertRequest $webhook_endpoint_upsert_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['webhooksCreateWebhook'] to see the possible values for this operation
@@ -1026,7 +1026,7 @@ class WebhooksApi
     /**
      * Operation webhooksUpdateWebhook
      *
-     * Replace one webhook endpoint&#39;s URL and its full event subscription. endpointId comes from list or create. The signing secret stays the same. events is the complete set; omitting an event unsubscribes it. The URL must be a public HTTPS URL.
+     * Replace one webhook endpoint&#39;s URL and its full event subscription. The URL is a server outside Pingram. endpointId comes from list or create. The signing secret stays the same. events is the complete set; omitting an event unsubscribes it, and the previous URL stops receiving events. The previous URL and event list are not kept. The URL must be a public HTTPS URL.
      *
      * @param  string $endpoint_id Id of the webhook endpoint, from list or create. (required)
      * @param  \Pingram\Model\WebhookEndpointUpsertRequest $webhook_endpoint_upsert_request webhook_endpoint_upsert_request (required)
@@ -1045,7 +1045,7 @@ class WebhooksApi
     /**
      * Operation webhooksUpdateWebhookWithHttpInfo
      *
-     * Replace one webhook endpoint&#39;s URL and its full event subscription. endpointId comes from list or create. The signing secret stays the same. events is the complete set; omitting an event unsubscribes it. The URL must be a public HTTPS URL.
+     * Replace one webhook endpoint&#39;s URL and its full event subscription. The URL is a server outside Pingram. endpointId comes from list or create. The signing secret stays the same. events is the complete set; omitting an event unsubscribes it, and the previous URL stops receiving events. The previous URL and event list are not kept. The URL must be a public HTTPS URL.
      *
      * @param  string $endpoint_id Id of the webhook endpoint, from list or create. (required)
      * @param  \Pingram\Model\WebhookEndpointUpsertRequest $webhook_endpoint_upsert_request (required)
@@ -1173,7 +1173,7 @@ class WebhooksApi
     /**
      * Operation webhooksUpdateWebhookAsync
      *
-     * Replace one webhook endpoint&#39;s URL and its full event subscription. endpointId comes from list or create. The signing secret stays the same. events is the complete set; omitting an event unsubscribes it. The URL must be a public HTTPS URL.
+     * Replace one webhook endpoint&#39;s URL and its full event subscription. The URL is a server outside Pingram. endpointId comes from list or create. The signing secret stays the same. events is the complete set; omitting an event unsubscribes it, and the previous URL stops receiving events. The previous URL and event list are not kept. The URL must be a public HTTPS URL.
      *
      * @param  string $endpoint_id Id of the webhook endpoint, from list or create. (required)
      * @param  \Pingram\Model\WebhookEndpointUpsertRequest $webhook_endpoint_upsert_request (required)
@@ -1195,7 +1195,7 @@ class WebhooksApi
     /**
      * Operation webhooksUpdateWebhookAsyncWithHttpInfo
      *
-     * Replace one webhook endpoint&#39;s URL and its full event subscription. endpointId comes from list or create. The signing secret stays the same. events is the complete set; omitting an event unsubscribes it. The URL must be a public HTTPS URL.
+     * Replace one webhook endpoint&#39;s URL and its full event subscription. The URL is a server outside Pingram. endpointId comes from list or create. The signing secret stays the same. events is the complete set; omitting an event unsubscribes it, and the previous URL stops receiving events. The previous URL and event list are not kept. The URL must be a public HTTPS URL.
      *
      * @param  string $endpoint_id Id of the webhook endpoint, from list or create. (required)
      * @param  \Pingram\Model\WebhookEndpointUpsertRequest $webhook_endpoint_upsert_request (required)

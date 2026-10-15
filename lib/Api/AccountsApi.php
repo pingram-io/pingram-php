@@ -131,7 +131,7 @@ class AccountsApi
     /**
      * Operation accountsCreateAccount
      *
-     * Create an additional account for the authenticated user
+     * Create one additional Pingram account (a separate workspace) for the signed-in user. The caller must already belong to an account. Requires a user session or personal access token; an account API key cannot call this. Does not create a login, and does not change, delete, or grant access to existing accounts. Omit plan and nothing is charged. The new account is ready for billing to be added later, and it cannot send until then. Setting plan charges immediately. It starts a paid subscription on the payment method already saved on sourceBillingAccountId, an account the caller must own. Optional memberEmails adds people who already share an account with the caller and invites everyone else.
      *
      * @param  \Pingram\Model\CreateAccountRequest $create_account_request create_account_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountsCreateAccount'] to see the possible values for this operation
@@ -149,7 +149,7 @@ class AccountsApi
     /**
      * Operation accountsCreateAccountWithHttpInfo
      *
-     * Create an additional account for the authenticated user
+     * Create one additional Pingram account (a separate workspace) for the signed-in user. The caller must already belong to an account. Requires a user session or personal access token; an account API key cannot call this. Does not create a login, and does not change, delete, or grant access to existing accounts. Omit plan and nothing is charged. The new account is ready for billing to be added later, and it cannot send until then. Setting plan charges immediately. It starts a paid subscription on the payment method already saved on sourceBillingAccountId, an account the caller must own. Optional memberEmails adds people who already share an account with the caller and invites everyone else.
      *
      * @param  \Pingram\Model\CreateAccountRequest $create_account_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountsCreateAccount'] to see the possible values for this operation
@@ -276,7 +276,7 @@ class AccountsApi
     /**
      * Operation accountsCreateAccountAsync
      *
-     * Create an additional account for the authenticated user
+     * Create one additional Pingram account (a separate workspace) for the signed-in user. The caller must already belong to an account. Requires a user session or personal access token; an account API key cannot call this. Does not create a login, and does not change, delete, or grant access to existing accounts. Omit plan and nothing is charged. The new account is ready for billing to be added later, and it cannot send until then. Setting plan charges immediately. It starts a paid subscription on the payment method already saved on sourceBillingAccountId, an account the caller must own. Optional memberEmails adds people who already share an account with the caller and invites everyone else.
      *
      * @param  \Pingram\Model\CreateAccountRequest $create_account_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountsCreateAccount'] to see the possible values for this operation
@@ -297,7 +297,7 @@ class AccountsApi
     /**
      * Operation accountsCreateAccountAsyncWithHttpInfo
      *
-     * Create an additional account for the authenticated user
+     * Create one additional Pingram account (a separate workspace) for the signed-in user. The caller must already belong to an account. Requires a user session or personal access token; an account API key cannot call this. Does not create a login, and does not change, delete, or grant access to existing accounts. Omit plan and nothing is charged. The new account is ready for billing to be added later, and it cannot send until then. Setting plan charges immediately. It starts a paid subscription on the payment method already saved on sourceBillingAccountId, an account the caller must own. Optional memberEmails adds people who already share an account with the caller and invites everyone else.
      *
      * @param  \Pingram\Model\CreateAccountRequest $create_account_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountsCreateAccount'] to see the possible values for this operation

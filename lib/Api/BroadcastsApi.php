@@ -493,7 +493,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsCancel
      *
-     * Cancel an email broadcast. Scheduled broadcasts revert to draft and drop their schedule. Sending or paused broadcasts become canceled; remaining pending recipients are skipped.
+     * Cancel an email broadcast. Scheduled broadcasts revert to draft and drop their schedule (they can be scheduled again). Sending or paused broadcasts become canceled; recipients already processed stay as they are, and remaining pending recipients are skipped and will not be sent. That skip cannot be undone.
      *
      * @param  string $broadcast_id Broadcast ID (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['broadcastsCancel'] to see the possible values for this operation
@@ -511,7 +511,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsCancelWithHttpInfo
      *
-     * Cancel an email broadcast. Scheduled broadcasts revert to draft and drop their schedule. Sending or paused broadcasts become canceled; remaining pending recipients are skipped.
+     * Cancel an email broadcast. Scheduled broadcasts revert to draft and drop their schedule (they can be scheduled again). Sending or paused broadcasts become canceled; recipients already processed stay as they are, and remaining pending recipients are skipped and will not be sent. That skip cannot be undone.
      *
      * @param  string $broadcast_id Broadcast ID (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['broadcastsCancel'] to see the possible values for this operation
@@ -638,7 +638,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsCancelAsync
      *
-     * Cancel an email broadcast. Scheduled broadcasts revert to draft and drop their schedule. Sending or paused broadcasts become canceled; remaining pending recipients are skipped.
+     * Cancel an email broadcast. Scheduled broadcasts revert to draft and drop their schedule (they can be scheduled again). Sending or paused broadcasts become canceled; recipients already processed stay as they are, and remaining pending recipients are skipped and will not be sent. That skip cannot be undone.
      *
      * @param  string $broadcast_id Broadcast ID (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['broadcastsCancel'] to see the possible values for this operation
@@ -659,7 +659,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsCancelAsyncWithHttpInfo
      *
-     * Cancel an email broadcast. Scheduled broadcasts revert to draft and drop their schedule. Sending or paused broadcasts become canceled; remaining pending recipients are skipped.
+     * Cancel an email broadcast. Scheduled broadcasts revert to draft and drop their schedule (they can be scheduled again). Sending or paused broadcasts become canceled; recipients already processed stay as they are, and remaining pending recipients are skipped and will not be sent. That skip cannot be undone.
      *
      * @param  string $broadcast_id Broadcast ID (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['broadcastsCancel'] to see the possible values for this operation
@@ -4478,7 +4478,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsUpdate
      *
-     * Update a draft email broadcast (name, type, audience, sender, subject, html). html is the send-ready body. Send an empty replyToAddress to clear Reply-To. internalTemplate can be updated only when the broadcast was created with it; it cannot be added to an html-only broadcast or removed. Only drafts can be edited; scheduled or active broadcasts are locked.
+     * Update a draft email broadcast. Fields you send replace the stored values (name, type, audience, sender, subject, html) and the previous values are not kept; omitted fields stay. html is the send-ready body. Send an empty replyToAddress to clear Reply-To. internalTemplate can be updated only when the broadcast was created with it; it cannot be added to an html-only broadcast or removed. Only drafts can be edited; scheduled or active broadcasts are locked. This does not send the broadcast.
      *
      * @param  string $broadcast_id Broadcast ID (required)
      * @param  \Pingram\Model\UpdateBroadcastRequest $update_broadcast_request update_broadcast_request (required)
@@ -4497,7 +4497,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsUpdateWithHttpInfo
      *
-     * Update a draft email broadcast (name, type, audience, sender, subject, html). html is the send-ready body. Send an empty replyToAddress to clear Reply-To. internalTemplate can be updated only when the broadcast was created with it; it cannot be added to an html-only broadcast or removed. Only drafts can be edited; scheduled or active broadcasts are locked.
+     * Update a draft email broadcast. Fields you send replace the stored values (name, type, audience, sender, subject, html) and the previous values are not kept; omitted fields stay. html is the send-ready body. Send an empty replyToAddress to clear Reply-To. internalTemplate can be updated only when the broadcast was created with it; it cannot be added to an html-only broadcast or removed. Only drafts can be edited; scheduled or active broadcasts are locked. This does not send the broadcast.
      *
      * @param  string $broadcast_id Broadcast ID (required)
      * @param  \Pingram\Model\UpdateBroadcastRequest $update_broadcast_request (required)
@@ -4625,7 +4625,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsUpdateAsync
      *
-     * Update a draft email broadcast (name, type, audience, sender, subject, html). html is the send-ready body. Send an empty replyToAddress to clear Reply-To. internalTemplate can be updated only when the broadcast was created with it; it cannot be added to an html-only broadcast or removed. Only drafts can be edited; scheduled or active broadcasts are locked.
+     * Update a draft email broadcast. Fields you send replace the stored values (name, type, audience, sender, subject, html) and the previous values are not kept; omitted fields stay. html is the send-ready body. Send an empty replyToAddress to clear Reply-To. internalTemplate can be updated only when the broadcast was created with it; it cannot be added to an html-only broadcast or removed. Only drafts can be edited; scheduled or active broadcasts are locked. This does not send the broadcast.
      *
      * @param  string $broadcast_id Broadcast ID (required)
      * @param  \Pingram\Model\UpdateBroadcastRequest $update_broadcast_request (required)
@@ -4647,7 +4647,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsUpdateAsyncWithHttpInfo
      *
-     * Update a draft email broadcast (name, type, audience, sender, subject, html). html is the send-ready body. Send an empty replyToAddress to clear Reply-To. internalTemplate can be updated only when the broadcast was created with it; it cannot be added to an html-only broadcast or removed. Only drafts can be edited; scheduled or active broadcasts are locked.
+     * Update a draft email broadcast. Fields you send replace the stored values (name, type, audience, sender, subject, html) and the previous values are not kept; omitted fields stay. html is the send-ready body. Send an empty replyToAddress to clear Reply-To. internalTemplate can be updated only when the broadcast was created with it; it cannot be added to an html-only broadcast or removed. Only drafts can be edited; scheduled or active broadcasts are locked. This does not send the broadcast.
      *
      * @param  string $broadcast_id Broadcast ID (required)
      * @param  \Pingram\Model\UpdateBroadcastRequest $update_broadcast_request (required)

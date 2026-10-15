@@ -1094,7 +1094,7 @@ class AddressesApi
     /**
      * Operation addressesUpdateAddress
      *
-     * Update an inbox prefix or display name.
+     * Update one inbox on this account. A new prefix deletes the old address, so mail to the previous address stops, and that address is not kept. displayName only relabels a custom inbox and does not change where mail is delivered. Does not create an inbox or change its domain.
      *
      * @param  \Pingram\Model\UpdateAddressRequest $update_address_request update_address_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addressesUpdateAddress'] to see the possible values for this operation
@@ -1112,7 +1112,7 @@ class AddressesApi
     /**
      * Operation addressesUpdateAddressWithHttpInfo
      *
-     * Update an inbox prefix or display name.
+     * Update one inbox on this account. A new prefix deletes the old address, so mail to the previous address stops, and that address is not kept. displayName only relabels a custom inbox and does not change where mail is delivered. Does not create an inbox or change its domain.
      *
      * @param  \Pingram\Model\UpdateAddressRequest $update_address_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addressesUpdateAddress'] to see the possible values for this operation
@@ -1239,7 +1239,7 @@ class AddressesApi
     /**
      * Operation addressesUpdateAddressAsync
      *
-     * Update an inbox prefix or display name.
+     * Update one inbox on this account. A new prefix deletes the old address, so mail to the previous address stops, and that address is not kept. displayName only relabels a custom inbox and does not change where mail is delivered. Does not create an inbox or change its domain.
      *
      * @param  \Pingram\Model\UpdateAddressRequest $update_address_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addressesUpdateAddress'] to see the possible values for this operation
@@ -1260,7 +1260,7 @@ class AddressesApi
     /**
      * Operation addressesUpdateAddressAsyncWithHttpInfo
      *
-     * Update an inbox prefix or display name.
+     * Update one inbox on this account. A new prefix deletes the old address, so mail to the previous address stops, and that address is not kept. displayName only relabels a custom inbox and does not change where mail is delivered. Does not create an inbox or change its domain.
      *
      * @param  \Pingram\Model\UpdateAddressRequest $update_address_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addressesUpdateAddress'] to see the possible values for this operation
