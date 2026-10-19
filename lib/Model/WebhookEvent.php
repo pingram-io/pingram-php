@@ -332,6 +332,9 @@ class WebhookEvent implements ModelInterface, ArrayAccess, \JsonSerializable
     public const EVENT_TYPE_SMS_UNSUBSCRIBE = 'SMS_UNSUBSCRIBE';
     public const EVENT_TYPE_SMS_SUBSCRIBE = 'SMS_SUBSCRIBE';
     public const EVENT_TYPE_SMS_INBOUND = 'SMS_INBOUND';
+    public const EVENT_TYPE_VOICE_INBOUND = 'VOICE_INBOUND';
+    public const EVENT_TYPE_VOICE_CONNECTED = 'VOICE_CONNECTED';
+    public const EVENT_TYPE_VOICE_ENDED = 'VOICE_ENDED';
     public const EVENT_TYPE_PUSH_FAILED = 'PUSH_FAILED';
     public const EVENT_TYPE_PUSH_UNSUBSCRIBE = 'PUSH_UNSUBSCRIBE';
     public const EVENT_TYPE_CALL_FAILED = 'CALL_FAILED';
@@ -363,6 +366,9 @@ class WebhookEvent implements ModelInterface, ArrayAccess, \JsonSerializable
             self::EVENT_TYPE_SMS_UNSUBSCRIBE,
             self::EVENT_TYPE_SMS_SUBSCRIBE,
             self::EVENT_TYPE_SMS_INBOUND,
+            self::EVENT_TYPE_VOICE_INBOUND,
+            self::EVENT_TYPE_VOICE_CONNECTED,
+            self::EVENT_TYPE_VOICE_ENDED,
             self::EVENT_TYPE_PUSH_FAILED,
             self::EVENT_TYPE_PUSH_UNSUBSCRIBE,
             self::EVENT_TYPE_CALL_FAILED,

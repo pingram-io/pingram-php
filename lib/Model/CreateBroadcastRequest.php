@@ -658,7 +658,7 @@ class CreateBroadcastRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets internal_template
      *
-     * @param string|null $internal_template Optional visual-editor source. Can only be set at create time and must stay paired with html.
+     * @param string|null $internal_template Optional visual-editor source. Pair with html. A later update can add it to a draft by sending it with html.
      *
      * @return self
      */

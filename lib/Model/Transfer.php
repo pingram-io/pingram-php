@@ -35,6 +35,7 @@ use \Pingram\ObjectSerializer;
  * Transfer Class Doc Comment
  *
  * @category Class
+ * @description Transfer the caller to a phone number.
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -58,9 +59,7 @@ class Transfer implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'type' => 'string',
-        'transfer_mode' => 'string',
-        'destination' => 'string',
-        'briefing' => 'string'
+        'destinations' => '\Pingram\Model\TransferDestinationsInner[]'
     ];
 
     /**
@@ -72,9 +71,7 @@ class Transfer implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'type' => null,
-        'transfer_mode' => null,
-        'destination' => null,
-        'briefing' => null
+        'destinations' => null
     ];
 
     /**
@@ -84,9 +81,7 @@ class Transfer implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static array $openAPINullables = [
         'type' => false,
-        'transfer_mode' => false,
-        'destination' => false,
-        'briefing' => false
+        'destinations' => false
     ];
 
     /**
@@ -176,9 +171,7 @@ class Transfer implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'type' => 'type',
-        'transfer_mode' => 'transferMode',
-        'destination' => 'destination',
-        'briefing' => 'briefing'
+        'destinations' => 'destinations'
     ];
 
     /**
@@ -188,9 +181,7 @@ class Transfer implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'type' => 'setType',
-        'transfer_mode' => 'setTransferMode',
-        'destination' => 'setDestination',
-        'briefing' => 'setBriefing'
+        'destinations' => 'setDestinations'
     ];
 
     /**
@@ -200,9 +191,7 @@ class Transfer implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'type' => 'getType',
-        'transfer_mode' => 'getTransferMode',
-        'destination' => 'getDestination',
-        'briefing' => 'getBriefing'
+        'destinations' => 'getDestinations'
     ];
 
     /**
@@ -247,8 +236,6 @@ class Transfer implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     public const TYPE_TRANSFER = 'transfer';
-    public const TRANSFER_MODE_WARM = 'warm';
-    public const TRANSFER_MODE_COLD = 'cold';
 
     /**
      * Gets allowable values of the enum
@@ -259,19 +246,6 @@ class Transfer implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         return [
             self::TYPE_TRANSFER,
-        ];
-    }
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getTransferModeAllowableValues()
-    {
-        return [
-            self::TRANSFER_MODE_WARM,
-            self::TRANSFER_MODE_COLD,
         ];
     }
 
@@ -291,9 +265,7 @@ class Transfer implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(?array $data = null)
     {
         $this->setIfExists('type', $data ?? [], null);
-        $this->setIfExists('transfer_mode', $data ?? [], null);
-        $this->setIfExists('destination', $data ?? [], null);
-        $this->setIfExists('briefing', $data ?? [], null);
+        $this->setIfExists('destinations', $data ?? [], null);
     }
 
     /**
@@ -335,20 +307,8 @@ class Transfer implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
 
-        if ($this->container['transfer_mode'] === null) {
-            $invalidProperties[] = "'transfer_mode' can't be null";
-        }
-        $allowedValues = $this->getTransferModeAllowableValues();
-        if (!is_null($this->container['transfer_mode']) && !in_array($this->container['transfer_mode'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'transfer_mode', must be one of '%s'",
-                $this->container['transfer_mode'],
-                implode("', '", $allowedValues)
-            );
-        }
-
-        if ($this->container['destination'] === null) {
-            $invalidProperties[] = "'destination' can't be null";
+        if ($this->container['destinations'] === null) {
+            $invalidProperties[] = "'destinations' can't be null";
         }
         return $invalidProperties;
     }
@@ -378,7 +338,7 @@ class Transfer implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets type
      *
-     * @param string $type type
+     * @param string $type Transfer the live call to one of destinations.
      *
      * @return self
      */
@@ -403,92 +363,28 @@ class Transfer implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets transfer_mode
+     * Gets destinations
      *
-     * @return string
+     * @return \Pingram\Model\TransferDestinationsInner[]
      */
-    public function getTransferMode()
+    public function getDestinations()
     {
-        return $this->container['transfer_mode'];
+        return $this->container['destinations'];
     }
 
     /**
-     * Sets transfer_mode
+     * Sets destinations
      *
-     * @param string $transfer_mode transfer_mode
+     * @param \Pingram\Model\TransferDestinationsInner[] $destinations Numbers the agent can transfer to. Set a condition on each when there is more than one.
      *
      * @return self
      */
-    public function setTransferMode($transfer_mode)
+    public function setDestinations($destinations)
     {
-        if (is_null($transfer_mode)) {
-            throw new \InvalidArgumentException('non-nullable transfer_mode cannot be null');
+        if (is_null($destinations)) {
+            throw new \InvalidArgumentException('non-nullable destinations cannot be null');
         }
-        $allowedValues = $this->getTransferModeAllowableValues();
-        if (!in_array($transfer_mode, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'transfer_mode', must be one of '%s'",
-                    $transfer_mode,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['transfer_mode'] = $transfer_mode;
-
-        return $this;
-    }
-
-    /**
-     * Gets destination
-     *
-     * @return string
-     */
-    public function getDestination()
-    {
-        return $this->container['destination'];
-    }
-
-    /**
-     * Sets destination
-     *
-     * @param string $destination destination
-     *
-     * @return self
-     */
-    public function setDestination($destination)
-    {
-        if (is_null($destination)) {
-            throw new \InvalidArgumentException('non-nullable destination cannot be null');
-        }
-        $this->container['destination'] = $destination;
-
-        return $this;
-    }
-
-    /**
-     * Gets briefing
-     *
-     * @return string|null
-     */
-    public function getBriefing()
-    {
-        return $this->container['briefing'];
-    }
-
-    /**
-     * Sets briefing
-     *
-     * @param string|null $briefing briefing
-     *
-     * @return self
-     */
-    public function setBriefing($briefing)
-    {
-        if (is_null($briefing)) {
-            throw new \InvalidArgumentException('non-nullable briefing cannot be null');
-        }
-        $this->container['briefing'] = $briefing;
+        $this->container['destinations'] = $destinations;
 
         return $this;
     }

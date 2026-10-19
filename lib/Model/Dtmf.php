@@ -35,6 +35,7 @@ use \Pingram\ObjectSerializer;
  * Dtmf Class Doc Comment
  *
  * @category Class
+ * @description Let the agent send keypad tones.
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -327,7 +328,7 @@ class Dtmf implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets type
      *
-     * @param string $type type
+     * @param string $type Send DTMF keypad tones during the call.
      *
      * @return self
      */

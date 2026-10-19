@@ -13,6 +13,6 @@ Name | Type | Description | Notes
 **reply_to_address** | **string** |  | [optional]
 **subject** | **string** |  |
 **html** | **string** |  |
-**internal_template** | **string** | Optional visual-editor source. Can only be set at create time and must stay paired with html. | [optional]
+**internal_template** | **string** | Optional visual-editor source. Pair with html. A later update can add it to a draft by sending it with html. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

@@ -6,17 +6,17 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **tracking_id** | **string** |  |
 **status** | **string** |  |
-**agent_id** | **string** | Omitted for playground calls made before the agent was saved. | [optional]
-**agent_name** | **string** |  |
+**config_name** | **string** |  |
 **direction** | **string** |  |
 **source** | **string** |  |
 **from** | **string** |  |
 **to** | **string** |  |
 **started_at** | **string** |  |
+**answered_at** | **string** | Set when the callee answers. Absent while the phone is still ringing. | [optional]
 **duration_seconds** | **float** |  |
 **outcome** | **string** |  | [optional]
 **end_reason** | **string** | Machine-readable reason the call ended — persisted on every call record. | [optional]
-**end_detail** | **string** | Short human-readable detail (e.g. provider error message). | [optional]
+**end_detail** | **string** | Short human-readable detail, such as why the call failed. | [optional]
 **timeline** | [**\Pingram\Model\GetVoiceCallResponseCallTimelineInner[]**](GetVoiceCallResponseCallTimelineInner.md) | Full chronological timeline (transcript + ops events). |
 **recording_url** | **string** |  | [optional]
 **variables** | **array<string,string>** |  | [optional]

@@ -68,7 +68,7 @@ class ListPhoneNumbersResponseNumbersInner implements ModelInterface, ArrayAcces
         'monthly_price' => 'float',
         'a2p_status' => 'string',
         'released_at' => 'string',
-        'bound_agent_id' => 'string'
+        'inbound' => '\Pingram\Model\ArmVoiceInboundClaimRequestInbound'
     ];
 
     /**
@@ -89,7 +89,7 @@ class ListPhoneNumbersResponseNumbersInner implements ModelInterface, ArrayAcces
         'monthly_price' => null,
         'a2p_status' => null,
         'released_at' => null,
-        'bound_agent_id' => null
+        'inbound' => null
     ];
 
     /**
@@ -108,7 +108,7 @@ class ListPhoneNumbersResponseNumbersInner implements ModelInterface, ArrayAcces
         'monthly_price' => false,
         'a2p_status' => false,
         'released_at' => false,
-        'bound_agent_id' => false
+        'inbound' => false
     ];
 
     /**
@@ -207,7 +207,7 @@ class ListPhoneNumbersResponseNumbersInner implements ModelInterface, ArrayAcces
         'monthly_price' => 'monthlyPrice',
         'a2p_status' => 'a2pStatus',
         'released_at' => 'releasedAt',
-        'bound_agent_id' => 'boundAgentId'
+        'inbound' => 'inbound'
     ];
 
     /**
@@ -226,7 +226,7 @@ class ListPhoneNumbersResponseNumbersInner implements ModelInterface, ArrayAcces
         'monthly_price' => 'setMonthlyPrice',
         'a2p_status' => 'setA2pStatus',
         'released_at' => 'setReleasedAt',
-        'bound_agent_id' => 'setBoundAgentId'
+        'inbound' => 'setInbound'
     ];
 
     /**
@@ -245,7 +245,7 @@ class ListPhoneNumbersResponseNumbersInner implements ModelInterface, ArrayAcces
         'monthly_price' => 'getMonthlyPrice',
         'a2p_status' => 'getA2pStatus',
         'released_at' => 'getReleasedAt',
-        'bound_agent_id' => 'getBoundAgentId'
+        'inbound' => 'getInbound'
     ];
 
     /**
@@ -347,7 +347,7 @@ class ListPhoneNumbersResponseNumbersInner implements ModelInterface, ArrayAcces
         $this->setIfExists('monthly_price', $data ?? [], null);
         $this->setIfExists('a2p_status', $data ?? [], null);
         $this->setIfExists('released_at', $data ?? [], null);
-        $this->setIfExists('bound_agent_id', $data ?? [], null);
+        $this->setIfExists('inbound', $data ?? [], null);
     }
 
     /**
@@ -722,28 +722,28 @@ class ListPhoneNumbersResponseNumbersInner implements ModelInterface, ArrayAcces
     }
 
     /**
-     * Gets bound_agent_id
+     * Gets inbound
      *
-     * @return string|null
+     * @return \Pingram\Model\ArmVoiceInboundClaimRequestInbound|null
      */
-    public function getBoundAgentId()
+    public function getInbound()
     {
-        return $this->container['bound_agent_id'];
+        return $this->container['inbound'];
     }
 
     /**
-     * Sets bound_agent_id
+     * Sets inbound
      *
-     * @param string|null $bound_agent_id Voice agent id bound for inbound AI voice, if any
+     * @param \Pingram\Model\ArmVoiceInboundClaimRequestInbound|null $inbound inbound
      *
      * @return self
      */
-    public function setBoundAgentId($bound_agent_id)
+    public function setInbound($inbound)
     {
-        if (is_null($bound_agent_id)) {
-            throw new \InvalidArgumentException('non-nullable bound_agent_id cannot be null');
+        if (is_null($inbound)) {
+            throw new \InvalidArgumentException('non-nullable inbound cannot be null');
         }
-        $this->container['bound_agent_id'] = $bound_agent_id;
+        $this->container['inbound'] = $inbound;
 
         return $this;
     }

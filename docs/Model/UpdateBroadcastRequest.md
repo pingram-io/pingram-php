@@ -13,6 +13,6 @@ Name | Type | Description | Notes
 **reply_to_address** | **string** | Omit to leave unchanged. Empty string clears Reply-To. | [optional]
 **subject** | **string** |  | [optional]
 **html** | **string** |  | [optional]
-**internal_template** | **string** | Optional visual-editor source. Can be updated only when the broadcast was created with it; cannot be added to an html-only broadcast. Pair with html. | [optional]
+**internal_template** | **string** | Visual-editor source. Send with html to add it to an html-only draft or to update it. Cannot be removed. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

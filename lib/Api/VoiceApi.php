@@ -74,37 +74,25 @@ class VoiceApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'voiceBindNumber' => [
+        'voiceArmInboundClaim' => [
             'application/json',
         ],
         'voiceCall' => [
             'application/json',
         ],
-        'voiceCreateAgent' => [
+        'voiceClearNumberInbound' => [
             'application/json',
         ],
         'voiceCreateBrowserCall' => [
             'application/json',
         ],
-        'voiceDeleteAgent' => [
-            'application/json',
-        ],
-        'voiceGetAgent' => [
-            'application/json',
-        ],
         'voiceGetCall' => [
-            'application/json',
-        ],
-        'voiceListAgents' => [
             'application/json',
         ],
         'voiceListCalls' => [
             'application/json',
         ],
-        'voiceUnbindNumber' => [
-            'application/json',
-        ],
-        'voiceUpdateAgent' => [
+        'voicePutNumberInbound' => [
             'application/json',
         ],
     ];
@@ -156,40 +144,38 @@ class VoiceApi
     }
 
     /**
-     * Operation voiceBindNumber
+     * Operation voiceArmInboundClaim
      *
-     * Bind a phone number to a deployed agent for inbound routing
+     * Arm the shared test number so the next call from this user&#39;s phone uses this inbound behavior
      *
-     * @param  string $agent_id Agent id (required)
-     * @param  \Pingram\Model\BindNumberRequest $bind_number_request bind_number_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voiceBindNumber'] to see the possible values for this operation
+     * @param  \Pingram\Model\ArmVoiceInboundClaimRequest $arm_voice_inbound_claim_request arm_voice_inbound_claim_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voiceArmInboundClaim'] to see the possible values for this operation
      *
      * @throws \Pingram\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Pingram\Model\BindNumberResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse
+     * @return \Pingram\Model\ArmVoiceInboundClaimResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse
      */
-    public function voiceBindNumber($agent_id, $bind_number_request, string $contentType = self::contentTypes['voiceBindNumber'][0])
+    public function voiceArmInboundClaim($arm_voice_inbound_claim_request, string $contentType = self::contentTypes['voiceArmInboundClaim'][0])
     {
-        list($response) = $this->voiceBindNumberWithHttpInfo($agent_id, $bind_number_request, $contentType);
+        list($response) = $this->voiceArmInboundClaimWithHttpInfo($arm_voice_inbound_claim_request, $contentType);
         return $response;
     }
 
     /**
-     * Operation voiceBindNumberWithHttpInfo
+     * Operation voiceArmInboundClaimWithHttpInfo
      *
-     * Bind a phone number to a deployed agent for inbound routing
+     * Arm the shared test number so the next call from this user&#39;s phone uses this inbound behavior
      *
-     * @param  string $agent_id Agent id (required)
-     * @param  \Pingram\Model\BindNumberRequest $bind_number_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voiceBindNumber'] to see the possible values for this operation
+     * @param  \Pingram\Model\ArmVoiceInboundClaimRequest $arm_voice_inbound_claim_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voiceArmInboundClaim'] to see the possible values for this operation
      *
      * @throws \Pingram\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Pingram\Model\BindNumberResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Pingram\Model\ArmVoiceInboundClaimResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function voiceBindNumberWithHttpInfo($agent_id, $bind_number_request, string $contentType = self::contentTypes['voiceBindNumber'][0])
+    public function voiceArmInboundClaimWithHttpInfo($arm_voice_inbound_claim_request, string $contentType = self::contentTypes['voiceArmInboundClaim'][0])
     {
-        $request = $this->voiceBindNumberRequest($agent_id, $bind_number_request, $contentType);
+        $request = $this->voiceArmInboundClaimRequest($arm_voice_inbound_claim_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -217,7 +203,7 @@ class VoiceApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\Pingram\Model\BindNumberResponse',
+                        '\Pingram\Model\ArmVoiceInboundClaimResponse',
                         $request,
                         $response,
                     );
@@ -257,7 +243,7 @@ class VoiceApi
             }
 
             return $this->handleResponseWithDataType(
-                '\Pingram\Model\BindNumberResponse',
+                '\Pingram\Model\ArmVoiceInboundClaimResponse',
                 $request,
                 $response,
             );
@@ -266,7 +252,7 @@ class VoiceApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Pingram\Model\BindNumberResponse',
+                        '\Pingram\Model\ArmVoiceInboundClaimResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -303,20 +289,19 @@ class VoiceApi
     }
 
     /**
-     * Operation voiceBindNumberAsync
+     * Operation voiceArmInboundClaimAsync
      *
-     * Bind a phone number to a deployed agent for inbound routing
+     * Arm the shared test number so the next call from this user&#39;s phone uses this inbound behavior
      *
-     * @param  string $agent_id Agent id (required)
-     * @param  \Pingram\Model\BindNumberRequest $bind_number_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voiceBindNumber'] to see the possible values for this operation
+     * @param  \Pingram\Model\ArmVoiceInboundClaimRequest $arm_voice_inbound_claim_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voiceArmInboundClaim'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function voiceBindNumberAsync($agent_id, $bind_number_request, string $contentType = self::contentTypes['voiceBindNumber'][0])
+    public function voiceArmInboundClaimAsync($arm_voice_inbound_claim_request, string $contentType = self::contentTypes['voiceArmInboundClaim'][0])
     {
-        return $this->voiceBindNumberAsyncWithHttpInfo($agent_id, $bind_number_request, $contentType)
+        return $this->voiceArmInboundClaimAsyncWithHttpInfo($arm_voice_inbound_claim_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -325,21 +310,20 @@ class VoiceApi
     }
 
     /**
-     * Operation voiceBindNumberAsyncWithHttpInfo
+     * Operation voiceArmInboundClaimAsyncWithHttpInfo
      *
-     * Bind a phone number to a deployed agent for inbound routing
+     * Arm the shared test number so the next call from this user&#39;s phone uses this inbound behavior
      *
-     * @param  string $agent_id Agent id (required)
-     * @param  \Pingram\Model\BindNumberRequest $bind_number_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voiceBindNumber'] to see the possible values for this operation
+     * @param  \Pingram\Model\ArmVoiceInboundClaimRequest $arm_voice_inbound_claim_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voiceArmInboundClaim'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function voiceBindNumberAsyncWithHttpInfo($agent_id, $bind_number_request, string $contentType = self::contentTypes['voiceBindNumber'][0])
+    public function voiceArmInboundClaimAsyncWithHttpInfo($arm_voice_inbound_claim_request, string $contentType = self::contentTypes['voiceArmInboundClaim'][0])
     {
-        $returnType = '\Pingram\Model\BindNumberResponse';
-        $request = $this->voiceBindNumberRequest($agent_id, $bind_number_request, $contentType);
+        $returnType = '\Pingram\Model\ArmVoiceInboundClaimResponse';
+        $request = $this->voiceArmInboundClaimRequest($arm_voice_inbound_claim_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -378,34 +362,26 @@ class VoiceApi
     }
 
     /**
-     * Create request for operation 'voiceBindNumber'
+     * Create request for operation 'voiceArmInboundClaim'
      *
-     * @param  string $agent_id Agent id (required)
-     * @param  \Pingram\Model\BindNumberRequest $bind_number_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voiceBindNumber'] to see the possible values for this operation
+     * @param  \Pingram\Model\ArmVoiceInboundClaimRequest $arm_voice_inbound_claim_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voiceArmInboundClaim'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function voiceBindNumberRequest($agent_id, $bind_number_request, string $contentType = self::contentTypes['voiceBindNumber'][0])
+    public function voiceArmInboundClaimRequest($arm_voice_inbound_claim_request, string $contentType = self::contentTypes['voiceArmInboundClaim'][0])
     {
 
-        // verify the required parameter 'agent_id' is set
-        if ($agent_id === null || (is_array($agent_id) && count($agent_id) === 0)) {
+        // verify the required parameter 'arm_voice_inbound_claim_request' is set
+        if ($arm_voice_inbound_claim_request === null || (is_array($arm_voice_inbound_claim_request) && count($arm_voice_inbound_claim_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $agent_id when calling voiceBindNumber'
-            );
-        }
-
-        // verify the required parameter 'bind_number_request' is set
-        if ($bind_number_request === null || (is_array($bind_number_request) && count($bind_number_request) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $bind_number_request when calling voiceBindNumber'
+                'Missing the required parameter $arm_voice_inbound_claim_request when calling voiceArmInboundClaim'
             );
         }
 
 
-        $resourcePath = '/voice/agents/{agentId}/numbers';
+        $resourcePath = '/voice/inbound-claims';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -414,14 +390,6 @@ class VoiceApi
 
 
 
-        // path params
-        if ($agent_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'agentId' . '}',
-                ObjectSerializer::toPathValue($agent_id),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -431,12 +399,12 @@ class VoiceApi
         );
 
         // for model (json/xml)
-        if (isset($bind_number_request)) {
+        if (isset($arm_voice_inbound_claim_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($bind_number_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($arm_voice_inbound_claim_request));
             } else {
-                $httpBody = $bind_number_request;
+                $httpBody = $arm_voice_inbound_claim_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -503,7 +471,7 @@ class VoiceApi
     /**
      * Operation voiceCall
      *
-     * Place an outbound call with an inline agent spec (ephemeral)
+     * Place an outbound call. The config is not saved.
      *
      * @param  \Pingram\Model\VoiceCallRequest $voice_call_request voice_call_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voiceCall'] to see the possible values for this operation
@@ -521,7 +489,7 @@ class VoiceApi
     /**
      * Operation voiceCallWithHttpInfo
      *
-     * Place an outbound call with an inline agent spec (ephemeral)
+     * Place an outbound call. The config is not saved.
      *
      * @param  \Pingram\Model\VoiceCallRequest $voice_call_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voiceCall'] to see the possible values for this operation
@@ -648,7 +616,7 @@ class VoiceApi
     /**
      * Operation voiceCallAsync
      *
-     * Place an outbound call with an inline agent spec (ephemeral)
+     * Place an outbound call. The config is not saved.
      *
      * @param  \Pingram\Model\VoiceCallRequest $voice_call_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voiceCall'] to see the possible values for this operation
@@ -669,7 +637,7 @@ class VoiceApi
     /**
      * Operation voiceCallAsyncWithHttpInfo
      *
-     * Place an outbound call with an inline agent spec (ephemeral)
+     * Place an outbound call. The config is not saved.
      *
      * @param  \Pingram\Model\VoiceCallRequest $voice_call_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voiceCall'] to see the possible values for this operation
@@ -826,38 +794,38 @@ class VoiceApi
     }
 
     /**
-     * Operation voiceCreateAgent
+     * Operation voiceClearNumberInbound
      *
-     * Deploy a voice agent (persist spec for production routing)
+     * Remove inbound call behavior from a number this account owns
      *
-     * @param  \Pingram\Model\CreateVoiceAgentRequest $create_voice_agent_request create_voice_agent_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voiceCreateAgent'] to see the possible values for this operation
+     * @param  string $phone_number E.164 phone number (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voiceClearNumberInbound'] to see the possible values for this operation
      *
      * @throws \Pingram\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Pingram\Model\CreateVoiceAgentResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse
+     * @return \Pingram\Model\MessageResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse
      */
-    public function voiceCreateAgent($create_voice_agent_request, string $contentType = self::contentTypes['voiceCreateAgent'][0])
+    public function voiceClearNumberInbound($phone_number, string $contentType = self::contentTypes['voiceClearNumberInbound'][0])
     {
-        list($response) = $this->voiceCreateAgentWithHttpInfo($create_voice_agent_request, $contentType);
+        list($response) = $this->voiceClearNumberInboundWithHttpInfo($phone_number, $contentType);
         return $response;
     }
 
     /**
-     * Operation voiceCreateAgentWithHttpInfo
+     * Operation voiceClearNumberInboundWithHttpInfo
      *
-     * Deploy a voice agent (persist spec for production routing)
+     * Remove inbound call behavior from a number this account owns
      *
-     * @param  \Pingram\Model\CreateVoiceAgentRequest $create_voice_agent_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voiceCreateAgent'] to see the possible values for this operation
+     * @param  string $phone_number E.164 phone number (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voiceClearNumberInbound'] to see the possible values for this operation
      *
      * @throws \Pingram\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Pingram\Model\CreateVoiceAgentResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Pingram\Model\MessageResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function voiceCreateAgentWithHttpInfo($create_voice_agent_request, string $contentType = self::contentTypes['voiceCreateAgent'][0])
+    public function voiceClearNumberInboundWithHttpInfo($phone_number, string $contentType = self::contentTypes['voiceClearNumberInbound'][0])
     {
-        $request = $this->voiceCreateAgentRequest($create_voice_agent_request, $contentType);
+        $request = $this->voiceClearNumberInboundRequest($phone_number, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -885,7 +853,7 @@ class VoiceApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\Pingram\Model\CreateVoiceAgentResponse',
+                        '\Pingram\Model\MessageResponse',
                         $request,
                         $response,
                     );
@@ -925,7 +893,7 @@ class VoiceApi
             }
 
             return $this->handleResponseWithDataType(
-                '\Pingram\Model\CreateVoiceAgentResponse',
+                '\Pingram\Model\MessageResponse',
                 $request,
                 $response,
             );
@@ -934,7 +902,7 @@ class VoiceApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Pingram\Model\CreateVoiceAgentResponse',
+                        '\Pingram\Model\MessageResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -971,19 +939,19 @@ class VoiceApi
     }
 
     /**
-     * Operation voiceCreateAgentAsync
+     * Operation voiceClearNumberInboundAsync
      *
-     * Deploy a voice agent (persist spec for production routing)
+     * Remove inbound call behavior from a number this account owns
      *
-     * @param  \Pingram\Model\CreateVoiceAgentRequest $create_voice_agent_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voiceCreateAgent'] to see the possible values for this operation
+     * @param  string $phone_number E.164 phone number (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voiceClearNumberInbound'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function voiceCreateAgentAsync($create_voice_agent_request, string $contentType = self::contentTypes['voiceCreateAgent'][0])
+    public function voiceClearNumberInboundAsync($phone_number, string $contentType = self::contentTypes['voiceClearNumberInbound'][0])
     {
-        return $this->voiceCreateAgentAsyncWithHttpInfo($create_voice_agent_request, $contentType)
+        return $this->voiceClearNumberInboundAsyncWithHttpInfo($phone_number, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -992,20 +960,20 @@ class VoiceApi
     }
 
     /**
-     * Operation voiceCreateAgentAsyncWithHttpInfo
+     * Operation voiceClearNumberInboundAsyncWithHttpInfo
      *
-     * Deploy a voice agent (persist spec for production routing)
+     * Remove inbound call behavior from a number this account owns
      *
-     * @param  \Pingram\Model\CreateVoiceAgentRequest $create_voice_agent_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voiceCreateAgent'] to see the possible values for this operation
+     * @param  string $phone_number E.164 phone number (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voiceClearNumberInbound'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function voiceCreateAgentAsyncWithHttpInfo($create_voice_agent_request, string $contentType = self::contentTypes['voiceCreateAgent'][0])
+    public function voiceClearNumberInboundAsyncWithHttpInfo($phone_number, string $contentType = self::contentTypes['voiceClearNumberInbound'][0])
     {
-        $returnType = '\Pingram\Model\CreateVoiceAgentResponse';
-        $request = $this->voiceCreateAgentRequest($create_voice_agent_request, $contentType);
+        $returnType = '\Pingram\Model\MessageResponse';
+        $request = $this->voiceClearNumberInboundRequest($phone_number, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1044,26 +1012,26 @@ class VoiceApi
     }
 
     /**
-     * Create request for operation 'voiceCreateAgent'
+     * Create request for operation 'voiceClearNumberInbound'
      *
-     * @param  \Pingram\Model\CreateVoiceAgentRequest $create_voice_agent_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voiceCreateAgent'] to see the possible values for this operation
+     * @param  string $phone_number E.164 phone number (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voiceClearNumberInbound'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function voiceCreateAgentRequest($create_voice_agent_request, string $contentType = self::contentTypes['voiceCreateAgent'][0])
+    public function voiceClearNumberInboundRequest($phone_number, string $contentType = self::contentTypes['voiceClearNumberInbound'][0])
     {
 
-        // verify the required parameter 'create_voice_agent_request' is set
-        if ($create_voice_agent_request === null || (is_array($create_voice_agent_request) && count($create_voice_agent_request) === 0)) {
+        // verify the required parameter 'phone_number' is set
+        if ($phone_number === null || (is_array($phone_number) && count($phone_number) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $create_voice_agent_request when calling voiceCreateAgent'
+                'Missing the required parameter $phone_number when calling voiceClearNumberInbound'
             );
         }
 
 
-        $resourcePath = '/voice/agents';
+        $resourcePath = '/voice/numbers/{phoneNumber}/inbound';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1072,6 +1040,14 @@ class VoiceApi
 
 
 
+        // path params
+        if ($phone_number !== null) {
+            $resourcePath = str_replace(
+                '{' . 'phoneNumber' . '}',
+                ObjectSerializer::toPathValue($phone_number),
+                $resourcePath
+            );
+        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1081,14 +1057,7 @@ class VoiceApi
         );
 
         // for model (json/xml)
-        if (isset($create_voice_agent_request)) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($create_voice_agent_request));
-            } else {
-                $httpBody = $create_voice_agent_request;
-            }
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1143,7 +1112,7 @@ class VoiceApi
         $operationHost = $this->config->getHost();
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
-            'POST',
+            'DELETE',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
@@ -1153,7 +1122,7 @@ class VoiceApi
     /**
      * Operation voiceCreateBrowserCall
      *
-     * Place an ephemeral browser playground call with an inline agent spec
+     * Place a browser playground call. Script calls use POST /voice/call.
      *
      * @param  \Pingram\Model\VoiceBrowserCallRequest $voice_browser_call_request voice_browser_call_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voiceCreateBrowserCall'] to see the possible values for this operation
@@ -1171,7 +1140,7 @@ class VoiceApi
     /**
      * Operation voiceCreateBrowserCallWithHttpInfo
      *
-     * Place an ephemeral browser playground call with an inline agent spec
+     * Place a browser playground call. Script calls use POST /voice/call.
      *
      * @param  \Pingram\Model\VoiceBrowserCallRequest $voice_browser_call_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voiceCreateBrowserCall'] to see the possible values for this operation
@@ -1298,7 +1267,7 @@ class VoiceApi
     /**
      * Operation voiceCreateBrowserCallAsync
      *
-     * Place an ephemeral browser playground call with an inline agent spec
+     * Place a browser playground call. Script calls use POST /voice/call.
      *
      * @param  \Pingram\Model\VoiceBrowserCallRequest $voice_browser_call_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voiceCreateBrowserCall'] to see the possible values for this operation
@@ -1319,7 +1288,7 @@ class VoiceApi
     /**
      * Operation voiceCreateBrowserCallAsyncWithHttpInfo
      *
-     * Place an ephemeral browser playground call with an inline agent spec
+     * Place a browser playground call. Script calls use POST /voice/call.
      *
      * @param  \Pingram\Model\VoiceBrowserCallRequest $voice_browser_call_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voiceCreateBrowserCall'] to see the possible values for this operation
@@ -1469,658 +1438,6 @@ class VoiceApi
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'POST',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation voiceDeleteAgent
-     *
-     * Remove a deployed voice agent and unbind its numbers
-     *
-     * @param  string $agent_id Agent id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voiceDeleteAgent'] to see the possible values for this operation
-     *
-     * @throws \Pingram\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return \Pingram\Model\DeleteVoiceAgentResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse
-     */
-    public function voiceDeleteAgent($agent_id, string $contentType = self::contentTypes['voiceDeleteAgent'][0])
-    {
-        list($response) = $this->voiceDeleteAgentWithHttpInfo($agent_id, $contentType);
-        return $response;
-    }
-
-    /**
-     * Operation voiceDeleteAgentWithHttpInfo
-     *
-     * Remove a deployed voice agent and unbind its numbers
-     *
-     * @param  string $agent_id Agent id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voiceDeleteAgent'] to see the possible values for this operation
-     *
-     * @throws \Pingram\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of \Pingram\Model\DeleteVoiceAgentResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function voiceDeleteAgentWithHttpInfo($agent_id, string $contentType = self::contentTypes['voiceDeleteAgent'][0])
-    {
-        $request = $this->voiceDeleteAgentRequest($agent_id, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-
-            switch($statusCode) {
-                case 200:
-                    return $this->handleResponseWithDataType(
-                        '\Pingram\Model\DeleteVoiceAgentResponse',
-                        $request,
-                        $response,
-                    );
-                case 400:
-                    return $this->handleResponseWithDataType(
-                        '\Pingram\Model\ApiErrorResponse',
-                        $request,
-                        $response,
-                    );
-                case 402:
-                    return $this->handleResponseWithDataType(
-                        '\Pingram\Model\ApiErrorResponse',
-                        $request,
-                        $response,
-                    );
-                case 502:
-                    return $this->handleResponseWithDataType(
-                        '\Pingram\Model\ApiErrorResponse',
-                        $request,
-                        $response,
-                    );
-            }
-
-            
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            return $this->handleResponseWithDataType(
-                '\Pingram\Model\DeleteVoiceAgentResponse',
-                $request,
-                $response,
-            );
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Pingram\Model\DeleteVoiceAgentResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Pingram\Model\ApiErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 402:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Pingram\Model\ApiErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 502:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Pingram\Model\ApiErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-            }
-        
-
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation voiceDeleteAgentAsync
-     *
-     * Remove a deployed voice agent and unbind its numbers
-     *
-     * @param  string $agent_id Agent id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voiceDeleteAgent'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function voiceDeleteAgentAsync($agent_id, string $contentType = self::contentTypes['voiceDeleteAgent'][0])
-    {
-        return $this->voiceDeleteAgentAsyncWithHttpInfo($agent_id, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation voiceDeleteAgentAsyncWithHttpInfo
-     *
-     * Remove a deployed voice agent and unbind its numbers
-     *
-     * @param  string $agent_id Agent id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voiceDeleteAgent'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function voiceDeleteAgentAsyncWithHttpInfo($agent_id, string $contentType = self::contentTypes['voiceDeleteAgent'][0])
-    {
-        $returnType = '\Pingram\Model\DeleteVoiceAgentResponse';
-        $request = $this->voiceDeleteAgentRequest($agent_id, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'voiceDeleteAgent'
-     *
-     * @param  string $agent_id Agent id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voiceDeleteAgent'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function voiceDeleteAgentRequest($agent_id, string $contentType = self::contentTypes['voiceDeleteAgent'][0])
-    {
-
-        // verify the required parameter 'agent_id' is set
-        if ($agent_id === null || (is_array($agent_id) && count($agent_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $agent_id when calling voiceDeleteAgent'
-            );
-        }
-
-
-        $resourcePath = '/voice/agents/{agentId}';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-        // path params
-        if ($agent_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'agentId' . '}',
-                ObjectSerializer::toPathValue($agent_id),
-                $resourcePath
-            );
-        }
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires HTTP basic authentication
-        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
-        }
-        // this endpoint requires HTTP basic authentication
-        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
-        }
-        // this endpoint requires Bearer (JWT) authentication (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-        // this endpoint requires HTTP basic authentication
-        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'DELETE',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation voiceGetAgent
-     *
-     * Get a deployed voice agent
-     *
-     * @param  string $agent_id Agent id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voiceGetAgent'] to see the possible values for this operation
-     *
-     * @throws \Pingram\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return \Pingram\Model\GetVoiceAgentResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse
-     */
-    public function voiceGetAgent($agent_id, string $contentType = self::contentTypes['voiceGetAgent'][0])
-    {
-        list($response) = $this->voiceGetAgentWithHttpInfo($agent_id, $contentType);
-        return $response;
-    }
-
-    /**
-     * Operation voiceGetAgentWithHttpInfo
-     *
-     * Get a deployed voice agent
-     *
-     * @param  string $agent_id Agent id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voiceGetAgent'] to see the possible values for this operation
-     *
-     * @throws \Pingram\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of \Pingram\Model\GetVoiceAgentResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function voiceGetAgentWithHttpInfo($agent_id, string $contentType = self::contentTypes['voiceGetAgent'][0])
-    {
-        $request = $this->voiceGetAgentRequest($agent_id, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-
-            switch($statusCode) {
-                case 200:
-                    return $this->handleResponseWithDataType(
-                        '\Pingram\Model\GetVoiceAgentResponse',
-                        $request,
-                        $response,
-                    );
-                case 400:
-                    return $this->handleResponseWithDataType(
-                        '\Pingram\Model\ApiErrorResponse',
-                        $request,
-                        $response,
-                    );
-                case 402:
-                    return $this->handleResponseWithDataType(
-                        '\Pingram\Model\ApiErrorResponse',
-                        $request,
-                        $response,
-                    );
-                case 502:
-                    return $this->handleResponseWithDataType(
-                        '\Pingram\Model\ApiErrorResponse',
-                        $request,
-                        $response,
-                    );
-            }
-
-            
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            return $this->handleResponseWithDataType(
-                '\Pingram\Model\GetVoiceAgentResponse',
-                $request,
-                $response,
-            );
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Pingram\Model\GetVoiceAgentResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Pingram\Model\ApiErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 402:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Pingram\Model\ApiErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 502:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Pingram\Model\ApiErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-            }
-        
-
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation voiceGetAgentAsync
-     *
-     * Get a deployed voice agent
-     *
-     * @param  string $agent_id Agent id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voiceGetAgent'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function voiceGetAgentAsync($agent_id, string $contentType = self::contentTypes['voiceGetAgent'][0])
-    {
-        return $this->voiceGetAgentAsyncWithHttpInfo($agent_id, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation voiceGetAgentAsyncWithHttpInfo
-     *
-     * Get a deployed voice agent
-     *
-     * @param  string $agent_id Agent id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voiceGetAgent'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function voiceGetAgentAsyncWithHttpInfo($agent_id, string $contentType = self::contentTypes['voiceGetAgent'][0])
-    {
-        $returnType = '\Pingram\Model\GetVoiceAgentResponse';
-        $request = $this->voiceGetAgentRequest($agent_id, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'voiceGetAgent'
-     *
-     * @param  string $agent_id Agent id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voiceGetAgent'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function voiceGetAgentRequest($agent_id, string $contentType = self::contentTypes['voiceGetAgent'][0])
-    {
-
-        // verify the required parameter 'agent_id' is set
-        if ($agent_id === null || (is_array($agent_id) && count($agent_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $agent_id when calling voiceGetAgent'
-            );
-        }
-
-
-        $resourcePath = '/voice/agents/{agentId}';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-        // path params
-        if ($agent_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'agentId' . '}',
-                ObjectSerializer::toPathValue($agent_id),
-                $resourcePath
-            );
-        }
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires HTTP basic authentication
-        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
-        }
-        // this endpoint requires HTTP basic authentication
-        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
-        }
-        // this endpoint requires Bearer (JWT) authentication (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-        // this endpoint requires HTTP basic authentication
-        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'GET',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
@@ -2454,317 +1771,10 @@ class VoiceApi
     }
 
     /**
-     * Operation voiceListAgents
-     *
-     * List deployed voice agents for the account
-     *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voiceListAgents'] to see the possible values for this operation
-     *
-     * @throws \Pingram\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return \Pingram\Model\ListVoiceAgentsResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse
-     */
-    public function voiceListAgents(string $contentType = self::contentTypes['voiceListAgents'][0])
-    {
-        list($response) = $this->voiceListAgentsWithHttpInfo($contentType);
-        return $response;
-    }
-
-    /**
-     * Operation voiceListAgentsWithHttpInfo
-     *
-     * List deployed voice agents for the account
-     *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voiceListAgents'] to see the possible values for this operation
-     *
-     * @throws \Pingram\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of \Pingram\Model\ListVoiceAgentsResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function voiceListAgentsWithHttpInfo(string $contentType = self::contentTypes['voiceListAgents'][0])
-    {
-        $request = $this->voiceListAgentsRequest($contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-
-            switch($statusCode) {
-                case 200:
-                    return $this->handleResponseWithDataType(
-                        '\Pingram\Model\ListVoiceAgentsResponse',
-                        $request,
-                        $response,
-                    );
-                case 400:
-                    return $this->handleResponseWithDataType(
-                        '\Pingram\Model\ApiErrorResponse',
-                        $request,
-                        $response,
-                    );
-                case 402:
-                    return $this->handleResponseWithDataType(
-                        '\Pingram\Model\ApiErrorResponse',
-                        $request,
-                        $response,
-                    );
-                case 502:
-                    return $this->handleResponseWithDataType(
-                        '\Pingram\Model\ApiErrorResponse',
-                        $request,
-                        $response,
-                    );
-            }
-
-            
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            return $this->handleResponseWithDataType(
-                '\Pingram\Model\ListVoiceAgentsResponse',
-                $request,
-                $response,
-            );
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Pingram\Model\ListVoiceAgentsResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Pingram\Model\ApiErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 402:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Pingram\Model\ApiErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 502:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Pingram\Model\ApiErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-            }
-        
-
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation voiceListAgentsAsync
-     *
-     * List deployed voice agents for the account
-     *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voiceListAgents'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function voiceListAgentsAsync(string $contentType = self::contentTypes['voiceListAgents'][0])
-    {
-        return $this->voiceListAgentsAsyncWithHttpInfo($contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation voiceListAgentsAsyncWithHttpInfo
-     *
-     * List deployed voice agents for the account
-     *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voiceListAgents'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function voiceListAgentsAsyncWithHttpInfo(string $contentType = self::contentTypes['voiceListAgents'][0])
-    {
-        $returnType = '\Pingram\Model\ListVoiceAgentsResponse';
-        $request = $this->voiceListAgentsRequest($contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'voiceListAgents'
-     *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voiceListAgents'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function voiceListAgentsRequest(string $contentType = self::contentTypes['voiceListAgents'][0])
-    {
-
-
-        $resourcePath = '/voice/agents';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires HTTP basic authentication
-        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
-        }
-        // this endpoint requires HTTP basic authentication
-        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
-        }
-        // this endpoint requires Bearer (JWT) authentication (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-        // this endpoint requires HTTP basic authentication
-        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'GET',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
      * Operation voiceListCalls
      *
      * List recent calls newest-first (30-day retention)
      *
-     * @param  string|null $agent_id Only calls handled by this agent (optional)
      * @param  float|null $limit Page size (default 25, max 100) (optional)
      * @param  string|null $cursor Pagination cursor from a previous response (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voiceListCalls'] to see the possible values for this operation
@@ -2773,9 +1783,9 @@ class VoiceApi
      * @throws \InvalidArgumentException
      * @return \Pingram\Model\ListVoiceCallsResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse
      */
-    public function voiceListCalls($agent_id = null, $limit = null, $cursor = null, string $contentType = self::contentTypes['voiceListCalls'][0])
+    public function voiceListCalls($limit = null, $cursor = null, string $contentType = self::contentTypes['voiceListCalls'][0])
     {
-        list($response) = $this->voiceListCallsWithHttpInfo($agent_id, $limit, $cursor, $contentType);
+        list($response) = $this->voiceListCallsWithHttpInfo($limit, $cursor, $contentType);
         return $response;
     }
 
@@ -2784,7 +1794,6 @@ class VoiceApi
      *
      * List recent calls newest-first (30-day retention)
      *
-     * @param  string|null $agent_id Only calls handled by this agent (optional)
      * @param  float|null $limit Page size (default 25, max 100) (optional)
      * @param  string|null $cursor Pagination cursor from a previous response (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voiceListCalls'] to see the possible values for this operation
@@ -2793,9 +1802,9 @@ class VoiceApi
      * @throws \InvalidArgumentException
      * @return array of \Pingram\Model\ListVoiceCallsResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function voiceListCallsWithHttpInfo($agent_id = null, $limit = null, $cursor = null, string $contentType = self::contentTypes['voiceListCalls'][0])
+    public function voiceListCallsWithHttpInfo($limit = null, $cursor = null, string $contentType = self::contentTypes['voiceListCalls'][0])
     {
-        $request = $this->voiceListCallsRequest($agent_id, $limit, $cursor, $contentType);
+        $request = $this->voiceListCallsRequest($limit, $cursor, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2913,7 +1922,6 @@ class VoiceApi
      *
      * List recent calls newest-first (30-day retention)
      *
-     * @param  string|null $agent_id Only calls handled by this agent (optional)
      * @param  float|null $limit Page size (default 25, max 100) (optional)
      * @param  string|null $cursor Pagination cursor from a previous response (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voiceListCalls'] to see the possible values for this operation
@@ -2921,9 +1929,9 @@ class VoiceApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function voiceListCallsAsync($agent_id = null, $limit = null, $cursor = null, string $contentType = self::contentTypes['voiceListCalls'][0])
+    public function voiceListCallsAsync($limit = null, $cursor = null, string $contentType = self::contentTypes['voiceListCalls'][0])
     {
-        return $this->voiceListCallsAsyncWithHttpInfo($agent_id, $limit, $cursor, $contentType)
+        return $this->voiceListCallsAsyncWithHttpInfo($limit, $cursor, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2936,7 +1944,6 @@ class VoiceApi
      *
      * List recent calls newest-first (30-day retention)
      *
-     * @param  string|null $agent_id Only calls handled by this agent (optional)
      * @param  float|null $limit Page size (default 25, max 100) (optional)
      * @param  string|null $cursor Pagination cursor from a previous response (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voiceListCalls'] to see the possible values for this operation
@@ -2944,10 +1951,10 @@ class VoiceApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function voiceListCallsAsyncWithHttpInfo($agent_id = null, $limit = null, $cursor = null, string $contentType = self::contentTypes['voiceListCalls'][0])
+    public function voiceListCallsAsyncWithHttpInfo($limit = null, $cursor = null, string $contentType = self::contentTypes['voiceListCalls'][0])
     {
         $returnType = '\Pingram\Model\ListVoiceCallsResponse';
-        $request = $this->voiceListCallsRequest($agent_id, $limit, $cursor, $contentType);
+        $request = $this->voiceListCallsRequest($limit, $cursor, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2988,7 +1995,6 @@ class VoiceApi
     /**
      * Create request for operation 'voiceListCalls'
      *
-     * @param  string|null $agent_id Only calls handled by this agent (optional)
      * @param  float|null $limit Page size (default 25, max 100) (optional)
      * @param  string|null $cursor Pagination cursor from a previous response (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voiceListCalls'] to see the possible values for this operation
@@ -2996,9 +2002,8 @@ class VoiceApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function voiceListCallsRequest($agent_id = null, $limit = null, $cursor = null, string $contentType = self::contentTypes['voiceListCalls'][0])
+    public function voiceListCallsRequest($limit = null, $cursor = null, string $contentType = self::contentTypes['voiceListCalls'][0])
     {
-
 
 
 
@@ -3010,15 +2015,6 @@ class VoiceApi
         $httpBody = '';
         $multipart = false;
 
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $agent_id,
-            'agentId', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $limit,
@@ -3111,40 +2107,40 @@ class VoiceApi
     }
 
     /**
-     * Operation voiceUnbindNumber
+     * Operation voicePutNumberInbound
      *
-     * Unbind a phone number from a deployed agent
+     * Store inbound call behavior on a number this account owns
      *
-     * @param  string $agent_id Agent id (required)
      * @param  string $phone_number E.164 phone number (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voiceUnbindNumber'] to see the possible values for this operation
+     * @param  \Pingram\Model\InboundConfig $inbound_config inbound_config (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voicePutNumberInbound'] to see the possible values for this operation
      *
      * @throws \Pingram\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Pingram\Model\UnbindNumberResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse
+     * @return \Pingram\Model\MessageResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse
      */
-    public function voiceUnbindNumber($agent_id, $phone_number, string $contentType = self::contentTypes['voiceUnbindNumber'][0])
+    public function voicePutNumberInbound($phone_number, $inbound_config, string $contentType = self::contentTypes['voicePutNumberInbound'][0])
     {
-        list($response) = $this->voiceUnbindNumberWithHttpInfo($agent_id, $phone_number, $contentType);
+        list($response) = $this->voicePutNumberInboundWithHttpInfo($phone_number, $inbound_config, $contentType);
         return $response;
     }
 
     /**
-     * Operation voiceUnbindNumberWithHttpInfo
+     * Operation voicePutNumberInboundWithHttpInfo
      *
-     * Unbind a phone number from a deployed agent
+     * Store inbound call behavior on a number this account owns
      *
-     * @param  string $agent_id Agent id (required)
      * @param  string $phone_number E.164 phone number (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voiceUnbindNumber'] to see the possible values for this operation
+     * @param  \Pingram\Model\InboundConfig $inbound_config (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voicePutNumberInbound'] to see the possible values for this operation
      *
      * @throws \Pingram\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Pingram\Model\UnbindNumberResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Pingram\Model\MessageResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function voiceUnbindNumberWithHttpInfo($agent_id, $phone_number, string $contentType = self::contentTypes['voiceUnbindNumber'][0])
+    public function voicePutNumberInboundWithHttpInfo($phone_number, $inbound_config, string $contentType = self::contentTypes['voicePutNumberInbound'][0])
     {
-        $request = $this->voiceUnbindNumberRequest($agent_id, $phone_number, $contentType);
+        $request = $this->voicePutNumberInboundRequest($phone_number, $inbound_config, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3172,7 +2168,7 @@ class VoiceApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\Pingram\Model\UnbindNumberResponse',
+                        '\Pingram\Model\MessageResponse',
                         $request,
                         $response,
                     );
@@ -3212,7 +2208,7 @@ class VoiceApi
             }
 
             return $this->handleResponseWithDataType(
-                '\Pingram\Model\UnbindNumberResponse',
+                '\Pingram\Model\MessageResponse',
                 $request,
                 $response,
             );
@@ -3221,7 +2217,7 @@ class VoiceApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Pingram\Model\UnbindNumberResponse',
+                        '\Pingram\Model\MessageResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3258,20 +2254,20 @@ class VoiceApi
     }
 
     /**
-     * Operation voiceUnbindNumberAsync
+     * Operation voicePutNumberInboundAsync
      *
-     * Unbind a phone number from a deployed agent
+     * Store inbound call behavior on a number this account owns
      *
-     * @param  string $agent_id Agent id (required)
      * @param  string $phone_number E.164 phone number (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voiceUnbindNumber'] to see the possible values for this operation
+     * @param  \Pingram\Model\InboundConfig $inbound_config (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voicePutNumberInbound'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function voiceUnbindNumberAsync($agent_id, $phone_number, string $contentType = self::contentTypes['voiceUnbindNumber'][0])
+    public function voicePutNumberInboundAsync($phone_number, $inbound_config, string $contentType = self::contentTypes['voicePutNumberInbound'][0])
     {
-        return $this->voiceUnbindNumberAsyncWithHttpInfo($agent_id, $phone_number, $contentType)
+        return $this->voicePutNumberInboundAsyncWithHttpInfo($phone_number, $inbound_config, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3280,21 +2276,21 @@ class VoiceApi
     }
 
     /**
-     * Operation voiceUnbindNumberAsyncWithHttpInfo
+     * Operation voicePutNumberInboundAsyncWithHttpInfo
      *
-     * Unbind a phone number from a deployed agent
+     * Store inbound call behavior on a number this account owns
      *
-     * @param  string $agent_id Agent id (required)
      * @param  string $phone_number E.164 phone number (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voiceUnbindNumber'] to see the possible values for this operation
+     * @param  \Pingram\Model\InboundConfig $inbound_config (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voicePutNumberInbound'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function voiceUnbindNumberAsyncWithHttpInfo($agent_id, $phone_number, string $contentType = self::contentTypes['voiceUnbindNumber'][0])
+    public function voicePutNumberInboundAsyncWithHttpInfo($phone_number, $inbound_config, string $contentType = self::contentTypes['voicePutNumberInbound'][0])
     {
-        $returnType = '\Pingram\Model\UnbindNumberResponse';
-        $request = $this->voiceUnbindNumberRequest($agent_id, $phone_number, $contentType);
+        $returnType = '\Pingram\Model\MessageResponse';
+        $request = $this->voicePutNumberInboundRequest($phone_number, $inbound_config, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3333,34 +2329,34 @@ class VoiceApi
     }
 
     /**
-     * Create request for operation 'voiceUnbindNumber'
+     * Create request for operation 'voicePutNumberInbound'
      *
-     * @param  string $agent_id Agent id (required)
      * @param  string $phone_number E.164 phone number (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voiceUnbindNumber'] to see the possible values for this operation
+     * @param  \Pingram\Model\InboundConfig $inbound_config (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voicePutNumberInbound'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function voiceUnbindNumberRequest($agent_id, $phone_number, string $contentType = self::contentTypes['voiceUnbindNumber'][0])
+    public function voicePutNumberInboundRequest($phone_number, $inbound_config, string $contentType = self::contentTypes['voicePutNumberInbound'][0])
     {
-
-        // verify the required parameter 'agent_id' is set
-        if ($agent_id === null || (is_array($agent_id) && count($agent_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $agent_id when calling voiceUnbindNumber'
-            );
-        }
 
         // verify the required parameter 'phone_number' is set
         if ($phone_number === null || (is_array($phone_number) && count($phone_number) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $phone_number when calling voiceUnbindNumber'
+                'Missing the required parameter $phone_number when calling voicePutNumberInbound'
+            );
+        }
+
+        // verify the required parameter 'inbound_config' is set
+        if ($inbound_config === null || (is_array($inbound_config) && count($inbound_config) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $inbound_config when calling voicePutNumberInbound'
             );
         }
 
 
-        $resourcePath = '/voice/agents/{agentId}/numbers/{phoneNumber}';
+        $resourcePath = '/voice/numbers/{phoneNumber}/inbound';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3369,14 +2365,6 @@ class VoiceApi
 
 
 
-        // path params
-        if ($agent_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'agentId' . '}',
-                ObjectSerializer::toPathValue($agent_id),
-                $resourcePath
-            );
-        }
         // path params
         if ($phone_number !== null) {
             $resourcePath = str_replace(
@@ -3394,350 +2382,12 @@ class VoiceApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires HTTP basic authentication
-        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
-        }
-        // this endpoint requires HTTP basic authentication
-        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
-        }
-        // this endpoint requires Bearer (JWT) authentication (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-        // this endpoint requires HTTP basic authentication
-        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'DELETE',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation voiceUpdateAgent
-     *
-     * Publish changes to a deployed voice agent
-     *
-     * @param  string $agent_id Agent id (required)
-     * @param  \Pingram\Model\UpdateVoiceAgentRequest $update_voice_agent_request update_voice_agent_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voiceUpdateAgent'] to see the possible values for this operation
-     *
-     * @throws \Pingram\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return \Pingram\Model\UpdateVoiceAgentResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse
-     */
-    public function voiceUpdateAgent($agent_id, $update_voice_agent_request, string $contentType = self::contentTypes['voiceUpdateAgent'][0])
-    {
-        list($response) = $this->voiceUpdateAgentWithHttpInfo($agent_id, $update_voice_agent_request, $contentType);
-        return $response;
-    }
-
-    /**
-     * Operation voiceUpdateAgentWithHttpInfo
-     *
-     * Publish changes to a deployed voice agent
-     *
-     * @param  string $agent_id Agent id (required)
-     * @param  \Pingram\Model\UpdateVoiceAgentRequest $update_voice_agent_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voiceUpdateAgent'] to see the possible values for this operation
-     *
-     * @throws \Pingram\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of \Pingram\Model\UpdateVoiceAgentResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function voiceUpdateAgentWithHttpInfo($agent_id, $update_voice_agent_request, string $contentType = self::contentTypes['voiceUpdateAgent'][0])
-    {
-        $request = $this->voiceUpdateAgentRequest($agent_id, $update_voice_agent_request, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-
-            switch($statusCode) {
-                case 200:
-                    return $this->handleResponseWithDataType(
-                        '\Pingram\Model\UpdateVoiceAgentResponse',
-                        $request,
-                        $response,
-                    );
-                case 400:
-                    return $this->handleResponseWithDataType(
-                        '\Pingram\Model\ApiErrorResponse',
-                        $request,
-                        $response,
-                    );
-                case 402:
-                    return $this->handleResponseWithDataType(
-                        '\Pingram\Model\ApiErrorResponse',
-                        $request,
-                        $response,
-                    );
-                case 502:
-                    return $this->handleResponseWithDataType(
-                        '\Pingram\Model\ApiErrorResponse',
-                        $request,
-                        $response,
-                    );
-            }
-
-            
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            return $this->handleResponseWithDataType(
-                '\Pingram\Model\UpdateVoiceAgentResponse',
-                $request,
-                $response,
-            );
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Pingram\Model\UpdateVoiceAgentResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Pingram\Model\ApiErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 402:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Pingram\Model\ApiErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 502:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Pingram\Model\ApiErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-            }
-        
-
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation voiceUpdateAgentAsync
-     *
-     * Publish changes to a deployed voice agent
-     *
-     * @param  string $agent_id Agent id (required)
-     * @param  \Pingram\Model\UpdateVoiceAgentRequest $update_voice_agent_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voiceUpdateAgent'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function voiceUpdateAgentAsync($agent_id, $update_voice_agent_request, string $contentType = self::contentTypes['voiceUpdateAgent'][0])
-    {
-        return $this->voiceUpdateAgentAsyncWithHttpInfo($agent_id, $update_voice_agent_request, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation voiceUpdateAgentAsyncWithHttpInfo
-     *
-     * Publish changes to a deployed voice agent
-     *
-     * @param  string $agent_id Agent id (required)
-     * @param  \Pingram\Model\UpdateVoiceAgentRequest $update_voice_agent_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voiceUpdateAgent'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function voiceUpdateAgentAsyncWithHttpInfo($agent_id, $update_voice_agent_request, string $contentType = self::contentTypes['voiceUpdateAgent'][0])
-    {
-        $returnType = '\Pingram\Model\UpdateVoiceAgentResponse';
-        $request = $this->voiceUpdateAgentRequest($agent_id, $update_voice_agent_request, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'voiceUpdateAgent'
-     *
-     * @param  string $agent_id Agent id (required)
-     * @param  \Pingram\Model\UpdateVoiceAgentRequest $update_voice_agent_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voiceUpdateAgent'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function voiceUpdateAgentRequest($agent_id, $update_voice_agent_request, string $contentType = self::contentTypes['voiceUpdateAgent'][0])
-    {
-
-        // verify the required parameter 'agent_id' is set
-        if ($agent_id === null || (is_array($agent_id) && count($agent_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $agent_id when calling voiceUpdateAgent'
-            );
-        }
-
-        // verify the required parameter 'update_voice_agent_request' is set
-        if ($update_voice_agent_request === null || (is_array($update_voice_agent_request) && count($update_voice_agent_request) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $update_voice_agent_request when calling voiceUpdateAgent'
-            );
-        }
-
-
-        $resourcePath = '/voice/agents/{agentId}';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-        // path params
-        if ($agent_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'agentId' . '}',
-                ObjectSerializer::toPathValue($agent_id),
-                $resourcePath
-            );
-        }
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (isset($update_voice_agent_request)) {
+        if (isset($inbound_config)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($update_voice_agent_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($inbound_config));
             } else {
-                $httpBody = $update_voice_agent_request;
+                $httpBody = $inbound_config;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

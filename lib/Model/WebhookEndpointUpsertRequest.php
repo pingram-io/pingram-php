@@ -248,6 +248,9 @@ class WebhookEndpointUpsertRequest implements ModelInterface, ArrayAccess, \Json
     public const EVENTS_SMS_UNSUBSCRIBE = 'SMS_UNSUBSCRIBE';
     public const EVENTS_SMS_SUBSCRIBE = 'SMS_SUBSCRIBE';
     public const EVENTS_SMS_INBOUND = 'SMS_INBOUND';
+    public const EVENTS_VOICE_INBOUND = 'VOICE_INBOUND';
+    public const EVENTS_VOICE_CONNECTED = 'VOICE_CONNECTED';
+    public const EVENTS_VOICE_ENDED = 'VOICE_ENDED';
     public const EVENTS_PUSH_FAILED = 'PUSH_FAILED';
     public const EVENTS_PUSH_UNSUBSCRIBE = 'PUSH_UNSUBSCRIBE';
     public const EVENTS_CALL_FAILED = 'CALL_FAILED';
@@ -279,6 +282,9 @@ class WebhookEndpointUpsertRequest implements ModelInterface, ArrayAccess, \Json
             self::EVENTS_SMS_UNSUBSCRIBE,
             self::EVENTS_SMS_SUBSCRIBE,
             self::EVENTS_SMS_INBOUND,
+            self::EVENTS_VOICE_INBOUND,
+            self::EVENTS_VOICE_CONNECTED,
+            self::EVENTS_VOICE_ENDED,
             self::EVENTS_PUSH_FAILED,
             self::EVENTS_PUSH_UNSUBSCRIBE,
             self::EVENTS_CALL_FAILED,

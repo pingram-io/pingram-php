@@ -35,7 +35,7 @@ use \Pingram\ObjectSerializer;
  * GetVoiceCallResponseCallCostLinesInner Class Doc Comment
  *
  * @category Class
- * @description One line item in a call cost breakdown (API / SDK).
+ * @description One line in the call cost breakdown.
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

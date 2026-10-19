@@ -59,13 +59,13 @@ class ListVoiceCallsResponseCallsInner implements ModelInterface, ArrayAccess, \
     protected static $openAPITypes = [
         'tracking_id' => 'string',
         'status' => 'string',
-        'agent_id' => 'string',
-        'agent_name' => 'string',
+        'config_name' => 'string',
         'direction' => 'string',
         'source' => 'string',
         'from' => 'string',
         'to' => 'string',
         'started_at' => 'string',
+        'answered_at' => 'string',
         'duration_seconds' => 'float',
         'outcome' => 'string',
         'end_reason' => 'string',
@@ -82,13 +82,13 @@ class ListVoiceCallsResponseCallsInner implements ModelInterface, ArrayAccess, \
     protected static $openAPIFormats = [
         'tracking_id' => null,
         'status' => null,
-        'agent_id' => null,
-        'agent_name' => null,
+        'config_name' => null,
         'direction' => null,
         'source' => null,
         'from' => null,
         'to' => null,
         'started_at' => null,
+        'answered_at' => null,
         'duration_seconds' => null,
         'outcome' => null,
         'end_reason' => null,
@@ -103,13 +103,13 @@ class ListVoiceCallsResponseCallsInner implements ModelInterface, ArrayAccess, \
     protected static array $openAPINullables = [
         'tracking_id' => false,
         'status' => false,
-        'agent_id' => false,
-        'agent_name' => false,
+        'config_name' => false,
         'direction' => false,
         'source' => false,
         'from' => false,
         'to' => false,
         'started_at' => false,
+        'answered_at' => false,
         'duration_seconds' => false,
         'outcome' => false,
         'end_reason' => false,
@@ -204,13 +204,13 @@ class ListVoiceCallsResponseCallsInner implements ModelInterface, ArrayAccess, \
     protected static $attributeMap = [
         'tracking_id' => 'trackingId',
         'status' => 'status',
-        'agent_id' => 'agentId',
-        'agent_name' => 'agentName',
+        'config_name' => 'configName',
         'direction' => 'direction',
         'source' => 'source',
         'from' => 'from',
         'to' => 'to',
         'started_at' => 'startedAt',
+        'answered_at' => 'answeredAt',
         'duration_seconds' => 'durationSeconds',
         'outcome' => 'outcome',
         'end_reason' => 'endReason',
@@ -225,13 +225,13 @@ class ListVoiceCallsResponseCallsInner implements ModelInterface, ArrayAccess, \
     protected static $setters = [
         'tracking_id' => 'setTrackingId',
         'status' => 'setStatus',
-        'agent_id' => 'setAgentId',
-        'agent_name' => 'setAgentName',
+        'config_name' => 'setConfigName',
         'direction' => 'setDirection',
         'source' => 'setSource',
         'from' => 'setFrom',
         'to' => 'setTo',
         'started_at' => 'setStartedAt',
+        'answered_at' => 'setAnsweredAt',
         'duration_seconds' => 'setDurationSeconds',
         'outcome' => 'setOutcome',
         'end_reason' => 'setEndReason',
@@ -246,13 +246,13 @@ class ListVoiceCallsResponseCallsInner implements ModelInterface, ArrayAccess, \
     protected static $getters = [
         'tracking_id' => 'getTrackingId',
         'status' => 'getStatus',
-        'agent_id' => 'getAgentId',
-        'agent_name' => 'getAgentName',
+        'config_name' => 'getConfigName',
         'direction' => 'getDirection',
         'source' => 'getSource',
         'from' => 'getFrom',
         'to' => 'getTo',
         'started_at' => 'getStartedAt',
+        'answered_at' => 'getAnsweredAt',
         'duration_seconds' => 'getDurationSeconds',
         'outcome' => 'getOutcome',
         'end_reason' => 'getEndReason',
@@ -421,13 +421,13 @@ class ListVoiceCallsResponseCallsInner implements ModelInterface, ArrayAccess, \
     {
         $this->setIfExists('tracking_id', $data ?? [], null);
         $this->setIfExists('status', $data ?? [], null);
-        $this->setIfExists('agent_id', $data ?? [], null);
-        $this->setIfExists('agent_name', $data ?? [], null);
+        $this->setIfExists('config_name', $data ?? [], null);
         $this->setIfExists('direction', $data ?? [], null);
         $this->setIfExists('source', $data ?? [], null);
         $this->setIfExists('from', $data ?? [], null);
         $this->setIfExists('to', $data ?? [], null);
         $this->setIfExists('started_at', $data ?? [], null);
+        $this->setIfExists('answered_at', $data ?? [], null);
         $this->setIfExists('duration_seconds', $data ?? [], null);
         $this->setIfExists('outcome', $data ?? [], null);
         $this->setIfExists('end_reason', $data ?? [], null);
@@ -476,8 +476,8 @@ class ListVoiceCallsResponseCallsInner implements ModelInterface, ArrayAccess, \
             );
         }
 
-        if ($this->container['agent_name'] === null) {
-            $invalidProperties[] = "'agent_name' can't be null";
+        if ($this->container['config_name'] === null) {
+            $invalidProperties[] = "'config_name' can't be null";
         }
         if ($this->container['direction'] === null) {
             $invalidProperties[] = "'direction' can't be null";
@@ -613,55 +613,28 @@ class ListVoiceCallsResponseCallsInner implements ModelInterface, ArrayAccess, \
     }
 
     /**
-     * Gets agent_id
-     *
-     * @return string|null
-     */
-    public function getAgentId()
-    {
-        return $this->container['agent_id'];
-    }
-
-    /**
-     * Sets agent_id
-     *
-     * @param string|null $agent_id Omitted for playground calls made before the agent was saved.
-     *
-     * @return self
-     */
-    public function setAgentId($agent_id)
-    {
-        if (is_null($agent_id)) {
-            throw new \InvalidArgumentException('non-nullable agent_id cannot be null');
-        }
-        $this->container['agent_id'] = $agent_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets agent_name
+     * Gets config_name
      *
      * @return string
      */
-    public function getAgentName()
+    public function getConfigName()
     {
-        return $this->container['agent_name'];
+        return $this->container['config_name'];
     }
 
     /**
-     * Sets agent_name
+     * Sets config_name
      *
-     * @param string $agent_name agent_name
+     * @param string $config_name config_name
      *
      * @return self
      */
-    public function setAgentName($agent_name)
+    public function setConfigName($config_name)
     {
-        if (is_null($agent_name)) {
-            throw new \InvalidArgumentException('non-nullable agent_name cannot be null');
+        if (is_null($config_name)) {
+            throw new \InvalidArgumentException('non-nullable config_name cannot be null');
         }
-        $this->container['agent_name'] = $agent_name;
+        $this->container['config_name'] = $config_name;
 
         return $this;
     }
@@ -822,6 +795,33 @@ class ListVoiceCallsResponseCallsInner implements ModelInterface, ArrayAccess, \
     }
 
     /**
+     * Gets answered_at
+     *
+     * @return string|null
+     */
+    public function getAnsweredAt()
+    {
+        return $this->container['answered_at'];
+    }
+
+    /**
+     * Sets answered_at
+     *
+     * @param string|null $answered_at Set when the callee answers. Absent while the phone is still ringing.
+     *
+     * @return self
+     */
+    public function setAnsweredAt($answered_at)
+    {
+        if (is_null($answered_at)) {
+            throw new \InvalidArgumentException('non-nullable answered_at cannot be null');
+        }
+        $this->container['answered_at'] = $answered_at;
+
+        return $this;
+    }
+
+    /**
      * Gets duration_seconds
      *
      * @return float
@@ -935,7 +935,7 @@ class ListVoiceCallsResponseCallsInner implements ModelInterface, ArrayAccess, \
     /**
      * Sets end_detail
      *
-     * @param string|null $end_detail Short human-readable detail (e.g. provider error message).
+     * @param string|null $end_detail Short human-readable detail, such as why the call failed.
      *
      * @return self
      */

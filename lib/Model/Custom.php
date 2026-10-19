@@ -35,6 +35,7 @@ use \Pingram\ObjectSerializer;
  * Custom Class Doc Comment
  *
  * @category Class
+ * @description Call an HTTPS webhook from the conversation.
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -61,7 +62,10 @@ class Custom implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'string',
         'description' => 'string',
         'parameters' => 'array<string,mixed>',
-        'url' => 'string'
+        'url' => 'string',
+        'before_speech' => 'string',
+        'slow_speech_after_seconds' => 'float',
+        'slow_speech' => 'string'
     ];
 
     /**
@@ -76,7 +80,10 @@ class Custom implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => null,
         'description' => null,
         'parameters' => null,
-        'url' => null
+        'url' => null,
+        'before_speech' => null,
+        'slow_speech_after_seconds' => null,
+        'slow_speech' => null
     ];
 
     /**
@@ -89,7 +96,10 @@ class Custom implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => false,
         'description' => false,
         'parameters' => false,
-        'url' => false
+        'url' => false,
+        'before_speech' => false,
+        'slow_speech_after_seconds' => false,
+        'slow_speech' => false
     ];
 
     /**
@@ -182,7 +192,10 @@ class Custom implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'name',
         'description' => 'description',
         'parameters' => 'parameters',
-        'url' => 'url'
+        'url' => 'url',
+        'before_speech' => 'beforeSpeech',
+        'slow_speech_after_seconds' => 'slowSpeechAfterSeconds',
+        'slow_speech' => 'slowSpeech'
     ];
 
     /**
@@ -195,7 +208,10 @@ class Custom implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'setName',
         'description' => 'setDescription',
         'parameters' => 'setParameters',
-        'url' => 'setUrl'
+        'url' => 'setUrl',
+        'before_speech' => 'setBeforeSpeech',
+        'slow_speech_after_seconds' => 'setSlowSpeechAfterSeconds',
+        'slow_speech' => 'setSlowSpeech'
     ];
 
     /**
@@ -208,7 +224,10 @@ class Custom implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'getName',
         'description' => 'getDescription',
         'parameters' => 'getParameters',
-        'url' => 'getUrl'
+        'url' => 'getUrl',
+        'before_speech' => 'getBeforeSpeech',
+        'slow_speech_after_seconds' => 'getSlowSpeechAfterSeconds',
+        'slow_speech' => 'getSlowSpeech'
     ];
 
     /**
@@ -286,6 +305,9 @@ class Custom implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('parameters', $data ?? [], null);
         $this->setIfExists('url', $data ?? [], null);
+        $this->setIfExists('before_speech', $data ?? [], null);
+        $this->setIfExists('slow_speech_after_seconds', $data ?? [], null);
+        $this->setIfExists('slow_speech', $data ?? [], null);
     }
 
     /**
@@ -364,7 +386,7 @@ class Custom implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets type
      *
-     * @param string $type type
+     * @param string $type Invoke an HTTPS webhook when the model calls this tool.
      *
      * @return self
      */
@@ -401,7 +423,7 @@ class Custom implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets name
      *
-     * @param string $name name
+     * @param string $name Function name the model calls.
      *
      * @return self
      */
@@ -428,7 +450,7 @@ class Custom implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets description
      *
-     * @param string $description description
+     * @param string $description When the model should use this tool.
      *
      * @return self
      */
@@ -455,7 +477,7 @@ class Custom implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets parameters
      *
-     * @param array<string,mixed> $parameters parameters
+     * @param array<string,mixed> $parameters JSON Schema for the arguments the model passes.
      *
      * @return self
      */
@@ -492,6 +514,87 @@ class Custom implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable url cannot be null');
         }
         $this->container['url'] = $url;
+
+        return $this;
+    }
+
+    /**
+     * Gets before_speech
+     *
+     * @return string|null
+     */
+    public function getBeforeSpeech()
+    {
+        return $this->container['before_speech'];
+    }
+
+    /**
+     * Sets before_speech
+     *
+     * @param string|null $before_speech Spoken before the webhook when this turn has not spoken yet.
+     *
+     * @return self
+     */
+    public function setBeforeSpeech($before_speech)
+    {
+        if (is_null($before_speech)) {
+            throw new \InvalidArgumentException('non-nullable before_speech cannot be null');
+        }
+        $this->container['before_speech'] = $before_speech;
+
+        return $this;
+    }
+
+    /**
+     * Gets slow_speech_after_seconds
+     *
+     * @return float|null
+     */
+    public function getSlowSpeechAfterSeconds()
+    {
+        return $this->container['slow_speech_after_seconds'];
+    }
+
+    /**
+     * Sets slow_speech_after_seconds
+     *
+     * @param float|null $slow_speech_after_seconds Wait this many seconds, then speak slowSpeech if the webhook is still running.
+     *
+     * @return self
+     */
+    public function setSlowSpeechAfterSeconds($slow_speech_after_seconds)
+    {
+        if (is_null($slow_speech_after_seconds)) {
+            throw new \InvalidArgumentException('non-nullable slow_speech_after_seconds cannot be null');
+        }
+        $this->container['slow_speech_after_seconds'] = $slow_speech_after_seconds;
+
+        return $this;
+    }
+
+    /**
+     * Gets slow_speech
+     *
+     * @return string|null
+     */
+    public function getSlowSpeech()
+    {
+        return $this->container['slow_speech'];
+    }
+
+    /**
+     * Sets slow_speech
+     *
+     * @param string|null $slow_speech Spoken once when the webhook is still running after slowSpeechAfterSeconds.
+     *
+     * @return self
+     */
+    public function setSlowSpeech($slow_speech)
+    {
+        if (is_null($slow_speech)) {
+            throw new \InvalidArgumentException('non-nullable slow_speech cannot be null');
+        }
+        $this->container['slow_speech'] = $slow_speech;
 
         return $this;
     }

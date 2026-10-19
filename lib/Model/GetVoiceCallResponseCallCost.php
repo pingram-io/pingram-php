@@ -35,7 +35,7 @@ use \Pingram\ObjectSerializer;
  * GetVoiceCallResponseCallCost Class Doc Comment
  *
  * @category Class
- * @description Customer-facing call cost on GET /voice/calls/{trackingId} (SDK: GetVoiceCallResponseCallCost).
+ * @description Customer-facing cost for this call.
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

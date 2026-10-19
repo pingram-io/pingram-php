@@ -819,7 +819,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsCreate
      *
-     * Create a draft email broadcast. html is the send-ready body. Optional internalTemplate is visual-editor source; if set it must be paired with html and cannot be added later. Set audience to either a Mongo-style user filter (sync users via Users API first; for large lists) or a raw email list (max 10,000). Include name, from fields, subject, and HTML. Notification type is optional on create and required before send or schedule; it is created automatically if missing.
+     * Create a draft email broadcast. html is the send-ready body. Optional internalTemplate is visual-editor source; if set it must be paired with html. A later update can add it to a draft by sending it with html. Set audience to either a Mongo-style user filter (sync users via Users API first; for large lists) or a raw email list (max 10,000). Include name, from fields, subject, and HTML. Notification type is optional on create and required before send or schedule; it is created automatically if missing.
      *
      * @param  \Pingram\Model\CreateBroadcastRequest $create_broadcast_request create_broadcast_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['broadcastsCreate'] to see the possible values for this operation
@@ -837,7 +837,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsCreateWithHttpInfo
      *
-     * Create a draft email broadcast. html is the send-ready body. Optional internalTemplate is visual-editor source; if set it must be paired with html and cannot be added later. Set audience to either a Mongo-style user filter (sync users via Users API first; for large lists) or a raw email list (max 10,000). Include name, from fields, subject, and HTML. Notification type is optional on create and required before send or schedule; it is created automatically if missing.
+     * Create a draft email broadcast. html is the send-ready body. Optional internalTemplate is visual-editor source; if set it must be paired with html. A later update can add it to a draft by sending it with html. Set audience to either a Mongo-style user filter (sync users via Users API first; for large lists) or a raw email list (max 10,000). Include name, from fields, subject, and HTML. Notification type is optional on create and required before send or schedule; it is created automatically if missing.
      *
      * @param  \Pingram\Model\CreateBroadcastRequest $create_broadcast_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['broadcastsCreate'] to see the possible values for this operation
@@ -964,7 +964,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsCreateAsync
      *
-     * Create a draft email broadcast. html is the send-ready body. Optional internalTemplate is visual-editor source; if set it must be paired with html and cannot be added later. Set audience to either a Mongo-style user filter (sync users via Users API first; for large lists) or a raw email list (max 10,000). Include name, from fields, subject, and HTML. Notification type is optional on create and required before send or schedule; it is created automatically if missing.
+     * Create a draft email broadcast. html is the send-ready body. Optional internalTemplate is visual-editor source; if set it must be paired with html. A later update can add it to a draft by sending it with html. Set audience to either a Mongo-style user filter (sync users via Users API first; for large lists) or a raw email list (max 10,000). Include name, from fields, subject, and HTML. Notification type is optional on create and required before send or schedule; it is created automatically if missing.
      *
      * @param  \Pingram\Model\CreateBroadcastRequest $create_broadcast_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['broadcastsCreate'] to see the possible values for this operation
@@ -985,7 +985,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsCreateAsyncWithHttpInfo
      *
-     * Create a draft email broadcast. html is the send-ready body. Optional internalTemplate is visual-editor source; if set it must be paired with html and cannot be added later. Set audience to either a Mongo-style user filter (sync users via Users API first; for large lists) or a raw email list (max 10,000). Include name, from fields, subject, and HTML. Notification type is optional on create and required before send or schedule; it is created automatically if missing.
+     * Create a draft email broadcast. html is the send-ready body. Optional internalTemplate is visual-editor source; if set it must be paired with html. A later update can add it to a draft by sending it with html. Set audience to either a Mongo-style user filter (sync users via Users API first; for large lists) or a raw email list (max 10,000). Include name, from fields, subject, and HTML. Notification type is optional on create and required before send or schedule; it is created automatically if missing.
      *
      * @param  \Pingram\Model\CreateBroadcastRequest $create_broadcast_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['broadcastsCreate'] to see the possible values for this operation
@@ -4478,7 +4478,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsUpdate
      *
-     * Update a draft email broadcast. Fields you send replace the stored values (name, type, audience, sender, subject, html) and the previous values are not kept; omitted fields stay. html is the send-ready body. Send an empty replyToAddress to clear Reply-To. internalTemplate can be updated only when the broadcast was created with it; it cannot be added to an html-only broadcast or removed. Only drafts can be edited; scheduled or active broadcasts are locked. This does not send the broadcast.
+     * Update a draft email broadcast. Fields you send replace the stored values (name, type, audience, sender, subject, html) and the previous values are not kept; omitted fields stay. html is the send-ready body. Send an empty replyToAddress to clear Reply-To. internalTemplate is visual-editor source: send it with html to add it to an html-only draft or to update it. It cannot be removed. Only drafts can be edited; scheduled or active broadcasts are locked. This does not send the broadcast.
      *
      * @param  string $broadcast_id Broadcast ID (required)
      * @param  \Pingram\Model\UpdateBroadcastRequest $update_broadcast_request update_broadcast_request (required)
@@ -4497,7 +4497,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsUpdateWithHttpInfo
      *
-     * Update a draft email broadcast. Fields you send replace the stored values (name, type, audience, sender, subject, html) and the previous values are not kept; omitted fields stay. html is the send-ready body. Send an empty replyToAddress to clear Reply-To. internalTemplate can be updated only when the broadcast was created with it; it cannot be added to an html-only broadcast or removed. Only drafts can be edited; scheduled or active broadcasts are locked. This does not send the broadcast.
+     * Update a draft email broadcast. Fields you send replace the stored values (name, type, audience, sender, subject, html) and the previous values are not kept; omitted fields stay. html is the send-ready body. Send an empty replyToAddress to clear Reply-To. internalTemplate is visual-editor source: send it with html to add it to an html-only draft or to update it. It cannot be removed. Only drafts can be edited; scheduled or active broadcasts are locked. This does not send the broadcast.
      *
      * @param  string $broadcast_id Broadcast ID (required)
      * @param  \Pingram\Model\UpdateBroadcastRequest $update_broadcast_request (required)
@@ -4625,7 +4625,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsUpdateAsync
      *
-     * Update a draft email broadcast. Fields you send replace the stored values (name, type, audience, sender, subject, html) and the previous values are not kept; omitted fields stay. html is the send-ready body. Send an empty replyToAddress to clear Reply-To. internalTemplate can be updated only when the broadcast was created with it; it cannot be added to an html-only broadcast or removed. Only drafts can be edited; scheduled or active broadcasts are locked. This does not send the broadcast.
+     * Update a draft email broadcast. Fields you send replace the stored values (name, type, audience, sender, subject, html) and the previous values are not kept; omitted fields stay. html is the send-ready body. Send an empty replyToAddress to clear Reply-To. internalTemplate is visual-editor source: send it with html to add it to an html-only draft or to update it. It cannot be removed. Only drafts can be edited; scheduled or active broadcasts are locked. This does not send the broadcast.
      *
      * @param  string $broadcast_id Broadcast ID (required)
      * @param  \Pingram\Model\UpdateBroadcastRequest $update_broadcast_request (required)
@@ -4647,7 +4647,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsUpdateAsyncWithHttpInfo
      *
-     * Update a draft email broadcast. Fields you send replace the stored values (name, type, audience, sender, subject, html) and the previous values are not kept; omitted fields stay. html is the send-ready body. Send an empty replyToAddress to clear Reply-To. internalTemplate can be updated only when the broadcast was created with it; it cannot be added to an html-only broadcast or removed. Only drafts can be edited; scheduled or active broadcasts are locked. This does not send the broadcast.
+     * Update a draft email broadcast. Fields you send replace the stored values (name, type, audience, sender, subject, html) and the previous values are not kept; omitted fields stay. html is the send-ready body. Send an empty replyToAddress to clear Reply-To. internalTemplate is visual-editor source: send it with html to add it to an html-only draft or to update it. It cannot be removed. Only drafts can be edited; scheduled or active broadcasts are locked. This does not send the broadcast.
      *
      * @param  string $broadcast_id Broadcast ID (required)
      * @param  \Pingram\Model\UpdateBroadcastRequest $update_broadcast_request (required)

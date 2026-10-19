@@ -640,7 +640,7 @@ class UpdateBroadcastRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets internal_template
      *
-     * @param string|null $internal_template Optional visual-editor source. Can be updated only when the broadcast was created with it; cannot be added to an html-only broadcast. Pair with html.
+     * @param string|null $internal_template Visual-editor source. Send with html to add it to an html-only draft or to update it. Cannot be removed.
      *
      * @return self
      */

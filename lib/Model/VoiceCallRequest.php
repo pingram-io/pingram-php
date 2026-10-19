@@ -57,10 +57,9 @@ class VoiceCallRequest implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'phone_number' => 'string',
-        'spec' => '\Pingram\Model\BindNumberResponseAgentSpec',
-        'variables' => 'array<string,string>',
-        'agent_id' => 'string'
+        'to' => 'string',
+        'config' => '\Pingram\Model\VoiceBrowserCallRequestConfigAnyOf',
+        'variables' => 'array<string,string>'
     ];
 
     /**
@@ -71,10 +70,9 @@ class VoiceCallRequest implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'phone_number' => null,
-        'spec' => null,
-        'variables' => null,
-        'agent_id' => null
+        'to' => null,
+        'config' => null,
+        'variables' => null
     ];
 
     /**
@@ -83,10 +81,9 @@ class VoiceCallRequest implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'phone_number' => false,
-        'spec' => false,
-        'variables' => false,
-        'agent_id' => false
+        'to' => false,
+        'config' => false,
+        'variables' => false
     ];
 
     /**
@@ -175,10 +172,9 @@ class VoiceCallRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'phone_number' => 'phoneNumber',
-        'spec' => 'spec',
-        'variables' => 'variables',
-        'agent_id' => 'agentId'
+        'to' => 'to',
+        'config' => 'config',
+        'variables' => 'variables'
     ];
 
     /**
@@ -187,10 +183,9 @@ class VoiceCallRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'phone_number' => 'setPhoneNumber',
-        'spec' => 'setSpec',
-        'variables' => 'setVariables',
-        'agent_id' => 'setAgentId'
+        'to' => 'setTo',
+        'config' => 'setConfig',
+        'variables' => 'setVariables'
     ];
 
     /**
@@ -199,10 +194,9 @@ class VoiceCallRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'phone_number' => 'getPhoneNumber',
-        'spec' => 'getSpec',
-        'variables' => 'getVariables',
-        'agent_id' => 'getAgentId'
+        'to' => 'getTo',
+        'config' => 'getConfig',
+        'variables' => 'getVariables'
     ];
 
     /**
@@ -262,10 +256,9 @@ class VoiceCallRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('phone_number', $data ?? [], null);
-        $this->setIfExists('spec', $data ?? [], null);
+        $this->setIfExists('to', $data ?? [], null);
+        $this->setIfExists('config', $data ?? [], null);
         $this->setIfExists('variables', $data ?? [], null);
-        $this->setIfExists('agent_id', $data ?? [], null);
     }
 
     /**
@@ -295,11 +288,11 @@ class VoiceCallRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['phone_number'] === null) {
-            $invalidProperties[] = "'phone_number' can't be null";
+        if ($this->container['to'] === null) {
+            $invalidProperties[] = "'to' can't be null";
         }
-        if ($this->container['spec'] === null) {
-            $invalidProperties[] = "'spec' can't be null";
+        if ($this->container['config'] === null) {
+            $invalidProperties[] = "'config' can't be null";
         }
         return $invalidProperties;
     }
@@ -317,55 +310,55 @@ class VoiceCallRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets phone_number
+     * Gets to
      *
      * @return string
      */
-    public function getPhoneNumber()
+    public function getTo()
     {
-        return $this->container['phone_number'];
+        return $this->container['to'];
     }
 
     /**
-     * Sets phone_number
+     * Sets to
      *
-     * @param string $phone_number phone_number
+     * @param string $to E.164 number to dial.
      *
      * @return self
      */
-    public function setPhoneNumber($phone_number)
+    public function setTo($to)
     {
-        if (is_null($phone_number)) {
-            throw new \InvalidArgumentException('non-nullable phone_number cannot be null');
+        if (is_null($to)) {
+            throw new \InvalidArgumentException('non-nullable to cannot be null');
         }
-        $this->container['phone_number'] = $phone_number;
+        $this->container['to'] = $to;
 
         return $this;
     }
 
     /**
-     * Gets spec
+     * Gets config
      *
-     * @return \Pingram\Model\BindNumberResponseAgentSpec
+     * @return \Pingram\Model\VoiceBrowserCallRequestConfigAnyOf
      */
-    public function getSpec()
+    public function getConfig()
     {
-        return $this->container['spec'];
+        return $this->container['config'];
     }
 
     /**
-     * Sets spec
+     * Sets config
      *
-     * @param \Pingram\Model\BindNumberResponseAgentSpec $spec spec
+     * @param \Pingram\Model\VoiceBrowserCallRequestConfigAnyOf $config config
      *
      * @return self
      */
-    public function setSpec($spec)
+    public function setConfig($config)
     {
-        if (is_null($spec)) {
-            throw new \InvalidArgumentException('non-nullable spec cannot be null');
+        if (is_null($config)) {
+            throw new \InvalidArgumentException('non-nullable config cannot be null');
         }
-        $this->container['spec'] = $spec;
+        $this->container['config'] = $config;
 
         return $this;
     }
@@ -393,33 +386,6 @@ class VoiceCallRequest implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable variables cannot be null');
         }
         $this->container['variables'] = $variables;
-
-        return $this;
-    }
-
-    /**
-     * Gets agent_id
-     *
-     * @return string|null
-     */
-    public function getAgentId()
-    {
-        return $this->container['agent_id'];
-    }
-
-    /**
-     * Sets agent_id
-     *
-     * @param string|null $agent_id Saved agent id when testing from the dashboard playground.
-     *
-     * @return self
-     */
-    public function setAgentId($agent_id)
-    {
-        if (is_null($agent_id)) {
-            throw new \InvalidArgumentException('non-nullable agent_id cannot be null');
-        }
-        $this->container['agent_id'] = $agent_id;
 
         return $this;
     }

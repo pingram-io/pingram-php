@@ -57,9 +57,9 @@ class VoiceBrowserCallRequest implements ModelInterface, ArrayAccess, \JsonSeria
       * @var string[]
       */
     protected static $openAPITypes = [
-        'spec' => '\Pingram\Model\BindNumberResponseAgentSpec',
+        'config' => '\Pingram\Model\VoiceBrowserCallRequestConfig',
         'variables' => 'array<string,string>',
-        'agent_id' => 'string'
+        'direction' => 'string'
     ];
 
     /**
@@ -70,9 +70,9 @@ class VoiceBrowserCallRequest implements ModelInterface, ArrayAccess, \JsonSeria
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'spec' => null,
+        'config' => null,
         'variables' => null,
-        'agent_id' => null
+        'direction' => null
     ];
 
     /**
@@ -81,9 +81,9 @@ class VoiceBrowserCallRequest implements ModelInterface, ArrayAccess, \JsonSeria
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'spec' => false,
+        'config' => false,
         'variables' => false,
-        'agent_id' => false
+        'direction' => false
     ];
 
     /**
@@ -172,9 +172,9 @@ class VoiceBrowserCallRequest implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $attributeMap = [
-        'spec' => 'spec',
+        'config' => 'config',
         'variables' => 'variables',
-        'agent_id' => 'agentId'
+        'direction' => 'direction'
     ];
 
     /**
@@ -183,9 +183,9 @@ class VoiceBrowserCallRequest implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $setters = [
-        'spec' => 'setSpec',
+        'config' => 'setConfig',
         'variables' => 'setVariables',
-        'agent_id' => 'setAgentId'
+        'direction' => 'setDirection'
     ];
 
     /**
@@ -194,9 +194,9 @@ class VoiceBrowserCallRequest implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $getters = [
-        'spec' => 'getSpec',
+        'config' => 'getConfig',
         'variables' => 'getVariables',
-        'agent_id' => 'getAgentId'
+        'direction' => 'getDirection'
     ];
 
     /**
@@ -240,6 +240,21 @@ class VoiceBrowserCallRequest implements ModelInterface, ArrayAccess, \JsonSeria
         return self::$openAPIModelName;
     }
 
+    public const DIRECTION_INBOUND = 'inbound';
+    public const DIRECTION_OUTBOUND = 'outbound';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getDirectionAllowableValues()
+    {
+        return [
+            self::DIRECTION_INBOUND,
+            self::DIRECTION_OUTBOUND,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -256,9 +271,9 @@ class VoiceBrowserCallRequest implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('spec', $data ?? [], null);
+        $this->setIfExists('config', $data ?? [], null);
         $this->setIfExists('variables', $data ?? [], null);
-        $this->setIfExists('agent_id', $data ?? [], null);
+        $this->setIfExists('direction', $data ?? [], null);
     }
 
     /**
@@ -288,9 +303,18 @@ class VoiceBrowserCallRequest implements ModelInterface, ArrayAccess, \JsonSeria
     {
         $invalidProperties = [];
 
-        if ($this->container['spec'] === null) {
-            $invalidProperties[] = "'spec' can't be null";
+        if ($this->container['config'] === null) {
+            $invalidProperties[] = "'config' can't be null";
         }
+        $allowedValues = $this->getDirectionAllowableValues();
+        if (!is_null($this->container['direction']) && !in_array($this->container['direction'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'direction', must be one of '%s'",
+                $this->container['direction'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -307,28 +331,28 @@ class VoiceBrowserCallRequest implements ModelInterface, ArrayAccess, \JsonSeria
 
 
     /**
-     * Gets spec
+     * Gets config
      *
-     * @return \Pingram\Model\BindNumberResponseAgentSpec
+     * @return \Pingram\Model\VoiceBrowserCallRequestConfig
      */
-    public function getSpec()
+    public function getConfig()
     {
-        return $this->container['spec'];
+        return $this->container['config'];
     }
 
     /**
-     * Sets spec
+     * Sets config
      *
-     * @param \Pingram\Model\BindNumberResponseAgentSpec $spec spec
+     * @param \Pingram\Model\VoiceBrowserCallRequestConfig $config config
      *
      * @return self
      */
-    public function setSpec($spec)
+    public function setConfig($config)
     {
-        if (is_null($spec)) {
-            throw new \InvalidArgumentException('non-nullable spec cannot be null');
+        if (is_null($config)) {
+            throw new \InvalidArgumentException('non-nullable config cannot be null');
         }
-        $this->container['spec'] = $spec;
+        $this->container['config'] = $config;
 
         return $this;
     }
@@ -361,28 +385,38 @@ class VoiceBrowserCallRequest implements ModelInterface, ArrayAccess, \JsonSeria
     }
 
     /**
-     * Gets agent_id
+     * Gets direction
      *
      * @return string|null
      */
-    public function getAgentId()
+    public function getDirection()
     {
-        return $this->container['agent_id'];
+        return $this->container['direction'];
     }
 
     /**
-     * Sets agent_id
+     * Sets direction
      *
-     * @param string|null $agent_id Saved agent id when testing from the dashboard playground.
+     * @param string|null $direction inbound speaks the greeting. outbound speaks the opener. Omitted means outbound.
      *
      * @return self
      */
-    public function setAgentId($agent_id)
+    public function setDirection($direction)
     {
-        if (is_null($agent_id)) {
-            throw new \InvalidArgumentException('non-nullable agent_id cannot be null');
+        if (is_null($direction)) {
+            throw new \InvalidArgumentException('non-nullable direction cannot be null');
         }
-        $this->container['agent_id'] = $agent_id;
+        $allowedValues = $this->getDirectionAllowableValues();
+        if (!in_array($direction, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'direction', must be one of '%s'",
+                    $direction,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['direction'] = $direction;
 
         return $this;
     }

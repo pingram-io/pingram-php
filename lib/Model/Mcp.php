@@ -35,6 +35,7 @@ use \Pingram\ObjectSerializer;
  * Mcp Class Doc Comment
  *
  * @category Class
+ * @description Load tools from a remote MCP server.
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -344,7 +345,7 @@ class Mcp implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets type
      *
-     * @param string $type type
+     * @param string $type Connect a remote MCP server and use its tools.
      *
      * @return self
      */
@@ -381,7 +382,7 @@ class Mcp implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets url
      *
-     * @param string $url url
+     * @param string $url MCP server URL.
      *
      * @return self
      */
@@ -408,7 +409,7 @@ class Mcp implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets label
      *
-     * @param string|null $label label
+     * @param string|null $label Optional name shown in the dashboard.
      *
      * @return self
      */

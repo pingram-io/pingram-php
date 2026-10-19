@@ -35,6 +35,7 @@ use \Pingram\ObjectSerializer;
  * Knowledge Class Doc Comment
  *
  * @category Class
+ * @description Answer from uploaded documents.
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -337,7 +338,7 @@ class Knowledge implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets type
      *
-     * @param string $type type
+     * @param string $type Search uploaded documents during the call.
      *
      * @return self
      */
@@ -374,7 +375,7 @@ class Knowledge implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets documents
      *
-     * @param \Pingram\Model\KnowledgeDocumentsInner[] $documents documents
+     * @param \Pingram\Model\KnowledgeDocumentsInner[] $documents Files the agent can search.
      *
      * @return self
      */

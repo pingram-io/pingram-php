@@ -58,7 +58,6 @@ class VoiceCallResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
       */
     protected static $openAPITypes = [
         'tracking_id' => 'string',
-        'call_control_id' => 'string',
         'websocket' => 'string'
     ];
 
@@ -71,7 +70,6 @@ class VoiceCallResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
       */
     protected static $openAPIFormats = [
         'tracking_id' => null,
-        'call_control_id' => null,
         'websocket' => null
     ];
 
@@ -82,7 +80,6 @@ class VoiceCallResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
       */
     protected static array $openAPINullables = [
         'tracking_id' => false,
-        'call_control_id' => false,
         'websocket' => false
     ];
 
@@ -173,7 +170,6 @@ class VoiceCallResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     protected static $attributeMap = [
         'tracking_id' => 'trackingId',
-        'call_control_id' => 'callControlId',
         'websocket' => 'websocket'
     ];
 
@@ -184,7 +180,6 @@ class VoiceCallResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     protected static $setters = [
         'tracking_id' => 'setTrackingId',
-        'call_control_id' => 'setCallControlId',
         'websocket' => 'setWebsocket'
     ];
 
@@ -195,7 +190,6 @@ class VoiceCallResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     protected static $getters = [
         'tracking_id' => 'getTrackingId',
-        'call_control_id' => 'getCallControlId',
         'websocket' => 'getWebsocket'
     ];
 
@@ -257,7 +251,6 @@ class VoiceCallResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     public function __construct(?array $data = null)
     {
         $this->setIfExists('tracking_id', $data ?? [], null);
-        $this->setIfExists('call_control_id', $data ?? [], null);
         $this->setIfExists('websocket', $data ?? [], null);
     }
 
@@ -290,9 +283,6 @@ class VoiceCallResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
 
         if ($this->container['tracking_id'] === null) {
             $invalidProperties[] = "'tracking_id' can't be null";
-        }
-        if ($this->container['call_control_id'] === null) {
-            $invalidProperties[] = "'call_control_id' can't be null";
         }
         if ($this->container['websocket'] === null) {
             $invalidProperties[] = "'websocket' can't be null";
@@ -340,33 +330,6 @@ class VoiceCallResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     }
 
     /**
-     * Gets call_control_id
-     *
-     * @return string
-     */
-    public function getCallControlId()
-    {
-        return $this->container['call_control_id'];
-    }
-
-    /**
-     * Sets call_control_id
-     *
-     * @param string $call_control_id call_control_id
-     *
-     * @return self
-     */
-    public function setCallControlId($call_control_id)
-    {
-        if (is_null($call_control_id)) {
-            throw new \InvalidArgumentException('non-nullable call_control_id cannot be null');
-        }
-        $this->container['call_control_id'] = $call_control_id;
-
-        return $this;
-    }
-
-    /**
      * Gets websocket
      *
      * @return string
@@ -379,7 +342,7 @@ class VoiceCallResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets websocket
      *
-     * @param string $websocket websocket
+     * @param string $websocket Live transcript socket. The path id is the trackingId.
      *
      * @return self
      */

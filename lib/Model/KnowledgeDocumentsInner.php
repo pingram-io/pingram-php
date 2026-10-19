@@ -352,7 +352,7 @@ class KnowledgeDocumentsInner implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets name
      *
-     * @param string $name name
+     * @param string $name File name shown to the agent and in the dashboard.
      *
      * @return self
      */
@@ -379,7 +379,7 @@ class KnowledgeDocumentsInner implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets size_bytes
      *
-     * @param float $size_bytes size_bytes
+     * @param float $size_bytes File size in bytes.
      *
      * @return self
      */
