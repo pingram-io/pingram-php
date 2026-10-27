@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **type** | **string** | Notification type id. Required before send or schedule. | [optional]
 **channel** | **string** | Email-only in v1; forward-compatible field. |
 **from_name** | **string** |  |
-**from_address** | **string** |  |
+**from_address** | **string** | From address. Use an address on a domain verified for this account to email other people. The shared address &#x60;noreply@pingram.io&#x60; can send a test broadcast only to your own account email as the sole recipient. Verify a domain to send to a wider audience. |
 **reply_to_address** | **string** |  | [optional]
 **subject** | **string** |  |
 **schedule_at** | **string** | ISO datetime for scheduled broadcasts. | [optional]

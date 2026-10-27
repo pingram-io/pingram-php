@@ -3481,7 +3481,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsSchedule
      *
-     * Schedule a draft email broadcast for a future ISO datetime (sendAt). Requires a non-empty subject. fromAddress must be the platform default sender or a domain verified for this account (Settings → Domain Verification). The platform default sender is for testing only (at most 10 recipients, heavily throttled). Cancels any existing schedule when the broadcast is returned to draft via cancel.
+     * Schedule a draft email broadcast for a future ISO datetime (sendAt). Requires a non-empty subject. Cancels any existing schedule when the broadcast is returned to draft via cancel.
      *
      * @param  string $broadcast_id Broadcast ID (required)
      * @param  \Pingram\Model\ScheduleBroadcastRequest $schedule_broadcast_request schedule_broadcast_request (required)
@@ -3500,7 +3500,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsScheduleWithHttpInfo
      *
-     * Schedule a draft email broadcast for a future ISO datetime (sendAt). Requires a non-empty subject. fromAddress must be the platform default sender or a domain verified for this account (Settings → Domain Verification). The platform default sender is for testing only (at most 10 recipients, heavily throttled). Cancels any existing schedule when the broadcast is returned to draft via cancel.
+     * Schedule a draft email broadcast for a future ISO datetime (sendAt). Requires a non-empty subject. Cancels any existing schedule when the broadcast is returned to draft via cancel.
      *
      * @param  string $broadcast_id Broadcast ID (required)
      * @param  \Pingram\Model\ScheduleBroadcastRequest $schedule_broadcast_request (required)
@@ -3628,7 +3628,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsScheduleAsync
      *
-     * Schedule a draft email broadcast for a future ISO datetime (sendAt). Requires a non-empty subject. fromAddress must be the platform default sender or a domain verified for this account (Settings → Domain Verification). The platform default sender is for testing only (at most 10 recipients, heavily throttled). Cancels any existing schedule when the broadcast is returned to draft via cancel.
+     * Schedule a draft email broadcast for a future ISO datetime (sendAt). Requires a non-empty subject. Cancels any existing schedule when the broadcast is returned to draft via cancel.
      *
      * @param  string $broadcast_id Broadcast ID (required)
      * @param  \Pingram\Model\ScheduleBroadcastRequest $schedule_broadcast_request (required)
@@ -3650,7 +3650,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsScheduleAsyncWithHttpInfo
      *
-     * Schedule a draft email broadcast for a future ISO datetime (sendAt). Requires a non-empty subject. fromAddress must be the platform default sender or a domain verified for this account (Settings → Domain Verification). The platform default sender is for testing only (at most 10 recipients, heavily throttled). Cancels any existing schedule when the broadcast is returned to draft via cancel.
+     * Schedule a draft email broadcast for a future ISO datetime (sendAt). Requires a non-empty subject. Cancels any existing schedule when the broadcast is returned to draft via cancel.
      *
      * @param  string $broadcast_id Broadcast ID (required)
      * @param  \Pingram\Model\ScheduleBroadcastRequest $schedule_broadcast_request (required)
@@ -3826,7 +3826,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsSend
      *
-     * Send a draft email broadcast immediately. Requires a non-empty subject. fromAddress must be the platform default sender or a domain verified for this account (Settings → Domain Verification). The platform default sender is for testing only (at most 10 recipients, heavily throttled). Transitions status to sending and starts delivery.
+     * Send a draft email broadcast immediately. Requires a non-empty subject. Transitions status to sending and starts delivery.
      *
      * @param  string $broadcast_id Broadcast ID (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['broadcastsSend'] to see the possible values for this operation
@@ -3844,7 +3844,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsSendWithHttpInfo
      *
-     * Send a draft email broadcast immediately. Requires a non-empty subject. fromAddress must be the platform default sender or a domain verified for this account (Settings → Domain Verification). The platform default sender is for testing only (at most 10 recipients, heavily throttled). Transitions status to sending and starts delivery.
+     * Send a draft email broadcast immediately. Requires a non-empty subject. Transitions status to sending and starts delivery.
      *
      * @param  string $broadcast_id Broadcast ID (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['broadcastsSend'] to see the possible values for this operation
@@ -3971,7 +3971,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsSendAsync
      *
-     * Send a draft email broadcast immediately. Requires a non-empty subject. fromAddress must be the platform default sender or a domain verified for this account (Settings → Domain Verification). The platform default sender is for testing only (at most 10 recipients, heavily throttled). Transitions status to sending and starts delivery.
+     * Send a draft email broadcast immediately. Requires a non-empty subject. Transitions status to sending and starts delivery.
      *
      * @param  string $broadcast_id Broadcast ID (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['broadcastsSend'] to see the possible values for this operation
@@ -3992,7 +3992,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsSendAsyncWithHttpInfo
      *
-     * Send a draft email broadcast immediately. Requires a non-empty subject. fromAddress must be the platform default sender or a domain verified for this account (Settings → Domain Verification). The platform default sender is for testing only (at most 10 recipients, heavily throttled). Transitions status to sending and starts delivery.
+     * Send a draft email broadcast immediately. Requires a non-empty subject. Transitions status to sending and starts delivery.
      *
      * @param  string $broadcast_id Broadcast ID (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['broadcastsSend'] to see the possible values for this operation

@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **channel** | **string** | Email-only in v1; forward-compatible field. |
 **audience** | [**\Pingram\Model\BroadcastResponseAudience**](BroadcastResponseAudience.md) |  |
 **from_name** | **string** |  |
-**from_address** | **string** |  |
+**from_address** | **string** | From address. Use an address on a domain verified for this account to email other people. The shared address &#x60;noreply@pingram.io&#x60; can send a test broadcast only to your own account email as the sole recipient. Verify a domain to send to a wider audience. |
 **reply_to_address** | **string** |  | [optional]
 **subject** | **string** |  |
 **html** | **string** | Send-ready HTML body. |

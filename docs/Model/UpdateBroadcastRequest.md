@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **channel** | **string** |  | [optional]
 **audience** | [**\Pingram\Model\BroadcastResponseAudience**](BroadcastResponseAudience.md) |  | [optional]
 **from_name** | **string** |  | [optional]
-**from_address** | **string** |  | [optional]
+**from_address** | **string** | From address. Use an address on a domain verified for this account to email other people. The shared address &#x60;noreply@pingram.io&#x60; can send a test broadcast only to your own account email as the sole recipient. Verify a domain to send to a wider audience. | [optional]
 **reply_to_address** | **string** | Omit to leave unchanged. Empty string clears Reply-To. | [optional]
 **subject** | **string** |  | [optional]
 **html** | **string** |  | [optional]

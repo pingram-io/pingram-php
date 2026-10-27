@@ -764,7 +764,7 @@ class ListBroadcastsResponseBroadcastsInner implements ModelInterface, ArrayAcce
     /**
      * Sets from_address
      *
-     * @param string $from_address from_address
+     * @param string $from_address From address. Use an address on a domain verified for this account to email other people. The shared address `noreply@pingram.io` can send a test broadcast only to your own account email as the sole recipient. Verify a domain to send to a wider audience.
      *
      * @return self
      */
