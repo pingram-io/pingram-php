@@ -94,6 +94,7 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         'email_delivered_recipients' => 'string',
         'email_delivered_after' => 'float',
         'email_delivered_webhook_res' => 'string',
+        'email_delivered_internal' => 'string',
         'email_failed_at' => 'string',
         'email_failed_code' => 'string',
         'email_failed_recipient' => 'string',
@@ -282,6 +283,7 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         'email_delivered_recipients' => null,
         'email_delivered_after' => null,
         'email_delivered_webhook_res' => null,
+        'email_delivered_internal' => null,
         'email_failed_at' => null,
         'email_failed_code' => null,
         'email_failed_recipient' => null,
@@ -468,6 +470,7 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         'email_delivered_recipients' => false,
         'email_delivered_after' => false,
         'email_delivered_webhook_res' => false,
+        'email_delivered_internal' => false,
         'email_failed_at' => false,
         'email_failed_code' => false,
         'email_failed_recipient' => false,
@@ -734,6 +737,7 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         'email_delivered_recipients' => 'email_delivered_recipients',
         'email_delivered_after' => 'email_delivered_after',
         'email_delivered_webhook_res' => 'email_delivered_webhook_res',
+        'email_delivered_internal' => 'email_delivered_internal',
         'email_failed_at' => 'email_failed_at',
         'email_failed_code' => 'email_failed_code',
         'email_failed_recipient' => 'email_failed_recipient',
@@ -920,6 +924,7 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         'email_delivered_recipients' => 'setEmailDeliveredRecipients',
         'email_delivered_after' => 'setEmailDeliveredAfter',
         'email_delivered_webhook_res' => 'setEmailDeliveredWebhookRes',
+        'email_delivered_internal' => 'setEmailDeliveredInternal',
         'email_failed_at' => 'setEmailFailedAt',
         'email_failed_code' => 'setEmailFailedCode',
         'email_failed_recipient' => 'setEmailFailedRecipient',
@@ -1106,6 +1111,7 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         'email_delivered_recipients' => 'getEmailDeliveredRecipients',
         'email_delivered_after' => 'getEmailDeliveredAfter',
         'email_delivered_webhook_res' => 'getEmailDeliveredWebhookRes',
+        'email_delivered_internal' => 'getEmailDeliveredInternal',
         'email_failed_at' => 'getEmailFailedAt',
         'email_failed_code' => 'getEmailFailedCode',
         'email_failed_recipient' => 'getEmailFailedRecipient',
@@ -2024,6 +2030,7 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
         $this->setIfExists('email_delivered_recipients', $data ?? [], null);
         $this->setIfExists('email_delivered_after', $data ?? [], null);
         $this->setIfExists('email_delivered_webhook_res', $data ?? [], null);
+        $this->setIfExists('email_delivered_internal', $data ?? [], null);
         $this->setIfExists('email_failed_at', $data ?? [], null);
         $this->setIfExists('email_failed_code', $data ?? [], null);
         $this->setIfExists('email_failed_recipient', $data ?? [], null);
@@ -3465,6 +3472,33 @@ class LogsGetResponseLogsInner implements ModelInterface, ArrayAccess, \JsonSeri
             throw new \InvalidArgumentException('non-nullable email_delivered_webhook_res cannot be null');
         }
         $this->container['email_delivered_webhook_res'] = $email_delivered_webhook_res;
+
+        return $this;
+    }
+
+    /**
+     * Gets email_delivered_internal
+     *
+     * @return string|null
+     */
+    public function getEmailDeliveredInternal()
+    {
+        return $this->container['email_delivered_internal'];
+    }
+
+    /**
+     * Sets email_delivered_internal
+     *
+     * @param string|null $email_delivered_internal email_delivered_internal
+     *
+     * @return self
+     */
+    public function setEmailDeliveredInternal($email_delivered_internal)
+    {
+        if (is_null($email_delivered_internal)) {
+            throw new \InvalidArgumentException('non-nullable email_delivered_internal cannot be null');
+        }
+        $this->container['email_delivered_internal'] = $email_delivered_internal;
 
         return $this;
     }

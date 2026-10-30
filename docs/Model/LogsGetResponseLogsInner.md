@@ -41,6 +41,7 @@ Name | Type | Description | Notes
 **email_delivered_recipients** | **string** |  | [optional]
 **email_delivered_after** | **float** |  | [optional]
 **email_delivered_webhook_res** | **string** |  | [optional]
+**email_delivered_internal** | **string** |  | [optional]
 **email_failed_at** | **string** |  | [optional]
 **email_failed_code** | **string** |  | [optional]
 **email_failed_recipient** | **string** |  | [optional]
