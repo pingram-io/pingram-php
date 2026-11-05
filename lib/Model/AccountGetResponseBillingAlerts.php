@@ -380,7 +380,7 @@ class AccountGetResponseBillingAlerts implements ModelInterface, ArrayAccess, \J
     /**
      * Sets thresholds
      *
-     * @param float[] $thresholds Percents to email, from 5 to 100 in steps of 5. At most two. At least one is required while enabled.
+     * @param float[] $thresholds Percents to email, from 5 to 100 in steps of 5. At most five. At least one is required while enabled.
      *
      * @return self
      */
