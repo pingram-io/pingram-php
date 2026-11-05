@@ -61,7 +61,8 @@ class WebhookEndpointsResponseEndpointsInner implements ModelInterface, ArrayAcc
         'id' => 'string',
         'webhook' => 'string',
         'events' => 'string[]',
-        'secret' => 'string'
+        'secret' => 'string',
+        'basic_auth' => '\Pingram\Model\WebhookEndpointBasicAuth'
     ];
 
     /**
@@ -75,7 +76,8 @@ class WebhookEndpointsResponseEndpointsInner implements ModelInterface, ArrayAcc
         'id' => null,
         'webhook' => null,
         'events' => null,
-        'secret' => null
+        'secret' => null,
+        'basic_auth' => null
     ];
 
     /**
@@ -87,7 +89,8 @@ class WebhookEndpointsResponseEndpointsInner implements ModelInterface, ArrayAcc
         'id' => false,
         'webhook' => false,
         'events' => false,
-        'secret' => false
+        'secret' => false,
+        'basic_auth' => false
     ];
 
     /**
@@ -179,7 +182,8 @@ class WebhookEndpointsResponseEndpointsInner implements ModelInterface, ArrayAcc
         'id' => 'id',
         'webhook' => 'webhook',
         'events' => 'events',
-        'secret' => 'secret'
+        'secret' => 'secret',
+        'basic_auth' => 'basicAuth'
     ];
 
     /**
@@ -191,7 +195,8 @@ class WebhookEndpointsResponseEndpointsInner implements ModelInterface, ArrayAcc
         'id' => 'setId',
         'webhook' => 'setWebhook',
         'events' => 'setEvents',
-        'secret' => 'setSecret'
+        'secret' => 'setSecret',
+        'basic_auth' => 'setBasicAuth'
     ];
 
     /**
@@ -203,7 +208,8 @@ class WebhookEndpointsResponseEndpointsInner implements ModelInterface, ArrayAcc
         'id' => 'getId',
         'webhook' => 'getWebhook',
         'events' => 'getEvents',
-        'secret' => 'getSecret'
+        'secret' => 'getSecret',
+        'basic_auth' => 'getBasicAuth'
     ];
 
     /**
@@ -328,6 +334,7 @@ class WebhookEndpointsResponseEndpointsInner implements ModelInterface, ArrayAcc
         $this->setIfExists('webhook', $data ?? [], null);
         $this->setIfExists('events', $data ?? [], null);
         $this->setIfExists('secret', $data ?? [], null);
+        $this->setIfExists('basic_auth', $data ?? [], null);
     }
 
     /**
@@ -424,7 +431,7 @@ class WebhookEndpointsResponseEndpointsInner implements ModelInterface, ArrayAcc
     /**
      * Sets webhook
      *
-     * @param string $webhook Destination URL that receives signed JSON event payloads.
+     * @param string $webhook Destination URL that receives signed JSON event payloads. Credentials are not included in this URL.
      *
      * @return self
      */
@@ -497,6 +504,33 @@ class WebhookEndpointsResponseEndpointsInner implements ModelInterface, ArrayAcc
             throw new \InvalidArgumentException('non-nullable secret cannot be null');
         }
         $this->container['secret'] = $secret;
+
+        return $this;
+    }
+
+    /**
+     * Gets basic_auth
+     *
+     * @return \Pingram\Model\WebhookEndpointBasicAuth|null
+     */
+    public function getBasicAuth()
+    {
+        return $this->container['basic_auth'];
+    }
+
+    /**
+     * Sets basic_auth
+     *
+     * @param \Pingram\Model\WebhookEndpointBasicAuth|null $basic_auth basic_auth
+     *
+     * @return self
+     */
+    public function setBasicAuth($basic_auth)
+    {
+        if (is_null($basic_auth)) {
+            throw new \InvalidArgumentException('non-nullable basic_auth cannot be null');
+        }
+        $this->container['basic_auth'] = $basic_auth;
 
         return $this;
     }

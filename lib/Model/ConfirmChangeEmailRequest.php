@@ -57,7 +57,8 @@ class ConfirmChangeEmailRequest implements ModelInterface, ArrayAccess, \JsonSer
       * @var string[]
       */
     protected static $openAPITypes = [
-        'code' => 'string'
+        'code' => 'string',
+        'new_password' => 'string'
     ];
 
     /**
@@ -68,7 +69,8 @@ class ConfirmChangeEmailRequest implements ModelInterface, ArrayAccess, \JsonSer
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'code' => null
+        'code' => null,
+        'new_password' => null
     ];
 
     /**
@@ -77,7 +79,8 @@ class ConfirmChangeEmailRequest implements ModelInterface, ArrayAccess, \JsonSer
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'code' => false
+        'code' => false,
+        'new_password' => false
     ];
 
     /**
@@ -166,7 +169,8 @@ class ConfirmChangeEmailRequest implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $attributeMap = [
-        'code' => 'code'
+        'code' => 'code',
+        'new_password' => 'newPassword'
     ];
 
     /**
@@ -175,7 +179,8 @@ class ConfirmChangeEmailRequest implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $setters = [
-        'code' => 'setCode'
+        'code' => 'setCode',
+        'new_password' => 'setNewPassword'
     ];
 
     /**
@@ -184,7 +189,8 @@ class ConfirmChangeEmailRequest implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $getters = [
-        'code' => 'getCode'
+        'code' => 'getCode',
+        'new_password' => 'getNewPassword'
     ];
 
     /**
@@ -245,6 +251,7 @@ class ConfirmChangeEmailRequest implements ModelInterface, ArrayAccess, \JsonSer
     public function __construct(?array $data = null)
     {
         $this->setIfExists('code', $data ?? [], null);
+        $this->setIfExists('new_password', $data ?? [], null);
     }
 
     /**
@@ -315,6 +322,33 @@ class ConfirmChangeEmailRequest implements ModelInterface, ArrayAccess, \JsonSer
             throw new \InvalidArgumentException('non-nullable code cannot be null');
         }
         $this->container['code'] = $code;
+
+        return $this;
+    }
+
+    /**
+     * Gets new_password
+     *
+     * @return string|null
+     */
+    public function getNewPassword()
+    {
+        return $this->container['new_password'];
+    }
+
+    /**
+     * Sets new_password
+     *
+     * @param string|null $new_password The password chosen when a social-only account started the change. Required while the code was sent to the current inbox.
+     *
+     * @return self
+     */
+    public function setNewPassword($new_password)
+    {
+        if (is_null($new_password)) {
+            throw new \InvalidArgumentException('non-nullable new_password cannot be null');
+        }
+        $this->container['new_password'] = $new_password;
 
         return $this;
     }

@@ -1,9 +1,10 @@
-# # SetPasswordRequest
+# # PaymentMethodSetup
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**password** | **string** |  |
+**session_id** | **string** |  |
+**url** | **string** |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

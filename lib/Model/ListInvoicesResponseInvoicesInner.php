@@ -653,7 +653,7 @@ class ListInvoicesResponseInvoicesInner implements ModelInterface, ArrayAccess, 
     /**
      * Sets hosted_invoice_url
      *
-     * @param string|null $hosted_invoice_url Stripe-hosted invoice page (receipt / pay).
+     * @param string|null $hosted_invoice_url Link to view or pay this invoice.
      *
      * @return self
      */

@@ -1,6 +1,6 @@
 <?php
 /**
- * SetPasswordRequest
+ * ConfirmPasswordChangeRequest
  *
  * PHP version 8.1
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \Pingram\ObjectSerializer;
 
 /**
- * SetPasswordRequest Class Doc Comment
+ * ConfirmPasswordChangeRequest Class Doc Comment
  *
  * @category Class
  * @package  Pingram
@@ -40,7 +40,7 @@ use \Pingram\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SetPasswordRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class ConfirmPasswordChangeRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class SetPasswordRequest implements ModelInterface, ArrayAccess, \JsonSerializab
       *
       * @var string
       */
-    protected static $openAPIModelName = 'SetPasswordRequest';
+    protected static $openAPIModelName = 'ConfirmPasswordChangeRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,6 +57,7 @@ class SetPasswordRequest implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var string[]
       */
     protected static $openAPITypes = [
+        'code' => 'string',
         'password' => 'string'
     ];
 
@@ -68,6 +69,7 @@ class SetPasswordRequest implements ModelInterface, ArrayAccess, \JsonSerializab
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'code' => null,
         'password' => null
     ];
 
@@ -77,6 +79,7 @@ class SetPasswordRequest implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var boolean[]
       */
     protected static array $openAPINullables = [
+        'code' => false,
         'password' => false
     ];
 
@@ -166,6 +169,7 @@ class SetPasswordRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $attributeMap = [
+        'code' => 'code',
         'password' => 'password'
     ];
 
@@ -175,6 +179,7 @@ class SetPasswordRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $setters = [
+        'code' => 'setCode',
         'password' => 'setPassword'
     ];
 
@@ -184,6 +189,7 @@ class SetPasswordRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $getters = [
+        'code' => 'getCode',
         'password' => 'getPassword'
     ];
 
@@ -244,6 +250,7 @@ class SetPasswordRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function __construct(?array $data = null)
     {
+        $this->setIfExists('code', $data ?? [], null);
         $this->setIfExists('password', $data ?? [], null);
     }
 
@@ -274,6 +281,9 @@ class SetPasswordRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     {
         $invalidProperties = [];
 
+        if ($this->container['code'] === null) {
+            $invalidProperties[] = "'code' can't be null";
+        }
         if ($this->container['password'] === null) {
             $invalidProperties[] = "'password' can't be null";
         }
@@ -293,6 +303,33 @@ class SetPasswordRequest implements ModelInterface, ArrayAccess, \JsonSerializab
 
 
     /**
+     * Gets code
+     *
+     * @return string
+     */
+    public function getCode()
+    {
+        return $this->container['code'];
+    }
+
+    /**
+     * Sets code
+     *
+     * @param string $code code
+     *
+     * @return self
+     */
+    public function setCode($code)
+    {
+        if (is_null($code)) {
+            throw new \InvalidArgumentException('non-nullable code cannot be null');
+        }
+        $this->container['code'] = $code;
+
+        return $this;
+    }
+
+    /**
      * Gets password
      *
      * @return string
@@ -305,7 +342,7 @@ class SetPasswordRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets password
      *
-     * @param string $password password
+     * @param string $password The same new password sent when the change started.
      *
      * @return self
      */

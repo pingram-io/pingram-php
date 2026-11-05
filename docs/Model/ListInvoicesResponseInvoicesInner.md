@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **amount_due** | **float** |  |
 **amount_paid** | **float** |  |
 **created** | **float** | Unix timestamp (seconds) when the invoice was created. |
-**hosted_invoice_url** | **string** | Stripe-hosted invoice page (receipt / pay). | [optional]
+**hosted_invoice_url** | **string** | Link to view or pay this invoice. | [optional]
 **invoice_pdf** | **string** | Direct PDF download URL. | [optional]
 **period_start** | **float** | Billing period start (unix seconds), when applicable. | [optional]
 **period_end** | **float** | Billing period end (unix seconds), when applicable. | [optional]

@@ -59,7 +59,8 @@ class WebhookEndpointUpsertRequest implements ModelInterface, ArrayAccess, \Json
       */
     protected static $openAPITypes = [
         'webhook' => 'string',
-        'events' => 'string[]'
+        'events' => 'string[]',
+        'basic_auth' => '\Pingram\Model\WebhookEndpointUpsertRequestBasicAuth'
     ];
 
     /**
@@ -71,7 +72,8 @@ class WebhookEndpointUpsertRequest implements ModelInterface, ArrayAccess, \Json
       */
     protected static $openAPIFormats = [
         'webhook' => null,
-        'events' => null
+        'events' => null,
+        'basic_auth' => null
     ];
 
     /**
@@ -81,7 +83,8 @@ class WebhookEndpointUpsertRequest implements ModelInterface, ArrayAccess, \Json
       */
     protected static array $openAPINullables = [
         'webhook' => false,
-        'events' => false
+        'events' => false,
+        'basic_auth' => true
     ];
 
     /**
@@ -171,7 +174,8 @@ class WebhookEndpointUpsertRequest implements ModelInterface, ArrayAccess, \Json
      */
     protected static $attributeMap = [
         'webhook' => 'webhook',
-        'events' => 'events'
+        'events' => 'events',
+        'basic_auth' => 'basicAuth'
     ];
 
     /**
@@ -181,7 +185,8 @@ class WebhookEndpointUpsertRequest implements ModelInterface, ArrayAccess, \Json
      */
     protected static $setters = [
         'webhook' => 'setWebhook',
-        'events' => 'setEvents'
+        'events' => 'setEvents',
+        'basic_auth' => 'setBasicAuth'
     ];
 
     /**
@@ -191,7 +196,8 @@ class WebhookEndpointUpsertRequest implements ModelInterface, ArrayAccess, \Json
      */
     protected static $getters = [
         'webhook' => 'getWebhook',
-        'events' => 'getEvents'
+        'events' => 'getEvents',
+        'basic_auth' => 'getBasicAuth'
     ];
 
     /**
@@ -314,6 +320,7 @@ class WebhookEndpointUpsertRequest implements ModelInterface, ArrayAccess, \Json
     {
         $this->setIfExists('webhook', $data ?? [], null);
         $this->setIfExists('events', $data ?? [], null);
+        $this->setIfExists('basic_auth', $data ?? [], null);
     }
 
     /**
@@ -377,7 +384,7 @@ class WebhookEndpointUpsertRequest implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets webhook
      *
-     * @param string $webhook Public HTTPS URL that accepts POST with a JSON event body. Return 2xx to acknowledge. Private, loopback, and link-local addresses are rejected. Requests include X-Pingram-Id, X-Pingram-Signature (v1 HMAC-SHA256), and X-Pingram-Timestamp.
+     * @param string $webhook Public HTTPS URL that accepts POST with a JSON event body. Return 2xx to acknowledge. Private, loopback, and link-local addresses are rejected. Requests include X-Pingram-Id, X-Pingram-Signature (v1 HMAC-SHA256), and X-Pingram-Timestamp. A username and password in this URL are stored separately and removed from the saved URL.
      *
      * @return self
      */
@@ -423,6 +430,40 @@ class WebhookEndpointUpsertRequest implements ModelInterface, ArrayAccess, \Json
             );
         }
         $this->container['events'] = $events;
+
+        return $this;
+    }
+
+    /**
+     * Gets basic_auth
+     *
+     * @return \Pingram\Model\WebhookEndpointUpsertRequestBasicAuth|null
+     */
+    public function getBasicAuth()
+    {
+        return $this->container['basic_auth'];
+    }
+
+    /**
+     * Sets basic_auth
+     *
+     * @param \Pingram\Model\WebhookEndpointUpsertRequestBasicAuth|null $basic_auth basic_auth
+     *
+     * @return self
+     */
+    public function setBasicAuth($basic_auth)
+    {
+        if (is_null($basic_auth)) {
+            array_push($this->openAPINullablesSetToNull, 'basic_auth');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('basic_auth', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['basic_auth'] = $basic_auth;
 
         return $this;
     }

@@ -59,6 +59,7 @@ class StartChangeEmailRequest implements ModelInterface, ArrayAccess, \JsonSeria
     protected static $openAPITypes = [
         'new_email' => 'string',
         'password' => 'string',
+        'new_password' => 'string',
         'mfa_code' => 'string'
     ];
 
@@ -72,6 +73,7 @@ class StartChangeEmailRequest implements ModelInterface, ArrayAccess, \JsonSeria
     protected static $openAPIFormats = [
         'new_email' => null,
         'password' => null,
+        'new_password' => null,
         'mfa_code' => null
     ];
 
@@ -83,6 +85,7 @@ class StartChangeEmailRequest implements ModelInterface, ArrayAccess, \JsonSeria
     protected static array $openAPINullables = [
         'new_email' => false,
         'password' => false,
+        'new_password' => false,
         'mfa_code' => false
     ];
 
@@ -174,6 +177,7 @@ class StartChangeEmailRequest implements ModelInterface, ArrayAccess, \JsonSeria
     protected static $attributeMap = [
         'new_email' => 'newEmail',
         'password' => 'password',
+        'new_password' => 'newPassword',
         'mfa_code' => 'mfaCode'
     ];
 
@@ -185,6 +189,7 @@ class StartChangeEmailRequest implements ModelInterface, ArrayAccess, \JsonSeria
     protected static $setters = [
         'new_email' => 'setNewEmail',
         'password' => 'setPassword',
+        'new_password' => 'setNewPassword',
         'mfa_code' => 'setMfaCode'
     ];
 
@@ -196,6 +201,7 @@ class StartChangeEmailRequest implements ModelInterface, ArrayAccess, \JsonSeria
     protected static $getters = [
         'new_email' => 'getNewEmail',
         'password' => 'getPassword',
+        'new_password' => 'getNewPassword',
         'mfa_code' => 'getMfaCode'
     ];
 
@@ -258,6 +264,7 @@ class StartChangeEmailRequest implements ModelInterface, ArrayAccess, \JsonSeria
     {
         $this->setIfExists('new_email', $data ?? [], null);
         $this->setIfExists('password', $data ?? [], null);
+        $this->setIfExists('new_password', $data ?? [], null);
         $this->setIfExists('mfa_code', $data ?? [], null);
     }
 
@@ -290,9 +297,6 @@ class StartChangeEmailRequest implements ModelInterface, ArrayAccess, \JsonSeria
 
         if ($this->container['new_email'] === null) {
             $invalidProperties[] = "'new_email' can't be null";
-        }
-        if ($this->container['password'] === null) {
-            $invalidProperties[] = "'password' can't be null";
         }
         return $invalidProperties;
     }
@@ -339,7 +343,7 @@ class StartChangeEmailRequest implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets password
      *
-     * @return string
+     * @return string|null
      */
     public function getPassword()
     {
@@ -349,7 +353,7 @@ class StartChangeEmailRequest implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets password
      *
-     * @param string $password Current account password. Required before a login-email change starts.
+     * @param string|null $password Current account password. Required when the account already has a password.
      *
      * @return self
      */
@@ -359,6 +363,33 @@ class StartChangeEmailRequest implements ModelInterface, ArrayAccess, \JsonSeria
             throw new \InvalidArgumentException('non-nullable password cannot be null');
         }
         $this->container['password'] = $password;
+
+        return $this;
+    }
+
+    /**
+     * Gets new_password
+     *
+     * @return string|null
+     */
+    public function getNewPassword()
+    {
+        return $this->container['new_password'];
+    }
+
+    /**
+     * Sets new_password
+     *
+     * @param string|null $new_password Password to set. Required when the account has no password yet, so the new email address can be used to sign in after social sign-in is removed.
+     *
+     * @return self
+     */
+    public function setNewPassword($new_password)
+    {
+        if (is_null($new_password)) {
+            throw new \InvalidArgumentException('non-nullable new_password cannot be null');
+        }
+        $this->container['new_password'] = $new_password;
 
         return $this;
     }
@@ -376,7 +407,7 @@ class StartChangeEmailRequest implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets mfa_code
      *
-     * @param string|null $mfa_code TOTP code. Required when software-token MFA is enabled.
+     * @param string|null $mfa_code TOTP code. Required when software-token MFA is enabled on an account that has a password.
      *
      * @return self
      */

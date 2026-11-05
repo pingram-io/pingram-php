@@ -137,7 +137,7 @@ class WebhooksApi
     /**
      * Operation webhooksCreateWebhook
      *
-     * Create a webhook endpoint on a server outside Pingram. Pingram later POSTs signed JSON to that URL when one of the subscribed events happens. This call only saves the endpoint; it does not send a webhook and does not modify the destination server. The response includes id and a signing secret starting with pingram_whsecret_. Save it and verify the X-Pingram-Signature header. Updates keep this secret. At most 10 endpoints per account. The URL must be a public HTTPS URL and should return 2xx.
+     * Create a webhook endpoint on a server outside Pingram. Pingram later POSTs signed JSON to that URL when one of the subscribed events happens. This call only saves the endpoint; it does not send a webhook and does not modify the destination server. The response includes id and a signing secret starting with pingram_whsecret_. Save it and verify the X-Pingram-Signature header. Updates keep this secret. At most 10 endpoints per account. The URL must be a public HTTPS URL and should return 2xx. Optional basic auth is sent as an Authorization header. Put it in basicAuth or in the URL, not both. The password is not returned.
      *
      * @param  \Pingram\Model\WebhookEndpointUpsertRequest $webhook_endpoint_upsert_request webhook_endpoint_upsert_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['webhooksCreateWebhook'] to see the possible values for this operation
@@ -155,7 +155,7 @@ class WebhooksApi
     /**
      * Operation webhooksCreateWebhookWithHttpInfo
      *
-     * Create a webhook endpoint on a server outside Pingram. Pingram later POSTs signed JSON to that URL when one of the subscribed events happens. This call only saves the endpoint; it does not send a webhook and does not modify the destination server. The response includes id and a signing secret starting with pingram_whsecret_. Save it and verify the X-Pingram-Signature header. Updates keep this secret. At most 10 endpoints per account. The URL must be a public HTTPS URL and should return 2xx.
+     * Create a webhook endpoint on a server outside Pingram. Pingram later POSTs signed JSON to that URL when one of the subscribed events happens. This call only saves the endpoint; it does not send a webhook and does not modify the destination server. The response includes id and a signing secret starting with pingram_whsecret_. Save it and verify the X-Pingram-Signature header. Updates keep this secret. At most 10 endpoints per account. The URL must be a public HTTPS URL and should return 2xx. Optional basic auth is sent as an Authorization header. Put it in basicAuth or in the URL, not both. The password is not returned.
      *
      * @param  \Pingram\Model\WebhookEndpointUpsertRequest $webhook_endpoint_upsert_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['webhooksCreateWebhook'] to see the possible values for this operation
@@ -282,7 +282,7 @@ class WebhooksApi
     /**
      * Operation webhooksCreateWebhookAsync
      *
-     * Create a webhook endpoint on a server outside Pingram. Pingram later POSTs signed JSON to that URL when one of the subscribed events happens. This call only saves the endpoint; it does not send a webhook and does not modify the destination server. The response includes id and a signing secret starting with pingram_whsecret_. Save it and verify the X-Pingram-Signature header. Updates keep this secret. At most 10 endpoints per account. The URL must be a public HTTPS URL and should return 2xx.
+     * Create a webhook endpoint on a server outside Pingram. Pingram later POSTs signed JSON to that URL when one of the subscribed events happens. This call only saves the endpoint; it does not send a webhook and does not modify the destination server. The response includes id and a signing secret starting with pingram_whsecret_. Save it and verify the X-Pingram-Signature header. Updates keep this secret. At most 10 endpoints per account. The URL must be a public HTTPS URL and should return 2xx. Optional basic auth is sent as an Authorization header. Put it in basicAuth or in the URL, not both. The password is not returned.
      *
      * @param  \Pingram\Model\WebhookEndpointUpsertRequest $webhook_endpoint_upsert_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['webhooksCreateWebhook'] to see the possible values for this operation
@@ -303,7 +303,7 @@ class WebhooksApi
     /**
      * Operation webhooksCreateWebhookAsyncWithHttpInfo
      *
-     * Create a webhook endpoint on a server outside Pingram. Pingram later POSTs signed JSON to that URL when one of the subscribed events happens. This call only saves the endpoint; it does not send a webhook and does not modify the destination server. The response includes id and a signing secret starting with pingram_whsecret_. Save it and verify the X-Pingram-Signature header. Updates keep this secret. At most 10 endpoints per account. The URL must be a public HTTPS URL and should return 2xx.
+     * Create a webhook endpoint on a server outside Pingram. Pingram later POSTs signed JSON to that URL when one of the subscribed events happens. This call only saves the endpoint; it does not send a webhook and does not modify the destination server. The response includes id and a signing secret starting with pingram_whsecret_. Save it and verify the X-Pingram-Signature header. Updates keep this secret. At most 10 endpoints per account. The URL must be a public HTTPS URL and should return 2xx. Optional basic auth is sent as an Authorization header. Put it in basicAuth or in the URL, not both. The password is not returned.
      *
      * @param  \Pingram\Model\WebhookEndpointUpsertRequest $webhook_endpoint_upsert_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['webhooksCreateWebhook'] to see the possible values for this operation
@@ -720,7 +720,7 @@ class WebhooksApi
     /**
      * Operation webhooksListWebhooks
      *
-     * List webhook endpoints on the current account, including each id, URL, subscribed events, and signing secret. Use the id with update or delete.
+     * List webhook endpoints on the current account, including each id, URL, subscribed events, and signing secret. When basic auth is saved, username is returned and passwordSet is true. The password is not returned. Use the id with update or delete.
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['webhooksListWebhooks'] to see the possible values for this operation
      *
@@ -737,7 +737,7 @@ class WebhooksApi
     /**
      * Operation webhooksListWebhooksWithHttpInfo
      *
-     * List webhook endpoints on the current account, including each id, URL, subscribed events, and signing secret. Use the id with update or delete.
+     * List webhook endpoints on the current account, including each id, URL, subscribed events, and signing secret. When basic auth is saved, username is returned and passwordSet is true. The password is not returned. Use the id with update or delete.
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['webhooksListWebhooks'] to see the possible values for this operation
      *
@@ -863,7 +863,7 @@ class WebhooksApi
     /**
      * Operation webhooksListWebhooksAsync
      *
-     * List webhook endpoints on the current account, including each id, URL, subscribed events, and signing secret. Use the id with update or delete.
+     * List webhook endpoints on the current account, including each id, URL, subscribed events, and signing secret. When basic auth is saved, username is returned and passwordSet is true. The password is not returned. Use the id with update or delete.
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['webhooksListWebhooks'] to see the possible values for this operation
      *
@@ -883,7 +883,7 @@ class WebhooksApi
     /**
      * Operation webhooksListWebhooksAsyncWithHttpInfo
      *
-     * List webhook endpoints on the current account, including each id, URL, subscribed events, and signing secret. Use the id with update or delete.
+     * List webhook endpoints on the current account, including each id, URL, subscribed events, and signing secret. When basic auth is saved, username is returned and passwordSet is true. The password is not returned. Use the id with update or delete.
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['webhooksListWebhooks'] to see the possible values for this operation
      *
@@ -1026,7 +1026,7 @@ class WebhooksApi
     /**
      * Operation webhooksUpdateWebhook
      *
-     * Replace one webhook endpoint&#39;s URL and its full event subscription. The URL is a server outside Pingram. endpointId comes from list or create. The signing secret stays the same. events is the complete set; omitting an event unsubscribes it, and the previous URL stops receiving events. The previous URL and event list are not kept. The URL must be a public HTTPS URL.
+     * Replace one webhook endpoint&#39;s URL and its full event subscription. The URL is a server outside Pingram. endpointId comes from list or create. The signing secret stays the same. events is the complete set; omitting an event unsubscribes it, and the previous URL stops receiving events. The previous URL and event list are not kept. The URL must be a public HTTPS URL. Omit basicAuth to keep stored credentials. null removes them. Omit the password to keep the stored password. The password is not returned.
      *
      * @param  string $endpoint_id Id of the webhook endpoint, from list or create. (required)
      * @param  \Pingram\Model\WebhookEndpointUpsertRequest $webhook_endpoint_upsert_request webhook_endpoint_upsert_request (required)
@@ -1045,7 +1045,7 @@ class WebhooksApi
     /**
      * Operation webhooksUpdateWebhookWithHttpInfo
      *
-     * Replace one webhook endpoint&#39;s URL and its full event subscription. The URL is a server outside Pingram. endpointId comes from list or create. The signing secret stays the same. events is the complete set; omitting an event unsubscribes it, and the previous URL stops receiving events. The previous URL and event list are not kept. The URL must be a public HTTPS URL.
+     * Replace one webhook endpoint&#39;s URL and its full event subscription. The URL is a server outside Pingram. endpointId comes from list or create. The signing secret stays the same. events is the complete set; omitting an event unsubscribes it, and the previous URL stops receiving events. The previous URL and event list are not kept. The URL must be a public HTTPS URL. Omit basicAuth to keep stored credentials. null removes them. Omit the password to keep the stored password. The password is not returned.
      *
      * @param  string $endpoint_id Id of the webhook endpoint, from list or create. (required)
      * @param  \Pingram\Model\WebhookEndpointUpsertRequest $webhook_endpoint_upsert_request (required)
@@ -1173,7 +1173,7 @@ class WebhooksApi
     /**
      * Operation webhooksUpdateWebhookAsync
      *
-     * Replace one webhook endpoint&#39;s URL and its full event subscription. The URL is a server outside Pingram. endpointId comes from list or create. The signing secret stays the same. events is the complete set; omitting an event unsubscribes it, and the previous URL stops receiving events. The previous URL and event list are not kept. The URL must be a public HTTPS URL.
+     * Replace one webhook endpoint&#39;s URL and its full event subscription. The URL is a server outside Pingram. endpointId comes from list or create. The signing secret stays the same. events is the complete set; omitting an event unsubscribes it, and the previous URL stops receiving events. The previous URL and event list are not kept. The URL must be a public HTTPS URL. Omit basicAuth to keep stored credentials. null removes them. Omit the password to keep the stored password. The password is not returned.
      *
      * @param  string $endpoint_id Id of the webhook endpoint, from list or create. (required)
      * @param  \Pingram\Model\WebhookEndpointUpsertRequest $webhook_endpoint_upsert_request (required)
@@ -1195,7 +1195,7 @@ class WebhooksApi
     /**
      * Operation webhooksUpdateWebhookAsyncWithHttpInfo
      *
-     * Replace one webhook endpoint&#39;s URL and its full event subscription. The URL is a server outside Pingram. endpointId comes from list or create. The signing secret stays the same. events is the complete set; omitting an event unsubscribes it, and the previous URL stops receiving events. The previous URL and event list are not kept. The URL must be a public HTTPS URL.
+     * Replace one webhook endpoint&#39;s URL and its full event subscription. The URL is a server outside Pingram. endpointId comes from list or create. The signing secret stays the same. events is the complete set; omitting an event unsubscribes it, and the previous URL stops receiving events. The previous URL and event list are not kept. The URL must be a public HTTPS URL. Omit basicAuth to keep stored credentials. null removes them. Omit the password to keep the stored password. The password is not returned.
      *
      * @param  string $endpoint_id Id of the webhook endpoint, from list or create. (required)
      * @param  \Pingram\Model\WebhookEndpointUpsertRequest $webhook_endpoint_upsert_request (required)

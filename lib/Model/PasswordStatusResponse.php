@@ -35,7 +35,7 @@ use \Pingram\ObjectSerializer;
  * PasswordStatusResponse Class Doc Comment
  *
  * @category Class
- * @description Whether the signed-in user can set a first password.
+ * @description Whether the signed-in account has a password, and which social providers are linked.
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -58,7 +58,7 @@ class PasswordStatusResponse implements ModelInterface, ArrayAccess, \JsonSerial
       * @var string[]
       */
     protected static $openAPITypes = [
-        'can_set_password' => 'bool',
+        'has_password' => 'bool',
         'providers' => 'string[]'
     ];
 
@@ -70,7 +70,7 @@ class PasswordStatusResponse implements ModelInterface, ArrayAccess, \JsonSerial
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'can_set_password' => null,
+        'has_password' => null,
         'providers' => null
     ];
 
@@ -80,7 +80,7 @@ class PasswordStatusResponse implements ModelInterface, ArrayAccess, \JsonSerial
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'can_set_password' => false,
+        'has_password' => false,
         'providers' => false
     ];
 
@@ -170,7 +170,7 @@ class PasswordStatusResponse implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $attributeMap = [
-        'can_set_password' => 'canSetPassword',
+        'has_password' => 'hasPassword',
         'providers' => 'providers'
     ];
 
@@ -180,7 +180,7 @@ class PasswordStatusResponse implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $setters = [
-        'can_set_password' => 'setCanSetPassword',
+        'has_password' => 'setHasPassword',
         'providers' => 'setProviders'
     ];
 
@@ -190,7 +190,7 @@ class PasswordStatusResponse implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $getters = [
-        'can_set_password' => 'getCanSetPassword',
+        'has_password' => 'getHasPassword',
         'providers' => 'getProviders'
     ];
 
@@ -251,7 +251,7 @@ class PasswordStatusResponse implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('can_set_password', $data ?? [], null);
+        $this->setIfExists('has_password', $data ?? [], null);
         $this->setIfExists('providers', $data ?? [], null);
     }
 
@@ -282,8 +282,8 @@ class PasswordStatusResponse implements ModelInterface, ArrayAccess, \JsonSerial
     {
         $invalidProperties = [];
 
-        if ($this->container['can_set_password'] === null) {
-            $invalidProperties[] = "'can_set_password' can't be null";
+        if ($this->container['has_password'] === null) {
+            $invalidProperties[] = "'has_password' can't be null";
         }
         if ($this->container['providers'] === null) {
             $invalidProperties[] = "'providers' can't be null";
@@ -304,28 +304,28 @@ class PasswordStatusResponse implements ModelInterface, ArrayAccess, \JsonSerial
 
 
     /**
-     * Gets can_set_password
+     * Gets has_password
      *
      * @return bool
      */
-    public function getCanSetPassword()
+    public function getHasPassword()
     {
-        return $this->container['can_set_password'];
+        return $this->container['has_password'];
     }
 
     /**
-     * Sets can_set_password
+     * Sets has_password
      *
-     * @param bool $can_set_password can_set_password
+     * @param bool $has_password False only when the account is still a social sign-in with no password.
      *
      * @return self
      */
-    public function setCanSetPassword($can_set_password)
+    public function setHasPassword($has_password)
     {
-        if (is_null($can_set_password)) {
-            throw new \InvalidArgumentException('non-nullable can_set_password cannot be null');
+        if (is_null($has_password)) {
+            throw new \InvalidArgumentException('non-nullable has_password cannot be null');
         }
-        $this->container['can_set_password'] = $can_set_password;
+        $this->container['has_password'] = $has_password;
 
         return $this;
     }

@@ -74,10 +74,16 @@ class AccountApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
+        'accountAssignPaymentMethod' => [
+            'application/json',
+        ],
         'accountCancelSubscription' => [
             'application/json',
         ],
         'accountConfigureSupabaseSMTP' => [
+            'application/json',
+        ],
+        'accountCreatePaymentMethodSetup' => [
             'application/json',
         ],
         'accountGetAccountDetails' => [
@@ -96,6 +102,9 @@ class AccountApi
             'application/json',
         ],
         'accountListInvoices' => [
+            'application/json',
+        ],
+        'accountListPaymentMethods' => [
             'application/json',
         ],
         'accountListSupabaseProjects' => [
@@ -165,6 +174,331 @@ class AccountApi
     public function getConfig()
     {
         return $this->config;
+    }
+
+    /**
+     * Operation accountAssignPaymentMethod
+     *
+     * Use a saved card for this account, as the default for new accounts, or for every account that shares these cards. Only the account owner can call this.
+     *
+     * @param  \Pingram\Model\AssignPaymentMethodRequest $assign_payment_method_request assign_payment_method_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountAssignPaymentMethod'] to see the possible values for this operation
+     *
+     * @throws \Pingram\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \Pingram\Model\AccountPaymentMethods|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse
+     */
+    public function accountAssignPaymentMethod($assign_payment_method_request, string $contentType = self::contentTypes['accountAssignPaymentMethod'][0])
+    {
+        list($response) = $this->accountAssignPaymentMethodWithHttpInfo($assign_payment_method_request, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation accountAssignPaymentMethodWithHttpInfo
+     *
+     * Use a saved card for this account, as the default for new accounts, or for every account that shares these cards. Only the account owner can call this.
+     *
+     * @param  \Pingram\Model\AssignPaymentMethodRequest $assign_payment_method_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountAssignPaymentMethod'] to see the possible values for this operation
+     *
+     * @throws \Pingram\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Pingram\Model\AccountPaymentMethods|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function accountAssignPaymentMethodWithHttpInfo($assign_payment_method_request, string $contentType = self::contentTypes['accountAssignPaymentMethod'][0])
+    {
+        $request = $this->accountAssignPaymentMethodRequest($assign_payment_method_request, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\Pingram\Model\AccountPaymentMethods',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\Pingram\Model\ApiErrorResponse',
+                        $request,
+                        $response,
+                    );
+                case 402:
+                    return $this->handleResponseWithDataType(
+                        '\Pingram\Model\ApiErrorResponse',
+                        $request,
+                        $response,
+                    );
+                case 502:
+                    return $this->handleResponseWithDataType(
+                        '\Pingram\Model\ApiErrorResponse',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\Pingram\Model\AccountPaymentMethods',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Pingram\Model\AccountPaymentMethods',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Pingram\Model\ApiErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 402:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Pingram\Model\ApiErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 502:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Pingram\Model\ApiErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation accountAssignPaymentMethodAsync
+     *
+     * Use a saved card for this account, as the default for new accounts, or for every account that shares these cards. Only the account owner can call this.
+     *
+     * @param  \Pingram\Model\AssignPaymentMethodRequest $assign_payment_method_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountAssignPaymentMethod'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function accountAssignPaymentMethodAsync($assign_payment_method_request, string $contentType = self::contentTypes['accountAssignPaymentMethod'][0])
+    {
+        return $this->accountAssignPaymentMethodAsyncWithHttpInfo($assign_payment_method_request, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation accountAssignPaymentMethodAsyncWithHttpInfo
+     *
+     * Use a saved card for this account, as the default for new accounts, or for every account that shares these cards. Only the account owner can call this.
+     *
+     * @param  \Pingram\Model\AssignPaymentMethodRequest $assign_payment_method_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountAssignPaymentMethod'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function accountAssignPaymentMethodAsyncWithHttpInfo($assign_payment_method_request, string $contentType = self::contentTypes['accountAssignPaymentMethod'][0])
+    {
+        $returnType = '\Pingram\Model\AccountPaymentMethods';
+        $request = $this->accountAssignPaymentMethodRequest($assign_payment_method_request, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'accountAssignPaymentMethod'
+     *
+     * @param  \Pingram\Model\AssignPaymentMethodRequest $assign_payment_method_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountAssignPaymentMethod'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function accountAssignPaymentMethodRequest($assign_payment_method_request, string $contentType = self::contentTypes['accountAssignPaymentMethod'][0])
+    {
+
+        // verify the required parameter 'assign_payment_method_request' is set
+        if ($assign_payment_method_request === null || (is_array($assign_payment_method_request) && count($assign_payment_method_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $assign_payment_method_request when calling accountAssignPaymentMethod'
+            );
+        }
+
+
+        $resourcePath = '/account/payment-methods/assign';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($assign_payment_method_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($assign_payment_method_request));
+            } else {
+                $httpBody = $assign_payment_method_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+        // this endpoint requires Bearer (JWT) authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
     }
 
     /**
@@ -754,6 +1088,331 @@ class AccountApi
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($supabase_configure_request));
             } else {
                 $httpBody = $supabase_configure_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+        // this endpoint requires Bearer (JWT) authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation accountCreatePaymentMethodSetup
+     *
+     * Return a URL to add a card. Only the account owner can call this. The card is not assigned until you call assign.
+     *
+     * @param  \Pingram\Model\CreatePaymentMethodSetupRequest $create_payment_method_setup_request create_payment_method_setup_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountCreatePaymentMethodSetup'] to see the possible values for this operation
+     *
+     * @throws \Pingram\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \Pingram\Model\PaymentMethodSetup|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse
+     */
+    public function accountCreatePaymentMethodSetup($create_payment_method_setup_request, string $contentType = self::contentTypes['accountCreatePaymentMethodSetup'][0])
+    {
+        list($response) = $this->accountCreatePaymentMethodSetupWithHttpInfo($create_payment_method_setup_request, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation accountCreatePaymentMethodSetupWithHttpInfo
+     *
+     * Return a URL to add a card. Only the account owner can call this. The card is not assigned until you call assign.
+     *
+     * @param  \Pingram\Model\CreatePaymentMethodSetupRequest $create_payment_method_setup_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountCreatePaymentMethodSetup'] to see the possible values for this operation
+     *
+     * @throws \Pingram\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Pingram\Model\PaymentMethodSetup|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function accountCreatePaymentMethodSetupWithHttpInfo($create_payment_method_setup_request, string $contentType = self::contentTypes['accountCreatePaymentMethodSetup'][0])
+    {
+        $request = $this->accountCreatePaymentMethodSetupRequest($create_payment_method_setup_request, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\Pingram\Model\PaymentMethodSetup',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\Pingram\Model\ApiErrorResponse',
+                        $request,
+                        $response,
+                    );
+                case 402:
+                    return $this->handleResponseWithDataType(
+                        '\Pingram\Model\ApiErrorResponse',
+                        $request,
+                        $response,
+                    );
+                case 502:
+                    return $this->handleResponseWithDataType(
+                        '\Pingram\Model\ApiErrorResponse',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\Pingram\Model\PaymentMethodSetup',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Pingram\Model\PaymentMethodSetup',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Pingram\Model\ApiErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 402:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Pingram\Model\ApiErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 502:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Pingram\Model\ApiErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation accountCreatePaymentMethodSetupAsync
+     *
+     * Return a URL to add a card. Only the account owner can call this. The card is not assigned until you call assign.
+     *
+     * @param  \Pingram\Model\CreatePaymentMethodSetupRequest $create_payment_method_setup_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountCreatePaymentMethodSetup'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function accountCreatePaymentMethodSetupAsync($create_payment_method_setup_request, string $contentType = self::contentTypes['accountCreatePaymentMethodSetup'][0])
+    {
+        return $this->accountCreatePaymentMethodSetupAsyncWithHttpInfo($create_payment_method_setup_request, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation accountCreatePaymentMethodSetupAsyncWithHttpInfo
+     *
+     * Return a URL to add a card. Only the account owner can call this. The card is not assigned until you call assign.
+     *
+     * @param  \Pingram\Model\CreatePaymentMethodSetupRequest $create_payment_method_setup_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountCreatePaymentMethodSetup'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function accountCreatePaymentMethodSetupAsyncWithHttpInfo($create_payment_method_setup_request, string $contentType = self::contentTypes['accountCreatePaymentMethodSetup'][0])
+    {
+        $returnType = '\Pingram\Model\PaymentMethodSetup';
+        $request = $this->accountCreatePaymentMethodSetupRequest($create_payment_method_setup_request, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'accountCreatePaymentMethodSetup'
+     *
+     * @param  \Pingram\Model\CreatePaymentMethodSetupRequest $create_payment_method_setup_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountCreatePaymentMethodSetup'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function accountCreatePaymentMethodSetupRequest($create_payment_method_setup_request, string $contentType = self::contentTypes['accountCreatePaymentMethodSetup'][0])
+    {
+
+        // verify the required parameter 'create_payment_method_setup_request' is set
+        if ($create_payment_method_setup_request === null || (is_array($create_payment_method_setup_request) && count($create_payment_method_setup_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $create_payment_method_setup_request when calling accountCreatePaymentMethodSetup'
+            );
+        }
+
+
+        $resourcePath = '/account/payment-methods/setup';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($create_payment_method_setup_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($create_payment_method_setup_request));
+            } else {
+                $httpBody = $create_payment_method_setup_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -2407,7 +3066,7 @@ class AccountApi
     /**
      * Operation accountListInvoices
      *
-     * List Stripe invoices for the authenticated account, newest first.
+     * List invoices for this account, newest first.
      *
      * @param  float|null $limit Max invoices to return (1-100, default 10) (optional)
      * @param  string|null $starting_after Pagination cursor (invoice id from a previous response) (optional)
@@ -2429,7 +3088,7 @@ class AccountApi
     /**
      * Operation accountListInvoicesWithHttpInfo
      *
-     * List Stripe invoices for the authenticated account, newest first.
+     * List invoices for this account, newest first.
      *
      * @param  float|null $limit Max invoices to return (1-100, default 10) (optional)
      * @param  string|null $starting_after Pagination cursor (invoice id from a previous response) (optional)
@@ -2560,7 +3219,7 @@ class AccountApi
     /**
      * Operation accountListInvoicesAsync
      *
-     * List Stripe invoices for the authenticated account, newest first.
+     * List invoices for this account, newest first.
      *
      * @param  float|null $limit Max invoices to return (1-100, default 10) (optional)
      * @param  string|null $starting_after Pagination cursor (invoice id from a previous response) (optional)
@@ -2585,7 +3244,7 @@ class AccountApi
     /**
      * Operation accountListInvoicesAsyncWithHttpInfo
      *
-     * List Stripe invoices for the authenticated account, newest first.
+     * List invoices for this account, newest first.
      *
      * @param  float|null $limit Max invoices to return (1-100, default 10) (optional)
      * @param  string|null $starting_after Pagination cursor (invoice id from a previous response) (optional)
@@ -2712,6 +3371,312 @@ class AccountApi
             true, // explode
             false // required
         ) ?? []);
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+        // this endpoint requires Bearer (JWT) authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation accountListPaymentMethods
+     *
+     * List saved cards. Only the account owner can call this.
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountListPaymentMethods'] to see the possible values for this operation
+     *
+     * @throws \Pingram\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \Pingram\Model\AccountPaymentMethods|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse
+     */
+    public function accountListPaymentMethods(string $contentType = self::contentTypes['accountListPaymentMethods'][0])
+    {
+        list($response) = $this->accountListPaymentMethodsWithHttpInfo($contentType);
+        return $response;
+    }
+
+    /**
+     * Operation accountListPaymentMethodsWithHttpInfo
+     *
+     * List saved cards. Only the account owner can call this.
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountListPaymentMethods'] to see the possible values for this operation
+     *
+     * @throws \Pingram\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Pingram\Model\AccountPaymentMethods|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function accountListPaymentMethodsWithHttpInfo(string $contentType = self::contentTypes['accountListPaymentMethods'][0])
+    {
+        $request = $this->accountListPaymentMethodsRequest($contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\Pingram\Model\AccountPaymentMethods',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\Pingram\Model\ApiErrorResponse',
+                        $request,
+                        $response,
+                    );
+                case 402:
+                    return $this->handleResponseWithDataType(
+                        '\Pingram\Model\ApiErrorResponse',
+                        $request,
+                        $response,
+                    );
+                case 502:
+                    return $this->handleResponseWithDataType(
+                        '\Pingram\Model\ApiErrorResponse',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\Pingram\Model\AccountPaymentMethods',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Pingram\Model\AccountPaymentMethods',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Pingram\Model\ApiErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 402:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Pingram\Model\ApiErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 502:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Pingram\Model\ApiErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation accountListPaymentMethodsAsync
+     *
+     * List saved cards. Only the account owner can call this.
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountListPaymentMethods'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function accountListPaymentMethodsAsync(string $contentType = self::contentTypes['accountListPaymentMethods'][0])
+    {
+        return $this->accountListPaymentMethodsAsyncWithHttpInfo($contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation accountListPaymentMethodsAsyncWithHttpInfo
+     *
+     * List saved cards. Only the account owner can call this.
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountListPaymentMethods'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function accountListPaymentMethodsAsyncWithHttpInfo(string $contentType = self::contentTypes['accountListPaymentMethods'][0])
+    {
+        $returnType = '\Pingram\Model\AccountPaymentMethods';
+        $request = $this->accountListPaymentMethodsRequest($contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'accountListPaymentMethods'
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountListPaymentMethods'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function accountListPaymentMethodsRequest(string $contentType = self::contentTypes['accountListPaymentMethods'][0])
+    {
+
+
+        $resourcePath = '/account/payment-methods';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
 
 
 
@@ -3094,7 +4059,7 @@ class AccountApi
     /**
      * Operation accountPrepareCheckoutSession
      *
-     * Get or create Stripe customer and optionally create checkout session
+     * Start or continue billing for this account. Returns a URL when payment is needed.
      *
      * @param  \Pingram\Model\BillingPostRequestBody $billing_post_request_body billing_post_request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountPrepareCheckoutSession'] to see the possible values for this operation
@@ -3112,7 +4077,7 @@ class AccountApi
     /**
      * Operation accountPrepareCheckoutSessionWithHttpInfo
      *
-     * Get or create Stripe customer and optionally create checkout session
+     * Start or continue billing for this account. Returns a URL when payment is needed.
      *
      * @param  \Pingram\Model\BillingPostRequestBody $billing_post_request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountPrepareCheckoutSession'] to see the possible values for this operation
@@ -3239,7 +4204,7 @@ class AccountApi
     /**
      * Operation accountPrepareCheckoutSessionAsync
      *
-     * Get or create Stripe customer and optionally create checkout session
+     * Start or continue billing for this account. Returns a URL when payment is needed.
      *
      * @param  \Pingram\Model\BillingPostRequestBody $billing_post_request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountPrepareCheckoutSession'] to see the possible values for this operation
@@ -3260,7 +4225,7 @@ class AccountApi
     /**
      * Operation accountPrepareCheckoutSessionAsyncWithHttpInfo
      *
-     * Get or create Stripe customer and optionally create checkout session
+     * Start or continue billing for this account. Returns a URL when payment is needed.
      *
      * @param  \Pingram\Model\BillingPostRequestBody $billing_post_request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountPrepareCheckoutSession'] to see the possible values for this operation

@@ -35,7 +35,7 @@ use \Pingram\ObjectSerializer;
  * BillingPostResponseBody Class Doc Comment
  *
  * @category Class
- * @description POST /billing response: account fields + optional Checkout session.
+ * @description POST /billing response: account fields plus a URL when payment is needed.
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
