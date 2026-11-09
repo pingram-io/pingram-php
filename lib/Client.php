@@ -16,8 +16,6 @@ use Pingram\Api\AccountApi;
 
 use Pingram\Api\AccountsApi;
 
-use Pingram\Api\AddressesApi;
-
 use Pingram\Api\BroadcastsApi;
 
 use Pingram\Api\ComponentsApi;
@@ -110,9 +108,6 @@ class Client
 
     /** @var AccountsApi */
     private $accounts;
-
-    /** @var AddressesApi */
-    private $addresses;
 
     /** @var BroadcastsApi */
     private $broadcasts;
@@ -210,8 +205,6 @@ class Client
 
         $this->accounts = new AccountsApi($this->httpClient, $this->config);
 
-        $this->addresses = new AddressesApi($this->httpClient, $this->config);
-
         $this->broadcasts = new BroadcastsApi($this->httpClient, $this->config);
 
         $this->components = new ComponentsApi($this->httpClient, $this->config);
@@ -292,15 +285,6 @@ class Client
     public function getAccounts(): \Pingram\Api\AccountsApi
     {
         return $this->accounts;
-    }
-
-
-    /**
-     * @return AddressesApi
-     */
-    public function getAddresses(): \Pingram\Api\AddressesApi
-    {
-        return $this->addresses;
     }
 
 
