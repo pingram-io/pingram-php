@@ -389,7 +389,7 @@ class SmsComplianceCountriesResponseCountriesInner implements ModelInterface, Ar
     /**
      * Sets added_by
      *
-     * @param string $added_by Who added the country. `system` when the app added it, `api` when an API key added it; otherwise the Cognito user id.
+     * @param string $added_by Who added the country. `system` when the app added it, `api` when an API key added it; otherwise the user id.
      *
      * @return self
      */

@@ -35,7 +35,7 @@ use \Pingram\ObjectSerializer;
  * IntercomWebhook Class Doc Comment
  *
  * @category Class
- * @description Generic Intercom webhook payload https://developers.intercom.com/docs/references/webhooks
+ * @description Support conversation webhook payload.
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

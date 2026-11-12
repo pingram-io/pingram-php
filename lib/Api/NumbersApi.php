@@ -140,7 +140,7 @@ class NumbersApi
     /**
      * Operation numbersList
      *
-     * List active phone numbers registered for the account, including voice agent binding state.
+     * List phone numbers
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['numbersList'] to see the possible values for this operation
      *
@@ -157,7 +157,7 @@ class NumbersApi
     /**
      * Operation numbersListWithHttpInfo
      *
-     * List active phone numbers registered for the account, including voice agent binding state.
+     * List phone numbers
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['numbersList'] to see the possible values for this operation
      *
@@ -283,7 +283,7 @@ class NumbersApi
     /**
      * Operation numbersListAsync
      *
-     * List active phone numbers registered for the account, including voice agent binding state.
+     * List phone numbers
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['numbersList'] to see the possible values for this operation
      *
@@ -303,7 +303,7 @@ class NumbersApi
     /**
      * Operation numbersListAsyncWithHttpInfo
      *
-     * List active phone numbers registered for the account, including voice agent binding state.
+     * List phone numbers
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['numbersList'] to see the possible values for this operation
      *
@@ -446,7 +446,7 @@ class NumbersApi
     /**
      * Operation numbersListReleased
      *
-     * List released phone numbers. Released numbers may be purchased again with 2 weeks of being released. Released numbers may be removed from released list after 2 weeks.
+     * List released phone numbers
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['numbersListReleased'] to see the possible values for this operation
      *
@@ -463,7 +463,7 @@ class NumbersApi
     /**
      * Operation numbersListReleasedWithHttpInfo
      *
-     * List released phone numbers. Released numbers may be purchased again with 2 weeks of being released. Released numbers may be removed from released list after 2 weeks.
+     * List released phone numbers
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['numbersListReleased'] to see the possible values for this operation
      *
@@ -589,7 +589,7 @@ class NumbersApi
     /**
      * Operation numbersListReleasedAsync
      *
-     * List released phone numbers. Released numbers may be purchased again with 2 weeks of being released. Released numbers may be removed from released list after 2 weeks.
+     * List released phone numbers
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['numbersListReleased'] to see the possible values for this operation
      *
@@ -609,7 +609,7 @@ class NumbersApi
     /**
      * Operation numbersListReleasedAsyncWithHttpInfo
      *
-     * List released phone numbers. Released numbers may be purchased again with 2 weeks of being released. Released numbers may be removed from released list after 2 weeks.
+     * List released phone numbers
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['numbersListReleased'] to see the possible values for this operation
      *
@@ -752,7 +752,7 @@ class NumbersApi
     /**
      * Operation numbersOrderNumber
      *
-     * Purchase a phone number for the authenticated account, or reactivate a released number owned by the account (preserves original createdAt). Pass &#x60;phoneNumber&#x60; in E.164 format (e.g. +15551234567).
+     * Purchase a phone number
      *
      * @param  \Pingram\Model\OrderPhoneNumberRequest $order_phone_number_request order_phone_number_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['numbersOrderNumber'] to see the possible values for this operation
@@ -770,7 +770,7 @@ class NumbersApi
     /**
      * Operation numbersOrderNumberWithHttpInfo
      *
-     * Purchase a phone number for the authenticated account, or reactivate a released number owned by the account (preserves original createdAt). Pass &#x60;phoneNumber&#x60; in E.164 format (e.g. +15551234567).
+     * Purchase a phone number
      *
      * @param  \Pingram\Model\OrderPhoneNumberRequest $order_phone_number_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['numbersOrderNumber'] to see the possible values for this operation
@@ -897,7 +897,7 @@ class NumbersApi
     /**
      * Operation numbersOrderNumberAsync
      *
-     * Purchase a phone number for the authenticated account, or reactivate a released number owned by the account (preserves original createdAt). Pass &#x60;phoneNumber&#x60; in E.164 format (e.g. +15551234567).
+     * Purchase a phone number
      *
      * @param  \Pingram\Model\OrderPhoneNumberRequest $order_phone_number_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['numbersOrderNumber'] to see the possible values for this operation
@@ -918,7 +918,7 @@ class NumbersApi
     /**
      * Operation numbersOrderNumberAsyncWithHttpInfo
      *
-     * Purchase a phone number for the authenticated account, or reactivate a released number owned by the account (preserves original createdAt). Pass &#x60;phoneNumber&#x60; in E.164 format (e.g. +15551234567).
+     * Purchase a phone number
      *
      * @param  \Pingram\Model\OrderPhoneNumberRequest $order_phone_number_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['numbersOrderNumber'] to see the possible values for this operation
@@ -1077,7 +1077,7 @@ class NumbersApi
     /**
      * Operation numbersReleaseNumber
      *
-     * Release a phone number from the account. No refund for the current billing month.
+     * Release a phone number from the account
      *
      * @param  string $phone_number E.164 phone number to release (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['numbersReleaseNumber'] to see the possible values for this operation
@@ -1095,7 +1095,7 @@ class NumbersApi
     /**
      * Operation numbersReleaseNumberWithHttpInfo
      *
-     * Release a phone number from the account. No refund for the current billing month.
+     * Release a phone number from the account
      *
      * @param  string $phone_number E.164 phone number to release (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['numbersReleaseNumber'] to see the possible values for this operation
@@ -1222,7 +1222,7 @@ class NumbersApi
     /**
      * Operation numbersReleaseNumberAsync
      *
-     * Release a phone number from the account. No refund for the current billing month.
+     * Release a phone number from the account
      *
      * @param  string $phone_number E.164 phone number to release (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['numbersReleaseNumber'] to see the possible values for this operation
@@ -1243,7 +1243,7 @@ class NumbersApi
     /**
      * Operation numbersReleaseNumberAsyncWithHttpInfo
      *
-     * Release a phone number from the account. No refund for the current billing month.
+     * Release a phone number from the account
      *
      * @param  string $phone_number E.164 phone number to release (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['numbersReleaseNumber'] to see the possible values for this operation
@@ -1403,7 +1403,7 @@ class NumbersApi
     /**
      * Operation numbersSearchAvailable
      *
-     * Search for available phone numbers to purchase. Requires &#x60;countryCode&#x60; (e.g. US, CA). Use before ordering a number.
+     * Search for available phone numbers to purchase
      *
      * @param  string $country_code ISO 3166-1 alpha-2 country code (e.g., US, CA) (required)
      * @param  string|null $features Comma-separated (optional)
@@ -1424,7 +1424,7 @@ class NumbersApi
     /**
      * Operation numbersSearchAvailableWithHttpInfo
      *
-     * Search for available phone numbers to purchase. Requires &#x60;countryCode&#x60; (e.g. US, CA). Use before ordering a number.
+     * Search for available phone numbers to purchase
      *
      * @param  string $country_code ISO 3166-1 alpha-2 country code (e.g., US, CA) (required)
      * @param  string|null $features Comma-separated (optional)
@@ -1554,7 +1554,7 @@ class NumbersApi
     /**
      * Operation numbersSearchAvailableAsync
      *
-     * Search for available phone numbers to purchase. Requires &#x60;countryCode&#x60; (e.g. US, CA). Use before ordering a number.
+     * Search for available phone numbers to purchase
      *
      * @param  string $country_code ISO 3166-1 alpha-2 country code (e.g., US, CA) (required)
      * @param  string|null $features Comma-separated (optional)
@@ -1578,7 +1578,7 @@ class NumbersApi
     /**
      * Operation numbersSearchAvailableAsyncWithHttpInfo
      *
-     * Search for available phone numbers to purchase. Requires &#x60;countryCode&#x60; (e.g. US, CA). Use before ordering a number.
+     * Search for available phone numbers to purchase
      *
      * @param  string $country_code ISO 3166-1 alpha-2 country code (e.g., US, CA) (required)
      * @param  string|null $features Comma-separated (optional)

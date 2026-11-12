@@ -131,7 +131,7 @@ class EmailApi
     /**
      * Operation emailDeleteSuppressions
      *
-     * Start removing all email suppressions of the given reason (&#x60;retryable&#x60; or &#x60;bounces&#x60;) for users in the environment. Returns immediately after the job is queued — suppressions are not yet cleared when this response is received. Large removals are processed in the background in batches.
+     * Remove email suppressions
      *
      * @param  string $reason Suppression reason to clear (retryable | bounces) (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailDeleteSuppressions'] to see the possible values for this operation
@@ -149,7 +149,7 @@ class EmailApi
     /**
      * Operation emailDeleteSuppressionsWithHttpInfo
      *
-     * Start removing all email suppressions of the given reason (&#x60;retryable&#x60; or &#x60;bounces&#x60;) for users in the environment. Returns immediately after the job is queued — suppressions are not yet cleared when this response is received. Large removals are processed in the background in batches.
+     * Remove email suppressions
      *
      * @param  string $reason Suppression reason to clear (retryable | bounces) (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailDeleteSuppressions'] to see the possible values for this operation
@@ -276,7 +276,7 @@ class EmailApi
     /**
      * Operation emailDeleteSuppressionsAsync
      *
-     * Start removing all email suppressions of the given reason (&#x60;retryable&#x60; or &#x60;bounces&#x60;) for users in the environment. Returns immediately after the job is queued — suppressions are not yet cleared when this response is received. Large removals are processed in the background in batches.
+     * Remove email suppressions
      *
      * @param  string $reason Suppression reason to clear (retryable | bounces) (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailDeleteSuppressions'] to see the possible values for this operation
@@ -297,7 +297,7 @@ class EmailApi
     /**
      * Operation emailDeleteSuppressionsAsyncWithHttpInfo
      *
-     * Start removing all email suppressions of the given reason (&#x60;retryable&#x60; or &#x60;bounces&#x60;) for users in the environment. Returns immediately after the job is queued — suppressions are not yet cleared when this response is received. Large removals are processed in the background in batches.
+     * Remove email suppressions
      *
      * @param  string $reason Suppression reason to clear (retryable | bounces) (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailDeleteSuppressions'] to see the possible values for this operation
@@ -457,7 +457,7 @@ class EmailApi
     /**
      * Operation emailSend
      *
-     * Send an email. Requires &#x60;type&#x60;, &#x60;to&#x60;, &#x60;subject&#x60;, and &#x60;html&#x60;. Optional: &#x60;fromAddress&#x60;, &#x60;fromName&#x60;, &#x60;schedule&#x60;, attachments. To reach people outside your account, use an address on a verified domain. The shared Pingram address can only email the account itself and always sends as noreply.
+     * Send an email
      *
      * @param  \Pingram\Model\SendEmailRequest $send_email_request send_email_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailSend'] to see the possible values for this operation
@@ -475,7 +475,7 @@ class EmailApi
     /**
      * Operation emailSendWithHttpInfo
      *
-     * Send an email. Requires &#x60;type&#x60;, &#x60;to&#x60;, &#x60;subject&#x60;, and &#x60;html&#x60;. Optional: &#x60;fromAddress&#x60;, &#x60;fromName&#x60;, &#x60;schedule&#x60;, attachments. To reach people outside your account, use an address on a verified domain. The shared Pingram address can only email the account itself and always sends as noreply.
+     * Send an email
      *
      * @param  \Pingram\Model\SendEmailRequest $send_email_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailSend'] to see the possible values for this operation
@@ -602,7 +602,7 @@ class EmailApi
     /**
      * Operation emailSendAsync
      *
-     * Send an email. Requires &#x60;type&#x60;, &#x60;to&#x60;, &#x60;subject&#x60;, and &#x60;html&#x60;. Optional: &#x60;fromAddress&#x60;, &#x60;fromName&#x60;, &#x60;schedule&#x60;, attachments. To reach people outside your account, use an address on a verified domain. The shared Pingram address can only email the account itself and always sends as noreply.
+     * Send an email
      *
      * @param  \Pingram\Model\SendEmailRequest $send_email_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailSend'] to see the possible values for this operation
@@ -623,7 +623,7 @@ class EmailApi
     /**
      * Operation emailSendAsyncWithHttpInfo
      *
-     * Send an email. Requires &#x60;type&#x60;, &#x60;to&#x60;, &#x60;subject&#x60;, and &#x60;html&#x60;. Optional: &#x60;fromAddress&#x60;, &#x60;fromName&#x60;, &#x60;schedule&#x60;, attachments. To reach people outside your account, use an address on a verified domain. The shared Pingram address can only email the account itself and always sends as noreply.
+     * Send an email
      *
      * @param  \Pingram\Model\SendEmailRequest $send_email_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailSend'] to see the possible values for this operation

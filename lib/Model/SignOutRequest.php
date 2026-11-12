@@ -35,7 +35,7 @@ use \Pingram\ObjectSerializer;
  * SignOutRequest Class Doc Comment
  *
  * @category Class
- * @description This browser&#39;s Cognito refresh token, revoked on dashboard sign-out.
+ * @description This browser&#39;s refresh token, revoked on dashboard sign-out.
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

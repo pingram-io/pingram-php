@@ -62,7 +62,8 @@ class GetSendersResponseInnerVerificationRecords implements ModelInterface, Arra
         'mail_from_spf' => '\Pingram\Model\GetSendersResponseInnerVerificationRecordsDkim',
         'mail_from_mx' => '\Pingram\Model\GetSendersResponseInnerVerificationRecordsDkim',
         'dmarc' => '\Pingram\Model\GetSendersResponseInnerVerificationRecordsDkim',
-        'inbound_mx' => '\Pingram\Model\GetSendersResponseInnerVerificationRecordsDkim'
+        'inbound_mx' => '\Pingram\Model\GetSendersResponseInnerVerificationRecordsDkim',
+        'tracking_cname' => '\Pingram\Model\GetSendersResponseInnerVerificationRecordsDkim'
     ];
 
     /**
@@ -77,7 +78,8 @@ class GetSendersResponseInnerVerificationRecords implements ModelInterface, Arra
         'mail_from_spf' => null,
         'mail_from_mx' => null,
         'dmarc' => null,
-        'inbound_mx' => null
+        'inbound_mx' => null,
+        'tracking_cname' => null
     ];
 
     /**
@@ -90,7 +92,8 @@ class GetSendersResponseInnerVerificationRecords implements ModelInterface, Arra
         'mail_from_spf' => false,
         'mail_from_mx' => false,
         'dmarc' => false,
-        'inbound_mx' => false
+        'inbound_mx' => false,
+        'tracking_cname' => false
     ];
 
     /**
@@ -183,7 +186,8 @@ class GetSendersResponseInnerVerificationRecords implements ModelInterface, Arra
         'mail_from_spf' => 'mail_from_spf',
         'mail_from_mx' => 'mail_from_mx',
         'dmarc' => 'dmarc',
-        'inbound_mx' => 'inbound_mx'
+        'inbound_mx' => 'inbound_mx',
+        'tracking_cname' => 'trackingCname'
     ];
 
     /**
@@ -196,7 +200,8 @@ class GetSendersResponseInnerVerificationRecords implements ModelInterface, Arra
         'mail_from_spf' => 'setMailFromSpf',
         'mail_from_mx' => 'setMailFromMx',
         'dmarc' => 'setDmarc',
-        'inbound_mx' => 'setInboundMx'
+        'inbound_mx' => 'setInboundMx',
+        'tracking_cname' => 'setTrackingCname'
     ];
 
     /**
@@ -209,7 +214,8 @@ class GetSendersResponseInnerVerificationRecords implements ModelInterface, Arra
         'mail_from_spf' => 'getMailFromSpf',
         'mail_from_mx' => 'getMailFromMx',
         'dmarc' => 'getDmarc',
-        'inbound_mx' => 'getInboundMx'
+        'inbound_mx' => 'getInboundMx',
+        'tracking_cname' => 'getTrackingCname'
     ];
 
     /**
@@ -274,6 +280,7 @@ class GetSendersResponseInnerVerificationRecords implements ModelInterface, Arra
         $this->setIfExists('mail_from_mx', $data ?? [], null);
         $this->setIfExists('dmarc', $data ?? [], null);
         $this->setIfExists('inbound_mx', $data ?? [], null);
+        $this->setIfExists('tracking_cname', $data ?? [], null);
     }
 
     /**
@@ -449,6 +456,33 @@ class GetSendersResponseInnerVerificationRecords implements ModelInterface, Arra
             throw new \InvalidArgumentException('non-nullable inbound_mx cannot be null');
         }
         $this->container['inbound_mx'] = $inbound_mx;
+
+        return $this;
+    }
+
+    /**
+     * Gets tracking_cname
+     *
+     * @return \Pingram\Model\GetSendersResponseInnerVerificationRecordsDkim|null
+     */
+    public function getTrackingCname()
+    {
+        return $this->container['tracking_cname'];
+    }
+
+    /**
+     * Sets tracking_cname
+     *
+     * @param \Pingram\Model\GetSendersResponseInnerVerificationRecordsDkim|null $tracking_cname tracking_cname
+     *
+     * @return self
+     */
+    public function setTrackingCname($tracking_cname)
+    {
+        if (is_null($tracking_cname)) {
+            throw new \InvalidArgumentException('non-nullable tracking_cname cannot be null');
+        }
+        $this->container['tracking_cname'] = $tracking_cname;
 
         return $this;
     }

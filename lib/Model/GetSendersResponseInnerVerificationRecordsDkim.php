@@ -261,6 +261,7 @@ class GetSendersResponseInnerVerificationRecordsDkim implements ModelInterface, 
 
     public const RECORD_TYPE_TXT = 'TXT';
     public const RECORD_TYPE_MX = 'MX';
+    public const RECORD_TYPE_CNAME = 'CNAME';
 
     /**
      * Gets allowable values of the enum
@@ -272,6 +273,7 @@ class GetSendersResponseInnerVerificationRecordsDkim implements ModelInterface, 
         return [
             self::RECORD_TYPE_TXT,
             self::RECORD_TYPE_MX,
+            self::RECORD_TYPE_CNAME,
         ];
     }
 

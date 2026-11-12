@@ -35,7 +35,7 @@ use \Pingram\ObjectSerializer;
  * SignInUsernameResponse Class Doc Comment
  *
  * @category Class
- * @description Cognito username to pass to sign-in and password reset.
+ * @description Sign-in username to pass to sign-in and password reset.
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

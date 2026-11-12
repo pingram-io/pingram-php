@@ -35,7 +35,7 @@ use \Pingram\ObjectSerializer;
  * CampaignWebhookResponse Class Doc Comment
  *
  * @category Class
- * @description Response for campaign Telnyx webhook handler.
+ * @description Response after a 10DLC campaign status webhook.
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

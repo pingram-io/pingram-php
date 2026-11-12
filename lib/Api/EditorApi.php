@@ -128,7 +128,7 @@ class EditorApi
     /**
      * Operation editorGenerateEditorToken
      *
-     * Get the email editor access token to load it it in your environment
+     * Get an email editor access token
      *
      * @param  \Pingram\Model\EmailAuthTokenPostRequest $email_auth_token_post_request email_auth_token_post_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['editorGenerateEditorToken'] to see the possible values for this operation
@@ -146,7 +146,7 @@ class EditorApi
     /**
      * Operation editorGenerateEditorTokenWithHttpInfo
      *
-     * Get the email editor access token to load it it in your environment
+     * Get an email editor access token
      *
      * @param  \Pingram\Model\EmailAuthTokenPostRequest $email_auth_token_post_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['editorGenerateEditorToken'] to see the possible values for this operation
@@ -273,7 +273,7 @@ class EditorApi
     /**
      * Operation editorGenerateEditorTokenAsync
      *
-     * Get the email editor access token to load it it in your environment
+     * Get an email editor access token
      *
      * @param  \Pingram\Model\EmailAuthTokenPostRequest $email_auth_token_post_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['editorGenerateEditorToken'] to see the possible values for this operation
@@ -294,7 +294,7 @@ class EditorApi
     /**
      * Operation editorGenerateEditorTokenAsyncWithHttpInfo
      *
-     * Get the email editor access token to load it it in your environment
+     * Get an email editor access token
      *
      * @param  \Pingram\Model\EmailAuthTokenPostRequest $email_auth_token_post_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['editorGenerateEditorToken'] to see the possible values for this operation

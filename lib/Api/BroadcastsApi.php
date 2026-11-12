@@ -167,7 +167,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsArchive
      *
-     * Archive an email broadcast so it is hidden from the default broadcast list. Allowed for draft, paused, sent, and canceled broadcasts. Not allowed while sending or scheduled.
+     * Archive an email broadcast
      *
      * @param  string $broadcast_id Broadcast ID (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['broadcastsArchive'] to see the possible values for this operation
@@ -185,7 +185,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsArchiveWithHttpInfo
      *
-     * Archive an email broadcast so it is hidden from the default broadcast list. Allowed for draft, paused, sent, and canceled broadcasts. Not allowed while sending or scheduled.
+     * Archive an email broadcast
      *
      * @param  string $broadcast_id Broadcast ID (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['broadcastsArchive'] to see the possible values for this operation
@@ -312,7 +312,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsArchiveAsync
      *
-     * Archive an email broadcast so it is hidden from the default broadcast list. Allowed for draft, paused, sent, and canceled broadcasts. Not allowed while sending or scheduled.
+     * Archive an email broadcast
      *
      * @param  string $broadcast_id Broadcast ID (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['broadcastsArchive'] to see the possible values for this operation
@@ -333,7 +333,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsArchiveAsyncWithHttpInfo
      *
-     * Archive an email broadcast so it is hidden from the default broadcast list. Allowed for draft, paused, sent, and canceled broadcasts. Not allowed while sending or scheduled.
+     * Archive an email broadcast
      *
      * @param  string $broadcast_id Broadcast ID (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['broadcastsArchive'] to see the possible values for this operation
@@ -493,7 +493,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsCancel
      *
-     * Cancel an email broadcast. Scheduled broadcasts revert to draft and drop their schedule (they can be scheduled again). Sending or paused broadcasts become canceled; recipients already processed stay as they are, and remaining pending recipients are skipped and will not be sent. That skip cannot be undone.
+     * Cancel an email broadcast
      *
      * @param  string $broadcast_id Broadcast ID (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['broadcastsCancel'] to see the possible values for this operation
@@ -511,7 +511,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsCancelWithHttpInfo
      *
-     * Cancel an email broadcast. Scheduled broadcasts revert to draft and drop their schedule (they can be scheduled again). Sending or paused broadcasts become canceled; recipients already processed stay as they are, and remaining pending recipients are skipped and will not be sent. That skip cannot be undone.
+     * Cancel an email broadcast
      *
      * @param  string $broadcast_id Broadcast ID (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['broadcastsCancel'] to see the possible values for this operation
@@ -638,7 +638,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsCancelAsync
      *
-     * Cancel an email broadcast. Scheduled broadcasts revert to draft and drop their schedule (they can be scheduled again). Sending or paused broadcasts become canceled; recipients already processed stay as they are, and remaining pending recipients are skipped and will not be sent. That skip cannot be undone.
+     * Cancel an email broadcast
      *
      * @param  string $broadcast_id Broadcast ID (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['broadcastsCancel'] to see the possible values for this operation
@@ -659,7 +659,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsCancelAsyncWithHttpInfo
      *
-     * Cancel an email broadcast. Scheduled broadcasts revert to draft and drop their schedule (they can be scheduled again). Sending or paused broadcasts become canceled; recipients already processed stay as they are, and remaining pending recipients are skipped and will not be sent. That skip cannot be undone.
+     * Cancel an email broadcast
      *
      * @param  string $broadcast_id Broadcast ID (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['broadcastsCancel'] to see the possible values for this operation
@@ -819,7 +819,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsCreate
      *
-     * Create a draft email broadcast. html is the send-ready body. Optional internalTemplate is visual-editor source; if set it must be paired with html. A later update can add it to a draft by sending it with html. Set audience to either a Mongo-style user filter (sync users via Users API first; for large lists) or a raw email list (max 10,000). Include name, from fields, subject, and HTML. Notification type is optional on create and required before send or schedule; it is created automatically if missing.
+     * Create a draft email broadcast
      *
      * @param  \Pingram\Model\CreateBroadcastRequest $create_broadcast_request create_broadcast_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['broadcastsCreate'] to see the possible values for this operation
@@ -837,7 +837,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsCreateWithHttpInfo
      *
-     * Create a draft email broadcast. html is the send-ready body. Optional internalTemplate is visual-editor source; if set it must be paired with html. A later update can add it to a draft by sending it with html. Set audience to either a Mongo-style user filter (sync users via Users API first; for large lists) or a raw email list (max 10,000). Include name, from fields, subject, and HTML. Notification type is optional on create and required before send or schedule; it is created automatically if missing.
+     * Create a draft email broadcast
      *
      * @param  \Pingram\Model\CreateBroadcastRequest $create_broadcast_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['broadcastsCreate'] to see the possible values for this operation
@@ -964,7 +964,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsCreateAsync
      *
-     * Create a draft email broadcast. html is the send-ready body. Optional internalTemplate is visual-editor source; if set it must be paired with html. A later update can add it to a draft by sending it with html. Set audience to either a Mongo-style user filter (sync users via Users API first; for large lists) or a raw email list (max 10,000). Include name, from fields, subject, and HTML. Notification type is optional on create and required before send or schedule; it is created automatically if missing.
+     * Create a draft email broadcast
      *
      * @param  \Pingram\Model\CreateBroadcastRequest $create_broadcast_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['broadcastsCreate'] to see the possible values for this operation
@@ -985,7 +985,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsCreateAsyncWithHttpInfo
      *
-     * Create a draft email broadcast. html is the send-ready body. Optional internalTemplate is visual-editor source; if set it must be paired with html. A later update can add it to a draft by sending it with html. Set audience to either a Mongo-style user filter (sync users via Users API first; for large lists) or a raw email list (max 10,000). Include name, from fields, subject, and HTML. Notification type is optional on create and required before send or schedule; it is created automatically if missing.
+     * Create a draft email broadcast
      *
      * @param  \Pingram\Model\CreateBroadcastRequest $create_broadcast_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['broadcastsCreate'] to see the possible values for this operation
@@ -1144,7 +1144,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsDelete
      *
-     * Delete an email broadcast. Allowed for drafts, scheduled, paused, completed, and canceled broadcasts. Not allowed while status is sending.
+     * Delete an email broadcast
      *
      * @param  string $broadcast_id Broadcast ID (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['broadcastsDelete'] to see the possible values for this operation
@@ -1162,7 +1162,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsDeleteWithHttpInfo
      *
-     * Delete an email broadcast. Allowed for drafts, scheduled, paused, completed, and canceled broadcasts. Not allowed while status is sending.
+     * Delete an email broadcast
      *
      * @param  string $broadcast_id Broadcast ID (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['broadcastsDelete'] to see the possible values for this operation
@@ -1289,7 +1289,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsDeleteAsync
      *
-     * Delete an email broadcast. Allowed for drafts, scheduled, paused, completed, and canceled broadcasts. Not allowed while status is sending.
+     * Delete an email broadcast
      *
      * @param  string $broadcast_id Broadcast ID (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['broadcastsDelete'] to see the possible values for this operation
@@ -1310,7 +1310,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsDeleteAsyncWithHttpInfo
      *
-     * Delete an email broadcast. Allowed for drafts, scheduled, paused, completed, and canceled broadcasts. Not allowed while status is sending.
+     * Delete an email broadcast
      *
      * @param  string $broadcast_id Broadcast ID (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['broadcastsDelete'] to see the possible values for this operation
@@ -1470,7 +1470,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsGet
      *
-     * Get one email broadcast by ID, including the send-ready html body, optional internalTemplate (visual-editor source), and audience definition.
+     * Get one email broadcast by ID
      *
      * @param  string $broadcast_id Broadcast ID (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['broadcastsGet'] to see the possible values for this operation
@@ -1488,7 +1488,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsGetWithHttpInfo
      *
-     * Get one email broadcast by ID, including the send-ready html body, optional internalTemplate (visual-editor source), and audience definition.
+     * Get one email broadcast by ID
      *
      * @param  string $broadcast_id Broadcast ID (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['broadcastsGet'] to see the possible values for this operation
@@ -1615,7 +1615,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsGetAsync
      *
-     * Get one email broadcast by ID, including the send-ready html body, optional internalTemplate (visual-editor source), and audience definition.
+     * Get one email broadcast by ID
      *
      * @param  string $broadcast_id Broadcast ID (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['broadcastsGet'] to see the possible values for this operation
@@ -1636,7 +1636,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsGetAsyncWithHttpInfo
      *
-     * Get one email broadcast by ID, including the send-ready html body, optional internalTemplate (visual-editor source), and audience definition.
+     * Get one email broadcast by ID
      *
      * @param  string $broadcast_id Broadcast ID (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['broadcastsGet'] to see the possible values for this operation
@@ -1796,7 +1796,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsGetMetrics
      *
-     * Poll live email broadcast metrics: status, optional pausedReason or scheduleAt, and aggregate counters (total, sent, delivered, opened, clicked, bounced, complained, unsubscribed, skipped, failed).
+     * Get live broadcast metrics
      *
      * @param  string $broadcast_id Broadcast ID (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['broadcastsGetMetrics'] to see the possible values for this operation
@@ -1814,7 +1814,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsGetMetricsWithHttpInfo
      *
-     * Poll live email broadcast metrics: status, optional pausedReason or scheduleAt, and aggregate counters (total, sent, delivered, opened, clicked, bounced, complained, unsubscribed, skipped, failed).
+     * Get live broadcast metrics
      *
      * @param  string $broadcast_id Broadcast ID (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['broadcastsGetMetrics'] to see the possible values for this operation
@@ -1941,7 +1941,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsGetMetricsAsync
      *
-     * Poll live email broadcast metrics: status, optional pausedReason or scheduleAt, and aggregate counters (total, sent, delivered, opened, clicked, bounced, complained, unsubscribed, skipped, failed).
+     * Get live broadcast metrics
      *
      * @param  string $broadcast_id Broadcast ID (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['broadcastsGetMetrics'] to see the possible values for this operation
@@ -1962,7 +1962,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsGetMetricsAsyncWithHttpInfo
      *
-     * Poll live email broadcast metrics: status, optional pausedReason or scheduleAt, and aggregate counters (total, sent, delivered, opened, clicked, bounced, complained, unsubscribed, skipped, failed).
+     * Get live broadcast metrics
      *
      * @param  string $broadcast_id Broadcast ID (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['broadcastsGetMetrics'] to see the possible values for this operation
@@ -2122,7 +2122,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsList
      *
-     * List email broadcasts for the account, newest first. Returns metadata without html or internalTemplate bodies. A live-filter audience includes the filter. A raw email audience includes emailCount and omits the addresses. Paginate with limit (default 50, max 100) and nextToken.
+     * List email broadcasts for the account, newest first
      *
      * @param  float|null $limit Max broadcasts to return (default 50) (optional)
      * @param  string|null $next_token Pagination token (optional)
@@ -2141,7 +2141,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsListWithHttpInfo
      *
-     * List email broadcasts for the account, newest first. Returns metadata without html or internalTemplate bodies. A live-filter audience includes the filter. A raw email audience includes emailCount and omits the addresses. Paginate with limit (default 50, max 100) and nextToken.
+     * List email broadcasts for the account, newest first
      *
      * @param  float|null $limit Max broadcasts to return (default 50) (optional)
      * @param  string|null $next_token Pagination token (optional)
@@ -2269,7 +2269,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsListAsync
      *
-     * List email broadcasts for the account, newest first. Returns metadata without html or internalTemplate bodies. A live-filter audience includes the filter. A raw email audience includes emailCount and omits the addresses. Paginate with limit (default 50, max 100) and nextToken.
+     * List email broadcasts for the account, newest first
      *
      * @param  float|null $limit Max broadcasts to return (default 50) (optional)
      * @param  string|null $next_token Pagination token (optional)
@@ -2291,7 +2291,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsListAsyncWithHttpInfo
      *
-     * List email broadcasts for the account, newest first. Returns metadata without html or internalTemplate bodies. A live-filter audience includes the filter. A raw email audience includes emailCount and omits the addresses. Paginate with limit (default 50, max 100) and nextToken.
+     * List email broadcasts for the account, newest first
      *
      * @param  float|null $limit Max broadcasts to return (default 50) (optional)
      * @param  string|null $next_token Pagination token (optional)
@@ -2458,7 +2458,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsListRecipients
      *
-     * List email broadcast recipients with per-recipient delivery fact timestamps (sentAt, deliveredAt, openedAt, etc.). Derive display status client-side from timestamps. Filter by status (pending, sent, delivered, opened, clicked, bounced, complained, unsubscribed, skipped, failed, problems). Paginate with limit (default 50, max 200) and nextToken.
+     * List email broadcast recipients
      *
      * @param  string $broadcast_id Broadcast ID (required)
      * @param  string|null $status Filter (optional)
@@ -2479,7 +2479,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsListRecipientsWithHttpInfo
      *
-     * List email broadcast recipients with per-recipient delivery fact timestamps (sentAt, deliveredAt, openedAt, etc.). Derive display status client-side from timestamps. Filter by status (pending, sent, delivered, opened, clicked, bounced, complained, unsubscribed, skipped, failed, problems). Paginate with limit (default 50, max 200) and nextToken.
+     * List email broadcast recipients
      *
      * @param  string $broadcast_id Broadcast ID (required)
      * @param  string|null $status Filter (optional)
@@ -2609,7 +2609,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsListRecipientsAsync
      *
-     * List email broadcast recipients with per-recipient delivery fact timestamps (sentAt, deliveredAt, openedAt, etc.). Derive display status client-side from timestamps. Filter by status (pending, sent, delivered, opened, clicked, bounced, complained, unsubscribed, skipped, failed, problems). Paginate with limit (default 50, max 200) and nextToken.
+     * List email broadcast recipients
      *
      * @param  string $broadcast_id Broadcast ID (required)
      * @param  string|null $status Filter (optional)
@@ -2633,7 +2633,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsListRecipientsAsyncWithHttpInfo
      *
-     * List email broadcast recipients with per-recipient delivery fact timestamps (sentAt, deliveredAt, openedAt, etc.). Derive display status client-side from timestamps. Filter by status (pending, sent, delivered, opened, clicked, bounced, complained, unsubscribed, skipped, failed, problems). Paginate with limit (default 50, max 200) and nextToken.
+     * List email broadcast recipients
      *
      * @param  string $broadcast_id Broadcast ID (required)
      * @param  string|null $status Filter (optional)
@@ -2829,7 +2829,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsPause
      *
-     * Pause an actively sending email broadcast. Status becomes paused with pausedReason PAUSED_BY_USER.
+     * Pause an actively sending email broadcast
      *
      * @param  string $broadcast_id Broadcast ID (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['broadcastsPause'] to see the possible values for this operation
@@ -2847,7 +2847,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsPauseWithHttpInfo
      *
-     * Pause an actively sending email broadcast. Status becomes paused with pausedReason PAUSED_BY_USER.
+     * Pause an actively sending email broadcast
      *
      * @param  string $broadcast_id Broadcast ID (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['broadcastsPause'] to see the possible values for this operation
@@ -2974,7 +2974,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsPauseAsync
      *
-     * Pause an actively sending email broadcast. Status becomes paused with pausedReason PAUSED_BY_USER.
+     * Pause an actively sending email broadcast
      *
      * @param  string $broadcast_id Broadcast ID (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['broadcastsPause'] to see the possible values for this operation
@@ -2995,7 +2995,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsPauseAsyncWithHttpInfo
      *
-     * Pause an actively sending email broadcast. Status becomes paused with pausedReason PAUSED_BY_USER.
+     * Pause an actively sending email broadcast
      *
      * @param  string $broadcast_id Broadcast ID (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['broadcastsPause'] to see the possible values for this operation
@@ -3155,7 +3155,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsResume
      *
-     * Resume a paused email broadcast. Continues sending remaining recipients. Broadcasts paused for spam content cannot be resumed.
+     * Resume a paused email broadcast
      *
      * @param  string $broadcast_id Broadcast ID (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['broadcastsResume'] to see the possible values for this operation
@@ -3173,7 +3173,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsResumeWithHttpInfo
      *
-     * Resume a paused email broadcast. Continues sending remaining recipients. Broadcasts paused for spam content cannot be resumed.
+     * Resume a paused email broadcast
      *
      * @param  string $broadcast_id Broadcast ID (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['broadcastsResume'] to see the possible values for this operation
@@ -3300,7 +3300,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsResumeAsync
      *
-     * Resume a paused email broadcast. Continues sending remaining recipients. Broadcasts paused for spam content cannot be resumed.
+     * Resume a paused email broadcast
      *
      * @param  string $broadcast_id Broadcast ID (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['broadcastsResume'] to see the possible values for this operation
@@ -3321,7 +3321,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsResumeAsyncWithHttpInfo
      *
-     * Resume a paused email broadcast. Continues sending remaining recipients. Broadcasts paused for spam content cannot be resumed.
+     * Resume a paused email broadcast
      *
      * @param  string $broadcast_id Broadcast ID (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['broadcastsResume'] to see the possible values for this operation
@@ -3481,7 +3481,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsSchedule
      *
-     * Schedule a draft email broadcast for a future ISO datetime (sendAt). Requires a non-empty subject. Cancels any existing schedule when the broadcast is returned to draft via cancel.
+     * Schedule a draft email broadcast for a future ISO datetime
      *
      * @param  string $broadcast_id Broadcast ID (required)
      * @param  \Pingram\Model\ScheduleBroadcastRequest $schedule_broadcast_request schedule_broadcast_request (required)
@@ -3500,7 +3500,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsScheduleWithHttpInfo
      *
-     * Schedule a draft email broadcast for a future ISO datetime (sendAt). Requires a non-empty subject. Cancels any existing schedule when the broadcast is returned to draft via cancel.
+     * Schedule a draft email broadcast for a future ISO datetime
      *
      * @param  string $broadcast_id Broadcast ID (required)
      * @param  \Pingram\Model\ScheduleBroadcastRequest $schedule_broadcast_request (required)
@@ -3628,7 +3628,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsScheduleAsync
      *
-     * Schedule a draft email broadcast for a future ISO datetime (sendAt). Requires a non-empty subject. Cancels any existing schedule when the broadcast is returned to draft via cancel.
+     * Schedule a draft email broadcast for a future ISO datetime
      *
      * @param  string $broadcast_id Broadcast ID (required)
      * @param  \Pingram\Model\ScheduleBroadcastRequest $schedule_broadcast_request (required)
@@ -3650,7 +3650,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsScheduleAsyncWithHttpInfo
      *
-     * Schedule a draft email broadcast for a future ISO datetime (sendAt). Requires a non-empty subject. Cancels any existing schedule when the broadcast is returned to draft via cancel.
+     * Schedule a draft email broadcast for a future ISO datetime
      *
      * @param  string $broadcast_id Broadcast ID (required)
      * @param  \Pingram\Model\ScheduleBroadcastRequest $schedule_broadcast_request (required)
@@ -3826,7 +3826,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsSend
      *
-     * Send a draft email broadcast immediately. Requires a non-empty subject. Transitions status to sending and starts delivery.
+     * Send a draft email broadcast immediately
      *
      * @param  string $broadcast_id Broadcast ID (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['broadcastsSend'] to see the possible values for this operation
@@ -3844,7 +3844,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsSendWithHttpInfo
      *
-     * Send a draft email broadcast immediately. Requires a non-empty subject. Transitions status to sending and starts delivery.
+     * Send a draft email broadcast immediately
      *
      * @param  string $broadcast_id Broadcast ID (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['broadcastsSend'] to see the possible values for this operation
@@ -3971,7 +3971,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsSendAsync
      *
-     * Send a draft email broadcast immediately. Requires a non-empty subject. Transitions status to sending and starts delivery.
+     * Send a draft email broadcast immediately
      *
      * @param  string $broadcast_id Broadcast ID (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['broadcastsSend'] to see the possible values for this operation
@@ -3992,7 +3992,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsSendAsyncWithHttpInfo
      *
-     * Send a draft email broadcast immediately. Requires a non-empty subject. Transitions status to sending and starts delivery.
+     * Send a draft email broadcast immediately
      *
      * @param  string $broadcast_id Broadcast ID (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['broadcastsSend'] to see the possible values for this operation
@@ -4152,7 +4152,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsUnarchive
      *
-     * Restore an archived email broadcast to the default broadcast list.
+     * Restore an archived email broadcast
      *
      * @param  string $broadcast_id Broadcast ID (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['broadcastsUnarchive'] to see the possible values for this operation
@@ -4170,7 +4170,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsUnarchiveWithHttpInfo
      *
-     * Restore an archived email broadcast to the default broadcast list.
+     * Restore an archived email broadcast
      *
      * @param  string $broadcast_id Broadcast ID (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['broadcastsUnarchive'] to see the possible values for this operation
@@ -4297,7 +4297,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsUnarchiveAsync
      *
-     * Restore an archived email broadcast to the default broadcast list.
+     * Restore an archived email broadcast
      *
      * @param  string $broadcast_id Broadcast ID (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['broadcastsUnarchive'] to see the possible values for this operation
@@ -4318,7 +4318,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsUnarchiveAsyncWithHttpInfo
      *
-     * Restore an archived email broadcast to the default broadcast list.
+     * Restore an archived email broadcast
      *
      * @param  string $broadcast_id Broadcast ID (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['broadcastsUnarchive'] to see the possible values for this operation
@@ -4478,7 +4478,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsUpdate
      *
-     * Update a draft email broadcast. Fields you send replace the stored values (name, type, audience, sender, subject, html) and the previous values are not kept; omitted fields stay. html is the send-ready body. Send an empty replyToAddress to clear Reply-To. internalTemplate is visual-editor source: send it with html to add it to an html-only draft or to update it. It cannot be removed. Only drafts can be edited; scheduled or active broadcasts are locked. This does not send the broadcast.
+     * Update a draft email broadcast
      *
      * @param  string $broadcast_id Broadcast ID (required)
      * @param  \Pingram\Model\UpdateBroadcastRequest $update_broadcast_request update_broadcast_request (required)
@@ -4497,7 +4497,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsUpdateWithHttpInfo
      *
-     * Update a draft email broadcast. Fields you send replace the stored values (name, type, audience, sender, subject, html) and the previous values are not kept; omitted fields stay. html is the send-ready body. Send an empty replyToAddress to clear Reply-To. internalTemplate is visual-editor source: send it with html to add it to an html-only draft or to update it. It cannot be removed. Only drafts can be edited; scheduled or active broadcasts are locked. This does not send the broadcast.
+     * Update a draft email broadcast
      *
      * @param  string $broadcast_id Broadcast ID (required)
      * @param  \Pingram\Model\UpdateBroadcastRequest $update_broadcast_request (required)
@@ -4625,7 +4625,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsUpdateAsync
      *
-     * Update a draft email broadcast. Fields you send replace the stored values (name, type, audience, sender, subject, html) and the previous values are not kept; omitted fields stay. html is the send-ready body. Send an empty replyToAddress to clear Reply-To. internalTemplate is visual-editor source: send it with html to add it to an html-only draft or to update it. It cannot be removed. Only drafts can be edited; scheduled or active broadcasts are locked. This does not send the broadcast.
+     * Update a draft email broadcast
      *
      * @param  string $broadcast_id Broadcast ID (required)
      * @param  \Pingram\Model\UpdateBroadcastRequest $update_broadcast_request (required)
@@ -4647,7 +4647,7 @@ class BroadcastsApi
     /**
      * Operation broadcastsUpdateAsyncWithHttpInfo
      *
-     * Update a draft email broadcast. Fields you send replace the stored values (name, type, audience, sender, subject, html) and the previous values are not kept; omitted fields stay. html is the send-ready body. Send an empty replyToAddress to clear Reply-To. internalTemplate is visual-editor source: send it with html to add it to an html-only draft or to update it. It cannot be removed. Only drafts can be edited; scheduled or active broadcasts are locked. This does not send the broadcast.
+     * Update a draft email broadcast
      *
      * @param  string $broadcast_id Broadcast ID (required)
      * @param  \Pingram\Model\UpdateBroadcastRequest $update_broadcast_request (required)

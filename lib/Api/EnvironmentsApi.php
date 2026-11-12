@@ -437,7 +437,7 @@ class EnvironmentsApi
     /**
      * Operation environmentsUpdateEnvironment
      *
-     * Update environment settings (title, secret, disable sending, secure mode)
+     * Update environment settings
      *
      * @param  string $client_id Environment client ID (required)
      * @param  \Pingram\Model\EnvironmentPatchRequest $environment_patch_request environment_patch_request (required)
@@ -456,7 +456,7 @@ class EnvironmentsApi
     /**
      * Operation environmentsUpdateEnvironmentWithHttpInfo
      *
-     * Update environment settings (title, secret, disable sending, secure mode)
+     * Update environment settings
      *
      * @param  string $client_id Environment client ID (required)
      * @param  \Pingram\Model\EnvironmentPatchRequest $environment_patch_request (required)
@@ -584,7 +584,7 @@ class EnvironmentsApi
     /**
      * Operation environmentsUpdateEnvironmentAsync
      *
-     * Update environment settings (title, secret, disable sending, secure mode)
+     * Update environment settings
      *
      * @param  string $client_id Environment client ID (required)
      * @param  \Pingram\Model\EnvironmentPatchRequest $environment_patch_request (required)
@@ -606,7 +606,7 @@ class EnvironmentsApi
     /**
      * Operation environmentsUpdateEnvironmentAsyncWithHttpInfo
      *
-     * Update environment settings (title, secret, disable sending, secure mode)
+     * Update environment settings
      *
      * @param  string $client_id Environment client ID (required)
      * @param  \Pingram\Model\EnvironmentPatchRequest $environment_patch_request (required)

@@ -1831,7 +1831,7 @@ class MembersApi
     /**
      * Operation membersUpdate
      *
-     * Updates a member. Account owners can set role to \&quot;owner\&quot; or \&quot;admin\&quot; on other members.
+     * Update a member
      *
      * @param  string $env_id Environment ID (required)
      * @param  string $user_id User ID to update (required)
@@ -1851,7 +1851,7 @@ class MembersApi
     /**
      * Operation membersUpdateWithHttpInfo
      *
-     * Updates a member. Account owners can set role to \&quot;owner\&quot; or \&quot;admin\&quot; on other members.
+     * Update a member
      *
      * @param  string $env_id Environment ID (required)
      * @param  string $user_id User ID to update (required)
@@ -1980,7 +1980,7 @@ class MembersApi
     /**
      * Operation membersUpdateAsync
      *
-     * Updates a member. Account owners can set role to \&quot;owner\&quot; or \&quot;admin\&quot; on other members.
+     * Update a member
      *
      * @param  string $env_id Environment ID (required)
      * @param  string $user_id User ID to update (required)
@@ -2003,7 +2003,7 @@ class MembersApi
     /**
      * Operation membersUpdateAsyncWithHttpInfo
      *
-     * Updates a member. Account owners can set role to \&quot;owner\&quot; or \&quot;admin\&quot; on other members.
+     * Update a member
      *
      * @param  string $env_id Environment ID (required)
      * @param  string $user_id User ID to update (required)

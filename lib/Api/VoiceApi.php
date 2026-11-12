@@ -146,7 +146,7 @@ class VoiceApi
     /**
      * Operation voiceArmInboundClaim
      *
-     * Arm the shared test number so the next call from this user&#39;s phone uses this inbound behavior
+     * Arm the shared test number
      *
      * @param  \Pingram\Model\ArmVoiceInboundClaimRequest $arm_voice_inbound_claim_request arm_voice_inbound_claim_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voiceArmInboundClaim'] to see the possible values for this operation
@@ -164,7 +164,7 @@ class VoiceApi
     /**
      * Operation voiceArmInboundClaimWithHttpInfo
      *
-     * Arm the shared test number so the next call from this user&#39;s phone uses this inbound behavior
+     * Arm the shared test number
      *
      * @param  \Pingram\Model\ArmVoiceInboundClaimRequest $arm_voice_inbound_claim_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voiceArmInboundClaim'] to see the possible values for this operation
@@ -291,7 +291,7 @@ class VoiceApi
     /**
      * Operation voiceArmInboundClaimAsync
      *
-     * Arm the shared test number so the next call from this user&#39;s phone uses this inbound behavior
+     * Arm the shared test number
      *
      * @param  \Pingram\Model\ArmVoiceInboundClaimRequest $arm_voice_inbound_claim_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voiceArmInboundClaim'] to see the possible values for this operation
@@ -312,7 +312,7 @@ class VoiceApi
     /**
      * Operation voiceArmInboundClaimAsyncWithHttpInfo
      *
-     * Arm the shared test number so the next call from this user&#39;s phone uses this inbound behavior
+     * Arm the shared test number
      *
      * @param  \Pingram\Model\ArmVoiceInboundClaimRequest $arm_voice_inbound_claim_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voiceArmInboundClaim'] to see the possible values for this operation
@@ -471,7 +471,7 @@ class VoiceApi
     /**
      * Operation voiceCall
      *
-     * Place an outbound call. The config is not saved.
+     * Place an outbound call. The config is not saved
      *
      * @param  \Pingram\Model\VoiceCallRequest $voice_call_request voice_call_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voiceCall'] to see the possible values for this operation
@@ -489,7 +489,7 @@ class VoiceApi
     /**
      * Operation voiceCallWithHttpInfo
      *
-     * Place an outbound call. The config is not saved.
+     * Place an outbound call. The config is not saved
      *
      * @param  \Pingram\Model\VoiceCallRequest $voice_call_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voiceCall'] to see the possible values for this operation
@@ -616,7 +616,7 @@ class VoiceApi
     /**
      * Operation voiceCallAsync
      *
-     * Place an outbound call. The config is not saved.
+     * Place an outbound call. The config is not saved
      *
      * @param  \Pingram\Model\VoiceCallRequest $voice_call_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voiceCall'] to see the possible values for this operation
@@ -637,7 +637,7 @@ class VoiceApi
     /**
      * Operation voiceCallAsyncWithHttpInfo
      *
-     * Place an outbound call. The config is not saved.
+     * Place an outbound call. The config is not saved
      *
      * @param  \Pingram\Model\VoiceCallRequest $voice_call_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voiceCall'] to see the possible values for this operation
@@ -1122,7 +1122,7 @@ class VoiceApi
     /**
      * Operation voiceCreateBrowserCall
      *
-     * Place a browser playground call. Script calls use POST /voice/call.
+     * Place a browser playground call
      *
      * @param  \Pingram\Model\VoiceBrowserCallRequest $voice_browser_call_request voice_browser_call_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voiceCreateBrowserCall'] to see the possible values for this operation
@@ -1140,7 +1140,7 @@ class VoiceApi
     /**
      * Operation voiceCreateBrowserCallWithHttpInfo
      *
-     * Place a browser playground call. Script calls use POST /voice/call.
+     * Place a browser playground call
      *
      * @param  \Pingram\Model\VoiceBrowserCallRequest $voice_browser_call_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voiceCreateBrowserCall'] to see the possible values for this operation
@@ -1267,7 +1267,7 @@ class VoiceApi
     /**
      * Operation voiceCreateBrowserCallAsync
      *
-     * Place a browser playground call. Script calls use POST /voice/call.
+     * Place a browser playground call
      *
      * @param  \Pingram\Model\VoiceBrowserCallRequest $voice_browser_call_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voiceCreateBrowserCall'] to see the possible values for this operation
@@ -1288,7 +1288,7 @@ class VoiceApi
     /**
      * Operation voiceCreateBrowserCallAsyncWithHttpInfo
      *
-     * Place a browser playground call. Script calls use POST /voice/call.
+     * Place a browser playground call
      *
      * @param  \Pingram\Model\VoiceBrowserCallRequest $voice_browser_call_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voiceCreateBrowserCall'] to see the possible values for this operation
@@ -1447,7 +1447,7 @@ class VoiceApi
     /**
      * Operation voiceGetCall
      *
-     * Get a call with transcript timeline and recording playback URL
+     * Get a call recording and transcript
      *
      * @param  string $tracking_id Call tracking id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voiceGetCall'] to see the possible values for this operation
@@ -1465,7 +1465,7 @@ class VoiceApi
     /**
      * Operation voiceGetCallWithHttpInfo
      *
-     * Get a call with transcript timeline and recording playback URL
+     * Get a call recording and transcript
      *
      * @param  string $tracking_id Call tracking id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voiceGetCall'] to see the possible values for this operation
@@ -1592,7 +1592,7 @@ class VoiceApi
     /**
      * Operation voiceGetCallAsync
      *
-     * Get a call with transcript timeline and recording playback URL
+     * Get a call recording and transcript
      *
      * @param  string $tracking_id Call tracking id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voiceGetCall'] to see the possible values for this operation
@@ -1613,7 +1613,7 @@ class VoiceApi
     /**
      * Operation voiceGetCallAsyncWithHttpInfo
      *
-     * Get a call with transcript timeline and recording playback URL
+     * Get a call recording and transcript
      *
      * @param  string $tracking_id Call tracking id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voiceGetCall'] to see the possible values for this operation

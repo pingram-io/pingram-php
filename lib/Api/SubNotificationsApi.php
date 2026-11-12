@@ -131,7 +131,7 @@ class SubNotificationsApi
     /**
      * Operation subNotificationsDeleteSubNotification
      *
-     * This endpoint is no longer maintained and should not be used.
+     * This endpoint is no longer maintained and should not be used
      *
      * @param  string $notification_id The notification ID (required)
      * @param  string $sub_notification_id The sub-notification ID (required)
@@ -149,7 +149,7 @@ class SubNotificationsApi
     /**
      * Operation subNotificationsDeleteSubNotificationWithHttpInfo
      *
-     * This endpoint is no longer maintained and should not be used.
+     * This endpoint is no longer maintained and should not be used
      *
      * @param  string $notification_id The notification ID (required)
      * @param  string $sub_notification_id The sub-notification ID (required)
@@ -223,7 +223,7 @@ class SubNotificationsApi
     /**
      * Operation subNotificationsDeleteSubNotificationAsync
      *
-     * This endpoint is no longer maintained and should not be used.
+     * This endpoint is no longer maintained and should not be used
      *
      * @param  string $notification_id The notification ID (required)
      * @param  string $sub_notification_id The sub-notification ID (required)
@@ -245,7 +245,7 @@ class SubNotificationsApi
     /**
      * Operation subNotificationsDeleteSubNotificationAsyncWithHttpInfo
      *
-     * This endpoint is no longer maintained and should not be used.
+     * This endpoint is no longer maintained and should not be used
      *
      * @param  string $notification_id The notification ID (required)
      * @param  string $sub_notification_id The sub-notification ID (required)
@@ -409,7 +409,7 @@ class SubNotificationsApi
     /**
      * Operation subNotificationsPutSubNotification
      *
-     * This endpoint is no longer maintained and should not be used.
+     * This endpoint is no longer maintained and should not be used
      *
      * @param  string $notification_id The notification ID (required)
      * @param  string $sub_notification_id The sub-notification ID (required)
@@ -429,7 +429,7 @@ class SubNotificationsApi
     /**
      * Operation subNotificationsPutSubNotificationWithHttpInfo
      *
-     * This endpoint is no longer maintained and should not be used.
+     * This endpoint is no longer maintained and should not be used
      *
      * @param  string $notification_id The notification ID (required)
      * @param  string $sub_notification_id The sub-notification ID (required)
@@ -558,7 +558,7 @@ class SubNotificationsApi
     /**
      * Operation subNotificationsPutSubNotificationAsync
      *
-     * This endpoint is no longer maintained and should not be used.
+     * This endpoint is no longer maintained and should not be used
      *
      * @param  string $notification_id The notification ID (required)
      * @param  string $sub_notification_id The sub-notification ID (required)
@@ -581,7 +581,7 @@ class SubNotificationsApi
     /**
      * Operation subNotificationsPutSubNotificationAsyncWithHttpInfo
      *
-     * This endpoint is no longer maintained and should not be used.
+     * This endpoint is no longer maintained and should not be used
      *
      * @param  string $notification_id The notification ID (required)
      * @param  string $sub_notification_id The sub-notification ID (required)

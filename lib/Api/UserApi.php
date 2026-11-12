@@ -134,7 +134,7 @@ class UserApi
     /**
      * Operation userGetAccountMetadata
      *
-     * Get account-level metadata including logo, VAPID key, and web push status
+     * Get account metadata
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['userGetAccountMetadata'] to see the possible values for this operation
      *
@@ -151,7 +151,7 @@ class UserApi
     /**
      * Operation userGetAccountMetadataWithHttpInfo
      *
-     * Get account-level metadata including logo, VAPID key, and web push status
+     * Get account metadata
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['userGetAccountMetadata'] to see the possible values for this operation
      *
@@ -277,7 +277,7 @@ class UserApi
     /**
      * Operation userGetAccountMetadataAsync
      *
-     * Get account-level metadata including logo, VAPID key, and web push status
+     * Get account metadata
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['userGetAccountMetadata'] to see the possible values for this operation
      *
@@ -297,7 +297,7 @@ class UserApi
     /**
      * Operation userGetAccountMetadataAsyncWithHttpInfo
      *
-     * Get account-level metadata including logo, VAPID key, and web push status
+     * Get account metadata
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['userGetAccountMetadata'] to see the possible values for this operation
      *
@@ -440,7 +440,7 @@ class UserApi
     /**
      * Operation userGetUser
      *
-     * Get a user by ID. All users exist implicitly, returns basic user object if not found in DB.
+     * Get a user by ID
      *
      * @param  string $user_id User ID (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['userGetUser'] to see the possible values for this operation
@@ -458,7 +458,7 @@ class UserApi
     /**
      * Operation userGetUserWithHttpInfo
      *
-     * Get a user by ID. All users exist implicitly, returns basic user object if not found in DB.
+     * Get a user by ID
      *
      * @param  string $user_id User ID (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['userGetUser'] to see the possible values for this operation
@@ -585,7 +585,7 @@ class UserApi
     /**
      * Operation userGetUserAsync
      *
-     * Get a user by ID. All users exist implicitly, returns basic user object if not found in DB.
+     * Get a user by ID
      *
      * @param  string $user_id User ID (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['userGetUser'] to see the possible values for this operation
@@ -606,7 +606,7 @@ class UserApi
     /**
      * Operation userGetUserAsyncWithHttpInfo
      *
-     * Get a user by ID. All users exist implicitly, returns basic user object if not found in DB.
+     * Get a user by ID
      *
      * @param  string $user_id User ID (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['userGetUser'] to see the possible values for this operation
@@ -766,7 +766,7 @@ class UserApi
     /**
      * Operation userIdentify
      *
-     * Create or update a user with the given ID. Updates lastSeenTime automatically.
+     * Create or update a user with the given ID
      *
      * @param  string $user_id User ID (required)
      * @param  \Pingram\Model\PostUserRequest $post_user_request post_user_request (required)
@@ -785,7 +785,7 @@ class UserApi
     /**
      * Operation userIdentifyWithHttpInfo
      *
-     * Create or update a user with the given ID. Updates lastSeenTime automatically.
+     * Create or update a user with the given ID
      *
      * @param  string $user_id User ID (required)
      * @param  \Pingram\Model\PostUserRequest $post_user_request (required)
@@ -913,7 +913,7 @@ class UserApi
     /**
      * Operation userIdentifyAsync
      *
-     * Create or update a user with the given ID. Updates lastSeenTime automatically.
+     * Create or update a user with the given ID
      *
      * @param  string $user_id User ID (required)
      * @param  \Pingram\Model\PostUserRequest $post_user_request (required)
@@ -935,7 +935,7 @@ class UserApi
     /**
      * Operation userIdentifyAsyncWithHttpInfo
      *
-     * Create or update a user with the given ID. Updates lastSeenTime automatically.
+     * Create or update a user with the given ID
      *
      * @param  string $user_id User ID (required)
      * @param  \Pingram\Model\PostUserRequest $post_user_request (required)

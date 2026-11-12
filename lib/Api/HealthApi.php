@@ -128,7 +128,7 @@ class HealthApi
     /**
      * Operation healthHealthCheck
      *
-     * Perform health checks on our internal systems.
+     * Perform health checks on our internal systems
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['healthHealthCheck'] to see the possible values for this operation
      *
@@ -145,7 +145,7 @@ class HealthApi
     /**
      * Operation healthHealthCheckWithHttpInfo
      *
-     * Perform health checks on our internal systems.
+     * Perform health checks on our internal systems
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['healthHealthCheck'] to see the possible values for this operation
      *
@@ -271,7 +271,7 @@ class HealthApi
     /**
      * Operation healthHealthCheckAsync
      *
-     * Perform health checks on our internal systems.
+     * Perform health checks on our internal systems
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['healthHealthCheck'] to see the possible values for this operation
      *
@@ -291,7 +291,7 @@ class HealthApi
     /**
      * Operation healthHealthCheckAsyncWithHttpInfo
      *
-     * Perform health checks on our internal systems.
+     * Perform health checks on our internal systems
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['healthHealthCheck'] to see the possible values for this operation
      *

@@ -140,7 +140,7 @@ class RegistrationsApi
     /**
      * Operation registrationsCreateUs10dlcBrand
      *
-     * Create a new 10DLC brand registration. Sets brandStatus to pending_review; Pingram handles carrier submission after review.
+     * Create a new 10DLC brand registration
      *
      * @param  \Pingram\Model\TenDlcBrandCreateRequest $ten_dlc_brand_create_request ten_dlc_brand_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['registrationsCreateUs10dlcBrand'] to see the possible values for this operation
@@ -158,7 +158,7 @@ class RegistrationsApi
     /**
      * Operation registrationsCreateUs10dlcBrandWithHttpInfo
      *
-     * Create a new 10DLC brand registration. Sets brandStatus to pending_review; Pingram handles carrier submission after review.
+     * Create a new 10DLC brand registration
      *
      * @param  \Pingram\Model\TenDlcBrandCreateRequest $ten_dlc_brand_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['registrationsCreateUs10dlcBrand'] to see the possible values for this operation
@@ -285,7 +285,7 @@ class RegistrationsApi
     /**
      * Operation registrationsCreateUs10dlcBrandAsync
      *
-     * Create a new 10DLC brand registration. Sets brandStatus to pending_review; Pingram handles carrier submission after review.
+     * Create a new 10DLC brand registration
      *
      * @param  \Pingram\Model\TenDlcBrandCreateRequest $ten_dlc_brand_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['registrationsCreateUs10dlcBrand'] to see the possible values for this operation
@@ -306,7 +306,7 @@ class RegistrationsApi
     /**
      * Operation registrationsCreateUs10dlcBrandAsyncWithHttpInfo
      *
-     * Create a new 10DLC brand registration. Sets brandStatus to pending_review; Pingram handles carrier submission after review.
+     * Create a new 10DLC brand registration
      *
      * @param  \Pingram\Model\TenDlcBrandCreateRequest $ten_dlc_brand_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['registrationsCreateUs10dlcBrand'] to see the possible values for this operation
@@ -465,7 +465,7 @@ class RegistrationsApi
     /**
      * Operation registrationsGetUs10dlcBrand
      *
-     * Get the 10DLC brand registration for the authenticated account. Returns null when no registration exists yet.
+     * Get the 10DLC brand registration
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['registrationsGetUs10dlcBrand'] to see the possible values for this operation
      *
@@ -482,7 +482,7 @@ class RegistrationsApi
     /**
      * Operation registrationsGetUs10dlcBrandWithHttpInfo
      *
-     * Get the 10DLC brand registration for the authenticated account. Returns null when no registration exists yet.
+     * Get the 10DLC brand registration
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['registrationsGetUs10dlcBrand'] to see the possible values for this operation
      *
@@ -608,7 +608,7 @@ class RegistrationsApi
     /**
      * Operation registrationsGetUs10dlcBrandAsync
      *
-     * Get the 10DLC brand registration for the authenticated account. Returns null when no registration exists yet.
+     * Get the 10DLC brand registration
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['registrationsGetUs10dlcBrand'] to see the possible values for this operation
      *
@@ -628,7 +628,7 @@ class RegistrationsApi
     /**
      * Operation registrationsGetUs10dlcBrandAsyncWithHttpInfo
      *
-     * Get the 10DLC brand registration for the authenticated account. Returns null when no registration exists yet.
+     * Get the 10DLC brand registration
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['registrationsGetUs10dlcBrand'] to see the possible values for this operation
      *
@@ -771,7 +771,7 @@ class RegistrationsApi
     /**
      * Operation registrationsGetUs10dlcCampaign
      *
-     * Get the 10DLC campaign registration for the authenticated account. Returns null when no brand registration exists yet.
+     * Get the 10DLC campaign registration
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['registrationsGetUs10dlcCampaign'] to see the possible values for this operation
      *
@@ -788,7 +788,7 @@ class RegistrationsApi
     /**
      * Operation registrationsGetUs10dlcCampaignWithHttpInfo
      *
-     * Get the 10DLC campaign registration for the authenticated account. Returns null when no brand registration exists yet.
+     * Get the 10DLC campaign registration
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['registrationsGetUs10dlcCampaign'] to see the possible values for this operation
      *
@@ -914,7 +914,7 @@ class RegistrationsApi
     /**
      * Operation registrationsGetUs10dlcCampaignAsync
      *
-     * Get the 10DLC campaign registration for the authenticated account. Returns null when no brand registration exists yet.
+     * Get the 10DLC campaign registration
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['registrationsGetUs10dlcCampaign'] to see the possible values for this operation
      *
@@ -934,7 +934,7 @@ class RegistrationsApi
     /**
      * Operation registrationsGetUs10dlcCampaignAsyncWithHttpInfo
      *
-     * Get the 10DLC campaign registration for the authenticated account. Returns null when no brand registration exists yet.
+     * Get the 10DLC campaign registration
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['registrationsGetUs10dlcCampaign'] to see the possible values for this operation
      *
@@ -1077,7 +1077,7 @@ class RegistrationsApi
     /**
      * Operation registrationsUpdateUs10dlcBrand
      *
-     * Overwrite business fields on this account&#39;s existing US 10DLC brand registration (legal name, address, tax ID, website, compliance contact, and related identity). Fields you omit stay; values you send replace what was stored and are not kept as history. Does not create a registration, submit it to carriers, change brandStatus, or delete it. Workflow status stays under Pingram&#39;s control.
+     * Update the 10DLC brand
      *
      * @param  \Pingram\Model\TenDlcBrandUpdateRequest $ten_dlc_brand_update_request ten_dlc_brand_update_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['registrationsUpdateUs10dlcBrand'] to see the possible values for this operation
@@ -1095,7 +1095,7 @@ class RegistrationsApi
     /**
      * Operation registrationsUpdateUs10dlcBrandWithHttpInfo
      *
-     * Overwrite business fields on this account&#39;s existing US 10DLC brand registration (legal name, address, tax ID, website, compliance contact, and related identity). Fields you omit stay; values you send replace what was stored and are not kept as history. Does not create a registration, submit it to carriers, change brandStatus, or delete it. Workflow status stays under Pingram&#39;s control.
+     * Update the 10DLC brand
      *
      * @param  \Pingram\Model\TenDlcBrandUpdateRequest $ten_dlc_brand_update_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['registrationsUpdateUs10dlcBrand'] to see the possible values for this operation
@@ -1222,7 +1222,7 @@ class RegistrationsApi
     /**
      * Operation registrationsUpdateUs10dlcBrandAsync
      *
-     * Overwrite business fields on this account&#39;s existing US 10DLC brand registration (legal name, address, tax ID, website, compliance contact, and related identity). Fields you omit stay; values you send replace what was stored and are not kept as history. Does not create a registration, submit it to carriers, change brandStatus, or delete it. Workflow status stays under Pingram&#39;s control.
+     * Update the 10DLC brand
      *
      * @param  \Pingram\Model\TenDlcBrandUpdateRequest $ten_dlc_brand_update_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['registrationsUpdateUs10dlcBrand'] to see the possible values for this operation
@@ -1243,7 +1243,7 @@ class RegistrationsApi
     /**
      * Operation registrationsUpdateUs10dlcBrandAsyncWithHttpInfo
      *
-     * Overwrite business fields on this account&#39;s existing US 10DLC brand registration (legal name, address, tax ID, website, compliance contact, and related identity). Fields you omit stay; values you send replace what was stored and are not kept as history. Does not create a registration, submit it to carriers, change brandStatus, or delete it. Workflow status stays under Pingram&#39;s control.
+     * Update the 10DLC brand
      *
      * @param  \Pingram\Model\TenDlcBrandUpdateRequest $ten_dlc_brand_update_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['registrationsUpdateUs10dlcBrand'] to see the possible values for this operation
@@ -1402,7 +1402,7 @@ class RegistrationsApi
     /**
      * Operation registrationsUpdateUs10dlcCampaign
      *
-     * Overwrite campaign fields on this account&#39;s existing US 10DLC campaign (description, samples, opt-in and opt-out text, use case, and related settings). Fields you send replace the stored values and the previous text is not kept; omitted fields stay. Editing is refused once the campaign is in_progress or approved. Does not submit the campaign to carriers, change campaignStatus, or delete it.
+     * Update the 10DLC campaign
      *
      * @param  \Pingram\Model\TenDlcCampaignUpdateRequest $ten_dlc_campaign_update_request ten_dlc_campaign_update_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['registrationsUpdateUs10dlcCampaign'] to see the possible values for this operation
@@ -1420,7 +1420,7 @@ class RegistrationsApi
     /**
      * Operation registrationsUpdateUs10dlcCampaignWithHttpInfo
      *
-     * Overwrite campaign fields on this account&#39;s existing US 10DLC campaign (description, samples, opt-in and opt-out text, use case, and related settings). Fields you send replace the stored values and the previous text is not kept; omitted fields stay. Editing is refused once the campaign is in_progress or approved. Does not submit the campaign to carriers, change campaignStatus, or delete it.
+     * Update the 10DLC campaign
      *
      * @param  \Pingram\Model\TenDlcCampaignUpdateRequest $ten_dlc_campaign_update_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['registrationsUpdateUs10dlcCampaign'] to see the possible values for this operation
@@ -1547,7 +1547,7 @@ class RegistrationsApi
     /**
      * Operation registrationsUpdateUs10dlcCampaignAsync
      *
-     * Overwrite campaign fields on this account&#39;s existing US 10DLC campaign (description, samples, opt-in and opt-out text, use case, and related settings). Fields you send replace the stored values and the previous text is not kept; omitted fields stay. Editing is refused once the campaign is in_progress or approved. Does not submit the campaign to carriers, change campaignStatus, or delete it.
+     * Update the 10DLC campaign
      *
      * @param  \Pingram\Model\TenDlcCampaignUpdateRequest $ten_dlc_campaign_update_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['registrationsUpdateUs10dlcCampaign'] to see the possible values for this operation
@@ -1568,7 +1568,7 @@ class RegistrationsApi
     /**
      * Operation registrationsUpdateUs10dlcCampaignAsyncWithHttpInfo
      *
-     * Overwrite campaign fields on this account&#39;s existing US 10DLC campaign (description, samples, opt-in and opt-out text, use case, and related settings). Fields you send replace the stored values and the previous text is not kept; omitted fields stay. Editing is refused once the campaign is in_progress or approved. Does not submit the campaign to carriers, change campaignStatus, or delete it.
+     * Update the 10DLC campaign
      *
      * @param  \Pingram\Model\TenDlcCampaignUpdateRequest $ten_dlc_campaign_update_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['registrationsUpdateUs10dlcCampaign'] to see the possible values for this operation

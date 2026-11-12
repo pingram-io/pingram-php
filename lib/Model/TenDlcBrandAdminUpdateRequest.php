@@ -35,7 +35,7 @@ use \Pingram\ObjectSerializer;
  * TenDlcBrandAdminUpdateRequest Class Doc Comment
  *
  * @category Class
- * @description Request body for the superadmin-only PATCH /registrations/us/10dlc/brand/admin
+ * @description Request body for updating a 10DLC brand during review.
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

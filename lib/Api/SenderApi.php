@@ -785,7 +785,7 @@ class SenderApi
     /**
      * Operation senderUpdateSchedule
      *
-     * Update the body or schedule of an already scheduled notification.
+     * Update a scheduled notification
      *
      * @param  string $tracking_id The tracking ID of the scheduled notification (required)
      * @param  \Pingram\Model\SenderPostBody $sender_post_body sender_post_body (required)
@@ -804,7 +804,7 @@ class SenderApi
     /**
      * Operation senderUpdateScheduleWithHttpInfo
      *
-     * Update the body or schedule of an already scheduled notification.
+     * Update a scheduled notification
      *
      * @param  string $tracking_id The tracking ID of the scheduled notification (required)
      * @param  \Pingram\Model\SenderPostBody $sender_post_body (required)
@@ -932,7 +932,7 @@ class SenderApi
     /**
      * Operation senderUpdateScheduleAsync
      *
-     * Update the body or schedule of an already scheduled notification.
+     * Update a scheduled notification
      *
      * @param  string $tracking_id The tracking ID of the scheduled notification (required)
      * @param  \Pingram\Model\SenderPostBody $sender_post_body (required)
@@ -954,7 +954,7 @@ class SenderApi
     /**
      * Operation senderUpdateScheduleAsyncWithHttpInfo
      *
-     * Update the body or schedule of an already scheduled notification.
+     * Update a scheduled notification
      *
      * @param  string $tracking_id The tracking ID of the scheduled notification (required)
      * @param  \Pingram\Model\SenderPostBody $sender_post_body (required)

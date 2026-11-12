@@ -179,7 +179,7 @@ class AccountApi
     /**
      * Operation accountAssignPaymentMethod
      *
-     * Use a saved card for this account, as the default for new accounts, or for every account that shares these cards. Only the account owner can call this.
+     * Assign a saved card
      *
      * @param  \Pingram\Model\AssignPaymentMethodRequest $assign_payment_method_request assign_payment_method_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountAssignPaymentMethod'] to see the possible values for this operation
@@ -197,7 +197,7 @@ class AccountApi
     /**
      * Operation accountAssignPaymentMethodWithHttpInfo
      *
-     * Use a saved card for this account, as the default for new accounts, or for every account that shares these cards. Only the account owner can call this.
+     * Assign a saved card
      *
      * @param  \Pingram\Model\AssignPaymentMethodRequest $assign_payment_method_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountAssignPaymentMethod'] to see the possible values for this operation
@@ -324,7 +324,7 @@ class AccountApi
     /**
      * Operation accountAssignPaymentMethodAsync
      *
-     * Use a saved card for this account, as the default for new accounts, or for every account that shares these cards. Only the account owner can call this.
+     * Assign a saved card
      *
      * @param  \Pingram\Model\AssignPaymentMethodRequest $assign_payment_method_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountAssignPaymentMethod'] to see the possible values for this operation
@@ -345,7 +345,7 @@ class AccountApi
     /**
      * Operation accountAssignPaymentMethodAsyncWithHttpInfo
      *
-     * Use a saved card for this account, as the default for new accounts, or for every account that shares these cards. Only the account owner can call this.
+     * Assign a saved card
      *
      * @param  \Pingram\Model\AssignPaymentMethodRequest $assign_payment_method_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountAssignPaymentMethod'] to see the possible values for this operation
@@ -504,7 +504,7 @@ class AccountApi
     /**
      * Operation accountCancelSubscription
      *
-     * Cancel the paid plan at the end of the current billing cycle. Access continues until then.
+     * Cancel the paid plan at the end of the current billing cycle
      *
      * @param  \Pingram\Model\CancelSubscriptionRequest $cancel_subscription_request cancel_subscription_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountCancelSubscription'] to see the possible values for this operation
@@ -522,7 +522,7 @@ class AccountApi
     /**
      * Operation accountCancelSubscriptionWithHttpInfo
      *
-     * Cancel the paid plan at the end of the current billing cycle. Access continues until then.
+     * Cancel the paid plan at the end of the current billing cycle
      *
      * @param  \Pingram\Model\CancelSubscriptionRequest $cancel_subscription_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountCancelSubscription'] to see the possible values for this operation
@@ -649,7 +649,7 @@ class AccountApi
     /**
      * Operation accountCancelSubscriptionAsync
      *
-     * Cancel the paid plan at the end of the current billing cycle. Access continues until then.
+     * Cancel the paid plan at the end of the current billing cycle
      *
      * @param  \Pingram\Model\CancelSubscriptionRequest $cancel_subscription_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountCancelSubscription'] to see the possible values for this operation
@@ -670,7 +670,7 @@ class AccountApi
     /**
      * Operation accountCancelSubscriptionAsyncWithHttpInfo
      *
-     * Cancel the paid plan at the end of the current billing cycle. Access continues until then.
+     * Cancel the paid plan at the end of the current billing cycle
      *
      * @param  \Pingram\Model\CancelSubscriptionRequest $cancel_subscription_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountCancelSubscription'] to see the possible values for this operation
@@ -1154,7 +1154,7 @@ class AccountApi
     /**
      * Operation accountCreatePaymentMethodSetup
      *
-     * Return a URL to add a card. Only the account owner can call this. The card is not assigned until you call assign.
+     * Return a URL to add a card
      *
      * @param  \Pingram\Model\CreatePaymentMethodSetupRequest $create_payment_method_setup_request create_payment_method_setup_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountCreatePaymentMethodSetup'] to see the possible values for this operation
@@ -1172,7 +1172,7 @@ class AccountApi
     /**
      * Operation accountCreatePaymentMethodSetupWithHttpInfo
      *
-     * Return a URL to add a card. Only the account owner can call this. The card is not assigned until you call assign.
+     * Return a URL to add a card
      *
      * @param  \Pingram\Model\CreatePaymentMethodSetupRequest $create_payment_method_setup_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountCreatePaymentMethodSetup'] to see the possible values for this operation
@@ -1299,7 +1299,7 @@ class AccountApi
     /**
      * Operation accountCreatePaymentMethodSetupAsync
      *
-     * Return a URL to add a card. Only the account owner can call this. The card is not assigned until you call assign.
+     * Return a URL to add a card
      *
      * @param  \Pingram\Model\CreatePaymentMethodSetupRequest $create_payment_method_setup_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountCreatePaymentMethodSetup'] to see the possible values for this operation
@@ -1320,7 +1320,7 @@ class AccountApi
     /**
      * Operation accountCreatePaymentMethodSetupAsyncWithHttpInfo
      *
-     * Return a URL to add a card. Only the account owner can call this. The card is not assigned until you call assign.
+     * Return a URL to add a card
      *
      * @param  \Pingram\Model\CreatePaymentMethodSetupRequest $create_payment_method_setup_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountCreatePaymentMethodSetup'] to see the possible values for this operation
@@ -1785,7 +1785,7 @@ class AccountApi
     /**
      * Operation accountGetBillingEmail
      *
-     * Get the email address that receives invoices for this account.
+     * Get the invoice email address
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountGetBillingEmail'] to see the possible values for this operation
      *
@@ -1802,7 +1802,7 @@ class AccountApi
     /**
      * Operation accountGetBillingEmailWithHttpInfo
      *
-     * Get the email address that receives invoices for this account.
+     * Get the invoice email address
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountGetBillingEmail'] to see the possible values for this operation
      *
@@ -1928,7 +1928,7 @@ class AccountApi
     /**
      * Operation accountGetBillingEmailAsync
      *
-     * Get the email address that receives invoices for this account.
+     * Get the invoice email address
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountGetBillingEmail'] to see the possible values for this operation
      *
@@ -1948,7 +1948,7 @@ class AccountApi
     /**
      * Operation accountGetBillingEmailAsyncWithHttpInfo
      *
-     * Get the email address that receives invoices for this account.
+     * Get the invoice email address
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountGetBillingEmail'] to see the possible values for this operation
      *
@@ -2397,7 +2397,7 @@ class AccountApi
     /**
      * Operation accountGetUsage
      *
-     * Get usage for the authenticated account.
+     * Get usage for the authenticated account
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountGetUsage'] to see the possible values for this operation
      *
@@ -2414,7 +2414,7 @@ class AccountApi
     /**
      * Operation accountGetUsageWithHttpInfo
      *
-     * Get usage for the authenticated account.
+     * Get usage for the authenticated account
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountGetUsage'] to see the possible values for this operation
      *
@@ -2540,7 +2540,7 @@ class AccountApi
     /**
      * Operation accountGetUsageAsync
      *
-     * Get usage for the authenticated account.
+     * Get usage for the authenticated account
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountGetUsage'] to see the possible values for this operation
      *
@@ -2560,7 +2560,7 @@ class AccountApi
     /**
      * Operation accountGetUsageAsyncWithHttpInfo
      *
-     * Get usage for the authenticated account.
+     * Get usage for the authenticated account
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountGetUsage'] to see the possible values for this operation
      *
@@ -2703,7 +2703,7 @@ class AccountApi
     /**
      * Operation accountGetUsageHistory
      *
-     * Get historical usage for the authenticated account over a date range, summed by UTC calendar month or billing cycle from daily counts.
+     * Get usage history
      *
      * @param  string $start_date Start date (YYYY-MM-DD) for the range (required)
      * @param  string $end_date End date (YYYY-MM-DD) for the range (required)
@@ -2723,7 +2723,7 @@ class AccountApi
     /**
      * Operation accountGetUsageHistoryWithHttpInfo
      *
-     * Get historical usage for the authenticated account over a date range, summed by UTC calendar month or billing cycle from daily counts.
+     * Get usage history
      *
      * @param  string $start_date Start date (YYYY-MM-DD) for the range (required)
      * @param  string $end_date End date (YYYY-MM-DD) for the range (required)
@@ -2852,7 +2852,7 @@ class AccountApi
     /**
      * Operation accountGetUsageHistoryAsync
      *
-     * Get historical usage for the authenticated account over a date range, summed by UTC calendar month or billing cycle from daily counts.
+     * Get usage history
      *
      * @param  string $start_date Start date (YYYY-MM-DD) for the range (required)
      * @param  string $end_date End date (YYYY-MM-DD) for the range (required)
@@ -2875,7 +2875,7 @@ class AccountApi
     /**
      * Operation accountGetUsageHistoryAsyncWithHttpInfo
      *
-     * Get historical usage for the authenticated account over a date range, summed by UTC calendar month or billing cycle from daily counts.
+     * Get usage history
      *
      * @param  string $start_date Start date (YYYY-MM-DD) for the range (required)
      * @param  string $end_date End date (YYYY-MM-DD) for the range (required)
@@ -3066,7 +3066,7 @@ class AccountApi
     /**
      * Operation accountListInvoices
      *
-     * List invoices for this account, newest first.
+     * List invoices for this account, newest first
      *
      * @param  float|null $limit Max invoices to return (1-100, default 10) (optional)
      * @param  string|null $starting_after Pagination cursor (invoice id from a previous response) (optional)
@@ -3088,7 +3088,7 @@ class AccountApi
     /**
      * Operation accountListInvoicesWithHttpInfo
      *
-     * List invoices for this account, newest first.
+     * List invoices for this account, newest first
      *
      * @param  float|null $limit Max invoices to return (1-100, default 10) (optional)
      * @param  string|null $starting_after Pagination cursor (invoice id from a previous response) (optional)
@@ -3219,7 +3219,7 @@ class AccountApi
     /**
      * Operation accountListInvoicesAsync
      *
-     * List invoices for this account, newest first.
+     * List invoices for this account, newest first
      *
      * @param  float|null $limit Max invoices to return (1-100, default 10) (optional)
      * @param  string|null $starting_after Pagination cursor (invoice id from a previous response) (optional)
@@ -3244,7 +3244,7 @@ class AccountApi
     /**
      * Operation accountListInvoicesAsyncWithHttpInfo
      *
-     * List invoices for this account, newest first.
+     * List invoices for this account, newest first
      *
      * @param  float|null $limit Max invoices to return (1-100, default 10) (optional)
      * @param  string|null $starting_after Pagination cursor (invoice id from a previous response) (optional)
@@ -3447,7 +3447,7 @@ class AccountApi
     /**
      * Operation accountListPaymentMethods
      *
-     * List saved cards. Only the account owner can call this.
+     * List saved cards. Only the account owner can call this
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountListPaymentMethods'] to see the possible values for this operation
      *
@@ -3464,7 +3464,7 @@ class AccountApi
     /**
      * Operation accountListPaymentMethodsWithHttpInfo
      *
-     * List saved cards. Only the account owner can call this.
+     * List saved cards. Only the account owner can call this
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountListPaymentMethods'] to see the possible values for this operation
      *
@@ -3590,7 +3590,7 @@ class AccountApi
     /**
      * Operation accountListPaymentMethodsAsync
      *
-     * List saved cards. Only the account owner can call this.
+     * List saved cards. Only the account owner can call this
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountListPaymentMethods'] to see the possible values for this operation
      *
@@ -3610,7 +3610,7 @@ class AccountApi
     /**
      * Operation accountListPaymentMethodsAsyncWithHttpInfo
      *
-     * List saved cards. Only the account owner can call this.
+     * List saved cards. Only the account owner can call this
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountListPaymentMethods'] to see the possible values for this operation
      *
@@ -4059,7 +4059,7 @@ class AccountApi
     /**
      * Operation accountPrepareCheckoutSession
      *
-     * Start or continue billing for this account. Returns a URL when payment is needed.
+     * Start or continue billing for this account
      *
      * @param  \Pingram\Model\BillingPostRequestBody $billing_post_request_body billing_post_request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountPrepareCheckoutSession'] to see the possible values for this operation
@@ -4077,7 +4077,7 @@ class AccountApi
     /**
      * Operation accountPrepareCheckoutSessionWithHttpInfo
      *
-     * Start or continue billing for this account. Returns a URL when payment is needed.
+     * Start or continue billing for this account
      *
      * @param  \Pingram\Model\BillingPostRequestBody $billing_post_request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountPrepareCheckoutSession'] to see the possible values for this operation
@@ -4204,7 +4204,7 @@ class AccountApi
     /**
      * Operation accountPrepareCheckoutSessionAsync
      *
-     * Start or continue billing for this account. Returns a URL when payment is needed.
+     * Start or continue billing for this account
      *
      * @param  \Pingram\Model\BillingPostRequestBody $billing_post_request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountPrepareCheckoutSession'] to see the possible values for this operation
@@ -4225,7 +4225,7 @@ class AccountApi
     /**
      * Operation accountPrepareCheckoutSessionAsyncWithHttpInfo
      *
-     * Start or continue billing for this account. Returns a URL when payment is needed.
+     * Start or continue billing for this account
      *
      * @param  \Pingram\Model\BillingPostRequestBody $billing_post_request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountPrepareCheckoutSession'] to see the possible values for this operation
@@ -4384,7 +4384,7 @@ class AccountApi
     /**
      * Operation accountResumeSubscription
      *
-     * Keep the current paid plan and undo a cancellation scheduled for the end of the billing cycle.
+     * Undo a scheduled cancellation
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountResumeSubscription'] to see the possible values for this operation
      *
@@ -4401,7 +4401,7 @@ class AccountApi
     /**
      * Operation accountResumeSubscriptionWithHttpInfo
      *
-     * Keep the current paid plan and undo a cancellation scheduled for the end of the billing cycle.
+     * Undo a scheduled cancellation
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountResumeSubscription'] to see the possible values for this operation
      *
@@ -4527,7 +4527,7 @@ class AccountApi
     /**
      * Operation accountResumeSubscriptionAsync
      *
-     * Keep the current paid plan and undo a cancellation scheduled for the end of the billing cycle.
+     * Undo a scheduled cancellation
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountResumeSubscription'] to see the possible values for this operation
      *
@@ -4547,7 +4547,7 @@ class AccountApi
     /**
      * Operation accountResumeSubscriptionAsyncWithHttpInfo
      *
-     * Keep the current paid plan and undo a cancellation scheduled for the end of the billing cycle.
+     * Undo a scheduled cancellation
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountResumeSubscription'] to see the possible values for this operation
      *
@@ -4690,7 +4690,7 @@ class AccountApi
     /**
      * Operation accountRevokeSupabase
      *
-     * Revoke Supabase integration (removes stored tokens and project info)
+     * Revoke Supabase integration
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountRevokeSupabase'] to see the possible values for this operation
      *
@@ -4707,7 +4707,7 @@ class AccountApi
     /**
      * Operation accountRevokeSupabaseWithHttpInfo
      *
-     * Revoke Supabase integration (removes stored tokens and project info)
+     * Revoke Supabase integration
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountRevokeSupabase'] to see the possible values for this operation
      *
@@ -4833,7 +4833,7 @@ class AccountApi
     /**
      * Operation accountRevokeSupabaseAsync
      *
-     * Revoke Supabase integration (removes stored tokens and project info)
+     * Revoke Supabase integration
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountRevokeSupabase'] to see the possible values for this operation
      *
@@ -4853,7 +4853,7 @@ class AccountApi
     /**
      * Operation accountRevokeSupabaseAsyncWithHttpInfo
      *
-     * Revoke Supabase integration (removes stored tokens and project info)
+     * Revoke Supabase integration
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountRevokeSupabase'] to see the possible values for this operation
      *
@@ -5321,7 +5321,7 @@ class AccountApi
     /**
      * Operation accountUpdateAccountSettings
      *
-     * Update account billing preferences such as auto upgrade and usage email alerts.
+     * Update account billing preferences
      *
      * @param  \Pingram\Model\AccountPatchRequest $account_patch_request account_patch_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountUpdateAccountSettings'] to see the possible values for this operation
@@ -5339,7 +5339,7 @@ class AccountApi
     /**
      * Operation accountUpdateAccountSettingsWithHttpInfo
      *
-     * Update account billing preferences such as auto upgrade and usage email alerts.
+     * Update account billing preferences
      *
      * @param  \Pingram\Model\AccountPatchRequest $account_patch_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountUpdateAccountSettings'] to see the possible values for this operation
@@ -5466,7 +5466,7 @@ class AccountApi
     /**
      * Operation accountUpdateAccountSettingsAsync
      *
-     * Update account billing preferences such as auto upgrade and usage email alerts.
+     * Update account billing preferences
      *
      * @param  \Pingram\Model\AccountPatchRequest $account_patch_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountUpdateAccountSettings'] to see the possible values for this operation
@@ -5487,7 +5487,7 @@ class AccountApi
     /**
      * Operation accountUpdateAccountSettingsAsyncWithHttpInfo
      *
-     * Update account billing preferences such as auto upgrade and usage email alerts.
+     * Update account billing preferences
      *
      * @param  \Pingram\Model\AccountPatchRequest $account_patch_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountUpdateAccountSettings'] to see the possible values for this operation
@@ -5646,7 +5646,7 @@ class AccountApi
     /**
      * Operation accountUpdateBillingEmail
      *
-     * Update the email address that receives invoices for this account.
+     * Update the invoice email address
      *
      * @param  \Pingram\Model\UpdateBillingEmailRequest $update_billing_email_request update_billing_email_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountUpdateBillingEmail'] to see the possible values for this operation
@@ -5664,7 +5664,7 @@ class AccountApi
     /**
      * Operation accountUpdateBillingEmailWithHttpInfo
      *
-     * Update the email address that receives invoices for this account.
+     * Update the invoice email address
      *
      * @param  \Pingram\Model\UpdateBillingEmailRequest $update_billing_email_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountUpdateBillingEmail'] to see the possible values for this operation
@@ -5791,7 +5791,7 @@ class AccountApi
     /**
      * Operation accountUpdateBillingEmailAsync
      *
-     * Update the email address that receives invoices for this account.
+     * Update the invoice email address
      *
      * @param  \Pingram\Model\UpdateBillingEmailRequest $update_billing_email_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountUpdateBillingEmail'] to see the possible values for this operation
@@ -5812,7 +5812,7 @@ class AccountApi
     /**
      * Operation accountUpdateBillingEmailAsyncWithHttpInfo
      *
-     * Update the email address that receives invoices for this account.
+     * Update the invoice email address
      *
      * @param  \Pingram\Model\UpdateBillingEmailRequest $update_billing_email_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountUpdateBillingEmail'] to see the possible values for this operation

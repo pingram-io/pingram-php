@@ -275,6 +275,7 @@ class DomainDnsCheckRecordsInner implements ModelInterface, ArrayAccess, \JsonSe
     public const ID_MAIL_FROM_MX = 'mail_from_mx';
     public const ID_DMARC = 'dmarc';
     public const ID_INBOUND_MX = 'inbound_mx';
+    public const ID_TRACKING_CNAME = 'trackingCname';
     public const RECORD_TYPE_TXT = 'TXT';
     public const RECORD_TYPE_MX = 'MX';
     public const RECORD_TYPE_CNAME = 'CNAME';
@@ -292,6 +293,7 @@ class DomainDnsCheckRecordsInner implements ModelInterface, ArrayAccess, \JsonSe
             self::ID_MAIL_FROM_MX,
             self::ID_DMARC,
             self::ID_INBOUND_MX,
+            self::ID_TRACKING_CNAME,
         ];
     }
 

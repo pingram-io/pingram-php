@@ -134,7 +134,7 @@ class UsersApi
     /**
      * Operation usersDeleteUser
      *
-     * Delete a user and all associated data (in-app notifications, preferences, and user record)
+     * Delete a user
      *
      * @param  string $user_id User ID (required)
      * @param  string|null $env_id Environment ID (required when using JWT auth) (optional)
@@ -153,7 +153,7 @@ class UsersApi
     /**
      * Operation usersDeleteUserWithHttpInfo
      *
-     * Delete a user and all associated data (in-app notifications, preferences, and user record)
+     * Delete a user
      *
      * @param  string $user_id User ID (required)
      * @param  string|null $env_id Environment ID (required when using JWT auth) (optional)
@@ -281,7 +281,7 @@ class UsersApi
     /**
      * Operation usersDeleteUserAsync
      *
-     * Delete a user and all associated data (in-app notifications, preferences, and user record)
+     * Delete a user
      *
      * @param  string $user_id User ID (required)
      * @param  string|null $env_id Environment ID (required when using JWT auth) (optional)
@@ -303,7 +303,7 @@ class UsersApi
     /**
      * Operation usersDeleteUserAsyncWithHttpInfo
      *
-     * Delete a user and all associated data (in-app notifications, preferences, and user record)
+     * Delete a user
      *
      * @param  string $user_id User ID (required)
      * @param  string|null $env_id Environment ID (required when using JWT auth) (optional)

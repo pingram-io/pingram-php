@@ -137,7 +137,7 @@ class DomainsApi
     /**
      * Operation domainsAddDomain
      *
-     * Start verification for a domain you already own so Pingram can use it for email. Pass a bare domain (example.com) or subdomain (mail.example.com). This does not purchase, transfer, renew, or control the domain, does not edit DNS, and does not disable sending or receiving on other platforms. It saves the domain on this Pingram account and returns DNS records for you to publish. Required DKIM lets Pingram send email from addresses on this domain once verification completes. Optional inbound MX, once you publish it, routes that domain&#39;s inbound email to Pingram. This call only begins verification. Publish the records, then start verification in the dashboard or with the start-verification API. Adding a domain that is already on the account returns the existing records.
+     * Start verification for a domain you already own
      *
      * @param  \Pingram\Model\PostSendersRequestBody $post_senders_request_body post_senders_request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainsAddDomain'] to see the possible values for this operation
@@ -155,7 +155,7 @@ class DomainsApi
     /**
      * Operation domainsAddDomainWithHttpInfo
      *
-     * Start verification for a domain you already own so Pingram can use it for email. Pass a bare domain (example.com) or subdomain (mail.example.com). This does not purchase, transfer, renew, or control the domain, does not edit DNS, and does not disable sending or receiving on other platforms. It saves the domain on this Pingram account and returns DNS records for you to publish. Required DKIM lets Pingram send email from addresses on this domain once verification completes. Optional inbound MX, once you publish it, routes that domain&#39;s inbound email to Pingram. This call only begins verification. Publish the records, then start verification in the dashboard or with the start-verification API. Adding a domain that is already on the account returns the existing records.
+     * Start verification for a domain you already own
      *
      * @param  \Pingram\Model\PostSendersRequestBody $post_senders_request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainsAddDomain'] to see the possible values for this operation
@@ -282,7 +282,7 @@ class DomainsApi
     /**
      * Operation domainsAddDomainAsync
      *
-     * Start verification for a domain you already own so Pingram can use it for email. Pass a bare domain (example.com) or subdomain (mail.example.com). This does not purchase, transfer, renew, or control the domain, does not edit DNS, and does not disable sending or receiving on other platforms. It saves the domain on this Pingram account and returns DNS records for you to publish. Required DKIM lets Pingram send email from addresses on this domain once verification completes. Optional inbound MX, once you publish it, routes that domain&#39;s inbound email to Pingram. This call only begins verification. Publish the records, then start verification in the dashboard or with the start-verification API. Adding a domain that is already on the account returns the existing records.
+     * Start verification for a domain you already own
      *
      * @param  \Pingram\Model\PostSendersRequestBody $post_senders_request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainsAddDomain'] to see the possible values for this operation
@@ -303,7 +303,7 @@ class DomainsApi
     /**
      * Operation domainsAddDomainAsyncWithHttpInfo
      *
-     * Start verification for a domain you already own so Pingram can use it for email. Pass a bare domain (example.com) or subdomain (mail.example.com). This does not purchase, transfer, renew, or control the domain, does not edit DNS, and does not disable sending or receiving on other platforms. It saves the domain on this Pingram account and returns DNS records for you to publish. Required DKIM lets Pingram send email from addresses on this domain once verification completes. Optional inbound MX, once you publish it, routes that domain&#39;s inbound email to Pingram. This call only begins verification. Publish the records, then start verification in the dashboard or with the start-verification API. Adding a domain that is already on the account returns the existing records.
+     * Start verification for a domain you already own
      *
      * @param  \Pingram\Model\PostSendersRequestBody $post_senders_request_body (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainsAddDomain'] to see the possible values for this operation
@@ -462,7 +462,7 @@ class DomainsApi
     /**
      * Operation domainsDeleteDomain
      *
-     * Remove a sender domain from the account.
+     * Remove a sender domain from the account
      *
      * @param  string $sender Sender domain (URL encoded) (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainsDeleteDomain'] to see the possible values for this operation
@@ -480,7 +480,7 @@ class DomainsApi
     /**
      * Operation domainsDeleteDomainWithHttpInfo
      *
-     * Remove a sender domain from the account.
+     * Remove a sender domain from the account
      *
      * @param  string $sender Sender domain (URL encoded) (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainsDeleteDomain'] to see the possible values for this operation
@@ -607,7 +607,7 @@ class DomainsApi
     /**
      * Operation domainsDeleteDomainAsync
      *
-     * Remove a sender domain from the account.
+     * Remove a sender domain from the account
      *
      * @param  string $sender Sender domain (URL encoded) (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainsDeleteDomain'] to see the possible values for this operation
@@ -628,7 +628,7 @@ class DomainsApi
     /**
      * Operation domainsDeleteDomainAsyncWithHttpInfo
      *
-     * Remove a sender domain from the account.
+     * Remove a sender domain from the account
      *
      * @param  string $sender Sender domain (URL encoded) (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainsDeleteDomain'] to see the possible values for this operation
@@ -788,7 +788,7 @@ class DomainsApi
     /**
      * Operation domainsListDomains
      *
-     * List domains already added to this Pingram account for email. Each entry includes verification status and the DNS records Pingram expects you to publish. Does not search a registrar, purchase or transfer a domain, change DNS, or include domains that have not been added to this account.
+     * List domains already added to this Pingram account for email
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainsListDomains'] to see the possible values for this operation
      *
@@ -805,7 +805,7 @@ class DomainsApi
     /**
      * Operation domainsListDomainsWithHttpInfo
      *
-     * List domains already added to this Pingram account for email. Each entry includes verification status and the DNS records Pingram expects you to publish. Does not search a registrar, purchase or transfer a domain, change DNS, or include domains that have not been added to this account.
+     * List domains already added to this Pingram account for email
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainsListDomains'] to see the possible values for this operation
      *
@@ -931,7 +931,7 @@ class DomainsApi
     /**
      * Operation domainsListDomainsAsync
      *
-     * List domains already added to this Pingram account for email. Each entry includes verification status and the DNS records Pingram expects you to publish. Does not search a registrar, purchase or transfer a domain, change DNS, or include domains that have not been added to this account.
+     * List domains already added to this Pingram account for email
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainsListDomains'] to see the possible values for this operation
      *
@@ -951,7 +951,7 @@ class DomainsApi
     /**
      * Operation domainsListDomainsAsyncWithHttpInfo
      *
-     * List domains already added to this Pingram account for email. Each entry includes verification status and the DNS records Pingram expects you to publish. Does not search a registrar, purchase or transfer a domain, change DNS, or include domains that have not been added to this account.
+     * List domains already added to this Pingram account for email
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainsListDomains'] to see the possible values for this operation
      *
@@ -1094,7 +1094,7 @@ class DomainsApi
     /**
      * Operation domainsStartDomainVerification
      *
-     * Start SES domain verification (DNS readiness is checked client-side via checkDomainDns)
+     * Start domain verification
      *
      * @param  string $sender Sender domain (URL encoded) (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainsStartDomainVerification'] to see the possible values for this operation
@@ -1112,7 +1112,7 @@ class DomainsApi
     /**
      * Operation domainsStartDomainVerificationWithHttpInfo
      *
-     * Start SES domain verification (DNS readiness is checked client-side via checkDomainDns)
+     * Start domain verification
      *
      * @param  string $sender Sender domain (URL encoded) (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainsStartDomainVerification'] to see the possible values for this operation
@@ -1239,7 +1239,7 @@ class DomainsApi
     /**
      * Operation domainsStartDomainVerificationAsync
      *
-     * Start SES domain verification (DNS readiness is checked client-side via checkDomainDns)
+     * Start domain verification
      *
      * @param  string $sender Sender domain (URL encoded) (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainsStartDomainVerification'] to see the possible values for this operation
@@ -1260,7 +1260,7 @@ class DomainsApi
     /**
      * Operation domainsStartDomainVerificationAsyncWithHttpInfo
      *
-     * Start SES domain verification (DNS readiness is checked client-side via checkDomainDns)
+     * Start domain verification
      *
      * @param  string $sender Sender domain (URL encoded) (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainsStartDomainVerification'] to see the possible values for this operation
