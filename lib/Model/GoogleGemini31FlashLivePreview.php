@@ -57,6 +57,7 @@ class GoogleGemini31FlashLivePreview implements ModelInterface, ArrayAccess, \Js
       * @var string[]
       */
     protected static $openAPITypes = [
+        'effort' => 'string',
         'model' => 'string',
         'voice_id' => 'string',
         'temperature' => 'float',
@@ -71,6 +72,7 @@ class GoogleGemini31FlashLivePreview implements ModelInterface, ArrayAccess, \Js
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'effort' => null,
         'model' => null,
         'voice_id' => null,
         'temperature' => null,
@@ -83,6 +85,7 @@ class GoogleGemini31FlashLivePreview implements ModelInterface, ArrayAccess, \Js
       * @var boolean[]
       */
     protected static array $openAPINullables = [
+        'effort' => false,
         'model' => false,
         'voice_id' => false,
         'temperature' => false,
@@ -175,6 +178,7 @@ class GoogleGemini31FlashLivePreview implements ModelInterface, ArrayAccess, \Js
      * @var string[]
      */
     protected static $attributeMap = [
+        'effort' => 'effort',
         'model' => 'model',
         'voice_id' => 'voiceId',
         'temperature' => 'temperature',
@@ -187,6 +191,7 @@ class GoogleGemini31FlashLivePreview implements ModelInterface, ArrayAccess, \Js
      * @var string[]
      */
     protected static $setters = [
+        'effort' => 'setEffort',
         'model' => 'setModel',
         'voice_id' => 'setVoiceId',
         'temperature' => 'setTemperature',
@@ -199,6 +204,7 @@ class GoogleGemini31FlashLivePreview implements ModelInterface, ArrayAccess, \Js
      * @var string[]
      */
     protected static $getters = [
+        'effort' => 'getEffort',
         'model' => 'getModel',
         'voice_id' => 'getVoiceId',
         'temperature' => 'getTemperature',
@@ -246,6 +252,10 @@ class GoogleGemini31FlashLivePreview implements ModelInterface, ArrayAccess, \Js
         return self::$openAPIModelName;
     }
 
+    public const EFFORT_MINIMAL = 'minimal';
+    public const EFFORT_LOW = 'low';
+    public const EFFORT_MEDIUM = 'medium';
+    public const EFFORT_HIGH = 'high';
     public const MODEL_GOOGLE_GEMINI_3_1_FLASH_LIVE_PREVIEW = 'google:gemini-3.1-flash-live-preview';
     public const VOICE_ID_PUCK = 'Puck';
     public const VOICE_ID_CHARON = 'Charon';
@@ -255,6 +265,21 @@ class GoogleGemini31FlashLivePreview implements ModelInterface, ArrayAccess, \Js
     public const VOICE_ID_LEDA = 'Leda';
     public const VOICE_ID_ORUS = 'Orus';
     public const VOICE_ID_ZEPHYR = 'Zephyr';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getEffortAllowableValues()
+    {
+        return [
+            self::EFFORT_MINIMAL,
+            self::EFFORT_LOW,
+            self::EFFORT_MEDIUM,
+            self::EFFORT_HIGH,
+        ];
+    }
 
     /**
      * Gets allowable values of the enum
@@ -302,6 +327,7 @@ class GoogleGemini31FlashLivePreview implements ModelInterface, ArrayAccess, \Js
      */
     public function __construct(?array $data = null)
     {
+        $this->setIfExists('effort', $data ?? [], null);
         $this->setIfExists('model', $data ?? [], null);
         $this->setIfExists('voice_id', $data ?? [], null);
         $this->setIfExists('temperature', $data ?? [], null);
@@ -334,6 +360,15 @@ class GoogleGemini31FlashLivePreview implements ModelInterface, ArrayAccess, \Js
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getEffortAllowableValues();
+        if (!is_null($this->container['effort']) && !in_array($this->container['effort'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'effort', must be one of '%s'",
+                $this->container['effort'],
+                implode("', '", $allowedValues)
+            );
+        }
 
         if ($this->container['model'] === null) {
             $invalidProperties[] = "'model' can't be null";
@@ -370,6 +405,43 @@ class GoogleGemini31FlashLivePreview implements ModelInterface, ArrayAccess, \Js
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets effort
+     *
+     * @return string|null
+     */
+    public function getEffort()
+    {
+        return $this->container['effort'];
+    }
+
+    /**
+     * Sets effort
+     *
+     * @param string|null $effort effort
+     *
+     * @return self
+     */
+    public function setEffort($effort)
+    {
+        if (is_null($effort)) {
+            throw new \InvalidArgumentException('non-nullable effort cannot be null');
+        }
+        $allowedValues = $this->getEffortAllowableValues();
+        if (!in_array($effort, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'effort', must be one of '%s'",
+                    $effort,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['effort'] = $effort;
+
+        return $this;
+    }
 
     /**
      * Gets model

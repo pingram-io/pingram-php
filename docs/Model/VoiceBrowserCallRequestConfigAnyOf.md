@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **steps** | [**\Pingram\Model\ScriptStepsInner[]**](ScriptStepsInner.md) |  |
 **voicemail_action** | **string** | What to do when an answering machine picks up. hangup ends the call, message plays voicemailMessage, continue keeps talking. Default: continue. | [optional]
 **voicemail_message** | **string** |  | [optional]
+**stream** | [**\Pingram\Model\ScriptStream**](ScriptStream.md) |  | [optional]
 **privacy** | [**\Pingram\Model\ScriptPrivacy**](ScriptPrivacy.md) |  | [optional]
 **opener** | **string** |  | [optional]
 **agent** | [**\Pingram\Model\AgentAgent**](AgentAgent.md) |  |

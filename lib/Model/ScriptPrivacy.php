@@ -35,7 +35,7 @@ use \Pingram\ObjectSerializer;
  * ScriptPrivacy Class Doc Comment
  *
  * @category Class
- * @description Omitted privacy means record and transcribe are both on.
+ * @description Omitted record and transcript mean both are off.
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -59,7 +59,7 @@ class ScriptPrivacy implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'record' => 'bool',
-        'transcribe' => 'bool'
+        'transcript' => 'string'
     ];
 
     /**
@@ -71,7 +71,7 @@ class ScriptPrivacy implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'record' => null,
-        'transcribe' => null
+        'transcript' => null
     ];
 
     /**
@@ -81,7 +81,7 @@ class ScriptPrivacy implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static array $openAPINullables = [
         'record' => false,
-        'transcribe' => false
+        'transcript' => false
     ];
 
     /**
@@ -171,7 +171,7 @@ class ScriptPrivacy implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'record' => 'record',
-        'transcribe' => 'transcribe'
+        'transcript' => 'transcript'
     ];
 
     /**
@@ -181,7 +181,7 @@ class ScriptPrivacy implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'record' => 'setRecord',
-        'transcribe' => 'setTranscribe'
+        'transcript' => 'setTranscript'
     ];
 
     /**
@@ -191,7 +191,7 @@ class ScriptPrivacy implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'record' => 'getRecord',
-        'transcribe' => 'getTranscribe'
+        'transcript' => 'getTranscript'
     ];
 
     /**
@@ -235,6 +235,21 @@ class ScriptPrivacy implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
+    public const TRANSCRIPT_SINGLE = 'single';
+    public const TRANSCRIPT_MULTICHANNEL = 'multichannel';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTranscriptAllowableValues()
+    {
+        return [
+            self::TRANSCRIPT_SINGLE,
+            self::TRANSCRIPT_MULTICHANNEL,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -252,7 +267,7 @@ class ScriptPrivacy implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(?array $data = null)
     {
         $this->setIfExists('record', $data ?? [], null);
-        $this->setIfExists('transcribe', $data ?? [], null);
+        $this->setIfExists('transcript', $data ?? [], null);
     }
 
     /**
@@ -281,6 +296,15 @@ class ScriptPrivacy implements ModelInterface, ArrayAccess, \JsonSerializable
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getTranscriptAllowableValues();
+        if (!is_null($this->container['transcript']) && !in_array($this->container['transcript'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'transcript', must be one of '%s'",
+                $this->container['transcript'],
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -325,28 +349,38 @@ class ScriptPrivacy implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets transcribe
+     * Gets transcript
      *
-     * @return bool|null
+     * @return string|null
      */
-    public function getTranscribe()
+    public function getTranscript()
     {
-        return $this->container['transcribe'];
+        return $this->container['transcript'];
     }
 
     /**
-     * Sets transcribe
+     * Sets transcript
      *
-     * @param bool|null $transcribe transcribe
+     * @param string|null $transcript single mixes every channel into one stream. multichannel transcribes each channel.
      *
      * @return self
      */
-    public function setTranscribe($transcribe)
+    public function setTranscript($transcript)
     {
-        if (is_null($transcribe)) {
-            throw new \InvalidArgumentException('non-nullable transcribe cannot be null');
+        if (is_null($transcript)) {
+            throw new \InvalidArgumentException('non-nullable transcript cannot be null');
         }
-        $this->container['transcribe'] = $transcribe;
+        $allowedValues = $this->getTranscriptAllowableValues();
+        if (!in_array($transcript, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'transcript', must be one of '%s'",
+                    $transcript,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['transcript'] = $transcript;
 
         return $this;
     }

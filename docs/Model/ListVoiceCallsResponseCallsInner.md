@@ -17,5 +17,7 @@ Name | Type | Description | Notes
 **outcome** | **string** |  | [optional]
 **end_reason** | **string** | Machine-readable reason the call ended — persisted on every call record. | [optional]
 **end_detail** | **string** | Short human-readable detail, such as why the call failed. | [optional]
+**websocket** | **string** | Live call socket. Present while the call is active. | [optional]
+**token** | **string** | Token for the live call socket. Present while the call is active. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

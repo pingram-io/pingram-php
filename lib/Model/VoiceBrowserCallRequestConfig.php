@@ -62,11 +62,15 @@ class VoiceBrowserCallRequestConfig implements ModelInterface, ArrayAccess, \Jso
         'steps' => '\Pingram\Model\ScriptStepsInner[]',
         'voicemail_action' => 'string',
         'voicemail_message' => 'string',
+        'stream' => '\Pingram\Model\ScriptStream',
         'privacy' => '\Pingram\Model\ScriptPrivacy',
         'opener' => 'string',
         'agent' => '\Pingram\Model\AgentAgent',
         'greeting' => 'string',
-        'to' => 'string'
+        'to' => 'string',
+        'hold_say' => 'string',
+        'hold_audio' => 'string',
+        'receiver_say' => 'string'
     ];
 
     /**
@@ -81,11 +85,15 @@ class VoiceBrowserCallRequestConfig implements ModelInterface, ArrayAccess, \Jso
         'steps' => null,
         'voicemail_action' => null,
         'voicemail_message' => null,
+        'stream' => null,
         'privacy' => null,
         'opener' => null,
         'agent' => null,
         'greeting' => null,
-        'to' => null
+        'to' => null,
+        'hold_say' => null,
+        'hold_audio' => null,
+        'receiver_say' => null
     ];
 
     /**
@@ -98,11 +106,15 @@ class VoiceBrowserCallRequestConfig implements ModelInterface, ArrayAccess, \Jso
         'steps' => false,
         'voicemail_action' => false,
         'voicemail_message' => false,
+        'stream' => false,
         'privacy' => false,
         'opener' => false,
         'agent' => false,
         'greeting' => false,
-        'to' => false
+        'to' => false,
+        'hold_say' => false,
+        'hold_audio' => false,
+        'receiver_say' => false
     ];
 
     /**
@@ -195,11 +207,15 @@ class VoiceBrowserCallRequestConfig implements ModelInterface, ArrayAccess, \Jso
         'steps' => 'steps',
         'voicemail_action' => 'voicemailAction',
         'voicemail_message' => 'voicemailMessage',
+        'stream' => 'stream',
         'privacy' => 'privacy',
         'opener' => 'opener',
         'agent' => 'agent',
         'greeting' => 'greeting',
-        'to' => 'to'
+        'to' => 'to',
+        'hold_say' => 'holdSay',
+        'hold_audio' => 'holdAudio',
+        'receiver_say' => 'receiverSay'
     ];
 
     /**
@@ -212,11 +228,15 @@ class VoiceBrowserCallRequestConfig implements ModelInterface, ArrayAccess, \Jso
         'steps' => 'setSteps',
         'voicemail_action' => 'setVoicemailAction',
         'voicemail_message' => 'setVoicemailMessage',
+        'stream' => 'setStream',
         'privacy' => 'setPrivacy',
         'opener' => 'setOpener',
         'agent' => 'setAgent',
         'greeting' => 'setGreeting',
-        'to' => 'setTo'
+        'to' => 'setTo',
+        'hold_say' => 'setHoldSay',
+        'hold_audio' => 'setHoldAudio',
+        'receiver_say' => 'setReceiverSay'
     ];
 
     /**
@@ -229,11 +249,15 @@ class VoiceBrowserCallRequestConfig implements ModelInterface, ArrayAccess, \Jso
         'steps' => 'getSteps',
         'voicemail_action' => 'getVoicemailAction',
         'voicemail_message' => 'getVoicemailMessage',
+        'stream' => 'getStream',
         'privacy' => 'getPrivacy',
         'opener' => 'getOpener',
         'agent' => 'getAgent',
         'greeting' => 'getGreeting',
-        'to' => 'getTo'
+        'to' => 'getTo',
+        'hold_say' => 'getHoldSay',
+        'hold_audio' => 'getHoldAudio',
+        'receiver_say' => 'getReceiverSay'
     ];
 
     /**
@@ -277,8 +301,8 @@ class VoiceBrowserCallRequestConfig implements ModelInterface, ArrayAccess, \Jso
         return self::$openAPIModelName;
     }
 
-    public const TYPE_AGENT = 'agent';
-    public const TYPE_DISABLED = 'disabled';
+    public const TYPE_ELEVENLABS = 'elevenlabs';
+    public const TYPE_STREAM = 'stream';
     public const VOICEMAIL_ACTION_HANGUP = 'hangup';
     public const VOICEMAIL_ACTION_MESSAGE = 'message';
     public const VOICEMAIL_ACTION__CONTINUE = 'continue';
@@ -291,8 +315,8 @@ class VoiceBrowserCallRequestConfig implements ModelInterface, ArrayAccess, \Jso
     public function getTypeAllowableValues()
     {
         return [
-            self::TYPE_AGENT,
-            self::TYPE_DISABLED,
+            self::TYPE_ELEVENLABS,
+            self::TYPE_STREAM,
         ];
     }
 
@@ -329,11 +353,15 @@ class VoiceBrowserCallRequestConfig implements ModelInterface, ArrayAccess, \Jso
         $this->setIfExists('steps', $data ?? [], null);
         $this->setIfExists('voicemail_action', $data ?? [], null);
         $this->setIfExists('voicemail_message', $data ?? [], null);
+        $this->setIfExists('stream', $data ?? [], null);
         $this->setIfExists('privacy', $data ?? [], null);
         $this->setIfExists('opener', $data ?? [], null);
         $this->setIfExists('agent', $data ?? [], null);
         $this->setIfExists('greeting', $data ?? [], null);
         $this->setIfExists('to', $data ?? [], null);
+        $this->setIfExists('hold_say', $data ?? [], null);
+        $this->setIfExists('hold_audio', $data ?? [], null);
+        $this->setIfExists('receiver_say', $data ?? [], null);
     }
 
     /**
@@ -537,6 +565,33 @@ class VoiceBrowserCallRequestConfig implements ModelInterface, ArrayAccess, \Jso
     }
 
     /**
+     * Gets stream
+     *
+     * @return \Pingram\Model\ScriptStream|null
+     */
+    public function getStream()
+    {
+        return $this->container['stream'];
+    }
+
+    /**
+     * Sets stream
+     *
+     * @param \Pingram\Model\ScriptStream|null $stream stream
+     *
+     * @return self
+     */
+    public function setStream($stream)
+    {
+        if (is_null($stream)) {
+            throw new \InvalidArgumentException('non-nullable stream cannot be null');
+        }
+        $this->container['stream'] = $stream;
+
+        return $this;
+    }
+
+    /**
      * Gets privacy
      *
      * @return \Pingram\Model\ScriptPrivacy|null
@@ -667,6 +722,87 @@ class VoiceBrowserCallRequestConfig implements ModelInterface, ArrayAccess, \Jso
             throw new \InvalidArgumentException('non-nullable to cannot be null');
         }
         $this->container['to'] = $to;
+
+        return $this;
+    }
+
+    /**
+     * Gets hold_say
+     *
+     * @return string|null
+     */
+    public function getHoldSay()
+    {
+        return $this->container['hold_say'];
+    }
+
+    /**
+     * Sets hold_say
+     *
+     * @param string|null $hold_say Spoken once to the caller while they wait. If holdAudio is also set, this sentence plays first and then the audio.
+     *
+     * @return self
+     */
+    public function setHoldSay($hold_say)
+    {
+        if (is_null($hold_say)) {
+            throw new \InvalidArgumentException('non-nullable hold_say cannot be null');
+        }
+        $this->container['hold_say'] = $hold_say;
+
+        return $this;
+    }
+
+    /**
+     * Gets hold_audio
+     *
+     * @return string|null
+     */
+    public function getHoldAudio()
+    {
+        return $this->container['hold_audio'];
+    }
+
+    /**
+     * Sets hold_audio
+     *
+     * @param string|null $hold_audio `builtin:soft-piano`, `builtin:calm`, `builtin:bright`, or an HTTPS MP3 or WAV. Loops until the call connects. Omit it and the caller hears ringing.
+     *
+     * @return self
+     */
+    public function setHoldAudio($hold_audio)
+    {
+        if (is_null($hold_audio)) {
+            throw new \InvalidArgumentException('non-nullable hold_audio cannot be null');
+        }
+        $this->container['hold_audio'] = $hold_audio;
+
+        return $this;
+    }
+
+    /**
+     * Gets receiver_say
+     *
+     * @return string|null
+     */
+    public function getReceiverSay()
+    {
+        return $this->container['receiver_say'];
+    }
+
+    /**
+     * Sets receiver_say
+     *
+     * @param string|null $receiver_say Spoken to the person who answers, before the caller is connected.
+     *
+     * @return self
+     */
+    public function setReceiverSay($receiver_say)
+    {
+        if (is_null($receiver_say)) {
+            throw new \InvalidArgumentException('non-nullable receiver_say cannot be null');
+        }
+        $this->container['receiver_say'] = $receiver_say;
 
         return $this;
     }

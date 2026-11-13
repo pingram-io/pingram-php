@@ -17,8 +17,11 @@ Name | Type | Description | Notes
 **outcome** | **string** |  | [optional]
 **end_reason** | **string** | Machine-readable reason the call ended — persisted on every call record. | [optional]
 **end_detail** | **string** | Short human-readable detail, such as why the call failed. | [optional]
+**websocket** | **string** | Live call socket. Present while the call is active. | [optional]
+**token** | **string** | Token for the live call socket. Present while the call is active. | [optional]
 **timeline** | [**\Pingram\Model\GetVoiceCallResponseCallTimelineInner[]**](GetVoiceCallResponseCallTimelineInner.md) | Full chronological timeline (transcript + ops events). |
 **recording_url** | **string** |  | [optional]
+**setup** | [**\Pingram\Model\GetVoiceCallResponseCallSetup**](GetVoiceCallResponseCallSetup.md) |  | [optional]
 **variables** | **array<string,string>** |  | [optional]
 **cost** | [**\Pingram\Model\GetVoiceCallResponseCallCost**](GetVoiceCallResponseCallCost.md) |  | [optional]
 

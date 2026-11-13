@@ -58,10 +58,12 @@ class AgentAgentModel implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
+        'effort' => 'string',
         'model' => 'string',
         'voice_id' => 'string',
         'temperature' => 'float',
-        'max_tokens' => 'float'
+        'max_tokens' => 'float',
+        'language' => 'string'
     ];
 
     /**
@@ -72,10 +74,12 @@ class AgentAgentModel implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'effort' => null,
         'model' => null,
         'voice_id' => null,
         'temperature' => null,
-        'max_tokens' => null
+        'max_tokens' => null,
+        'language' => null
     ];
 
     /**
@@ -84,10 +88,12 @@ class AgentAgentModel implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
+        'effort' => false,
         'model' => false,
         'voice_id' => false,
         'temperature' => false,
-        'max_tokens' => false
+        'max_tokens' => false,
+        'language' => false
     ];
 
     /**
@@ -176,10 +182,12 @@ class AgentAgentModel implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
+        'effort' => 'effort',
         'model' => 'model',
         'voice_id' => 'voiceId',
         'temperature' => 'temperature',
-        'max_tokens' => 'maxTokens'
+        'max_tokens' => 'maxTokens',
+        'language' => 'language'
     ];
 
     /**
@@ -188,10 +196,12 @@ class AgentAgentModel implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
+        'effort' => 'setEffort',
         'model' => 'setModel',
         'voice_id' => 'setVoiceId',
         'temperature' => 'setTemperature',
-        'max_tokens' => 'setMaxTokens'
+        'max_tokens' => 'setMaxTokens',
+        'language' => 'setLanguage'
     ];
 
     /**
@@ -200,10 +210,12 @@ class AgentAgentModel implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
+        'effort' => 'getEffort',
         'model' => 'getModel',
         'voice_id' => 'getVoiceId',
         'temperature' => 'getTemperature',
-        'max_tokens' => 'getMaxTokens'
+        'max_tokens' => 'getMaxTokens',
+        'language' => 'getLanguage'
     ];
 
     /**
@@ -247,12 +259,70 @@ class AgentAgentModel implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
-    public const MODEL_XAI_GROK_VOICE_LATEST = 'xai:grok-voice-latest';
-    public const VOICE_ID_EVE = 'eve';
-    public const VOICE_ID_ARA = 'ara';
-    public const VOICE_ID_REX = 'rex';
-    public const VOICE_ID_SAL = 'sal';
-    public const VOICE_ID_LEO = 'leo';
+    public const EFFORT_MINIMAL = 'minimal';
+    public const EFFORT_LOW = 'low';
+    public const EFFORT_MEDIUM = 'medium';
+    public const EFFORT_HIGH = 'high';
+    public const MODEL_ELEVENLABS_ELEVEN_REALTIME_V1_MAX = 'elevenlabs:eleven_realtime_v1_max';
+    public const VOICE_ID_BRIAN = 'brian';
+    public const VOICE_ID_RACHEL = 'rachel';
+    public const VOICE_ID_ADAM = 'adam';
+    public const VOICE_ID_ANTONI = 'antoni';
+    public const VOICE_ID_ELLI = 'elli';
+    public const VOICE_ID_JOSH = 'josh';
+    public const VOICE_ID_BELLA = 'bella';
+    public const VOICE_ID_CHARLOTTE = 'charlotte';
+    public const VOICE_ID_D_TM_T_LSH_IYPWP08EFT_JH6 = 'dTmTLshIypwp08eftJH6';
+    public const VOICE_ID_M8X_XPW1X_IZVQ_ZLX_YBY5_T = 'M8xXPW1xIZVqZLxYby5T';
+    public const VOICE_ID_KBGD_AMQ_TSB5AA_LUA_XEM2 = 'KbgdAMqTSb5aaLUaXEm2';
+    public const LANGUAGE_EN = 'en';
+    public const LANGUAGE_AR = 'ar';
+    public const LANGUAGE_BG = 'bg';
+    public const LANGUAGE_ZH = 'zh';
+    public const LANGUAGE_HR = 'hr';
+    public const LANGUAGE_CS = 'cs';
+    public const LANGUAGE_DA = 'da';
+    public const LANGUAGE_NL = 'nl';
+    public const LANGUAGE_FIL = 'fil';
+    public const LANGUAGE_FI = 'fi';
+    public const LANGUAGE_FR = 'fr';
+    public const LANGUAGE_DE = 'de';
+    public const LANGUAGE_EL = 'el';
+    public const LANGUAGE_HE = 'he';
+    public const LANGUAGE_HI = 'hi';
+    public const LANGUAGE_HU = 'hu';
+    public const LANGUAGE_ID = 'id';
+    public const LANGUAGE_IT = 'it';
+    public const LANGUAGE_JA = 'ja';
+    public const LANGUAGE_KO = 'ko';
+    public const LANGUAGE_MS = 'ms';
+    public const LANGUAGE_NO = 'no';
+    public const LANGUAGE_PL = 'pl';
+    public const LANGUAGE_PT = 'pt';
+    public const LANGUAGE_RO = 'ro';
+    public const LANGUAGE_RU = 'ru';
+    public const LANGUAGE_SK = 'sk';
+    public const LANGUAGE_ES = 'es';
+    public const LANGUAGE_SV = 'sv';
+    public const LANGUAGE_TA = 'ta';
+    public const LANGUAGE_TR = 'tr';
+    public const LANGUAGE_UK = 'uk';
+    public const LANGUAGE_VI = 'vi';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getEffortAllowableValues()
+    {
+        return [
+            self::EFFORT_MINIMAL,
+            self::EFFORT_LOW,
+            self::EFFORT_MEDIUM,
+            self::EFFORT_HIGH,
+        ];
+    }
 
     /**
      * Gets allowable values of the enum
@@ -262,7 +332,7 @@ class AgentAgentModel implements ModelInterface, ArrayAccess, \JsonSerializable
     public function getModelAllowableValues()
     {
         return [
-            self::MODEL_XAI_GROK_VOICE_LATEST,
+            self::MODEL_ELEVENLABS_ELEVEN_REALTIME_V1_MAX,
         ];
     }
 
@@ -274,11 +344,61 @@ class AgentAgentModel implements ModelInterface, ArrayAccess, \JsonSerializable
     public function getVoiceIdAllowableValues()
     {
         return [
-            self::VOICE_ID_EVE,
-            self::VOICE_ID_ARA,
-            self::VOICE_ID_REX,
-            self::VOICE_ID_SAL,
-            self::VOICE_ID_LEO,
+            self::VOICE_ID_BRIAN,
+            self::VOICE_ID_RACHEL,
+            self::VOICE_ID_ADAM,
+            self::VOICE_ID_ANTONI,
+            self::VOICE_ID_ELLI,
+            self::VOICE_ID_JOSH,
+            self::VOICE_ID_BELLA,
+            self::VOICE_ID_CHARLOTTE,
+            self::VOICE_ID_D_TM_T_LSH_IYPWP08EFT_JH6,
+            self::VOICE_ID_M8X_XPW1X_IZVQ_ZLX_YBY5_T,
+            self::VOICE_ID_KBGD_AMQ_TSB5AA_LUA_XEM2,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getLanguageAllowableValues()
+    {
+        return [
+            self::LANGUAGE_EN,
+            self::LANGUAGE_AR,
+            self::LANGUAGE_BG,
+            self::LANGUAGE_ZH,
+            self::LANGUAGE_HR,
+            self::LANGUAGE_CS,
+            self::LANGUAGE_DA,
+            self::LANGUAGE_NL,
+            self::LANGUAGE_FIL,
+            self::LANGUAGE_FI,
+            self::LANGUAGE_FR,
+            self::LANGUAGE_DE,
+            self::LANGUAGE_EL,
+            self::LANGUAGE_HE,
+            self::LANGUAGE_HI,
+            self::LANGUAGE_HU,
+            self::LANGUAGE_ID,
+            self::LANGUAGE_IT,
+            self::LANGUAGE_JA,
+            self::LANGUAGE_KO,
+            self::LANGUAGE_MS,
+            self::LANGUAGE_NO,
+            self::LANGUAGE_PL,
+            self::LANGUAGE_PT,
+            self::LANGUAGE_RO,
+            self::LANGUAGE_RU,
+            self::LANGUAGE_SK,
+            self::LANGUAGE_ES,
+            self::LANGUAGE_SV,
+            self::LANGUAGE_TA,
+            self::LANGUAGE_TR,
+            self::LANGUAGE_UK,
+            self::LANGUAGE_VI,
         ];
     }
 
@@ -297,10 +417,12 @@ class AgentAgentModel implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
+        $this->setIfExists('effort', $data ?? [], null);
         $this->setIfExists('model', $data ?? [], null);
         $this->setIfExists('voice_id', $data ?? [], null);
         $this->setIfExists('temperature', $data ?? [], null);
         $this->setIfExists('max_tokens', $data ?? [], null);
+        $this->setIfExists('language', $data ?? [], null);
     }
 
     /**
@@ -330,6 +452,15 @@ class AgentAgentModel implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        $allowedValues = $this->getEffortAllowableValues();
+        if (!is_null($this->container['effort']) && !in_array($this->container['effort'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'effort', must be one of '%s'",
+                $this->container['effort'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['model'] === null) {
             $invalidProperties[] = "'model' can't be null";
         }
@@ -351,6 +482,15 @@ class AgentAgentModel implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
 
+        $allowedValues = $this->getLanguageAllowableValues();
+        if (!is_null($this->container['language']) && !in_array($this->container['language'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'language', must be one of '%s'",
+                $this->container['language'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -365,6 +505,43 @@ class AgentAgentModel implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets effort
+     *
+     * @return string|null
+     */
+    public function getEffort()
+    {
+        return $this->container['effort'];
+    }
+
+    /**
+     * Sets effort
+     *
+     * @param string|null $effort effort
+     *
+     * @return self
+     */
+    public function setEffort($effort)
+    {
+        if (is_null($effort)) {
+            throw new \InvalidArgumentException('non-nullable effort cannot be null');
+        }
+        $allowedValues = $this->getEffortAllowableValues();
+        if (!in_array($effort, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'effort', must be one of '%s'",
+                    $effort,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['effort'] = $effort;
+
+        return $this;
+    }
 
     /**
      * Gets model
@@ -490,6 +667,43 @@ class AgentAgentModel implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable max_tokens cannot be null');
         }
         $this->container['max_tokens'] = $max_tokens;
+
+        return $this;
+    }
+
+    /**
+     * Gets language
+     *
+     * @return string|null
+     */
+    public function getLanguage()
+    {
+        return $this->container['language'];
+    }
+
+    /**
+     * Sets language
+     *
+     * @param string|null $language language
+     *
+     * @return self
+     */
+    public function setLanguage($language)
+    {
+        if (is_null($language)) {
+            throw new \InvalidArgumentException('non-nullable language cannot be null');
+        }
+        $allowedValues = $this->getLanguageAllowableValues();
+        if (!in_array($language, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'language', must be one of '%s'",
+                    $language,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['language'] = $language;
 
         return $this;
     }

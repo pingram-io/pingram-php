@@ -58,7 +58,8 @@ class VoiceCallResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
       */
     protected static $openAPITypes = [
         'tracking_id' => 'string',
-        'websocket' => 'string'
+        'websocket' => 'string',
+        'token' => 'string'
     ];
 
     /**
@@ -70,7 +71,8 @@ class VoiceCallResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
       */
     protected static $openAPIFormats = [
         'tracking_id' => null,
-        'websocket' => null
+        'websocket' => null,
+        'token' => null
     ];
 
     /**
@@ -80,7 +82,8 @@ class VoiceCallResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
       */
     protected static array $openAPINullables = [
         'tracking_id' => false,
-        'websocket' => false
+        'websocket' => false,
+        'token' => false
     ];
 
     /**
@@ -170,7 +173,8 @@ class VoiceCallResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     protected static $attributeMap = [
         'tracking_id' => 'trackingId',
-        'websocket' => 'websocket'
+        'websocket' => 'websocket',
+        'token' => 'token'
     ];
 
     /**
@@ -180,7 +184,8 @@ class VoiceCallResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     protected static $setters = [
         'tracking_id' => 'setTrackingId',
-        'websocket' => 'setWebsocket'
+        'websocket' => 'setWebsocket',
+        'token' => 'setToken'
     ];
 
     /**
@@ -190,7 +195,8 @@ class VoiceCallResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     protected static $getters = [
         'tracking_id' => 'getTrackingId',
-        'websocket' => 'getWebsocket'
+        'websocket' => 'getWebsocket',
+        'token' => 'getToken'
     ];
 
     /**
@@ -252,6 +258,7 @@ class VoiceCallResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     {
         $this->setIfExists('tracking_id', $data ?? [], null);
         $this->setIfExists('websocket', $data ?? [], null);
+        $this->setIfExists('token', $data ?? [], null);
     }
 
     /**
@@ -286,6 +293,9 @@ class VoiceCallResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
         }
         if ($this->container['websocket'] === null) {
             $invalidProperties[] = "'websocket' can't be null";
+        }
+        if ($this->container['token'] === null) {
+            $invalidProperties[] = "'token' can't be null";
         }
         return $invalidProperties;
     }
@@ -342,7 +352,7 @@ class VoiceCallResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets websocket
      *
-     * @param string $websocket Live transcript socket. The path id is the trackingId.
+     * @param string $websocket Call socket. The path id is the trackingId.
      *
      * @return self
      */
@@ -352,6 +362,33 @@ class VoiceCallResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
             throw new \InvalidArgumentException('non-nullable websocket cannot be null');
         }
         $this->container['websocket'] = $websocket;
+
+        return $this;
+    }
+
+    /**
+     * Gets token
+     *
+     * @return string
+     */
+    public function getToken()
+    {
+        return $this->container['token'];
+    }
+
+    /**
+     * Sets token
+     *
+     * @param string $token Token required on the call socket as ?token=
+     *
+     * @return self
+     */
+    public function setToken($token)
+    {
+        if (is_null($token)) {
+            throw new \InvalidArgumentException('non-nullable token cannot be null');
+        }
+        $this->container['token'] = $token;
 
         return $this;
     }

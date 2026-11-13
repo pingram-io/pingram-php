@@ -70,8 +70,11 @@ class GetVoiceCallResponseCall implements ModelInterface, ArrayAccess, \JsonSeri
         'outcome' => 'string',
         'end_reason' => 'string',
         'end_detail' => 'string',
+        'websocket' => 'string',
+        'token' => 'string',
         'timeline' => '\Pingram\Model\GetVoiceCallResponseCallTimelineInner[]',
         'recording_url' => 'string',
+        'setup' => '\Pingram\Model\GetVoiceCallResponseCallSetup',
         'variables' => 'array<string,string>',
         'cost' => '\Pingram\Model\GetVoiceCallResponseCallCost'
     ];
@@ -97,8 +100,11 @@ class GetVoiceCallResponseCall implements ModelInterface, ArrayAccess, \JsonSeri
         'outcome' => null,
         'end_reason' => null,
         'end_detail' => null,
+        'websocket' => null,
+        'token' => null,
         'timeline' => null,
         'recording_url' => null,
+        'setup' => null,
         'variables' => null,
         'cost' => null
     ];
@@ -122,8 +128,11 @@ class GetVoiceCallResponseCall implements ModelInterface, ArrayAccess, \JsonSeri
         'outcome' => false,
         'end_reason' => false,
         'end_detail' => false,
+        'websocket' => false,
+        'token' => false,
         'timeline' => false,
         'recording_url' => false,
+        'setup' => false,
         'variables' => false,
         'cost' => false
     ];
@@ -227,8 +236,11 @@ class GetVoiceCallResponseCall implements ModelInterface, ArrayAccess, \JsonSeri
         'outcome' => 'outcome',
         'end_reason' => 'endReason',
         'end_detail' => 'endDetail',
+        'websocket' => 'websocket',
+        'token' => 'token',
         'timeline' => 'timeline',
         'recording_url' => 'recordingUrl',
+        'setup' => 'setup',
         'variables' => 'variables',
         'cost' => 'cost'
     ];
@@ -252,8 +264,11 @@ class GetVoiceCallResponseCall implements ModelInterface, ArrayAccess, \JsonSeri
         'outcome' => 'setOutcome',
         'end_reason' => 'setEndReason',
         'end_detail' => 'setEndDetail',
+        'websocket' => 'setWebsocket',
+        'token' => 'setToken',
         'timeline' => 'setTimeline',
         'recording_url' => 'setRecordingUrl',
+        'setup' => 'setSetup',
         'variables' => 'setVariables',
         'cost' => 'setCost'
     ];
@@ -277,8 +292,11 @@ class GetVoiceCallResponseCall implements ModelInterface, ArrayAccess, \JsonSeri
         'outcome' => 'getOutcome',
         'end_reason' => 'getEndReason',
         'end_detail' => 'getEndDetail',
+        'websocket' => 'getWebsocket',
+        'token' => 'getToken',
         'timeline' => 'getTimeline',
         'recording_url' => 'getRecordingUrl',
+        'setup' => 'getSetup',
         'variables' => 'getVariables',
         'cost' => 'getCost'
     ];
@@ -456,8 +474,11 @@ class GetVoiceCallResponseCall implements ModelInterface, ArrayAccess, \JsonSeri
         $this->setIfExists('outcome', $data ?? [], null);
         $this->setIfExists('end_reason', $data ?? [], null);
         $this->setIfExists('end_detail', $data ?? [], null);
+        $this->setIfExists('websocket', $data ?? [], null);
+        $this->setIfExists('token', $data ?? [], null);
         $this->setIfExists('timeline', $data ?? [], null);
         $this->setIfExists('recording_url', $data ?? [], null);
+        $this->setIfExists('setup', $data ?? [], null);
         $this->setIfExists('variables', $data ?? [], null);
         $this->setIfExists('cost', $data ?? [], null);
     }
@@ -981,6 +1002,60 @@ class GetVoiceCallResponseCall implements ModelInterface, ArrayAccess, \JsonSeri
     }
 
     /**
+     * Gets websocket
+     *
+     * @return string|null
+     */
+    public function getWebsocket()
+    {
+        return $this->container['websocket'];
+    }
+
+    /**
+     * Sets websocket
+     *
+     * @param string|null $websocket Live call socket. Present while the call is active.
+     *
+     * @return self
+     */
+    public function setWebsocket($websocket)
+    {
+        if (is_null($websocket)) {
+            throw new \InvalidArgumentException('non-nullable websocket cannot be null');
+        }
+        $this->container['websocket'] = $websocket;
+
+        return $this;
+    }
+
+    /**
+     * Gets token
+     *
+     * @return string|null
+     */
+    public function getToken()
+    {
+        return $this->container['token'];
+    }
+
+    /**
+     * Sets token
+     *
+     * @param string|null $token Token for the live call socket. Present while the call is active.
+     *
+     * @return self
+     */
+    public function setToken($token)
+    {
+        if (is_null($token)) {
+            throw new \InvalidArgumentException('non-nullable token cannot be null');
+        }
+        $this->container['token'] = $token;
+
+        return $this;
+    }
+
+    /**
      * Gets timeline
      *
      * @return \Pingram\Model\GetVoiceCallResponseCallTimelineInner[]
@@ -1030,6 +1105,33 @@ class GetVoiceCallResponseCall implements ModelInterface, ArrayAccess, \JsonSeri
             throw new \InvalidArgumentException('non-nullable recording_url cannot be null');
         }
         $this->container['recording_url'] = $recording_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets setup
+     *
+     * @return \Pingram\Model\GetVoiceCallResponseCallSetup|null
+     */
+    public function getSetup()
+    {
+        return $this->container['setup'];
+    }
+
+    /**
+     * Sets setup
+     *
+     * @param \Pingram\Model\GetVoiceCallResponseCallSetup|null $setup setup
+     *
+     * @return self
+     */
+    public function setSetup($setup)
+    {
+        if (is_null($setup)) {
+            throw new \InvalidArgumentException('non-nullable setup cannot be null');
+        }
+        $this->container['setup'] = $setup;
 
         return $this;
     }

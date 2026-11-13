@@ -62,6 +62,7 @@ class Agent1 implements ModelInterface, ArrayAccess, \JsonSerializable
         'voicemail_action' => 'string',
         'voicemail_message' => 'string',
         'agent' => '\Pingram\Model\AgentAgent',
+        'stream' => '\Pingram\Model\ScriptStream',
         'privacy' => '\Pingram\Model\ScriptPrivacy'
     ];
 
@@ -78,6 +79,7 @@ class Agent1 implements ModelInterface, ArrayAccess, \JsonSerializable
         'voicemail_action' => null,
         'voicemail_message' => null,
         'agent' => null,
+        'stream' => null,
         'privacy' => null
     ];
 
@@ -92,6 +94,7 @@ class Agent1 implements ModelInterface, ArrayAccess, \JsonSerializable
         'voicemail_action' => false,
         'voicemail_message' => false,
         'agent' => false,
+        'stream' => false,
         'privacy' => false
     ];
 
@@ -186,6 +189,7 @@ class Agent1 implements ModelInterface, ArrayAccess, \JsonSerializable
         'voicemail_action' => 'voicemailAction',
         'voicemail_message' => 'voicemailMessage',
         'agent' => 'agent',
+        'stream' => 'stream',
         'privacy' => 'privacy'
     ];
 
@@ -200,6 +204,7 @@ class Agent1 implements ModelInterface, ArrayAccess, \JsonSerializable
         'voicemail_action' => 'setVoicemailAction',
         'voicemail_message' => 'setVoicemailMessage',
         'agent' => 'setAgent',
+        'stream' => 'setStream',
         'privacy' => 'setPrivacy'
     ];
 
@@ -214,6 +219,7 @@ class Agent1 implements ModelInterface, ArrayAccess, \JsonSerializable
         'voicemail_action' => 'getVoicemailAction',
         'voicemail_message' => 'getVoicemailMessage',
         'agent' => 'getAgent',
+        'stream' => 'getStream',
         'privacy' => 'getPrivacy'
     ];
 
@@ -309,6 +315,7 @@ class Agent1 implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('voicemail_action', $data ?? [], null);
         $this->setIfExists('voicemail_message', $data ?? [], null);
         $this->setIfExists('agent', $data ?? [], null);
+        $this->setIfExists('stream', $data ?? [], null);
         $this->setIfExists('privacy', $data ?? [], null);
     }
 
@@ -529,6 +536,33 @@ class Agent1 implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable agent cannot be null');
         }
         $this->container['agent'] = $agent;
+
+        return $this;
+    }
+
+    /**
+     * Gets stream
+     *
+     * @return \Pingram\Model\ScriptStream|null
+     */
+    public function getStream()
+    {
+        return $this->container['stream'];
+    }
+
+    /**
+     * Sets stream
+     *
+     * @param \Pingram\Model\ScriptStream|null $stream stream
+     *
+     * @return self
+     */
+    public function setStream($stream)
+    {
+        if (is_null($stream)) {
+            throw new \InvalidArgumentException('non-nullable stream cannot be null');
+        }
+        $this->container['stream'] = $stream;
 
         return $this;
     }

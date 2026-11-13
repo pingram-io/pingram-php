@@ -59,10 +59,14 @@ class InboundConfig implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'type' => 'string',
         'steps' => '\Pingram\Model\ScriptStepsInner[]',
+        'stream' => '\Pingram\Model\ScriptStream',
         'privacy' => '\Pingram\Model\ScriptPrivacy',
         'greeting' => 'string',
         'agent' => '\Pingram\Model\AgentAgent',
-        'to' => 'string'
+        'to' => 'string',
+        'hold_say' => 'string',
+        'hold_audio' => 'string',
+        'receiver_say' => 'string'
     ];
 
     /**
@@ -75,10 +79,14 @@ class InboundConfig implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'type' => null,
         'steps' => null,
+        'stream' => null,
         'privacy' => null,
         'greeting' => null,
         'agent' => null,
-        'to' => null
+        'to' => null,
+        'hold_say' => null,
+        'hold_audio' => null,
+        'receiver_say' => null
     ];
 
     /**
@@ -89,10 +97,14 @@ class InboundConfig implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static array $openAPINullables = [
         'type' => false,
         'steps' => false,
+        'stream' => false,
         'privacy' => false,
         'greeting' => false,
         'agent' => false,
-        'to' => false
+        'to' => false,
+        'hold_say' => false,
+        'hold_audio' => false,
+        'receiver_say' => false
     ];
 
     /**
@@ -183,10 +195,14 @@ class InboundConfig implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'type' => 'type',
         'steps' => 'steps',
+        'stream' => 'stream',
         'privacy' => 'privacy',
         'greeting' => 'greeting',
         'agent' => 'agent',
-        'to' => 'to'
+        'to' => 'to',
+        'hold_say' => 'holdSay',
+        'hold_audio' => 'holdAudio',
+        'receiver_say' => 'receiverSay'
     ];
 
     /**
@@ -197,10 +213,14 @@ class InboundConfig implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'type' => 'setType',
         'steps' => 'setSteps',
+        'stream' => 'setStream',
         'privacy' => 'setPrivacy',
         'greeting' => 'setGreeting',
         'agent' => 'setAgent',
-        'to' => 'setTo'
+        'to' => 'setTo',
+        'hold_say' => 'setHoldSay',
+        'hold_audio' => 'setHoldAudio',
+        'receiver_say' => 'setReceiverSay'
     ];
 
     /**
@@ -211,10 +231,14 @@ class InboundConfig implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'type' => 'getType',
         'steps' => 'getSteps',
+        'stream' => 'getStream',
         'privacy' => 'getPrivacy',
         'greeting' => 'getGreeting',
         'agent' => 'getAgent',
-        'to' => 'getTo'
+        'to' => 'getTo',
+        'hold_say' => 'getHoldSay',
+        'hold_audio' => 'getHoldAudio',
+        'receiver_say' => 'getReceiverSay'
     ];
 
     /**
@@ -261,7 +285,9 @@ class InboundConfig implements ModelInterface, ArrayAccess, \JsonSerializable
     public const TYPE_SCRIPT = 'script';
     public const TYPE_AGENT = 'agent';
     public const TYPE_TRANSFER = 'transfer';
+    public const TYPE_ELEVENLABS = 'elevenlabs';
     public const TYPE_DISABLED = 'disabled';
+    public const TYPE_STREAM = 'stream';
 
     /**
      * Gets allowable values of the enum
@@ -274,7 +300,9 @@ class InboundConfig implements ModelInterface, ArrayAccess, \JsonSerializable
             self::TYPE_SCRIPT,
             self::TYPE_AGENT,
             self::TYPE_TRANSFER,
+            self::TYPE_ELEVENLABS,
             self::TYPE_DISABLED,
+            self::TYPE_STREAM,
         ];
     }
 
@@ -295,10 +323,14 @@ class InboundConfig implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('steps', $data ?? [], null);
+        $this->setIfExists('stream', $data ?? [], null);
         $this->setIfExists('privacy', $data ?? [], null);
         $this->setIfExists('greeting', $data ?? [], null);
         $this->setIfExists('agent', $data ?? [], null);
         $this->setIfExists('to', $data ?? [], null);
+        $this->setIfExists('hold_say', $data ?? [], null);
+        $this->setIfExists('hold_audio', $data ?? [], null);
+        $this->setIfExists('receiver_say', $data ?? [], null);
     }
 
     /**
@@ -429,6 +461,33 @@ class InboundConfig implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets stream
+     *
+     * @return \Pingram\Model\ScriptStream|null
+     */
+    public function getStream()
+    {
+        return $this->container['stream'];
+    }
+
+    /**
+     * Sets stream
+     *
+     * @param \Pingram\Model\ScriptStream|null $stream stream
+     *
+     * @return self
+     */
+    public function setStream($stream)
+    {
+        if (is_null($stream)) {
+            throw new \InvalidArgumentException('non-nullable stream cannot be null');
+        }
+        $this->container['stream'] = $stream;
+
+        return $this;
+    }
+
+    /**
      * Gets privacy
      *
      * @return \Pingram\Model\ScriptPrivacy|null
@@ -532,6 +591,87 @@ class InboundConfig implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable to cannot be null');
         }
         $this->container['to'] = $to;
+
+        return $this;
+    }
+
+    /**
+     * Gets hold_say
+     *
+     * @return string|null
+     */
+    public function getHoldSay()
+    {
+        return $this->container['hold_say'];
+    }
+
+    /**
+     * Sets hold_say
+     *
+     * @param string|null $hold_say Spoken once to the caller while they wait. If holdAudio is also set, this sentence plays first and then the audio.
+     *
+     * @return self
+     */
+    public function setHoldSay($hold_say)
+    {
+        if (is_null($hold_say)) {
+            throw new \InvalidArgumentException('non-nullable hold_say cannot be null');
+        }
+        $this->container['hold_say'] = $hold_say;
+
+        return $this;
+    }
+
+    /**
+     * Gets hold_audio
+     *
+     * @return string|null
+     */
+    public function getHoldAudio()
+    {
+        return $this->container['hold_audio'];
+    }
+
+    /**
+     * Sets hold_audio
+     *
+     * @param string|null $hold_audio `builtin:soft-piano`, `builtin:calm`, `builtin:bright`, or an HTTPS MP3 or WAV. Loops until the call connects. Omit it and the caller hears ringing.
+     *
+     * @return self
+     */
+    public function setHoldAudio($hold_audio)
+    {
+        if (is_null($hold_audio)) {
+            throw new \InvalidArgumentException('non-nullable hold_audio cannot be null');
+        }
+        $this->container['hold_audio'] = $hold_audio;
+
+        return $this;
+    }
+
+    /**
+     * Gets receiver_say
+     *
+     * @return string|null
+     */
+    public function getReceiverSay()
+    {
+        return $this->container['receiver_say'];
+    }
+
+    /**
+     * Sets receiver_say
+     *
+     * @param string|null $receiver_say Spoken to the person who answers, before the caller is connected.
+     *
+     * @return self
+     */
+    public function setReceiverSay($receiver_say)
+    {
+        if (is_null($receiver_say)) {
+            throw new \InvalidArgumentException('non-nullable receiver_say cannot be null');
+        }
+        $this->container['receiver_say'] = $receiver_say;
 
         return $this;
     }

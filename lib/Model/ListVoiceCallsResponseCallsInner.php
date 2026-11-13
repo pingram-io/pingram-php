@@ -69,7 +69,9 @@ class ListVoiceCallsResponseCallsInner implements ModelInterface, ArrayAccess, \
         'duration_seconds' => 'float',
         'outcome' => 'string',
         'end_reason' => 'string',
-        'end_detail' => 'string'
+        'end_detail' => 'string',
+        'websocket' => 'string',
+        'token' => 'string'
     ];
 
     /**
@@ -92,7 +94,9 @@ class ListVoiceCallsResponseCallsInner implements ModelInterface, ArrayAccess, \
         'duration_seconds' => null,
         'outcome' => null,
         'end_reason' => null,
-        'end_detail' => null
+        'end_detail' => null,
+        'websocket' => null,
+        'token' => null
     ];
 
     /**
@@ -113,7 +117,9 @@ class ListVoiceCallsResponseCallsInner implements ModelInterface, ArrayAccess, \
         'duration_seconds' => false,
         'outcome' => false,
         'end_reason' => false,
-        'end_detail' => false
+        'end_detail' => false,
+        'websocket' => false,
+        'token' => false
     ];
 
     /**
@@ -214,7 +220,9 @@ class ListVoiceCallsResponseCallsInner implements ModelInterface, ArrayAccess, \
         'duration_seconds' => 'durationSeconds',
         'outcome' => 'outcome',
         'end_reason' => 'endReason',
-        'end_detail' => 'endDetail'
+        'end_detail' => 'endDetail',
+        'websocket' => 'websocket',
+        'token' => 'token'
     ];
 
     /**
@@ -235,7 +243,9 @@ class ListVoiceCallsResponseCallsInner implements ModelInterface, ArrayAccess, \
         'duration_seconds' => 'setDurationSeconds',
         'outcome' => 'setOutcome',
         'end_reason' => 'setEndReason',
-        'end_detail' => 'setEndDetail'
+        'end_detail' => 'setEndDetail',
+        'websocket' => 'setWebsocket',
+        'token' => 'setToken'
     ];
 
     /**
@@ -256,7 +266,9 @@ class ListVoiceCallsResponseCallsInner implements ModelInterface, ArrayAccess, \
         'duration_seconds' => 'getDurationSeconds',
         'outcome' => 'getOutcome',
         'end_reason' => 'getEndReason',
-        'end_detail' => 'getEndDetail'
+        'end_detail' => 'getEndDetail',
+        'websocket' => 'getWebsocket',
+        'token' => 'getToken'
     ];
 
     /**
@@ -432,6 +444,8 @@ class ListVoiceCallsResponseCallsInner implements ModelInterface, ArrayAccess, \
         $this->setIfExists('outcome', $data ?? [], null);
         $this->setIfExists('end_reason', $data ?? [], null);
         $this->setIfExists('end_detail', $data ?? [], null);
+        $this->setIfExists('websocket', $data ?? [], null);
+        $this->setIfExists('token', $data ?? [], null);
     }
 
     /**
@@ -945,6 +959,60 @@ class ListVoiceCallsResponseCallsInner implements ModelInterface, ArrayAccess, \
             throw new \InvalidArgumentException('non-nullable end_detail cannot be null');
         }
         $this->container['end_detail'] = $end_detail;
+
+        return $this;
+    }
+
+    /**
+     * Gets websocket
+     *
+     * @return string|null
+     */
+    public function getWebsocket()
+    {
+        return $this->container['websocket'];
+    }
+
+    /**
+     * Sets websocket
+     *
+     * @param string|null $websocket Live call socket. Present while the call is active.
+     *
+     * @return self
+     */
+    public function setWebsocket($websocket)
+    {
+        if (is_null($websocket)) {
+            throw new \InvalidArgumentException('non-nullable websocket cannot be null');
+        }
+        $this->container['websocket'] = $websocket;
+
+        return $this;
+    }
+
+    /**
+     * Gets token
+     *
+     * @return string|null
+     */
+    public function getToken()
+    {
+        return $this->container['token'];
+    }
+
+    /**
+     * Sets token
+     *
+     * @param string|null $token Token for the live call socket. Present while the call is active.
+     *
+     * @return self
+     */
+    public function setToken($token)
+    {
+        if (is_null($token)) {
+            throw new \InvalidArgumentException('non-nullable token cannot be null');
+        }
+        $this->container['token'] = $token;
 
         return $this;
     }

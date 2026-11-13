@@ -61,6 +61,7 @@ class VoiceBrowserCallRequestConfigAnyOf implements ModelInterface, ArrayAccess,
         'steps' => '\Pingram\Model\ScriptStepsInner[]',
         'voicemail_action' => 'string',
         'voicemail_message' => 'string',
+        'stream' => '\Pingram\Model\ScriptStream',
         'privacy' => '\Pingram\Model\ScriptPrivacy',
         'opener' => 'string',
         'agent' => '\Pingram\Model\AgentAgent'
@@ -78,6 +79,7 @@ class VoiceBrowserCallRequestConfigAnyOf implements ModelInterface, ArrayAccess,
         'steps' => null,
         'voicemail_action' => null,
         'voicemail_message' => null,
+        'stream' => null,
         'privacy' => null,
         'opener' => null,
         'agent' => null
@@ -93,6 +95,7 @@ class VoiceBrowserCallRequestConfigAnyOf implements ModelInterface, ArrayAccess,
         'steps' => false,
         'voicemail_action' => false,
         'voicemail_message' => false,
+        'stream' => false,
         'privacy' => false,
         'opener' => false,
         'agent' => false
@@ -188,6 +191,7 @@ class VoiceBrowserCallRequestConfigAnyOf implements ModelInterface, ArrayAccess,
         'steps' => 'steps',
         'voicemail_action' => 'voicemailAction',
         'voicemail_message' => 'voicemailMessage',
+        'stream' => 'stream',
         'privacy' => 'privacy',
         'opener' => 'opener',
         'agent' => 'agent'
@@ -203,6 +207,7 @@ class VoiceBrowserCallRequestConfigAnyOf implements ModelInterface, ArrayAccess,
         'steps' => 'setSteps',
         'voicemail_action' => 'setVoicemailAction',
         'voicemail_message' => 'setVoicemailMessage',
+        'stream' => 'setStream',
         'privacy' => 'setPrivacy',
         'opener' => 'setOpener',
         'agent' => 'setAgent'
@@ -218,6 +223,7 @@ class VoiceBrowserCallRequestConfigAnyOf implements ModelInterface, ArrayAccess,
         'steps' => 'getSteps',
         'voicemail_action' => 'getVoicemailAction',
         'voicemail_message' => 'getVoicemailMessage',
+        'stream' => 'getStream',
         'privacy' => 'getPrivacy',
         'opener' => 'getOpener',
         'agent' => 'getAgent'
@@ -266,6 +272,8 @@ class VoiceBrowserCallRequestConfigAnyOf implements ModelInterface, ArrayAccess,
 
     public const TYPE_SCRIPT = 'script';
     public const TYPE_AGENT = 'agent';
+    public const TYPE_STREAM = 'stream';
+    public const TYPE_ELEVENLABS = 'elevenlabs';
     public const VOICEMAIL_ACTION_HANGUP = 'hangup';
     public const VOICEMAIL_ACTION_MESSAGE = 'message';
     public const VOICEMAIL_ACTION__CONTINUE = 'continue';
@@ -280,6 +288,8 @@ class VoiceBrowserCallRequestConfigAnyOf implements ModelInterface, ArrayAccess,
         return [
             self::TYPE_SCRIPT,
             self::TYPE_AGENT,
+            self::TYPE_STREAM,
+            self::TYPE_ELEVENLABS,
         ];
     }
 
@@ -316,6 +326,7 @@ class VoiceBrowserCallRequestConfigAnyOf implements ModelInterface, ArrayAccess,
         $this->setIfExists('steps', $data ?? [], null);
         $this->setIfExists('voicemail_action', $data ?? [], null);
         $this->setIfExists('voicemail_message', $data ?? [], null);
+        $this->setIfExists('stream', $data ?? [], null);
         $this->setIfExists('privacy', $data ?? [], null);
         $this->setIfExists('opener', $data ?? [], null);
         $this->setIfExists('agent', $data ?? [], null);
@@ -514,6 +525,33 @@ class VoiceBrowserCallRequestConfigAnyOf implements ModelInterface, ArrayAccess,
             throw new \InvalidArgumentException('non-nullable voicemail_message cannot be null');
         }
         $this->container['voicemail_message'] = $voicemail_message;
+
+        return $this;
+    }
+
+    /**
+     * Gets stream
+     *
+     * @return \Pingram\Model\ScriptStream|null
+     */
+    public function getStream()
+    {
+        return $this->container['stream'];
+    }
+
+    /**
+     * Sets stream
+     *
+     * @param \Pingram\Model\ScriptStream|null $stream stream
+     *
+     * @return self
+     */
+    public function setStream($stream)
+    {
+        if (is_null($stream)) {
+            throw new \InvalidArgumentException('non-nullable stream cannot be null');
+        }
+        $this->container['stream'] = $stream;
 
         return $this;
     }

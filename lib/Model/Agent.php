@@ -60,6 +60,7 @@ class Agent implements ModelInterface, ArrayAccess, \JsonSerializable
         'type' => 'string',
         'greeting' => 'string',
         'agent' => '\Pingram\Model\AgentAgent',
+        'stream' => '\Pingram\Model\ScriptStream',
         'privacy' => '\Pingram\Model\ScriptPrivacy'
     ];
 
@@ -74,6 +75,7 @@ class Agent implements ModelInterface, ArrayAccess, \JsonSerializable
         'type' => null,
         'greeting' => null,
         'agent' => null,
+        'stream' => null,
         'privacy' => null
     ];
 
@@ -86,6 +88,7 @@ class Agent implements ModelInterface, ArrayAccess, \JsonSerializable
         'type' => false,
         'greeting' => false,
         'agent' => false,
+        'stream' => false,
         'privacy' => false
     ];
 
@@ -178,6 +181,7 @@ class Agent implements ModelInterface, ArrayAccess, \JsonSerializable
         'type' => 'type',
         'greeting' => 'greeting',
         'agent' => 'agent',
+        'stream' => 'stream',
         'privacy' => 'privacy'
     ];
 
@@ -190,6 +194,7 @@ class Agent implements ModelInterface, ArrayAccess, \JsonSerializable
         'type' => 'setType',
         'greeting' => 'setGreeting',
         'agent' => 'setAgent',
+        'stream' => 'setStream',
         'privacy' => 'setPrivacy'
     ];
 
@@ -202,6 +207,7 @@ class Agent implements ModelInterface, ArrayAccess, \JsonSerializable
         'type' => 'getType',
         'greeting' => 'getGreeting',
         'agent' => 'getAgent',
+        'stream' => 'getStream',
         'privacy' => 'getPrivacy'
     ];
 
@@ -278,6 +284,7 @@ class Agent implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('greeting', $data ?? [], null);
         $this->setIfExists('agent', $data ?? [], null);
+        $this->setIfExists('stream', $data ?? [], null);
         $this->setIfExists('privacy', $data ?? [], null);
     }
 
@@ -425,6 +432,33 @@ class Agent implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable agent cannot be null');
         }
         $this->container['agent'] = $agent;
+
+        return $this;
+    }
+
+    /**
+     * Gets stream
+     *
+     * @return \Pingram\Model\ScriptStream|null
+     */
+    public function getStream()
+    {
+        return $this->container['stream'];
+    }
+
+    /**
+     * Sets stream
+     *
+     * @param \Pingram\Model\ScriptStream|null $stream stream
+     *
+     * @return self
+     */
+    public function setStream($stream)
+    {
+        if (is_null($stream)) {
+            throw new \InvalidArgumentException('non-nullable stream cannot be null');
+        }
+        $this->container['stream'] = $stream;
 
         return $this;
     }

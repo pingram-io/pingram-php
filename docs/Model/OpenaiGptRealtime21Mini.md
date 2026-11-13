@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**effort** | **string** |  | [optional]
 **model** | **string** | Which realtime model processes the call. |
 **voice_id** | **string** |  | [optional]
 **temperature** | **float** | How varied replies are. 0 is focused, 1 is more creative. Default: 0.8. | [optional]

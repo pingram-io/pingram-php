@@ -59,8 +59,9 @@ class TransferDestinationsInner implements ModelInterface, ArrayAccess, \JsonSer
     protected static $openAPITypes = [
         'phone_number' => 'string',
         'condition' => 'string',
-        'transfer_mode' => 'string',
-        'briefing' => 'string'
+        'hold_say' => 'string',
+        'hold_audio' => 'string',
+        'receiver_instruction' => 'string'
     ];
 
     /**
@@ -73,8 +74,9 @@ class TransferDestinationsInner implements ModelInterface, ArrayAccess, \JsonSer
     protected static $openAPIFormats = [
         'phone_number' => null,
         'condition' => null,
-        'transfer_mode' => null,
-        'briefing' => null
+        'hold_say' => null,
+        'hold_audio' => null,
+        'receiver_instruction' => null
     ];
 
     /**
@@ -85,8 +87,9 @@ class TransferDestinationsInner implements ModelInterface, ArrayAccess, \JsonSer
     protected static array $openAPINullables = [
         'phone_number' => false,
         'condition' => false,
-        'transfer_mode' => false,
-        'briefing' => false
+        'hold_say' => false,
+        'hold_audio' => false,
+        'receiver_instruction' => false
     ];
 
     /**
@@ -177,8 +180,9 @@ class TransferDestinationsInner implements ModelInterface, ArrayAccess, \JsonSer
     protected static $attributeMap = [
         'phone_number' => 'phoneNumber',
         'condition' => 'condition',
-        'transfer_mode' => 'transferMode',
-        'briefing' => 'briefing'
+        'hold_say' => 'holdSay',
+        'hold_audio' => 'holdAudio',
+        'receiver_instruction' => 'receiverInstruction'
     ];
 
     /**
@@ -189,8 +193,9 @@ class TransferDestinationsInner implements ModelInterface, ArrayAccess, \JsonSer
     protected static $setters = [
         'phone_number' => 'setPhoneNumber',
         'condition' => 'setCondition',
-        'transfer_mode' => 'setTransferMode',
-        'briefing' => 'setBriefing'
+        'hold_say' => 'setHoldSay',
+        'hold_audio' => 'setHoldAudio',
+        'receiver_instruction' => 'setReceiverInstruction'
     ];
 
     /**
@@ -201,8 +206,9 @@ class TransferDestinationsInner implements ModelInterface, ArrayAccess, \JsonSer
     protected static $getters = [
         'phone_number' => 'getPhoneNumber',
         'condition' => 'getCondition',
-        'transfer_mode' => 'getTransferMode',
-        'briefing' => 'getBriefing'
+        'hold_say' => 'getHoldSay',
+        'hold_audio' => 'getHoldAudio',
+        'receiver_instruction' => 'getReceiverInstruction'
     ];
 
     /**
@@ -246,21 +252,6 @@ class TransferDestinationsInner implements ModelInterface, ArrayAccess, \JsonSer
         return self::$openAPIModelName;
     }
 
-    public const TRANSFER_MODE_WARM = 'warm';
-    public const TRANSFER_MODE_COLD = 'cold';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getTransferModeAllowableValues()
-    {
-        return [
-            self::TRANSFER_MODE_WARM,
-            self::TRANSFER_MODE_COLD,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -279,8 +270,9 @@ class TransferDestinationsInner implements ModelInterface, ArrayAccess, \JsonSer
     {
         $this->setIfExists('phone_number', $data ?? [], null);
         $this->setIfExists('condition', $data ?? [], null);
-        $this->setIfExists('transfer_mode', $data ?? [], null);
-        $this->setIfExists('briefing', $data ?? [], null);
+        $this->setIfExists('hold_say', $data ?? [], null);
+        $this->setIfExists('hold_audio', $data ?? [], null);
+        $this->setIfExists('receiver_instruction', $data ?? [], null);
     }
 
     /**
@@ -316,18 +308,6 @@ class TransferDestinationsInner implements ModelInterface, ArrayAccess, \JsonSer
         if ($this->container['condition'] === null) {
             $invalidProperties[] = "'condition' can't be null";
         }
-        if ($this->container['transfer_mode'] === null) {
-            $invalidProperties[] = "'transfer_mode' can't be null";
-        }
-        $allowedValues = $this->getTransferModeAllowableValues();
-        if (!is_null($this->container['transfer_mode']) && !in_array($this->container['transfer_mode'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'transfer_mode', must be one of '%s'",
-                $this->container['transfer_mode'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         return $invalidProperties;
     }
 
@@ -398,65 +378,82 @@ class TransferDestinationsInner implements ModelInterface, ArrayAccess, \JsonSer
     }
 
     /**
-     * Gets transfer_mode
+     * Gets hold_say
      *
-     * @return string
+     * @return string|null
      */
-    public function getTransferMode()
+    public function getHoldSay()
     {
-        return $this->container['transfer_mode'];
+        return $this->container['hold_say'];
     }
 
     /**
-     * Sets transfer_mode
+     * Sets hold_say
      *
-     * @param string $transfer_mode warm briefs the recipient before connecting. cold connects the caller immediately.
+     * @param string|null $hold_say Spoken once to the caller while they wait. If holdAudio is also set, this sentence plays first and then the audio.
      *
      * @return self
      */
-    public function setTransferMode($transfer_mode)
+    public function setHoldSay($hold_say)
     {
-        if (is_null($transfer_mode)) {
-            throw new \InvalidArgumentException('non-nullable transfer_mode cannot be null');
+        if (is_null($hold_say)) {
+            throw new \InvalidArgumentException('non-nullable hold_say cannot be null');
         }
-        $allowedValues = $this->getTransferModeAllowableValues();
-        if (!in_array($transfer_mode, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'transfer_mode', must be one of '%s'",
-                    $transfer_mode,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['transfer_mode'] = $transfer_mode;
+        $this->container['hold_say'] = $hold_say;
 
         return $this;
     }
 
     /**
-     * Gets briefing
+     * Gets hold_audio
      *
      * @return string|null
      */
-    public function getBriefing()
+    public function getHoldAudio()
     {
-        return $this->container['briefing'];
+        return $this->container['hold_audio'];
     }
 
     /**
-     * Sets briefing
+     * Sets hold_audio
      *
-     * @param string|null $briefing Spoken to the rep before a warm transfer connects.
+     * @param string|null $hold_audio `builtin:soft-piano`, `builtin:calm`, `builtin:bright`, or an HTTPS MP3 or WAV. Loops until the call connects. Omit it and the caller hears ringing.
      *
      * @return self
      */
-    public function setBriefing($briefing)
+    public function setHoldAudio($hold_audio)
     {
-        if (is_null($briefing)) {
-            throw new \InvalidArgumentException('non-nullable briefing cannot be null');
+        if (is_null($hold_audio)) {
+            throw new \InvalidArgumentException('non-nullable hold_audio cannot be null');
         }
-        $this->container['briefing'] = $briefing;
+        $this->container['hold_audio'] = $hold_audio;
+
+        return $this;
+    }
+
+    /**
+     * Gets receiver_instruction
+     *
+     * @return string|null
+     */
+    public function getReceiverInstruction()
+    {
+        return $this->container['receiver_instruction'];
+    }
+
+    /**
+     * Sets receiver_instruction
+     *
+     * @param string|null $receiver_instruction Shown to the agent with this number. Tells it whether and how to write the sentence spoken to the person who answers. Never spoken. Omit it and the agent is asked to say who is calling and why.
+     *
+     * @return self
+     */
+    public function setReceiverInstruction($receiver_instruction)
+    {
+        if (is_null($receiver_instruction)) {
+            throw new \InvalidArgumentException('non-nullable receiver_instruction cannot be null');
+        }
+        $this->container['receiver_instruction'] = $receiver_instruction;
 
         return $this;
     }

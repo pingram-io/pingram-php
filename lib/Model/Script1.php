@@ -61,6 +61,7 @@ class Script1 implements ModelInterface, ArrayAccess, \JsonSerializable
         'steps' => '\Pingram\Model\ScriptStepsInner[]',
         'voicemail_action' => 'string',
         'voicemail_message' => 'string',
+        'stream' => '\Pingram\Model\ScriptStream',
         'privacy' => '\Pingram\Model\ScriptPrivacy'
     ];
 
@@ -76,6 +77,7 @@ class Script1 implements ModelInterface, ArrayAccess, \JsonSerializable
         'steps' => null,
         'voicemail_action' => null,
         'voicemail_message' => null,
+        'stream' => null,
         'privacy' => null
     ];
 
@@ -89,6 +91,7 @@ class Script1 implements ModelInterface, ArrayAccess, \JsonSerializable
         'steps' => false,
         'voicemail_action' => false,
         'voicemail_message' => false,
+        'stream' => false,
         'privacy' => false
     ];
 
@@ -182,6 +185,7 @@ class Script1 implements ModelInterface, ArrayAccess, \JsonSerializable
         'steps' => 'steps',
         'voicemail_action' => 'voicemailAction',
         'voicemail_message' => 'voicemailMessage',
+        'stream' => 'stream',
         'privacy' => 'privacy'
     ];
 
@@ -195,6 +199,7 @@ class Script1 implements ModelInterface, ArrayAccess, \JsonSerializable
         'steps' => 'setSteps',
         'voicemail_action' => 'setVoicemailAction',
         'voicemail_message' => 'setVoicemailMessage',
+        'stream' => 'setStream',
         'privacy' => 'setPrivacy'
     ];
 
@@ -208,6 +213,7 @@ class Script1 implements ModelInterface, ArrayAccess, \JsonSerializable
         'steps' => 'getSteps',
         'voicemail_action' => 'getVoicemailAction',
         'voicemail_message' => 'getVoicemailMessage',
+        'stream' => 'getStream',
         'privacy' => 'getPrivacy'
     ];
 
@@ -302,6 +308,7 @@ class Script1 implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('steps', $data ?? [], null);
         $this->setIfExists('voicemail_action', $data ?? [], null);
         $this->setIfExists('voicemail_message', $data ?? [], null);
+        $this->setIfExists('stream', $data ?? [], null);
         $this->setIfExists('privacy', $data ?? [], null);
     }
 
@@ -495,6 +502,33 @@ class Script1 implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable voicemail_message cannot be null');
         }
         $this->container['voicemail_message'] = $voicemail_message;
+
+        return $this;
+    }
+
+    /**
+     * Gets stream
+     *
+     * @return \Pingram\Model\ScriptStream|null
+     */
+    public function getStream()
+    {
+        return $this->container['stream'];
+    }
+
+    /**
+     * Sets stream
+     *
+     * @param \Pingram\Model\ScriptStream|null $stream stream
+     *
+     * @return self
+     */
+    public function setStream($stream)
+    {
+        if (is_null($stream)) {
+            throw new \InvalidArgumentException('non-nullable stream cannot be null');
+        }
+        $this->container['stream'] = $stream;
 
         return $this;
     }

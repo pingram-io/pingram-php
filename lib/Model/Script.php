@@ -59,6 +59,7 @@ class Script implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'type' => 'string',
         'steps' => '\Pingram\Model\ScriptStepsInner[]',
+        'stream' => '\Pingram\Model\ScriptStream',
         'privacy' => '\Pingram\Model\ScriptPrivacy'
     ];
 
@@ -72,6 +73,7 @@ class Script implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'type' => null,
         'steps' => null,
+        'stream' => null,
         'privacy' => null
     ];
 
@@ -83,6 +85,7 @@ class Script implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static array $openAPINullables = [
         'type' => false,
         'steps' => false,
+        'stream' => false,
         'privacy' => false
     ];
 
@@ -174,6 +177,7 @@ class Script implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'type' => 'type',
         'steps' => 'steps',
+        'stream' => 'stream',
         'privacy' => 'privacy'
     ];
 
@@ -185,6 +189,7 @@ class Script implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'type' => 'setType',
         'steps' => 'setSteps',
+        'stream' => 'setStream',
         'privacy' => 'setPrivacy'
     ];
 
@@ -196,6 +201,7 @@ class Script implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'type' => 'getType',
         'steps' => 'getSteps',
+        'stream' => 'getStream',
         'privacy' => 'getPrivacy'
     ];
 
@@ -271,6 +277,7 @@ class Script implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('steps', $data ?? [], null);
+        $this->setIfExists('stream', $data ?? [], null);
         $this->setIfExists('privacy', $data ?? [], null);
     }
 
@@ -391,6 +398,33 @@ class Script implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable steps cannot be null');
         }
         $this->container['steps'] = $steps;
+
+        return $this;
+    }
+
+    /**
+     * Gets stream
+     *
+     * @return \Pingram\Model\ScriptStream|null
+     */
+    public function getStream()
+    {
+        return $this->container['stream'];
+    }
+
+    /**
+     * Sets stream
+     *
+     * @param \Pingram\Model\ScriptStream|null $stream stream
+     *
+     * @return self
+     */
+    public function setStream($stream)
+    {
+        if (is_null($stream)) {
+            throw new \InvalidArgumentException('non-nullable stream cannot be null');
+        }
+        $this->container['stream'] = $stream;
 
         return $this;
     }
