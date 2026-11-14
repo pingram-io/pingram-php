@@ -61,7 +61,7 @@ class GetVoiceCallResponseCallSetup implements ModelInterface, ArrayAccess, \Jso
         'mode' => 'string',
         'script' => '\Pingram\Model\ScriptStepsInner[]',
         'record' => 'bool',
-        'transcript' => '\Pingram\Model\GetVoiceCallResponseCallSetupTranscript',
+        'transcript' => 'string',
         'stream' => '\Pingram\Model\GetVoiceCallResponseCallSetupStream',
         'voicemail_action' => 'string',
         'voicemail_message' => 'string'
@@ -265,9 +265,24 @@ class GetVoiceCallResponseCallSetup implements ModelInterface, ArrayAccess, \Jso
         return self::$openAPIModelName;
     }
 
+    public const TRANSCRIPT_SINGLE = 'single';
+    public const TRANSCRIPT_MULTICHANNEL = 'multichannel';
     public const VOICEMAIL_ACTION_HANGUP = 'hangup';
     public const VOICEMAIL_ACTION_MESSAGE = 'message';
     public const VOICEMAIL_ACTION__CONTINUE = 'continue';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTranscriptAllowableValues()
+    {
+        return [
+            self::TRANSCRIPT_SINGLE,
+            self::TRANSCRIPT_MULTICHANNEL,
+        ];
+    }
 
     /**
      * Gets allowable values of the enum
@@ -334,12 +349,15 @@ class GetVoiceCallResponseCallSetup implements ModelInterface, ArrayAccess, \Jso
     {
         $invalidProperties = [];
 
-        if ($this->container['record'] === null) {
-            $invalidProperties[] = "'record' can't be null";
+        $allowedValues = $this->getTranscriptAllowableValues();
+        if (!is_null($this->container['transcript']) && !in_array($this->container['transcript'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'transcript', must be one of '%s'",
+                $this->container['transcript'],
+                implode("', '", $allowedValues)
+            );
         }
-        if ($this->container['transcript'] === null) {
-            $invalidProperties[] = "'transcript' can't be null";
-        }
+
         $allowedValues = $this->getVoicemailActionAllowableValues();
         if (!is_null($this->container['voicemail_action']) && !in_array($this->container['voicemail_action'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -421,7 +439,7 @@ class GetVoiceCallResponseCallSetup implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets record
      *
-     * @return bool
+     * @return bool|null
      */
     public function getRecord()
     {
@@ -431,7 +449,7 @@ class GetVoiceCallResponseCallSetup implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets record
      *
-     * @param bool $record record
+     * @param bool|null $record Call recording. Omitted means off.
      *
      * @return self
      */
@@ -448,7 +466,7 @@ class GetVoiceCallResponseCallSetup implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets transcript
      *
-     * @return \Pingram\Model\GetVoiceCallResponseCallSetupTranscript
+     * @return string|null
      */
     public function getTranscript()
     {
@@ -458,7 +476,7 @@ class GetVoiceCallResponseCallSetup implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets transcript
      *
-     * @param \Pingram\Model\GetVoiceCallResponseCallSetupTranscript $transcript transcript
+     * @param string|null $transcript single mixes every channel into one stream. multichannel transcribes each channel. Omitted means off.
      *
      * @return self
      */
@@ -466,6 +484,16 @@ class GetVoiceCallResponseCallSetup implements ModelInterface, ArrayAccess, \Jso
     {
         if (is_null($transcript)) {
             throw new \InvalidArgumentException('non-nullable transcript cannot be null');
+        }
+        $allowedValues = $this->getTranscriptAllowableValues();
+        if (!in_array($transcript, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'transcript', must be one of '%s'",
+                    $transcript,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['transcript'] = $transcript;
 

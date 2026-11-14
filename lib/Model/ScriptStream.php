@@ -361,7 +361,7 @@ class ScriptStream implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets transcript
      *
-     * @param string|null $transcript single mixes every channel into one stream. multichannel transcribes each channel.
+     * @param string|null $transcript single mixes every channel into one stream. multichannel transcribes each channel. Omitted means off.
      *
      * @return self
      */
