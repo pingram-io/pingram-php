@@ -1409,15 +1409,19 @@ class NumbersApi
      * @param  string|null $features Comma-separated (optional)
      * @param  string|null $area_code National destination / area code filter (optional)
      * @param  float|null $limit Max results (default 10, max 50) (optional)
+     * @param  string|null $starts_with Digits the number starts with, 1 to 7 digits. Do not include the country code. When &#x60;areaCode&#x60; is set, omit those digits here. (optional)
+     * @param  string|null $ends_with Digits the number must end with, 1 to 7 digits. Use this to find a number close to one you already have. (optional)
+     * @param  string|null $contains Digits to find in the number, in that order, 1 to 7 digits. (optional)
+     * @param  string|null $city City to search in, such as San Francisco. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['numbersSearchAvailable'] to see the possible values for this operation
      *
      * @throws \Pingram\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \Pingram\Model\SearchAvailablePhoneNumbersResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse
      */
-    public function numbersSearchAvailable($country_code, $features = null, $area_code = null, $limit = null, string $contentType = self::contentTypes['numbersSearchAvailable'][0])
+    public function numbersSearchAvailable($country_code, $features = null, $area_code = null, $limit = null, $starts_with = null, $ends_with = null, $contains = null, $city = null, string $contentType = self::contentTypes['numbersSearchAvailable'][0])
     {
-        list($response) = $this->numbersSearchAvailableWithHttpInfo($country_code, $features, $area_code, $limit, $contentType);
+        list($response) = $this->numbersSearchAvailableWithHttpInfo($country_code, $features, $area_code, $limit, $starts_with, $ends_with, $contains, $city, $contentType);
         return $response;
     }
 
@@ -1430,15 +1434,19 @@ class NumbersApi
      * @param  string|null $features Comma-separated (optional)
      * @param  string|null $area_code National destination / area code filter (optional)
      * @param  float|null $limit Max results (default 10, max 50) (optional)
+     * @param  string|null $starts_with Digits the number starts with, 1 to 7 digits. Do not include the country code. When &#x60;areaCode&#x60; is set, omit those digits here. (optional)
+     * @param  string|null $ends_with Digits the number must end with, 1 to 7 digits. Use this to find a number close to one you already have. (optional)
+     * @param  string|null $contains Digits to find in the number, in that order, 1 to 7 digits. (optional)
+     * @param  string|null $city City to search in, such as San Francisco. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['numbersSearchAvailable'] to see the possible values for this operation
      *
      * @throws \Pingram\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \Pingram\Model\SearchAvailablePhoneNumbersResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function numbersSearchAvailableWithHttpInfo($country_code, $features = null, $area_code = null, $limit = null, string $contentType = self::contentTypes['numbersSearchAvailable'][0])
+    public function numbersSearchAvailableWithHttpInfo($country_code, $features = null, $area_code = null, $limit = null, $starts_with = null, $ends_with = null, $contains = null, $city = null, string $contentType = self::contentTypes['numbersSearchAvailable'][0])
     {
-        $request = $this->numbersSearchAvailableRequest($country_code, $features, $area_code, $limit, $contentType);
+        $request = $this->numbersSearchAvailableRequest($country_code, $features, $area_code, $limit, $starts_with, $ends_with, $contains, $city, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1560,14 +1568,18 @@ class NumbersApi
      * @param  string|null $features Comma-separated (optional)
      * @param  string|null $area_code National destination / area code filter (optional)
      * @param  float|null $limit Max results (default 10, max 50) (optional)
+     * @param  string|null $starts_with Digits the number starts with, 1 to 7 digits. Do not include the country code. When &#x60;areaCode&#x60; is set, omit those digits here. (optional)
+     * @param  string|null $ends_with Digits the number must end with, 1 to 7 digits. Use this to find a number close to one you already have. (optional)
+     * @param  string|null $contains Digits to find in the number, in that order, 1 to 7 digits. (optional)
+     * @param  string|null $city City to search in, such as San Francisco. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['numbersSearchAvailable'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function numbersSearchAvailableAsync($country_code, $features = null, $area_code = null, $limit = null, string $contentType = self::contentTypes['numbersSearchAvailable'][0])
+    public function numbersSearchAvailableAsync($country_code, $features = null, $area_code = null, $limit = null, $starts_with = null, $ends_with = null, $contains = null, $city = null, string $contentType = self::contentTypes['numbersSearchAvailable'][0])
     {
-        return $this->numbersSearchAvailableAsyncWithHttpInfo($country_code, $features, $area_code, $limit, $contentType)
+        return $this->numbersSearchAvailableAsyncWithHttpInfo($country_code, $features, $area_code, $limit, $starts_with, $ends_with, $contains, $city, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1584,15 +1596,19 @@ class NumbersApi
      * @param  string|null $features Comma-separated (optional)
      * @param  string|null $area_code National destination / area code filter (optional)
      * @param  float|null $limit Max results (default 10, max 50) (optional)
+     * @param  string|null $starts_with Digits the number starts with, 1 to 7 digits. Do not include the country code. When &#x60;areaCode&#x60; is set, omit those digits here. (optional)
+     * @param  string|null $ends_with Digits the number must end with, 1 to 7 digits. Use this to find a number close to one you already have. (optional)
+     * @param  string|null $contains Digits to find in the number, in that order, 1 to 7 digits. (optional)
+     * @param  string|null $city City to search in, such as San Francisco. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['numbersSearchAvailable'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function numbersSearchAvailableAsyncWithHttpInfo($country_code, $features = null, $area_code = null, $limit = null, string $contentType = self::contentTypes['numbersSearchAvailable'][0])
+    public function numbersSearchAvailableAsyncWithHttpInfo($country_code, $features = null, $area_code = null, $limit = null, $starts_with = null, $ends_with = null, $contains = null, $city = null, string $contentType = self::contentTypes['numbersSearchAvailable'][0])
     {
         $returnType = '\Pingram\Model\SearchAvailablePhoneNumbersResponse';
-        $request = $this->numbersSearchAvailableRequest($country_code, $features, $area_code, $limit, $contentType);
+        $request = $this->numbersSearchAvailableRequest($country_code, $features, $area_code, $limit, $starts_with, $ends_with, $contains, $city, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1637,12 +1653,16 @@ class NumbersApi
      * @param  string|null $features Comma-separated (optional)
      * @param  string|null $area_code National destination / area code filter (optional)
      * @param  float|null $limit Max results (default 10, max 50) (optional)
+     * @param  string|null $starts_with Digits the number starts with, 1 to 7 digits. Do not include the country code. When &#x60;areaCode&#x60; is set, omit those digits here. (optional)
+     * @param  string|null $ends_with Digits the number must end with, 1 to 7 digits. Use this to find a number close to one you already have. (optional)
+     * @param  string|null $contains Digits to find in the number, in that order, 1 to 7 digits. (optional)
+     * @param  string|null $city City to search in, such as San Francisco. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['numbersSearchAvailable'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function numbersSearchAvailableRequest($country_code, $features = null, $area_code = null, $limit = null, string $contentType = self::contentTypes['numbersSearchAvailable'][0])
+    public function numbersSearchAvailableRequest($country_code, $features = null, $area_code = null, $limit = null, $starts_with = null, $ends_with = null, $contains = null, $city = null, string $contentType = self::contentTypes['numbersSearchAvailable'][0])
     {
 
         // verify the required parameter 'country_code' is set
@@ -1651,6 +1671,10 @@ class NumbersApi
                 'Missing the required parameter $country_code when calling numbersSearchAvailable'
             );
         }
+
+
+
+
 
 
 
@@ -1695,6 +1719,42 @@ class NumbersApi
             $limit,
             'limit', // param base name
             'number', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $starts_with,
+            'startsWith', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $ends_with,
+            'endsWith', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $contains,
+            'contains', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $city,
+            'city', // param base name
+            'string', // openApiType
             'form', // style
             true, // explode
             false // required
