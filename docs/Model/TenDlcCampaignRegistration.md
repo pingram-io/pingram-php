@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **campaign_status** | **string** | Pingram-side 10DLC registration workflow status (brand or campaign). - not_started: no customer submission yet - pending_review: customer submitted; Pingram has not submitted to carriers - in_progress: submitted for carrier review - approved | rejected | info_needed: review outcome |
 **campaign_description** | **string** | Summary of what this campaign sends and why, including audience and typical message content. Required before carrier submission. | [optional]
 **campaign_sample1** | **string** | Example SMS that represents actual campaign traffic. Required before carrier submission. Should match the use case and typically identify the brand and include STOP/HELP language. | [optional]
-**campaign_sample2** | **string** | Second example SMS. Required before carrier submission. Required for MARKETING and MIXED use cases. | [optional]
+**campaign_sample2** | **string** | Second example SMS. Required before carrier submission. Required for MARKETING, MIXED, and LOW_VOLUME use cases. | [optional]
 **campaign_sample3** | **string** | Optional third example SMS. | [optional]
 **campaign_sample4** | **string** | Optional fourth example SMS. | [optional]
 **campaign_message_flow** | **string** | How recipients opt in (for example website form, checkout, or keyword). Describe the call-to-action and where consent is collected. Required before carrier submission. | [optional]
@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 **campaign_direct_lending** | **bool** | Whether the campaign relates to direct lending or loan products. | [optional]
 **campaign_privacy_policy_link** | **string** | Public URL of the privacy policy that covers this SMS program. | [optional]
 **campaign_terms_and_conditions_link** | **string** | Public URL of the terms and conditions that cover this SMS program. | [optional]
-**campaign_usecase** | **string** | 10DLC campaign use case submitted to carriers. Required before carrier submission. One of 2FA, ACCOUNT_NOTIFICATION, CUSTOMER_CARE, DELIVERY_NOTIFICATION, FRAUD_ALERT, MARKETING, MIXED, POLLING_VOTING, PUBLIC_SERVICE_ANNOUNCEMENT, or SECURITY_ALERT. For MIXED, append comma-separated sub-use cases after MIXED (sub-use cases cannot include MIXED), for example MIXED,2FA,ACCOUNT_NOTIFICATION. | [optional]
+**campaign_usecase** | **string** | 10DLC campaign use case submitted to carriers. Required before carrier submission. One of 2FA, ACCOUNT_NOTIFICATION, CUSTOMER_CARE, DELIVERY_NOTIFICATION, FRAUD_ALERT, MARKETING, MIXED, LOW_VOLUME, POLLING_VOTING, PUBLIC_SERVICE_ANNOUNCEMENT, or SECURITY_ALERT. For MIXED, append 2 to 5 comma-separated sub-use cases after MIXED, for example MIXED,2FA,ACCOUNT_NOTIFICATION. For LOW_VOLUME (low volume mixed), append 2 to 5 comma-separated sub-use cases after LOW_VOLUME, for example LOW_VOLUME,ACCOUNT_NOTIFICATION,CUSTOMER_CARE. | [optional]
 **created_at** | **string** |  |
 **updated_at** | **string** |  |
 

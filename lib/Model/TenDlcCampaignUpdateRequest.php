@@ -490,7 +490,7 @@ class TenDlcCampaignUpdateRequest implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets campaign_sample2
      *
-     * @param string|null $campaign_sample2 Second example SMS. Required before carrier submission. Required for MARKETING and MIXED use cases.
+     * @param string|null $campaign_sample2 Second example SMS. Required before carrier submission. Required for MARKETING, MIXED, and LOW_VOLUME use cases.
      *
      * @return self
      */
@@ -949,7 +949,7 @@ class TenDlcCampaignUpdateRequest implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets campaign_usecase
      *
-     * @param string|null $campaign_usecase 10DLC campaign use case submitted to carriers. Required before carrier submission. One of 2FA, ACCOUNT_NOTIFICATION, CUSTOMER_CARE, DELIVERY_NOTIFICATION, FRAUD_ALERT, MARKETING, MIXED, POLLING_VOTING, PUBLIC_SERVICE_ANNOUNCEMENT, or SECURITY_ALERT. For MIXED, append comma-separated sub-use cases after MIXED (sub-use cases cannot include MIXED), for example MIXED,2FA,ACCOUNT_NOTIFICATION.
+     * @param string|null $campaign_usecase 10DLC campaign use case submitted to carriers. Required before carrier submission. One of 2FA, ACCOUNT_NOTIFICATION, CUSTOMER_CARE, DELIVERY_NOTIFICATION, FRAUD_ALERT, MARKETING, MIXED, LOW_VOLUME, POLLING_VOTING, PUBLIC_SERVICE_ANNOUNCEMENT, or SECURITY_ALERT. For MIXED, append 2 to 5 comma-separated sub-use cases after MIXED, for example MIXED,2FA,ACCOUNT_NOTIFICATION. For LOW_VOLUME (low volume mixed), append 2 to 5 comma-separated sub-use cases after LOW_VOLUME, for example LOW_VOLUME,ACCOUNT_NOTIFICATION,CUSTOMER_CARE.
      *
      * @return self
      */

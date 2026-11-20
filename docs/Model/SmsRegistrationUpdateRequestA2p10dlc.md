@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **campaign_description** | **string** | Summary of what this campaign sends and why, including audience and typical message content. Required before carrier submission. | [optional]
 **campaign_sample1** | **string** | Example SMS that represents actual campaign traffic. Required before carrier submission. Should match the use case and typically identify the brand and include STOP/HELP language. | [optional]
-**campaign_sample2** | **string** | Second example SMS. Required before carrier submission. Required for MARKETING and MIXED use cases. | [optional]
+**campaign_sample2** | **string** | Second example SMS. Required before carrier submission. Required for MARKETING, MIXED, and LOW_VOLUME use cases. | [optional]
 **campaign_sample3** | **string** | Optional third example SMS. | [optional]
 **campaign_sample4** | **string** | Optional fourth example SMS. | [optional]
 **campaign_message_flow** | **string** | How recipients opt in (for example website form, checkout, or keyword). Describe the call-to-action and where consent is collected. Required before carrier submission. | [optional]
@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 **campaign_direct_lending** | **bool** | Whether the campaign relates to direct lending or loan products. | [optional]
 **campaign_privacy_policy_link** | **string** | Public URL of the privacy policy that covers this SMS program. | [optional]
 **campaign_terms_and_conditions_link** | **string** | Public URL of the terms and conditions that cover this SMS program. | [optional]
-**campaign_usecase** | **string** | 10DLC campaign use case submitted to carriers. Required before carrier submission. One of 2FA, ACCOUNT_NOTIFICATION, CUSTOMER_CARE, DELIVERY_NOTIFICATION, FRAUD_ALERT, MARKETING, MIXED, POLLING_VOTING, PUBLIC_SERVICE_ANNOUNCEMENT, or SECURITY_ALERT. For MIXED, append comma-separated sub-use cases after MIXED (sub-use cases cannot include MIXED), for example MIXED,2FA,ACCOUNT_NOTIFICATION. | [optional]
+**campaign_usecase** | **string** | 10DLC campaign use case submitted to carriers. Required before carrier submission. One of 2FA, ACCOUNT_NOTIFICATION, CUSTOMER_CARE, DELIVERY_NOTIFICATION, FRAUD_ALERT, MARKETING, MIXED, LOW_VOLUME, POLLING_VOTING, PUBLIC_SERVICE_ANNOUNCEMENT, or SECURITY_ALERT. For MIXED, append 2 to 5 comma-separated sub-use cases after MIXED, for example MIXED,2FA,ACCOUNT_NOTIFICATION. For LOW_VOLUME (low volume mixed), append 2 to 5 comma-separated sub-use cases after LOW_VOLUME, for example LOW_VOLUME,ACCOUNT_NOTIFICATION,CUSTOMER_CARE. | [optional]
 **scenario_id** | **string** | Who the 10DLC brand is registered for. - own_brand: personal or company project - client_brand: agency or contractor | [optional]
 **business_type** | **string** | Legal entity type for a 10DLC brand. - PRIVATE_PROFIT: private for-profit (LLC, corp, etc.) - SOLE_PROPRIETOR: sole proprietorship - PUBLIC_PROFIT: publicly traded for-profit - NON_PROFIT: non-profit - GOVERNMENT: government | [optional]
 **legal_name** | **string** | Official registered legal business name. For SOLE_PROPRIETOR, optional DBA or trade name (defaults to firstName and lastName). | [optional]

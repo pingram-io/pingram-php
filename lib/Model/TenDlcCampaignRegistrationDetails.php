@@ -82,7 +82,8 @@ class TenDlcCampaignRegistrationDetails implements ModelInterface, ArrayAccess, 
         'campaign_usecase' => 'string',
         'created_at' => 'string',
         'updated_at' => 'string',
-        'campaign_id' => 'string'
+        'campaign_id' => 'string',
+        'campaign_status_description' => 'string'
     ];
 
     /**
@@ -117,7 +118,8 @@ class TenDlcCampaignRegistrationDetails implements ModelInterface, ArrayAccess, 
         'campaign_usecase' => null,
         'created_at' => null,
         'updated_at' => null,
-        'campaign_id' => null
+        'campaign_id' => null,
+        'campaign_status_description' => null
     ];
 
     /**
@@ -150,7 +152,8 @@ class TenDlcCampaignRegistrationDetails implements ModelInterface, ArrayAccess, 
         'campaign_usecase' => false,
         'created_at' => false,
         'updated_at' => false,
-        'campaign_id' => false
+        'campaign_id' => false,
+        'campaign_status_description' => false
     ];
 
     /**
@@ -263,7 +266,8 @@ class TenDlcCampaignRegistrationDetails implements ModelInterface, ArrayAccess, 
         'campaign_usecase' => 'campaignUsecase',
         'created_at' => 'createdAt',
         'updated_at' => 'updatedAt',
-        'campaign_id' => 'campaignId'
+        'campaign_id' => 'campaignId',
+        'campaign_status_description' => 'campaignStatusDescription'
     ];
 
     /**
@@ -296,7 +300,8 @@ class TenDlcCampaignRegistrationDetails implements ModelInterface, ArrayAccess, 
         'campaign_usecase' => 'setCampaignUsecase',
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt',
-        'campaign_id' => 'setCampaignId'
+        'campaign_id' => 'setCampaignId',
+        'campaign_status_description' => 'setCampaignStatusDescription'
     ];
 
     /**
@@ -329,7 +334,8 @@ class TenDlcCampaignRegistrationDetails implements ModelInterface, ArrayAccess, 
         'campaign_usecase' => 'getCampaignUsecase',
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt',
-        'campaign_id' => 'getCampaignId'
+        'campaign_id' => 'getCampaignId',
+        'campaign_status_description' => 'getCampaignStatusDescription'
     ];
 
     /**
@@ -437,6 +443,7 @@ class TenDlcCampaignRegistrationDetails implements ModelInterface, ArrayAccess, 
         $this->setIfExists('created_at', $data ?? [], null);
         $this->setIfExists('updated_at', $data ?? [], null);
         $this->setIfExists('campaign_id', $data ?? [], null);
+        $this->setIfExists('campaign_status_description', $data ?? [], null);
     }
 
     /**
@@ -633,7 +640,7 @@ class TenDlcCampaignRegistrationDetails implements ModelInterface, ArrayAccess, 
     /**
      * Sets campaign_sample2
      *
-     * @param string|null $campaign_sample2 Second example SMS. Required before carrier submission. Required for MARKETING and MIXED use cases.
+     * @param string|null $campaign_sample2 Second example SMS. Required before carrier submission. Required for MARKETING, MIXED, and LOW_VOLUME use cases.
      *
      * @return self
      */
@@ -1092,7 +1099,7 @@ class TenDlcCampaignRegistrationDetails implements ModelInterface, ArrayAccess, 
     /**
      * Sets campaign_usecase
      *
-     * @param string|null $campaign_usecase 10DLC campaign use case submitted to carriers. Required before carrier submission. One of 2FA, ACCOUNT_NOTIFICATION, CUSTOMER_CARE, DELIVERY_NOTIFICATION, FRAUD_ALERT, MARKETING, MIXED, POLLING_VOTING, PUBLIC_SERVICE_ANNOUNCEMENT, or SECURITY_ALERT. For MIXED, append comma-separated sub-use cases after MIXED (sub-use cases cannot include MIXED), for example MIXED,2FA,ACCOUNT_NOTIFICATION.
+     * @param string|null $campaign_usecase 10DLC campaign use case submitted to carriers. Required before carrier submission. One of 2FA, ACCOUNT_NOTIFICATION, CUSTOMER_CARE, DELIVERY_NOTIFICATION, FRAUD_ALERT, MARKETING, MIXED, LOW_VOLUME, POLLING_VOTING, PUBLIC_SERVICE_ANNOUNCEMENT, or SECURITY_ALERT. For MIXED, append 2 to 5 comma-separated sub-use cases after MIXED, for example MIXED,2FA,ACCOUNT_NOTIFICATION. For LOW_VOLUME (low volume mixed), append 2 to 5 comma-separated sub-use cases after LOW_VOLUME, for example LOW_VOLUME,ACCOUNT_NOTIFICATION,CUSTOMER_CARE.
      *
      * @return self
      */
@@ -1183,6 +1190,33 @@ class TenDlcCampaignRegistrationDetails implements ModelInterface, ArrayAccess, 
             throw new \InvalidArgumentException('non-nullable campaign_id cannot be null');
         }
         $this->container['campaign_id'] = $campaign_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets campaign_status_description
+     *
+     * @return string|null
+     */
+    public function getCampaignStatusDescription()
+    {
+        return $this->container['campaign_status_description'];
+    }
+
+    /**
+     * Sets campaign_status_description
+     *
+     * @param string|null $campaign_status_description Carrier explanation of the current campaign status.
+     *
+     * @return self
+     */
+    public function setCampaignStatusDescription($campaign_status_description)
+    {
+        if (is_null($campaign_status_description)) {
+            throw new \InvalidArgumentException('non-nullable campaign_status_description cannot be null');
+        }
+        $this->container['campaign_status_description'] = $campaign_status_description;
 
         return $this;
     }
