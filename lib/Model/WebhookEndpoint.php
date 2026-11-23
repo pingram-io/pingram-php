@@ -266,6 +266,9 @@ class WebhookEndpoint implements ModelInterface, ArrayAccess, \JsonSerializable
     public const EVENTS_SMS_UNSUBSCRIBE = 'SMS_UNSUBSCRIBE';
     public const EVENTS_SMS_SUBSCRIBE = 'SMS_SUBSCRIBE';
     public const EVENTS_SMS_INBOUND = 'SMS_INBOUND';
+    public const EVENTS_GROUP_TEXT_DELIVERED = 'GROUP_TEXT_DELIVERED';
+    public const EVENTS_GROUP_TEXT_FAILED = 'GROUP_TEXT_FAILED';
+    public const EVENTS_GROUP_TEXT_INBOUND = 'GROUP_TEXT_INBOUND';
     public const EVENTS_VOICE_INBOUND = 'VOICE_INBOUND';
     public const EVENTS_VOICE_CONNECTED = 'VOICE_CONNECTED';
     public const EVENTS_VOICE_ENDED = 'VOICE_ENDED';
@@ -300,6 +303,9 @@ class WebhookEndpoint implements ModelInterface, ArrayAccess, \JsonSerializable
             self::EVENTS_SMS_UNSUBSCRIBE,
             self::EVENTS_SMS_SUBSCRIBE,
             self::EVENTS_SMS_INBOUND,
+            self::EVENTS_GROUP_TEXT_DELIVERED,
+            self::EVENTS_GROUP_TEXT_FAILED,
+            self::EVENTS_GROUP_TEXT_INBOUND,
             self::EVENTS_VOICE_INBOUND,
             self::EVENTS_VOICE_CONNECTED,
             self::EVENTS_VOICE_ENDED,

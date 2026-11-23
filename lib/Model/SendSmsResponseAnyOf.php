@@ -343,7 +343,7 @@ class SendSmsResponseAnyOf implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets messages
      *
-     * @param string[] $messages messages
+     * @param string[] $messages Warnings about this send. Empty when the text was accepted.
      *
      * @return self
      */

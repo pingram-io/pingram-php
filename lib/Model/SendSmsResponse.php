@@ -353,7 +353,7 @@ class SendSmsResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets messages
      *
-     * @param string[] $messages messages
+     * @param string[] $messages Warnings about this send. Empty when the text was accepted.
      *
      * @return self
      */
