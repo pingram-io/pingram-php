@@ -35,7 +35,7 @@ use \Pingram\ObjectSerializer;
  * GetUsersResponseUsersInnerEmailSuppressionStatus Class Doc Comment
  *
  * @category Class
- * @description Bounce or complaint status if email was suppressed. Read-only.
+ * @description Bounce or complaint that is keeping mail from this address. Read-only. &#x60;unknown&#x60; means the address is suppressed and the original cause was not kept.
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -59,7 +59,11 @@ class GetUsersResponseUsersInnerEmailSuppressionStatus implements ModelInterface
       */
     protected static $openAPITypes = [
         'reason' => 'string',
-        'details' => 'object'
+        'at' => 'string',
+        'tracking_id' => 'string',
+        'smtp_status' => 'string',
+        'server_message' => 'string',
+        'category' => 'string'
     ];
 
     /**
@@ -71,7 +75,11 @@ class GetUsersResponseUsersInnerEmailSuppressionStatus implements ModelInterface
       */
     protected static $openAPIFormats = [
         'reason' => null,
-        'details' => null
+        'at' => null,
+        'tracking_id' => null,
+        'smtp_status' => null,
+        'server_message' => null,
+        'category' => null
     ];
 
     /**
@@ -81,7 +89,11 @@ class GetUsersResponseUsersInnerEmailSuppressionStatus implements ModelInterface
       */
     protected static array $openAPINullables = [
         'reason' => false,
-        'details' => false
+        'at' => false,
+        'tracking_id' => false,
+        'smtp_status' => false,
+        'server_message' => false,
+        'category' => false
     ];
 
     /**
@@ -171,7 +183,11 @@ class GetUsersResponseUsersInnerEmailSuppressionStatus implements ModelInterface
      */
     protected static $attributeMap = [
         'reason' => 'reason',
-        'details' => 'details'
+        'at' => 'at',
+        'tracking_id' => 'trackingId',
+        'smtp_status' => 'smtpStatus',
+        'server_message' => 'serverMessage',
+        'category' => 'category'
     ];
 
     /**
@@ -181,7 +197,11 @@ class GetUsersResponseUsersInnerEmailSuppressionStatus implements ModelInterface
      */
     protected static $setters = [
         'reason' => 'setReason',
-        'details' => 'setDetails'
+        'at' => 'setAt',
+        'tracking_id' => 'setTrackingId',
+        'smtp_status' => 'setSmtpStatus',
+        'server_message' => 'setServerMessage',
+        'category' => 'setCategory'
     ];
 
     /**
@@ -191,7 +211,11 @@ class GetUsersResponseUsersInnerEmailSuppressionStatus implements ModelInterface
      */
     protected static $getters = [
         'reason' => 'getReason',
-        'details' => 'getDetails'
+        'at' => 'getAt',
+        'tracking_id' => 'getTrackingId',
+        'smtp_status' => 'getSmtpStatus',
+        'server_message' => 'getServerMessage',
+        'category' => 'getCategory'
     ];
 
     /**
@@ -235,8 +259,9 @@ class GetUsersResponseUsersInnerEmailSuppressionStatus implements ModelInterface
         return self::$openAPIModelName;
     }
 
-    public const REASON_BOUNCE = 'Bounce';
-    public const REASON_COMPLAINT = 'Complaint';
+    public const REASON_HARD_BOUNCE = 'hard_bounce';
+    public const REASON_COMPLAINT = 'complaint';
+    public const REASON_UNKNOWN = 'unknown';
 
     /**
      * Gets allowable values of the enum
@@ -246,8 +271,9 @@ class GetUsersResponseUsersInnerEmailSuppressionStatus implements ModelInterface
     public function getReasonAllowableValues()
     {
         return [
-            self::REASON_BOUNCE,
+            self::REASON_HARD_BOUNCE,
             self::REASON_COMPLAINT,
+            self::REASON_UNKNOWN,
         ];
     }
 
@@ -267,7 +293,11 @@ class GetUsersResponseUsersInnerEmailSuppressionStatus implements ModelInterface
     public function __construct(?array $data = null)
     {
         $this->setIfExists('reason', $data ?? [], null);
-        $this->setIfExists('details', $data ?? [], null);
+        $this->setIfExists('at', $data ?? [], null);
+        $this->setIfExists('tracking_id', $data ?? [], null);
+        $this->setIfExists('smtp_status', $data ?? [], null);
+        $this->setIfExists('server_message', $data ?? [], null);
+        $this->setIfExists('category', $data ?? [], null);
     }
 
     /**
@@ -309,9 +339,6 @@ class GetUsersResponseUsersInnerEmailSuppressionStatus implements ModelInterface
             );
         }
 
-        if ($this->container['details'] === null) {
-            $invalidProperties[] = "'details' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -340,7 +367,7 @@ class GetUsersResponseUsersInnerEmailSuppressionStatus implements ModelInterface
     /**
      * Sets reason
      *
-     * @param string $reason reason
+     * @param string $reason Why mail to this address is suppressed.
      *
      * @return self
      */
@@ -365,28 +392,136 @@ class GetUsersResponseUsersInnerEmailSuppressionStatus implements ModelInterface
     }
 
     /**
-     * Gets details
+     * Gets at
      *
-     * @return object
+     * @return string|null
      */
-    public function getDetails()
+    public function getAt()
     {
-        return $this->container['details'];
+        return $this->container['at'];
     }
 
     /**
-     * Sets details
+     * Sets at
      *
-     * @param object $details details
+     * @param string|null $at When the bounce or complaint happened.
      *
      * @return self
      */
-    public function setDetails($details)
+    public function setAt($at)
     {
-        if (is_null($details)) {
-            throw new \InvalidArgumentException('non-nullable details cannot be null');
+        if (is_null($at)) {
+            throw new \InvalidArgumentException('non-nullable at cannot be null');
         }
-        $this->container['details'] = $details;
+        $this->container['at'] = $at;
+
+        return $this;
+    }
+
+    /**
+     * Gets tracking_id
+     *
+     * @return string|null
+     */
+    public function getTrackingId()
+    {
+        return $this->container['tracking_id'];
+    }
+
+    /**
+     * Sets tracking_id
+     *
+     * @param string|null $tracking_id Tracking id of the message that caused this suppression.
+     *
+     * @return self
+     */
+    public function setTrackingId($tracking_id)
+    {
+        if (is_null($tracking_id)) {
+            throw new \InvalidArgumentException('non-nullable tracking_id cannot be null');
+        }
+        $this->container['tracking_id'] = $tracking_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets smtp_status
+     *
+     * @return string|null
+     */
+    public function getSmtpStatus()
+    {
+        return $this->container['smtp_status'];
+    }
+
+    /**
+     * Sets smtp_status
+     *
+     * @param string|null $smtp_status Status the recipient's mail server reported, such as 5.1.1.
+     *
+     * @return self
+     */
+    public function setSmtpStatus($smtp_status)
+    {
+        if (is_null($smtp_status)) {
+            throw new \InvalidArgumentException('non-nullable smtp_status cannot be null');
+        }
+        $this->container['smtp_status'] = $smtp_status;
+
+        return $this;
+    }
+
+    /**
+     * Gets server_message
+     *
+     * @return string|null
+     */
+    public function getServerMessage()
+    {
+        return $this->container['server_message'];
+    }
+
+    /**
+     * Sets server_message
+     *
+     * @param string|null $server_message What the recipient's mail server sent back.
+     *
+     * @return self
+     */
+    public function setServerMessage($server_message)
+    {
+        if (is_null($server_message)) {
+            throw new \InvalidArgumentException('non-nullable server_message cannot be null');
+        }
+        $this->container['server_message'] = $server_message;
+
+        return $this;
+    }
+
+    /**
+     * Gets category
+     *
+     * @return string|null
+     */
+    public function getCategory()
+    {
+        return $this->container['category'];
+    }
+
+    /**
+     * Sets category
+     *
+     * @param string|null $category More specific cause reported for this address.
+     *
+     * @return self
+     */
+    public function setCategory($category)
+    {
+        if (is_null($category)) {
+            throw new \InvalidArgumentException('non-nullable category cannot be null');
+        }
+        $this->container['category'] = $category;
 
         return $this;
     }

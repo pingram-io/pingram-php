@@ -1,6 +1,6 @@
 <?php
 /**
- * GetSendersResponseInnerVerificationRecordsDkim
+ * GetSendersResponseInnerDnsRecordsInner
  *
  * PHP version 8.1
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \Pingram\ObjectSerializer;
 
 /**
- * GetSendersResponseInnerVerificationRecordsDkim Class Doc Comment
+ * GetSendersResponseInnerDnsRecordsInner Class Doc Comment
  *
  * @category Class
- * @description DNS record the customer must publish for domain verification.
+ * @description One DNS record to publish for a domain.
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class GetSendersResponseInnerVerificationRecordsDkim implements ModelInterface, ArrayAccess, \JsonSerializable
+class GetSendersResponseInnerDnsRecordsInner implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class GetSendersResponseInnerVerificationRecordsDkim implements ModelInterface, 
       *
       * @var string
       */
-    protected static $openAPIModelName = 'GetSendersResponse_inner_verificationRecords_dkim';
+    protected static $openAPIModelName = 'GetSendersResponse_inner_dnsRecords_inner';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,12 +58,14 @@ class GetSendersResponseInnerVerificationRecordsDkim implements ModelInterface, 
       * @var string[]
       */
     protected static $openAPITypes = [
-        'record_type' => 'string',
-        'record_name' => 'string',
+        'id' => 'string',
+        'type' => 'string',
+        'name' => 'string',
         'host' => 'string',
-        'record_value' => 'string',
+        'value' => 'string',
         'priority' => 'float',
-        'required' => 'bool'
+        'expected' => 'bool',
+        'status' => 'string'
     ];
 
     /**
@@ -74,12 +76,14 @@ class GetSendersResponseInnerVerificationRecordsDkim implements ModelInterface, 
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'record_type' => null,
-        'record_name' => null,
+        'id' => null,
+        'type' => null,
+        'name' => null,
         'host' => null,
-        'record_value' => null,
+        'value' => null,
         'priority' => null,
-        'required' => null
+        'expected' => null,
+        'status' => null
     ];
 
     /**
@@ -88,12 +92,14 @@ class GetSendersResponseInnerVerificationRecordsDkim implements ModelInterface, 
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'record_type' => false,
-        'record_name' => false,
+        'id' => false,
+        'type' => false,
+        'name' => false,
         'host' => false,
-        'record_value' => false,
+        'value' => false,
         'priority' => false,
-        'required' => false
+        'expected' => false,
+        'status' => false
     ];
 
     /**
@@ -182,12 +188,14 @@ class GetSendersResponseInnerVerificationRecordsDkim implements ModelInterface, 
      * @var string[]
      */
     protected static $attributeMap = [
-        'record_type' => 'recordType',
-        'record_name' => 'recordName',
+        'id' => 'id',
+        'type' => 'type',
+        'name' => 'name',
         'host' => 'host',
-        'record_value' => 'recordValue',
+        'value' => 'value',
         'priority' => 'priority',
-        'required' => 'required'
+        'expected' => 'expected',
+        'status' => 'status'
     ];
 
     /**
@@ -196,12 +204,14 @@ class GetSendersResponseInnerVerificationRecordsDkim implements ModelInterface, 
      * @var string[]
      */
     protected static $setters = [
-        'record_type' => 'setRecordType',
-        'record_name' => 'setRecordName',
+        'id' => 'setId',
+        'type' => 'setType',
+        'name' => 'setName',
         'host' => 'setHost',
-        'record_value' => 'setRecordValue',
+        'value' => 'setValue',
         'priority' => 'setPriority',
-        'required' => 'setRequired'
+        'expected' => 'setExpected',
+        'status' => 'setStatus'
     ];
 
     /**
@@ -210,12 +220,14 @@ class GetSendersResponseInnerVerificationRecordsDkim implements ModelInterface, 
      * @var string[]
      */
     protected static $getters = [
-        'record_type' => 'getRecordType',
-        'record_name' => 'getRecordName',
+        'id' => 'getId',
+        'type' => 'getType',
+        'name' => 'getName',
         'host' => 'getHost',
-        'record_value' => 'getRecordValue',
+        'value' => 'getValue',
         'priority' => 'getPriority',
-        'required' => 'getRequired'
+        'expected' => 'getExpected',
+        'status' => 'getStatus'
     ];
 
     /**
@@ -259,21 +271,65 @@ class GetSendersResponseInnerVerificationRecordsDkim implements ModelInterface, 
         return self::$openAPIModelName;
     }
 
-    public const RECORD_TYPE_TXT = 'TXT';
-    public const RECORD_TYPE_MX = 'MX';
-    public const RECORD_TYPE_CNAME = 'CNAME';
+    public const ID_DKIM = 'dkim';
+    public const ID_MAIL_FROM_SPF = 'mail_from_spf';
+    public const ID_MAIL_FROM_MX = 'mail_from_mx';
+    public const ID_DMARC = 'dmarc';
+    public const ID_INBOUND_MX = 'inbound_mx';
+    public const ID_TRACKING_CNAME = 'trackingCname';
+    public const TYPE_TXT = 'TXT';
+    public const TYPE_MX = 'MX';
+    public const TYPE_CNAME = 'CNAME';
+    public const STATUS_NOT_STARTED = 'NOT_STARTED';
+    public const STATUS_PENDING = 'PENDING';
+    public const STATUS_SUCCESS = 'SUCCESS';
+    public const STATUS_TEMPORARY_FAILURE = 'TEMPORARY_FAILURE';
+    public const STATUS_FAILED = 'FAILED';
 
     /**
      * Gets allowable values of the enum
      *
      * @return string[]
      */
-    public function getRecordTypeAllowableValues()
+    public function getIdAllowableValues()
     {
         return [
-            self::RECORD_TYPE_TXT,
-            self::RECORD_TYPE_MX,
-            self::RECORD_TYPE_CNAME,
+            self::ID_DKIM,
+            self::ID_MAIL_FROM_SPF,
+            self::ID_MAIL_FROM_MX,
+            self::ID_DMARC,
+            self::ID_INBOUND_MX,
+            self::ID_TRACKING_CNAME,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_TXT,
+            self::TYPE_MX,
+            self::TYPE_CNAME,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getStatusAllowableValues()
+    {
+        return [
+            self::STATUS_NOT_STARTED,
+            self::STATUS_PENDING,
+            self::STATUS_SUCCESS,
+            self::STATUS_TEMPORARY_FAILURE,
+            self::STATUS_FAILED,
         ];
     }
 
@@ -292,12 +348,14 @@ class GetSendersResponseInnerVerificationRecordsDkim implements ModelInterface, 
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('record_type', $data ?? [], null);
-        $this->setIfExists('record_name', $data ?? [], null);
+        $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('type', $data ?? [], null);
+        $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('host', $data ?? [], null);
-        $this->setIfExists('record_value', $data ?? [], null);
+        $this->setIfExists('value', $data ?? [], null);
         $this->setIfExists('priority', $data ?? [], null);
-        $this->setIfExists('required', $data ?? [], null);
+        $this->setIfExists('expected', $data ?? [], null);
+        $this->setIfExists('status', $data ?? [], null);
     }
 
     /**
@@ -327,27 +385,54 @@ class GetSendersResponseInnerVerificationRecordsDkim implements ModelInterface, 
     {
         $invalidProperties = [];
 
-        if ($this->container['record_type'] === null) {
-            $invalidProperties[] = "'record_type' can't be null";
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
         }
-        $allowedValues = $this->getRecordTypeAllowableValues();
-        if (!is_null($this->container['record_type']) && !in_array($this->container['record_type'], $allowedValues, true)) {
+        $allowedValues = $this->getIdAllowableValues();
+        if (!is_null($this->container['id']) && !in_array($this->container['id'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'record_type', must be one of '%s'",
-                $this->container['record_type'],
+                "invalid value '%s' for 'id', must be one of '%s'",
+                $this->container['id'],
                 implode("', '", $allowedValues)
             );
         }
 
-        if ($this->container['record_name'] === null) {
-            $invalidProperties[] = "'record_name' can't be null";
+        if ($this->container['type'] === null) {
+            $invalidProperties[] = "'type' can't be null";
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
         }
         if ($this->container['host'] === null) {
             $invalidProperties[] = "'host' can't be null";
         }
-        if ($this->container['record_value'] === null) {
-            $invalidProperties[] = "'record_value' can't be null";
+        if ($this->container['value'] === null) {
+            $invalidProperties[] = "'value' can't be null";
         }
+        if ($this->container['expected'] === null) {
+            $invalidProperties[] = "'expected' can't be null";
+        }
+        if ($this->container['status'] === null) {
+            $invalidProperties[] = "'status' can't be null";
+        }
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'status', must be one of '%s'",
+                $this->container['status'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -364,65 +449,102 @@ class GetSendersResponseInnerVerificationRecordsDkim implements ModelInterface, 
 
 
     /**
-     * Gets record_type
+     * Gets id
      *
      * @return string
      */
-    public function getRecordType()
+    public function getId()
     {
-        return $this->container['record_type'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets record_type
+     * Sets id
      *
-     * @param string $record_type record_type
+     * @param string $id id
      *
      * @return self
      */
-    public function setRecordType($record_type)
+    public function setId($id)
     {
-        if (is_null($record_type)) {
-            throw new \InvalidArgumentException('non-nullable record_type cannot be null');
+        if (is_null($id)) {
+            throw new \InvalidArgumentException('non-nullable id cannot be null');
         }
-        $allowedValues = $this->getRecordTypeAllowableValues();
-        if (!in_array($record_type, $allowedValues, true)) {
+        $allowedValues = $this->getIdAllowableValues();
+        if (!in_array($id, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value '%s' for 'record_type', must be one of '%s'",
-                    $record_type,
+                    "Invalid value '%s' for 'id', must be one of '%s'",
+                    $id,
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['record_type'] = $record_type;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets record_name
+     * Gets type
      *
      * @return string
      */
-    public function getRecordName()
+    public function getType()
     {
-        return $this->container['record_name'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets record_name
+     * Sets type
      *
-     * @param string $record_name Relative name for the parent DNS zone UI (e.g. pingram._domainkey.testing).
+     * @param string $type TXT, MX, or CNAME.
      *
      * @return self
      */
-    public function setRecordName($record_name)
+    public function setType($type)
     {
-        if (is_null($record_name)) {
-            throw new \InvalidArgumentException('non-nullable record_name cannot be null');
+        if (is_null($type)) {
+            throw new \InvalidArgumentException('non-nullable type cannot be null');
         }
-        $this->container['record_name'] = $record_name;
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string $name Name to enter at the DNS host. `@` is the bare domain.
+     *
+     * @return self
+     */
+    public function setName($name)
+    {
+        if (is_null($name)) {
+            throw new \InvalidArgumentException('non-nullable name cannot be null');
+        }
+        $this->container['name'] = $name;
 
         return $this;
     }
@@ -440,7 +562,7 @@ class GetSendersResponseInnerVerificationRecordsDkim implements ModelInterface, 
     /**
      * Sets host
      *
-     * @param string $host Full hostname (e.g. pingram._domainkey.testing.something.com).
+     * @param string $host Full hostname, such as pingram._domainkey.mail.example.com.
      *
      * @return self
      */
@@ -455,28 +577,28 @@ class GetSendersResponseInnerVerificationRecordsDkim implements ModelInterface, 
     }
 
     /**
-     * Gets record_value
+     * Gets value
      *
      * @return string
      */
-    public function getRecordValue()
+    public function getValue()
     {
-        return $this->container['record_value'];
+        return $this->container['value'];
     }
 
     /**
-     * Sets record_value
+     * Sets value
      *
-     * @param string $record_value record_value
+     * @param string $value Exact value to publish.
      *
      * @return self
      */
-    public function setRecordValue($record_value)
+    public function setValue($value)
     {
-        if (is_null($record_value)) {
-            throw new \InvalidArgumentException('non-nullable record_value cannot be null');
+        if (is_null($value)) {
+            throw new \InvalidArgumentException('non-nullable value cannot be null');
         }
-        $this->container['record_value'] = $record_value;
+        $this->container['value'] = $value;
 
         return $this;
     }
@@ -494,7 +616,7 @@ class GetSendersResponseInnerVerificationRecordsDkim implements ModelInterface, 
     /**
      * Sets priority
      *
-     * @param float|null $priority priority
+     * @param float|null $priority MX priority. Present for the bounce and inbound records.
      *
      * @return self
      */
@@ -509,28 +631,65 @@ class GetSendersResponseInnerVerificationRecordsDkim implements ModelInterface, 
     }
 
     /**
-     * Gets required
+     * Gets expected
      *
-     * @return bool|null
+     * @return bool
      */
-    public function getRequired()
+    public function getExpected()
     {
-        return $this->container['required'];
+        return $this->container['expected'];
     }
 
     /**
-     * Sets required
+     * Sets expected
      *
-     * @param bool|null $required required
+     * @param bool $expected Whether the current settings expect this record. Inbound is expected when receiving is on. Tracking is expected when open or click tracking is on. The record is still listed when this is false.
      *
      * @return self
      */
-    public function setRequired($required)
+    public function setExpected($expected)
     {
-        if (is_null($required)) {
-            throw new \InvalidArgumentException('non-nullable required cannot be null');
+        if (is_null($expected)) {
+            throw new \InvalidArgumentException('non-nullable expected cannot be null');
         }
-        $this->container['required'] = $required;
+        $this->container['expected'] = $expected;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param string $status Whether this record is ready to use. `PENDING` means it has been seen and confirmation is not finished. `TEMPORARY_FAILURE` means a confirmed record has started to disappear.
+     *
+     * @return self
+     */
+    public function setStatus($status)
+    {
+        if (is_null($status)) {
+            throw new \InvalidArgumentException('non-nullable status cannot be null');
+        }
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!in_array($status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'status', must be one of '%s'",
+                    $status,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['status'] = $status;
 
         return $this;
     }

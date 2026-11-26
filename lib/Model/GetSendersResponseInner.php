@@ -35,6 +35,7 @@ use \Pingram\ObjectSerializer;
  * GetSendersResponseInner Class Doc Comment
  *
  * @category Class
+ * @description A domain saved on this account.
  * @package  Pingram
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -57,20 +58,15 @@ class GetSendersResponseInner implements ModelInterface, ArrayAccess, \JsonSeria
       * @var string[]
       */
     protected static $openAPITypes = [
-        'waiting_for' => 'string',
-        'sender' => 'string',
+        'domain' => 'string',
         'status' => 'string',
-        'last_sync' => '\DateTime',
-        'verification_tokens' => 'string[]',
-        'mail_from_domain_status' => 'string',
-        'created_at' => 'string',
-        'private_dkim_key' => 'string',
-        'reminder_sent_at' => 'string',
-        'selector' => 'string',
-        'verification_records' => '\Pingram\Model\GetSendersResponseInnerVerificationRecords',
+        'inbound' => 'bool',
+        'open_tracking' => 'bool',
+        'click_tracking' => 'bool',
         'tracking_subdomain' => 'string',
-        'tracking_status' => 'string',
-        'tracking_failure_reason' => 'string'
+        'dns_records' => '\Pingram\Model\GetSendersResponseInnerDnsRecordsInner[]',
+        'detail' => 'string',
+        'created_at' => 'string'
     ];
 
     /**
@@ -81,20 +77,15 @@ class GetSendersResponseInner implements ModelInterface, ArrayAccess, \JsonSeria
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'waiting_for' => null,
-        'sender' => null,
+        'domain' => null,
         'status' => null,
-        'last_sync' => 'date-time',
-        'verification_tokens' => null,
-        'mail_from_domain_status' => null,
-        'created_at' => null,
-        'private_dkim_key' => null,
-        'reminder_sent_at' => null,
-        'selector' => null,
-        'verification_records' => null,
+        'inbound' => null,
+        'open_tracking' => null,
+        'click_tracking' => null,
         'tracking_subdomain' => null,
-        'tracking_status' => null,
-        'tracking_failure_reason' => null
+        'dns_records' => null,
+        'detail' => null,
+        'created_at' => null
     ];
 
     /**
@@ -103,20 +94,15 @@ class GetSendersResponseInner implements ModelInterface, ArrayAccess, \JsonSeria
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'waiting_for' => false,
-        'sender' => false,
+        'domain' => false,
         'status' => false,
-        'last_sync' => false,
-        'verification_tokens' => false,
-        'mail_from_domain_status' => false,
-        'created_at' => false,
-        'private_dkim_key' => false,
-        'reminder_sent_at' => false,
-        'selector' => false,
-        'verification_records' => false,
+        'inbound' => false,
+        'open_tracking' => false,
+        'click_tracking' => false,
         'tracking_subdomain' => false,
-        'tracking_status' => false,
-        'tracking_failure_reason' => false
+        'dns_records' => false,
+        'detail' => false,
+        'created_at' => false
     ];
 
     /**
@@ -205,20 +191,15 @@ class GetSendersResponseInner implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $attributeMap = [
-        'waiting_for' => 'waitingFor',
-        'sender' => 'sender',
+        'domain' => 'domain',
         'status' => 'status',
-        'last_sync' => 'lastSync',
-        'verification_tokens' => 'verificationTokens',
-        'mail_from_domain_status' => 'mailFromDomainStatus',
-        'created_at' => 'createdAt',
-        'private_dkim_key' => 'privateDKIMKey',
-        'reminder_sent_at' => 'reminderSentAt',
-        'selector' => 'selector',
-        'verification_records' => 'verificationRecords',
+        'inbound' => 'inbound',
+        'open_tracking' => 'openTracking',
+        'click_tracking' => 'clickTracking',
         'tracking_subdomain' => 'trackingSubdomain',
-        'tracking_status' => 'trackingStatus',
-        'tracking_failure_reason' => 'trackingFailureReason'
+        'dns_records' => 'dnsRecords',
+        'detail' => 'detail',
+        'created_at' => 'createdAt'
     ];
 
     /**
@@ -227,20 +208,15 @@ class GetSendersResponseInner implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $setters = [
-        'waiting_for' => 'setWaitingFor',
-        'sender' => 'setSender',
+        'domain' => 'setDomain',
         'status' => 'setStatus',
-        'last_sync' => 'setLastSync',
-        'verification_tokens' => 'setVerificationTokens',
-        'mail_from_domain_status' => 'setMailFromDomainStatus',
-        'created_at' => 'setCreatedAt',
-        'private_dkim_key' => 'setPrivateDkimKey',
-        'reminder_sent_at' => 'setReminderSentAt',
-        'selector' => 'setSelector',
-        'verification_records' => 'setVerificationRecords',
+        'inbound' => 'setInbound',
+        'open_tracking' => 'setOpenTracking',
+        'click_tracking' => 'setClickTracking',
         'tracking_subdomain' => 'setTrackingSubdomain',
-        'tracking_status' => 'setTrackingStatus',
-        'tracking_failure_reason' => 'setTrackingFailureReason'
+        'dns_records' => 'setDnsRecords',
+        'detail' => 'setDetail',
+        'created_at' => 'setCreatedAt'
     ];
 
     /**
@@ -249,20 +225,15 @@ class GetSendersResponseInner implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $getters = [
-        'waiting_for' => 'getWaitingFor',
-        'sender' => 'getSender',
+        'domain' => 'getDomain',
         'status' => 'getStatus',
-        'last_sync' => 'getLastSync',
-        'verification_tokens' => 'getVerificationTokens',
-        'mail_from_domain_status' => 'getMailFromDomainStatus',
-        'created_at' => 'getCreatedAt',
-        'private_dkim_key' => 'getPrivateDkimKey',
-        'reminder_sent_at' => 'getReminderSentAt',
-        'selector' => 'getSelector',
-        'verification_records' => 'getVerificationRecords',
+        'inbound' => 'getInbound',
+        'open_tracking' => 'getOpenTracking',
+        'click_tracking' => 'getClickTracking',
         'tracking_subdomain' => 'getTrackingSubdomain',
-        'tracking_status' => 'getTrackingStatus',
-        'tracking_failure_reason' => 'getTrackingFailureReason'
+        'dns_records' => 'getDnsRecords',
+        'detail' => 'getDetail',
+        'created_at' => 'getCreatedAt'
     ];
 
     /**
@@ -311,20 +282,6 @@ class GetSendersResponseInner implements ModelInterface, ArrayAccess, \JsonSeria
     public const STATUS_FAILED = 'FAILED';
     public const STATUS_TEMPORARY_FAILURE = 'TEMPORARY_FAILURE';
     public const STATUS_NOT_STARTED = 'NOT_STARTED';
-    public const MAIL_FROM_DOMAIN_STATUS_PENDING = 'PENDING';
-    public const MAIL_FROM_DOMAIN_STATUS_SUCCESS = 'SUCCESS';
-    public const MAIL_FROM_DOMAIN_STATUS_FAILED = 'FAILED';
-    public const MAIL_FROM_DOMAIN_STATUS_TEMPORARY_FAILURE = 'TEMPORARY_FAILURE';
-    public const TRACKING_STATUS_NOT_STARTED = 'NOT_STARTED';
-    public const TRACKING_STATUS_PENDING = 'PENDING';
-    public const TRACKING_STATUS_ACTIVE = 'ACTIVE';
-    public const TRACKING_STATUS_FAILED = 'FAILED';
-    public const TRACKING_FAILURE_REASON_CNAME_MISSING = 'cname_missing';
-    public const TRACKING_FAILURE_REASON_CNAME_PROXIED = 'cname_proxied';
-    public const TRACKING_FAILURE_REASON_CNAME_CONFLICT = 'cname_conflict';
-    public const TRACKING_FAILURE_REASON_CERT_FAILED = 'cert_failed';
-    public const TRACKING_FAILURE_REASON_PROBE_FAILED = 'probe_failed';
-    public const TRACKING_FAILURE_REASON_DKIM_LOST = 'dkim_lost';
 
     /**
      * Gets allowable values of the enum
@@ -343,53 +300,6 @@ class GetSendersResponseInner implements ModelInterface, ArrayAccess, \JsonSeria
     }
 
     /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getMailFromDomainStatusAllowableValues()
-    {
-        return [
-            self::MAIL_FROM_DOMAIN_STATUS_PENDING,
-            self::MAIL_FROM_DOMAIN_STATUS_SUCCESS,
-            self::MAIL_FROM_DOMAIN_STATUS_FAILED,
-            self::MAIL_FROM_DOMAIN_STATUS_TEMPORARY_FAILURE,
-        ];
-    }
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getTrackingStatusAllowableValues()
-    {
-        return [
-            self::TRACKING_STATUS_NOT_STARTED,
-            self::TRACKING_STATUS_PENDING,
-            self::TRACKING_STATUS_ACTIVE,
-            self::TRACKING_STATUS_FAILED,
-        ];
-    }
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getTrackingFailureReasonAllowableValues()
-    {
-        return [
-            self::TRACKING_FAILURE_REASON_CNAME_MISSING,
-            self::TRACKING_FAILURE_REASON_CNAME_PROXIED,
-            self::TRACKING_FAILURE_REASON_CNAME_CONFLICT,
-            self::TRACKING_FAILURE_REASON_CERT_FAILED,
-            self::TRACKING_FAILURE_REASON_PROBE_FAILED,
-            self::TRACKING_FAILURE_REASON_DKIM_LOST,
-        ];
-    }
-
-    /**
      * Associative array for storing property values
      *
      * @var mixed[]
@@ -404,20 +314,15 @@ class GetSendersResponseInner implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('waiting_for', $data ?? [], null);
-        $this->setIfExists('sender', $data ?? [], null);
+        $this->setIfExists('domain', $data ?? [], null);
         $this->setIfExists('status', $data ?? [], null);
-        $this->setIfExists('last_sync', $data ?? [], null);
-        $this->setIfExists('verification_tokens', $data ?? [], null);
-        $this->setIfExists('mail_from_domain_status', $data ?? [], null);
-        $this->setIfExists('created_at', $data ?? [], null);
-        $this->setIfExists('private_dkim_key', $data ?? [], null);
-        $this->setIfExists('reminder_sent_at', $data ?? [], null);
-        $this->setIfExists('selector', $data ?? [], null);
-        $this->setIfExists('verification_records', $data ?? [], null);
+        $this->setIfExists('inbound', $data ?? [], null);
+        $this->setIfExists('open_tracking', $data ?? [], null);
+        $this->setIfExists('click_tracking', $data ?? [], null);
         $this->setIfExists('tracking_subdomain', $data ?? [], null);
-        $this->setIfExists('tracking_status', $data ?? [], null);
-        $this->setIfExists('tracking_failure_reason', $data ?? [], null);
+        $this->setIfExists('dns_records', $data ?? [], null);
+        $this->setIfExists('detail', $data ?? [], null);
+        $this->setIfExists('created_at', $data ?? [], null);
     }
 
     /**
@@ -447,8 +352,8 @@ class GetSendersResponseInner implements ModelInterface, ArrayAccess, \JsonSeria
     {
         $invalidProperties = [];
 
-        if ($this->container['sender'] === null) {
-            $invalidProperties[] = "'sender' can't be null";
+        if ($this->container['domain'] === null) {
+            $invalidProperties[] = "'domain' can't be null";
         }
         if ($this->container['status'] === null) {
             $invalidProperties[] = "'status' can't be null";
@@ -462,42 +367,24 @@ class GetSendersResponseInner implements ModelInterface, ArrayAccess, \JsonSeria
             );
         }
 
-        if ($this->container['last_sync'] === null) {
-            $invalidProperties[] = "'last_sync' can't be null";
+        if ($this->container['inbound'] === null) {
+            $invalidProperties[] = "'inbound' can't be null";
         }
-        $allowedValues = $this->getMailFromDomainStatusAllowableValues();
-        if (!is_null($this->container['mail_from_domain_status']) && !in_array($this->container['mail_from_domain_status'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'mail_from_domain_status', must be one of '%s'",
-                $this->container['mail_from_domain_status'],
-                implode("', '", $allowedValues)
-            );
+        if ($this->container['open_tracking'] === null) {
+            $invalidProperties[] = "'open_tracking' can't be null";
         }
-
+        if ($this->container['click_tracking'] === null) {
+            $invalidProperties[] = "'click_tracking' can't be null";
+        }
+        if ($this->container['dns_records'] === null) {
+            $invalidProperties[] = "'dns_records' can't be null";
+        }
+        if ($this->container['detail'] === null) {
+            $invalidProperties[] = "'detail' can't be null";
+        }
         if ($this->container['created_at'] === null) {
             $invalidProperties[] = "'created_at' can't be null";
         }
-        if ($this->container['selector'] === null) {
-            $invalidProperties[] = "'selector' can't be null";
-        }
-        $allowedValues = $this->getTrackingStatusAllowableValues();
-        if (!is_null($this->container['tracking_status']) && !in_array($this->container['tracking_status'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'tracking_status', must be one of '%s'",
-                $this->container['tracking_status'],
-                implode("', '", $allowedValues)
-            );
-        }
-
-        $allowedValues = $this->getTrackingFailureReasonAllowableValues();
-        if (!is_null($this->container['tracking_failure_reason']) && !in_array($this->container['tracking_failure_reason'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'tracking_failure_reason', must be one of '%s'",
-                $this->container['tracking_failure_reason'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         return $invalidProperties;
     }
 
@@ -514,55 +401,28 @@ class GetSendersResponseInner implements ModelInterface, ArrayAccess, \JsonSeria
 
 
     /**
-     * Gets waiting_for
-     *
-     * @return string|null
-     */
-    public function getWaitingFor()
-    {
-        return $this->container['waiting_for'];
-    }
-
-    /**
-     * Sets waiting_for
-     *
-     * @param string|null $waiting_for What is still missing before new mail can use the tracking subdomain.
-     *
-     * @return self
-     */
-    public function setWaitingFor($waiting_for)
-    {
-        if (is_null($waiting_for)) {
-            throw new \InvalidArgumentException('non-nullable waiting_for cannot be null');
-        }
-        $this->container['waiting_for'] = $waiting_for;
-
-        return $this;
-    }
-
-    /**
-     * Gets sender
+     * Gets domain
      *
      * @return string
      */
-    public function getSender()
+    public function getDomain()
     {
-        return $this->container['sender'];
+        return $this->container['domain'];
     }
 
     /**
-     * Sets sender
+     * Sets domain
      *
-     * @param string $sender sender
+     * @param string $domain Domain name, such as mail.example.com.
      *
      * @return self
      */
-    public function setSender($sender)
+    public function setDomain($domain)
     {
-        if (is_null($sender)) {
-            throw new \InvalidArgumentException('non-nullable sender cannot be null');
+        if (is_null($domain)) {
+            throw new \InvalidArgumentException('non-nullable domain cannot be null');
         }
-        $this->container['sender'] = $sender;
+        $this->container['domain'] = $domain;
 
         return $this;
     }
@@ -580,7 +440,7 @@ class GetSendersResponseInner implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets status
      *
-     * @param string $status status
+     * @param string $status Whether sending from this domain is not started, waiting, verified, temporarily failing, or failed. Mail goes out when this is `SUCCESS` or `TEMPORARY_FAILURE`.
      *
      * @return self
      */
@@ -605,227 +465,82 @@ class GetSendersResponseInner implements ModelInterface, ArrayAccess, \JsonSeria
     }
 
     /**
-     * Gets last_sync
+     * Gets inbound
      *
-     * @return \DateTime
+     * @return bool
      */
-    public function getLastSync()
+    public function getInbound()
     {
-        return $this->container['last_sync'];
+        return $this->container['inbound'];
     }
 
     /**
-     * Sets last_sync
+     * Sets inbound
      *
-     * @param \DateTime $last_sync last_sync
+     * @param bool $inbound Whether this domain is set to receive mail. This is your choice, not the MX record.
      *
      * @return self
      */
-    public function setLastSync($last_sync)
+    public function setInbound($inbound)
     {
-        if (is_null($last_sync)) {
-            throw new \InvalidArgumentException('non-nullable last_sync cannot be null');
+        if (is_null($inbound)) {
+            throw new \InvalidArgumentException('non-nullable inbound cannot be null');
         }
-        $this->container['last_sync'] = $last_sync;
+        $this->container['inbound'] = $inbound;
 
         return $this;
     }
 
     /**
-     * Gets verification_tokens
+     * Gets open_tracking
      *
-     * @return string[]|null
+     * @return bool
      */
-    public function getVerificationTokens()
+    public function getOpenTracking()
     {
-        return $this->container['verification_tokens'];
+        return $this->container['open_tracking'];
     }
 
     /**
-     * Sets verification_tokens
+     * Sets open_tracking
      *
-     * @param string[]|null $verification_tokens verification_tokens
+     * @param bool $open_tracking Whether new mail from this domain records opens. This is your choice, not the tracking host.
      *
      * @return self
      */
-    public function setVerificationTokens($verification_tokens)
+    public function setOpenTracking($open_tracking)
     {
-        if (is_null($verification_tokens)) {
-            throw new \InvalidArgumentException('non-nullable verification_tokens cannot be null');
+        if (is_null($open_tracking)) {
+            throw new \InvalidArgumentException('non-nullable open_tracking cannot be null');
         }
-        $this->container['verification_tokens'] = $verification_tokens;
+        $this->container['open_tracking'] = $open_tracking;
 
         return $this;
     }
 
     /**
-     * Gets mail_from_domain_status
+     * Gets click_tracking
      *
-     * @return string|null
+     * @return bool
      */
-    public function getMailFromDomainStatus()
+    public function getClickTracking()
     {
-        return $this->container['mail_from_domain_status'];
+        return $this->container['click_tracking'];
     }
 
     /**
-     * Sets mail_from_domain_status
+     * Sets click_tracking
      *
-     * @param string|null $mail_from_domain_status mail_from_domain_status
+     * @param bool $click_tracking Whether new mail from this domain records link clicks. This is your choice, not the tracking host.
      *
      * @return self
      */
-    public function setMailFromDomainStatus($mail_from_domain_status)
+    public function setClickTracking($click_tracking)
     {
-        if (is_null($mail_from_domain_status)) {
-            throw new \InvalidArgumentException('non-nullable mail_from_domain_status cannot be null');
+        if (is_null($click_tracking)) {
+            throw new \InvalidArgumentException('non-nullable click_tracking cannot be null');
         }
-        $allowedValues = $this->getMailFromDomainStatusAllowableValues();
-        if (!in_array($mail_from_domain_status, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'mail_from_domain_status', must be one of '%s'",
-                    $mail_from_domain_status,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['mail_from_domain_status'] = $mail_from_domain_status;
-
-        return $this;
-    }
-
-    /**
-     * Gets created_at
-     *
-     * @return string
-     */
-    public function getCreatedAt()
-    {
-        return $this->container['created_at'];
-    }
-
-    /**
-     * Sets created_at
-     *
-     * @param string $created_at created_at
-     *
-     * @return self
-     */
-    public function setCreatedAt($created_at)
-    {
-        if (is_null($created_at)) {
-            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
-        }
-        $this->container['created_at'] = $created_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets private_dkim_key
-     *
-     * @return string|null
-     */
-    public function getPrivateDkimKey()
-    {
-        return $this->container['private_dkim_key'];
-    }
-
-    /**
-     * Sets private_dkim_key
-     *
-     * @param string|null $private_dkim_key private_dkim_key
-     *
-     * @return self
-     */
-    public function setPrivateDkimKey($private_dkim_key)
-    {
-        if (is_null($private_dkim_key)) {
-            throw new \InvalidArgumentException('non-nullable private_dkim_key cannot be null');
-        }
-        $this->container['private_dkim_key'] = $private_dkim_key;
-
-        return $this;
-    }
-
-    /**
-     * Gets reminder_sent_at
-     *
-     * @return string|null
-     */
-    public function getReminderSentAt()
-    {
-        return $this->container['reminder_sent_at'];
-    }
-
-    /**
-     * Sets reminder_sent_at
-     *
-     * @param string|null $reminder_sent_at reminder_sent_at
-     *
-     * @return self
-     */
-    public function setReminderSentAt($reminder_sent_at)
-    {
-        if (is_null($reminder_sent_at)) {
-            throw new \InvalidArgumentException('non-nullable reminder_sent_at cannot be null');
-        }
-        $this->container['reminder_sent_at'] = $reminder_sent_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets selector
-     *
-     * @return string
-     */
-    public function getSelector()
-    {
-        return $this->container['selector'];
-    }
-
-    /**
-     * Sets selector
-     *
-     * @param string $selector selector
-     *
-     * @return self
-     */
-    public function setSelector($selector)
-    {
-        if (is_null($selector)) {
-            throw new \InvalidArgumentException('non-nullable selector cannot be null');
-        }
-        $this->container['selector'] = $selector;
-
-        return $this;
-    }
-
-    /**
-     * Gets verification_records
-     *
-     * @return \Pingram\Model\GetSendersResponseInnerVerificationRecords|null
-     */
-    public function getVerificationRecords()
-    {
-        return $this->container['verification_records'];
-    }
-
-    /**
-     * Sets verification_records
-     *
-     * @param \Pingram\Model\GetSendersResponseInnerVerificationRecords|null $verification_records verification_records
-     *
-     * @return self
-     */
-    public function setVerificationRecords($verification_records)
-    {
-        if (is_null($verification_records)) {
-            throw new \InvalidArgumentException('non-nullable verification_records cannot be null');
-        }
-        $this->container['verification_records'] = $verification_records;
+        $this->container['click_tracking'] = $click_tracking;
 
         return $this;
     }
@@ -843,7 +558,7 @@ class GetSendersResponseInner implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets tracking_subdomain
      *
-     * @param string|null $tracking_subdomain Subdomain recipients see on click tracking, the open pixel, and the unsubscribe page, such as links.
+     * @param string|null $tracking_subdomain Host label for tracked links, such as links. Absent until tracking has a host.
      *
      * @return self
      */
@@ -858,75 +573,82 @@ class GetSendersResponseInner implements ModelInterface, ArrayAccess, \JsonSeria
     }
 
     /**
-     * Gets tracking_status
+     * Gets dns_records
      *
-     * @return string|null
+     * @return \Pingram\Model\GetSendersResponseInnerDnsRecordsInner[]
      */
-    public function getTrackingStatus()
+    public function getDnsRecords()
     {
-        return $this->container['tracking_status'];
+        return $this->container['dns_records'];
     }
 
     /**
-     * Sets tracking_status
+     * Sets dns_records
      *
-     * @param string|null $tracking_status Whether tracked links on this subdomain are not started, waiting, active, or failed.
+     * @param \Pingram\Model\GetSendersResponseInnerDnsRecordsInner[] $dns_records DNS records to publish for this domain. Every record we can show is listed. `expected` is false when the current settings do not need it. `status` is the row to show.
      *
      * @return self
      */
-    public function setTrackingStatus($tracking_status)
+    public function setDnsRecords($dns_records)
     {
-        if (is_null($tracking_status)) {
-            throw new \InvalidArgumentException('non-nullable tracking_status cannot be null');
+        if (is_null($dns_records)) {
+            throw new \InvalidArgumentException('non-nullable dns_records cannot be null');
         }
-        $allowedValues = $this->getTrackingStatusAllowableValues();
-        if (!in_array($tracking_status, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'tracking_status', must be one of '%s'",
-                    $tracking_status,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['tracking_status'] = $tracking_status;
+        $this->container['dns_records'] = $dns_records;
 
         return $this;
     }
 
     /**
-     * Gets tracking_failure_reason
+     * Gets detail
      *
-     * @return string|null
+     * @return string
      */
-    public function getTrackingFailureReason()
+    public function getDetail()
     {
-        return $this->container['tracking_failure_reason'];
+        return $this->container['detail'];
     }
 
     /**
-     * Sets tracking_failure_reason
+     * Sets detail
      *
-     * @param string|null $tracking_failure_reason Why tracked links on this subdomain are not active, when setup did not succeed.
+     * @param string $detail Plain summary of sending, receiving, and tracking. Names each record and whether it is verified, waiting, missing, or turned off.
      *
      * @return self
      */
-    public function setTrackingFailureReason($tracking_failure_reason)
+    public function setDetail($detail)
     {
-        if (is_null($tracking_failure_reason)) {
-            throw new \InvalidArgumentException('non-nullable tracking_failure_reason cannot be null');
+        if (is_null($detail)) {
+            throw new \InvalidArgumentException('non-nullable detail cannot be null');
         }
-        $allowedValues = $this->getTrackingFailureReasonAllowableValues();
-        if (!in_array($tracking_failure_reason, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'tracking_failure_reason', must be one of '%s'",
-                    $tracking_failure_reason,
-                    implode("', '", $allowedValues)
-                )
-            );
+        $this->container['detail'] = $detail;
+
+        return $this;
+    }
+
+    /**
+     * Gets created_at
+     *
+     * @return string
+     */
+    public function getCreatedAt()
+    {
+        return $this->container['created_at'];
+    }
+
+    /**
+     * Sets created_at
+     *
+     * @param string $created_at When this domain was added.
+     *
+     * @return self
+     */
+    public function setCreatedAt($created_at)
+    {
+        if (is_null($created_at)) {
+            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
         }
-        $this->container['tracking_failure_reason'] = $tracking_failure_reason;
+        $this->container['created_at'] = $created_at;
 
         return $this;
     }

@@ -77,13 +77,16 @@ class DomainsApi
         'domainsAddDomain' => [
             'application/json',
         ],
+        'domainsCheckDomain' => [
+            'application/json',
+        ],
         'domainsDeleteDomain' => [
             'application/json',
         ],
         'domainsListDomains' => [
             'application/json',
         ],
-        'domainsStartDomainVerification' => [
+        'domainsUpdateDomain' => [
             'application/json',
         ],
     ];
@@ -137,36 +140,36 @@ class DomainsApi
     /**
      * Operation domainsAddDomain
      *
-     * Start verification for a domain you already own
+     * Add a domain
      *
-     * @param  \Pingram\Model\PostSendersRequestBody $post_senders_request_body post_senders_request_body (required)
+     * @param  \Pingram\Model\PostDomainRequest $post_domain_request post_domain_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainsAddDomain'] to see the possible values for this operation
      *
      * @throws \Pingram\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \Pingram\Model\GetSendersResponseInner[]|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse
      */
-    public function domainsAddDomain($post_senders_request_body, string $contentType = self::contentTypes['domainsAddDomain'][0])
+    public function domainsAddDomain($post_domain_request, string $contentType = self::contentTypes['domainsAddDomain'][0])
     {
-        list($response) = $this->domainsAddDomainWithHttpInfo($post_senders_request_body, $contentType);
+        list($response) = $this->domainsAddDomainWithHttpInfo($post_domain_request, $contentType);
         return $response;
     }
 
     /**
      * Operation domainsAddDomainWithHttpInfo
      *
-     * Start verification for a domain you already own
+     * Add a domain
      *
-     * @param  \Pingram\Model\PostSendersRequestBody $post_senders_request_body (required)
+     * @param  \Pingram\Model\PostDomainRequest $post_domain_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainsAddDomain'] to see the possible values for this operation
      *
      * @throws \Pingram\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \Pingram\Model\GetSendersResponseInner[]|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function domainsAddDomainWithHttpInfo($post_senders_request_body, string $contentType = self::contentTypes['domainsAddDomain'][0])
+    public function domainsAddDomainWithHttpInfo($post_domain_request, string $contentType = self::contentTypes['domainsAddDomain'][0])
     {
-        $request = $this->domainsAddDomainRequest($post_senders_request_body, $contentType);
+        $request = $this->domainsAddDomainRequest($post_domain_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -282,17 +285,17 @@ class DomainsApi
     /**
      * Operation domainsAddDomainAsync
      *
-     * Start verification for a domain you already own
+     * Add a domain
      *
-     * @param  \Pingram\Model\PostSendersRequestBody $post_senders_request_body (required)
+     * @param  \Pingram\Model\PostDomainRequest $post_domain_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainsAddDomain'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function domainsAddDomainAsync($post_senders_request_body, string $contentType = self::contentTypes['domainsAddDomain'][0])
+    public function domainsAddDomainAsync($post_domain_request, string $contentType = self::contentTypes['domainsAddDomain'][0])
     {
-        return $this->domainsAddDomainAsyncWithHttpInfo($post_senders_request_body, $contentType)
+        return $this->domainsAddDomainAsyncWithHttpInfo($post_domain_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -303,18 +306,18 @@ class DomainsApi
     /**
      * Operation domainsAddDomainAsyncWithHttpInfo
      *
-     * Start verification for a domain you already own
+     * Add a domain
      *
-     * @param  \Pingram\Model\PostSendersRequestBody $post_senders_request_body (required)
+     * @param  \Pingram\Model\PostDomainRequest $post_domain_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainsAddDomain'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function domainsAddDomainAsyncWithHttpInfo($post_senders_request_body, string $contentType = self::contentTypes['domainsAddDomain'][0])
+    public function domainsAddDomainAsyncWithHttpInfo($post_domain_request, string $contentType = self::contentTypes['domainsAddDomain'][0])
     {
         $returnType = '\Pingram\Model\GetSendersResponseInner[]';
-        $request = $this->domainsAddDomainRequest($post_senders_request_body, $contentType);
+        $request = $this->domainsAddDomainRequest($post_domain_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -355,19 +358,19 @@ class DomainsApi
     /**
      * Create request for operation 'domainsAddDomain'
      *
-     * @param  \Pingram\Model\PostSendersRequestBody $post_senders_request_body (required)
+     * @param  \Pingram\Model\PostDomainRequest $post_domain_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainsAddDomain'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function domainsAddDomainRequest($post_senders_request_body, string $contentType = self::contentTypes['domainsAddDomain'][0])
+    public function domainsAddDomainRequest($post_domain_request, string $contentType = self::contentTypes['domainsAddDomain'][0])
     {
 
-        // verify the required parameter 'post_senders_request_body' is set
-        if ($post_senders_request_body === null || (is_array($post_senders_request_body) && count($post_senders_request_body) === 0)) {
+        // verify the required parameter 'post_domain_request' is set
+        if ($post_domain_request === null || (is_array($post_domain_request) && count($post_domain_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $post_senders_request_body when calling domainsAddDomain'
+                'Missing the required parameter $post_domain_request when calling domainsAddDomain'
             );
         }
 
@@ -390,12 +393,12 @@ class DomainsApi
         );
 
         // for model (json/xml)
-        if (isset($post_senders_request_body)) {
+        if (isset($post_domain_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($post_senders_request_body));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($post_domain_request));
             } else {
-                $httpBody = $post_senders_request_body;
+                $httpBody = $post_domain_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -460,11 +463,337 @@ class DomainsApi
     }
 
     /**
+     * Operation domainsCheckDomain
+     *
+     * Check a domain and refresh its status
+     *
+     * @param  string $sender Domain name (URL encoded) (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainsCheckDomain'] to see the possible values for this operation
+     *
+     * @throws \Pingram\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \Pingram\Model\GetSendersResponseInner[]|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse
+     */
+    public function domainsCheckDomain($sender, string $contentType = self::contentTypes['domainsCheckDomain'][0])
+    {
+        list($response) = $this->domainsCheckDomainWithHttpInfo($sender, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation domainsCheckDomainWithHttpInfo
+     *
+     * Check a domain and refresh its status
+     *
+     * @param  string $sender Domain name (URL encoded) (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainsCheckDomain'] to see the possible values for this operation
+     *
+     * @throws \Pingram\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Pingram\Model\GetSendersResponseInner[]|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function domainsCheckDomainWithHttpInfo($sender, string $contentType = self::contentTypes['domainsCheckDomain'][0])
+    {
+        $request = $this->domainsCheckDomainRequest($sender, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\Pingram\Model\GetSendersResponseInner[]',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\Pingram\Model\ApiErrorResponse',
+                        $request,
+                        $response,
+                    );
+                case 402:
+                    return $this->handleResponseWithDataType(
+                        '\Pingram\Model\ApiErrorResponse',
+                        $request,
+                        $response,
+                    );
+                case 502:
+                    return $this->handleResponseWithDataType(
+                        '\Pingram\Model\ApiErrorResponse',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\Pingram\Model\GetSendersResponseInner[]',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Pingram\Model\GetSendersResponseInner[]',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Pingram\Model\ApiErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 402:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Pingram\Model\ApiErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 502:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Pingram\Model\ApiErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation domainsCheckDomainAsync
+     *
+     * Check a domain and refresh its status
+     *
+     * @param  string $sender Domain name (URL encoded) (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainsCheckDomain'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function domainsCheckDomainAsync($sender, string $contentType = self::contentTypes['domainsCheckDomain'][0])
+    {
+        return $this->domainsCheckDomainAsyncWithHttpInfo($sender, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation domainsCheckDomainAsyncWithHttpInfo
+     *
+     * Check a domain and refresh its status
+     *
+     * @param  string $sender Domain name (URL encoded) (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainsCheckDomain'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function domainsCheckDomainAsyncWithHttpInfo($sender, string $contentType = self::contentTypes['domainsCheckDomain'][0])
+    {
+        $returnType = '\Pingram\Model\GetSendersResponseInner[]';
+        $request = $this->domainsCheckDomainRequest($sender, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'domainsCheckDomain'
+     *
+     * @param  string $sender Domain name (URL encoded) (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainsCheckDomain'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function domainsCheckDomainRequest($sender, string $contentType = self::contentTypes['domainsCheckDomain'][0])
+    {
+
+        // verify the required parameter 'sender' is set
+        if ($sender === null || (is_array($sender) && count($sender) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $sender when calling domainsCheckDomain'
+            );
+        }
+
+
+        $resourcePath = '/domains/{sender}/check';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($sender !== null) {
+            $resourcePath = str_replace(
+                '{' . 'sender' . '}',
+                ObjectSerializer::toPathValue($sender),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+        // this endpoint requires Bearer (JWT) authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation domainsDeleteDomain
      *
      * Remove a sender domain from the account
      *
-     * @param  string $sender Sender domain (URL encoded) (required)
+     * @param  string $sender Domain name (URL encoded) (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainsDeleteDomain'] to see the possible values for this operation
      *
      * @throws \Pingram\ApiException on non-2xx response or if the response body is not in the expected format
@@ -482,7 +811,7 @@ class DomainsApi
      *
      * Remove a sender domain from the account
      *
-     * @param  string $sender Sender domain (URL encoded) (required)
+     * @param  string $sender Domain name (URL encoded) (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainsDeleteDomain'] to see the possible values for this operation
      *
      * @throws \Pingram\ApiException on non-2xx response or if the response body is not in the expected format
@@ -609,7 +938,7 @@ class DomainsApi
      *
      * Remove a sender domain from the account
      *
-     * @param  string $sender Sender domain (URL encoded) (required)
+     * @param  string $sender Domain name (URL encoded) (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainsDeleteDomain'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -630,7 +959,7 @@ class DomainsApi
      *
      * Remove a sender domain from the account
      *
-     * @param  string $sender Sender domain (URL encoded) (required)
+     * @param  string $sender Domain name (URL encoded) (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainsDeleteDomain'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -680,7 +1009,7 @@ class DomainsApi
     /**
      * Create request for operation 'domainsDeleteDomain'
      *
-     * @param  string $sender Sender domain (URL encoded) (required)
+     * @param  string $sender Domain name (URL encoded) (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainsDeleteDomain'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1092,38 +1421,40 @@ class DomainsApi
     }
 
     /**
-     * Operation domainsStartDomainVerification
+     * Operation domainsUpdateDomain
      *
-     * Start domain verification
+     * Update a domain
      *
-     * @param  string $sender Sender domain (URL encoded) (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainsStartDomainVerification'] to see the possible values for this operation
+     * @param  string $sender Domain name (URL encoded) (required)
+     * @param  \Pingram\Model\PatchDomainRequest $patch_domain_request patch_domain_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainsUpdateDomain'] to see the possible values for this operation
      *
      * @throws \Pingram\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \Pingram\Model\GetSendersResponseInner[]|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse
      */
-    public function domainsStartDomainVerification($sender, string $contentType = self::contentTypes['domainsStartDomainVerification'][0])
+    public function domainsUpdateDomain($sender, $patch_domain_request, string $contentType = self::contentTypes['domainsUpdateDomain'][0])
     {
-        list($response) = $this->domainsStartDomainVerificationWithHttpInfo($sender, $contentType);
+        list($response) = $this->domainsUpdateDomainWithHttpInfo($sender, $patch_domain_request, $contentType);
         return $response;
     }
 
     /**
-     * Operation domainsStartDomainVerificationWithHttpInfo
+     * Operation domainsUpdateDomainWithHttpInfo
      *
-     * Start domain verification
+     * Update a domain
      *
-     * @param  string $sender Sender domain (URL encoded) (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainsStartDomainVerification'] to see the possible values for this operation
+     * @param  string $sender Domain name (URL encoded) (required)
+     * @param  \Pingram\Model\PatchDomainRequest $patch_domain_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainsUpdateDomain'] to see the possible values for this operation
      *
      * @throws \Pingram\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \Pingram\Model\GetSendersResponseInner[]|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse|\Pingram\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function domainsStartDomainVerificationWithHttpInfo($sender, string $contentType = self::contentTypes['domainsStartDomainVerification'][0])
+    public function domainsUpdateDomainWithHttpInfo($sender, $patch_domain_request, string $contentType = self::contentTypes['domainsUpdateDomain'][0])
     {
-        $request = $this->domainsStartDomainVerificationRequest($sender, $contentType);
+        $request = $this->domainsUpdateDomainRequest($sender, $patch_domain_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1237,19 +1568,20 @@ class DomainsApi
     }
 
     /**
-     * Operation domainsStartDomainVerificationAsync
+     * Operation domainsUpdateDomainAsync
      *
-     * Start domain verification
+     * Update a domain
      *
-     * @param  string $sender Sender domain (URL encoded) (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainsStartDomainVerification'] to see the possible values for this operation
+     * @param  string $sender Domain name (URL encoded) (required)
+     * @param  \Pingram\Model\PatchDomainRequest $patch_domain_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainsUpdateDomain'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function domainsStartDomainVerificationAsync($sender, string $contentType = self::contentTypes['domainsStartDomainVerification'][0])
+    public function domainsUpdateDomainAsync($sender, $patch_domain_request, string $contentType = self::contentTypes['domainsUpdateDomain'][0])
     {
-        return $this->domainsStartDomainVerificationAsyncWithHttpInfo($sender, $contentType)
+        return $this->domainsUpdateDomainAsyncWithHttpInfo($sender, $patch_domain_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1258,20 +1590,21 @@ class DomainsApi
     }
 
     /**
-     * Operation domainsStartDomainVerificationAsyncWithHttpInfo
+     * Operation domainsUpdateDomainAsyncWithHttpInfo
      *
-     * Start domain verification
+     * Update a domain
      *
-     * @param  string $sender Sender domain (URL encoded) (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainsStartDomainVerification'] to see the possible values for this operation
+     * @param  string $sender Domain name (URL encoded) (required)
+     * @param  \Pingram\Model\PatchDomainRequest $patch_domain_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainsUpdateDomain'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function domainsStartDomainVerificationAsyncWithHttpInfo($sender, string $contentType = self::contentTypes['domainsStartDomainVerification'][0])
+    public function domainsUpdateDomainAsyncWithHttpInfo($sender, $patch_domain_request, string $contentType = self::contentTypes['domainsUpdateDomain'][0])
     {
         $returnType = '\Pingram\Model\GetSendersResponseInner[]';
-        $request = $this->domainsStartDomainVerificationRequest($sender, $contentType);
+        $request = $this->domainsUpdateDomainRequest($sender, $patch_domain_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1310,26 +1643,34 @@ class DomainsApi
     }
 
     /**
-     * Create request for operation 'domainsStartDomainVerification'
+     * Create request for operation 'domainsUpdateDomain'
      *
-     * @param  string $sender Sender domain (URL encoded) (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainsStartDomainVerification'] to see the possible values for this operation
+     * @param  string $sender Domain name (URL encoded) (required)
+     * @param  \Pingram\Model\PatchDomainRequest $patch_domain_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainsUpdateDomain'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function domainsStartDomainVerificationRequest($sender, string $contentType = self::contentTypes['domainsStartDomainVerification'][0])
+    public function domainsUpdateDomainRequest($sender, $patch_domain_request, string $contentType = self::contentTypes['domainsUpdateDomain'][0])
     {
 
         // verify the required parameter 'sender' is set
         if ($sender === null || (is_array($sender) && count($sender) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $sender when calling domainsStartDomainVerification'
+                'Missing the required parameter $sender when calling domainsUpdateDomain'
+            );
+        }
+
+        // verify the required parameter 'patch_domain_request' is set
+        if ($patch_domain_request === null || (is_array($patch_domain_request) && count($patch_domain_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $patch_domain_request when calling domainsUpdateDomain'
             );
         }
 
 
-        $resourcePath = '/domains/{sender}/start-verification';
+        $resourcePath = '/domains/{sender}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1355,7 +1696,14 @@ class DomainsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($patch_domain_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patch_domain_request));
+            } else {
+                $httpBody = $patch_domain_request;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1410,7 +1758,7 @@ class DomainsApi
         $operationHost = $this->config->getHost();
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
-            'POST',
+            'PATCH',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

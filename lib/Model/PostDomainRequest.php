@@ -1,6 +1,6 @@
 <?php
 /**
- * PostSendersRequestBody
+ * PostDomainRequest
  *
  * PHP version 8.1
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \Pingram\ObjectSerializer;
 
 /**
- * PostSendersRequestBody Class Doc Comment
+ * PostDomainRequest Class Doc Comment
  *
  * @category Class
  * @package  Pingram
@@ -40,7 +40,7 @@ use \Pingram\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class PostSendersRequestBody implements ModelInterface, ArrayAccess, \JsonSerializable
+class PostDomainRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class PostSendersRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
       *
       * @var string
       */
-    protected static $openAPIModelName = 'PostSendersRequestBody';
+    protected static $openAPIModelName = 'PostDomainRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +57,11 @@ class PostSendersRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
       * @var string[]
       */
     protected static $openAPITypes = [
-        'sender' => 'string'
+        'domain' => 'string',
+        'inbound' => 'bool',
+        'open_tracking' => 'bool',
+        'click_tracking' => 'bool',
+        'tracking_subdomain' => 'string'
     ];
 
     /**
@@ -68,7 +72,11 @@ class PostSendersRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'sender' => null
+        'domain' => null,
+        'inbound' => null,
+        'open_tracking' => null,
+        'click_tracking' => null,
+        'tracking_subdomain' => null
     ];
 
     /**
@@ -77,7 +85,11 @@ class PostSendersRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'sender' => false
+        'domain' => false,
+        'inbound' => false,
+        'open_tracking' => false,
+        'click_tracking' => false,
+        'tracking_subdomain' => false
     ];
 
     /**
@@ -166,7 +178,11 @@ class PostSendersRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $attributeMap = [
-        'sender' => 'sender'
+        'domain' => 'domain',
+        'inbound' => 'inbound',
+        'open_tracking' => 'openTracking',
+        'click_tracking' => 'clickTracking',
+        'tracking_subdomain' => 'trackingSubdomain'
     ];
 
     /**
@@ -175,7 +191,11 @@ class PostSendersRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $setters = [
-        'sender' => 'setSender'
+        'domain' => 'setDomain',
+        'inbound' => 'setInbound',
+        'open_tracking' => 'setOpenTracking',
+        'click_tracking' => 'setClickTracking',
+        'tracking_subdomain' => 'setTrackingSubdomain'
     ];
 
     /**
@@ -184,7 +204,11 @@ class PostSendersRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $getters = [
-        'sender' => 'getSender'
+        'domain' => 'getDomain',
+        'inbound' => 'getInbound',
+        'open_tracking' => 'getOpenTracking',
+        'click_tracking' => 'getClickTracking',
+        'tracking_subdomain' => 'getTrackingSubdomain'
     ];
 
     /**
@@ -244,7 +268,11 @@ class PostSendersRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('sender', $data ?? [], null);
+        $this->setIfExists('domain', $data ?? [], null);
+        $this->setIfExists('inbound', $data ?? [], null);
+        $this->setIfExists('open_tracking', $data ?? [], null);
+        $this->setIfExists('click_tracking', $data ?? [], null);
+        $this->setIfExists('tracking_subdomain', $data ?? [], null);
     }
 
     /**
@@ -274,8 +302,8 @@ class PostSendersRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
     {
         $invalidProperties = [];
 
-        if ($this->container['sender'] === null) {
-            $invalidProperties[] = "'sender' can't be null";
+        if ($this->container['domain'] === null) {
+            $invalidProperties[] = "'domain' can't be null";
         }
         return $invalidProperties;
     }
@@ -293,28 +321,136 @@ class PostSendersRequestBody implements ModelInterface, ArrayAccess, \JsonSerial
 
 
     /**
-     * Gets sender
+     * Gets domain
      *
      * @return string
      */
-    public function getSender()
+    public function getDomain()
     {
-        return $this->container['sender'];
+        return $this->container['domain'];
     }
 
     /**
-     * Sets sender
+     * Sets domain
      *
-     * @param string $sender sender
+     * @param string $domain Domain you own. A subdomain such as mail.example.com is recommended. Mail from a subdomain is easier to deliver, and receiving mail there does not replace mail already arriving at the bare domain.
      *
      * @return self
      */
-    public function setSender($sender)
+    public function setDomain($domain)
     {
-        if (is_null($sender)) {
-            throw new \InvalidArgumentException('non-nullable sender cannot be null');
+        if (is_null($domain)) {
+            throw new \InvalidArgumentException('non-nullable domain cannot be null');
         }
-        $this->container['sender'] = $sender;
+        $this->container['domain'] = $domain;
+
+        return $this;
+    }
+
+    /**
+     * Gets inbound
+     *
+     * @return bool|null
+     */
+    public function getInbound()
+    {
+        return $this->container['inbound'];
+    }
+
+    /**
+     * Sets inbound
+     *
+     * @param bool|null $inbound Receive mail for this domain. Leave this out to send only.
+     *
+     * @return self
+     */
+    public function setInbound($inbound)
+    {
+        if (is_null($inbound)) {
+            throw new \InvalidArgumentException('non-nullable inbound cannot be null');
+        }
+        $this->container['inbound'] = $inbound;
+
+        return $this;
+    }
+
+    /**
+     * Gets open_tracking
+     *
+     * @return bool|null
+     */
+    public function getOpenTracking()
+    {
+        return $this->container['open_tracking'];
+    }
+
+    /**
+     * Sets open_tracking
+     *
+     * @param bool|null $open_tracking Record when someone opens mail from this domain. False turns opens off. You can record opens without recording clicks.
+     *
+     * @return self
+     */
+    public function setOpenTracking($open_tracking)
+    {
+        if (is_null($open_tracking)) {
+            throw new \InvalidArgumentException('non-nullable open_tracking cannot be null');
+        }
+        $this->container['open_tracking'] = $open_tracking;
+
+        return $this;
+    }
+
+    /**
+     * Gets click_tracking
+     *
+     * @return bool|null
+     */
+    public function getClickTracking()
+    {
+        return $this->container['click_tracking'];
+    }
+
+    /**
+     * Sets click_tracking
+     *
+     * @param bool|null $click_tracking Record when someone clicks a link in mail from this domain. False turns clicks off. You can record clicks without recording opens.
+     *
+     * @return self
+     */
+    public function setClickTracking($click_tracking)
+    {
+        if (is_null($click_tracking)) {
+            throw new \InvalidArgumentException('non-nullable click_tracking cannot be null');
+        }
+        $this->container['click_tracking'] = $click_tracking;
+
+        return $this;
+    }
+
+    /**
+     * Gets tracking_subdomain
+     *
+     * @return string|null
+     */
+    public function getTrackingSubdomain()
+    {
+        return $this->container['tracking_subdomain'];
+    }
+
+    /**
+     * Sets tracking_subdomain
+     *
+     * @param string|null $tracking_subdomain Host label for this domain, such as links or go. The domain name is added after it.
+     *
+     * @return self
+     */
+    public function setTrackingSubdomain($tracking_subdomain)
+    {
+        if (is_null($tracking_subdomain)) {
+            throw new \InvalidArgumentException('non-nullable tracking_subdomain cannot be null');
+        }
+        $this->container['tracking_subdomain'] = $tracking_subdomain;
 
         return $this;
     }

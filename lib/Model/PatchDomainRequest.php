@@ -1,6 +1,6 @@
 <?php
 /**
- * DomainDnsCheck
+ * PatchDomainRequest
  *
  * PHP version 8.1
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \Pingram\ObjectSerializer;
 
 /**
- * DomainDnsCheck Class Doc Comment
+ * PatchDomainRequest Class Doc Comment
  *
  * @category Class
  * @package  Pingram
@@ -40,7 +40,7 @@ use \Pingram\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class DomainDnsCheck implements ModelInterface, ArrayAccess, \JsonSerializable
+class PatchDomainRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class DomainDnsCheck implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'DomainDnsCheck';
+    protected static $openAPIModelName = 'PatchDomainRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,10 +57,10 @@ class DomainDnsCheck implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'sender' => 'string',
-        'records' => '\Pingram\Model\DomainDnsCheckRecordsInner[]',
-        'can_start_verification' => 'bool',
-        'checked_at' => 'string'
+        'inbound' => 'bool',
+        'open_tracking' => 'bool',
+        'click_tracking' => 'bool',
+        'tracking_subdomain' => 'string'
     ];
 
     /**
@@ -71,10 +71,10 @@ class DomainDnsCheck implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'sender' => null,
-        'records' => null,
-        'can_start_verification' => null,
-        'checked_at' => null
+        'inbound' => null,
+        'open_tracking' => null,
+        'click_tracking' => null,
+        'tracking_subdomain' => null
     ];
 
     /**
@@ -83,10 +83,10 @@ class DomainDnsCheck implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'sender' => false,
-        'records' => false,
-        'can_start_verification' => false,
-        'checked_at' => false
+        'inbound' => false,
+        'open_tracking' => false,
+        'click_tracking' => false,
+        'tracking_subdomain' => false
     ];
 
     /**
@@ -175,10 +175,10 @@ class DomainDnsCheck implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'sender' => 'sender',
-        'records' => 'records',
-        'can_start_verification' => 'canStartVerification',
-        'checked_at' => 'checkedAt'
+        'inbound' => 'inbound',
+        'open_tracking' => 'openTracking',
+        'click_tracking' => 'clickTracking',
+        'tracking_subdomain' => 'trackingSubdomain'
     ];
 
     /**
@@ -187,10 +187,10 @@ class DomainDnsCheck implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'sender' => 'setSender',
-        'records' => 'setRecords',
-        'can_start_verification' => 'setCanStartVerification',
-        'checked_at' => 'setCheckedAt'
+        'inbound' => 'setInbound',
+        'open_tracking' => 'setOpenTracking',
+        'click_tracking' => 'setClickTracking',
+        'tracking_subdomain' => 'setTrackingSubdomain'
     ];
 
     /**
@@ -199,10 +199,10 @@ class DomainDnsCheck implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'sender' => 'getSender',
-        'records' => 'getRecords',
-        'can_start_verification' => 'getCanStartVerification',
-        'checked_at' => 'getCheckedAt'
+        'inbound' => 'getInbound',
+        'open_tracking' => 'getOpenTracking',
+        'click_tracking' => 'getClickTracking',
+        'tracking_subdomain' => 'getTrackingSubdomain'
     ];
 
     /**
@@ -262,10 +262,10 @@ class DomainDnsCheck implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('sender', $data ?? [], null);
-        $this->setIfExists('records', $data ?? [], null);
-        $this->setIfExists('can_start_verification', $data ?? [], null);
-        $this->setIfExists('checked_at', $data ?? [], null);
+        $this->setIfExists('inbound', $data ?? [], null);
+        $this->setIfExists('open_tracking', $data ?? [], null);
+        $this->setIfExists('click_tracking', $data ?? [], null);
+        $this->setIfExists('tracking_subdomain', $data ?? [], null);
     }
 
     /**
@@ -295,18 +295,6 @@ class DomainDnsCheck implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['sender'] === null) {
-            $invalidProperties[] = "'sender' can't be null";
-        }
-        if ($this->container['records'] === null) {
-            $invalidProperties[] = "'records' can't be null";
-        }
-        if ($this->container['can_start_verification'] === null) {
-            $invalidProperties[] = "'can_start_verification' can't be null";
-        }
-        if ($this->container['checked_at'] === null) {
-            $invalidProperties[] = "'checked_at' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -323,109 +311,109 @@ class DomainDnsCheck implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets sender
+     * Gets inbound
      *
-     * @return string
+     * @return bool|null
      */
-    public function getSender()
+    public function getInbound()
     {
-        return $this->container['sender'];
+        return $this->container['inbound'];
     }
 
     /**
-     * Sets sender
+     * Sets inbound
      *
-     * @param string $sender sender
+     * @param bool|null $inbound Receive mail for this domain. Leave this out to keep the current choice.
      *
      * @return self
      */
-    public function setSender($sender)
+    public function setInbound($inbound)
     {
-        if (is_null($sender)) {
-            throw new \InvalidArgumentException('non-nullable sender cannot be null');
+        if (is_null($inbound)) {
+            throw new \InvalidArgumentException('non-nullable inbound cannot be null');
         }
-        $this->container['sender'] = $sender;
+        $this->container['inbound'] = $inbound;
 
         return $this;
     }
 
     /**
-     * Gets records
+     * Gets open_tracking
      *
-     * @return \Pingram\Model\DomainDnsCheckRecordsInner[]
+     * @return bool|null
      */
-    public function getRecords()
+    public function getOpenTracking()
     {
-        return $this->container['records'];
+        return $this->container['open_tracking'];
     }
 
     /**
-     * Sets records
+     * Sets open_tracking
      *
-     * @param \Pingram\Model\DomainDnsCheckRecordsInner[] $records records
+     * @param bool|null $open_tracking Record when someone opens mail from this domain. Leave this out to keep the current choice. You can record opens without recording clicks.
      *
      * @return self
      */
-    public function setRecords($records)
+    public function setOpenTracking($open_tracking)
     {
-        if (is_null($records)) {
-            throw new \InvalidArgumentException('non-nullable records cannot be null');
+        if (is_null($open_tracking)) {
+            throw new \InvalidArgumentException('non-nullable open_tracking cannot be null');
         }
-        $this->container['records'] = $records;
+        $this->container['open_tracking'] = $open_tracking;
 
         return $this;
     }
 
     /**
-     * Gets can_start_verification
+     * Gets click_tracking
      *
-     * @return bool
+     * @return bool|null
      */
-    public function getCanStartVerification()
+    public function getClickTracking()
     {
-        return $this->container['can_start_verification'];
+        return $this->container['click_tracking'];
     }
 
     /**
-     * Sets can_start_verification
+     * Sets click_tracking
      *
-     * @param bool $can_start_verification can_start_verification
+     * @param bool|null $click_tracking Record when someone clicks a link in mail from this domain. Leave this out to keep the current choice. You can record clicks without recording opens.
      *
      * @return self
      */
-    public function setCanStartVerification($can_start_verification)
+    public function setClickTracking($click_tracking)
     {
-        if (is_null($can_start_verification)) {
-            throw new \InvalidArgumentException('non-nullable can_start_verification cannot be null');
+        if (is_null($click_tracking)) {
+            throw new \InvalidArgumentException('non-nullable click_tracking cannot be null');
         }
-        $this->container['can_start_verification'] = $can_start_verification;
+        $this->container['click_tracking'] = $click_tracking;
 
         return $this;
     }
 
     /**
-     * Gets checked_at
+     * Gets tracking_subdomain
      *
-     * @return string
+     * @return string|null
      */
-    public function getCheckedAt()
+    public function getTrackingSubdomain()
     {
-        return $this->container['checked_at'];
+        return $this->container['tracking_subdomain'];
     }
 
     /**
-     * Sets checked_at
+     * Sets tracking_subdomain
      *
-     * @param string $checked_at checked_at
+     * @param string|null $tracking_subdomain Host label for this domain, such as links or go. The domain name is added after it. Leave this out to keep the current host.
      *
      * @return self
      */
-    public function setCheckedAt($checked_at)
+    public function setTrackingSubdomain($tracking_subdomain)
     {
-        if (is_null($checked_at)) {
-            throw new \InvalidArgumentException('non-nullable checked_at cannot be null');
+        if (is_null($tracking_subdomain)) {
+            throw new \InvalidArgumentException('non-nullable tracking_subdomain cannot be null');
         }
-        $this->container['checked_at'] = $checked_at;
+        $this->container['tracking_subdomain'] = $tracking_subdomain;
 
         return $this;
     }
